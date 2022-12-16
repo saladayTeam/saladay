@@ -1,0 +1,175 @@
+main {
+    background-color: #bdbdbd;
+}
+
+
+.my-page-content {
+    display: flex;
+    width: 1000px;
+    min-height: 700px;
+    margin: 50px auto;
+}
+
+/* 좌측 사이드바*************************************************************/
+.left-side {
+    border-radius: 10px;
+    background-color: white;
+    width: 25%;
+    margin-right: 20px;
+}
+
+.left-side-header {
+    height: 70px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 70px;
+    border-bottom: #249C66 2px solid;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.my-page-list {
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+}
+
+.my-page-list li {
+    height: 54px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+
+.my-page-list input[name='myPageType'] {
+    display: none;
+}
+
+.my-page-list label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.2s;
+    margin-right: 15px;
+    
+    border-bottom: 2px solid #ddd;
+}
+
+.my-page-list label:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.my-page-list input:checked + label {
+    border-bottom: 2px solid #2DC48D;
+
+}
+
+
+/*우측메인 ***********************************************************************************/
+
+
+.right-side {
+    border-radius: 10px;
+    width: 750px;
+    padding: 20px 20px 50px 50px;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* 회원 정보 헤더--------------------------------- */
+.my-page-header {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin: 40px 20px 40px 0;
+}
+
+.main-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.main-sub-title {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: grey;
+}
+
+/*회원정보 내용--------------------------------------*/
+.my-info-detail {
+    width: 640px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: bolder;
+    list-style: none;
+    border: #ddd 2px solid;
+    padding: 10px;
+}
+
+.my-info-detail input {
+    padding: 3px 3px 3px 10px;
+    outline: none;
+    font-size: 13px;
+    border: 2px solid #ddd;
+    color: gray;
+    margin-left: 5px;
+}
+
+
+.my-info-detail input:not(input:read-only):focus {
+    border-bottom: #2DC48D 2px solid;
+}
+
+.my-info-detail .input-read-only {
+    border: 1px solid transparent;
+    border-bottom-color: #ddd;
+    color: grey;
+}
+
+/*주소---------------------------------*/
+
+.empty-space {
+    margin-right: 400px;
+}
+
+.address-input {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.address-search-btn {
+    width: 50px;
+    height: 25px;
+    font-size: 12px;
+    color:black;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    float: right;
+}
+
+.submit-btn {
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    background-color: #2DC48D;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #249C66;
+}
+

@@ -1,0 +1,89 @@
+main {
+    
+}
+
+/*영양정보 검색 header*************************************************************/
+
+.nutrition-header {
+    width: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    color: black;
+    border-bottom: 3px solid #249C66;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+
+
+/* 검색창*************************************************************/
+.nutrition-content {
+    width: 1080px;
+    min-height: 700px;
+    margin-top: 50px; 
+}
+
+.search-input-area{
+    width: 1080px;
+    height: 60px;
+    padding: 12px 0 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 230px;
+}
+
+.search-input-form{
+    width: 525px;
+    height: 47px;
+    border: #ccc solid 1px;
+    background-color: white;
+    border-radius: 25px;
+    padding: 0 12px;
+}
+
+.search-input-form i{
+    font-size: 25px;
+    z-index: 10;
+    padding: 10px;
+    align-items: center;
+}
+
+.search-input-area input{
+    width: 400px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: normal;
+    align-items: center;
+    padding: 8px;
+}
+
+.search-input-area > button{
+    width: 195px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #0a5a4a;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 0 0 0 24px;
+}
+
+
+.search-input-area > button:hover{
+    background-color: #24c489;
+}
+
+/*검색 내용 출력*******************/

@@ -1,0 +1,95 @@
+main {
+    
+}
+
+/*FAQ header*************************************************************/
+
+.faq-header {
+    width: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    color: black;
+    border-bottom: 3px solid #249C66;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+
+/*faq content*************************************************************/
+
+.faq-content {
+    width: 1000px;
+    min-height: 700px;
+    margin: 50px auto;
+}
+
+.faq {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.faq > li{
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.faq > li:nth-child(n+2){
+    border-top: 1px solid #aaa;
+}
+
+.faq input {
+    display: none;
+}
+
+
+.faq label { /* 제목 - 클릭 영역 */
+    font-weight: bold;
+    color: #000;
+    margin: 20px 0 0;
+    cursor: pointer;
+}
+
+
+.faq div { /* 내용 영역 - 기본 감춤 상태 */
+    display: none;
+    color: #222;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 0 10px 30px;
+    box-sizing: border-box;
+    transition: max-height 0.2s;
+
+}
+
+
+.faq input:checked + label + div { /* 내용 영역 펼침 */
+    display: block;
+}
+
+.fa-q {
+    color: #249C66;
+}
+
+.fa-a {
+    color: #249C66;
+}
+
+.question {
+    font-size: 16px;
+    font-weight: bold;
+    color: #249C66;
+    margin:  5px 20px 0 0; 
+}
+
+.answer span{
+
+}
