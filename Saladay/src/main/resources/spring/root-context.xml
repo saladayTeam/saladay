@@ -17,8 +17,8 @@
    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
       <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
       <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-      <property name="username" value="project"/>
-      <property name="password" value="project1234"/>
+      <property name="username" value="salaDay"/>
+      <property name="password" value="saladay1212"/>
       
       <!-- SQL이 수행된 후 자동으로 Commit 되는것을 지정 -->
       <property name="defaultAutoCommit" value="false"/>
