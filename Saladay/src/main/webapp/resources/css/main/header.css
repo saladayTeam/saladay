@@ -1,0 +1,105 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header{
+  width: 1080px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+li{
+  list-style: none;
+}
+
+header>section:nth-child(1){
+  flex-basis: 15%;
+}
+header>section:nth-child(2){
+  flex-basis: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header>section:nth-child(3){
+  flex-basis: 15%;
+}
+
+.header-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+ /* nav */
+ nav{
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  /* 화면 밖으로 요소가 벗어 났을 때 지정된 위치에 고정 */
+  /* 어디에 고정할지 지정 */
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  width: 1080px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* ul 스타일 지정 */
+nav>ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+/*   height: 100%; */
+}
+/* 네이게이터 메뉴 */
+nav li{
+  flex-basis: auto;
+  margin: 60px;
+  /* display: flex; */
+}
+/* 메뉴 내부 a태그 */
+nav li>a{
+  text-decoration: none; /* 밑줄 없애기 */
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  
+  display: block;
+  height: 100%;
+
+  padding: 11px 0; /* 세로 가로 */
+  text-align: center;
+
+  border-radius: 5px;
+  transition-duration: 0.5s;
+}
+/* 메뉴에 마우스가 올라왔을 때 */
+nav li>a:hover{
+  color: #249C66;
+}
+
+
+
+
+
+
+
