@@ -1,0 +1,305 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'SUIT-Regular';
+}
+
+main{
+    margin: 0px;
+    /* width: 1080px; */
+    min-height: 300vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top{
+    background: url("/Saladay/src/main/webapp/resources/img/menu/banner/salad-top4.png");
+}
+
+.img-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 320px;
+    color: #fff;
+    font-size: 35px;
+    font-family: 'twayair';
+    line-height: 1.2;
+}
+
+/* 상단배너 */
+#top-img{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+/* 상품설명 시작 */
+.content{
+    width: 1080px;
+    margin: 70px auto 0;
+    justify-content: center;
+    align-items: center;
+    /* display: flex; */
+}
+
+/* 패키지 이름 */
+.product-day{
+    background-color: #249C66;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* font-weight: bold; */
+    font-size: 22px;
+    margin: -95px auto 50px;
+    margin-bottom: 50px;
+}
+
+.day-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-family: 'twayair';
+}
+
+/* 메뉴선택 박스 */
+.menu{
+    width: 100%;
+    margin: 0 auto 50px;
+    position: relative;
+}
+.menu-list{
+    margin-bottom: 100px;
+    border-bottom: solid 1px #ddd;
+}
+.menu-box{
+    list-style: none;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    padding: 0px;
+}
+.menu-name{
+    width: 25%;
+    display: flex;
+    height: 50px;
+    border-top: solid 1px #ddd;
+    border-left: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    border-collapse: collapse;
+}
+.menu-box:last-child{
+    border-right: solid 1px #ddd;
+}
+.menu-name a{
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #666666;
+}
+
+/* 메뉴 상세 */
+.detail{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.menu-title{
+    font-size: 35px;
+    line-height: 30px;
+    margin: 0px;
+    font-family: 'twayair';
+    margin-bottom: 12px;
+}
+
+.menu-detail{
+    line-height: 24px;
+    font-weight: 200;
+    color: #666;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.menu-content{
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.menu-img{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 65%;
+    text-align: center;
+}
+
+.salad-type{
+    width: 35%;
+    float: left;
+    text-align: center;
+}
+
+.salad-text{
+    margin-top: 20px;
+    padding: 35px;
+}
+
+/* 추가된 항목 카테고리 */
+.salad-title{
+    margin-bottom: 10px;
+    font-size: 22px;
+    display: block;
+    color: #249C66;
+    font-family: 'twayair';
+}
+
+/* 추가된 상세항목 */
+.salad-detail{
+    font-size: 13px;
+    color: #666;
+}
+
+/* 토핑 카테고리 아이콘 */
+.add-icon{
+    width: 30px;
+    height: 30px;
+    padding-left: 7px;
+    margin-right: -8px;
+}
+
+/* 토핑 카테고리 */
+.costom-detail{
+    display: flex;
+    width: 11%;
+    text-align: center;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.add-menu{
+    padding-bottom: 35px;
+}
+
+.menu-costom{
+    padding: 50px 70px;
+}
+
+.topping-list{
+    list-style: none;
+    display: block;
+    width: 104%;
+}
+
+.img-box{
+}
+
+.topping-img{
+    width: 95px;
+    height: 95px;
+    object-position: center center;
+    object-fit: contain;
+}
+
+.topping-name{
+    font-size: 14px;
+    flex-shrink: 0;
+    white-space : nowrap;
+}
+
+.topping-price{
+    font-size: 11px;
+    color: #666;
+    padding-top: 3px;
+    padding-right: 7px;
+}
+
+span {cursor:pointer; }
+
+.topping{
+    text-align: center;
+    width: 95px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    padding-right: 35px;
+    margin-bottom: 15px;
+}
+
+.add-number{
+    display: flex;
+    padding-top: 7px;
+    align-items: center;
+    justify-content: center;
+}
+
+.minus, .plus{
+    width:10px;
+    height:10px;
+    background:#249C66;
+    border-radius:50px;
+    padding: 3px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    font-size: 8px;
+}
+
+input{
+    height:15px;
+    width: 27px;
+    text-align: center;
+    font-size: 11px;
+    border: none;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+    outline: none;
+}
+
+input:hover{
+    cursor: default;
+}
+
+.bottom-box{
+    width: 400px;
+    display: flex;
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+}
+
+button{
+    width: 200px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cartin-btn{
+    background-color: white;
+    border: solid 2px #249C66;
+    color: #249C66;
+    cursor: pointer;
+}
+
+.order-btn{
+    background-color: #249C66;
+    border: none;
+    color: white;
+}
