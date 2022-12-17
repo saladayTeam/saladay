@@ -10,7 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="/resources/css/main/header.css">
-  
+  <script src="https://kit.fontawesome.com/2aa49fc46f.js" crossorigin="anonymous"></script>
+
   <title>Saladay</title>
 </head>
 <body>
