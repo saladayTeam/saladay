@@ -5,7 +5,7 @@ main {
 /*영양정보 검색 header*************************************************************/
 
 .nutrition-header {
-    width: 1080px;
+    width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,21 +24,17 @@ main {
 
 
 /* 검색창*************************************************************/
-.nutrition-content {
-    width: 1080px;
-    min-height: 700px;
-    margin-top: 50px; 
-}
+
 
 .search-input-area{
-    width: 1080px;
+    width: 1200px;
     height: 60px;
     padding: 12px 0 0;
     background-color: white;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-left: 230px;
+    align-items: center;
+    margin: 50px auto;
 }
 
 .search-input-form{
@@ -79,11 +75,17 @@ main {
     border-radius: 25px;
     cursor: pointer;
     margin: 0 0 0 24px;
+    transition: all 0.3s;
 }
 
 
 .search-input-area > button:hover{
-    background-color: #24c489;
+    background-color: #249C66;
 }
 
 /*검색 내용 출력*******************/
+.nutrition-content {
+    width: 1200px;
+    min-height: 700px;
+    margin-top: 50px; 
+}
