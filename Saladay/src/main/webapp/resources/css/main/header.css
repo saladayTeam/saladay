@@ -11,7 +11,7 @@ body {
 }
 
 header{
-  width: 1080px;
+  width: 1200px;
   height: 200px;
   display: flex;
   justify-content: center;
@@ -59,7 +59,7 @@ nav{
   top: 0;
   background-color: white;
   z-index: 100;
-  width: 1080px;
+  width: 1200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
