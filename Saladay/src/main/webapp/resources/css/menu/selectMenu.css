@@ -15,7 +15,8 @@ main{
 }
 
 .top{
-    background: url("/Saladay/src/main/webapp/resources/img/menu/banner/salad-top4.png");
+    width: 100%;
+    background: url("/resources/images/menu/banner/salad-top4.png");
 }
 
 .img-text{
@@ -234,7 +235,7 @@ span {cursor:pointer; }
     display: inline-block;
     justify-content: center;
     align-items: center;
-    padding-right: 35px;
+    margin-right: 35px;
     margin-bottom: 15px;
 }
 

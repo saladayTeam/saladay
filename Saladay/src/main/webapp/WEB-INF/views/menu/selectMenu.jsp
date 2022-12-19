@@ -128,7 +128,7 @@
                     </div>
                     <div class="add-menu" id="add-sub">
                         <div class="costom-detail">
-                            서브토핑 <img src="/html/img/icon/broccoli.png" class="add-icon">
+                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
                         </div>
                         <ul class="topping-list">
                             <li class="topping">
@@ -232,7 +232,7 @@
                     <div id="add-topping">
                         <div class="add-menu" id="add-sauce">
                             <div class="costom-detail">
-                                소스 <img src="/html/img/icon/chili-sauce.png" class="add-icon">
+                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
                             </div>
                         </div>
                         <ul class="topping-list">
@@ -452,7 +452,7 @@
                     </div>
                     <div class="add-menu" id="add-sub">
                         <div class="costom-detail">
-                            서브토핑 <img src="/html/img/icon/broccoli.png" class="add-icon">
+                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
                         </div>
                         <ul class="topping-list">
                             <li class="topping">
@@ -556,7 +556,7 @@
                     <div id="add-topping">
                         <div class="add-menu" id="add-sauce">
                             <div class="costom-detail">
-                                소스 <img src="/html/img/icon/chili-sauce.png" class="add-icon">
+                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
                             </div>
                         </div>
                         <ul class="topping-list">
@@ -776,7 +776,7 @@
                     </div>
                     <div class="add-menu" id="add-sub">
                         <div class="costom-detail">
-                            서브토핑 <img src="/html/img/icon/broccoli.png" class="add-icon">
+                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
                         </div>
                         <ul class="topping-list">
                             <li class="topping">
@@ -880,7 +880,7 @@
                     <div id="add-topping">
                         <div class="add-menu" id="add-sauce">
                             <div class="costom-detail">
-                                소스 <img src="/html/img/icon/chili-sauce.png" class="add-icon">
+                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
                             </div>
                         </div>
                         <ul class="topping-list">
