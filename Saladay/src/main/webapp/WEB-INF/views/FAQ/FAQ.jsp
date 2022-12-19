@@ -13,7 +13,9 @@
     
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/FAQ/FAQ.css">
-
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
+    
+	<script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -66,7 +68,6 @@
 
 
     </main>    
-    footer include
-    
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -16,7 +16,7 @@
    <!-- destroy-method="close" : 주어진 세션을 자동으로 반환(close)하는 설정 -->
    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
       <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-      <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+      <property name="url" value="jdbc:oracle:thin:@115.90.212.22:9000:xe"/>
       <property name="username" value="salaDay"/>
       <property name="password" value="saladay1212"/>
       

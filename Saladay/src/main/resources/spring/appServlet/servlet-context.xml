@@ -30,5 +30,13 @@
 	
 	<context:component-scan base-package="kr.co.saladay" />
 	
+	<!-- 인터셉터 등록/매핑주소 설정 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/> <!-- xml 파일에서 /**  모든 요청 -->
+			<beans:bean id="boardTypeInterceptor" class="kr.co.saladay.common.interceptor.MenuInterceptor" />
+		</interceptor>
+	</interceptors>
+	
 	
 </beans:beans>
