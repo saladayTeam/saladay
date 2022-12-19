@@ -10,11 +10,41 @@
       <result property="menuContent" column="MENU_CONTENT"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
 	</resultMap>
+
+
+	<!-- Menu resultMap -->
+	<resultMap type="Option" id="option_rm">
+      <id property="optionNo" column="OPTION_NO"/>
+      <result property="optionType" column="OPTION_TYPE"/>
+      <result property="optionName" column="OPTION_NAME"/>
+      <result property="optionImage" column="OPTION_IMG"/>
+      <result property="optionPrice" column="OPTION_PRICE"/>
+      <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+	</resultMap>
+	
 	
 
-	<!-- 메뉴 목록 조회 -->
+	<!-- 메뉴(샐러드) 조회  -->
 	<select id="selectMenuList" resultMap="menu_rm">
 	SELECT * FROM MENU WHERE MENU_DEL_FL = 'N'
+	</select>
+
+
+	<!-- 메인 토핑 조회 -->
+	<select id="selectMainTopping" resultMap="option_rm">
+	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' AND OPTION_TYPE = 'M' ORDER BY 1
+	</select>
+
+
+	<!-- 서브 토핑 조회 -->
+	<select id="selectSubTopping" resultMap="option_rm">
+	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' AND OPTION_TYPE = 'T' ORDER BY 1
+	</select>
+
+
+	<!-- 소스 조회 -->
+	<select id="selectSourceList" resultMap="option_rm">
+	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' AND OPTION_TYPE = 'S' ORDER BY 1
 	</select>
 
 
