@@ -33,8 +33,8 @@
       <li><a href="">소개</a></li>
       <li><a href="/menu/menuList">메뉴</a></li>
       <li><a href="/menu/selectMenu">정기구독</a></li>
-      <li><a href="">영양정보</a></li>
+      <li><a href="/nutrition">영양정보</a></li>
       <li><a href="">리뷰</a></li>
-      <li><a href="">FAQ</a></li>
+      <li><a href="/FAQ">FAQ</a></li>
     </ul>
   </nav>

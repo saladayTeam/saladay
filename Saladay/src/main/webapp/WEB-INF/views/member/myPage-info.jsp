@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="/resources/css/main/header.css">
     
 
-    <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>
-    <script src="../js/header-search.js"></script>
+ 
 </head>
 
 <body>
