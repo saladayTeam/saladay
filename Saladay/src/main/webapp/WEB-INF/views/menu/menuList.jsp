@@ -28,9 +28,9 @@
     <section class="menu-section">
         <div class="menu">
             <ul class="menu-box">
-                <li class="option-name"><a href="" onclick="return false;">Salad</a></li>
-                <li class="option-name"><a href="" onclick="return false;">Main Topping</a></li>
-                <li class="option-name"><a href="" onclick="return false;">Source</a></li>
+                <li class="option-name" id="salad">Salad</li>
+                <li class="option-name" id="mainTopping">Main Topping</li>
+                <li class="option-name" id="source">Source<</li>
             </ul>
         </div>
         
@@ -52,5 +52,7 @@
     
     <%-- 푸터 --%>
 	<%-- <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include> --%>
+
+    <script src="/resources/js/menu/menuList.js"></script>
 </body>
 </html>

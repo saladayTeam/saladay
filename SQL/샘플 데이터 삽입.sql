@@ -43,6 +43,49 @@ INSERT INTO MENU
 VALUES(SEQ_MENU_NO.NEXTVAL, '베지 샐러데이', 6000, '/resources/images/menu/salad/베지.png', '기본에 충실한 베지 샐러드', DEFAULT);
 
 
+-- 옵션 데이터 삽입
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '베이컨', '/resources/images/menu/topping/베이컨.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '치킨', '/resources/images/menu/topping/치킨.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '스테이크', '/resources/images/menu/topping/스테이크.png', 3000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '에그마요', '/resources/images/menu/topping/에그마요.png', 2000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '참치', '/resources/images/menu/topping/참치.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '페퍼로니', '/resources/images/menu/topping/에그마요.png', 1500, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '햄', '/resources/images/menu/topping/에그마요.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '치즈', '/resources/images/menu/topping/치즈.png', 1000, DEFAULT);
+
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '마요네즈', '/resources/images/menu/topping/마요네즈.png', 500, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '사워소스', '/resources/images/menu/topping/사워소스.png', 500, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '스위트칠리', '/resources/images/menu/topping/스위트칠리.png', 500, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '케찹', '/resources/images/menu/topping/케찹.png', 500, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '허니머스타스', '/resources/images/menu/topping/허니머스타스.png', 500, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '홀그레인 머스타드', '/resources/images/menu/topping/홀그레인 머스타드.png', 500, DEFAULT);
+
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '라디치오', '/resources/images/menu/topping/라디치오.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '로메인', '/resources/images/menu/topping/로메인.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '멀티리프', '/resources/images/menu/topping/멀티리프.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '양상추', '/resources/images/menu/topping/양상추.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '적근대', '/resources/images/menu/topping/적근대.png', 1000, DEFAULT);
+INSERT INTO "OPTION"
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '적양배추', '/resources/images/menu/topping/적양배추.png', 1000, DEFAULT);
 
 
 
