@@ -46,8 +46,11 @@ header>section:nth-child(3){
   align-items: flex-end;
 }
 
+.header-menu i {
+  font-weight: 800 !important;
+}
  /* nav */
- nav{
+nav{
   height: 50px;
   border-bottom: 1px solid #ccc;
   position: sticky;
