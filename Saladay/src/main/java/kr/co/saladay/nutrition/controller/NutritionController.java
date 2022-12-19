@@ -22,5 +22,19 @@ public class NutritionController {
 		return "FAQ/FAQ";
 	}
 	
+	/* 서비스 이용약관
+	 * @return TermsOfService.jsp 포워드
+	 */
+	@GetMapping("/TermsOfService")
+	public String TermsOfServicePage() {
+		return "common/footerDetail/TermsOfService";
+	}
 	
+	/* 개인정보 처리방침
+	 * @return privacyPolicy.jsp 포워드
+	 */
+	@GetMapping("/privacyPolicy")
+	public String privacyPolicyPage() {
+		return "common/footerDetail/privacyPolicy";
+	}
 }

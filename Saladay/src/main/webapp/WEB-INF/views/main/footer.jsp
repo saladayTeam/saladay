@@ -5,8 +5,8 @@
   <footer>
       <div class="footer-util">
         <ul>
-          <li><a href="">이용약관</a></li>
-          <li><a href="">개인정보처리방침</a></li>
+          <li><a href="/TermsOfService">이용약관</a></li>
+          <li><a href="/privacyPolicy">개인정보처리방침</a></li>
           <li><a href="관리자페이지">관리자</a></li>
           <li><a href="FAQ페이지">FAQ</a></li>
           <li><a href="채팅봇연결">1:1 문의</a></li>

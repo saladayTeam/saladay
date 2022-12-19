@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="/resources/css/member/myPage/myPage-info.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
     
 
  
@@ -107,7 +108,6 @@
 
 
     </main>    
-    footer include
-    
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
 </html>
