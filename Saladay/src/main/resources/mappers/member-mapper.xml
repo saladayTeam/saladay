@@ -26,7 +26,7 @@
 		SELECT COUNT(*)
 		FROM MEMBER 
 		WHERE MEMBER_EMAIL = #{memberEmail}
-		AND SECESSION_FL = 'N'
+		AND MEMBER_DEL_FL = 'N'
 	</select>
 
 

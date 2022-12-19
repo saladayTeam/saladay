@@ -76,10 +76,7 @@ memberEmail.addEventListener("input", () => {
 
     if(regEx.test(memberEmail.value.trim())){           // 이메일 형식이 유효할때
         validate.memberEmail = true;
-        // memberEmailMessage.innerText = "유효한 형식의 이메일입니다.";
-        // memberEmailMessage.classList.add("confirm");
-        // memberEmailMessage.classList.remove("error");
-
+    
         $.ajax({
             url: "/member/emailDupCheck",
             data: {"memberEmail" : memberEmail.value},
