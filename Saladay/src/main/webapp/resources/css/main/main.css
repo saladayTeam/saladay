@@ -17,3 +17,76 @@
   width: inherit;
   height: inherit;
 }
+
+.menu-intro {
+  display: flex;
+  justify-content: flex-start;
+  width: 1200px;
+  margin: 50px 0;
+}
+
+.menu-intro > span {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+.flex {
+  display: flex;
+}
+
+.flex-jc-c {
+  justify-content: center;
+}
+.con {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.article-board-box {
+  position: relative;
+}
+.slide_wrapper {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  height: 150px;
+  overflow: hidden;
+}
+
+.slides {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: left 0.5s ease-out;
+}
+
+.slides li:not(:last-child) {
+  justify-content: flex-start;
+  margin-right: 30px;
+}
+
+.controls {
+  text-align: center;
+}
+
+.controls span {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.controls > .prev {
+  right: calc(100% - 40px);
+}
+
+.controls > .next {
+  left: calc(100% - 40px);
+}
+
+.ha {
+  width: 50px;
+}

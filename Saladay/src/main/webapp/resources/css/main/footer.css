@@ -4,6 +4,7 @@ footer {
   flex-direction: column;
   color: white;
   width: 100%;
+  margin-top: 100px;
 }
 
 .footer-util > ul {

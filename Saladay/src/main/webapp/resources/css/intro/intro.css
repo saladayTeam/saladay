@@ -1,0 +1,31 @@
+.intro-image-area {
+  width: 500px;
+  height: 500px;
+  /* border: 3px solid #ddd; */
+  /* border-radius: 50%; */
+
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+}
+
+#intro-image {
+  /* height: 100%; */
+}
+
+.intro-pre > pre {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 200%;
+}
+
+.intro-wrapper {
+  display: flex;
+  width: 1200px;
+  justify-content: center;
+  align-items: center;
+}
