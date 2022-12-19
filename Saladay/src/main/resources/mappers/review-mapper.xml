@@ -2,5 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="reviewMapper">
 
+<!-- Review resultMap -->
+<resultMap type="Review" id="review_rm">
+	<id property="reviewNo" column="REVIEW_NO"/>
+	<result property="rating" column="RATING"/>
+	<result property="reviewContent" column="REVIEW_CONTENT"/>
+	<result property="reviewDate" column="REVIEW_DATE"/>
+	<result property="reviewDeleteFlag" column="REVIEW_DEL_FL"/>
+	<result property="memberNo" column="MEMBER_NO"/>
+	<result property="memberNickname" column="MEMBER_NICKNAME"/>
+	<result property="orderMenuNo" column="ORDER_MENU_NO"/>
+	
+	<!-- 리뷰 이미지 리스트 -->
+<!-- 	   <collection property="imageList"
+        javaType="java.util.ArrayList" ofType="ReviewImage"
+        select="selectImageList"
+        column="REVIEW_NO"/> -->
+</resultMap>
+
+<!-- ReviewImage resultMap -->
+<resultMap type="ReviewImage" id="reviewImage_rm">
+	   <id property="reviewImageNo" column="REVIEW_IMG_NO"/>
+	   <result property="imagePath" column="IMG_PATH"/>
+	   <result property="imageReName" column="IMG_RENAME"/>
+	   <result property="imageOriginal" column="IMG_ORIGINAL"/>
+	   <result property="imageOrder" column="IMG_ORDER"/>
+	   <result property="reviewNo" column="REVIEW_NO"/>
+</resultMap>
+
 
 </mapper>
