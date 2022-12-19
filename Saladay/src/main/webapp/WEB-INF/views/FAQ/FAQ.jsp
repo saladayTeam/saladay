@@ -13,7 +13,8 @@
     
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/FAQ/FAQ.css">
-
+    
+	<script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
