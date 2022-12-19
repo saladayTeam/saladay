@@ -15,7 +15,7 @@ ul, li {
 .menu-section {
     margin-top: 50px;
     width: 1200px;
-    min-height: 100vh;
+    min-height: 150vh;
     display: flex;
     flex-direction: column;
 }
@@ -60,7 +60,8 @@ ul, li {
 
 .option-name::after {
     content: "|";
-    margin:  0px 10px;
+    margin:  0px 30px;
+    color: #666666;
 }
 
 .option-name:last-child::after {
@@ -73,11 +74,12 @@ ul, li {
     width: 100%;
     display: flex;
     flex-flow: wrap;
+    margin-top: 30px;
 }
 
 .menu-list{
     width: 380px;
-    height: 50vh;
+    height: 350px;
     margin: 50px 10px;
     position: relative;
 }
@@ -85,7 +87,7 @@ ul, li {
 /* 메뉴 상세 이미지 */
 .menu-list img{
     width: 100%;
-    height: 30%;
+    height: 20%;
     border: none;
     text-align: center;
     margin: 20px 0px;
@@ -102,15 +104,3 @@ ul, li {
     text-align: center;
 }
 
-
-.jb-b{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-}
-
-
-.jb-a:hover .jb-b{
-    display: block;
-}

@@ -42,14 +42,18 @@
     <main>
         <section class="content">
             <div class="product-day"><div class="day-text">3 SALADAY</div></div>
-            <div class="menu">
-                <ul class="menu-box">
+            <ul class="menu-box">
+            <c:forEach items="${menuList}" var="menu">
+                <li class="menu-name" id="${menu.menuCode}">${menu.menuName}</li>
+            </c:forEach>
+            </ul>
+                <%-- <ul class="menu-box">
                     <li class="menu-name"><a href="" onclick="return false;">치킨 샐러데이</a></li>
                     <li class="menu-name"><a href="" onclick="return false;">베이컨 샐러데이</a></li>
                     <li class="menu-name"><a href="" onclick="return false;">스테이크 샐러데이</a></li>
                     <li class="menu-name"><a href="" onclick="return false;">터키 샐러데이</a></li>
                     <li class="menu-name"><a href="" onclick="return false;">연어 샐러데이</a></li>
-                </ul>
+                </ul> --%>
             </div>
             
             <div class="menu-list">

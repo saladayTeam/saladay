@@ -10,6 +10,7 @@
     <title>Saladay Menu</title>
     
 	<link rel="stylesheet" href="/resources/css/menu/menuList.css">
+
 </head>
 <body>
     <!-- 헤더 -->
@@ -26,11 +27,10 @@
         </div>
         
         <div class="menu-detail">
-            <c:forEach items="${menuList}" var="menu">
+            <c:forEach items="${sourceList}" var="source">
             <ul class="menu-list">
-                <li class="menu-img"><img src="${menu.menuImage}" alt=""></li>
-                <li class="menu-title"><h1>${menu.menuName}</h1></li>
-                <li class="menu-content">${menu.menuContent}</li>
+                <li class="menu-img"><img src="${source.optionImage}" alt=""></li>
+                <li class="menu-title"><h1>${source.optionName}</h1></li>
             </ul>
             </c:forEach>
         </div>
