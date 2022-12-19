@@ -2,4 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper>
 
+	<resultMap type="Member" id="member_rm">
+		<id property="memberNo" column="MEMBER_NO"/>
+		<result property="memberEmail" column="MEMBER_EMAIL"/>
+		<result property="memberPw" column="MEMBER_PW"/>
+		<result property="memberNickname" column="MEMBER_NICKNAME"/>
+		<result property="memberName" column="MEMBER_NAME"/>
+		<result property="memberTel" column="MEMBER_TEL"/>
+		<result property="memberAddress" column="MEMBER_ADDRESS"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="authority" column="AUTHORITY"/>
+	</resultMap>
+
+	
+
+
+
+
 </mapper>
