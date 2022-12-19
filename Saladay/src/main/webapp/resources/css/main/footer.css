@@ -1,0 +1,27 @@
+footer {
+  background-color: rgb(60, 60, 60);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+}
+
+.footer-util > ul {
+  list-style: none;
+}
+
+.footer-util a {
+  float: left;
+  margin: 10px;
+  color: white;
+  font-size: 12px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.footer-info {
+  margin: 10px;
+  border-top: 1px solid white;
+  font-size: 12px;
+  padding: 10px;
+}

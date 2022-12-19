@@ -43,6 +43,8 @@
     </div>
 
 
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+
     <script src="/resources/js/main/main.js"></script>
     <script src="/resources/js/main/swiper.min.js"></script>
 </body>

@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/footer.css" />
-  </head>
-  <body>
-    <footer>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+  <footer>
       <div class="footer-util">
         <ul>
           <li><a href="">이용약관</a></li>
@@ -20,9 +14,7 @@
       </div>
       <div class="footer-info">
         <span>서울시 중구 남대문로 120 대일빌딩 3층 |</span>
-        <span>대표 : TEAM SALADAY(팀 샐러데이) |</span>
-        <p>KH 정보교육원 SALADAY</p>
+        <span>대표 : TEAM SALADAY(팀 샐러데이)</span>
+        <p>KH 정보교육원 종로지원 TEAM SALADAY 파이널 프로젝트 </p>
       </div>
     </footer>
-  </body>
-</html>
