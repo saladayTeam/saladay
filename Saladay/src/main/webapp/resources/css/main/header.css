@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'NanumSquareNeo-Variable';
+  font-family: "NanumSquareNeo-Variable";
 }
 
 @font-face {
-  font-family: 'NanumSquareNeo-Variable';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-family: "NanumSquareNeo-Variable";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -27,7 +28,7 @@ header {
   border-top: solid 4px #17633d;
 }
 
-a {
+.header-menu > li > a {
   text-decoration: none;
   color: black;
 }
@@ -68,7 +69,7 @@ nav {
   top: 0;
   background-color: white;
   z-index: 100;
-  width: 1200px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
