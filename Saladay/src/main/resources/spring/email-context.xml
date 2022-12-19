@@ -4,7 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <!-- email 인증 관련 bean 생성  -->
+    <!-- email 인증 관련 bean 생성  
+    	구글계정 -> 보안 -> window컴퓨터 앱 비밀번호 받기 
+    -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />

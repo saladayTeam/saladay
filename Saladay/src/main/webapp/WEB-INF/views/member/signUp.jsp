@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <link rel="stylesheet" href="/resources/css/member/signUp.css">
     
+    <link rel="stylesheet" href="/resources/css/member/signUp.css">
     
 </head>
 <body>
@@ -51,7 +51,7 @@
                     <input type="password" name="memberPw" id="memberPw" placeholder="비밀번호" maxlength="20"
                     autocomplete="off" onKeyPress="return checkCapsLock(event)">
                 </div>
-                <span class="signUp-message" id="memberPwMessage">영어, 숫자, 특수문자(!,@,#,-,_) 6 ~ 20 글자 사이로 입력해주세요.</span>
+                <span class="signUp-message" id="memberPwMessage">영어, 숫자, 특수문자(!,@,#,-,_) 5 ~ 20 글자 사이로 입력해주세요.</span>
 
                 <div class="signUp-input-area">
                     <input type="password" name="memberPwConfirm" id="memberPwConfirm" placeholder="비밀번호 확인" maxlength="20"
@@ -138,7 +138,6 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="/resources/js/member/validate.js"></script>
-    <script src="/resources/js/member/signUp.js"></script>
     
 </body>
 </html>

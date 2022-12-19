@@ -272,7 +272,7 @@ if(memberEmail != null) {
 }
 
 
-// 현재 비밀번호 확인
+// 현재 비밀번호 확인----------------------------------------------------------------------------------------------------------
 if(currentMemberPw != null) {
     validate.currentMemberPw = false;
     currentMemberPw.addEventListener("change", ()=>{
@@ -334,20 +334,20 @@ if(memberPw != null) {
         if(memberPw.value.trim().length == 0) {             // 비밀번호가 입력되지 않았다면
             memberPw.value = "";
             memberPwMessage.classList.remove("error", "confirm");
-            memberPwMessage.innerText = "영어, 숫자, 특수문자(!,@,#,-,_) 6 ~ 20 글자 사이로 입력해주세요.";
+            memberPwMessage.innerText = "영어, 숫자, 특수문자(!,@,#,-,_) 5 ~ 20 글자 사이로 입력해주세요.";
             validate.memberPw = false;
             return;
         }
     
         // 비밀번호 형식 확인
-        const regEx = /^[a-zA-z0-9!@#-_]{6,20}$/;
+        const regEx = /^[a-zA-z0-9!@#-_]{5,20}$/;
         if(regEx.test(memberPw.value)){              // 비밀번호 형식이 유효할 때
             memberPwMessage.innerText = "유효한 형식의 비밀번호입니다.";
             memberPwMessage.classList.add("confirm");
             memberPwMessage.classList.remove("error");
             validate.memberPw = true;
         } else {
-            memberPwMessage.innerText = "영어, 숫자, 특수문자(!,@,#,-,_) 6 ~ 20 글자 사이로 입력해주세요."
+            memberPwMessage.innerText = "영어, 숫자, 특수문자(!,@,#,-,_) 5 ~ 20 글자 사이로 입력해주세요."
             memberPwMessage.classList.add("error");
             memberPwMessage.classList.remove("confirm");
             validate.memberPw = false;
@@ -491,4 +491,72 @@ if(memberTel != null) {
 }
 
 
+
+// 주소 Daum API
+document.getElementById("addressSearch").addEventListener("click", execDaumPostcode);
+
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: data => {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('postCode').value = data.zonecode;
+            document.getElementById("address").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("detailAddress").focus();
+
+            validate.detailAddress = true;
+        }
+    }).open();
+}
+
+
+
+// 비밀번호 CapsLock알람
+function checkCapsLock(e) {
+
+    var myKeyCode=0;
+    var myShiftKey=false;
+    var myMsg='<Caps Lock>이 켜져있습니다.\n\nCaps Lock이 켜져있으면 암호를 올바르게 입력하지 못할 수 있습니다.\n암호를 입력하기 전 확인해주세요.';
+
+    // Internet Explorer 4+
+    if ( document ) {
+        myKeyCode=e.keyCode;
+        myShiftKey=e.shiftKey;
+
+    // Netscape 4
+    } else if ( document.layers ) {
+        myKeyCode=e.which;
+        myShiftKey=( myKeyCode == 16 ) ? true : false;
+
+    // Netscape 6
+    } else if ( document.getElementById ) {
+        myKeyCode=e.which;
+        myShiftKey=( myKeyCode == 16 ) ? true : false;
+    }
+
+    
+    if ( ( myKeyCode >= 65 && myKeyCode <= 90 ) && !myShiftKey ) {
+        alert( myMsg );
+        return false;
+
+    
+    } else if ( ( myKeyCode >= 97 && myKeyCode <= 122 ) && myShiftKey ) {
+        alert( myMsg );
+        return false;
+    }
+}
 

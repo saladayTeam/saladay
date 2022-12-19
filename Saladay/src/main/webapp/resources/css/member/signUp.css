@@ -67,23 +67,19 @@ button {
 
 /********************* 약관 동의 *********************/
 .agree-area {
-    display: flex;
-    flex-direction: column;
     padding-bottom: 20px;
 }
 .agree-label {
     width: 100%;
     display: flex;
-    align-items: center;
     margin-top: 20px;
 }
 
 .agree-label input {
     width:18px;
     height: 18px;
-    display: relative;
-    margin-right: 10px;
-
+    position: relative;
+    float: right;
 }
 
 .agree-area textarea {

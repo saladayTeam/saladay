@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
 
+@SessionAttributes("loginMember")
 @RequestMapping("/member")
 @Controller
 public class MemberController {
@@ -57,9 +59,16 @@ public class MemberController {
 		String path = "";
 		String message = "";
 		
-		String combineMemberAddress = String.join(",," ,memberAddress);
-		
-		member.setMemberAddress(combineMemberAddress);
+		// 주소가 작성되지 않은 경우 ==> null
+		if(member.getMemberAddress().equals(",,")) {
+			member.setMemberAddress(null);
+		}
+				
+		// 주소가 작성된 경우 ==> 주소,,주소,,주소
+		else {
+			member.setMemberAddress( String.join(",,", memberAddress) );
+		}
+				
 		
 		int result = service.signUp(member);
 		
