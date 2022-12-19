@@ -12,6 +12,7 @@
     <title>nutrition</title>
     <link rel="stylesheet" href="/resources/css/nutrition/nutrition.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
     
     
 </head>
@@ -44,7 +45,7 @@
 
 
     </main>    
-    footer include
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     
 </body>
 </html>
