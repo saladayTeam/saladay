@@ -44,8 +44,10 @@
             <div class="product-day"><div class="day-text">3 SALADAY</div></div>
             <ul class="menu-box">
             <c:forEach items="${menuList}" var="menu">
-                <li class="menu-name" id="${menu.menuCode}">${menu.menuName}</li>
+                <li class="menu-name"><a onclick="viewMenu(${menu.menuNo});">${menu.menuName}</a></li>
             </c:forEach>
+
+            onclick="이벤트명(매개변수)"
             </ul>
                 <%-- <ul class="menu-box">
                     <li class="menu-name"><a href="" onclick="return false;">치킨 샐러데이</a></li>
@@ -410,6 +412,8 @@
                             메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
                         </div>
                         <ul class="topping-list">
+                            <c:forEach items="${}">
+                            </c:forEach>
                             <li class="topping">
                                 <div class="img-box">
                                     <img src="/resources/images/menu/topping/main/베이컨.jpg" class="topping-img">
@@ -426,7 +430,7 @@
                                     <span class="plus">+</span>
                                 </div>
                             </li>
-                            <li class="topping">
+                            <%-- <li class="topping">
                                 <div class="img-box">
                                     <img src="/resources/images/menu/topping/main/치킨.jpg" class="topping-img">
                                 </div>
@@ -457,7 +461,7 @@
                                     <input type="text" value="0" readonly/>
                                     <span class="plus">+</span>
                                 </div>
-                            </li>
+                            </li> --%>
                         </ul>
                     </div>
                     <div class="add-menu" id="add-sub">
