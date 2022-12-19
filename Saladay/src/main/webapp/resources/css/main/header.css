@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,37 +10,38 @@ body {
   align-items: center;
 }
 
-header{
-  width: 1200px;
-  height: 200px;
+header {
+  width: 100%;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top: solid 4px #249c66;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
 
-li{
+li {
   list-style: none;
 }
 
-header>section:nth-child(1){
+header > section:nth-child(1) {
   flex-basis: 15%;
 }
-header>section:nth-child(2){
+header > section:nth-child(2) {
   flex-basis: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-header>section:nth-child(3){
+header > section:nth-child(3) {
   flex-basis: 15%;
 }
 
-.header-menu{
+.header-menu {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -49,8 +50,8 @@ header>section:nth-child(3){
 .header-menu i {
   font-weight: 800 !important;
 }
- /* nav */
-nav{
+/* nav */
+nav {
   height: 50px;
   border-bottom: 1px solid #ccc;
   position: sticky;
@@ -66,26 +67,27 @@ nav{
 }
 
 /* ul 스타일 지정 */
-nav>ul{
+nav > ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
-/*   height: 100%; */
+  height: 50px;
 }
 /* 네이게이터 메뉴 */
-nav li{
+nav li {
   flex-basis: auto;
-  margin: 60px;
+  margin: 0 60px;
+  height: 50px;
   /* display: flex; */
 }
 /* 메뉴 내부 a태그 */
-nav li>a{
+nav li > a {
   text-decoration: none; /* 밑줄 없애기 */
   font-size: 18px;
   font-weight: bold;
   color: black;
-  
+
   display: block;
   height: 100%;
 
@@ -96,13 +98,6 @@ nav li>a{
   transition-duration: 0.5s;
 }
 /* 메뉴에 마우스가 올라왔을 때 */
-nav li>a:hover{
-  color: #249C66;
+nav li > a:hover {
+  color: #249c66;
 }
-
-
-
-
-
-
-
