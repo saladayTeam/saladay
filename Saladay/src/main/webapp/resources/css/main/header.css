@@ -16,7 +16,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: solid 4px #249c66;
+  border-top: solid 4px #17633d;
 }
 
 a {
@@ -99,5 +99,5 @@ nav li > a {
 }
 /* 메뉴에 마우스가 올라왔을 때 */
 nav li > a:hover {
-  color: #249c66;
+  color: #17633d;
 }
