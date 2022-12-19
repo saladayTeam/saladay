@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +10,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myPage-info</title>
-    <link rel="stylesheet" href="../css/myPage-info.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-info.css">
+    <link rel="stylesheet" href="/resources/css/main/header.css">
+    
+
+ 
 </head>
 
 <body>
-
+    
     <main>
-        header include
+        <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+
         
         <div class="my-page-content">
             <div class="left-side">
@@ -54,25 +62,25 @@
 
                     <div class="my-info-detail">
                         <span>이메일</span>
-                        <input type="text" id="memberEmail" name="memberEmail" autocomplete="off" readonly class="input-read-only" maxlength="6" value="${loginMember.memberEmail}">
+                        <input type="text" id="memberEmail" name="memberEmail" autocomplete="off" readonly class="input-read-only" maxlength="6" value="">
                         <span class="input-row-message" id="memberEmailMessage"></span>
                     </div>
 
                     <div class="my-info-detail">
                         <span>이 &nbsp  름  </span>
-                        <input type="text" id="memberName" name="memberName" autocomplete="off" readonly class="input-read-only" maxlength="5" value="${loginMember.memberName}">
+                        <input type="text" id="memberName" name="memberName" autocomplete="off" readonly class="input-read-only" maxlength="5" value="">
                         <span class="input-row-message" id="memberNameMessage"></span>
                     </div>
 
                     <div class="my-info-detail">
                         <span>닉네임</span>
-                        <input type="text" class="writable input-read-only" id="memberNickname" name="memberNickname" autocomplete="off" readonly maxlength="6" value="${loginMember.memberNickname}">
+                        <input type="text" class="writable input-read-only" id="memberNickname" name="memberNickname" autocomplete="off" readonly maxlength="6" value="">
                         <span class="input-row-message" id="memberNicknameMessage"></span>
                     </div>
 
                     <div class="my-info-detail">
                         <span>전화번호</span>
-                        <input class="writable input-read-only" type="text" id="memberTel" name="memberTel" autocomplete="off" readonly maxlength="11" value="${loginMember.memberTel}">
+                        <input class="writable input-read-only" type="text" id="memberTel" name="memberTel" autocomplete="off" readonly maxlength="11" value="">
                         <span class="input-row-message" id="memberTelMessage"></span>
                     </div>
 
@@ -81,13 +89,13 @@
                         
                         <button type="button" class="hide address-search-btn">검색</button>
                         
-                        <c:set var="address" value="${fn:split(loginMember.memberAddress, ',,') }"/>
+                        <c:set var="address" value=""/>
 
-                        <input type="text" id="postCode" name="memberAddress" autocomplete="off" readonly class="input-read-only address-input" value="${address[0] }">
+                        <input type="text" id="postCode" name="memberAddress" autocomplete="off" readonly class="input-read-only address-input" value="">
                         
-                        <input type="text" id="address" name="memberAddress" autocomplete="off" readonly class="input-read-only address-input" value="${address[1] }">
+                        <input type="text" id="address" name="memberAddress" autocomplete="off" readonly class="input-read-only address-input" value="">
 
-                        <input type="text" id="detailAddress" name="memberAddress" autocomplete="off" readonly class="writable input-read-only address-input" value="${address[2] }">
+                        <input type="text" id="detailAddress" name="memberAddress" autocomplete="off" readonly class="writable input-read-only address-input" value="">
                     
                         
                     </div>

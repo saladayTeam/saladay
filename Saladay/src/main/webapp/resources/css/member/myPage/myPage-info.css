@@ -1,20 +1,20 @@
 main {
-    background-color: #bdbdbd;
+    
 }
 
 
 .my-page-content {
     display: flex;
-    width: 1000px;
+    width: 1200px;
     min-height: 700px;
     margin: 50px auto;
 }
 
 /* 좌측 사이드바*************************************************************/
 .left-side {
-    border-radius: 10px;
     background-color: white;
     width: 25%;
+    margin-left: 20px;
     margin-right: 20px;
 }
 
@@ -74,15 +74,16 @@ main {
 
 .right-side {
     border-radius: 10px;
-    width: 750px;
+    width: 65%;
     padding: 20px 20px 50px 50px;
     background-color: #ffffff;
-    display: block;
-
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 
-/* 마이페이지-상세 헤더--------------------------------- */
+/* 회원 정보 헤더--------------------------------- */
 .my-page-header {
     border-bottom: 1px solid #ddd;
     width: 100%;
@@ -93,44 +94,84 @@ main {
     font-size: 18px;
     margin-bottom: 20px;
 }
+.main-sub-title {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: grey;
+}
 
-
-/*회원탈퇴 내용--------------------------------------*/
-.my-secession-detail {
+/*회원정보 내용--------------------------------------*/
+.my-info-detail {
     width: 640px;
     margin-bottom: 20px;
-    font-size: 15px;
-    line-height: 25px;
+    font-size: 13px;
     font-weight: bolder;
+    list-style: none;
     border: #ddd 2px solid;
     padding: 10px;
+}
+
+.my-info-detail input {
+    padding: 3px 3px 3px 10px;
+    outline: none;
+    font-size: 13px;
+    border: 2px solid #ddd;
     color: gray;
+    margin-left: 5px;
 }
 
-.my-secession-package {
-    margin : 10px;
+
+.my-info-detail input:not(input:read-only):focus {
+    border-bottom: #2DC48D 2px solid;
 }
 
-.my-secession-content {
-    margin: 10px;
+.my-info-detail .input-read-only {
+    border: 1px solid transparent;
+    border-bottom-color: #ddd;
+    color: grey;
 }
 
-.secession-btn {
-    width: 120px;
-    height: 40px;
-    font-size: 15px;
-    font-weight: bolder;
-    color: white;
-    background-color: #2DC48D;
+/*주소---------------------------------*/
+
+.empty-space {
+    margin-right: 400px;
+}
+
+.address-input {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.address-search-btn {
+    width: 50px;
+    height: 25px;
+    font-size: 12px;
+    color:black;
+    background-color: #ccc;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
     float: right;
-    margin-right: 30px;
 }
 
-.secession-btn:hover {
-    background-color: #249C66;
+.submit-btn {
+    width: 160px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    background-color: #bdbdbd;
+    
+    float: right;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #555555;
 }
 

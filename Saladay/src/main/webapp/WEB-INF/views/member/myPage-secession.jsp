@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +10,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myPage-secession</title>
-    <link rel="stylesheet" href="../css/myPage-secession.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-secession.css">
+    <link rel="stylesheet" href="/resources/css/main/header.css">
+    
 </head>
 
 <body>
-
+    
     <main>
-        header include
+        <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+
         
         <div class="my-page-content">
             <div class="left-side">
