@@ -21,6 +21,11 @@ public class MemberDAO {
 		return sqlSession.insert("memberMapper.signUp", member);
 	}
 
+	public int emailDupCheck(String memberEmail) {
+		
+		return sqlSession.selectOne("memberMapper.emailDupCheck", memberEmail);
+	}
+
 
 		
 	
