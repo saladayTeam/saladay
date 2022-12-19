@@ -10,5 +10,12 @@ public interface MemberService {
 	 */
 	int signUp(Member member);
 
+	
+	/**	이메일 중복 체크 서비스
+	 * @param memberEmail
+	 * @return result (중복아니면 0)
+	 */
+	int emailDupCheck(String memberEmail);
+
 
 }

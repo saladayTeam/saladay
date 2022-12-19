@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper>
+<mapper namespace="memberMapper">
 
 	<resultMap type="Member" id="member_rm">
 		<id property="memberNo" column="MEMBER_NO"/>
@@ -21,7 +21,13 @@
 					DEFAULT, DEFAULT, DEFAULT)
 	</insert>
 
-
+	<!-- 이메일 중복 체크 -->
+	<select id="emailDupCheck" parameterType="string" resultType="_int">
+		SELECT COUNT(*)
+		FROM MEMBER 
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+	</select>
 
 
 </mapper>
