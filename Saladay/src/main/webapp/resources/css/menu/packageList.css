@@ -1,0 +1,160 @@
+/* *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+} */
+body{
+    margin: auto;
+    padding: 0;
+}
+
+
+#main-title{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#main-content{
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0px;
+    /* font-family: 'shrimp'; */
+    font-family: 'sugar snow';
+    color: #17633D;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 36px;
+}
+
+#main-content > em{
+    font-style: normal;
+    color: #62ce08;
+}
+
+#main-detail{
+    /* color: #292929; */
+    font-size: 18px;
+    margin-top: 18px;
+}
+
+ul{
+    list-style: none;
+    display: block;
+    /* align-items: center; */
+    margin: 0;
+    padding: 0;
+}
+
+.package-list{
+    height: 480px;
+    padding-bottom: 70px;
+    background-color: #f6f6f6;
+    /* background-color: #17633D; */
+    position: relative;
+}
+
+.package-box{
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+    margin: 0 auto;
+    padding: 60px 0 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+}
+
+#package-img{
+    width: 600px;
+    height: 420px;
+    background-image: url(/Saladay/src/main/webapp/resources/images/package/1week\ 3days.png);
+}
+
+.package-name{
+    /* text-align: center; */
+    /* display: flex; */
+    right: 600px;
+    /* position: absolute; */
+    margin-top: 90px;
+    margin-left: 100px;
+}
+
+.package-title{
+    margin-left: 35px;
+    font-size: 40px;
+    font-weight: 1000;
+}
+
+.package-detail{
+    color: #292929;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    margin-top: 28px;
+}
+
+#second-box{
+}
+
+#second-name{
+    margin-left: 0;
+    margin-right: 100px;
+    left: 600px;
+}
+
+.package-list:nth-child(even){
+    background-color: #fff;
+}
+
+.package-list::after{
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: 130px;
+}
+
+#second-img{
+    float: right;
+    width: 600px;
+    height: 420px;
+    background-image: url(/Saladay/src/main/webapp/resources/images/package/1week\ 3days.png);
+}
+
+#second-list{
+    background-color: #fff;
+}
+
+#second-list::after{
+    /* background-color: #17633D; */
+    background-color: #f5f5f5;
+}
+
+ul>a{
+    text-decoration: none;
+    color: #292929;
+}
+
+.package-ol li:nth-child(odd)::after{
+    display: block;
+    background-color: #fff;
+    /* background-color: #17633D; */
+}
+
+.package-ol li:nth-child(even)::after{
+    background-color: #f5f5f5;
+    /* background-color: #17633D; */
+    display: block;
+}
+
+.package-list:hover {
+    transform: scale(1.1);
+    transition-duration: 1s;
+  
+}
+
