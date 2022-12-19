@@ -16,14 +16,16 @@
 	<!-- 별칭 작성 부분 -->
 	<!-- VO클래스의 패키지명.클래스명을 길게 작성하는 것이 불편하기 때문에 별칭 부여 -->
 	<typeAliases>
-		<!-- <typeAlias type="kr.co.saladay.member.model.vo.Member"  alias="Member" /> -->
+		<!-- <typeAlias type="kr.co.saladay.member.model.vo.Member"  alias="Member" />  -->
+		<typeAlias type="kr.co.saladay.menu.model.vo.Menu"  alias="Menu" /> 
 
 	</typeAliases>
 
 
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 	<mappers>
-		<!--<mapper resource="/mappers/member-mapper.xml" /> -->
+		<!-- <mapper resource="/mappers/member-mapper.xml" /> -->
+		<mapper resource="/mappers/menu-mapper.xml" /> 
 
 	</mappers>
 </configuration>
