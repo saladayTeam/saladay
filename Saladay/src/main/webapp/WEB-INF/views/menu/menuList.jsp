@@ -14,7 +14,7 @@
 <body>
     <!-- 헤더 -->
 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
-
+    
     <section class="menu-section">
         <div class="menu">
             <ul class="menu-box">
@@ -25,17 +25,23 @@
             </ul>
         </div>
         
-        <div class="menu-detail">
-            <c:forEach items="${menuList}" var="menu">
-            <ul class="menu-list">
-                <li class="menu-img"><img src="${menu.menuImage}" alt=""></li>
-                <li class="menu-title"><h1>${menu.menuName}</h1></li>
-                <li class="menu-content">${menu.menuContent}</li>
-            </ul>
-            </c:forEach>
+        <div class="pd-list-wrapper">
+            <div class="menu-detail">
+                <c:forEach items="${menuList}" var="menu">
+                    <div class="menu-wrapper">
+                        <div class="menu-list">
+                            <li class="menu-img"><img src="${menu.menuImage}" alt=""></li>
+                            <li class="menu-title"><span>${menu.menuName}</span></li>
+                        </div>
+                        <div class="summary">
+                            <li class="menu-content">${menu.menuContent}</li>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
         </div>
-
     </section>
+
     
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>packageList</title>
     
+	<link rel="stylesheet" href="/resources/css/main/main.css">
 	<link rel="stylesheet" href="/resources/css/menu/packageList.css">
 
     <style>
@@ -22,6 +23,11 @@
 
 </head>
 <body>
+
+    <!-- header -->
+	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+
+
     <div>
         <div id="main-content">
             <em>ENJOY</em>
@@ -29,6 +35,7 @@
         </div>
     </div>
 		
-    
+    <!-- footer -->
+	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
 </html>
