@@ -6,7 +6,7 @@
     <section></section>
     <section>
       <a href="/">
-        <img src="/resources/images/saladay-logo.png" alt="로고 이미지" width="182px" height="113px">
+        <img src="/resources/images/saladay-logo.png" alt="로고 이미지" width="135px" height="84px">
       </a>
     </section>
     <section>
