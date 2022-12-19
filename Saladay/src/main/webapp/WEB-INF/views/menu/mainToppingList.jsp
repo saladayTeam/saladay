@@ -26,11 +26,10 @@
         </div>
         
         <div class="menu-detail">
-            <c:forEach items="${menuList}" var="menu">
+            <c:forEach items="${mainTopping}" var="mOption">
             <ul class="menu-list">
-                <li class="menu-img"><img src="${menu.menuImage}" alt=""></li>
-                <li class="menu-title"><h1>${menu.menuName}</h1></li>
-                <li class="menu-content">${menu.menuContent}</li>
+                <li class="menu-img"><img src="${mOption.optionImage}" alt=""></li>
+                <li class="menu-title"><h1>${mOption.optionName}</h1></li>
             </ul>
             </c:forEach>
         </div>
