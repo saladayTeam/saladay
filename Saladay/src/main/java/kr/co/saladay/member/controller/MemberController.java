@@ -24,6 +24,15 @@ public class MemberController {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**회원 가입 페이지
 	 * @return signUp.jsp 포워드
 	 */
@@ -31,6 +40,15 @@ public class MemberController {
 	public String signUpPage() {
 		return "member/signUp";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
