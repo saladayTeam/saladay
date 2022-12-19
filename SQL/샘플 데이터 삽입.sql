@@ -1,0 +1,8 @@
+-- Saladay 테이블 데이터 삽입
+
+
+-- 배송 관리 데이터 삽입
+INSERT INTO DELIVERY_MANAGE VALUES('A', '결제완료');
+INSERT INTO DELIVERY_MANAGE VALUES('B', '배송준비중');
+INSERT INTO DELIVERY_MANAGE VALUES('C', '배송중');
+INSERT INTO DELIVERY_MANAGE VALUES('D', '배송완료');
