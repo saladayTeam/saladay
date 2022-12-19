@@ -11,7 +11,7 @@ body {
 }
 
 header{
-  width: 1080px;
+  width: 1200px;
   height: 200px;
   display: flex;
   justify-content: center;
@@ -46,8 +46,11 @@ header>section:nth-child(3){
   align-items: flex-end;
 }
 
+.header-menu i {
+  font-weight: 800 !important;
+}
  /* nav */
- nav{
+nav{
   height: 50px;
   border-bottom: 1px solid #ccc;
   position: sticky;
@@ -56,7 +59,7 @@ header>section:nth-child(3){
   top: 0;
   background-color: white;
   z-index: 100;
-  width: 1080px;
+  width: 1200px;
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MenuController {
 
+	// 메뉴 화면
+	@GetMapping("/menu/menuList")
+	public String menuList() {
+		return "menu/menuList";
+	}
+	
 	
 	// 메뉴(샐러드와 옵션) 선택 상세 페이지
 	@GetMapping("/menu/selectMenu")
