@@ -14,7 +14,12 @@
 		<result property="authority" column="AUTHORITY"/>
 	</resultMap>
 
-	
+	<!-- 회원가입 -->
+	<insert id="signUp" parameterType="Member">
+		INSERT INTO "MEMBER" VALUES(SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}, #{memberNickname}, #{memberName},  
+					#{memberTel}, #{memberAddress}, 
+					DEFAULT, DEFAULT, DEFAULT)
+	</insert>
 
 
 
