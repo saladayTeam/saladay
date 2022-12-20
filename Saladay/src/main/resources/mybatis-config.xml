@@ -29,6 +29,7 @@
 		<mapper resource="/mappers/member-mapper.xml" /> 
 		<mapper resource="/mappers/menu-mapper.xml" />
 		<mapper resource="/mappers/review-mapper.xml" />
+		<mapper resource="/mappers/cart-mapper.xml" />
 
 	</mappers>
 </configuration>

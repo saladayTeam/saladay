@@ -11,7 +11,7 @@
     </section>
     <section>
       <ul class="header-menu">
-        <li><a href="장바구니페이지"
+        <li><a href="/cart"
               ><img
                 src="/resources/images/main/shopping-cart.png"
                 alt=""

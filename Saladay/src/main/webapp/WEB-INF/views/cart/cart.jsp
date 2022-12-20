@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,19 +14,23 @@
       crossorigin="anonymous"
     ></script>
 
-    <link
-      rel="stylesheet"
-      href="/src/main/webapp/resources/css/cart/cart.css"
-    />
+    <link rel="stylesheet" href="/resources/css/main/header.css">
+    <link rel="stylesheet" href="/resources/css/cart/cart.css">
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
+
   </head>
   <body>
-    <div>
-      <span>장바구니</span>
+
+    <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+
+    <div class="cart-title">
+      <span><h1>장바구니</h1></span>
       <br />
       <span>주문하실 상품의 제품명과 수량을 정확히 확인해주세요</span>
     </div>
-    <div>
-      <span>상품정보</span>
+    <div class="cart-wrapper">
+      <span>장바구니 정보</span>
+      <hr />
       <li class="cart-table-header">
         <div class="cart-package-image"><span>패키지</span></div>
         <div class="cart-package-info"><span>상품정보</span></div>
@@ -30,6 +38,8 @@
         <div class="cart-package-price"><span>가격</span></div>
         <div class="cart-package-total"><span>상품금액</span></div>
       </li>
+
+      <hr />
       <!-- 패키지 -->
       <li class="cart-container">
         <div class="cart-package-image">
@@ -81,25 +91,29 @@
           <span></span>
         </div>
       </li>
+      
+      <hr />
+      <!-- 패키지 총 금액 -->
+      <li class="cart-table-header">
+        <div class="cart-package-image"></div>
+        <div class="cart-package-info"></div>
+        <div class="cart-package-count"></div>
+        <div class="cart-package-price"></div>
+        <div class="cart-package-total"><span>35000</span></div>
+      </li>
     </div>
 
-    <!-- 패키지 총 금액 -->
-    <li class="cart-table-header">
-      <div class="cart-package-image"></div>
-      <div class="cart-package-info"></div>
-      <div class="cart-package-count"></div>
-      <div class="cart-package-price"></div>
-      <div class="cart-package-total"><span>35000</span></div>
-    </li>
 
     <hr />
 
-    <span>장바구니 삭제</span>
+    <div class=delete-cart><span>장바구니 삭제</span></div>
 
     <hr />
 
-    <div><span>결제예상금액</span> <span>35000</span></div>
+    <div class="total"><span>결제예상금액</span> <span>35000</span></div>
 
-    <script src="/src/main/webapp/resources/js/cart/cart.js"></script>
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+
+    <script src="/resources/js/cart/cart.js"></script>
   </body>
 </html>
