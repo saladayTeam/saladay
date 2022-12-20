@@ -161,9 +161,10 @@ input::placeholder{
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin-bottom: 30px;
+    transition: 0.4s;
 }
+
 
 .find-area a::after {
     content:"|";
@@ -182,6 +183,9 @@ a, span {
     font-size: 18px;
 }
 
+.find-area a:hover {
+    color: #17633d;
+}
 
 
 

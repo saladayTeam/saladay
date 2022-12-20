@@ -114,7 +114,7 @@
                         <label for="agree1">이용약관 동의<span class="required">(필수)</span></label>
                         <a href="/member/TermsOfService">자세히 >></a>
                         <input type="checkbox" id="agree1">
-                 
+                
                     </div>
 
                     <div class="agree-label">

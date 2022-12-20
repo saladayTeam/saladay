@@ -4,6 +4,13 @@ import kr.co.saladay.member.model.vo.Member;
 
 public interface MemberService {
 
+	/** 로그인 서비스
+	 * @param member
+	 * @return loginMember
+	 */
+	public Member login(Member member);
+
+	
 	/** 회원가입 서비스
 	 * @param member
 	 * @return result (result > 0) 성공
