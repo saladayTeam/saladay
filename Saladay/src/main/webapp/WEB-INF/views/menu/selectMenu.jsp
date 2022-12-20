@@ -32,6 +32,20 @@
         }
     </style>
 </head>
+<%-- <div class="salad-type">
+    <div class="salad-text">
+        <div class="salad-title" id="salad-type-name">추가된 메인토핑</div>
+        <div class="salad-detail" id="salad-type-topping">닭가슴살, 스테이크</div>
+    </div>
+    <div class="salad-text">
+        <div class="salad-title" id="salad-type-name">추가된 토핑</div>
+        <div class="salad-detail" id="salad-type-topping">옥수수, 토마토2</div>
+    </div>
+    <div class="salad-text">
+        <div class="salad-title" id="salad-type-name">추가된 소스</div>
+        <div class="salad-detail" id="salad-type-topping">스윗칠리, 데리야끼</div>
+    </div>
+</div> --%>
 <body>
 
 		<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
@@ -41,23 +55,14 @@
     </div>
     <main>
         <section class="content">
-            <div class="product-day"><div class="day-text">3 SALADAY</div></div>
+            <div class="product-day"><div class="day-text">1주 골라담기 3팩 패키지</div></div>
             <ul class="menu-box">
             <c:forEach items="${menuList}" var="menu">
                 <li class="menu-name"><a onclick="viewMenu(${menu.menuNo});">${menu.menuName}</a></li>
             </c:forEach>
-
-            onclick="이벤트명(매개변수)"
             </ul>
-                <%-- <ul class="menu-box">
-                    <li class="menu-name"><a href="" onclick="return false;">치킨 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">베이컨 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">스테이크 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">터키 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">연어 샐러데이</a></li>
-                </ul> --%>
-            </div>
-            
+            <%-- onclick="이벤트명(매개변수)" --%>
+
             <div class="menu-list">
                 <div class="detail">
                     <h3 class="menu-title">치킨 샐러데이</h3>
@@ -66,20 +71,6 @@
                 <div class="menu-content">
                     <div class="menu-img">
                         <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
-                    </div>
-                    <div class="salad-type">
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 메인토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">닭가슴살, 스테이크</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">옥수수, 토마토2</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 소스</div>
-                            <div class="salad-detail" id="salad-type-topping">스윗칠리, 데리야끼</div>
-                        </div>
                     </div>
                 </div>
                 <div class="menu-costom">
@@ -1034,6 +1025,7 @@
             </div>  <!-- 메뉴 선택 1 끝 -->
 
         </section>
+        
         <div class="bottom-box">
             <!-- <div>상품이미지</div> -->
             <button class="cartin-btn">장바구니 담기</button>
@@ -1041,7 +1033,6 @@
         </div>
 
     </main>
-    
-    
+    <script src="/resources/js/menu/selectMenu.js"></script>
 </body>
 </html>
