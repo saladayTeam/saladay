@@ -7,6 +7,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -21,6 +23,11 @@ public class MenuInterceptor implements HandlerInterceptor {
 	@Autowired
 	private MenuService service;
 	
+	// 로그 출력 객체
+	// org.slf4j.Logger
+	// org.slf4j.LoggerFactory
+	private Logger logger = LoggerFactory.getLogger(MenuInterceptor.class);
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -32,7 +39,6 @@ public class MenuInterceptor implements HandlerInterceptor {
 		// 메뉴(샐러드) 조회 
 		if( application.getAttribute("menuList") == null) {
 			List<Menu> menuList = service.selectMenuList();
-			// applicatin scope에 세팅
 			application.setAttribute("menuList", menuList);
 		}
 		
