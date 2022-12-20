@@ -1,6 +1,5 @@
 -- Saladay 테이블 데이터 삽입
 
-
 -- member 샘플 데이터 삽입
 -- 관리자, 샘플 회원 총 11명
 
@@ -85,6 +84,7 @@ VALUES(SEQ_MENU_NO.NEXTVAL, '베지 샐러데이', 6000, '/resources/images/menu
 
 
 -- 옵션 데이터 삽입
+-- 메인토핑('M')
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '베이컨', '/resources/images/menu/topping/베이컨.png', 1000, DEFAULT);
 INSERT INTO "OPTION"
@@ -96,25 +96,27 @@ VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '에그마요', '/resources/images/menu/topp
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '참치', '/resources/images/menu/topping/참치.png', 1000, DEFAULT);
 INSERT INTO "OPTION"
-VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '페퍼로니', '/resources/images/menu/topping/에그마요.png', 1500, DEFAULT);
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '페퍼로니', '/resources/images/menu/topping/페퍼로니.png', 1500, DEFAULT);
 INSERT INTO "OPTION"
-VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '햄', '/resources/images/menu/topping/에그마요.png', 1000, DEFAULT);
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '햄', '/resources/images/menu/topping/햄.png', 1000, DEFAULT);
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '치즈', '/resources/images/menu/topping/치즈.png', 1000, DEFAULT);
 
+-- 소스('S')
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '마요네즈', '/resources/images/menu/topping/마요네즈.png', 500, DEFAULT);
 INSERT INTO "OPTION"
-VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '사워소스', '/resources/images/menu/topping/사워소스.png', 500, DEFAULT);
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '핫칠리', /resources/images/menu/topping/핫칠리.png', 500, DEFAULT);
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '스위트칠리', '/resources/images/menu/topping/스위트칠리.png', 500, DEFAULT);
 INSERT INTO "OPTION"
-VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '케찹', '/resources/images/menu/topping/케찹.png', 500, DEFAULT);
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '스위트어니언', '/resources/images/menu/topping/스위트어니언.png', 500, DEFAULT);
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '허니머스타스', '/resources/images/menu/topping/허니머스타스.png', 500, DEFAULT);
 INSERT INTO "OPTION"
-VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '홀그레인 머스타드', '/resources/images/menu/topping/홀그레인 머스타드.png', 500, DEFAULT);
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '레드와인식초', '/resources/images/menu/topping/레드와인식초.png', 500, DEFAULT);
 
+-- 서브토핑('T')
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '라디치오', '/resources/images/menu/topping/라디치오.png', 1000, DEFAULT);
 INSERT INTO "OPTION"
@@ -129,5 +131,141 @@ INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'T', '적양배추', '/resources/images/menu/topping/적양배추.png', 1000, DEFAULT);
 
 
+-- 구독상품 PACKAGE 테이블 샘플 데이터 삽입
+INSERT INTO "PACKAGE"
+VALUES(SEQ_PACKAGE_NO.NEXTVAL, '[1주] 샐러드 3팩 패키지', 1, '/resources/images/menu/package/1weekSample.png');
+INSERT INTO "PACKAGE"
+VALUES(SEQ_PACKAGE_NO.NEXTVAL, '[1주] 샐러드 5팩 패키지', 1, '/resources/images/menu/package/1weekSample.png');
+INSERT INTO "PACKAGE"
+VALUES(SEQ_PACKAGE_NO.NEXTVAL, '[1주] 샐러드 7팩 패키지', 1, '/resources/images/menu/package/1weekSample.png');
+INSERT INTO "PACKAGE"
+VALUES(SEQ_PACKAGE_NO.NEXTVAL, '[2주] 샐러드 3팩 패키지', 2, '/resources/images/menu/package/2weekSample.png');
+INSERT INTO "PACKAGE"
+VALUES(SEQ_PACKAGE_NO.NEXTVAL, '[2주] 샐러드 5팩 패키지', 2, '/resources/images/menu/package/2weekSample.png');
+INSERT INTO "PACKAGE"
+VALUES(SEQ_PACKAGE_NO.NEXTVAL, '[2주] 샐러드 7팩 패키지', 2, '/resources/images/menu/package/2weekSample.png');
 
-COMMIT;
+
+
+-- 주문 ORDER 테이블 샘플 데이터 삽입
+-- (주문번호 1) 주문 ORDER 테이블 샘플 데이터 삽입 1
+-- 2번 회원(유저일)이 1번 패키지(1주/3팩)를 주문했을 경우 주문한 메뉴 테이블, 주문한 메뉴별 옵션 테이블, 배송테이블까지 INSERT
+INSERT INTO "ORDER"
+VALUES(SEQ_ORDER_NO.NEXTVAL, DEFAULT, NULL, 33200, DEFAULT, '유저일', '01011111234', '04540,,서울시 중구 남대문로 120,,2층', 2, 1);
+
+-- (주문번호 1) 주문한 메뉴 테이블 insert 1번 패키지 4, 5, 6번 샐러드를 선택
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 1, 4);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 1, 5);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 1, 6);
+
+-- (주문번호1) 주문한 메뉴 중 1번째 샐러드(메뉴번호4)에 1번(M), 9번(S), 15번(T) 옵션 각 1개, 2개, 3개씩 선택
+INSERT INTO "ORDER_MENU_OPTION" VALUES(1, 1, 1);
+INSERT INTO "ORDER_MENU_OPTION" VALUES(1, 9, 2);
+INSERT INTO "ORDER_MENU_OPTION" VALUES(1, 15, 3);
+
+-- (주문번호1) 주문한 메뉴 중 2번째 샐러드(메뉴번호5)에 2번(M), 10번(S), 16번(T) 옵션 각 1개씩 선택
+INSERT INTO "ORDER_MENU_OPTION" VALUES(2, 2, 1);
+INSERT INTO "ORDER_MENU_OPTION" VALUES(2, 10, 1);
+INSERT INTO "ORDER_MENU_OPTION" VALUES(2, 16, 1);
+
+-- (주문번호1) 주문한 메뉴 중 3번째 샐러드(메뉴번호6)는 옵션 선택X
+
+-- (주문번호1) 가격 계산
+SELECT
+   (SELECT (MENU_PRICE+(SELECT OPTION_PRICE FROM "OPTION" WHERE OPTION_NO=1)
+   +(SELECT OPTION_PRICE*2 FROM "OPTION" WHERE OPTION_NO=9)
+   +(SELECT OPTION_PRICE*3 FROM "OPTION" WHERE OPTION_NO=15)) MENU_PRICE FROM MENU WHERE MENU_NO=4)+
+   (SELECT (MENU_PRICE+(SELECT OPTION_PRICE FROM "OPTION" WHERE OPTION_NO=2)
+   +(SELECT OPTION_PRICE FROM "OPTION" WHERE OPTION_NO=10)
+   +(SELECT OPTION_PRICE FROM "OPTION" WHERE OPTION_NO=16)) MENU_PRICE FROM MENU WHERE MENU_NO=5)+
+   (SELECT MENU_PRICE FROM MENU WHERE MENU_NO=6
+   ) ORDER_PRICE
+FROM DUAL;
+
+-- (주문번호1) 배송 DELIVERY 테이블 INSERT (리뷰작성용 샘플이라 배송일 SYSDATE, 배송완료로 입력)
+INSERT INTO "DELIVERY"
+VALUES(SEQ_DELIVERY_NO.NEXTVAL, SYSDATE, 1, 'D');
+-- (주문번호1) 연관 테이블 샘플 데이터 삽입 완료
+
+-- (주문번호 2) 주문 ORDER 테이블 샘플 데이터 삽입 2
+-- 3번 회원(유저이)이 4번 패키지(2주/3팩)를 주문했을 경우 주문한 메뉴 테이블, 주문한 메뉴별 옵션 테이블, 배송테이블까지 INSERT
+INSERT INTO "ORDER"
+VALUES(SEQ_ORDER_NO.NEXTVAL, DEFAULT, NULL, 62400, DEFAULT, '유저이', '01022221234', '04540,,서울시 중구 남대문로 120,,2층', 3, 4);
+
+
+-- (주문번호 2) 주문한 메뉴 테이블 insert 4번 패키지 7, 8, 9번 샐러드를 선택
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 2, 7);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 2, 8);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 2, 9);
+
+-- (주문번호2) 주문한 메뉴 중 1번째 샐러드(메뉴번호7)는 옵션X
+
+-- (주문번호2) 주문한 메뉴 중 2번째 샐러드(메뉴번호8)에 14번(S) 옵션 1개 선택
+INSERT INTO "ORDER_MENU_OPTION" VALUES(5, 14, 1);
+
+-- (주문번호2) 주문한 메뉴 중 3번째 샐러드(메뉴번호9)에 18번(T) 옵션 1개 선택
+INSERT INTO "ORDER_MENU_OPTION" VALUES(6, 18, 1);
+
+-- (주문번호2) 가격 계산(2주니까 *2)
+SELECT
+   ((SELECT MENU_PRICE FROM MENU WHERE MENU_NO=7)+
+   (SELECT (MENU_PRICE+(SELECT OPTION_PRICE FROM "OPTION" WHERE OPTION_NO=14)
+   ) MENU_PRICE FROM MENU WHERE MENU_NO=8)+
+   (SELECT (MENU_PRICE+(SELECT OPTION_PRICE FROM "OPTION" WHERE OPTION_NO=18)
+   ) MENU_PRICE FROM MENU WHERE MENU_NO=9))*2
+ ORDER_PRICE
+FROM DUAL;
+
+-- (주문번호2) 배송 DELIVERY 테이블 INSERT (리뷰작성용 샘플이라 배송일 SYSDATE, 배송완료로 입력)
+INSERT INTO "DELIVERY"
+VALUES(SEQ_DELIVERY_NO.NEXTVAL, SYSDATE, 2, 'D');
+INSERT INTO "DELIVERY"
+VALUES(SEQ_DELIVERY_NO.NEXTVAL, SYSDATE, 2, 'D');
+-- (주문번호2) 연관 테이블 샘플 데이터 삽입 완료
+
+-- (주문번호 3) 주문 ORDER 테이블 샘플 데이터 삽입 3
+-- 4번 회원(유저삼)이 2번 패키지(1주/5팩)를 주문했을 경우 주문한 메뉴 테이블, 주문한 메뉴별 옵션 테이블, 배송테이블까지 INSERT
+INSERT INTO "ORDER"
+VALUES(SEQ_ORDER_NO.NEXTVAL, DEFAULT, NULL, 49500, DEFAULT, '유저삼', '01033331234', '04540,,서울시 중구 남대문로 120,,2층', 4, 2);
+
+-- (주문번호 3) 주문한 메뉴 테이블 insert 2번 패키지 1, 2, 3, 4, 5번 샐러드를 선택
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 3, 1);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 3, 2);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 3, 3);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 3, 4);
+INSERT INTO "ORDER_MENU"
+VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 3, 5);
+
+-- (주문번호3) 주문한 메뉴 중 1, 2, 3, 4번째 샐러드(메뉴번호1, 2, 3, 4)는 옵션X
+
+-- (주문번호3) 주문한 메뉴 중 5번째 샐러드(메뉴번호5)에 3번(M) 옵션 2개 선택
+INSERT INTO "ORDER_MENU_OPTION" VALUES(11, 3, 2);
+
+-- (주문번호2) 가격 계산
+SELECT
+   ((SELECT MENU_PRICE FROM MENU WHERE MENU_NO=1)+
+   (SELECT MENU_PRICE FROM MENU WHERE MENU_NO=2)+
+   (SELECT MENU_PRICE FROM MENU WHERE MENU_NO=3)+
+   (SELECT MENU_PRICE FROM MENU WHERE MENU_NO=4)+
+   (SELECT (MENU_PRICE+(SELECT OPTION_PRICE*2 FROM "OPTION" WHERE OPTION_NO=3)
+   ) MENU_PRICE FROM MENU WHERE MENU_NO=5))
+ ORDER_PRICE
+FROM DUAL;
+
+-- (주문번호3) 배송 DELIVERY 테이블 INSERT (리뷰작성용 샘플이라 배송일 SYSDATE, 배송완료로 입력)
+INSERT INTO "DELIVERY"
+VALUES(SEQ_DELIVERY_NO.NEXTVAL, SYSDATE, 3, 'D');
+-- (주문번호3) 연관 테이블 샘플 데이터 삽입 완료
+
+
+
