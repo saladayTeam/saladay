@@ -34,7 +34,7 @@
         <img src="/resources/images/saladay-logo.png" alt="로고 이미지" width="135px" height="84px">
       </a>
     </section>
-    <section>
+    <div>
       <ul class="header-menu">
         <li><a href="/cart"
               ><img
@@ -56,7 +56,7 @@
           </c:otherwise>
         </c:choose>  
       </ul>
-    </section>
+    </div>
 
   </header>
   <nav>

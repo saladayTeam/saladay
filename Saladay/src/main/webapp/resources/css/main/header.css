@@ -41,23 +41,37 @@ header > section:nth-child(1) {
   flex-basis: 15%;
 }
 header > section:nth-child(2) {
-  flex-basis: 70%;
+  /* flex-basis: 70%; */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
 }
 header > section:nth-child(3) {
-  flex-basis: 15%;
+  /* flex-basis: 15%; */
+  /* display: flex; */
+  float: right;
 }
 
 .header-menu {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  /* justify-content: center; */
+  /* justify-content: space-between; */
+  /* align-items: flex-end; */
+  margin-top: 70px;
+  margin-left: 900px;
+  float: right;
 }
 
 .header-menu > li {
   flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.header-menu > li > a > img{
+  margin-right: 10px;
+  margin-bottom: 4px;
 }
 
 .header-menu i {
