@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://kit.fontawesome.com/2aa49fc46f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="/src/main/webapp/resources/css/cart/cart.css"
+    />
+  </head>
+  <body>
+    <span>장바구니</span>
+    <br />
+    <span>주문하실 상품의 제품명과 수량을 정확히 확인해주세요</span>
+
+    <div>
+      <span>상품정보</span>
+      <div class="cart-table-header">
+        <div class="cart-package-image"><span>패키지</span></div>
+        <div class="cart-package-info"><span>상품정보</span></div>
+        <div class="cart-package-count"><span>수량</span></div>
+        <div class="cart-package-price"><span>가격</span></div>
+        <div class="cart-package-total"><span>상품금액</span></div>
+      </div>
+      <div class="cart-container">
+        <div class="cart-package-image">
+          <img src="" alt="이미지" />
+        </div>
+        <div class="cart-package-info">
+          <span>[1주] 샐러드 3팩 패키지 </span>
+          <input type="checkbox" id="dropdown" />
+          <label for="dropdown" class="dropdown"
+            ><i class="fa-solid fa-caret-down"></i
+          ></label>
+          <div class="option"><span>옵션</span></div>
+        </div>
+        <div class="cart-package-count">
+          <span>1</span>
+          <div class="option">10</div>
+        </div>
+        <div class="cart-package-price">
+          <span>30000</span>
+          <div class="option">500</div>
+        </div>
+        <div class="cart-package-total">35000</div>
+      </div>
+    </div>
+
+    <script src="/src/main/webapp/resources/js/cart/cart.js"></script>
+  </body>
+</html>

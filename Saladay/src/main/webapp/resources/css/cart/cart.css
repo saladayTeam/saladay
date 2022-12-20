@@ -1,0 +1,64 @@
+* {
+  border: 1px solid black;
+}
+
+.cart-table-header {
+  display: flex;
+}
+
+.cart-container {
+  display: flex;
+}
+
+.cart-package-info input {
+  display: none;
+}
+
+.cart-package-image {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-package-info {
+  flex-basis: 55%;
+}
+
+.cart-package-info > span {
+  margin-left: 20px;
+}
+
+.option {
+  display: none;
+}
+
+.option > span {
+  margin-left: 20px;
+}
+
+.cart-package-info input:checked + label + div {
+  /* 내용 영역 펼침 */
+  display: block;
+}
+
+.cart-package-count {
+  flex-basis: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-package-price {
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-package-total {
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
