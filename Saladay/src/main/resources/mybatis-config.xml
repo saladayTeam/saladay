@@ -21,6 +21,7 @@
 		<typeAlias type="kr.co.saladay.review.model.vo.Review"  alias="Review" /> 
 		<typeAlias type="kr.co.saladay.review.model.vo.ReviewImage"  alias="ReviewImage" />
 		<typeAlias type="kr.co.saladay.menu.model.vo.Option"  alias="Option" />  
+		<typeAlias type="kr.co.saladay.menu.model.vo.Package"  alias="Package" />  
 	</typeAliases>
 
 

@@ -68,29 +68,39 @@ button {
 /********************* 약관 동의 *********************/
 .agree-area {
     padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
+
 .agree-label {
     width: 100%;
-    display: flex;
     margin-top: 20px;
 }
 
 .agree-label input {
     width:18px;
     height: 18px;
-    position: relative;
-    float: right;
 }
 
-.agree-area textarea {
-    width: 100%;
-    margin-top: 20px;
-    height: 150px;
-    color: grey;
+.agree-label a { 
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/*input id=agree1 체크박스*/
+#agree1 {
+    margin-left: 411px;
+}
+
+#agree2 {
+    margin-left: 330px;
 }
 
 
 
+/***************************************************************************/
 
 
 /* 필수 작성 */
@@ -105,6 +115,7 @@ button {
     min-height: 50px;
     display: flex;
     align-items: center;
+    
 }
 
 .signUp-input-area > input {
@@ -153,12 +164,13 @@ button {
     width: 100%;
     padding: 10px;
     margin: 50px 0;
-    border: none;
     font-size: 20px;
     font-weight: bold;
     color: white;
     background-color: #17633d;
     cursor: pointer;
+    border: none;
+    border-radius: 5px ;
 }
 
 #signUp-btn:active {

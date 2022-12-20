@@ -106,7 +106,7 @@ VALUES (SEQ_OPTION_NO.NEXTVAL, 'M', '치즈', '/resources/images/menu/topping/�
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '마요네즈', '/resources/images/menu/topping/마요네즈.png', 500, DEFAULT);
 INSERT INTO "OPTION"
-VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '핫칠리', /resources/images/menu/topping/핫칠리.png', 500, DEFAULT);
+VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '핫칠리', '/resources/images/menu/topping/핫칠리.png', 500, DEFAULT);
 INSERT INTO "OPTION"
 VALUES (SEQ_OPTION_NO.NEXTVAL, 'S', '스위트칠리', '/resources/images/menu/topping/스위트칠리.png', 500, DEFAULT);
 INSERT INTO "OPTION"
@@ -251,7 +251,7 @@ VALUES(SEQ_ORDER_MENU_NO.NEXTVAL, 3, 5);
 -- (주문번호3) 주문한 메뉴 중 5번째 샐러드(메뉴번호5)에 3번(M) 옵션 2개 선택
 INSERT INTO "ORDER_MENU_OPTION" VALUES(11, 3, 2);
 
--- (주문번호2) 가격 계산
+-- (주문번호3) 가격 계산
 SELECT
    ((SELECT MENU_PRICE FROM MENU WHERE MENU_NO=1)+
    (SELECT MENU_PRICE FROM MENU WHERE MENU_NO=2)+
@@ -267,5 +267,132 @@ INSERT INTO "DELIVERY"
 VALUES(SEQ_DELIVERY_NO.NEXTVAL, SYSDATE, 3, 'D');
 -- (주문번호3) 연관 테이블 샘플 데이터 삽입 완료
 
+
+-- 장바구니 관련 샘플 데이터 삽입
+
+-- (장바구니번호1) 장바구니 CART 테이블 샘플 데이터 삽입 1
+-- 5번회원(유저사)이 1번 패키지(1주/3팩)를 장바구니에 담았을 경우 장바구니에 담은 메뉴 테이블, 장바구니 메뉴별 옵션 테이블까지 INSERT
+INSERT INTO "CART"
+VALUES(SEQ_CART_NO.NEXTVAL, 5, 1);
+
+-- (장바구니번호1) 장바구니에 담은 메뉴 테이블 INSERT 1번패키지 4, 5, 6번 샐러드 선택
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 1, 4);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 1, 5);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 1, 6);
+
+-- (장바구니번호1) 장바구니에 담은 메뉴 중 1번째 샐러드(메뉴번호4)에 1번(M), 9번(S), 15번(T) 옵션 각 1개, 2개, 3개씩 선택
+INSERT INTO "CART_MENU_OPTION" VALUES(1, 1, 1);
+INSERT INTO "CART_MENU_OPTION" VALUES(1, 9, 2);
+INSERT INTO "CART_MENU_OPTION" VALUES(1, 15, 3);
+
+-- (장바구니번호1) 장바구니에 담은 메뉴 중 2번째 샐러드(메뉴번호5)에 2번(M), 10번(S), 16번(T) 옵션 각 1개씩 선택
+INSERT INTO "CART_MENU_OPTION" VALUES(2, 2, 1);
+INSERT INTO "CART_MENU_OPTION" VALUES(2, 10, 1);
+INSERT INTO "CART_MENU_OPTION" VALUES(2, 16, 1);
+
+-- (장바구니번호1) 장바구니에 담은 메뉴 중 3번째 샐러드(메뉴번호6)는 옵션 선택X
+-- (장바구니번호1) 연관 테이블 샘플 데이터 삽입 완료
+
+-- (장바구니번호2) 장바구니 CART 테이블 샘플 데이터 삽입 2
+-- 6번회원(유저오)이 4번 패키지(2주/3팩)를 장바구니에 담았을 경우 장바구니에 담은 메뉴 테이블, 장바구니 메뉴별 옵션 테이블까지 INSERT
+INSERT INTO "CART"
+VALUES(SEQ_CART_NO.NEXTVAL, 6, 4);
+
+
+-- (장바구니번호2) 장바구니에 담은 메뉴 테이블 INSERT 4번 패키지 7, 8, 9번 샐러드를 선택
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 2, 7);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 2, 8);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 2, 9);
+
+-- (장바구니번호2) 장바구니에 담은 메뉴 중 1번째 샐러드(메뉴번호7)는 옵션X
+
+-- (장바구니번호2) 장바구니에 담은 메뉴 중 2번째 샐러드(메뉴번호8)에 14번(S) 옵션 1개 선택
+INSERT INTO "CART_MENU_OPTION" VALUES(5, 14, 1);
+
+-- (장바구니번호2) 장바구니에 담은 메뉴 중 3번째 샐러드(메뉴번호9)에 18번(T) 옵션 1개 선택
+INSERT INTO "CART_MENU_OPTION" VALUES(6, 18, 1);
+
+-- (장바구니번호2) 연관 테이블 샘플 데이터 삽입 완료
+
+
+-- (장바구니번호3) 장바구니 CART 테이블 샘플 데이터 삽입 3
+-- 7번회원(유저육)이 2번 패키지(1주/5팩)를 장바구니에 담았을 경우 장바구니에 담은 메뉴 테이블, 장바구니 메뉴별 옵션 테이블까지 INSERT
+INSERT INTO "CART"
+VALUES(SEQ_CART_NO.NEXTVAL, 7, 2);
+
+-- (장바구니번호3) 장바구니에 담은 메뉴 테이블 INSERT 2번 패키지 1, 2, 3, 4, 5번 샐러드를 선택
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 3, 1);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 3, 2);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 3, 3);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 3, 4);
+INSERT INTO "CART_MENU"
+VALUES(SEQ_CART_MENU_NO.NEXTVAL, 3, 5);
+
+-- (장바구니번호3) 장바구니에 담은 메뉴 중 1, 2, 3, 4번째 샐러드(메뉴번호1, 2, 3, 4)는 옵션X
+
+-- (장바구니번호3) 장바구니에 담은 메뉴 중 5번째 샐러드(메뉴번호5)에 3번(M) 옵션 2개 선택
+INSERT INTO "CART_MENU_OPTION" VALUES(11, 3, 2);
+-- (장바구니번호3) 연관 테이블 샘플 데이터 삽입 완료
+
+-- 리뷰 기능 관련 테이블 INSERT (주문한 메뉴 번호 1~11)
+-- 2번 회원이 주문한 메뉴 3개(주문한 메뉴 번호 1~3)
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 5, '샐러드 맛있어요 하하하', DEFAULT, DEFAULT, 2, 1);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 4, '샐러드 맛있어요 하하하', DEFAULT, DEFAULT, 2, 2);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 3, '샐러드 맛있어요 하하하', DEFAULT, DEFAULT, 2, 3);
+-- 3번 회원이 주문한 메뉴 3개(주문한 메뉴 번호 4~6)
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 5, '샐러드 맛있어요 호호호', DEFAULT, DEFAULT, 3, 4);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 4, '샐러드 맛있어요 호호호', DEFAULT, DEFAULT, 3, 5);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 3, '샐러드 맛있어요 호호호', DEFAULT, DEFAULT, 3, 6);
+-- 4번 회원이 주문한 메뉴 5개(주문한 메뉴 번호 7~11)
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 5, '샐러드 맛있어요 하하..', DEFAULT, DEFAULT, 4, 7);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 4, '샐러드 맛있어요 하하..', DEFAULT, DEFAULT, 4, 8);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 3, '샐러드 맛있어요 하하..', DEFAULT, DEFAULT, 4, 9);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 2, '샐러드 맛있어요 하하..', DEFAULT, DEFAULT, 4, 10);
+INSERT INTO "REVIEW"
+VALUES(SEQ_REVIEW_NO.NEXTVAL, 1, '샐러드 맛있어요 하하..', DEFAULT, DEFAULT, 4, 11);
+
+-- 리뷰 이미지 샘플 데이터 삽입(썸네일용 IMG_ORDER 0 하나씩만 삽입)
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 1);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 2);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 3);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 4);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 5);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 6);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 7);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 8);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 9);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 10);
+INSERT INTO "REVIEW_IMG"
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 11);
 
 

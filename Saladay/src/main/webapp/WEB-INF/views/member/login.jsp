@@ -11,9 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link rel="stylesheet" href="/resources/css/member/login.css">
-
-    <!-- fontawesome 아이콘 -->
-    <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/3fe30a9b47.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -21,17 +19,17 @@
         <!-- 로고 -->
         <header class="logo-box">
             <a href="#">
-                <img src="../../resources/images/saladay-logo.png" alt="logo" class="logo">
+                <img src="/resources/images/saladay-logo.png" alt="logo" class="logo">
             </a>
         </header>
         
         <!-- 로그인 영역 -->
         <section class="login-box">
-            <form action="#">
+            <form action="/member/login" method="post" name="login-frm" method="post">
                 <div class="login-frm">
                     <div class="id-pw-wrap">
                         <div class="id-pw-row">
-                            <input type="text" id="memberEmail" name="memberEmail" placeholder="아이디(이메일)" maxlength="50">
+                            <input type="text" id="memberEmail" name="memberEmail" placeholder="아이디(이메일)" maxlength="50" value="${cookie.saveId.value}">
                         </div>
                     </div>
 
@@ -41,9 +39,12 @@
                         </div>
                     </div>
                     
+                    <c:if test="${not empty cookie.saveId.value }">
+                        <c:set var="checked" value="checked"/>
+                    </c:if>
                     <div class="saveId-area">
                         <label for="saveId">
-                            <input type="checkbox" name="saveId" id="saveId">
+                            <input type="checkbox" name="saveId" id="saveId" ${checked}>
                             <label for="saveId"> <i class="fas fa-check"></i>아이디 저장</label>
                         </label>
                     </div>
@@ -60,19 +61,18 @@
                 <a href="/member/signUp">회원가입</a>
             </div>
 
-            <div class="kakao-login">
-                <!-- 카카오 로그인 할 경우를 생각해 넣은 임시설정이므로 수정 필요 -->
-                <img src="../../resources/images/member/kakao_login_medium_wide.png" alt="">
-            </div>
+           
         </section>
     </section>
 
+
+
     <footer>
-        <!-- footer.jsp 추가하기 -->
-        <!-- <jsp:include page="" /> -->
+
     </footer>
 
-    <script src="../../resources/js/member/login.js"></script>
+    <script src="/resources/js/member/login.js"></script>
+
 
 </body>
 </html>
