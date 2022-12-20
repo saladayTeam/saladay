@@ -1,6 +1,8 @@
 package kr.co.saladay.menu.model.service;
 
 import java.util.List;
+import java.util.Map;
+
 import kr.co.saladay.menu.model.vo.Menu;
 import kr.co.saladay.menu.model.vo.Option;
 
@@ -17,6 +19,9 @@ public interface MenuService {
 	List<Option> selectSubTopping();
 
 	// 소스 조회
-	List<Option> selectSourceList(); 
+	List<Option> selectSourceList();
+
+	// 패키지 목록 조회
+	List<Map<String, Object>> selectPackageList(); 
 
 }

@@ -1,6 +1,7 @@
 package kr.co.saladay.menu.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class MenuDAO {
 	// 소스 조회
 	public List<Option> selectSourceList() {
 		return sqlSession.selectList("menuMapper.selectSourceList");
+	}
+
+	// 패키지 목록 조회
+	public List<Map<String, Object>> selectPackageList() {
+		return sqlSession.selectList("menuMapper.selectPackageList");
 	}
 
 }
