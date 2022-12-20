@@ -40,6 +40,16 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.emailDupCheck", memberEmail);
 	}
 
+	
+	/**이메일 아이디 찾기
+	 * @param member
+	 * @return
+	 */
+	public Member findID(Member member) {
+		
+		return sqlSession.selectOne("memberMapper.findID", member);
+	}
+
 
 		
 	
