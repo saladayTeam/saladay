@@ -70,7 +70,7 @@ ul{
 #package-img{
     width: 600px;
     height: 420px;
-    background-image: url(/Saladay/src/main/webapp/resources/images/package/1week\ 3days.png);
+    background-image: url(/resources/images/package/1week3days.png);
 }
 
 .package-name{
@@ -123,7 +123,7 @@ ul{
     float: right;
     width: 600px;
     height: 420px;
-    background-image: url(/Saladay/src/main/webapp/resources/images/package/1week\ 3days.png);
+    background-image: url(/resources/images/package/1weekSample.png);
 }
 
 #second-list{
