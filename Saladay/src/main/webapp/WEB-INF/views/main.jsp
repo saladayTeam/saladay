@@ -49,7 +49,7 @@
     <div class="slide_wrapper ">
       <ul class="slides flex">
         <c:forEach var="menu" items="${menuList}">
-          <li><img src="${menu.menuImage}" alt="" height="150px"></li>
+          <li><img src="${menu.menuImage}" alt="" height="250px"></li>
         </c:forEach>
       </ul>
       <p class="controls">
