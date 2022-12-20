@@ -12,6 +12,15 @@ public class MemberDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	/** 로그인 DAO
+	 * @param memberEmail
+	 * @return loginMember
+	 */
+	public Member login(String memberEmail) {
+		return sqlSession.selectOne("memberMapper.login", memberEmail); 
+				
+	}	
+	
 	/**회원가입 DAO
 	 * @param member
 	 * @return result
@@ -21,6 +30,11 @@ public class MemberDAO {
 		return sqlSession.insert("memberMapper.signUp", member);
 	}
 
+	
+	/**이메일 중복체크
+	 * @param memberEmail
+	 * @return result
+	 */
 	public int emailDupCheck(String memberEmail) {
 		
 		return sqlSession.selectOne("memberMapper.emailDupCheck", memberEmail);

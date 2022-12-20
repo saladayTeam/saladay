@@ -1,7 +1,26 @@
+/* 폰트 적용 */
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*input 폰트*/
+input {
+	font-family: 'SUIT-Regular';
+}
+
+/*버튼 폰트*/
+button {
+	font-family: 'SUIT-Regular';
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'SUIT-Regular';
 }
 
 
@@ -58,7 +77,7 @@
 
 .id-pw-wrap:focus-within{
     outline: none;
-    border: 1px solid #249C66;
+    border: 1px solid #17633d;
     border-radius: 5px;    
 }
 
@@ -112,8 +131,8 @@ input::placeholder{
 
 /* 아이디 저장에 체크할 때 */
 #saveId:checked + label > i {
-    background-color: #249C66;
-    border-color: #249C66;
+    background-color: #17633d;
+    border-color: #17633d;
     color: white;
 }
 
@@ -126,7 +145,7 @@ input::placeholder{
     width: 100%;
     border : none;
     border-radius: 5px;
-    background-color: #249C66 ;
+    background-color: #17633d ;
     color: white;
     font-weight: bold;
     font-size: 18px;
@@ -142,9 +161,10 @@ input::placeholder{
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin-bottom: 30px;
+    transition: 0.4s;
 }
+
 
 .find-area a::after {
     content:"|";
@@ -163,9 +183,12 @@ a, span {
     font-size: 18px;
 }
 
+.find-area a:hover {
+    color: #17633d;
+}
 
 
-/* 카카오로그인 */
+
 
 
 
