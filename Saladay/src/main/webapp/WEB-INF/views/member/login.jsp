@@ -58,10 +58,7 @@
                 <a href="/member/signUp">회원가입</a>
             </div>
 
-            <div class="kakao-login">
-                <!-- 카카오 로그인 할 경우를 생각해 넣은 임시설정이므로 수정 필요 -->
-                <img src="/resources/images/member/kakao_login_medium_wide.png" alt="">
-            </div>
+           
         </section>
     </section>
 
