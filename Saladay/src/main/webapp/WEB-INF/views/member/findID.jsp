@@ -49,7 +49,7 @@
             </form>
             
             <div class="find-area">
-                <a href="/member/findPw">비밀번호 재설정</a>
+                <a href="/member/findPw">비밀번호 찾기</a>
             </div>
 
 
