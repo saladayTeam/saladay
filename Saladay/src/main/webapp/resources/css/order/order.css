@@ -1,4 +1,4 @@
-@import url('../main/main.css');
+    @import url('../main/main.css');
 
 * {
     box-sizing: border-box;
@@ -10,10 +10,10 @@
 /* 주문/결제하기 페이지명 */
 .section-tit {
     width: 1200px;
+    line-height: 40px;
     font-size: 20px; 
-    margin: 20px 0;
+    margin-top: 30px;
 }
-
 
 /* 구매하기 전체 영역 */
 .order-wrapper{
@@ -64,7 +64,6 @@
 
 .o-th{
     flex-basis: 60%;  
-    
     line-height: 30px;
 }
 
@@ -73,7 +72,6 @@
     text-align: right;
     padding-right: 10px;
     align-items: center;
-
     line-height: 30px;
 }
 
@@ -84,11 +82,13 @@
     height: 90%;
 }
 
-.address-area{
-    width: 100%;
+/* 주소영역 행 구역 */
+.address-area input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ddd;
 }
 
-.address-area
 
 /* ********************************************************* */
 /* 주문상품 정보 */

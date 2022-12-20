@@ -1,0 +1,146 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문/결제하기</title>
+
+    <link rel="stylesheet" href="/resources/css/order/order.css">
+
+    <!-- 폰트어썸 -->
+    <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- header -->
+    <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+    
+    <div class="section-tit">
+        <h3>주문/결제하기</h3>
+    </div>
+
+    <!-- 폼태그로 넘길 값은 주문번호, 가격, 주문자명, 폰번호, 주소, 패키지 번호 등-->
+    <section class="order-wrapper">
+        <div class="orderer">
+            <div class="orderer-left">
+                <h3 class="orderer-info">주문자 정보</h3>
+                <p>
+                    <span class="o-th">주문자</span><span class="o-td" name="memberNo">이성호</span>
+                </p>
+                <p>
+                    <span class="o-th">이메일</span><span class="o-td">emaillllllllll@gmail.com</span>
+                </p>
+                <p>
+                    <span class="o-th">핸드폰</span><span class="o-td">0101010101</span>
+                </p>
+            </div>
+            
+            <div class="orderer-right">
+                <form action="#"><!-- 배송정보 변경 초기화 -->
+                    <p>
+                        <span class="o-th">수령인</span>
+                        <span class="o-td"><input type="text" id="orderName"></span> 
+                    </p>
+                    <p>
+                        <span class="o-th">수령인 연락처</span>
+                        <span class="o-td"><input type="tel" id="orderTel"></span>
+                    </p>
+
+                    <!-- 주소 입력 영역 -->
+                    <p>
+                        <span class="o-th"> 수령인 주소 </span>
+                        <span class="o-td">
+                            <button type="button" onclick="sample6_execDaumPostcode()">배송지 변경</button> 
+                        </span>
+                    </p>
+
+                    <p class="address-area">
+                        <input type="text" name="address" id="sample6_postcode" placeholder="우편번호" 
+                            maxlength="6" autocomplete="off" readonly> <!-- value="${addr[0]}" -->
+                        
+                        <input type="text" name="address" id="sample6_address" placeholder="도로명/지명주소" 
+                        autocomplete="off" readonly> <!-- value="${addr[1]}" -->    
+
+                        <input type="text" name="address" id="sample6_detailAddress" placeholder="상세주소" 
+                        autocomplete="off" > <!-- value="${addr[2]}" -->
+                    </p>
+                    
+                    <p> 
+                        <div>
+                            <input type="checkbox" id="memberAddr"><label for="memberAddr"> 기본 배송지 선택</label>
+                        </div>
+                        <input type="hidden" name="memberAddress"><!-- 회원의 기본 배송지 -->
+                    </p>
+                </div>
+            
+        </div>
+        
+        <div class="order-items">
+            <h3>주문 목록</h3>
+            <div class="order-package">
+                <div class="pack-name"><span>[1주] 샐러드 3팩 패키지</span></div>
+                <div class="pack-price"><span>32700원</span></div>
+                <div class="pack-i"><input type="checkbox" id="icon"><label for="icon"><i class="fa-solid fa-caret-down"></i></label></div>
+            </div>
+
+            <div class="show-area"> <!-- 화살표 누르면 고른 메뉴 조회 가능-->
+                <li class="order-header">
+                    <div class="order-menu"><span>주문상품</span></div>
+                    <div class="order-quantity"><span>수량</span></div>
+                    <div class="order-price"><span>가격</span></div>
+                </li>
+                
+                <!-- 주문한 메뉴 내용 c:forEach -->
+                <li class="order-area">
+                    <div class="order-menu">쉬림프샐러드</div>
+                    <div class="order-quantity">1</div>
+                    <div class="order-price">8900</div>
+                </li>
+                <li class="order-area">
+                    <div class="order-menu">쉬림프샐러드</div>
+                    <div class="order-quantity">1</div>
+                    <div class="order-price">8900</div>
+                </li>
+                <li class="order-area">
+                    <div class="order-menu">쉬림프샐러드</div>
+                    <div class="order-quantity">1</div>
+                    <div class="order-price">8900</div>
+                </li>
+            </div>
+        </div>
+
+    
+        <div class="select-delivery">
+            <h3>배송일 선택</h3>
+            <p>상품 수령 날짜를 선택해주세요</p>
+            <p><input type="date" data-placeholder="배송일 선택" required></p>
+        </div>
+        
+
+        <div class="payment-area">
+            <h3>결제수단</h3>
+            <img src="../../resources/images/kakaoPay.svg" alt="">
+        </div>
+
+        <div class="check-area">
+            <h3>결제 예상 금액</h3>
+            <p><span>상품 수 / 금액</span><span>3개 / 32700원</span></p>
+            <p><span>배송비</span><span>0원(무료배송)</span></p>
+            <p><span>총 금액</span><span>32700원</span></p>
+        </div>
+        
+        <div> <button class="pay-btn">구매하기</button> </div>
+    </section>
+
+    <!-- footer -->
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="../../resources/js/order/order.js"></script>
+</body>
+</html>
