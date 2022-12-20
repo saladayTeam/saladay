@@ -11,7 +11,13 @@
     </section>
     <section>
       <ul class="header-menu">
-        <li><a href="장바구니 페이지"><i class="fa-regular fa-cart-shopping"></i></a></li>
+        <li><a href="장바구니페이지"
+              ><img
+                src="/resources/images/main/shopping-cart.png"
+                alt=""
+                width="25px"
+                height="25px"
+            /></a></li>
         <c:choose>
           <%-- 로그인 상태라면 --%>
           <c:when test="${not empty loginMember}">
