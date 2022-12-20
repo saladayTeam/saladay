@@ -1,5 +1,46 @@
 -- Saladay 테이블 데이터 삽입
 
+
+-- member 샘플 데이터 삽입
+-- 관리자, 샘플 회원 총 11명
+
+-- 관리자
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'admin@saladay.co.kr', 'pass!', '관리자',
+   '김샐러드', '01063406324', NULL, DEFAULT, DEFAULT, 0);
+
+-- 샘플회원 10명
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user01@saladay.co.kr', 'pass!', '유저일',
+   '유저일', '01011111234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user02@saladay.co.kr', 'pass!', '유저이',
+   '유저이', '01022221234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user03@saladay.co.kr', 'pass!', '유저삼',
+   '유저삼', '01033331234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user04@saladay.co.kr', 'pass!', '유저사',
+   '유저사', '01044441234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user05@saladay.co.kr', 'pass!', '유저오',
+   '유저오', '01055551234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user06@saladay.co.kr', 'pass!', '유저육',
+   '유저육', '01066661234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user07@saladay.co.kr', 'pass!', '유저칠',
+   '유저칠', '01077771234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user08@saladay.co.kr', 'pass!', '유저팔',
+   '유저팔', '01088881234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user09@saladay.co.kr', 'pass!', '유저구',
+   '유저구', '01099991234', NULL, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO "MEMBER"
+VALUES(SEQ_MEMBER_NO.NEXTVAL, 'user10@saladay.co.kr', 'pass!', '유저십',
+   '유저십', '01010101234', NULL, DEFAULT, DEFAULT, DEFAULT);
+
 -- 배송 관리 데이터 삽입
 INSERT INTO DELIVERY_MANAGE VALUES('A', '결제완료');
 INSERT INTO DELIVERY_MANAGE VALUES('B', '배송준비중');
