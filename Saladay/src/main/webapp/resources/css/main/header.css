@@ -56,6 +56,10 @@ header > section:nth-child(3) {
   align-items: flex-end;
 }
 
+.header-menu > li {
+  flex-shrink: 0;
+}
+
 .header-menu i {
   font-weight: 800 !important;
 }
@@ -88,7 +92,8 @@ nav li {
   flex-basis: auto;
   margin: 0 60px;
   height: 50px;
-  /* display: flex; */
+  display: flex;
+  flex-shrink: 0;
 }
 /* 메뉴 내부 a태그 */
 nav li > a {
@@ -97,7 +102,7 @@ nav li > a {
   font-weight: bold;
   color: black;
 
-  display: block;
+  display: inline-block;
   height: 100%;
 
   padding: 11px 0; /* 세로 가로 */

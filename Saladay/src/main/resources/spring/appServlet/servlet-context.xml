@@ -34,9 +34,12 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/**"/> <!-- xml 파일에서 /**  모든 요청 -->
-			<beans:bean id="boardTypeInterceptor" class="kr.co.saladay.common.interceptor.MenuInterceptor" />
+			<beans:bean id="MenuInterceptor" class="kr.co.saladay.common.interceptor.MenuInterceptor" />
 		</interceptor>
 	</interceptors>
+	
+	<!-- favicon 추가 -->
+   <resources mapping="/favicon.ico" location="/resources/images/favicon.ico" />
 	
 	
 </beans:beans>
