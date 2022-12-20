@@ -213,3 +213,37 @@ ul>a{
     margin-top: 5px;
     color: black;
 }
+
+li {
+    list-style: none;
+  }
+  .kind_wrap {
+    border:2px solid black; 
+    width:100%; 
+    max-width:800px; 
+    margin:0 auto; 
+    position: relative;
+  }
+  .kind_wrap > .kind_slider {
+    overflow: hidden;
+  }
+  .kind_wrap > .kind_slider .slider { 
+    position: relative; 
+    transition: 0.5s;
+  }
+  .kind_wrap > .kind_slider .slider li {
+    float:left;
+  }
+  .kind_wrap > .kind_slider img {
+    vertical-align: top;
+  }
+  .kind_wrap .arrow > a.prev {
+    position: absolute; 
+    left:-50px; 
+    top:100px;
+  }
+  .kind_wrap .arrow > a.next {
+    position: absolute; 
+    right:-50px; 
+    top:100px;
+  }
