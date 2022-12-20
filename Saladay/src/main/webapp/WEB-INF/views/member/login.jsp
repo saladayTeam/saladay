@@ -12,8 +12,6 @@
     <title>로그인</title>
     <link rel="stylesheet" href="/resources/css/member/login.css">
 
-    <!-- fontawesome 아이콘 -->
-    <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -21,7 +19,7 @@
         <!-- 로고 -->
         <header class="logo-box">
             <a href="#">
-                <img src="../../resources/images/saladay-logo.png" alt="logo" class="logo">
+                <img src="/resources/images/saladay-logo.png" alt="logo" class="logo">
             </a>
         </header>
         
@@ -62,7 +60,7 @@
 
             <div class="kakao-login">
                 <!-- 카카오 로그인 할 경우를 생각해 넣은 임시설정이므로 수정 필요 -->
-                <img src="../../resources/images/member/kakao_login_medium_wide.png" alt="">
+                <img src="/resources/images/member/kakao_login_medium_wide.png" alt="">
             </div>
         </section>
     </section>
@@ -72,7 +70,7 @@
         <!-- <jsp:include page="" /> -->
     </footer>
 
-    <script src="../../resources/js/member/login.js"></script>
+    <script src="/resources/js/member/login.js"></script>
 
 </body>
 </html>
