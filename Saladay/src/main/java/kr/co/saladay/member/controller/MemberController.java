@@ -146,10 +146,45 @@ public class MemberController {
 		return service.emailDupCheck(memberEmail);
 	}
 	
+	/** 이메일 아이디 찾기 페이지 이동
+	 * @return member/findID 포워드
+	 */
+	@GetMapping("/findID")
+	public String findID() {
+		return "member/findID";
+	}
 	
 	
+	/** 이메일 아이디 찾기
+	 * @param inputMember
+	 * @param ra
+	 * @param referer
+	 * @return 결과창 리다이렉트
+	 */
+	@PostMapping("/findID")
+	public String findID(Member member, RedirectAttributes ra, @RequestHeader("referer") String referer) {
+		
+		
+		// service 호출
+		Member findMember = service.findID(member);
+		
+		// 일치하는 정보 있으면 결과창
+		if(findMember != null) {							
+			ra.addFlashAttribute("result", findMember.getMemberEmail());
+		}
+
+		ra.addFlashAttribute("memberName", member.getMemberName());
+		
+		return "redirect:/member/find-result";
+	}
 	
-	
+	/** 결과 페이지 이동
+	 * @return member/result 포워드
+	 */
+	@GetMapping("/find-result")
+	public String findResult() {
+		return "member/find-result";
+	}
 	
 	
 	

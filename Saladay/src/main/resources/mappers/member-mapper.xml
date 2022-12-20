@@ -40,5 +40,13 @@
 		AND MEMBER_DEL_FL = 'N'
 	</select>
 
+	<!-- 이메일 아이디 찾기 -->
+	<select id="findID" parameterType="Member" resultMap="member_rm">
+		SELECT MEMBER_NAME, MEMBER_EMAIL
+		FROM "MEMBER"
+		WHERE MEMBER_NAME = #{memberName}
+		AND MEMBER_TEL = #{memberTel}
+		AND MEMBER_DEL_FL = 'N'
+	</select>
 
 </mapper>
