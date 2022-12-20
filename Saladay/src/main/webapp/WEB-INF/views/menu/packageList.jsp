@@ -28,12 +28,72 @@
 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 
 
-    <div>
-        <div id="main-content">
-            <em>ENJOY</em>
-            OUR HEALTH
+    <main>
+        <div id="main-title">
+            <div id="main-content">
+                ENJOY
+                <em>SALADAY</em>
+                FOR 1WEEK
+            </div>
+            <div id="main-detail">샐러데이의 신선함을 집에서도 경험할 수 있습니다.</div>
         </div>
-    </div>
+        <ul class="package-ol">
+            <a href="#">
+                <li class="package-list" id="firstList">
+                    <div class="package-box">
+                        <div id="package-img">
+                        </div>
+                        <div class="package-name">
+                            <div class="package-title">
+                                1 WEEk &nbsp; 3 SALADAY
+                            </div>
+                            <div class="package-detail">
+                                어쩌구저쩌구
+                                <br>
+                                짱나
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="">
+                <li class="package-list" id="second-list">
+                    <div class="package-box" id="second-box">
+                        <div class="package-name" id="second-name">
+                            <div class="package-title">
+                                1 WEEk &nbsp; 3 SALADAY
+                            </div>
+                            <div class="package-detail">
+                                어쩌구저쩌구
+                                <br>
+                                짱나
+                            </div>
+                        </div>
+                        <div id="second-img">
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="">
+                <li class="package-list">
+                    <div class="package-box">
+                        <div id="package-img">
+                        </div>
+                        <div class="package-name">
+                            <div class="package-title">
+                                1 WEEk &nbsp; 3 SALADAY
+                            </div>
+                            <div class="package-detail">
+                                어쩌구저쩌구
+                                <br>
+                                짱나
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+        </ul>
+    </main>
 		
     <!-- footer -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
