@@ -7,9 +7,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Cart {
+public class PayOption {
 
-	private int cartNo;
-	private PayPackage cartPackage;
-	
+	private int optionNo;
+	private String optionName;
+	private int optionPrice;
 }
