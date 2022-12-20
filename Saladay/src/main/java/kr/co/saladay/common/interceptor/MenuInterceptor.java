@@ -1,6 +1,7 @@
 package kr.co.saladay.common.interceptor;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -52,6 +53,12 @@ public class MenuInterceptor implements HandlerInterceptor {
 		if( application.getAttribute("sourceList") == null) {
 			List<Option> sourceList = service.selectSourceList();
 			application.setAttribute("sourceList", sourceList);
+		}
+		
+		// 패키지 조회
+		if( application.getAttribute("packageList") == null) {
+			List<Map<String, Object>> packageList = service.selectPackageList();
+			application.setAttribute("packageList", packageList);
 		}
 		
 		return HandlerInterceptor.super.preHandle(request, response, handler);

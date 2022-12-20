@@ -1,6 +1,7 @@
 package kr.co.saladay.menu.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,12 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public List<Option> selectSourceList() {
 		return dao.selectSourceList();
+	}
+
+	// 패키지 목록 조회
+	@Override
+	public List<Map<String, Object>> selectPackageList() {
+		return dao.selectPackageList();
 	}
 	
 	
