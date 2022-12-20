@@ -111,7 +111,7 @@ ul{
 }
 
 .package-list:nth-child(even){
-    background-color: #fff;
+    background-color: #dddddd;
 }
 
 .package-list::after{
@@ -128,7 +128,6 @@ ul{
     float: right;
     width: 600px;
     height: 420px;
-    background-image: url(/resources/images/package/1weekSample.png);
 }
 
 #second-list{
@@ -152,7 +151,7 @@ ul>a{
 }
 
 .package-ol li:nth-child(even)::after{
-    background-color: #f5f5f5;
+    background-color: #dddddd;
     /* background-color: #17633D; */
     display: block;
 }
@@ -173,7 +172,7 @@ ul>a{
     font-size: 15px;
 }
 
-#one-week{
+#two-week{
     background-color: #17633D;
     width: 50%;
     height: 100%;
@@ -185,7 +184,7 @@ ul>a{
     top: 25px;
 }
 
-#one-week > a{
+#two-week > a{
     display: block;
     justify-content: center;
     text-decoration: none;
@@ -193,7 +192,11 @@ ul>a{
     margin-top: 5px;
 }
 
-#two-week{
+#two-week> a:hover{
+    cursor: pointer;
+}
+
+#one-week{
     /* background-color: #17633D; */
     border: solid 1px #dddddd;
     width: 50%;
@@ -206,10 +209,20 @@ ul>a{
     border-top: none;
 }
 
-#two-week > a{
+#one-week > a{
     display: block;
     justify-content: center;
     text-decoration: none;
     margin-top: 5px;
     color: black;
+}
+
+#footer{
+    height: 100px;
+    background-color: #dddddd;
+    width: 100%;
+}
+
+footer{
+    margin: 0px;
 }

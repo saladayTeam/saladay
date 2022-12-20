@@ -1,0 +1,142 @@
+body > div {
+  width: 1200px;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+.cart-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.cart-title > span:first-child {
+  font-weight: bold;
+  display: flex;
+}
+
+.cart-title > span:last-child {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cart-table-header {
+  display: flex;
+  font-weight: bold;
+}
+
+.cart-container {
+  display: flex;
+}
+
+.cart-container span {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.cart-wrapper {
+  border-top: 3px solid #17633d;
+  margin-top: 15px;
+  padding: 20px;
+}
+
+.cart-wrapper > span:first-child {
+  font-weight: bold;
+}
+
+.cart-package-image {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-package-info {
+  flex-basis: 55%;
+  display: flex;
+  align-items: center;
+}
+
+.cart-menu-info {
+  flex-basis: 55%;
+  display: flex;
+  align-items: center;
+}
+
+.cart-option-info {
+  flex-basis: 55%;
+  display: flex;
+  align-items: center;
+}
+
+.cart-package-info > span {
+  margin-left: 20px;
+}
+
+.cart-package-count {
+  flex-basis: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-package-price {
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-package-total {
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-menu-info > span {
+  margin-left: 40px;
+}
+
+.cart-option-info > span {
+  margin-left: 60px;
+}
+
+.delete-cart {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.delete-cart > span {
+  background-color: #17633d;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.delete-cart > span:hover {
+  cursor: pointer;
+}
+
+.total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #17633d;
+  color: white;
+  height: 60px;
+
+  border-radius: 20px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  width: 1200px;
+}
+
+.total > span:first-child {
+  margin-right: 20px;
+}

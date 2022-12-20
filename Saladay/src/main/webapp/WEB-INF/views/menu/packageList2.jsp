@@ -10,7 +10,7 @@
     <title>packageList</title>
     
 	<link rel="stylesheet" href="/resources/css/main/main.css">
-	<link rel="stylesheet" href="/resources/css/menu/packageList.css">
+	<link rel="stylesheet" href="/resources/css/menu/packageList2.css">
 
     <style>
         @font-face {
@@ -28,29 +28,49 @@
 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 
 
-    <main> 
+    <main>
         <div class="package">
             <div id="one-week">
-            <a href="">1 WEEK</a>
+            <a href="/menu/packageList">1 WEEK</a>
             </div>
             <div id="two-week">
-            <a href="/menu/packageList2">2 WEEK</a>
+            <a href="">2 WEEK</a>
             </div>
         </div>
         <div id="main-title">
             <div id="main-content">
                 ENJOY
                 <em>SALADAY</em>
-                FOR 1WEEK
+                FOR 2WEEK
             </div>
             <div id="main-detail">샐러데이의 신선함을 집에서도 경험할 수 있습니다.</div>
         </div>
         <ul class="package-ol">
+            <a href="">
+                <li class="package-list" id="second-list">
+                    <div class="package-box" id="second-box">
+                        <div class="package-name" id="second-name">
+                            <div class="package-title">
+                                1 WEEK &nbsp; 3 SALADAY
+                            </div>
+                            <div class="package-detail">
+                                어쩌구저쩌구
+                                <br>
+                                짱나
+                            </div>
+                        </div>
+                        <div id="second-img">
+                        <img src="/resources/images/package/2week3days.png" alt="">
+                        </div>
+                    </div>
+                </li>
+            </a>
+            
             <a href="/menu/selectMenu">
                 <li class="package-list" id="firstList">
                     <div class="package-box">
                         <div id="package-img">
-                        <img src="/resources/images/package/1week3days.png" alt="">
+                        <img src="/resources/images/package/2week5days.png" alt="">
                         </div>
                         <div class="package-name">
                             <div class="package-title">
@@ -70,7 +90,7 @@
                     <div class="package-box" id="second-box">
                         <div class="package-name" id="second-name">
                             <div class="package-title">
-                                1 WEEK &nbsp; 5 SALADAY
+                                1 WEEK &nbsp; 3 SALADAY
                             </div>
                             <div class="package-detail">
                                 어쩌구저쩌구
@@ -79,31 +99,13 @@
                             </div>
                         </div>
                         <div id="second-img">
-                        <img src="/resources/images/package/1week5days.png" alt="">
-                        </div>
-                    </div>
-                </li>
-            </a>
-            <a href="">
-                <li class="package-list">
-                    <div class="package-box">
-                        <div id="package-img">
-                        <img src="/resources/images/package/1week7days.png" alt="">
-                        </div>
-                        <div class="package-name">
-                            <div class="package-title">
-                                1 WEEK &nbsp; 7 SALADAY
-                            </div>
-                            <div class="package-detail">
-                                어쩌구저쩌구
-                                <br>
-                                짱나
-                            </div>
+                        <img src="/resources/images/package/2week7days.png" alt="">
                         </div>
                     </div>
                 </li>
             </a>
         </ul>
+        <div id="footer"></div>
     </main>
 		
     <!-- footer -->

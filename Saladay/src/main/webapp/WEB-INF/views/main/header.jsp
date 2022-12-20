@@ -2,6 +2,31 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+  $(document).ready(function(){
+
+	$('#package').hide();
+
+	$('#subscription').mouseover(function(){
+		$('#package').slideDown();
+
+	});
+	$('#package').mouseover(function(){
+		$('#package').show();
+
+	});
+	$('#package').mouseleave(function(){
+		$('#package').hide();
+
+	});
+	$('#subscription').mouseleave(function(){
+		$('#package').hide();
+	});
+});
+</script>
+
   <header>
     <section></section>
     <section>
@@ -11,7 +36,7 @@
     </section>
     <section>
       <ul class="header-menu">
-        <li><a href="장바구니페이지"
+        <li><a href="/cart"
               ><img
                 src="/resources/images/main/shopping-cart.png"
                 alt=""
@@ -38,7 +63,7 @@
     <ul>
       <li><a href="/intro">소개</a></li>
       <li><a href="/menu/menuList">메뉴</a></li>
-      <li><a href="/menu/selectMenu">정기구독</a></li>
+      <li><a href="/menu/packageList">정기구독</a></li>
       <li><a href="/nutrition">영양정보</a></li>
       <li><a href="">리뷰</a></li>
       <li><a href="/FAQ">FAQ</a></li>
