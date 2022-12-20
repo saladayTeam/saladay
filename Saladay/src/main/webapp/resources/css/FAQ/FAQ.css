@@ -5,7 +5,7 @@ main {
 /*FAQ header*************************************************************/
 
 .faq-header {
-    width: 1200px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,7 @@ main {
 /*faq content*************************************************************/
 
 .faq-content {
-    width: 1000px;
+    width: 83%;
     min-height: 700px;
     margin: 50px auto;
 }

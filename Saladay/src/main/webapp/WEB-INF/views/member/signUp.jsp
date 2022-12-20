@@ -114,7 +114,7 @@
                         <label for="agree1">이용약관 동의<span class="required">(필수)</span></label>
                         <a href="/member/TermsOfService">자세히 >></a>
                         <input type="checkbox" id="agree1">
-                 
+                
                     </div>
 
                     <div class="agree-label">
@@ -137,7 +137,7 @@
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="/resources/js/member/validate.js"></script>
+    <!-- <script src="/resources/js/member/validate.js"></script> -->
     
 </body>
 </html>
