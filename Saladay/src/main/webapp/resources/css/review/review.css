@@ -4,20 +4,43 @@
 }
 
 .review-check{
-    float: right;
+    display: flex;
+    justify-content: flex-end;
+    width: 1200px;
+    border-top: 3px solid #17633d;
+    margin-top: 15px;
+    padding: 20px;
 }
 
 .review-div{
     display: inline-block;
     /* padding-left: 5px; */
     width: 1200px;
+    height: 900px;
 }
 
+/* 리뷰 카테고리 제목 */
+.review-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.review-title > span:first-child {
+    font-weight: bold;
+    display: flex;
+}
+
+.review-title > span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 리뷰 요소 */
 .albumLi{
     margin-left: 12px;
     display: inline-block;
     height: 304px;
-    width: 200px;
+    width: 350px;
 /*     padding-left: 0px;
     right: 0px; */
 }
@@ -47,6 +70,10 @@
 }
 
 .review-star{
+    color: #999999;
+}
+
+.review-like{
     color: #999999;
 }
 
