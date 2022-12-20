@@ -1,0 +1,155 @@
+/* 폰트 적용 */
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*input 폰트*/
+input {
+	font-family: 'SUIT-Regular';
+}
+
+/*버튼 폰트*/
+button {
+	font-family: 'SUIT-Regular';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'SUIT-Regular';
+}
+
+
+/* 로그인 화면 위치 및 전체 높이 */
+.find-area-section {
+    height: 100vh;
+}    
+
+/* 아이디 비번 찾기 헤더 */
+.logo-box {
+    text-align: center;
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+
+/* 로고 */
+.logo{
+    width: 180px;
+    height: 120px;
+}
+
+
+/* 이름, 전화번호 입력 영역 */
+.find-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 아이디, 비밀번호 입력 영역 */
+.findID-frm {
+    width: 460px;
+    height: 300px;
+    padding: 20px 28px;
+    margin: 0px auto;    
+}
+
+.find-box-wrap {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.find-box-row {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.find-box-wrap:focus-within{
+    outline: none;
+    border: 1px solid #17633d;
+    border-radius: 5px;    
+}
+
+.find-box-wrap input {
+    width: 360px;
+    height: 100%;
+    border: none;
+}
+
+.find-box-wrap input:focus {
+    outline:none;
+}
+
+input::placeholder{
+    font-size: 1.2em;
+}
+
+
+
+/* 찾기 버튼 */
+.find-btn{
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    width: 100%;
+    border : none;
+    border-radius: 5px;
+    background-color: #17633d ;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding: 13px 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* 찾기 영역(입력영역 하단) */
+.find-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: 0.4s;
+}
+
+
+.find-area a::after {
+    content:"|";
+    margin: 0 20px;
+}
+
+.find-area a:last-child::after {
+    content:"";
+    margin: 0;
+}
+
+a, span {
+    text-decoration: none;
+    cursor: pointer;
+    color: #999999;
+    font-size: 18px;
+}
+
+.find-area a:hover {
+    color: #17633d;
+}
+
+
+
+
+
+

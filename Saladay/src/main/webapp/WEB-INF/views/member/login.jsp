@@ -18,7 +18,7 @@
     <section class="login">
         <!-- 로고 -->
         <header class="logo-box">
-            <a href="#">
+            <a href="/">
                 <img src="/resources/images/saladay-logo.png" alt="logo" class="logo">
             </a>
         </header>
@@ -56,12 +56,12 @@
             </form>
         
             <div class="find-area">
-                <a href="#">아이디 찾기</a>
-                <a href="#">비밀번호 찾기</a>
+                <a href="/member/findID">아이디 찾기</a>
+                <a href="/member/findPw">비밀번호 재설정</a>
                 <a href="/member/signUp">회원가입</a>
             </div>
 
-           
+
         </section>
     </section>
 

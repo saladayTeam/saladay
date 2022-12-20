@@ -49,7 +49,7 @@ main{
 
 /* 패키지 이름 */
 .product-day{
-    background-color: #249C66;
+    background-color: #17633D;
     color: white;
     justify-content: center;
     align-items: center;
@@ -81,24 +81,28 @@ main{
 .menu-box{
     list-style: none;
     margin: 0 auto;
-    display: flex;
+    /* display: flex; */
     width: 100%;
     padding: 0px;
+    margin-bottom: 60px;
+    font-size: 0;
 }
 .menu-name{
-    width: 25%;
-    display: flex;
+    flex-shrink: 0;
+    width: 20%;
+    display: inline-block;
     height: 50px;
-    border-top: solid 1px #ddd;
-    border-left: solid 1px #ddd;
-    border-bottom: solid 1px #ddd;
+    /* border: solid 1px #ddd; */
+    box-shadow: 
+    1px 0 0 0 #ddd, 
+    0 1px 0 0 #ddd, 
+    1px 1px 0 0 #ddd,
+    1px 0 0 0 #ddd inset, 
+    0 1px 0 0 #ddd inset;
     justify-content: center;
     align-items: center;
     font-size: 13px;
     border-collapse: collapse;
-}
-.menu-box:last-child{
-    border-right: solid 1px #ddd;
 }
 .menu-name a{
     display: block;
@@ -108,6 +112,9 @@ main{
     height: 100%;
     text-decoration: none;
     color: #666666;
+}
+.menu-name a:hover{
+    cursor: pointer;
 }
 
 /* 메뉴 상세 */
@@ -134,8 +141,10 @@ main{
 
 .menu-content{
     display: flex;
+    justify-content: center;
     padding-left: 50px;
     padding-right: 50px;
+    text-align: center;
 }
 
 .menu-img{
@@ -161,7 +170,7 @@ main{
     margin-bottom: 10px;
     font-size: 22px;
     display: block;
-    color: #249C66;
+    color: #17633D;
     font-family: 'twayair';
 }
 
@@ -188,11 +197,13 @@ main{
     justify-content: center;
     align-items: center;
     font-weight: bold;
-}
+    color: black;
 
+}
+/* 
 .add-menu{
     padding-bottom: 35px;
-}
+} */
 
 .menu-costom{
     padding: 50px 70px;
@@ -202,14 +213,12 @@ main{
     list-style: none;
     display: block;
     width: 104%;
-}
-
-.img-box{
+    margin-bottom: 40px;
 }
 
 .topping-img{
-    width: 95px;
-    height: 95px;
+    width: 130px;
+    height: 130px;
     object-position: center center;
     object-fit: contain;
 }
@@ -223,7 +232,7 @@ main{
 .topping-price{
     font-size: 11px;
     color: #666;
-    padding-top: 3px;
+    padding-top: 7px;
     padding-right: 7px;
 }
 
@@ -231,7 +240,7 @@ span {cursor:pointer; }
 
 .topping{
     text-align: center;
-    width: 95px;
+    width: 130px;
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -249,7 +258,7 @@ span {cursor:pointer; }
 .minus, .plus{
     width:10px;
     height:10px;
-    background:#249C66;
+    background: #17633D;
     border-radius:50px;
     padding: 3px;
     justify-content: center;
@@ -296,13 +305,17 @@ button{
 
 .cartin-btn{
     background-color: white;
-    border: solid 2px #249C66;
-    color: #249C66;
+    border: solid 2px #17633D;
+    color: #17633D;
     cursor: pointer;
 }
 
 .order-btn{
-    background-color: #249C66;
+    background-color: #17633D;
     border: none;
     color: white;
+}
+
+.menu-select-box{
+    display: flex;
 }

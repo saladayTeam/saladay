@@ -34,7 +34,7 @@
         <img src="/resources/images/saladay-logo.png" alt="로고 이미지" width="135px" height="84px">
       </a>
     </section>
-    <section>
+    <div>
       <ul class="header-menu">
         <li><a href="/cart"
               ><img
@@ -56,7 +56,7 @@
           </c:otherwise>
         </c:choose>  
       </ul>
-    </section>
+    </div>
 
   </header>
   <nav>
@@ -65,7 +65,7 @@
       <li><a href="/menu/menuList">메뉴</a></li>
       <li><a href="/menu/packageList">정기구독</a></li>
       <li><a href="/nutrition">영양정보</a></li>
-      <li><a href="">리뷰</a></li>
+      <li><a href="/review">리뷰</a></li>
       <li><a href="/FAQ">FAQ</a></li>
     </ul>
   </nav>

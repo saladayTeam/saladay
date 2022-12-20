@@ -25,4 +25,12 @@ public interface MemberService {
 	int emailDupCheck(String memberEmail);
 
 
+	
+	/**이메일 아이디 찾기
+	 * @param member
+	 * @return findMember (이름, 이메일)
+	 */
+	public Member findID(Member member);
+
+
 }

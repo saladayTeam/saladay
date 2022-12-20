@@ -32,6 +32,20 @@
         }
     </style>
 </head>
+<%-- <div class="salad-type">
+    <div class="salad-text">
+        <div class="salad-title" id="salad-type-name">추가된 메인토핑</div>
+        <div class="salad-detail" id="salad-type-topping">닭가슴살, 스테이크</div>
+    </div>
+    <div class="salad-text">
+        <div class="salad-title" id="salad-type-name">추가된 토핑</div>
+        <div class="salad-detail" id="salad-type-topping">옥수수, 토마토2</div>
+    </div>
+    <div class="salad-text">
+        <div class="salad-title" id="salad-type-name">추가된 소스</div>
+        <div class="salad-detail" id="salad-type-topping">스윗칠리, 데리야끼</div>
+    </div>
+</div> --%>
 <body>
 
 		<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
@@ -41,999 +55,201 @@
     </div>
     <main>
         <section class="content">
-            <div class="product-day"><div class="day-text">3 SALADAY</div></div>
+            <div class="product-day"><div class="day-text">1주 골라담기 3팩 패키지</div></div>
             <ul class="menu-box">
             <c:forEach items="${menuList}" var="menu">
                 <li class="menu-name"><a onclick="viewMenu(${menu.menuNo});">${menu.menuName}</a></li>
             </c:forEach>
-
-            onclick="이벤트명(매개변수)"
             </ul>
-                <%-- <ul class="menu-box">
-                    <li class="menu-name"><a href="" onclick="return false;">치킨 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">베이컨 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">스테이크 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">터키 샐러데이</a></li>
-                    <li class="menu-name"><a href="" onclick="return false;">연어 샐러데이</a></li>
-                </ul> --%>
-            </div>
-            
-            <div class="menu-list">
-                <div class="detail">
-                    <h3 class="menu-title">치킨 샐러데이</h3>
-                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
-                </div>
-                <div class="menu-content">
-                    <div class="menu-img">
-                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
-                    </div>
-                    <div class="salad-type">
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 메인토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">닭가슴살, 스테이크</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">옥수수, 토마토2</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 소스</div>
-                            <div class="salad-detail" id="salad-type-topping">스윗칠리, 데리야끼</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-costom">
-                    <div class="add-menu" id="add-main">
-                        <div class="costom-detail">
-                            메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/베이컨.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    베이컨
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/치킨.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    닭고기
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/햄.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    햄
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="add-menu" id="add-sub">
-                        <div class="costom-detail">
-                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/로메인.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    로메인
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적근대.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적근대
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/양상추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    양상추
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/멀티리프.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    멀티리프
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/라디치오.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    라디치오
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="add-topping">
-                        <div class="add-menu" id="add-sauce">
-                            <div class="costom-detail">
-                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
-                            </div>
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/마요네즈.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    마요네즈
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/케찹.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    케찹
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/사워소스.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    사워소스
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/사워소스.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    사워소스
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/스위트칠리.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    스위트칠리
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/허니머스타드.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    허니 머스타드
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/홀그레인 머스타드.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    홀그레인 머스타드
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li> 
-                        </ul>
-                    </div>
-                </div>
-            </div>  <!-- 메뉴 선택 1 끝 -->
-            <div class="menu-list">
-                <div class="detail">
-                    <h3 class="menu-title">치킨 샐러데이</h3>
-                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
-                </div>
-                <div class="menu-content">
-                    <div class="menu-img">
-                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
-                    </div>
-                    <div class="salad-type">
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 메인토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">닭가슴살, 스테이크</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">옥수수, 토마토2</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 소스</div>
-                            <div class="salad-detail" id="salad-type-topping">스윗칠리, 데리야끼</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-costom">
-                    <div class="add-menu" id="add-main">
-                        <div class="costom-detail">
-                            메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
-                        </div>
-                        <ul class="topping-list">
-                            <c:forEach items="${}">
-                            </c:forEach>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/베이컨.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    베이컨
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <%-- <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/치킨.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    닭고기
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/햄.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    햄
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li> --%>
-                        </ul>
-                    </div>
-                    <div class="add-menu" id="add-sub">
-                        <div class="costom-detail">
-                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/로메인.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    로메인
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적근대.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적근대
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/양상추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    양상추
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/멀티리프.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    멀티리프
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/라디치오.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    라디치오
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="add-topping">
-                        <div class="add-menu" id="add-sauce">
-                            <div class="costom-detail">
-                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
-                            </div>
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/마요네즈.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    마요네즈
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/케찹.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    케찹
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/사워소스.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    사워소스
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/사워소스.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    사워소스
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/스위트칠리.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    스위트칠리
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/허니머스타드.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    허니 머스타드
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/홀그레인 머스타드.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    홀그레인 머스타드
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li> 
-                        </ul>
-                    </div>
-                </div>
-            </div>  <!-- 메뉴 선택 1 끝 -->
-            <div class="menu-list">
-                <div class="detail">
-                    <h3 class="menu-title">치킨 샐러데이</h3>
-                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
-                </div>
-                <div class="menu-content">
-                    <div class="menu-img">
-                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
-                    </div>
-                    <div class="salad-type">
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 메인토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">닭가슴살, 스테이크</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 토핑</div>
-                            <div class="salad-detail" id="salad-type-topping">옥수수, 토마토2</div>
-                        </div>
-                        <div class="salad-text">
-                            <div class="salad-title" id="salad-type-name">추가된 소스</div>
-                            <div class="salad-detail" id="salad-type-topping">스윗칠리, 데리야끼</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-costom">
-                    <div class="add-menu" id="add-main">
-                        <div class="costom-detail">
-                            메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/베이컨.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    베이컨
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/치킨.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    닭고기
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/main/햄.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    햄
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="add-menu" id="add-sub">
-                        <div class="costom-detail">
-                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/로메인.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    로메인
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적근대.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적근대
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/양상추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    양상추
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/멀티리프.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    멀티리프
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/라디치오.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    라디치오
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="topping-price">
-                                    + 500
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="add-topping">
-                        <div class="add-menu" id="add-sauce">
-                            <div class="costom-detail">
-                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
-                            </div>
-                        </div>
-                        <ul class="topping-list">
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/마요네즈.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    마요네즈
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/케찹.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    케찹
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/사워소스.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    사워소스
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/사워소스.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    사워소스
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/스위트칠리.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    스위트칠리
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/허니머스타드.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    허니 머스타드
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/source-img/홀그레인 머스타드.png" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    홀그레인 머스타드
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li>
-                            <li class="topping">
-                                <div class="img-box">
-                                    <img src="/resources/images/menu/topping/sub/적양배추.jpg" class="topping-img">
-                                </div>
-                                <div class="topping-name">
-                                    적양배추
-                                </div>
-                                <div class="add-number">
-                                    <span class="minus">-</span>
-                                    <input type="text" value="0" readonly/>
-                                    <span class="plus">+</span>
-                                </div>
-                            </li> 
-                        </ul>
-                    </div>
-                </div>
-            </div>  <!-- 메뉴 선택 1 끝 -->
+            <%-- onclick="이벤트명(매개변수)" --%>
 
+            <div class="menu-list">
+                <div class="detail">
+                    <h3 class="menu-title">치킨 샐러데이</h3>
+                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-img">
+                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
+                    </div>
+                </div>
+                <div class="menu-costom">
+                    <div class="add-menu" id="add-main">
+                        <div class="costom-detail">
+                            메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
+                        </div>
+                        <ul class="topping-list">
+                            <c:forEach items="${mainTopping}" var="mainT">
+                                    <li class="topping">
+                                        <div class="img-box">
+                                            <img src="${mainT.optionImage}" class="topping-img">
+                                        </div>
+                                        <div class="topping-name">
+                                            ${mainT.optionName}
+                                        </div>
+                                        <div class="topping-price">
+                                            + ${mainT.optionPrice}
+                                        </div>
+                                        <div class="add-number">
+                                            <span class="minus">-</span>
+                                            <input type="text" value="0" readonly/>
+                                            <span class="plus">+</span>
+                                        </div>
+                                    </li>
+                            </c:forEach>
+                        </ul>
+                    <div class="add-menu" id="add-sub">
+                        <div class="costom-detail">
+                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
+                        </div>
+                        <ul class="topping-list">
+                            <c:forEach items="${subTopping}" var="subT">
+                                    <li class="topping">
+                                        <div class="img-box">
+                                            <img src="${subT.optionImage}" class="topping-img">
+                                        </div>
+                                        <div class="topping-name">
+                                            ${subT.optionName}
+                                        </div>
+                                        <div class="topping-price">
+                                            + ${subT.optionPrice}
+                                        </div>
+                                        <div class="add-number">
+                                            <span class="minus">-</span>
+                                            <input type="text" value="0" readonly/>
+                                            <span class="plus">+</span>
+                                        </div>
+                                    </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                    <div id="add-topping">
+                        <div class="add-menu" id="add-sauce">
+                            <div class="costom-detail">
+                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
+                            </div>
+                        </div>
+                        <ul class="topping-list">
+                            <c:forEach items="${sourceList}" var="source">
+                                    <li class="topping">
+                                        <div class="img-box">
+                                            <img src="${source.optionImage}" class="topping-img">
+                                        </div>
+                                        <div class="topping-name">
+                                            ${source.optionName}
+                                        </div>
+                                        <div class="topping-price">
+                                            + ${source.optionPrice}
+                                        </div>
+                                        <div class="add-number">
+                                            <span class="minus">-</span>
+                                            <input type="text" value="0" readonly/>
+                                            <span class="plus">+</span>
+                                        </div>
+                                    </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                </div>
+            </div>  <!-- 메뉴 선택 1 끝 -->
+            <ul class="menu-box">
+            <c:forEach items="${menuList}" var="menu">
+                <li class="menu-name"><a onclick="viewMenu(${menu.menuNo});">${menu.menuName}</a></li>
+            </c:forEach>
+            </ul>
+            <%-- onclick="이벤트명(매개변수)" --%>
+
+            <div class="menu-list">
+                <div class="detail">
+                    <h3 class="menu-title">치킨 샐러데이</h3>
+                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-img">
+                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
+                    </div>
+                </div>
+                <div class="menu-costom">
+                    <div class="add-menu" id="add-main">
+                        <div class="costom-detail">
+                            메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
+                        </div>
+                        <ul class="topping-list">
+                            <c:forEach items="${mainTopping}" var="mainT">
+                                    <li class="topping">
+                                        <div class="img-box">
+                                            <img src="${mainT.optionImage}" class="topping-img">
+                                        </div>
+                                        <div class="topping-name">
+                                            ${mainT.optionName}
+                                        </div>
+                                        <div class="topping-price">
+                                            + ${mainT.optionPrice}
+                                        </div>
+                                        <div class="add-number">
+                                            <span class="minus">-</span>
+                                            <input type="text" value="0" readonly/>
+                                            <span class="plus">+</span>
+                                        </div>
+                                    </li>
+                            </c:forEach>
+                        </ul>
+                    <div class="add-menu" id="add-sub">
+                        <div class="costom-detail">
+                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
+                        </div>
+                        <ul class="topping-list">
+                            <c:forEach items="${subTopping}" var="subT">
+                                    <li class="topping">
+                                        <div class="img-box">
+                                            <img src="${subT.optionImage}" class="topping-img">
+                                        </div>
+                                        <div class="topping-name">
+                                            ${subT.optionName}
+                                        </div>
+                                        <div class="topping-price">
+                                            + ${subT.optionPrice}
+                                        </div>
+                                        <div class="add-number">
+                                            <span class="minus">-</span>
+                                            <input type="text" value="0" readonly/>
+                                            <span class="plus">+</span>
+                                        </div>
+                                    </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                    <div id="add-topping">
+                        <div class="add-menu" id="add-sauce">
+                            <div class="costom-detail">
+                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
+                            </div>
+                        </div>
+                        <ul class="topping-list">
+                            <c:forEach items="${sourceList}" var="source">
+                                    <li class="topping">
+                                        <div class="img-box">
+                                            <img src="${source.optionImage}" class="topping-img">
+                                        </div>
+                                        <div class="topping-name">
+                                            ${source.optionName}
+                                        </div>
+                                        <div class="topping-price">
+                                            + ${source.optionPrice}
+                                        </div>
+                                        <div class="add-number">
+                                            <span class="minus">-</span>
+                                            <input type="text" value="0" readonly/>
+                                            <span class="plus">+</span>
+                                        </div>
+                                    </li>
+                            </c:forEach>
+                        </ul>
+                    </div>
+                </div>
+            </div>  <!-- 메뉴 선택 1 끝 -->
         </section>
+        
         <div class="bottom-box">
             <!-- <div>상품이미지</div> -->
             <button class="cartin-btn">장바구니 담기</button>
@@ -1041,7 +257,6 @@
         </div>
 
     </main>
-    
-    
+    <script src="/resources/js/menu/selectMenu.js"></script>
 </body>
 </html>
