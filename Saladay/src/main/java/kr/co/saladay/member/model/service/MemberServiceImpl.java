@@ -64,6 +64,13 @@ public class MemberServiceImpl implements MemberService{
 		
 		return dao.findID(member);
 	}
+
+	//비밀번호 찾기
+	@Override
+	public String findPw(String memberEmail) {
+		
+		return dao.findPw(memberEmail);
+	}
 	
 	
 	

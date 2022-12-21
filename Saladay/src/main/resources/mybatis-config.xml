@@ -18,10 +18,13 @@
 	<typeAliases>
 		<typeAlias type="kr.co.saladay.member.model.vo.Member"  alias="Member" /> 
 		<typeAlias type="kr.co.saladay.menu.model.vo.Menu"  alias="Menu" /> 
-		<typeAlias type="kr.co.saladay.review.model.vo.Review"  alias="Review" /> 
+		<typeAlias type="kr.co.saladay.review.model.vo.Review"  alias="Review" />
 		<typeAlias type="kr.co.saladay.review.model.vo.ReviewImage"  alias="ReviewImage" />
 		<typeAlias type="kr.co.saladay.menu.model.vo.Option"  alias="Option" />  
 		<typeAlias type="kr.co.saladay.menu.model.vo.Package"  alias="Package" />  
+		<typeAlias type="kr.co.saladay.pay.model.vo.PayMenu"  alias="PayMenu" />  
+		<typeAlias type="kr.co.saladay.pay.model.vo.PayOption"  alias="PayOption" />  
+		<typeAlias type="kr.co.saladay.pay.model.vo.PayPackage"  alias="PayPackage" />  
 	</typeAliases>
 
 
@@ -31,6 +34,7 @@
 		<mapper resource="/mappers/menu-mapper.xml" />
 		<mapper resource="/mappers/review-mapper.xml" />
 		<mapper resource="/mappers/cart-mapper.xml" />
+		<mapper resource="/mappers/order-mapper.xml" />
 
 	</mappers>
 </configuration>

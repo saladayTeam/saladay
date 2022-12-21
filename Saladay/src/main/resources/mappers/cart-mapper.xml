@@ -2,6 +2,82 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cartMapper">
 
+	<!-- Package resultMap -->
+	<resultMap type="PayPackage" id="package_rm">
+      <id property="packageNo" column="PACKAGE_NO"/>      
+      <result property="cartNo" column="CART_NO"/>
+      <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageImage" column="PACKAGE_IMG"/>
+      <result property="packagePrice" column="TOTAL"/>
+      <result property="packageType" column="PACKAGE_TYPE"/>
+      <collection property="menuList" javaType="java.util.ArrayList" ofType="PayMenu"
+      select="selectCartMenuList" column="CART_NO" />
+	</resultMap>
+	
+	<!-- PayMenu resultMap -->
+	<resultMap type="PayMenu" id="payMenu_rm">
+      <id property="cartMenuNo" column="CART_MENU_NO"/>
+      <result property="menuName" column="MENU_NAME"/>
+      <result property="menuPrice" column="MENU_PRICE"/>
+      <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
+      <collection property="optionList" javaType="java.util.ArrayList" ofType="PayOption"
+      select="selectCartOptionList" column="CART_MENU_NO" />
+	</resultMap>
+
+
+	<!-- payOption resultMap -->
+	<resultMap type="PayOption" id="payOption_rm">
+      <id property="optionNo" column="OPTION_NO"/>
+      <result property="optionName" column="OPTION_NAME"/>
+      <result property="optionPrice" column="OPTION_PRICE"/>
+      <result property="optionCount" column="CART_OPTION_COUNT"/>
+      <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+	</resultMap>
+	
+	<!-- 장바구니에 담은 패키지 조회 -->
+	<select id="selectCartPackage" resultMap="package_rm">
+		SELECT DISTINCT CART_NO, PACKAGE_NO, PACKAGE_NAME, PACKAGE_IMG,
+			(SELECT SUM(MENU_PRICE) + SUM(TOTAL_OPT_PRICE) TOTAL FROM (
+		   SELECT  M.MENU_PRICE,
+		      (SELECT SUM(OPTION_PRICE * CART_OPTION_COUNT)  
+		      FROM CART_MENU_OPTION CMO
+		      JOIN "OPTION" O ON(CMO.OPTION_NO = O.OPTION_NO)
+		      WHERE CMO.CART_MENU_NO = CM.CART_MENU_NO) TOTAL_OPT_PRICE
+		   FROM CART C
+		   JOIN CART_MENU CM ON (C.CART_NO = CM.CART_NO)
+		   JOIN MENU M ON (CM.MENU_NO = M.MENU_NO)
+		   WHERE MEMBER_NO = #{memberNo}
+		)) TOTAL
+		FROM CART
+		JOIN CART_MENU USING (CART_NO)
+		JOIN CART_MENU_OPTION USING (CART_MENU_NO)
+		JOIN "PACKAGE" USING (PACKAGE_NO)
+		LEFT JOIN "OPTION" USING (OPTION_NO)
+		WHERE MEMBER_NO =#{memberNo}	
+	</select>
+	
+	<!-- 패키지 별 장바구니 메뉴 조회 -->
+	<select id="selectCartMenuList" resultMap="payMenu_rm">
+		SELECT DISTINCT CART_MENU_NO, MENU_NAME, MENU_PRICE FROM CART
+		LEFT JOIN CART_MENU USING (CART_NO)
+		LEFT JOIN CART_MENU_OPTION USING (CART_MENU_NO)
+		LEFT JOIN "MENU" USING (MENU_NO)
+		WHERE CART_NO=#{cartNo}
+		AND MENU_DEL_FL='N'
+		ORDER BY CART_MENU_NO
+	</select>
+	
+	<select id="selectCartOptionList" resultMap="payOption_rm">
+		SELECT OPTION_NO, OPTION_NAME, CART_OPTION_COUNT, OPTION_PRICE FROM CART
+		LEFT JOIN CART_MENU USING (CART_NO)
+		LEFT JOIN CART_MENU_OPTION USING (CART_MENU_NO)
+		LEFT JOIN "PACKAGE" USING (PACKAGE_NO)
+		JOIN "OPTION" USING (OPTION_NO)
+		LEFT JOIN "MENU" USING (MENU_NO)
+		WHERE CART_MENU_NO=#{cartMenuNo}
+		AND MENU_DEL_FL='N'
+		ORDER BY OPTION_NO
+	</select>
 	
 
 

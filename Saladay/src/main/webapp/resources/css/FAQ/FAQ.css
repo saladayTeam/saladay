@@ -25,9 +25,10 @@ main {
 /*faq content*************************************************************/
 
 .faq-content {
-    width: 83%;
+    width: 800px;
     min-height: 700px;
     margin: 50px auto;
+    line-height : 150%
 }
 
 .faq {
@@ -90,3 +91,6 @@ main {
     margin:  5px 20px 0 0; 
 }
 
+.answer-detail {
+	width:80%;
+}

@@ -35,12 +35,7 @@ public class MenuController {
 	public String sourceList() {
 		return "menu/sourceList";
 	}
-	
-	// 메뉴(샐러드와 옵션) 선택 상세 페이지
-	@GetMapping("/menu/selectMenu")
-	public String selectMenu() {
-		return "menu/selectMenu";
-	}
+
 	
 	// 1week 버튼
 	@GetMapping("/menu/packageList")
