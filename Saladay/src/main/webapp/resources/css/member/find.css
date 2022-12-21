@@ -156,7 +156,10 @@ input::placeholder{
 	width:20%;
 	height:80%;
 	cursor: pointer;
-    
+}
+
+.input-btn:focus {
+    color: #17633d;
 }
 
 .white-space {
