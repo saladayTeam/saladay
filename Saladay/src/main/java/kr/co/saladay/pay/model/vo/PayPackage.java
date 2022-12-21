@@ -11,6 +11,8 @@ import lombok.ToString;
 @ToString
 public class PayPackage {
 
+	private int cartNo;
+	private int orderNo;
 	private int packageNo;
 	private String packageName;
 	private String packageImage;

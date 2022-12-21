@@ -14,7 +14,7 @@ public class PayMenu {
 	private int menuNo;
 	private String menuName;
 	private int menuPrice;
-	private int totalOptionPrice;
+	private String menuDeleteFlag;
 	
 	List<PayOption> optionList;
 }
