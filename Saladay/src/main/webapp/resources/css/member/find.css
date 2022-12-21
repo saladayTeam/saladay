@@ -54,10 +54,28 @@ button {
 
 /* 아이디, 비밀번호 입력 영역 */
 .findID-frm {
-    width: 460px;
-    height: 300px;
+    width: 500px;
     padding: 20px 28px;
     margin: 0px auto;    
+}
+
+.findPw-frm {
+    width: 500px;
+    padding: 20px 28px;
+    margin: 0px auto;    
+}
+
+
+.find-box-row {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.btn-box {
+    margin-top: 30px;
 }
 
 .find-box-wrap {
@@ -68,13 +86,6 @@ button {
     margin-bottom: 30px;
 }
 
-.find-box-row {
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-}
 
 .find-box-wrap:focus-within{
     outline: none;
@@ -83,17 +94,59 @@ button {
 }
 
 .find-box-wrap input {
-    width: 360px;
+    width: 80%;
     height: 100%;
     border: none;
+    margin-left: 5px ;
 }
 
 .find-box-wrap input:focus {
     outline:none;
 }
 
+.find-box-wrap2 {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.find-box-wrap2:focus-within{
+    outline: none;
+    border: 1px solid #17633d;
+    border-radius: 5px;    
+}
+
+.find-box-wrap2 input {
+    width: 80%;
+    height: 100%;
+    border: none;
+    margin-left: 5px ;
+}
+
+.find-box-wrap2 input:focus {
+    outline:none;
+}
+
+.authKey-message {
+    font-size: 14px;
+}
+
+
 input::placeholder{
     font-size: 1.2em;
+}
+
+.input-btn {
+	border:0;
+	outline:0;
+	background-color:white;
+	width:20%;
+	height:100%;
+	cursor: pointer;
+    
 }
 
 
@@ -137,7 +190,7 @@ input::placeholder{
     margin: 0;
 }
 
-a, span {
+a {
     text-decoration: none;
     cursor: pointer;
     color: #999999;
@@ -147,6 +200,7 @@ a, span {
 .find-area a:hover {
     color: #17633d;
 }
+
 
 
 

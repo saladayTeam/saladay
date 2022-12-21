@@ -186,6 +186,16 @@ public class MemberController {
 		return "member/find-result";
 	}
 	
+	/** 비밀번호 찾기 페이지 이동
+	 * @return member/findPw
+	 */
+	@GetMapping("/findPw")
+	public String findPw() {
+		return "member/findPw";
+	}
+	
+	
+	
 	
 	
 	
