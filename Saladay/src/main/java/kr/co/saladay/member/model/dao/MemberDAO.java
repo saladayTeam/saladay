@@ -60,6 +60,16 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.findPw", memberEmail);
 	}
 
+	
+	/**비밀번호 변경
+	 * @param member
+	 * @return 
+	 */
+	public int changePw(Member member) {
+		
+		return sqlSession.update("memberMapper.changePw", member);
+	}
+
 
 		
 	
