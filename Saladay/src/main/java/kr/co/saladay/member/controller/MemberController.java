@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -234,7 +235,49 @@ public class MemberController {
 		return "member/changePw";
 	}
 	
-	
+
+	/** 비밀번호 변경
+	 * @param tempMemberNo 비로그인 요청 시
+	 * @param loginMember  로그인 요청 시
+	 * @param status       로그아웃을 위한 객체
+	 * @param inputMember  사용자 입력
+	 * @param session      비로그인 요청 시 올려진 세션값 무효화
+	 * @param ra           메세지 응답시 필요
+	 * @return path 경로로 리다이렉트
+	 */
+	@PostMapping("/changePw")
+	public String changePw(@SessionAttribute(value="tempMemberNo", required=false) String tempMemberNo,
+						   @SessionAttribute(value="loginMember", required = false) Member loginMember,
+			SessionStatus status, Member member, HttpSession session, RedirectAttributes ra) {
+		
+		// 로그인 멤버의 회원번호로 먼저 검사
+		if(loginMember != null) {									// 로그인 상태에서 요청했을 때 
+			member.setMemberNo(loginMember.getMemberNo());
+			System.out.println("로그인 요청");
+		} else {													// 비로그인 상태에서 요청했을 때 (비밀번호 찾기 후 자동 요청)
+			member.setMemberNo(Integer.parseInt(tempMemberNo));
+			System.out.println("비로그인 요청");
+		}
+		
+		// 비밀번호 변경 요청 후 결과 반환
+		int result = service.changePw(member);
+		
+		String message = "";
+		String path = "";
+		if(result > 0) {			// 비밀번호 변경 성공 시 성공 메세지와 함께 로그아웃 후 메인페이지 리다이렉트 
+			message = "비밀번호가 변경되었습니다.";
+			path = "/";
+			status.setComplete();
+			session.invalidate();	// 세션 무효화
+			
+		} else {				// 비밀번호 변경 실패 시 실패 메세지와 함께 비밀번호 변경 페이지 리다이렉트
+			message = "비밀번호 변경에 실패하였습니다.";
+			path = "/member/changePw";
+		}
+		ra.addFlashAttribute("message", message);
+		return "redirect:" + path;
+	}
+
 	
 	
 	/**마이페이지-내 정보

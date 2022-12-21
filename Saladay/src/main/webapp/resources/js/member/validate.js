@@ -22,8 +22,8 @@ const currentMemberPwMessage = document.getElementById("currentMemberPwMessage")
 const memberPw = document.getElementById("memberPw");
 const memberPwMessage = document.getElementById("memberPwMessage");
 const memberPwConfirm = document.getElementById("memberPwConfirm");
-const memberPwConfirmMessag = document.getElementById
-const changePwForm = document.getElementById("changePwForm");("memberPwConfirmMessage");
+const memberPwConfirmMessage = document.getElementById("memberPwConfirmMessage");
+const changePwForm = document.getElementById("changePw-frm");
 
 // 이름
 const memberName = document.getElementById("memberName");
@@ -341,6 +341,7 @@ if(memberPw != null) {
     
         // 비밀번호 형식 확인
         const regEx = /^[a-zA-z0-9!@#-_]{5,20}$/;
+        
         if(regEx.test(memberPw.value)){              // 비밀번호 형식이 유효할 때
             memberPwMessage.innerText = "유효한 형식의 비밀번호입니다.";
             memberPwMessage.classList.add("confirm");

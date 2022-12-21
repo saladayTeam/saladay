@@ -40,7 +40,7 @@
                     <h4 class="find-box-title">새 비밀번호 확인</h4>
                     <div class="find-box-wrap2">
                         <div class="find-box-row">
-                            <input type="password" id="memberPw" name="memberPwConfirm" placeholder="새 비밀번호 확인" maxlength="20"  autocomplete="off">
+                            <input type="password" id="memberPwConfirm" name="memberPwConfirm" placeholder="새 비밀번호 확인" maxlength="20"  autocomplete="off">
 							<span class="white-space"></span>                        
                         </div>
                     </div>
@@ -58,7 +58,8 @@
         </section>
     </section>
 
-
-    <script src="/resources/js/member/changePw.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    
+    <script src="/resources/js/member/validate.js"></script>
 </body>
 </html>

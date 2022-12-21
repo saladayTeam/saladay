@@ -71,6 +71,15 @@ public class MemberServiceImpl implements MemberService{
 		
 		return dao.findPw(memberEmail);
 	}
+
+	//비밀번호 재설정
+	@Transactional
+	@Override
+	public int changePw(Member member) {
+		
+		member.setMemberPw(bcrypt.encode(member.getMemberPw()));
+		return dao.changePw(member);
+	}
 	
 	
 	

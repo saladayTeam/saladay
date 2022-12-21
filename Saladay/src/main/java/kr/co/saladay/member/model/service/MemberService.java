@@ -35,9 +35,16 @@ public interface MemberService {
 
 	/**비밀번호 찾기
 	 * @param memberEmail
-	 * @return 
+	 * @return result
 	 */
 	public String findPw(String memberEmail);
+
+
+	/**비밀번호 변경(암호화)
+	 * @param member
+	 * @return result
+	 */
+	public int changePw(Member member);
 
 
 }
