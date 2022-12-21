@@ -26,30 +26,35 @@
         <section class="find-box">
             <form action="/member/findPw" method="post" name="findPw-frm" id= "findPw-frm">
                 <div class="findPw-frm">
+				
+					<!-- 이메일 입력 영역 -->
+	                <h4 class="find-box-title">이메일</h4>
+	                <div class="find-box-wrap2">
+		                <div class="find-box-row">
+		                    <input type="text" name="memberEmail" id="memberEmail" placeholder="아이디(이메일)" maxlength="30" autocomplete="off">
+		                    <button type="button" id="getAuthKeyBtn" class="input-btn">인증번호 받기</button>
+		                </div>
+		            </div>
+	                <div class="message" id="memberEmailMessage">가입한 이메일을 입력해주세요.</div>
+	                
+	                <!-- 인증번호 입력 -->
+	                <h4 class="find-box-title">인증번호</h4>
+	                <div class="find-box-wrap2">
+		                <div class="find-box-row">
+		                    <input type="text" name="authKey" id="authKey" placeholder="인증번호 입력" maxlength="6" autocomplete="off">
+		                    <button type="button" id="checkAuthKeyBtn" class="input-btn">인증하기</button>
+		                </div>
+		            </div>    
+	                <div class="message" id="authKeyMessage"></div>
+	                
 
-                    <h4 class="find-box-title">이메일</h4>
-                    <div class="find-box-wrap">
-                        <div class="find-box-row">
-                            <input type="text" id="memberEmail" name="memberEmail" placeholder="아이디(이메일)" maxlength="30"  autocomplete="off">
-                            <button type="button" id="getAuthKeyBtn" class="input-btn">인증번호 받기</button>
-                        </div>
-                    </div>
-
-                    
-                    <h4 class="find-box-title">인증번호</h4>
-                    <div class="find-box-wrap2">
-                        <div class="find-box-row">
-                            <input type="text" id="authKey" name="authKey" placeholder="인증번호 입력"  maxlength="6" autocomplete="off">
-                            <button type="button" id="checkAuthKeyBtn" class="input-btn" >인증하기</button>
-                        </div>
-                    </div>
-                    <span class="authKey-message" id="authKeyMessage">인증되었습니다.</span><!-- / 인증번호가 일치하지 않습니다. -->
-                    
-                    
                     <div class="btn-box">
                         <button class="find-btn">비밀번호 찾기</button>
                     </div>
                 </div>
+                
+
+                
             </form>
             
 
@@ -58,6 +63,6 @@
     </section>
 
 
-    <script src="/resources/js/member/validate.js"></script>
+    <script src="/resources/js/member/findPw.js"></script>
 </body>
 </html>

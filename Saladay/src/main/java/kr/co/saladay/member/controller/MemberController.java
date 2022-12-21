@@ -2,6 +2,7 @@ package kr.co.saladay.member.controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -194,7 +195,44 @@ public class MemberController {
 		return "member/findPw";
 	}
 	
+	/** 비밀번호 찾기
+	 * @return 성공 시 비밀번호 변경페이지 리다이렉트, 실패 시 비밀번호 찾기 페이지 리다이렉트
+	 */
+	@PostMapping("/findPw")
+	public String findPw(String memberEmail, RedirectAttributes ra, HttpSession session) {
+		
+		String path = "";
+		// 파라미터로 받은 memberEmail로
+		// service.findPw(memberEmail) 호출
+		String result = service.findPw(memberEmail);
+		
+		if(result != null) {
+			// 일치하는 회원 정보가 있으면
+			// 회원정보 새션에 올리고
+			session.setAttribute("tempMemberNo", result);
+			session.setAttribute("referer", "findPw");
+			// 비밀번호 변경 페이지로 리다이렉트
+			path = "/member/changePw";
+			
+		
+		} else {				// 일치하는 회원 정보가 없으면 
+			// 메세지와 함께 리다이렉트
+			
+			ra.addFlashAttribute("message", "일치하는 회원정보가 존재하지않습니다.");
+			path = "/member/findPw";
+		}
+		
+		return "redirect:" + path;
+	}
 	
+	/** 비밀번호 찾기 -> 비밀번호 변경 
+	 * @return member/changePw 포워드
+	 */
+	@GetMapping("/changePw")
+	public String changePw() {
+		
+		return "member/changePw";
+	}
 	
 	
 	

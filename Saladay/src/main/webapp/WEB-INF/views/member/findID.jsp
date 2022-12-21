@@ -32,6 +32,7 @@
                     <div class="find-box-wrap">
                         <div class="find-box-row">
                             <input type="text" id="memberName" name="memberName" placeholder="'이름' 을 입력하세요" maxlength="5"  autocomplete="off">
+                            <span class="white-space"></span>
                         </div>
                     </div>
 
@@ -39,6 +40,7 @@
                     <div class="find-box-wrap">
                         <div class="find-box-row">
                             <input type="text" id="memberTel" name="memberTel" placeholder="'-' 없이 입력하세요"  maxlength="11" >
+                            <span class="white-space"></span>
                         </div>
                     </div>
                     
@@ -57,6 +59,6 @@
     </section>
 
 
-
+	<script src="/resources/js/member/findID.js"></script>
 </body>
 </html>

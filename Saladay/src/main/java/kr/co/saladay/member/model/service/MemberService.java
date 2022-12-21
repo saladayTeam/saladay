@@ -33,4 +33,11 @@ public interface MemberService {
 	public Member findID(Member member);
 
 
+	/**비밀번호 찾기
+	 * @param memberEmail
+	 * @return 
+	 */
+	public String findPw(String memberEmail);
+
+
 }
