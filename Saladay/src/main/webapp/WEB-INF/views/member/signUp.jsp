@@ -40,7 +40,7 @@
                     <input type="text" name="authKey" id="authKey" placeholder="인증번호 입력" maxlength="6" autocomplete="off">
                     <button type="button" id="checkAuthKeyBtn">인증하기</button>
                 </div>
-                <span class="signUp-message" id="authKeyMessage">인증되었습니다.</span><!-- / 인증번호가 일치하지 않습니다. -->
+                <span class="signUp-message" id="authKeyMessage"></span>
                 
                 <!-- 비밀번호/비밀번호 확인 입력 -->
                 <label for="memberPw">
@@ -137,7 +137,7 @@
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <!-- <script src="/resources/js/member/validate.js"></script> -->
+    <script src="/resources/js/member/validate.js"></script>
     
 </body>
 </html>
