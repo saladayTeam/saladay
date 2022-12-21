@@ -8,7 +8,7 @@ body{
 
 main{
     margin: 0px;
-    /* width: 1080px; */
+    width: 1200px;
     /* min-height: 300vh; */
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@ main{
 
 /* 상품설명 시작 */
 .content{
-    width: 1080px;
+    width: 1200px;
     margin: 70px auto 0;
     justify-content: center;
     align-items: center;
@@ -85,11 +85,11 @@ main{
     width: 100%;
     padding: 0px;
     margin-bottom: 60px;
-    font-size: 0;
+    /* font-size: 0; */
 }
 .menu-name{
-    flex-shrink: 0;
-    width: 20%;
+    /* flex-shrink: 0; */
+    width: 14%;
     display: inline-block;
     height: 50px;
     /* border: solid 1px #ddd; */
@@ -103,6 +103,7 @@ main{
     align-items: center;
     font-size: 13px;
     border-collapse: collapse;
+    margin-bottom: 4px;
 }
 .menu-name a{
     display: block;
@@ -150,7 +151,8 @@ main{
 .menu-img{
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 65%;
+    /* width: 65%; */
+    width: 500px;
     text-align: center;
 }
 
@@ -244,7 +246,7 @@ span {cursor:pointer; }
     display: inline-block;
     justify-content: center;
     align-items: center;
-    margin-right: 35px;
+    /* margin-right: 35px; */
     margin-bottom: 15px;
 }
 
@@ -327,9 +329,9 @@ li {
   }
   .kind_wrap {
     /* border:2px solid black;  */
-    width:1083px; 
-    max-width:1083px; 
-    margin:0 auto; 
+    width:1203px; 
+    max-width:1203px; 
+    /* margin:0 auto;  */
     position: relative;
     /* display: flex; */
   }
@@ -358,10 +360,10 @@ li {
   }
 
 .slide{
-    width: 1082px;
+    width: 1202px;
 }
 .slider{
-    width: 1082px;
+    width: 1202px;
 }
 
 .next{

@@ -28,90 +28,99 @@
       <br />
       <span>주문하실 상품의 제품명과 수량을 정확히 확인해주세요</span>
     </div>
-    <div class="cart-wrapper">
-      <span>장바구니 정보</span>
-      <hr />
-      <li class="cart-table-header">
-        <div class="cart-package-image"><span>패키지</span></div>
-        <div class="cart-package-info"><span>상품정보</span></div>
-        <div class="cart-package-count"><span>수량</span></div>
-        <div class="cart-package-price"><span>가격</span></div>
-        <div class="cart-package-total"><span>상품금액</span></div>
-      </li>
 
-      <hr />
-      <!-- 패키지 -->
-      <li class="cart-container">
-        <div class="cart-package-image">
-          <img src="" alt="이미지" />
-        </div>
-        <div class="cart-package-info">
-          <span>[1주] 샐러드 3팩 패키지 </span>
-        </div>
-        <div class="cart-package-count">
-          <span>1</span>
-        </div>
-        <div class="cart-package-price">
-          <span>30000</span>
-        </div>
-        <div class="cart-package-total">
-          <span></span>
-        </div>
-      </li>
-      <!-- 메뉴 -->
-      <li class="cart-container">
-        <div class="cart-package-image"></div>
-        <div class="cart-menu-info menu">
-          <span>로스트 치킨</span>
-        </div>
-        <div class="cart-package-count">
-          <span>1</span>
-        </div>
-        <div class="cart-package-price">
-          <span>8000</span>
-        </div>
-        <div class="cart-package-total">
-          <span></span>
-        </div>
-      </li>
+    <form action="" method="post">
+        <div class="cart-wrapper">
+        <span>장바구니 정보</span>
+        <hr />
+        <li class="cart-table-header">
+            <div class="cart-package-image"><span>패키지</span></div>
+            <div class="cart-package-info"><span>상품정보</span></div>
+            <div class="cart-package-count"><span>수량</span></div>
+            <div class="cart-package-price"><span>가격</span></div>
+            <div class="cart-package-total"><span>상품금액</span></div>
+        </li>
 
-      <!-- 옵션 -->
-      <li class="cart-container">
-        <div class="cart-package-image"></div>
-        <div class="cart-option-info menu">
-          <span>양파</span>
+        <hr />
+
+        <!-- 패키지 -->
+        <li class="cart-container">
+            <div class="cart-package-image">
+            <img src="${cartPackage.packageImage}" alt="이미지" width="220px" height="140px"/>
+            </div>
+            <div class="cart-package-info">
+            <span>${cartPackage.packageName}</span>
+            </div>
+            <div class="cart-package-count">
+            <span>1</span>
+            </div>
+            <div class="cart-package-price">
+            <span></span>
+            </div>
+            <div class="cart-package-total">
+            <span></span>
+            </div>
+        </li>
+        <!-- 메뉴 -->
+        <c:forEach var="menu" items="${cartPackage.menuList}">
+          <li class="cart-container">
+              <div class="cart-package-image"></div>
+              <div class="cart-menu-info">
+              <span>${menu.menuName}</span>
+              </div>
+              <div class="cart-package-count">
+              <span>1</span>
+              </div>
+              <div class="cart-package-price menu">
+              <span>${menu.menuPrice}</span>
+              </div>
+              <div class="cart-package-total">
+              <span></span>
+              </div>
+          </li>
+
+          <!-- 옵션 -->
+          <c:forEach var="option" items="${menu.optionList}">
+          <li class="cart-container">
+              <div class="cart-package-image"></div>
+              <div class="cart-option-info option">
+              <span>${option.optionName}</span>
+              </div>
+              <div class="cart-package-count option">
+              <span>${option.optionCount}</span>
+              </div>
+              <div class="cart-package-price option">
+              <span>${option.optionPrice*option.optionCount}</span>
+              </div>
+              <div class="cart-package-total">
+              <span></span>
+              </div>
+          </li>
+          </c:forEach>
+        </c:forEach>
+
+        <hr />
+
+        <!-- 패키지 총 금액 -->
+        <li class="cart-table-header">
+            <div class="cart-package-image"></div>
+            <div class="cart-package-info"></div>
+            <div class="cart-package-count"></div>
+            <div class="cart-package-price"></div>
+            <div class="cart-package-total"><span>${cartPackage.packagePrice}</span></div>
+        </li>
         </div>
-        <div class="cart-package-count">
-          <span>2</span>
-        </div>
-        <div class="cart-package-price">
-          <span>1000</span>
-        </div>
-        <div class="cart-package-total">
-          <span></span>
-        </div>
-      </li>
-      
-      <hr />
-      <!-- 패키지 총 금액 -->
-      <li class="cart-table-header">
-        <div class="cart-package-image"></div>
-        <div class="cart-package-info"></div>
-        <div class="cart-package-count"></div>
-        <div class="cart-package-price"></div>
-        <div class="cart-package-total"><span>35000</span></div>
-      </li>
-    </div>
 
 
-    <hr />
+        <hr />
 
-    <div class=delete-cart><span>장바구니 삭제</span></div>
+        <div class=delete-cart><span>장바구니 삭제</span></div>
 
-    <hr />
+        <hr />
 
-    <div class="total"><span>결제예상금액</span> <span>35000</span></div>
-
+        <button class="total">주문 / 결제</button>
+    </form>
+    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
     <script src="/resources/js/cart/cart.js"></script>

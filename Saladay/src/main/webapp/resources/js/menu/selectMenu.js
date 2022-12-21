@@ -1,3 +1,4 @@
+// 옵션 추가, 감소 버튼
 $(document).ready(function() {
     $('.minus').click(function () {
         var $input = $(this).parent().find('input');
@@ -18,6 +19,9 @@ $(document).ready(function() {
     });
 });
 
+
+
+// 슬라이드 코드
 window.onload = function() {
     const kindWrap =  document.querySelector('.kind_wrap');
     const slider = kindWrap.querySelector('.slider');
@@ -77,4 +81,28 @@ window.onload = function() {
     //     }
     //   }
   
+    
+    $('.menu-box li').on('click', function(e) {
+        console.log("상위 li");
+    })
+    
+    $(function(){
+    
+        $('.menu-box li a').click(function(){
+            $('.menu-img img').eq(currentIdx).attr('src',$(this).attr('href'))
+            console.log($('.menu-name a'))
+            
+            var mName = $(this).text();
+            $('.menu-title').eq(currentIdx).text(mName);
+    
+            $('.menu-detail').eq(currentIdx).text($(this).next().val())
+    
+            return false;
+        })
+        // $('.menu-box li a').click(function(){
+            
+            
+        //     // return false;
+        // })
+    })
 }
