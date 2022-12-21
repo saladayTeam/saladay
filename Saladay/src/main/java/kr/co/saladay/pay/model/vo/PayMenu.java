@@ -11,7 +11,8 @@ import lombok.ToString;
 @ToString
 public class PayMenu {
 
-	private int menuNo;
+	private int cartMenuNo;
+	private int orderMenuNo;
 	private String menuName;
 	private int menuPrice;
 	private String menuDeleteFlag;
