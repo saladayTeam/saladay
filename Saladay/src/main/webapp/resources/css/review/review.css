@@ -39,17 +39,22 @@
 .albumLi{
     margin-left: 12px;
     display: inline-block;
-    height: 304px;
+    height: 300px;
     width: 350px;
-/*     padding-left: 0px;
-    right: 0px; */
+    margin: 10px;
+}
+
+.albumLi > a{
+    display: flex;
+    justify-content: center;
+}
+
+.review-img{
+    width: 200px;
+    height: 200px;
 }
 
 /* 리뷰 내용, 작성자, 별점 */
-.review-text{
-    display: flex;
-}
-
 .review-content{
     color: #333333;
     /* white-space: nowrap; */
@@ -62,24 +67,30 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     word-break: break-all;
+    text-decoration: none;
 }
 
-.review-writer{
-    color: #666666;
-    padding-top: 7px;
-}
-
-.review-star{
+/* 리뷰 메뉴명 */
+.review-menu-name{
     color: #999999;
 }
 
-.review-like{
+/* 리뷰 작성자 */
+.review-writer{
+    color: #666666;
+    padding-top: 7px;
+/*     display: flex;
+    justify-content: flex-end; */
+    margin-right: 12px;
+}
+
+.rating{
     color: #999999;
 }
 
 /* 페이지네이션 */
 .pagination {
-    margin-top: 5px;
+    margin: 35px 15px;
     list-style: none;
     display: flex;
     justify-content: center;
@@ -87,8 +98,147 @@
     font-size: 13px;
 }
 
+.pagination > li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    letter-spacing: -2px;
+    text-decoration: none;
+    color: black;
+}
+
+/* 현재 페이지 번호 */
+.pagination .current{
+    color: #17633d;
+    font-weight: bold;
+}
+
 /* 검색창 */
 .search-area{
+    margin: 15px 15px;
     display: flex;
     justify-content: center;
 }
+
+
+/* ************************************************** */
+
+/* 리뷰 상세 모달 */
+.review-modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    left:0;
+    z-index: 1210;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+    overflow: auto;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 리뷰 모달 닫기 */
+#modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+#modal-close:hover{
+    transform: scale(1.2);
+}
+
+/* 리뷰 상세 조회 */
+.review-detail{
+    border: solid 1px black;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+/* 리뷰 삭제 버튼 */
+.review-delete-area{
+    align-self: flex-end;
+}
+
+/* 리뷰 내용 묶음 */
+.review-detail-content{
+    /* padding: 20px; */
+}
+
+/* 리뷰이미지 영역 */
+.review-img-area{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-images{
+    height: 100%;
+}
+
+/* 리뷰 별점 */
+.review-detail-star{
+    color: #17633d;
+}
+
+/* 리뷰 작성일 */
+.review-detail-date{
+    color: #666666;
+}
+
+/* 샐러드명 */
+.review-detail-salad{
+    font-weight: bold;
+    color: #666666;
+}
+
+/* 리뷰 작성자 닉네임 */
+.review-detail-nickname{
+    color: #666666;
+    display: flex;
+}
+
+/* 리뷰 내용 */
+.review-detail-text{
+    border: #999999 1px solid;
+    border-radius: 10px;
+    color: #666666;
+    padding-right: 10px;
+    margin-top: 5px;
+    overflow:auto;
+    width: 100%;
+    height: 100px;
+}
+/* 좋아요 */
+.review-detail-like{
+    align-self: flex-end;
+    color: red;
+}
+
+
