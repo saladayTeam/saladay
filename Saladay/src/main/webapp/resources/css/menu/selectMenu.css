@@ -9,7 +9,7 @@ body{
 main{
     margin: 0px;
     /* width: 1080px; */
-    min-height: 300vh;
+    /* min-height: 300vh; */
     display: flex;
     flex-direction: column;
 }
@@ -318,4 +318,66 @@ button{
 
 .menu-select-box{
     display: flex;
+}
+
+
+/* 슬라이드 css */
+li {
+    list-style: none;
+  }
+  .kind_wrap {
+    /* border:2px solid black;  */
+    width:1083px; 
+    max-width:1083px; 
+    margin:0 auto; 
+    position: relative;
+    /* display: flex; */
+  }
+  .kind_wrap > .kind_slider {
+    overflow: hidden;
+  }
+  .kind_wrap > .kind_slider .slider { 
+    position: relative; 
+    transition: 0.5s;
+  }
+  .kind_wrap > .kind_slider .slider .slide {
+    float:left;
+  }
+  .kind_wrap > .kind_slider img {
+    vertical-align: top;
+  }
+  .kind_wrap .arrow > a.prev {
+    position: absolute; 
+    left:-150px; 
+    top:100px;
+  }
+  .kind_wrap .arrow > a.next {
+    position: absolute; 
+    right:-150px; 
+    top:100px;
+  }
+
+.slide{
+    width: 1082px;
+}
+.slider{
+    width: 1082px;
+}
+
+.next{
+    margin-top: 450px;
+    font-size: 0;
+    color: white;
+    width: 92px;
+    height: 92px;
+    background-image: url("/resources/images/menu/icon/다음.png");
+}
+
+.prev{
+    margin-top: 450px;
+    font-size: 0;
+    color: white;
+    width: 92px;
+    height: 92px;
+    background-image: url("/resources/images/menu/icon/이전.png");
 }
