@@ -9,6 +9,7 @@
       <result property="packageName" column="PACKAGE_NAME"/>
       <result property="packageImage" column="PACKAGE_IMG"/>
       <result property="packagePrice" column="TOTAL"/>
+      <result property="packageType" column="PACKAGE_TYPE"/>
       <collection property="menuList" javaType="java.util.ArrayList" ofType="PayMenu"
       select="selectCartMenuList" column="CART_NO" />
 	</resultMap>
