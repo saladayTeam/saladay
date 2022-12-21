@@ -25,9 +25,7 @@ public class CartController {
 		int memberNo=loginMember.getMemberNo();
 		
 		PayPackage cartPackage=service.selectCartPackage(memberNo);
-		
-		System.out.println(cartPackage.getMenuList());
-		
+				
 		model.addAttribute("cartPackage", cartPackage);
 		
 		return "cart/cart";

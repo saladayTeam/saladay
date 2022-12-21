@@ -36,13 +36,13 @@
     </section>
     <div>
       <ul class="header-menu">
-        <li><a href="/cart"
-              ><img
-                src="/resources/images/main/shopping-cart.png"
+        <li><a><img src="/resources/images/main/shopping-cart.png"
                 alt=""
                 width="25px"
                 height="25px"
-            /></a></li>
+                id="cart"/>
+            </a>
+          </li>
         <c:choose>
           <%-- 로그인 상태라면 --%>
           <c:when test="${not empty loginMember}">
@@ -69,3 +69,19 @@
       <li><a href="/FAQ">FAQ</a></li>
     </ul>
   </nav>
+
+<script>
+  const loginMemberNo="${loginMember.memberNo}";
+</script>
+
+<script>
+  const cart = document.getElementById("cart");
+  cart.addEventListener("click", () => {
+    if (loginMemberNo == "") {
+      alert("로그인 후 이용해주세요");
+      location.href = "/member/login";
+    } else {
+      location.href="/cart";
+    }
+  });
+</script>
