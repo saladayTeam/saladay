@@ -60,10 +60,12 @@
                     <p class="address-area">
                         <input type="text" name="address" id="sample6_postcode" placeholder="우편번호" 
                             maxlength="6" autocomplete="off" readonly> <!-- value="${addr[0]}" -->
-                        
+                    </p>
+                    <p class="address-area">    
                         <input type="text" name="address" id="sample6_address" placeholder="도로명/지명주소" 
                         autocomplete="off" readonly> <!-- value="${addr[1]}" -->    
-
+                    </p>
+                    <p class="address-area">
                         <input type="text" name="address" id="sample6_detailAddress" placeholder="상세주소" 
                         autocomplete="off" > <!-- value="${addr[2]}" -->
                     </p>
@@ -93,22 +95,54 @@
                     <div class="order-price"><span>가격</span></div>
                 </li>
                 
+                <div class="order-all">
                 <!-- 주문한 메뉴 내용 c:forEach -->
-                <li class="order-area">
-                    <div class="order-menu">쉬림프샐러드</div>
-                    <div class="order-quantity">1</div>
-                    <div class="order-price">8900</div>
-                </li>
-                <li class="order-area">
-                    <div class="order-menu">쉬림프샐러드</div>
-                    <div class="order-quantity">1</div>
-                    <div class="order-price">8900</div>
-                </li>
-                <li class="order-area">
-                    <div class="order-menu">쉬림프샐러드</div>
-                    <div class="order-quantity">1</div>
-                    <div class="order-price">8900</div>
-                </li>
+                    <%-- 선택 메인 메뉴 --%>
+                    <li class="order-area">
+                        <div class="order-menu">쉬림프샐러드</div>
+                        <div class="order-quantity">1</div>
+                        <div class="order-price">8900</div>
+                    </li>
+                    <%-- 선택한 옵션 --%>
+                    <li class="order-area">
+                        <div class="order-option">양상추</div>
+                        <div class="order-quantity"> 1</div>
+                        <div class="order-price"> 1000</div>
+                    </li>
+                </div>
+
+                <div class="order-all">
+                <!-- 주문한 메뉴 내용 c:forEach -->
+                    <%-- 선택 메인 메뉴 --%>
+                    <li class="order-area">
+                        <div class="order-menu">쉬림프샐러드</div>
+                        <div class="order-quantity">1</div>
+                        <div class="order-price">8900</div>
+                    </li>
+                    <%-- 선택한 옵션 --%>
+                    <li class="order-area">
+                        <div class="order-option">양상추</div>
+                        <div class="order-quantity"> 1</div>
+                        <div class="order-price"> 1000</div>
+                    </li>
+                </div>
+
+                <div class="order-all">
+                <!-- 주문한 메뉴 내용 c:forEach -->
+                    <%-- 선택 메인 메뉴 --%>
+                    <li class="order-area">
+                        <div class="order-menu">쉬림프샐러드</div>
+                        <div class="order-quantity">1</div>
+                        <div class="order-price">8900</div>
+                    </li>
+                    <%-- 선택한 옵션 --%>
+                    <li class="order-area">
+                        <div class="order-option">양상추</div>
+                        <div class="order-quantity"> 1</div>
+                        <div class="order-price"> 1000</div>
+                    </li>
+                </div>
+
             </div>
         </div>
 
@@ -132,7 +166,7 @@
             <p><span>총 금액</span><span>32700원</span></p>
         </div>
         
-        <div> <button class="pay-btn">구매하기</button> </div>
+        <div> <button type="button" id="imporPayment">구매하기</button> </div>
     </section>
 
     <!-- footer -->

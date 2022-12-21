@@ -143,8 +143,11 @@
 }
 
 .show-area{
+    width: 800px;
     display: none;
+    margin: 0 auto;
 }
+
 
 /* 주문목록 상세 내역 */
 .order-header {
@@ -157,16 +160,21 @@
 }
 
 /* 주문한 메뉴의 목록 */
+.order-all {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+
 .order-area {
     display: flex;
     text-align: center;
-    border-top: 1px solid #ddd;
-    padding: 5px 0px;
 }
 
 .order-menu {
     flex-basis: 60%;
-    text-align: center;
+    text-align: left;
+    padding-left : 50px;
     line-height: 30px;
 }
 
@@ -179,9 +187,20 @@
     line-height: 30px;
 }
 
-.order-area:last-child{
-    border-bottom: 1px solid #ddd;
+/* 토핑 이름만 크기 다르게  */
+.order-option {
+    font-size: 14px;
+    color: #575454;
+    padding-left: 70px;
+    flex-basis: 60%;
+    text-align: left;
+    line-height: 30px;
 }
+
+
+/* .order-area:last-child{
+    border-bottom: 1px solid #ddd;
+} */
 
 
 /* 배송일 선택 */
@@ -266,7 +285,7 @@ input[data-placeholder]::before{
 }
 
 /* 구매하기 버튼 */
-.pay-btn{
+#imporPayment{
     width: 100%;
     height: 50px;
     background-color: #17633d;
