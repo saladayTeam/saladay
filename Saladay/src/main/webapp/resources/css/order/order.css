@@ -203,7 +203,7 @@
 } */
 
 
-/* 배송일 선택 */
+/* 배송일 영역 */
 .select-delivery {
     padding : 20px 0px;
     border-top: 1px solid #ddd;
@@ -214,10 +214,8 @@
     line-height: 30px;
 }
 
-
-
-/* 배송지 선택 달력 */
-input[type="date"] {
+/*배송일 선택 달력 */
+/* input[type="date"] {
     position: relative;
     width: 300px;
     height: 40px;
@@ -261,8 +259,24 @@ input[data-placeholder]::before{
     color: #bababa;
     font-size: 15px;
     padding-left: 5px;
+} */
+
+/* 배송일 지정 */
+#deliveryDate {
+    position: relative;
+    width: 280px;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 20px;
+    background: url(../../images/calendar.png) no-repeat right 10px center / 20px auto;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
 }
 
+#deliveryDate:focus{
+    border: 1px solid #17633d;
+    outline: none;
+}
 
 /* 결제수단 */
 .payment-area{

@@ -13,6 +13,7 @@
 
     <!-- 폰트어썸 -->
     <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <!-- header -->
@@ -150,7 +151,8 @@
         <div class="select-delivery">
             <h3>배송일 선택</h3>
             <p>상품 수령 날짜를 선택해주세요</p>
-            <p><input type="date" data-placeholder="배송일 선택" required></p>
+            <%-- <p><input type="date" data-placeholder="배송일 선택" required></p> --%>
+            <p><input type="text" id="deliveryDate" name="deliveryDate" placeholder="배송일 선택" required></p>
         </div>
         
 
@@ -172,9 +174,14 @@
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
-
+    <!-- 다음 api -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="../../resources/js/order/order.js"></script>
+    
+    <!-- Datepicker -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="/resources/js/order/order.js"></script>
 </body>
 </html>

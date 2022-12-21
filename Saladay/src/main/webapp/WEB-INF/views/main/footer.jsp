@@ -18,3 +18,11 @@
         <p>KH 정보교육원 종로지원 TEAM SALADAY 파이널 프로젝트 </p>
       </div>
     </footer>
+
+    <%-- session scope 내에 message속성이 존재하는 경우 alert(JS)기능을 이용해서 처리한 메세지 내용 출력 --%>
+    <c:if test="${!empty message}">
+        <script> 
+            alert("${message}");
+        </script> 
+        <c:remove var="message" />
+    </c:if>
