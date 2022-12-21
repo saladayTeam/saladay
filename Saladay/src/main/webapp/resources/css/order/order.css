@@ -76,18 +76,38 @@
 }
 
 
-/* 주소입력 영역 */
+/* 배송정보 변경 */
 #orderName, #orderTel{
     width: 100%;
     height: 90%;
+    outline: none;
+    border: 1px solid #ddd;
+    padding-left: 10px;
+}
+
+.address-area {
+    margin: 5px 0;
+}
+
+#sample6_postcode{
+    width: 30%; 
+}
+
+.address-area button {
+    width: 90px;
 }
 
 /* 주소영역 행 구역 */
 .address-area input {
     outline: none;
-    border: none;
-    border-bottom: 1px solid #ddd;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    margin-left: 300px;
+    width: 70%;  
+    padding-left: 10px;
 }
+
+
 
 
 /* ********************************************************* */
@@ -262,7 +282,7 @@ input[data-placeholder]::before{
 } */
 
 /* 배송일 지정 */
-#deliveryDate {
+#deliveryDate, #deliveryDate2 {
     position: relative;
     width: 280px;
     height: 40px;
@@ -273,7 +293,7 @@ input[data-placeholder]::before{
     border-radius: 5px;
 }
 
-#deliveryDate:focus{
+#deliveryDate:focus, #deliveryDate2:focus {
     border: 1px solid #17633d;
     outline: none;
 }

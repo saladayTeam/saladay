@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="packageNo" value="${pacakgeList[packageNo-1].PACKAGE_NO}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -378,10 +380,10 @@
         <div class="bottom-box">
             <!-- <div>상품이미지</div> -->
             <button class="cartin-btn">장바구니 담기</button>
-            <button class="order-btn">주문하기</button>
+            <button type="button" class="order-btn"><a href="/order">주문하기</a></button>
         </div>
-        </form>
     </main>
+    </form> 
 
     <!-- footer -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>

@@ -13,9 +13,9 @@ public class OrderServiceImpl implements OrderService{
 	@Autowired
 	private OrderDAO dao;
 
+	// 장바구니 넣기
 	@Override
 	public int insertCart(PayPackage cart) {
-		
 		return dao.insertCart(cart);
 	}
 

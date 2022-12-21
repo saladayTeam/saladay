@@ -316,6 +316,12 @@ button{
     background-color: #17633D;
     border: none;
     color: white;
+    cursor: pointer;
+}
+
+.order-btn a{
+    text-decoration: none;
+    color: white;
 }
 
 .menu-select-box{
