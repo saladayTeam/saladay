@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%-- map에 저장된 값을 꺼내어 각각 변수에 저장 --%>
-<c:set var="reviewList" value="${map.reviewList}"/>
+<c:set var="reviewList" value="${map.menuReviewList}"/>
 <c:set var="pagination" value="${map.pagination}"/>
 
 <!DOCTYPE html>
@@ -109,13 +109,12 @@
                 </form>
             </div> --%>
         </div>
-    </main>
 
-        <div class="review-modal">
-            <span id="modal-close">&times;</span>
+<%--         <div class="modal">
             <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp"></jsp:include>
-        </div>
+        </div> --%>
 
+    </main>
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     <script>
