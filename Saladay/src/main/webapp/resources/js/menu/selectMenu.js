@@ -1,3 +1,4 @@
+// 옵션 추가, 감소 버튼
 $(document).ready(function() {
     $('.minus').click(function () {
         var $input = $(this).parent().find('input');
@@ -18,6 +19,9 @@ $(document).ready(function() {
     });
 });
 
+
+
+// 슬라이드 코드
 window.onload = function() {
     const kindWrap =  document.querySelector('.kind_wrap');
     const slider = kindWrap.querySelector('.slider');
@@ -78,3 +82,7 @@ window.onload = function() {
     //   }
   
 }
+
+$('.menu-box li').on('click', function(e) {
+    console.log("상위 li");
+})
