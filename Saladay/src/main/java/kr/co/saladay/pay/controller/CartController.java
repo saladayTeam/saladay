@@ -17,9 +17,9 @@ public class CartController {
 	
 	@GetMapping("/cart")
 	public String cart(@SessionAttribute int cartNo,
-			@SessionAttribute(value="loginMember",required=false) Member loginMember)) {
+			@SessionAttribute(value="loginMember",required=false) Member loginMember) {
 		
-		PayPackage cartPackage=service.selectCartPackage(cartNo);
+		// PayPackage cartPackage=service.selectCartPackage(cartNo);
 		
 		return "cart/cart";
 	
