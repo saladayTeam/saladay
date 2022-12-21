@@ -42,7 +42,7 @@ header > section:nth-child(1) {
 }
 header > section:nth-child(2) {
   /* flex-basis: 70%; */
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
