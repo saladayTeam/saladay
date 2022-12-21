@@ -14,15 +14,21 @@
 <body>
     <!-- 헤더 -->
 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
-    
+
     <section class="menu-section">
         <div class="menu">
-            <ul class="menu-box">
-                <li class="option-name"><a href="/menu/menuList"> Salad</a></li>
-                <li class="option-name"><a href="/menu/mainTopping">Main Topping</a></li>
-                <li class="option-name"><a href="/menu/subTopping">Sub Topping</a></li>
-                <li class="option-name"><a href="/menu/sourceList">Source</a></li>
-            </ul>
+            <div class="option-name"> 
+                <a href="/menu/menuList"> Salad</a>
+            </div>
+            <div class="option-name"> 
+                <a href="/menu/mainTopping">Main Topping</a>
+            </div>
+            <div class="option-name"> 
+                <a href="/menu/subTopping">Sub Topping</a>
+            </div>
+            <div class="option-name"> 
+                <a href="/menu/sourceList">Source</a> 
+            </div>
         </div>
         
         <div class="pd-list-wrapper">
@@ -34,18 +40,18 @@
                             <li class="menu-title"><span>${menu.menuName}</span></li>
                         </div>
                         <div class="summary">
-                            <li class="menu-content">${menu.menuContent}</li>
+                            <li class="menu-title"><span>${menu.menuName}</span></li> <br>
+                            <li class="menu-content">${menu.menuContent}</li> <br>
+                            <li class="menu-content">${menu.menuPrice}원</li>
                         </div>
                     </div>
                 </c:forEach>
             </div>
         </div>
     </section>
-
     
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
-    <script src="/resources/js/menu/menuList.js"></script>
 </body>
 </html>

@@ -31,6 +31,7 @@
 		<mapper resource="/mappers/menu-mapper.xml" />
 		<mapper resource="/mappers/review-mapper.xml" />
 		<mapper resource="/mappers/cart-mapper.xml" />
+		<mapper resource="/mappers/order-mapper.xml" />
 
 	</mappers>
 </configuration>
