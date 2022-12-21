@@ -33,7 +33,7 @@
         		
         		<div>
 		            <div class="btn1"><a href="/member/login">로그인</a></div>
-		            <div class="btn2"><a href="/member/findPw">비밀번호 재설정</a></div>
+		            <div class="btn2"><a href="/member/findPw">비밀번호 찾기</a></div>
 		        </div>
         	</c:when>
         	<c:otherwise>
