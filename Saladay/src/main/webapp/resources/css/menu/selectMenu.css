@@ -113,6 +113,9 @@ main{
     text-decoration: none;
     color: #666666;
 }
+.menu-name a:hover{
+    cursor: pointer;
+}
 
 /* 메뉴 상세 */
 .detail{
@@ -197,10 +200,10 @@ main{
     color: black;
 
 }
-
+/* 
 .add-menu{
     padding-bottom: 35px;
-}
+} */
 
 .menu-costom{
     padding: 50px 70px;
@@ -210,14 +213,12 @@ main{
     list-style: none;
     display: block;
     width: 104%;
-}
-
-.img-box{
+    margin-bottom: 40px;
 }
 
 .topping-img{
-    width: 95px;
-    height: 95px;
+    width: 130px;
+    height: 130px;
     object-position: center center;
     object-fit: contain;
 }
@@ -231,7 +232,7 @@ main{
 .topping-price{
     font-size: 11px;
     color: #666;
-    padding-top: 3px;
+    padding-top: 7px;
     padding-right: 7px;
 }
 
@@ -239,7 +240,7 @@ span {cursor:pointer; }
 
 .topping{
     text-align: center;
-    width: 95px;
+    width: 130px;
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -313,4 +314,8 @@ button{
     background-color: #17633D;
     border: none;
     color: white;
+}
+
+.menu-select-box{
+    display: flex;
 }
