@@ -135,6 +135,12 @@ hr {
   font-weight: bold;
 
   width: 1200px;
+
+  border: none;
+}
+
+.total:hover {
+  cursor: pointer;
 }
 
 .total > span:first-child {
