@@ -22,5 +22,6 @@ public class CartController {
 		PayPackage cartPackage=service.selectCartPackage(cartNo);
 		
 		return "cart/cart";
+	
 	}
 }
