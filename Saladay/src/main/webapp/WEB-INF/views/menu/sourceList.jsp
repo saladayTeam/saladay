@@ -18,28 +18,44 @@
 
     <section class="menu-section">
         <div class="menu">
-            <ul class="menu-box">
-                <li class="option-name"><a href="/menu/menuList"> Salad</a></li>
-                <li class="option-name"><a href="/menu/mainTopping">Main Topping</a></li>
-                <li class="option-name"><a href="/menu/subTopping">Sub Topping</a></li>
-                <li class="option-name"><a href="/menu/sourceList">Source</a></li>
-            </ul>
+            <div class="option-name"> 
+                <a href="/menu/menuList"> Salad</a>
+            </div>
+
+            <div class="option-name"> 
+                <a href="/menu/mainTopping">Main Topping</a>
+            </div>
+
+            <div class="option-name"> 
+                <a href="/menu/subTopping">Sub Topping</a>
+            </div>
+
+            <div class="option-name"> 
+                <a href="/menu/sourceList">Source</a> 
+            </div>
         </div>
         
-        <div class="menu-detail">
-            <c:forEach items="${sourceList}" var="source">
-            <ul class="menu-list">
-                <li class="menu-img"><img src="${source.optionImage}" alt=""></li>
-                <li class="menu-title"><h1>${source.optionName}</h1></li>
-            </ul>
-            </c:forEach>
+        <div class="pd-list-wrapper">
+            <div class="menu-detail">
+                <c:forEach items="${sourceList}" var="source">
+                    <div class="menu-wrapper">
+                        <div class="menu-list">
+                            <li class="menu-img"><img src="${source.optionImage}" alt=""></li>
+                            <li class="menu-title"><span>${source.optionName}</span></li>
+                        </div>
+                        <div class="summary">
+                            <li class="menu-title"><span>${source.optionName}</span></li> <br>
+                            <li class="menu-content">${source.optionPrice}원</li>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
         </div>
-
+        
     </section>
     
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
-    <script src="/resources/js/menu/menuList.js"></script>
 </body>
 </html>
