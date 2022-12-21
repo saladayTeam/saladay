@@ -48,27 +48,22 @@
                                     <%-- 리뷰 이미지가 있을 경우 --%>
                                     <c:if test="${not empty review.thumbnail}">  
                                     <a href="#">
-                                    <img src="${review.thumbnail}" width="200px" height="200px"></a>
+                                    <img src="${review.thumbnail}" class="review-img"></a>
                                     </c:if>
                                     <%-- 리뷰 이미지가 없을 경우 --%>
                                     <c:if test="${empty review.thumbnail}">
                                     <a href="#">
-                                    <img src="/resources/images/review/reviewImg.png" width="200px" height="200px"></a>
+                                    <img src="/resources/images/review/reviewImg.png" class="review-img"></a>
                                     </c:if> 
-                                    <div class="review-text">
-                                        <div class="review-content">
-                                            <a href="#" class="review-content">
-                                            ${review.reviewContent}</a>
-                                        </div>
+                                    <div class="review-content">
+                                        <a href="#" class="review-content">[${review.menuName}]
+                                        ${review.reviewContent}</a>
                                     </div>
                                     <div class="review-writer">
                                         ${review.memberNickname}
                                     </div>
                                     <div class="review-star">
-                                        별점 ${review.rating}
-                                    </div>
-                                    <div class="review-like">
-                                        좋아요 ${review.likeCount}
+                                        별점 ${review.rating} 좋아요 ${review.likeCount}
                                     </div>
                                 </li>
                             </c:forEach>
