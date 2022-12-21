@@ -85,11 +85,11 @@ main{
     width: 100%;
     padding: 0px;
     margin-bottom: 60px;
-    font-size: 0;
+    /* font-size: 0; */
 }
 .menu-name{
-    flex-shrink: 0;
-    width: 20%;
+    /* flex-shrink: 0; */
+    width: 14%;
     display: inline-block;
     height: 50px;
     /* border: solid 1px #ddd; */
@@ -103,6 +103,7 @@ main{
     align-items: center;
     font-size: 13px;
     border-collapse: collapse;
+    margin-bottom: 4px;
 }
 .menu-name a{
     display: block;

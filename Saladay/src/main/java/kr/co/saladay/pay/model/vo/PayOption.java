@@ -12,6 +12,7 @@ public class PayOption {
 	private int optionNo;
 	private String optionName;
 	private int optionPrice;
+	private int optionCount;
 	private String optionDeleteFlag;
 	
 }

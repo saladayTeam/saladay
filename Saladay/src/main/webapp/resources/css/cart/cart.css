@@ -56,12 +56,14 @@ hr {
   flex-basis: 55%;
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
 .cart-menu-info {
   flex-basis: 55%;
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
 .cart-option-info {
@@ -145,4 +147,12 @@ hr {
 
 .total > span:first-child {
   margin-right: 20px;
+}
+
+.menu {
+  font-weight: bold;
+}
+
+.option {
+  font-size: 12px;
 }
