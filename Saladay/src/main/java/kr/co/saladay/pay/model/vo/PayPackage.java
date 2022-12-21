@@ -17,6 +17,7 @@ public class PayPackage {
 	private String packageName;
 	private String packageImage;
 	private int packagePrice;
+	private int packageType;
 	
 	List<PayMenu> menuList;
 }

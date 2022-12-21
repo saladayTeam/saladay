@@ -42,6 +42,7 @@
         </li>
 
         <hr />
+
         <!-- 패키지 -->
         <li class="cart-container">
             <div class="cart-package-image">
@@ -97,7 +98,9 @@
           </li>
           </c:forEach>
         </c:forEach>
+
         <hr />
+
         <!-- 패키지 총 금액 -->
         <li class="cart-table-header">
             <div class="cart-package-image"></div>
