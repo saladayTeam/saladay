@@ -57,7 +57,7 @@
         
             <div class="find-area">
                 <a href="/member/findID">아이디 찾기</a>
-                <a href="/member/findPw">비밀번호 재설정</a>
+                <a href="/member/findPw">비밀번호 찾기</a>
                 <a href="/member/signUp">회원가입</a>
             </div>
 

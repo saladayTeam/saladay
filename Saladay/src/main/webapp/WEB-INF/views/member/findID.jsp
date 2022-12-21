@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디찾기</title>
-    <link rel="stylesheet" href="/resources/css/member/findID.css">
+    <link rel="stylesheet" href="/resources/css/member/find.css">
 	
 </head>
 <body>
@@ -32,6 +32,7 @@
                     <div class="find-box-wrap">
                         <div class="find-box-row">
                             <input type="text" id="memberName" name="memberName" placeholder="'이름' 을 입력하세요" maxlength="5"  autocomplete="off">
+                            <span class="white-space"></span>
                         </div>
                     </div>
 
@@ -39,6 +40,7 @@
                     <div class="find-box-wrap">
                         <div class="find-box-row">
                             <input type="text" id="memberTel" name="memberTel" placeholder="'-' 없이 입력하세요"  maxlength="11" >
+                            <span class="white-space"></span>
                         </div>
                     </div>
                     
@@ -49,7 +51,7 @@
             </form>
             
             <div class="find-area">
-                <a href="/member/findPw">비밀번호 재설정</a>
+                <a href="/member/findPw">비밀번호 찾기</a>
             </div>
 
 
@@ -57,6 +59,6 @@
     </section>
 
 
-
+	<script src="/resources/js/member/findID.js"></script>
 </body>
 </html>

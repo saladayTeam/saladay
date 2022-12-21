@@ -34,7 +34,7 @@
             <a href="/menu/packageList">1 WEEK</a>
             </div>
             <div id="two-week">
-            <a href="">2 WEEK</a>
+            <a href="#">2 WEEK</a>
             </div>
         </div>
         <div id="main-title">

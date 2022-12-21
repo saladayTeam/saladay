@@ -50,6 +50,16 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.findID", member);
 	}
 
+	
+	/**비밀번호 찾기
+	 * @param memberEmail
+	 * @return 
+	 */
+	public String findPw(String memberEmail) {
+		
+		return sqlSession.selectOne("memberMapper.findPw", memberEmail);
+	}
+
 
 		
 	
