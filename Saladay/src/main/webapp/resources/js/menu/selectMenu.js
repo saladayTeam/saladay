@@ -89,7 +89,7 @@ window.onload = function() {
     $(function(){
     
         $('.menu-box li a').click(function(){
-            $('.menu-img img').attr('src',$(this).attr('href'))
+            $('.menu-img img').eq(currentIdx).attr('src',$(this).attr('href'))
             console.log($('.menu-name a'))
             
             var mName = $(this).text();
