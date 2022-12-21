@@ -63,7 +63,11 @@
                         <li class="slide">
                             <ul class="menu-box">
                                 <c:forEach items="${menuList}" var="menu">
-                                    <li class="menu-name"><a onclick="viewMenu(${menu.menuNo});">${menu.menuName}</a></li>
+                                    <li class="menu-name" >
+                                        <a href="${menu.menuImage}" >${menu.menuName}</a>
+                                        <input type="hidden" value="${menu.menuContent}">
+                                        <input type="hidden" name="menuNo" value="${menu.menuNo}">
+                                    </li>
                                 </c:forEach>
                             </ul>
                             <%-- onclick="이벤트명(매개변수)" --%>
@@ -75,7 +79,7 @@
                                 </div>
                                 <div class="menu-content">
                                     <div class="menu-img">
-                                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
+                                        <img src="" width="500">
                                     </div>
                                 </div>
                                 <div class="menu-costom">
@@ -161,7 +165,11 @@
                         <li class="slide">
                             <ul class="menu-box">
                                 <c:forEach items="${menuList}" var="menu">
-                                    <li class="menu-name"><a onclick="viewMenu(${menu.menuNo});">${menu.menuName}</a></li>
+                                    <li class="menu-name" >
+                                        <a href="${menu.menuImage}" >${menu.menuName}</a>
+                                        <input type="hidden" value="${menu.menuContent}">
+                                        <input type="hidden" name="menuNo" value="${menu.menuNo}">
+                                    </li>
                                 </c:forEach>
                             </ul>
                             <%-- onclick="이벤트명(매개변수)" --%>
@@ -173,7 +181,7 @@
                                 </div>
                                 <div class="menu-content">
                                     <div class="menu-img">
-                                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
+                                        <img src="" width="500">
                                     </div>
                                 </div>
                                 <div class="menu-costom">
@@ -259,7 +267,11 @@
                         <li class="slide">
                             <ul class="menu-box">
                                 <c:forEach items="${menuList}" var="menu">
-                                    <li class="menu-name"><a onclick="viewMenu(${menu.menuNo});">${menu.menuName}</a></li>
+                                    <li class="menu-name" >
+                                        <a href="${menu.menuImage}" >${menu.menuName}</a>
+                                        <input type="hidden" value="${menu.menuContent}">
+                                        <input type="hidden" name="menuNo" value="${menu.menuNo}">
+                                    </li>
                                 </c:forEach>
                             </ul>
                             <%-- onclick="이벤트명(매개변수)" --%>
@@ -271,7 +283,7 @@
                                 </div>
                                 <div class="menu-content">
                                     <div class="menu-img">
-                                        <img src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg">
+                                        <img src="" width="500">
                                     </div>
                                 </div>
                                 <div class="menu-costom">
