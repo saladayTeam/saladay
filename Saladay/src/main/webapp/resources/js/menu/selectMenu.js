@@ -81,29 +81,28 @@ window.onload = function() {
     //     }
     //   }
   
-}
-
-$('.menu-box li').on('click', function(e) {
-    console.log("상위 li");
-})
-
-$(function(){
-
-    $('.menu-box li a').click(function(){
-        $('.menu-img img').attr('src',$(this).attr('href'))
-        console.log($('.menu-name a'))
-        
-        var mName = $(this).text();
-        $('.menu-title').text(mName);
-
-        $('.menu-detail').text($(this).next().val())
-
-
-        return false;
+    
+    $('.menu-box li').on('click', function(e) {
+        console.log("상위 li");
     })
-    // $('.menu-box li a').click(function(){
-        
-        
-    //     // return false;
-    // })
-})
+    
+    $(function(){
+    
+        $('.menu-box li a').click(function(){
+            $('.menu-img img').attr('src',$(this).attr('href'))
+            console.log($('.menu-name a'))
+            
+            var mName = $(this).text();
+            $('.menu-title').eq(currentIdx).text(mName);
+    
+            $('.menu-detail').eq(currentIdx).text($(this).next().val())
+    
+            return false;
+        })
+        // $('.menu-box li a').click(function(){
+            
+            
+        //     // return false;
+        // })
+    })
+}
