@@ -23,7 +23,7 @@
     <main>
         <div class="review-list-area">
             <div class="review-title">
-                <span><h1>리뷰</h1></span>
+                <span><h1>${reviewList[0].menuName} 샐러드 리뷰</h1></span>
                 <br/>
                 <span>고객님들의 생생한 리뷰를 읽어보세요!</span>
             </div>
@@ -96,18 +96,6 @@
                     </ul>
                 </c:if>
             </div>
-<%--             <div class="search-area">
-                <form action="#" method="get" id="reviewSearch" onsubmit="return true">
-                    <select name="key" id="search-key" class="choice">
-                        <option value="review-menu">메뉴</option>
-                        <option value="review-writer">작성자</option>
-                    </select>
-                    <!-- 내부 input 태그의 값을 서버 또는 페이지로 전달(제출) -->
-                    <input type="text" class="query" name="query" id="search-query"
-                    placeholder="검색어를 입력해주세요">
-                    <button class="search-btn">검색</button>
-                </form>
-            </div> --%>
         </div>
 
 <%--         <div class="modal">
@@ -124,5 +112,6 @@
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
         $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;"); 
     </script>
+    <script src="/resources/js/review/review.js"></script>
 </body>
 </html>
