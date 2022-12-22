@@ -156,3 +156,12 @@ hr {
 .option {
   font-size: 12px;
 }
+
+.cart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #bbb;
+  height: 300px;
+}
