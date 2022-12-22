@@ -70,6 +70,15 @@ public class MemberDAO {
 		return sqlSession.update("memberMapper.changePw", member);
 	}
 
+	/**회원 정보 수정 DAO(닉네임, 전화번호, 주소)
+	 * @param inputMember
+	 * @return 
+	 */
+	public int updateInfo(Member inputMember) {
+		
+		return sqlSession.update("memberMapper.updateInfo", inputMember);
+	}
+
 
 		
 	

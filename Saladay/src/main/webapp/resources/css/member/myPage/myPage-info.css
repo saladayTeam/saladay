@@ -16,6 +16,8 @@ main {
     width: 25%;
     margin-left: 20px;
     margin-right: 20px;
+    padding: 20px;
+    border-right: #ddd 3px solid;
 }
 
 .left-side-header {
@@ -101,59 +103,98 @@ main {
 }
 
 /*회원정보 내용--------------------------------------*/
+.empty-space1 {
+	margin-right:27px;
+}
+
+.empty-space2 {
+	margin-right:15px;
+}
+
 .my-info-detail {
     width: 640px;
     margin-bottom: 20px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bolder;
     list-style: none;
     border: #ddd 2px solid;
-    padding: 10px;
+  	padding: 15px;
 }
 
 .my-info-detail input {
-    padding: 3px 3px 3px 10px;
     outline: none;
-    font-size: 13px;
-    border: 2px solid #ddd;
-    color: gray;
-    margin-left: 5px;
+    font-size: 15px;
+    margin-left: 25px;
 }
 
 
-.my-info-detail input:not(input:read-only):focus {
-    border-bottom: #2DC48D 2px solid;
+.input-read-only {
+	border: none;
 }
 
-.my-info-detail .input-read-only {
-    border: 1px solid transparent;
-    border-bottom-color: #ddd;
+.writable {
+	border: none;
+	color: #777777;
+	cursor: pointer;
+}
+
+.input-tel {
+	margin-left: 15px;
+}
+
+.input-row-message {
+    font-size: 12px;
     color: grey;
+    margin-left: 25px;
+    font-weight: lighter;
 }
 
 /*주소---------------------------------*/
 
 .empty-space {
-    margin-right: 400px;
+    margin-right: 450px;
+}
+
+.my-info-detail-address {
+    width: 640px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: bolder;
+    list-style: none;
+    border: #ddd 2px solid;
+  	padding: 15px;
 }
 
 .address-input {
-    display: inline-block;
-    margin-top: 10px;
-    text-align: center;
+    margin-top:10px;
+    display: inline;
+    border:none;
+    outline:none;
+}
+
+.address-input1 {
+    margin-top:10px;
+    display: inline;
+    border:none;
+    outline:none;
+    width: 92px;
 }
 
 .address-search-btn {
-    width: 50px;
-    height: 25px;
+    width: 80px;
+    height: 16px;
     font-size: 12px;
-    color:black;
-    background-color: #ccc;
+    color: white;
+    background-color: #bdbdbd;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     transition: all 0.2s;
     float: right;
+}
+
+.address-search-btn:hover {
+    background-color: #555555;
 }
 
 .submit-btn {
@@ -169,6 +210,8 @@ main {
     cursor: pointer;
     border: none;
     transition: all 0.3s;
+    
+    margin-top:30px
 }
 
 .submit-btn:hover {
