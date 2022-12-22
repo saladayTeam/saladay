@@ -71,7 +71,7 @@
 				order	: 메인 SQL이 수행되기 전(BEFOR) 또는 후(AFTER)에 <selectKey>의 SQL이 수행되도록 순서를 지정 -->
 		
 		<!-- 장바구니 삽입 -->		
-		<insert id="insertCart" parameterType="PayPackage" useGeneratedKeys="true">
+		<insert id="insertCart" parameterType="Cart" useGeneratedKeys="true">
  			<selectKey keyProperty="cartNo" resultType="_int" order="BEFORE">
  				SELECT SEQ_CART_NO.NEXTVAL FROM DUAL
  			</selectKey>
@@ -81,7 +81,7 @@
  		
  		
  		<!-- 장바구니에 담길 메뉴 선택(장바구니에 담은 메뉴들)  -->
-		<insert id="insertMenu" parameterType="PayMenu" useGeneratedKeys="true">
+		<insert id="insertMenu" parameterType="CartMenu" useGeneratedKeys="true">
  			<selectKey keyProperty="cartMenuNo" resultType="_int" order="BEFORE">
  				SELECT SEQ_CART_MENU_NO.NEXTVAL FROM DUAL
  			</selectKey>

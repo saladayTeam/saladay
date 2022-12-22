@@ -3,7 +3,7 @@
 <mapper namespace="cartMapper">
 
 	<!-- Package resultMap -->
-	<resultMap type="PayPackage" id="package_rm">
+	<resultMap type="Cart" id="cart_rm">
       <id property="packageNo" column="PACKAGE_NO"/>      
       <result property="cartNo" column="CART_NO"/>
       <result property="packageName" column="PACKAGE_NAME"/>
@@ -15,7 +15,7 @@
 	</resultMap>
 	
 	<!-- PayMenu resultMap -->
-	<resultMap type="PayMenu" id="payMenu_rm">
+	<resultMap type="CartMenu" id="cartMenu_rm">
       <id property="cartMenuNo" column="CART_MENU_NO"/>
       <result property="menuName" column="MENU_NAME"/>
       <result property="menuPrice" column="MENU_PRICE"/>
@@ -26,7 +26,7 @@
 
 
 	<!-- payOption resultMap -->
-	<resultMap type="PayOption" id="payOption_rm">
+	<resultMap type="CartOption" id="cartOption_rm">
       <id property="optionNo" column="OPTION_NO"/>
       <result property="optionName" column="OPTION_NAME"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
@@ -35,7 +35,7 @@
 	</resultMap>
 	
 	<!-- 장바구니에 담은 패키지 조회 -->
-	<select id="selectCartPackage" resultMap="package_rm">
+	<select id="selectCartPackage" resultMap="cart_rm">
 		SELECT DISTINCT CART_NO, PACKAGE_NO, PACKAGE_NAME, PACKAGE_TYPE, PACKAGE_IMG,
 			(SELECT SUM(MENU_PRICE) + SUM(TOTAL_OPT_PRICE) TOTAL FROM (
 		   SELECT  M.MENU_PRICE,
@@ -57,7 +57,7 @@
 	</select>
 	
 	<!-- 패키지에 담은 메뉴 조회 -->
-	<select id="selectCartMenuList" resultMap="payMenu_rm">
+	<select id="selectCartMenuList" resultMap="cartMenu_rm">
 		SELECT DISTINCT CART_MENU_NO, MENU_NAME, MENU_PRICE FROM CART
 		LEFT JOIN CART_MENU USING (CART_NO)
 		LEFT JOIN CART_MENU_OPTION USING (CART_MENU_NO)
@@ -68,7 +68,7 @@
 	</select>
 	
 	<!-- 메뉴 별 옵션 조회 -->
-	<select id="selectCartOptionList" resultMap="payOption_rm">
+	<select id="selectCartOptionList" resultMap="cartOption_rm">
 		SELECT OPTION_NO, OPTION_NAME, CART_OPTION_COUNT, OPTION_PRICE FROM CART
 		LEFT JOIN CART_MENU USING (CART_NO)
 		LEFT JOIN CART_MENU_OPTION USING (CART_MENU_NO)
