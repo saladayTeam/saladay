@@ -94,7 +94,7 @@ main {
 
 /* 회원 정보 헤더--------------------------------- */
 .my-page-header {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #17633d;
     width: 100%;
     margin: 40px 20px 40px 0;
 }
@@ -201,7 +201,7 @@ main {
 }
 
 .address-search-btn:hover {
-    background-color: #555555;
+    background-color: #17633d;
 }
 
 .submit-btn {
@@ -222,7 +222,7 @@ main {
 }
 
 .submit-btn:hover {
-    background-color: #555555;
+    background-color: #17633d;
 }
 
 /*비밀번호 변경페이지****************************************************/
