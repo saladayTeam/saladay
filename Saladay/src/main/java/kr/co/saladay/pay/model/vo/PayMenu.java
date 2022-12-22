@@ -17,5 +17,8 @@ public class PayMenu {
 	private int menuPrice;
 	private String menuDeleteFlag;
 	
+	private int cartNo;
+	
 	List<PayOption> optionList;
+
 }

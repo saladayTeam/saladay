@@ -13,6 +13,7 @@
 
     <!-- 폰트어썸 -->
     <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <!-- header -->
@@ -42,40 +43,38 @@
                 <form action="#"><!-- 배송정보 변경 초기화 -->
                     <p>
                         <span class="o-th">수령인</span>
-                        <span class="o-td"><input type="text" id="orderName"></span> 
+                        <span class="o-td"><input type="text" name="orderName" id="orderName" placeholder="수령인"></span> 
                     </p>
                     <p>
                         <span class="o-th">수령인 연락처</span>
-                        <span class="o-td"><input type="tel" id="orderTel"></span>
+                        <span class="o-td"><input type="tel" name="orderTel" id="orderTel" placeholder="연락처"></span>
                     </p>
 
                     <!-- 주소 입력 영역 -->
                     <p>
                         <span class="o-th"> 수령인 주소 </span>
                         <span class="o-td">
-                            <button type="button" onclick="sample6_execDaumPostcode()">배송지 변경</button> 
+                            <input type="checkbox" id="memberAddr"><label for="memberAddr"> 기본 배송지 선택</label>
+                            <input type="hidden" name="memberAddress"><!-- 회원의 기본 배송지 -->
                         </span>
                     </p>
 
                     <p class="address-area">
                         <input type="text" name="address" id="sample6_postcode" placeholder="우편번호" 
                             maxlength="6" autocomplete="off" readonly> <!-- value="${addr[0]}" -->
+                        <button type="button" onclick="sample6_execDaumPostcode()"> 찾기 </button>     
                     </p>
-                    <p class="address-area">    
+
+                    <p class="address-area">
                         <input type="text" name="address" id="sample6_address" placeholder="도로명/지명주소" 
                         autocomplete="off" readonly> <!-- value="${addr[1]}" -->    
                     </p>
+
                     <p class="address-area">
                         <input type="text" name="address" id="sample6_detailAddress" placeholder="상세주소" 
                         autocomplete="off" > <!-- value="${addr[2]}" -->
                     </p>
-                    
-                    <p> 
-                        <div>
-                            <input type="checkbox" id="memberAddr"><label for="memberAddr"> 기본 배송지 선택</label>
-                        </div>
-                        <input type="hidden" name="memberAddress"><!-- 회원의 기본 배송지 -->
-                    </p>
+
                 </div>
             
         </div>
@@ -149,8 +148,18 @@
     
         <div class="select-delivery">
             <h3>배송일 선택</h3>
-            <p>상품 수령 날짜를 선택해주세요</p>
-            <p><input type="date" data-placeholder="배송일 선택" required></p>
+            <div>
+                <p>원하는 수령 날짜를 선택해주세요</p>
+                <%-- <p><input type="date" data-placeholder="배송일 선택" required></p> --%>
+                <p><input type="text" id="deliveryDate" name="deliveryDate" placeholder="배송일 선택" required></p>
+            </div>
+            <%-- 선택한 패키지 번호에 따라서 2차 배송일 지정 --%>
+            <c:if test="${ packageNo ne 4  || packageNo ne 5 || packageNo ne 6}">
+                <div>
+                    <p>2차 수령 날짜를 선택해주세요</p>
+                    <p><input type="text" id="deliveryDate2" name="deliveryDate2" placeholder="배송일 선택" required></p>
+                </div>
+            </c:if>
         </div>
         
 
@@ -172,9 +181,14 @@
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
-
+    <!-- 다음 api -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="../../resources/js/order/order.js"></script>
+    
+    <!-- Datepicker -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="/resources/js/order/order.js"></script>
 </body>
 </html>
