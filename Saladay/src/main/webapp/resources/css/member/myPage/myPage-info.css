@@ -135,6 +135,7 @@ main {
 .writable {
 	border: none;
 	color: #777777;
+	cursor: pointer;
 }
 
 .input-tel {
