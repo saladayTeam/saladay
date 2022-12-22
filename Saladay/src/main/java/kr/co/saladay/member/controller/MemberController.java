@@ -285,7 +285,7 @@ public class MemberController {
 	 */
 	@GetMapping("/info")
 	public String myInfo() {
-		return "member/myPage-info";
+		return "member/myPage/myPage-info";
 	}
 	
 	
@@ -345,7 +345,15 @@ public class MemberController {
 	 */
 	@GetMapping("/secession")
 	public String secession() {
-		return "member/myPage-secession";
+		return "member/myPage/myPage-secession";
+	}
+	
+	/**마이페이지-회원탈퇴
+	 * @return myPage-secession.jsp 포워드
+	 */
+	@GetMapping("/myOrder")
+	public String myOrder() {
+		return "member/myPage/myPage-order";
 	}
 	
 	/* 서비스 이용약관

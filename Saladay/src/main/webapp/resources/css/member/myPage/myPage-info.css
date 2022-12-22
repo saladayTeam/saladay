@@ -20,13 +20,15 @@ main {
     border-right: #ddd 3px solid;
 }
 
+
+
 .left-side-header {
     height: 70px;
     font-size: 18px;
     font-weight: bolder;
     text-align: center;
     line-height: 70px;
-    border-bottom: #249C66 2px solid;
+    border-bottom: #222222 2px solid;
     color: black;
     border-radius: 10px 10px 0 0;
 }
@@ -41,6 +43,11 @@ main {
     height: 54px;
     font-size: 15px;
     font-weight: bolder;
+}
+
+.my-page-list li a {
+	 text-decoration: none;
+	 color:black;
 }
 
 
@@ -66,7 +73,7 @@ main {
 }
 
 .my-page-list input:checked + label {
-    border-bottom: 2px solid #2DC48D;
+    border-bottom: 2px solid #17633d;
 
 }
 
