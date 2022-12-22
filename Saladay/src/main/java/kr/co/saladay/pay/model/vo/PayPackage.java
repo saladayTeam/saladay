@@ -18,6 +18,8 @@ public class PayPackage {
 	private String packageImage;
 	private int packagePrice;
 	private int packageType;
+	private int memberNo;
 	
 	List<PayMenu> menuList;
-}
+}	
+

@@ -81,28 +81,20 @@ window.onload = function() {
     //     }
     //   }
   
-    
-    $('.menu-box li').on('click', function(e) {
-        console.log("상위 li");
-    })
-    
     $(function(){
     
         $('.menu-box li a').click(function(){
             $('.menu-img img').eq(currentIdx).attr('src',$(this).attr('href'))
-            console.log($('.menu-name a'))
+            // console.log($('.menu-name a'))
             
             var mName = $(this).text();
             $('.menu-title').eq(currentIdx).text(mName);
-    
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
-    
+            $('#menuNo').eq(currentIdx).text($(this).next().next().val())
+            // console.log( $('.menu-title'));
+
             return false;
         })
-        // $('.menu-box li a').click(function(){
-            
-            
-        //     // return false;
-        // })
     })
 }
+

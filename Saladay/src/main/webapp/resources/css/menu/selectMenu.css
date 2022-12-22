@@ -1,4 +1,4 @@
-@import url('../main/header.css');
+@import url('../main/main.css');
 
 body{
     margin: 0px;
@@ -315,6 +315,12 @@ button{
 .order-btn{
     background-color: #17633D;
     border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.order-btn a{
+    text-decoration: none;
     color: white;
 }
 

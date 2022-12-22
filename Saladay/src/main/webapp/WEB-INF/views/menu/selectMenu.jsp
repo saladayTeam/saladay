@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="packageNo" value="${pacakgeList[packageNo-1].PACKAGE_NO}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,15 +49,16 @@
     </div>
 </div> --%>
 <body>
+	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 
-		<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
-		
     <div class="top" id="top-img">
         <div class="img-text">언제 어디서든 부담되지않게<br>건강하고 신선한 샐러데이</div>
     </div>
     <main>
+        <form action="/cart" method="post" id="addCartForm">
         <section class="content">
-            <div class="product-day"><div class="day-text">1주 골라담기 3팩 패키지</div></div>
+            <div class="product-day"><div class="day-text"> 1주 골라담기 3팩 패키지</div></div>
+            <input type="hidden" name="packageNo" value="${packageList[0].packageNo}">
             <%-- 슬라이드 만들어보기 --%>
             <div class="kind_wrap">
                 <div class="kind_slider">
@@ -63,14 +66,13 @@
                         <li class="slide">
                             <ul class="menu-box">
                                 <c:forEach items="${menuList}" var="menu">
-                                    <li class="menu-name" >
-                                        <a href="${menu.menuImage}" >${menu.menuName}</a>
+                                    <li class="menu-name">
+                                        <a href="${menu.menuImage}">${menu.menuName}</a>
                                         <input type="hidden" value="${menu.menuContent}">
-                                        <input type="hidden" name="menuNo" value="${menu.menuNo}">
+                                        <input type="hidden" id="menuNo" name="menuNo" value="${menu.menuNo}">
                                     </li>
                                 </c:forEach>
                             </ul>
-                            <%-- onclick="이벤트명(매개변수)" --%>
 
                             <div class="menu-list">
                                 <div class="detail">
@@ -378,12 +380,14 @@
         <div class="bottom-box">
             <!-- <div>상품이미지</div> -->
             <button class="cartin-btn">장바구니 담기</button>
-            <button class="order-btn">주문하기</button>
+            <button type="button" class="order-btn"><a href="/order">주문하기</a></button>
         </div>
-
     </main>
+    </form> 
+
     <!-- footer -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+
     <script src="/resources/js/menu/selectMenu.js"></script>
 </body>
 </html>
