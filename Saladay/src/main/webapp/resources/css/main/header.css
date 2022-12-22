@@ -20,7 +20,7 @@ body {
 }
 
 header {
-  width: 100%;
+  width: 100% !important;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -70,7 +70,7 @@ header > section:nth-child(3) {
   margin-right: 12px;
 }
 
-.header-menu > li > a > img{
+.header-menu > li > a > img {
   margin-right: 10px;
   margin-bottom: 4px;
 }
