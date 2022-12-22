@@ -376,6 +376,25 @@ public class MemberController {
 	
 	
 	
+	/**마이페이지-비밀번호 변경
+	 * @return myPage-changePw.jsp 포워드
+	 */
+	@GetMapping("/myPageChangePw")
+	public String myPagePw() {
+		return "member/myPage/myPage-changePw";
+	}
+	
+	/** 현재 비밀번호 확인
+	 * @param currentMemberPw
+	 * @return 일치:true, 불일치:false
+	 */
+	@ResponseBody
+	@PostMapping("/checkMemberPw")
+	public boolean checkMemberPw(String currentMemberPw, @SessionAttribute("loginMember") Member loginMember) {		
+		return service.checkMemberPw(currentMemberPw, loginMember.getMemberNo());
+	}
+	
+	
 	
 	
 	/**마이페이지-나의 주문
@@ -386,7 +405,13 @@ public class MemberController {
 		return "member/myPage/myPage-order";
 	}
 	
-	
+	/**마이페이지-나의 주문
+	 * @return myPage-order.jsp 포워드
+	 */
+	@GetMapping("/myReview")
+	public String myReview() {
+		return "member/myPage/myPage-myReview";
+	}
 	
 	/* 서비스 이용약관
 	 * @return TermsOfService.jsp 포워드

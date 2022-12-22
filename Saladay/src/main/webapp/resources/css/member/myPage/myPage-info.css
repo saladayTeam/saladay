@@ -1,5 +1,5 @@
 main {
-    
+    width: 1200px;
 }
 
 
@@ -152,7 +152,7 @@ main {
 .input-row-message {
     font-size: 12px;
     color: grey;
-    margin-left: 25px;
+    margin-left: 10px;
     font-weight: lighter;
 }
 
@@ -225,7 +225,23 @@ main {
     background-color: #555555;
 }
 
+/*비밀번호 변경페이지****************************************************/
+.input-password {
+    width:110px;
+}
+
+.empty-space3 {
+	margin-right:20px;
+}
+
+.empty-space4 {
+	margin-right:32px;
+	
+}
+ 
+
 /*회원탈퇴 페이지***************************************/
 .my-secession-content {
     line-height: 180%;
 }
+

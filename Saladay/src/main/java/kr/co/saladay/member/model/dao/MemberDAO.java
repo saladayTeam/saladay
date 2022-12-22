@@ -87,6 +87,16 @@ public class MemberDAO {
 		return sqlSession.update("memberMapper.secession", memberNo);
 	}
 
+	
+	/**비밀번호 확인
+	 * @param memberNo
+	 * @return
+	 */
+	public String getMemberPw(int memberNo) {
+		
+		return sqlSession.selectOne("memberMapper.getMemberPw", memberNo);
+	}
+
 
 
 		
