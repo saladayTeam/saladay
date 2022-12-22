@@ -20,8 +20,9 @@
 
 <body>
 
+    <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+    
     <main>
-        <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 
         
         <div class="faq-header">
