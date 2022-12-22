@@ -81,6 +81,16 @@ public class MemberServiceImpl implements MemberService{
 		return dao.changePw(member);
 	}
 
+	//현재 비밀번호 확인
+	@Override
+	public boolean checkMemberPw(String inputMemberPw, int memberNo) {
+		
+		// 로그인 회원의 암호화된 비밀번호 가져오기
+		String loginMemberPw = dao.getMemberPw(memberNo);
+		return bcrypt.matches(inputMemberPw, loginMemberPw);
+	}
+
+	
 	//회원정보 수정
 	@Override
 	public int updateInfo(Member inputMember) {
