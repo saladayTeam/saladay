@@ -16,6 +16,8 @@ main {
     width: 25%;
     margin-left: 20px;
     margin-right: 20px;
+    padding: 20px;
+    border-right: #ddd 3px solid;
 }
 
 .left-side-header {

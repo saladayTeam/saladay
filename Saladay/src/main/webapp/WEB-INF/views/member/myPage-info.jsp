@@ -63,25 +63,25 @@
 
                     <div class="my-info-detail">
                         <span>이메일</span>
-                        <input type="text" id="memberEmail" name="memberEmail" autocomplete="off" readonly class="input-read-only" maxlength="6" value="">
+                        <input type="text" id="memberEmail" name="memberEmail" autocomplete="off" readonly class="input-read-only" maxlength="6" value="${loginMember.memberEmail}">
                         <span class="input-row-message" id="memberEmailMessage"></span>
                     </div>
 
                     <div class="my-info-detail">
                         <span>이 &nbsp  름  </span>
-                        <input type="text" id="memberName" name="memberName" autocomplete="off" readonly class="input-read-only" maxlength="5" value="">
+                        <input type="text" id="memberName" name="memberName" autocomplete="off" readonly class="input-read-only" maxlength="5" value="${loginMember.memberName}">
                         <span class="input-row-message" id="memberNameMessage"></span>
                     </div>
 
                     <div class="my-info-detail">
                         <span>닉네임</span>
-                        <input type="text" class="writable input-read-only" id="memberNickname" name="memberNickname" autocomplete="off" readonly maxlength="6" value="">
+                        <input type="text" class="writable input-read-only" id="memberNickname" name="memberNickname" autocomplete="off" maxlength="6" value="${loginMember.memberNickname}">
                         <span class="input-row-message" id="memberNicknameMessage"></span>
                     </div>
 
                     <div class="my-info-detail">
                         <span>전화번호</span>
-                        <input class="writable input-read-only" type="text" id="memberTel" name="memberTel" autocomplete="off" readonly maxlength="11" value="">
+                        <input class="writable input-read-only" type="text" id="memberTel" name="memberTel" autocomplete="off" maxlength="11" value="${loginMember.memberTel}">
                         <span class="input-row-message" id="memberTelMessage"></span>
                     </div>
 
@@ -90,13 +90,14 @@
                         
                         <button type="button" class="hide address-search-btn">검색</button>
                         
-                        <c:set var="address" value=""/>
-
-                        <input type="text" id="postCode" name="memberAddress" autocomplete="off" readonly class="input-read-only address-input" value="">
+                        <c:if test=""></c:if>
+                        <c:set var="address" value="${fn:split(loginMember.memberAddress, ',,')}"/>
+						
+                        <input type="text" id="postCode" name="memberAddress" autocomplete="off" class="input-read-only address-input" value="${address[0]}">
                         
-                        <input type="text" id="address" name="memberAddress" autocomplete="off" readonly class="input-read-only address-input" value="">
+                        <input type="text" id="address" name="memberAddress" autocomplete="off"  class="input-read-only address-input" value="${address[1]}">
 
-                        <input type="text" id="detailAddress" name="memberAddress" autocomplete="off" readonly class="writable input-read-only address-input" value="">
+                        <input type="text" id="detailAddress" name="memberAddress" autocomplete="off" class="writable input-read-only address-input" value="${address[2]}">
                     
                         
                     </div>
@@ -109,5 +110,8 @@
 
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    
 </body>
 </html>
