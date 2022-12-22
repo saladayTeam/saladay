@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
 
-@SessionAttributes("loginMember")
+@SessionAttributes({"loginMember","cartPackage"})
 @RequestMapping("/member")
 @Controller
 public class MemberController {
