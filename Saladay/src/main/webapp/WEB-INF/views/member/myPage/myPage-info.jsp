@@ -31,23 +31,23 @@
                 <ul class="my-page-list">
                     <li>
                         <input type="radio" name="myPageType" value="1" id="myPageType1" checked >
-                        <label for="myPageType1"><a class="myPageType1">회원 정보 수정</a></label>
+                        <label for="myPageType1"><a href="/member/info" class="myPageType1">회원 정보 수정</a></label>
                     </li>
                     <li>
                         <input type="radio" name="myPageType" value="2" id="myPageType2" >
-                        <label for="myPageType1"><a class="myPageType2">비밀번호 변경</a></label>
+                        <label for="myPageType2"><a class="myPageType2">비밀번호 변경</a></label>
                     </li>
                     <li>
                         <input type="radio" name="myPageType" value="3" id="myPageType3" >
-                        <label for="myPageType2"><a class="myPageType3">주문 내역</a></label>
+                        <label for="myPageType3"><a href="/member/myOrder" class="myPageType3">주문 내역</a></label>
                     </li>
                     <li>
                         <input type="radio" name="myPageType" value="4" id="myPageType4" >
-                        <label for="myPageType3"><a class="myPageType4">나의 리뷰</a></label>
+                        <label for="myPageType4"><a class="myPageType4">나의 리뷰</a></label>
                     </li>
                     <li>
                         <input type="radio" name="myPageType" value="5" id="myPageType5" >
-                        <label for="myPageType5"><a class="myPageType5">회원 탈퇴</a></label>
+                        <label for="myPageType5"><a href="/member/secession"class="myPageType5">회원 탈퇴</a></label>
                     </li>
                 </ul>
             </div>

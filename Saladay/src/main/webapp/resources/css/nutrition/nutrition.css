@@ -11,7 +11,7 @@ main {
     align-items: center;
     font-weight: bolder;
     color: black;
-    border-bottom: 3px solid #249C66;
+    border-bottom: 3px solid #17633d;
     padding-bottom: 80px;
     margin: 50px 0 auto auto;
 }
@@ -80,7 +80,7 @@ main {
 
 
 .search-input-area > button:hover{
-    background-color: #249C66;
+    background-color: #17633d;
 }
 
 /*검색 내용 출력*******************/

@@ -11,7 +11,7 @@ main {
     align-items: center;
     font-weight: bolder;
     color: black;
-    border-bottom: 3px solid #249C66;
+    border-bottom: 3px solid #17633d;
     padding-bottom: 80px;
     margin: 50px 0 auto auto;
 }
@@ -77,17 +77,17 @@ main {
 }
 
 .fa-q {
-    color: #249C66;
+    color: #17633d;
 }
 
 .fa-a {
-    color: #249C66;
+    color: #17633d;
 }
 
 .question {
     font-size: 16px;
     font-weight: bold;
-    color: #249C66;
+    color: #17633d;
     margin:  5px 20px 0 0; 
 }
 
