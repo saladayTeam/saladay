@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="packageNo" value="${pacakgeList[packageNo-1].PACKAGE_NO}" />
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,59 +52,85 @@
     <div class="top" id="top-img">
         <div class="img-text">언제 어디서든 부담되지않게<br>건강하고 신선한 샐러데이</div>
     </div>
-    <main>
+    <main> 
+        
         <form action="/cart" method="post" id="addCartForm">
+        
         <section class="content">
-            <div class="product-day"><div class="day-text"> 1주 골라담기 3팩 패키지</div></div>
-            <input type="hidden" name="packageNo" value="${packageList[0].packageNo}">
-            <%-- 슬라이드 만들어보기 --%>
+                
+                <div class="product-day"><div class="day-text"> ${packageList[packageNo-1].packageName}</div></div>
+                <input type="hidden" name="packageNo" value="${packageNo}">
+                
+            <%-- 슬라이드 화면 --%>
+            <c:choose>
+                <c:when test="${packageNo eq 1 || packageNo eq 4}">
+                    <c:set var="end" value="2" />
+                </c:when>
+                
+                <c:when test="${packageNo eq 2 || packageNo eq 5}">
+                    <c:set var="end" value="4" />
+                </c:when>
+                
+                <c:when test="${packageNo eq 3 || packageNo eq 6}">
+                    <c:set var="end" value="6" />
+                </c:when>
+            </c:choose>
+
             <div class="kind_wrap">
                 <div class="kind_slider">
                     <ul class="slider">
+                    <c:forEach var="i" begin="0" end="${end}">
                         <li class="slide">
                             <ul class="menu-box">
                                 <c:forEach items="${menuList}" var="menu">
                                     <li class="menu-name">
                                         <a href="${menu.menuImage}">${menu.menuName}</a>
                                         <input type="hidden" value="${menu.menuContent}">
-                                        <input type="hidden" id="menuNo" name="menuNo" value="${menu.menuNo}">
+                                        <input type="hidden" value="${menu.menuNo}">
                                     </li>
                                 </c:forEach>
                             </ul>
 
+
                             <div class="menu-list">
                                 <div class="detail">
-                                    <h3 class="menu-title">치킨 샐러데이</h3>
-                                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
+                                    <h3 class="menu-title">${menu.menuName}</h3>
+                                    <p class="menu-detail">${menu.menuContent}</p>
                                 </div>
+                                    <input type="hidden" id="menuNo" name="menuList[${i}].cartMenuNo" value="3">
                                 <div class="menu-content">
                                     <div class="menu-img">
                                         <img src="" width="500">
                                     </div>
                                 </div>
                                 <div class="menu-costom">
+                                    <c:set var="idx" value="0"/>
+
                                     <div class="add-menu" id="add-main">
                                         <div class="costom-detail">
                                             메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
                                         </div>
                                         <ul class="topping-list">
                                             <c:forEach items="${mainTopping}" var="mainT">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${mainT.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${mainT.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${mainT.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
+                                                <li class="topping">
+                                                    <div class="img-box">
+                                                        <img src="${mainT.optionImage}" class="topping-img">
+                                                    </div>
+                                                    <div class="topping-name">
+                                                        ${mainT.optionName}
+                                                    </div>
+                                                    <div class="topping-price">
+                                                        + ${mainT.optionPrice}
+                                                    </div>
+                                                    <div class="add-number">
+                                                        <span class="minus">-</span>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <span class="plus">+</span>
+                                                    </div>
+                                                    <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/>
+                                                </li>
+
+                                                <c:set var="idx" value="${idx + 1}"/>
                                             </c:forEach>
                                         </ul>
                                     <div class="add-menu" id="add-sub">
@@ -115,22 +139,25 @@
                                         </div>
                                         <ul class="topping-list">
                                             <c:forEach items="${subTopping}" var="subT">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${subT.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${subT.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${subT.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
+                                                <li class="topping">
+                                                    <div class="img-box">
+                                                        <img src="${subT.optionImage}" class="topping-img">
+                                                    </div>
+                                                    <div class="topping-name">
+                                                        ${subT.optionName}
+                                                    </div>
+                                                    <div class="topping-price">
+                                                        + ${subT.optionPrice}
+                                                    </div>
+                                                    <div class="add-number">
+                                                        <span class="minus">-</span>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <span class="plus">+</span>
+                                                    </div>
+                                                    <input type="hidden" value="${subT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/>
+                                                </li>
+
+                                                <c:set var="idx" value="${idx + 1}"/>
                                             </c:forEach>
                                         </ul>
                                     </div>
@@ -142,233 +169,34 @@
                                         </div>
                                         <ul class="topping-list">
                                             <c:forEach items="${sourceList}" var="source">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${source.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${source.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${source.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
-                                            </c:forEach>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>  <!-- 메뉴 선택 1 끝 -->
-                        </li>
-                        <li class="slide">
-                            <ul class="menu-box">
-                                <c:forEach items="${menuList}" var="menu">
-                                    <li class="menu-name" >
-                                        <a href="${menu.menuImage}" >${menu.menuName}</a>
-                                        <input type="hidden" value="${menu.menuContent}">
-                                        <input type="hidden" name="menuNo" value="${menu.menuNo}">
-                                    </li>
-                                </c:forEach>
-                            </ul>
-                            <%-- onclick="이벤트명(매개변수)" --%>
+                                                <li class="topping">
+                                                    <div class="img-box">
+                                                        <img src="${source.optionImage}" class="topping-img">
+                                                    </div>
+                                                    <div class="topping-name">
+                                                        ${source.optionName}
+                                                    </div>
+                                                    <div class="topping-price">
+                                                        + ${source.optionPrice}
+                                                    </div>
+                                                    <div class="add-number">
+                                                        <span class="minus">-</span>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <span class="plus">+</span>
+                                                    </div>
+                                                    <input type="hidden" value="${source.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/>
+                                                </li>
 
-                            <div class="menu-list">
-                                <div class="detail">
-                                    <h3 class="menu-title">치킨 샐러데이</h3>
-                                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
-                                </div>
-                                <div class="menu-content">
-                                    <div class="menu-img">
-                                        <img src="" width="500">
-                                    </div>
-                                </div>
-                                <div class="menu-costom">
-                                    <div class="add-menu" id="add-main">
-                                        <div class="costom-detail">
-                                            메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
-                                        </div>
-                                        <ul class="topping-list">
-                                            <c:forEach items="${mainTopping}" var="mainT">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${mainT.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${mainT.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${mainT.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
-                                            </c:forEach>
-                                        </ul>
-                                    <div class="add-menu" id="add-sub">
-                                        <div class="costom-detail">
-                                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
-                                        </div>
-                                        <ul class="topping-list">
-                                            <c:forEach items="${subTopping}" var="subT">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${subT.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${subT.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${subT.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
+                                                <c:set var="idx" value="${idx + 1}"/>
                                             </c:forEach>
                                         </ul>
                                     </div>
-                                    <div id="add-topping">
-                                        <div class="add-menu" id="add-sauce">
-                                            <div class="costom-detail">
-                                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
-                                            </div>
-                                        </div>
-                                        <ul class="topping-list">
-                                            <c:forEach items="${sourceList}" var="source">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${source.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${source.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${source.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
-                                            </c:forEach>
-                                        </ul>
-                                    </div>
-                                </div>
+                                </div> <%-- 메뉴 옵션 선택 --%>
                             </div>  <!-- 메뉴 선택 1 끝 -->
                         </li>
-                        <li class="slide">
-                            <ul class="menu-box">
-                                <c:forEach items="${menuList}" var="menu">
-                                    <li class="menu-name" >
-                                        <a href="${menu.menuImage}" >${menu.menuName}</a>
-                                        <input type="hidden" value="${menu.menuContent}">
-                                        <input type="hidden" name="menuNo" value="${menu.menuNo}">
-                                    </li>
-                                </c:forEach>
-                            </ul>
-                            <%-- onclick="이벤트명(매개변수)" --%>
-
-                            <div class="menu-list">
-                                <div class="detail">
-                                    <h3 class="menu-title">치킨 샐러데이</h3>
-                                    <p class="menu-detail">촉촉한 닭다리살을 이용해 부드러운 맛과 신선한 양상추에 매콤함을 더한 샐러데이의  클래식 메뉴</p>
-                                </div>
-                                <div class="menu-content">
-                                    <div class="menu-img">
-                                        <img src="" width="500">
-                                    </div>
-                                </div>
-                                <div class="menu-costom">
-                                    <div class="add-menu" id="add-main">
-                                        <div class="costom-detail">
-                                            메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
-                                        </div>
-                                        <ul class="topping-list">
-                                            <c:forEach items="${mainTopping}" var="mainT">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${mainT.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${mainT.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${mainT.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
-                                            </c:forEach>
-                                        </ul>
-                                    <div class="add-menu" id="add-sub">
-                                        <div class="costom-detail">
-                                            서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
-                                        </div>
-                                        <ul class="topping-list">
-                                            <c:forEach items="${subTopping}" var="subT">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${subT.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${subT.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${subT.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
-                                            </c:forEach>
-                                        </ul>
-                                    </div>
-                                    <div id="add-topping">
-                                        <div class="add-menu" id="add-sauce">
-                                            <div class="costom-detail">
-                                                소스 <img src="/resources/images/menu/icon/chili-sauce.png" class="add-icon">
-                                            </div>
-                                        </div>
-                                        <ul class="topping-list">
-                                            <c:forEach items="${sourceList}" var="source">
-                                                    <li class="topping">
-                                                        <div class="img-box">
-                                                            <img src="${source.optionImage}" class="topping-img">
-                                                        </div>
-                                                        <div class="topping-name">
-                                                            ${source.optionName}
-                                                        </div>
-                                                        <div class="topping-price">
-                                                            + ${source.optionPrice}
-                                                        </div>
-                                                        <div class="add-number">
-                                                            <span class="minus">-</span>
-                                                            <input type="text" value="0" readonly/>
-                                                            <span class="plus">+</span>
-                                                        </div>
-                                                    </li>
-                                            </c:forEach>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>  <!-- 메뉴 선택 1 끝 -->
-                        </li>
+                    </c:forEach>    
                     </ul>
+
                 </div>
                 <div class="arrow">
                     <a href="" class="prev">이전</a>
@@ -376,18 +204,19 @@
                 </div>
             </div>
         </section>
-        
+
         <div class="bottom-box">
             <!-- <div>상품이미지</div> -->
             <button class="cartin-btn">장바구니 담기</button>
             <button type="button" class="order-btn"><a href="/order">주문하기</a></button>
         </div>
     </main>
+    
     </form> 
-
     <!-- footer -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
     <script src="/resources/js/menu/selectMenu.js"></script>
+
 </body>
 </html>

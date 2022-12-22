@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PayPackage {
+public class Cart {
 
 	private int cartNo;
 	private int orderNo;
@@ -20,6 +20,6 @@ public class PayPackage {
 	private int packageType;
 	private int memberNo;
 	
-	List<PayMenu> menuList;
+	List<CartMenu> menuList;
 }	
 

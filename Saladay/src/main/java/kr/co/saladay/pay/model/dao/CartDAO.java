@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.saladay.pay.model.vo.PayMenu;
-import kr.co.saladay.pay.model.vo.PayPackage;
+import kr.co.saladay.pay.model.vo.CartMenu;
+import kr.co.saladay.pay.model.vo.Cart;
 
 @Repository
 public class CartDAO {
@@ -20,7 +20,7 @@ public class CartDAO {
 	 * @param memberNo
 	 * @return cartPackage
 	 */
-	public PayPackage selectCartPackage(int memberNo) {
+	public Cart selectCartPackage(int memberNo) {
 		return sqlSession.selectOne("cartMapper.selectCartPackage", memberNo);
 	}
 

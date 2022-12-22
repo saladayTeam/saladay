@@ -1,6 +1,6 @@
 package kr.co.saladay.pay.model.service;
 
-import kr.co.saladay.pay.model.vo.PayPackage;
+import kr.co.saladay.pay.model.vo.Cart;
 
 public interface CartService {
 
@@ -8,7 +8,7 @@ public interface CartService {
 	 * @param memberNo
 	 * @return cartPackage
 	 */
-	PayPackage selectCartPackage(int memberNo);
+	Cart selectCartPackage(int memberNo);
 
 	/** 장바구니 삭제
 	 * @param memberNo
