@@ -95,7 +95,7 @@ if("$(#deliveryDate)" != null) {
     $("#deliveryDate2"). change(function(){
         if($("#deliveryDate").val() > $("#deliveryDate2").val()){
             alert("2차 수령일을 확인하세요.");
-            $("#deliveryDate2").empty();
+            $("#deliveryDate2").val().empty();
         }
     })
 }
