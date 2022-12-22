@@ -53,7 +53,7 @@ const form = document.getElementsByTagName("form")[0];
 if(form.getAttribute("name") == "findPw-frm") {
     findPwPage = true;
 }
-if(form.getAttribute("name") == "myInfo-form") {
+if(form.getAttribute("name") == "my-page-info-frm") {
     infoPage = true;
 }
 

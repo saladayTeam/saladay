@@ -47,4 +47,11 @@ public interface MemberService {
 	public int changePw(Member member);
 
 
+	/**회원 정보 수정 (닉네임, 전화번호, 주소)
+	 * @param inputMember
+	 * @return
+	 */
+	public int updateInfo(Member inputMember);
+
+
 }

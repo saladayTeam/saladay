@@ -80,6 +80,13 @@ public class MemberServiceImpl implements MemberService{
 		member.setMemberPw(bcrypt.encode(member.getMemberPw()));
 		return dao.changePw(member);
 	}
+
+	//회원정보 수정
+	@Override
+	public int updateInfo(Member inputMember) {
+		
+		return dao.updateInfo(inputMember);
+	}
 	
 	
 	
