@@ -23,7 +23,7 @@
     <main>
         <div class="review-list-area">
             <div class="review-title">
-                <span><h1>리뷰</h1></span>
+                <span><h1>전체 샐러드 리뷰</h1></span>
                 <br/>
                 <span>고객님들의 생생한 리뷰를 읽어보세요!</span>
             </div>
@@ -47,18 +47,22 @@
                             <c:forEach var="review" items="${reviewList}">
                                 <li class="albumLi">
                                     <%-- 리뷰 이미지가 있을 경우 --%>
-                                    <c:if test="${not empty review.thumbnail}">  
-                                    <a href="/review/detail/${review.reviewNo}">
-                                    <img src="${review.thumbnail}" class="review-img"></a>
+                                    <c:if test="${not empty review.thumbnail}">
+                                    <span>
+                                        <img src="${review.thumbnail}" class="review-img list-thumbnail">
+                                    </span>
+                                    <%-- /review/detail/${review.reviewNo} --%>
+                                    <%--  onclick="selectReviewDetail(${review.reviewNo}, this)" --%>
                                     </c:if>
                                     <%-- 리뷰 이미지가 없을 경우 --%>
                                     <c:if test="${empty review.thumbnail}">
-                                    <a href="/review/detail/${review.reviewNo}">
-                                    <img src="/resources/images/review/reviewImg.png" class="review-img"></a>
+                                    <span>
+                                        <img src="/resources/images/review/reviewImg.png" class="review-img list-thumbnail" onclick="selectReviewDetail(${review.reviewNo}, this)">
+                                    </span>
                                     </c:if> 
                                     <div class="review-content">
                                         <a href="/review/${review.menuNo}" class="review-menu-name">[${review.menuName}]</a>
-                                        <a href="/review/detail/${review.reviewNo}" class="review-content">${review.reviewContent}</a>
+                                        <span class="review-content">${review.reviewContent}</span>
                                     </div>
                                     <div class="review-writer">
                                         ${review.memberNickname}
@@ -96,34 +100,58 @@
                     </ul>
                 </c:if>
             </div>
-<%--             <div class="search-area">
-                <form action="#" method="get" id="reviewSearch" onsubmit="return true">
-                    <select name="key" id="search-key" class="choice">
-                        <option value="review-menu">메뉴</option>
-                        <option value="review-writer">작성자</option>
-                    </select>
-                    <!-- 내부 input 태그의 값을 서버 또는 페이지로 전달(제출) -->
-                    <input type="text" class="query" name="query" id="search-query"
-                    placeholder="검색어를 입력해주세요">
-                    <button class="search-btn">검색</button>
-                </form>
-            </div> --%>
         </div>
     </main>
-
         <div class="review-modal">
             <span id="modal-close">&times;</span>
-            <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp"></jsp:include>
+            <div class="review-detail">
+                <div class="review-delete-area">
+                    <button id="review-modal-delete">삭제</button>
+                </div>
+                <div class="review-detail-content">
+                    <div class="review-img-area">
+                        <span>◁</span>
+                        <img class="review-images" src="/resources/images/review/reviewImg.png">
+                        <span>▷</span>
+                    </div>
+                    <div class="review-detail-star">
+                        ★★★★☆
+                    </div>
+                    <div class="review-detail-date">
+                        2022-12-21
+                    </div>
+                    <div class="review-detail-salad">
+                        [샐러드명 베지샐러드]
+                    </div>
+                    <div class="review-detail-nickname">
+                        닉네임 샐러드짱맛
+                    </div>
+                    <div class="review-detail-text">
+                        리뷰내용이 어쩌고 저쩌고... 샐러드가 맛있고 배송이 정확합니다 아주긴리뷰
+                        리뷰내용이 어쩌고 저쩌고... 샐러드가 맛있고 배송이 정확합니다 아주긴리뷰
+                        리뷰내용이 어쩌고 저쩌고... 샐러드가 맛있고 배송이 정확합니다 아주긴리뷰
+                        리뷰내용이 어쩌고 저쩌고... 샐러드가 맛있고 배송이 정확합니다 아주긴리뷰
+
+                    </div>
+                </div>
+                <div class="review-detail-like">
+                    <span>♥</span> 좋아요 <span class="review-detail-likeCount">3</span>
+                </div>
+            </div>
         </div>
 
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+    <!-- jQuery 라이브러리(.js 파일) 추가(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script>
         $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
         $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
         $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
-        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;"); 
+        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
+        const reviewNo = "${review.reviewNo}";
     </script>
+    <script src="/resources/js/review/review.js"></script>
 </body>
 </html>

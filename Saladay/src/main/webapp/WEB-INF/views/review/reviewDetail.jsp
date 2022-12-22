@@ -3,7 +3,7 @@
 
 <div class="review-detail">
     <div class="review-delete-area">
-        <button>삭제</button>
+        <button id="review-modal-close">삭제</button>
     </div>
     <div class="review-detail-content">
         <div class="review-img-area">
