@@ -172,7 +172,7 @@
 
         <hr />
 
-        <div class=delete-cart><span>장바구니 삭제</span></div>
+        <div class=delete-cart id="delete-cart"><span>장바구니 삭제</span></div>
 
         <hr />
 

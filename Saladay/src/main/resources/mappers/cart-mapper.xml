@@ -56,7 +56,7 @@
 		WHERE MEMBER_NO =#{memberNo}	
 	</select>
 	
-	<!-- 패키지 별 장바구니 메뉴 조회 -->
+	<!-- 패키지에 담은 메뉴 조회 -->
 	<select id="selectCartMenuList" resultMap="payMenu_rm">
 		SELECT DISTINCT CART_MENU_NO, MENU_NAME, MENU_PRICE FROM CART
 		LEFT JOIN CART_MENU USING (CART_NO)
@@ -67,6 +67,7 @@
 		ORDER BY CART_MENU_NO
 	</select>
 	
+	<!-- 메뉴 별 옵션 조회 -->
 	<select id="selectCartOptionList" resultMap="payOption_rm">
 		SELECT OPTION_NO, OPTION_NAME, CART_OPTION_COUNT, OPTION_PRICE FROM CART
 		LEFT JOIN CART_MENU USING (CART_NO)
@@ -79,6 +80,10 @@
 		ORDER BY OPTION_NO
 	</select>
 	
+	<delete id="deleteCart">
+		DELETE FROM CART
+		WHERE MEMBER_NO=#{memberNo}
+	</delete>
 
 
 </mapper>
