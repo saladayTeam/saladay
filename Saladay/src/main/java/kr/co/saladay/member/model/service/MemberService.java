@@ -1,6 +1,9 @@
 package kr.co.saladay.member.model.service;
 
+import java.util.List;
+
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.review.model.vo.Review;
 
 public interface MemberService {
 
@@ -60,12 +63,19 @@ public interface MemberService {
 	public int secession(int memberNo);
 
 
-	/** 현재 비밀번호 확인 서비스
+	/** 현재 비밀번호 확인 
 	 * @param currentMemberPw 비교할 비밀번호 평문
 	 * @param memberNo 로그인한 회원의 암호화된 비밀번호를 가져오기위한 파라미터
 	 * @return 일치:true, 불일치:false
 	 */
 	public boolean checkMemberPw(String inputMemberPw, int memberNo);
+
+	
+	/**내 리뷰 조회
+	 * @param memberNo 
+	 * @return List<Review>
+	 */
+	public List<Review> selectMyReview(int memberNo);
 
 
 }

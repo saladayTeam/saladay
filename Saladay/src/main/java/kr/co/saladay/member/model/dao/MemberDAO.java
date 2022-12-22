@@ -1,10 +1,13 @@
 package kr.co.saladay.member.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.review.model.vo.Review;
 
 @Repository
 public class MemberDAO {
@@ -95,6 +98,16 @@ public class MemberDAO {
 	public String getMemberPw(int memberNo) {
 		
 		return sqlSession.selectOne("memberMapper.getMemberPw", memberNo);
+	}
+
+	
+	/**내 리뷰 조회
+	 * @param memberNo 
+	 * @return
+	 */
+	public List<Review> selectMyReview(int memberNo) {
+		
+		return sqlSession.selectList("reviewMapper.selectMyReview",memberNo);
 	}
 
 

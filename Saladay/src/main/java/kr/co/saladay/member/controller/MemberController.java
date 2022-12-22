@@ -1,5 +1,7 @@
 package kr.co.saladay.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,8 +19,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.review.model.vo.Review;
 
 @SessionAttributes({"loginMember","cartPackage"})
 @RequestMapping("/member")
@@ -405,13 +410,35 @@ public class MemberController {
 		return "member/myPage/myPage-order";
 	}
 	
-	/**마이페이지-나의 주문
-	 * @return myPage-order.jsp 포워드
+	/**마이페이지-나의 리뷰
+	 * @return myPage-review.jsp 포워드
 	 */
 	@GetMapping("/myReview")
 	public String myReview() {
 		return "member/myPage/myPage-myReview";
 	}
+	
+	@ResponseBody
+	@GetMapping("/selectMyReview")
+	public String selectMyReview(Member loginMember){
+		
+		List<Review>reviewList = null;		
+		String jsonReportList="";
+		
+		try {
+			
+			reviewList = service.selectMyReview(loginMember.getMemberNo());
+			ObjectMapper objectMapper = new ObjectMapper();
+			jsonReportList = objectMapper.writeValueAsString(reviewList);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+		return jsonReportList;
+	}
+	
+	
 	
 	/* 서비스 이용약관
 	 * @return TermsOfService.jsp 포워드
