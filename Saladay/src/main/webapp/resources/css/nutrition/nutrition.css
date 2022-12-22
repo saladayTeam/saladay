@@ -85,3 +85,17 @@ main {
   min-height: 700px;
   margin-top: 50px;
 }
+
+/* label{
+
+  width: 300px;
+}
+
+select{
+  width: 500px;
+  
+} */
+
+.big-box{
+  display: flex;
+}
