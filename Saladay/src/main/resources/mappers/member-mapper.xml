@@ -65,12 +65,18 @@
 	</update>
 
 	 <!-- 회원 정보 수정 -->
-  <update id="updateInfo" parameterType="Member">
-	  	UPDATE MEMBER SET 
-	  		MEMBER_NICKNAME = #{memberNickname} ,
-	  		MEMBER_TEL = #{memberTel} ,
-	  		MEMBER_ADDRESS = #{memberAddress} 
-	  	WHERE MEMBER_NO = #{memberNo}
-  </update>
+	 <update id="updateInfo" parameterType="Member">
+		 UPDATE MEMBER SET 
+		  	MEMBER_NICKNAME = #{memberNickname} ,
+		  	MEMBER_TEL = #{memberTel} ,
+		  	MEMBER_ADDRESS = #{memberAddress} 
+		  WHERE MEMBER_NO = #{memberNo}
+	 </update>
+
+	 <update id="secession">
+		  UPDATE MEMBER SET
+		  	MEMBER_DEL_FL = 'Y'
+		  WHERE MEMBER_NO = #{memberNo}
+	 </update>
 
 </mapper>

@@ -53,5 +53,11 @@ public interface MemberService {
 	 */
 	public int updateInfo(Member inputMember);
 
+	/** 회원 탈퇴 서비스
+	 * @param memberNo 회원탈퇴 진행할 회원 번호
+	 * @return result
+	 */
+	public int secession(int memberNo);
+
 
 }

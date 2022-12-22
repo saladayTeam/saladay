@@ -87,7 +87,13 @@ public class MemberServiceImpl implements MemberService{
 		
 		return dao.updateInfo(inputMember);
 	}
-	
+
+	//회원 탈퇴
+	@Transactional
+	@Override
+	public int secession(int memberNo) {
+		return dao.secession(memberNo);
+	}
 	
 	
 }
