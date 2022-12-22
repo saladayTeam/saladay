@@ -9,9 +9,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myPage-secession</title>
+    <title>회원탈퇴</title>
 
-    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-secession.css">
+    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-info.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     
@@ -51,12 +51,14 @@
             </div>
 
             <div class="right-side">
-
+			
+				<form action="/member/secession" class="my-page-secession-frm" name="my-page-secession-frm" method="post">
+               
                     <div class="my-page-header">
                         <h1 class="main-title">회원 탈퇴</h1>
                     </div>
 
-                    <div class="my-secession-detail">
+                    <div class="my-info-detail">
                         
                         <div class="my-secession-content">
                             <p>
@@ -66,10 +68,12 @@
                         </div>
                         
                     </div>
-                    <button class="secession-btn">회원 탈퇴</button>
-                        
-
+                    <button class="submit-btn">회원 탈퇴</button>
+                     
+				</form>
+            
             </div>
+            
         </div>
 
 

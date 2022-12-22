@@ -17,7 +17,9 @@
     <main>
 
         <div class="signUp-header">
-            <img src="/resources/images/saladay-logo.png" alt="">
+            <a href="/">
+                <img src="/resources/images/saladay-logo.png" alt="logo" class="logo">
+            </a>
         </div>
         
         <section class="signUp-content">

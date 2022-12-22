@@ -225,3 +225,7 @@ main {
     background-color: #555555;
 }
 
+/*회원탈퇴 페이지***************************************/
+.my-secession-content {
+    line-height: 180%;
+}
