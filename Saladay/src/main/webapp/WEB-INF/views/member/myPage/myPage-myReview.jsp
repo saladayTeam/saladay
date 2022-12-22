@@ -20,13 +20,13 @@
 </head>
 
 <body>
-    <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
-    
+     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+
         
     <main>
-     
+       
         <div class="my-page-content">
-  			<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
+        	<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
 
             <div class="right-side">
                 <form action="/member/updateInfo" class="my-page-info-frm" name="my-page-info-frm" method="post">

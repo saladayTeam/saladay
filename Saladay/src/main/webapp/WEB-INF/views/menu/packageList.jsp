@@ -45,8 +45,9 @@
             </div>
             <div id="main-detail">샐러데이의 신선함을 집에서도 경험할 수 있습니다.</div>
         </div>
+
         <ul class="package-ol">
-            <a href="/menu/selectMenu">
+            <a href="/selectMenu/${packageList[0].packageNo}">
                 <li class="package-list" id="firstList">
                     <div class="package-box">
                         <div id="package-img">
@@ -65,7 +66,7 @@
                     </div>
                 </li>
             </a>
-            <a href="">
+            <a href="/selectMenu/${packageList[1].packageNo}">
                 <li class="package-list" id="second-list">
                     <div class="package-box" id="second-box">
                         <div class="package-name" id="second-name">
@@ -84,7 +85,7 @@
                     </div>
                 </li>
             </a>
-            <a href="">
+            <a href="/selectMenu/${packageList[2].packageNo}">
                 <li class="package-list">
                     <div class="package-box">
                         <div id="package-img">

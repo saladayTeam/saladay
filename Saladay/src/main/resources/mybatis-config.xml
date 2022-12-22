@@ -22,9 +22,9 @@
 		<typeAlias type="kr.co.saladay.review.model.vo.ReviewImage"  alias="ReviewImage" />
 		<typeAlias type="kr.co.saladay.menu.model.vo.Option"  alias="Option" />  
 		<typeAlias type="kr.co.saladay.menu.model.vo.Package"  alias="Package" />  
-		<typeAlias type="kr.co.saladay.pay.model.vo.PayMenu"  alias="PayMenu" />  
-		<typeAlias type="kr.co.saladay.pay.model.vo.PayOption"  alias="PayOption" />  
-		<typeAlias type="kr.co.saladay.pay.model.vo.PayPackage"  alias="PayPackage" />  
+		<typeAlias type="kr.co.saladay.pay.model.vo.CartMenu"  alias="CartMenu" />  
+		<typeAlias type="kr.co.saladay.pay.model.vo.CartOption"  alias="CartOption" />  
+		<typeAlias type="kr.co.saladay.pay.model.vo.Cart"  alias="Cart" />  
 	</typeAliases>
 
 

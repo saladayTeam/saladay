@@ -80,4 +80,9 @@
 		  AND AUTHORITY = 1
 	 </update>
 
+	<!-- 회원비밀번호 조회 -->
+	<select id="getMemberPw" parameterType="_int" resultType="string">
+		SELECT MEMBER_PW FROM "MEMBER"
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
 </mapper>

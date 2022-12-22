@@ -96,6 +96,7 @@ window.onload = function() {
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
             $('#menuNo').eq(currentIdx).text($(this).next().next().val())
+            console.log($('#menuNo'));;
             // console.log( $('.menu-title'));
 
             return false;
@@ -133,3 +134,40 @@ $('.menu-box li a').click(function(){
   // }
 
 });
+
+
+
+
+
+
+// 장바구니 담기 버튼
+const cartBtn = document.querySelector(".cartin-btn");
+const orderBtn = document.querySelector(".order-btn");
+
+console.log("연결 ");
+// if(cartBtn != null){
+  
+//   cartBtn.addEventListener("click", ()=>{
+    
+//     if(loginMemberNo == "") {
+//       // console.log(loginMemberNo);
+//       alert("로그인 후 이용하실 수 있습니다.");
+//       location.href = "/member/login";
+    
+//     } else {
+      
+//       if(confirm("장바구니에 담으시겠습니까?")){
+//         location.href = "/cart"; 
+//       }
+//     }
+//   })
+// }
+
+// 주문/결제 버튼
+// if(orderBtn != null) {
+//   orderBtn.addEventListener("click", (){
+    
+//   })
+// }
+
+
