@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.pay.model.dao.CartDAO;
-import kr.co.saladay.pay.model.vo.PayMenu;
-import kr.co.saladay.pay.model.vo.PayPackage;
+import kr.co.saladay.pay.model.vo.CartMenu;
+import kr.co.saladay.pay.model.vo.Cart;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -18,9 +18,9 @@ public class CartServiceImpl implements CartService {
 	
 	// 장바구니에 담은 패키지 조회(패키지에 담은 메뉴별 옵션 모두 포함)
 	@Override
-	public PayPackage selectCartPackage(int memberNo) {
+	public Cart selectCartPackage(int memberNo) {
 		
-		PayPackage cartPackage=dao.selectCartPackage(memberNo);
+		Cart cartPackage=dao.selectCartPackage(memberNo);
 				
 		return cartPackage;
 	}

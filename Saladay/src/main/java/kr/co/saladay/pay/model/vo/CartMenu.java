@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PayMenu {
+public class CartMenu {
 
 	private int cartMenuNo;
 	private int orderMenuNo;
@@ -19,6 +19,6 @@ public class PayMenu {
 	
 	private int cartNo;
 	
-	List<PayOption> optionList;
+	List<CartOption> optionList;
 
 }

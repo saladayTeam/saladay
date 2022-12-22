@@ -36,13 +36,21 @@
     </section>
     <div>
       <ul class="header-menu">
-        <li><a><img src="/resources/images/main/shopping-cart.png"
-                alt=""
-                width="25px"
-                height="25px"
-                id="cart"/>
-            </a>
-          </li>
+        <c:choose>
+          <c:when test="${loginMember.authority==0}">
+            <li><a href="/admin">관리자 메뉴</a></li>
+          </c:when>
+          <c:otherwise>
+            <li><a><img src="/resources/images/main/shopping-cart.png"
+                    alt=""
+                    width="25px"
+                    height="25px"
+                    id="cart"/>
+                </a>
+              </li>
+          </c:otherwise>
+        </c:choose>
+        
         <c:choose>
           <%-- 로그인 상태라면 --%>
           <c:when test="${not empty loginMember}">

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.pay.model.service.CartService;
-import kr.co.saladay.pay.model.vo.PayPackage;
+import kr.co.saladay.pay.model.vo.Cart;
 
 @Controller
 @RequestMapping("/cart")
@@ -29,7 +29,7 @@ public class CartController {
 		
 		int memberNo=loginMember.getMemberNo();
 		
-		PayPackage cartPackage=service.selectCartPackage(memberNo);
+		Cart cartPackage=service.selectCartPackage(memberNo);
 				
 		model.addAttribute("cartPackage", cartPackage);
 		
