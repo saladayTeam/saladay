@@ -86,6 +86,11 @@ window.onload = function() {
         $('.menu-box li a').click(function(){
             $('.menu-img img').eq(currentIdx).attr('src',$(this).attr('href'))
             // console.log($('.menu-name a'))
+
+            // $(this).css("background","#17633D");
+            // $(this).css("color","white");
+            // $(this).css("font-weight","bold");
+            // $(this).css("border-color","#17633D");
             
             var mName = $(this).text();
             $('.menu-title').eq(currentIdx).text(mName);
@@ -98,3 +103,26 @@ window.onload = function() {
     })
 }
 
+// const menuBox = document.querySelectorAll('.menu-box');
+
+// function select(ulEl, liEl){
+//   Array.from(ulEl.children).forEach(
+//     v => v.idList.remove('select')
+//   )
+//   if(liEl) liEl.idList.add('select');
+// }
+
+// menuBox.addEventListener('click', e=>{
+//   const select = e.target;
+//   select(menuBox, select);
+// })
+
+$('.menu-box li a').click(function(){
+  if($(this).hasClass('select')){
+    $(this).removeClass('select');
+    $(this).css("color", "#666666");
+  }else{
+    $(this).css("color", "white");
+    $(this).addClass('select');  
+  }
+});
