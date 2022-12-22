@@ -1,10 +1,13 @@
 footer {
   background-color: rgb(60, 60, 60);
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   color: white;
   width: 100% !important;
   margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .footer-util > ul {

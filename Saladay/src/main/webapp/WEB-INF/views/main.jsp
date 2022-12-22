@@ -25,11 +25,14 @@
           <img src="/resources/images/main/mainImage1.png" alt="메인 이미지" />
         </div>
         <div class="swiper-slide">
-          <img src="/resources/images/main/EatBetter.jpg" alt="메인 이미지" />
+          <img src="/resources/images/main/mainImage2.png" alt="메인 이미지" />
         </div>
         <div class="swiper-slide">
           <img
             src="/resources/images/main/TastesBetter.jpg" alt="메인 이미지" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/resources/images/main/EatBetter.jpg" alt="메인 이미지" />
         </div>
         <%-- <div class="swiper-slide">
           <img src="/resources/images/main-image4.png" alt="메인 이미지" />
