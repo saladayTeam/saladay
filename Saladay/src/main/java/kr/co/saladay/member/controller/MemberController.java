@@ -366,7 +366,7 @@ public class MemberController {
 			
 		} else {				// 회원 탈퇴 실패 시
 			path = referer;
-			message = "회원 탈퇴에 실패했습니다.";
+			message = "관리자는 회원 탈퇴 할 수 없습니다.";
 		}
 		ra.addFlashAttribute("message", message);
 		return "redirect:" + path;
