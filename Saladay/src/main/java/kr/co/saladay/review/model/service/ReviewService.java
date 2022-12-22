@@ -25,4 +25,28 @@ public interface ReviewService {
 	 */
 	List<Review> selectReviewDetail(int reviewNo);
 
+	/** 좋아요 여부 체크
+	 * @param map
+	 * @return
+	 */
+	int reviewLikeCheck(Map<String, Object> map);
+
+	/** 좋아요 수 증가
+	 * @param paramMap
+	 * @return
+	 */
+	int reviewLikeUp(Map<String, Object> paramMap);
+
+	/** 좋아요 수 감소
+	 * @param paramMap
+	 * @return
+	 */
+	int reviewLikeDown(Map<String, Object> paramMap);
+
+	/** 리뷰 삭제
+	 * @param reviewNo
+	 * @return
+	 */
+	int deleteReview(int reviewNo);
+
 }

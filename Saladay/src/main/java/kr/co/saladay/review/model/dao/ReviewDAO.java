@@ -1,6 +1,7 @@
 package kr.co.saladay.review.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -62,6 +63,38 @@ public class ReviewDAO {
 	 */
 	public List<Review> selectReviewDetail(int reviewNo) {
 		return sqlSession.selectList("reviewMapper.selectReviewDetail", reviewNo);
+	}
+
+	/** 좋아요 여부 체크
+	 * @param map
+	 * @return
+	 */
+	public int reviewLikeCheck(Map<String, Object> map) {
+		return sqlSession.selectOne("reviewMapper.reviewLikeCheck", map);
+	}
+
+	/** 좋아요 수 증가
+	 * @param paramMap
+	 * @return
+	 */
+	public int reviewLikeUp(Map<String, Object> paramMap) {
+		return sqlSession.update("reviewMapper.reviewLikeUp", paramMap);
+	}
+
+	/** 좋아요 수 감소
+	 * @param paramMap
+	 * @return
+	 */
+	public int reviewLikeDown(Map<String, Object> paramMap) {
+		return sqlSession.delete("reviewMapper.reviewLikeDown", paramMap);
+	}
+
+	/** 리뷰 삭제
+	 * @param reviewNo
+	 * @return
+	 */
+	public int deleteReview(int reviewNo) {
+		return sqlSession.update("reviewMapper.deleteReview", reviewNo);
 	}
 
 }
