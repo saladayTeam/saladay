@@ -389,3 +389,9 @@ li {
     height: 92px;
     background-image: url("/resources/images/menu/icon/이전.png");
 }
+
+/* 버튼이 선택됐을 때 */
+.select{
+    background-color: #17633D;
+    color: white;
+}
