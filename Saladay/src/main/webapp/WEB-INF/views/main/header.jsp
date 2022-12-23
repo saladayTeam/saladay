@@ -79,6 +79,7 @@
 
 <script>
   const loginMemberNo="${loginMember.memberNo}";
+  const cartNo="${cartPackage.cartNo}";
 </script>
 
 <script>
