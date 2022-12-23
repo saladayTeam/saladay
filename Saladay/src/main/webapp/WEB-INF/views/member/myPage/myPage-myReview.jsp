@@ -29,26 +29,27 @@
         	<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
 
             <div class="right-side">
-                <form action="/member/updateInfo" class="my-page-info-frm" name="my-page-info-frm" method="post">
+               
                 <div class="my-info-list">
 
                     <div class="my-page-header">
                         <h1 class="main-title">나의 리뷰</h1>
                     </div>
 
-					<c:forEach items="${reviewList}" var="review">
-                    <div class="my-info-detail">
-                        <ul>
-                        	<li>리뷰 작성일 : ${review.reviewDate}</li>
-                        	<li>평점 : ${review.rating} </li>
-                        	<li>${review.menuName}</li>
-                        	<li>내용 : ${review.reviewContent}</li>
-                        </ul>
+					<div class="review-list">
+						<c:forEach items="${reviewList}" var="review">
+	                    <div class="my-info-detail">
+	                        <ul>
+	                        	<li>리뷰 작성일 : ${review.reviewDate}</li>
+	                        	<li>평점 : ${review.rating} </li>
+	                        	<li>${review.menuName}</li>
+	                        	<li>내용 : ${review.reviewContent}</li>
+	                        </ul>
+	                    </div>
+						</c:forEach>
                     </div>
-					</c:forEach>
-                    
                 </div>
-                </form>
+           
             </div>
         </div>
 

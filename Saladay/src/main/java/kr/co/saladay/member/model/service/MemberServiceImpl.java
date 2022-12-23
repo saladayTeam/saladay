@@ -61,6 +61,13 @@ public class MemberServiceImpl implements MemberService{
 		return dao.emailDupCheck(memberEmail);
 	}
 
+	//닉네임 중복 체크
+	@Override
+	public int nicknameDupCheck(String memberNickname) {
+		
+		return dao.nicknameDupCheck(memberNickname);
+	}
+	
 	//이메일 아이디 찾기
 	@Override
 	public Member findID(Member member) {

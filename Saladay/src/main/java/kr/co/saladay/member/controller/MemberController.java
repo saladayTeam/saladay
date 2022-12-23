@@ -153,6 +153,20 @@ public class MemberController {
 		return service.emailDupCheck(memberEmail);
 	}
 	
+	
+	/** 닉네임 중복확인
+	 * @param memberNickname
+	 * @return
+	 */
+	@ResponseBody 
+	@GetMapping("/nicknameDupCheck")
+	public int nicknameDupCheck(String memberNickname) {
+		int result = service.nicknameDupCheck(memberNickname);
+		return result;
+	}
+	
+	
+	
 	/** 이메일 아이디 찾기 페이지 이동
 	 * @return member/findID 포워드
 	 */

@@ -28,6 +28,13 @@ public interface MemberService {
 	int emailDupCheck(String memberEmail);
 
 
+	/**닉네임 중복 검사
+	 * @param memberNickname
+	 * @return
+	 */
+	public int nicknameDupCheck(String memberNickname);
+
+	
 	
 	/**이메일 아이디 찾기
 	 * @param member
@@ -76,6 +83,8 @@ public interface MemberService {
 	 * @return List<Review>
 	 */
 	public List<Review> selectMyReview(int memberNo);
+
+
 
 
 }

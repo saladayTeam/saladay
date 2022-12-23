@@ -43,6 +43,15 @@ public class MemberDAO {
 		return sqlSession.selectOne("memberMapper.emailDupCheck", memberEmail);
 	}
 
+	/**닉네임 중복 체크
+	 * @param memberNickname
+	 * @return result
+	 */
+	public int nicknameDupCheck(String memberNickname) {
+		
+		return sqlSession.selectOne("memberMapper.nicknameDupCheck",  memberNickname);
+	}
+	
 	
 	/**이메일 아이디 찾기
 	 * @param member

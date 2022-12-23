@@ -12,26 +12,32 @@
     <title>TermOfService</title>
 
     <link rel="stylesheet" href="/resources/css/main/header.css">
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
     
     <style type="text/css">
       textarea {
-	    width: 100%;
-	    height: 600px;
-	    border: none;
-	    resize: none;
+		    width: 100%;
+		    height: 600px;
+		    border: none;
+		    resize: none;
+		    outline: none;
 	  }
 	  
 	  .title {
-	    margin-top : 50px;
+		    margin-top : 50px;
+	  }
+	  
+	  main {
+		    width: 1200px;
 	  }
     </style>
     
 </head>
 
 <body>
-
+	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     <main>
-        <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+        
         
         
         <div class="title">
