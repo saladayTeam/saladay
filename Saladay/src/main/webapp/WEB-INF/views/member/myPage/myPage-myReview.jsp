@@ -37,6 +37,17 @@
                     </div>
 
 					<div class="review-list">
+						
+						<c:if test="${empty reviewList}">
+							<div class="my-review-detail">
+							
+								<div class="empty-review">앗! 작성한 리뷰가 없어요.
+								 상품을 구매하시고 리뷰를 작성해보세요.</div>
+							
+							</div>
+							<button class="order-btn"><a href="/menu/packageList">상품 구매하러 가기</a></button>
+						</c:if>
+					
 					
 						<c:forEach items="${reviewList}" var="review">
 	                    <div class="my-review-detail">

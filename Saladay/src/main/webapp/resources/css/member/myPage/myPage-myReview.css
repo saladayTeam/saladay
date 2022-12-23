@@ -148,3 +148,31 @@ main {
 	color:#fec43b;
 }
 
+.empty-review {
+	font-size: 18px;
+	margin:20px;
+}
+
+.order-btn {
+    width: 160px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    background-color: #17633d;
+    
+    float: right;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    
+    margin-top:30px
+}
+
+.order-btn a {
+	text-decoration:none;
+	color:white;
+}
+
+
