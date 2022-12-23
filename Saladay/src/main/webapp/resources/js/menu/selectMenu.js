@@ -120,10 +120,12 @@ window.onload = function() {
 // })
 
 $('.menu-box li a').click(function(){
-  
   // eq(currentIdx).$('.menu-box li a').removeClass("select");
   
-  $('.menu-box li a').removeClass("select");
+  // $('.menu-box li a').removeClass("select");
+
+  $(this).parent().parent().find("a").removeClass("select");
+
   $(this).addClass('select');
 
   

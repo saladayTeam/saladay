@@ -9,6 +9,7 @@
       <result property="menuImage" column="MENU_IMG"/>
       <result property="menuContent" column="MENU_CONTENT"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
+      <result property="menuCalorie" column="CALORIE"/>
 	</resultMap>
 
 
@@ -20,6 +21,7 @@
       <result property="optionImage" column="OPTION_IMG"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+      <result property="optionCalorie" column="CALORIE"/>
 	</resultMap>
 	
 	<!-- Package resultMap -->
