@@ -44,6 +44,7 @@
                         </div>
                         <div class="summary">
                             <li class="menu-title"><span>${mOption.optionName}</span></li> <br>
+                            <li class="menu-title"><span>${mOption.optionCalorie} Kcal</span></li> <br>
                         </div>
                     </div>
                 </c:forEach>

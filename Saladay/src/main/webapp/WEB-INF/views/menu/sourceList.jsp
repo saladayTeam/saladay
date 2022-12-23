@@ -45,6 +45,8 @@
                         </div>
                         <div class="summary">
                             <li class="menu-title"><span>${source.optionName}</span></li> <br>
+                            <li class="menu-title"><span>${source.optionCalorie} Kcal</span></li> <br>
+
                         </div>
                     </div>
                 </c:forEach>

@@ -42,6 +42,7 @@
                         <div class="summary">
                             <li class="menu-title"><span>${menu.menuName}</span></li> <br>
                             <li class="menu-content">${menu.menuContent}</li> <br>
+                            <li class="menu-content">${menu.menuCalorie} Kcal</li> <br>
                         </div>
                     </div>
                 </c:forEach>
