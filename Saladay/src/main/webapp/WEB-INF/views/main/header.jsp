@@ -37,7 +37,7 @@
     <div>
       <ul class="header-menu">
         <c:choose>
-          <c:when test="${loginMember.authority==0}">
+          <c:when test="${loginMember.authority==99}">
             <li><a href="/admin">관리자 메뉴</a></li>
           </c:when>
           <c:otherwise>
