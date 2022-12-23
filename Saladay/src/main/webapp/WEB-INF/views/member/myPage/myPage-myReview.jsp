@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
 
-    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-info.css">
+    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>	
@@ -37,16 +37,28 @@
                     </div>
 
 					<div class="review-list">
+					
 						<c:forEach items="${reviewList}" var="review">
-	                    <div class="my-info-detail">
-	                        <ul>
-	                        	<li>리뷰 작성일 : ${review.reviewDate}</li>
-	                        	<li>평점 : ${review.rating} </li>
-	                        	<li>${review.menuName}</li>
-	                        	<li>내용 : ${review.reviewContent}</li>
-	                        </ul>
+	                    <div class="my-review-detail">
+	                    	<div class="img">
+	                    	<c:if test="${review.thumbnail == null }">
+	                        	<img src="/resources/images/review/reviewImg.png" style="width:200px; height:200px;">
+	                        </c:if>
+	                        <c:if test="${review.thumbnail != null}">
+	                        	<img src="${review.thumbnail}" style="width:200px; height:200px;">
+	                        </c:if>
+	                        </div>
+	                        <div class="content">
+		                        <ul>
+		                        	<li>리뷰 작성일 : ${review.reviewDate}</li>
+		                        	<li><span class="text-muted ${review.rating}"></span></li>
+		                        	<li>${review.menuName}</li>
+		                        	<li class="review-content">내용 : ${review.reviewContent}</li>
+		                        </ul>
+	                        </div>
 	                    </div>
 						</c:forEach>
+						
                     </div>
                 </div>
            
@@ -57,6 +69,12 @@
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    
+    <script>
+        $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
+        $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
+        $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
+        $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
+        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
+    </script>
 </body>
 </html>
