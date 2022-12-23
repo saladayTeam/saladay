@@ -403,7 +403,7 @@ public class MemberController {
 		return "member/myPage/myPage-changePw";
 	}
 	
-	/** 현재 비밀번호 확인
+	/** 현재 비밀번호 확인(마이페이지)
 	 * @param currentMemberPw
 	 * @return 일치:true, 불일치:false
 	 */
@@ -432,27 +432,31 @@ public class MemberController {
 		return "member/myPage/myPage-myReview";
 	}
 	
-	@ResponseBody
+	
+	/**마이페이지- 내 리뷰 조회
+	 * @param loginMember
+	 * @return
+	 */
 	@GetMapping("myPage/selectMyReview")
-	public String selectMyReview(Member loginMember){
+	public String selectMyReview(@SessionAttribute("loginMember")Member loginMember,
+			Model model){
 		
 		List<Review>reviewList = null;		
-		String jsonReportList="";
 		
 		try {
 			
 			reviewList = service.selectMyReview(loginMember.getMemberNo());
-			ObjectMapper objectMapper = new ObjectMapper();
-			jsonReportList = objectMapper.writeValueAsString(reviewList);
+			
+			model.addAttribute("reviewList",reviewList);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 				
-		return jsonReportList;
+		return "member/myPage/myPage-myReview";
 	}
 	
-	
+
 	
 	/* 서비스 이용약관
 	 * @return TermsOfService.jsp 포워드

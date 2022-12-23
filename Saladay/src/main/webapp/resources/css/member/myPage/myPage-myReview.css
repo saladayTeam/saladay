@@ -1,5 +1,6 @@
+
 main {
-   
+    width: 1200px;
 }
 
 
@@ -12,11 +13,15 @@ main {
 
 /* 좌측 사이드바*************************************************************/
 .left-side {
-    border-radius: 10px;
     background-color: white;
     width: 25%;
+    margin-left: 20px;
     margin-right: 20px;
+    padding: 20px;
+    border-right: #ddd 3px solid;
 }
+
+
 
 .left-side-header {
     height: 70px;
@@ -45,6 +50,7 @@ main {
 	 text-decoration: none;
 	 color:black;
 }
+
 
 .my-page-list input[name='myPageType'] {
     display: none;
@@ -82,15 +88,14 @@ main {
     padding: 20px 20px 50px 50px;
     background-color: #ffffff;
     display: flex;
-    flex-direction: column;
-
-
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 
-/* 마이페이지-상세 헤더--------------------------------- */
+/* 회원 정보 헤더--------------------------------- */
 .my-page-header {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #17633d;
     width: 100%;
     margin: 40px 20px 40px 0;
 }
@@ -100,46 +105,46 @@ main {
     margin-bottom: 20px;
 }
 
+/*리뷰 내용--------------------------------------*/
 
-/*회원탈퇴 내용--------------------------------------*/
-.my-secession-detail {
+.my-review-detail {
     width: 640px;
     margin-bottom: 20px;
     font-size: 15px;
-    line-height: 25px;
     font-weight: bolder;
+    list-style: none;
     border: #ddd 2px solid;
-    padding: 10px;
-    color: gray;
+  	padding: 15px;
+  	display: flex;
 }
 
-.my-secession-package {
-    margin : 10px;
+.img {
+	width: 200px;
+	height: 200px;
 }
 
-.my-secession-content {
-    margin: 10px;
+.content {
+	width: 400px;
+	margin-left: 20px;
+	padding-top:20px;
+}
+
+.content li {
+	margin-bottom:20px
+}
+
+.review-content {
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 }
 
 
-
-.secession-btn {
-    width: 160px;
-    height: 40px;
-    font-size: 15px;
-    font-weight: bolder;
-    color: white;
-    background-color: #bdbdbd;
-    
-    float: right;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s;
-    
-    margin-top:30px
+.text-muted {
+	color:#fec43b;
 }
 
-.secession-btn:hover {
-    background-color: #555555;
-}
