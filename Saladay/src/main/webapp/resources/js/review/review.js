@@ -57,7 +57,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 deleteBtn.style.display="none";
             }
             // 관리자 권한이거나 본인이작성한 리뷰인 경우
-            if(authority==2||memberNo==reviewMemberNo){
+            if(authority==99||memberNo==reviewMemberNo){
                 deleteBtn.style.display="";
                 deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")");
                 // 개인 삭제
