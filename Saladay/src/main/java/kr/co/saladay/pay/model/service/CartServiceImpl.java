@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.pay.model.dao.CartDAO;
 import kr.co.saladay.pay.model.vo.CartMenu;
+import kr.co.saladay.pay.model.vo.CartOption;
 import kr.co.saladay.pay.model.vo.Cart;
 
 @Service
@@ -42,7 +43,8 @@ public class CartServiceImpl implements CartService {
 		
 		// 장바구니에 내용 담기
 		if(cartNo > 0) {
-			System.out.println(cart);
+			
+			int cartMenoNo = dao.insertCartMenu(cart);
 		}
 		
 		return cartNo;

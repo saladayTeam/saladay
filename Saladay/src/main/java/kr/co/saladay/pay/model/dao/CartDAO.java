@@ -38,4 +38,9 @@ public class CartDAO {
 	public int insertCart(Cart cart) {
 		return sqlSession.insert("cartMapper.insertCart", cart);
 	}
+
+	// 장바구니에 담은 메뉴
+	public int insertCartMenu(Cart cart) {
+		return sqlSession.insert("cartMapper.insertCartMenu", cart);
+	}
 }

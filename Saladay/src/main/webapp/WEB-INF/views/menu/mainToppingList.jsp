@@ -44,7 +44,6 @@
                         </div>
                         <div class="summary">
                             <li class="menu-title"><span>${mOption.optionName}</span></li> <br>
-                            <li class="menu-content">${mOption.optionPrice}원</li>
                         </div>
                     </div>
                 </c:forEach>

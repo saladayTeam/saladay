@@ -42,7 +42,6 @@
                         <div class="summary">
                             <li class="menu-title"><span>${menu.menuName}</span></li> <br>
                             <li class="menu-content">${menu.menuContent}</li> <br>
-                            <li class="menu-content">${menu.menuPrice}원</li>
                         </div>
                     </div>
                 </c:forEach>

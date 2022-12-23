@@ -95,5 +95,17 @@
 		VALUES (#{cartNo}, #{memberNo}, #{packageNo})
 	</insert>
 	
+	<!-- 장바구니에 담은 메뉴 -->
+	<insert id="insertCartMenu" parameterType="CartMenu" useGeneratedKeys="true">
+		<selectKey keyProperty="cartMenuNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_CART_MENU_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO CART_MENU
+		VALUES (#{cartMenuNo}, #{cartNo}, #{menuNo})
+	</insert>
+	
+	
+	
+	
 
 </mapper>
