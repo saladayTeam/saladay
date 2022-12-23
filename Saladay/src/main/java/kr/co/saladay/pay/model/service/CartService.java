@@ -16,7 +16,11 @@ public interface CartService {
 	 */
 	int deleteCart(int memberNo);
 
-	// 장바구니 담기
+	
+	/** 장바구니 담기
+	 * @param cart
+	 * @return cartNo
+	 */
 	int insertCart(Cart cart);
 
 

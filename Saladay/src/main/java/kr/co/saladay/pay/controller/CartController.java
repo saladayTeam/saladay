@@ -18,7 +18,7 @@ import kr.co.saladay.pay.model.vo.Cart;
 
 @Controller
 @RequestMapping("/cart")
-@SessionAttributes("cartPackage")
+@SessionAttributes({"cartPackage", "message"}) 
 public class CartController {
 	
 	@Autowired
@@ -66,22 +66,30 @@ public class CartController {
 	
 	
 	// 장바구니 담기
-	@PostMapping("/cart")
-	public String insertCart(int packageNo, 
-							Member loginMember, 
-							Model model,
-							Cart cart) { 		
+	@PostMapping("")
+	public String insertCart(@SessionAttribute("loginMember") Member loginMember
+							,Cart cart, 
+							RedirectAttributes ra, 
+							@RequestHeader("referer") String referer) { 		
 		
-		
-		// 장바구니 번호 생성
 		cart.setMemberNo(loginMember.getMemberNo());
-		int cartNo = service.insertCart(cart); // 장바구니에 선택한 패키지 저장
+		int result = service.insertCart(cart); 
 		
 		
+		String message = null;
+		String path = null;
+	
+		if(result > 0) {
+			message ="장바구니에 정상적으로 추가되었습니다.";
+			path = "cart/cart";
+		} else {
+			message = "장바구니에 담은 내용을 다시 확인해주세요.";
+			path = referer;
+		}
 		
-		return "cart/cart";
+		ra.addAttribute(message);
+		
+		return "redirect: " + path;
+			
 	}
-	
-	
-	
 }

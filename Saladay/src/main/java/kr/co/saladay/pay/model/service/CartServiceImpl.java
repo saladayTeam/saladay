@@ -37,9 +37,14 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public int insertCart(Cart cart) {
 		
-		
+		// 장바구니 번호 생성
 		int cartNo = dao.insertCart(cart);
-		System.out.println(cart);
+		
+		// 장바구니에 내용 담기
+		if(cartNo > 0) {
+			System.out.println(cart);
+		}
+		
 		return cartNo;
 	}
 }
