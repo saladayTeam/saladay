@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장바구니</title>
 
     <script
       src="https://kit.fontawesome.com/2aa49fc46f.js"
@@ -176,7 +177,7 @@
 
         <hr />
 
-        <button class="total">주문 / 결제</button>
+        <button class="total" id="total" type="button">주문 / 결제</button>
     </form>
     
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
