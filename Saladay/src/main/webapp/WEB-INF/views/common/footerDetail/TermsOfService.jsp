@@ -440,6 +440,6 @@ v.     샐러데이 또는 샐러데이 임직원이나 운영진을 사칭하�
 
     </main>    
 
-    
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
 </html>

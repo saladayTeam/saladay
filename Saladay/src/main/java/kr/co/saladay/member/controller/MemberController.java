@@ -288,7 +288,7 @@ public class MemberController {
 	/**마이페이지-내 정보
 	 * @return myPage-info.jsp 포워드
 	 */
-	@GetMapping("/info")
+	@GetMapping("/myPage//info")
 	public String myInfo() {
 		return "member/myPage/myPage-info";
 	}
@@ -341,7 +341,7 @@ public class MemberController {
 	/**마이페이지-회원탈퇴
 	 * @return myPage-secession.jsp 포워드
 	 */
-	@GetMapping("/secession")
+	@GetMapping("myPage/secession")
 	public String secession() {
 		return "member/myPage/myPage-secession";
 	}
@@ -384,7 +384,7 @@ public class MemberController {
 	/**마이페이지-비밀번호 변경
 	 * @return myPage-changePw.jsp 포워드
 	 */
-	@GetMapping("/myPageChangePw")
+	@GetMapping("myPage/myPageChangePw")
 	public String myPagePw() {
 		return "member/myPage/myPage-changePw";
 	}
@@ -405,7 +405,7 @@ public class MemberController {
 	/**마이페이지-나의 주문
 	 * @return myPage-order.jsp 포워드
 	 */
-	@GetMapping("/myOrder")
+	@GetMapping("myPage/myOrder")
 	public String myOrder() {
 		return "member/myPage/myPage-order";
 	}
@@ -413,13 +413,13 @@ public class MemberController {
 	/**마이페이지-나의 리뷰
 	 * @return myPage-review.jsp 포워드
 	 */
-	@GetMapping("/myReview")
+	@GetMapping("myPage/myReview")
 	public String myReview() {
 		return "member/myPage/myPage-myReview";
 	}
 	
 	@ResponseBody
-	@GetMapping("/selectMyReview")
+	@GetMapping("myPage/selectMyReview")
 	public String selectMyReview(Member loginMember){
 		
 		List<Review>reviewList = null;		
