@@ -16,5 +16,8 @@ public interface CartService {
 	 */
 	int deleteCart(int memberNo);
 
-	
+	// 장바구니 담기
+	int insertCart(Cart cart);
+
+
 }

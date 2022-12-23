@@ -31,4 +31,15 @@ public class CartServiceImpl implements CartService {
 	public int deleteCart(int memberNo) {
 		return dao.deleteCart(memberNo);
 	}
+	
+	
+	// 장바구니 담기
+	@Override
+	public int insertCart(Cart cart) {
+		
+		
+		int cartNo = dao.insertCart(cart);
+		System.out.println(cart);
+		return cartNo;
+	}
 }

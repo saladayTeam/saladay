@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -62,4 +63,25 @@ public class CartController {
 		
 		return "redirect:"+path;
 	}
+	
+	
+	// 장바구니 담기
+	@PostMapping("/cart")
+	public String insertCart(int packageNo, 
+							Member loginMember, 
+							Model model,
+							Cart cart) { 		
+		
+		
+		// 장바구니 번호 생성
+		cart.setMemberNo(loginMember.getMemberNo());
+		int cartNo = service.insertCart(cart); // 장바구니에 선택한 패키지 저장
+		
+		
+		
+		return "cart/cart";
+	}
+	
+	
+	
 }
