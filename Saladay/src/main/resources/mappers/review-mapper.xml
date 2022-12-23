@@ -42,18 +42,8 @@ WHERE REVIEW_DEL_FL='N'
 
 <!-- 전체 리뷰 목록 조회 -->
 <select id="selectReviewList" resultMap="review_rm">
-SELECT REVIEW_NO, RATING, REVIEW_CONTENT, MEMBER_NICKNAME, MENU_NO, MENU_NAME,
-<![CDATA[
-	CASE  
-      WHEN SYSDATE - REVIEW_DATE < 1/24/60
-      THEN FLOOR( (SYSDATE - REVIEW_DATE) * 24 * 60 * 60 ) || '초 전'
-      WHEN SYSDATE - REVIEW_DATE < 1/24
-      THEN FLOOR( (SYSDATE - REVIEW_DATE) * 24 * 60) || '분 전'
-      WHEN SYSDATE - REVIEW_DATE < 1
-      THEN FLOOR( (SYSDATE - REVIEW_DATE) * 24) || '시간 전'
-      ELSE TO_CHAR(REVIEW_DATE, 'YYYY-MM-DD')
-   END REVIEW_DATE,
-  ]]>
+SELECT REVIEW_NO, RATING, REVIEW_CONTENT, MEMBER_NO, MEMBER_NICKNAME, MENU_NO, MENU_NAME,
+	TO_CHAR(REVIEW_DATE, 'YYYY-MM-DD') REVIEW_DATE,
  	(SELECT COUNT(*) FROM "LIKE" L
 	  WHERE L.REVIEW_NO = R.REVIEW_NO) LIKE_COUNT,
 	(SELECT IMG_PATH || IMG_RENAME FROM REVIEW_IMG I
@@ -77,18 +67,8 @@ AND REVIEW_DEL_FL='N'
 
 <!-- 특정 메뉴 리뷰 목록 조회 -->
 <select id="selectMenuReviewList" resultMap="review_rm">
-SELECT REVIEW_NO, RATING, REVIEW_CONTENT, MEMBER_NICKNAME, MENU_NO, MENU_NAME,
-<![CDATA[
-	CASE  
-      WHEN SYSDATE - REVIEW_DATE < 1/24/60
-      THEN FLOOR( (SYSDATE - REVIEW_DATE) * 24 * 60 * 60 ) || '초 전'
-      WHEN SYSDATE - REVIEW_DATE < 1/24
-      THEN FLOOR( (SYSDATE - REVIEW_DATE) * 24 * 60) || '분 전'
-      WHEN SYSDATE - REVIEW_DATE < 1
-      THEN FLOOR( (SYSDATE - REVIEW_DATE) * 24) || '시간 전'
-      ELSE TO_CHAR(REVIEW_DATE, 'YYYY-MM-DD')
-   END REVIEW_DATE,
-  ]]>
+SELECT REVIEW_NO, RATING, REVIEW_CONTENT, MEMBER_NO, MEMBER_NICKNAME, MENU_NO, MENU_NAME,
+	TO_CHAR(REVIEW_DATE, 'YYYY-MM-DD') REVIEW_DATE,
  	(SELECT COUNT(*) FROM "LIKE" L
 	  WHERE L.REVIEW_NO = R.REVIEW_NO) LIKE_COUNT,
 	(SELECT IMG_PATH || IMG_RENAME FROM REVIEW_IMG I
@@ -105,7 +85,7 @@ ORDER BY REVIEW_NO DESC
 
 <!-- 리뷰 상세 조회 -->
 <select id="selectReviewDetail" resultMap="review_rm">
-SELECT REVIEW_NO, RATING, REVIEW_CONTENT, MEMBER_NICKNAME, MENU_NAME,
+SELECT REVIEW_NO, RATING, REVIEW_CONTENT, MEMBER_NO, MEMBER_NICKNAME, MENU_NAME,
 	TO_CHAR(REVIEW_DATE, 'YYYY-MM-DD') REVIEW_DATE,
  	(SELECT COUNT(*) FROM "LIKE" L
 	  WHERE L.REVIEW_NO = R.REVIEW_NO) LIKE_COUNT,
@@ -138,4 +118,30 @@ AND MEMBER_NO = #{memberNo}
 ORDER BY REVIEW_DATE DESC
 </select>
 
+<!-- 좋아요 여부 체크 -->
+<select id="reviewLikeCheck" resultType="_int">
+SELECT COUNT(*) FROM "LIKE"
+WHERE REVIEW_NO = #{reviewNo}
+AND MEMBER_NO = #{memberNo}
+</select>
+
+<!-- 좋아요 수 증가 -->
+<insert id="reviewLikeUp">
+INSERT INTO "LIKE"
+VALUES (#{reviewNo}, #{memberNo})
+</insert>
+
+<!-- 좋아요 수 감소 -->
+<delete id="reviewLikeDown">
+DELETE FROM "LIKE"
+WHERE REVIEW_NO =#{reviewNo}
+AND MEMBER_NO=#{memberNo}
+</delete>
+
+<!-- 리뷰 삭제 -->
+<update id="deleteReview">
+UPDATE "REVIEW" SET
+REVIEW_DEL_FL = 'Y'
+WHERE REVIEW_NO=#{reviewNo}
+</update>
 </mapper>

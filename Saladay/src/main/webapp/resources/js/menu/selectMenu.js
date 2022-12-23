@@ -110,7 +110,7 @@ window.onload = function() {
 //   Array.from(ulEl.children).forEach(
 //     v => v.idList.remove('select')
 //   )
-//   if(liEl) liEl.idList.add('select');
+//   if(liEl) liEl.attr.add('select');
 // }
 
 // menuBox.addEventListener('click', e=>{
@@ -119,14 +119,22 @@ window.onload = function() {
 // })
 
 $('.menu-box li a').click(function(){
-  if($(this).hasClass('select')){
-    $(this).removeClass('select');
-    $(this).css("color", "#666666");
-  }else{
-    $(this).css("color", "white");
-    $(this).addClass('select');  
-  }
+  
+  // eq(currentIdx).$('.menu-box li a').removeClass("select");
+  
+  $('.menu-box li a').removeClass("select");
+  $(this).addClass('select');
+
+  
+  // if($(this).hasClass('select')){
+  //   $(this).removeClass('select');
+  //   // $(this).css("color", "#666666");
+  // }else{
+  //   // $(this).css("color", "white");
+  // }
+
 });
+
 
 
 

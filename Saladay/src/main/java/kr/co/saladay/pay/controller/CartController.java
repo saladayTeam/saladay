@@ -53,7 +53,7 @@ public class CartController {
 			message="장바구니를 삭제했습니다";
 		} else {
 			path=referer;
-			message="장바구니 삭제 실패";
+			message="장바구니가 비어있습니다";
 		}
 		
 		ra.addFlashAttribute("message", message);

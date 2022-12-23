@@ -28,6 +28,90 @@
             <h1 class="main-title">영양성분 검색</h1>
         </div>
 
+        <!-- <label for="menu">메뉴</label>
+        <select>
+            <option value="">메뉴</option>
+            <c:forEach var="menu" items="${menuList}">
+                <option value="${menu.menuName}">${menu.menuName}</option>
+            </c:forEach>
+        </select>
+        
+        <label for="menu">메인토핑</label>
+        <select>
+            <option value="">메인토핑</option>
+            <c:forEach var="main" items="${mainTopping}">
+                <option value="${main.optionName}">${main.optionName}</option>
+            </c:forEach>
+        </select>
+
+        <label for="menu">서브토핑</label>
+        <select>
+            <option value="">서브토핑</option>
+            <c:forEach var="sub" items="${subTopping}">
+                <option value="${sub.optionName}">${sub.optionName}</option>
+            </c:forEach>
+        </select>
+
+        <label for="menu">소스</label>
+        <select>
+            <option value="">소스</option>
+            <c:forEach var="source" items="${sourceList}">
+                <option value="${source.optionName}">${source.optionName}</option>
+            </c:forEach>
+        </select> -->
+
+        <div class="main-box">
+            <div>설명</div>
+            
+            <div class="big-box">
+                <div class="select-box">
+                    <div>
+                        <label for="menu">메뉴</label>
+                        <select>
+                            <option value="">메뉴</option>
+                            <c:forEach var="menu" items="${menuList}">
+                                <option value="${menu.menuName}">${menu.menuName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="menu">메인토핑</label>
+                        <select>
+                            <option value="">메인토핑</option>
+                            <c:forEach var="main" items="${mainTopping}">
+                                <option value="${main.optionName}">${main.optionName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+            
+                    <div>
+                        <label for="menu">서브토핑</label>
+                        <select>
+                            <option value="">서브토핑</option>
+                            <c:forEach var="sub" items="${subTopping}">
+                                <option value="${sub.optionName}">${sub.optionName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+            
+                    <div>
+                        <label for="menu">소스</label>
+                        <select>
+                            <option value="">소스</option>
+                            <c:forEach var="source" items="${sourceList}">
+                                <option value="${source.optionName}">${source.optionName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    칼로리
+                </div>
+            </div>
+        </div>
+
         <div class="search-input-area">
             <div class="search-input-form">
                 <form action="#<!-- 검색어 제출페이지 -->" method="post" name="search-frm" id="search-frm">

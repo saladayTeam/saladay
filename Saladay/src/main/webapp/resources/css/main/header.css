@@ -130,3 +130,8 @@ nav li > a {
 nav li > a:hover {
   color: #17633d;
 }
+
+/* 카트 아이콘 커서 */
+#cart-img:hover{
+  cursor: pointer;
+}

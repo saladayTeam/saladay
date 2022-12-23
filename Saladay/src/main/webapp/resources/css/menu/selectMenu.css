@@ -18,6 +18,10 @@ main{
     width: 100%;
     background: url("/resources/images/menu/banner/salad-top4.png");
 }
+/* .top1{
+    width: 100%;
+    background: url("/resources/images/menu/banner/배너.png");
+} */
 
 .img-text{
     display: flex;
@@ -393,5 +397,5 @@ li {
 /* 버튼이 선택됐을 때 */
 .select{
     background-color: #17633D;
-    color: white;
+    color: white !important;
 }
