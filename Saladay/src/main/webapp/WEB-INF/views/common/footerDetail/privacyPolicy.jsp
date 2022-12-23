@@ -12,27 +12,31 @@
     <title>privacyPolicy</title>
 
     <link rel="stylesheet" href="/resources/css/main/header.css">
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
     
     <style type="text/css">
-	      textarea {
-	    width: 100%;
-	    height: 600px;
-	    border: none;
-	    resize: none;
+	  textarea {
+		    width: 100%;
+		    height: 600px;
+		    border: none;
+		    resize: none;
+		    outline: none;
 	  }
-	   
-	    .title {
+	  main {
+		    width: 1200px;
+	  }
+	  .title {
 	    	margin-top : 50px;
-	    }
+	  }
     </style>
     
 </head>
 
 <body>
-
-    <main>
-        <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+ 	<jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
         
+    <main>
+       
         
         <div class="title">
             <h1 class="">개인정보처리방침</h1>
@@ -306,6 +310,6 @@
 
 
     </main>    
-    
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
 </html>
