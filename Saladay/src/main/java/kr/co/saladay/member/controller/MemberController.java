@@ -70,7 +70,7 @@ public class MemberController {
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());			// 쿠키 생성
 			
 			if(saveId != null) {							// 아이디 저장이 체크되었다면
-				cookie.setMaxAge(60 * 60 * 24 * 365);									// 쿠키 생명주기 1년 지정
+				cookie.setMaxAge(60 * 60 * 24 * 14);									// 쿠키 생명주기 14일 지정
 			} else {
 				cookie.setMaxAge(0);													// 쿠기 삭제
 			}
