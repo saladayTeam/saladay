@@ -395,4 +395,22 @@ VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 
 INSERT INTO "REVIEW_IMG"
 VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 11);
 
+-- 비번 암호화 pass!
+UPDATE MEMBER SET MEMBER_PW ='$2a$10$Ib31oDRifsqCREhr1YDV..Zw5Paq0vNXDAJq28f1gvJ4PN3aRhokK';
+
+-- 리뷰 좋아요
+INSERT INTO "LIKE" VALUES (1, 1);
+INSERT INTO "LIKE" VALUES (1, 2);
+INSERT INTO "LIKE" VALUES (1, 3);
+INSERT INTO "LIKE" VALUES (1, 4);
+INSERT INTO "LIKE" VALUES (1, 5);
+INSERT INTO "LIKE" VALUES (11, 1);
+INSERT INTO "LIKE" VALUES (11, 2);
+INSERT INTO "LIKE" VALUES (11, 3);
+
+-- 옵션 테이블 샘플 데이터 칼로리 추가
+UPDATE "OPTION" SET CALORIE=10.2 WHERE OPTION_NO = 20;
+-- 메뉴 테이블 샘플 데이터 칼로리 추가
+UPDATE MENU SET CALORIE=46.7 WHERE MENU_NO = 11;
+
 
