@@ -153,13 +153,10 @@ if(cartBtn != null){
   cartBtn.addEventListener("click", ()=>{
     
     if(loginMemberNo == "") {
-      // console.log(loginMemberNo);
       alert("로그인 후 이용하실 수 있습니다.");
-      // location.href = "/member/login";
-      // location.href = "#"; 
+      location.href = "/member/login";
     } else {
-        //location.href = "#"; 
-        console.log("abaa")
+      location.href = ""; 
     }
   })
 }
