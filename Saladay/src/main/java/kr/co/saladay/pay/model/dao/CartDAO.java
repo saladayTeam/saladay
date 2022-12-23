@@ -32,4 +32,10 @@ public class CartDAO {
 		return sqlSession.delete("cartMapper.deleteCart", memberNo);
 	}
 	
+	
+	
+	// 장바구니 담기
+	public int insertCart(Cart cart) {
+		return sqlSession.insert("cartMapper.insertCart", cart);
+	}
 }

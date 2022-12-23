@@ -15,10 +15,4 @@ public class OrderDAO {
 	private SqlSessionTemplate sqlSession;
 
 	
-	// 장바구니 담기
-	public int insertCart(Cart cart) {
-		return sqlSession.insert("orderMapper.insertCart", cart);
-	}
-	
-	
 }

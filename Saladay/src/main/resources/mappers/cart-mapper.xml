@@ -85,5 +85,15 @@
 		WHERE MEMBER_NO=#{memberNo}
 	</delete>
 
+	
+	<!-- 장바구니 삽입 -->		
+	<insert id="insertCart" parameterType="Cart" useGeneratedKeys="true">
+		<selectKey keyProperty="cartNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_CART_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO CART 
+		VALUES (#{cartNo}, #{memberNo}, #{packageNo})
+	</insert>
+	
 
 </mapper>

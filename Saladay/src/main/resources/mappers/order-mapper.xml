@@ -1,93 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="orderMapper">
-		
-	<!-- Package resultMap -->  <!-- 주문/결제 페이지에 카트에 담긴 내용을 조회하기 위한 용도 -->
-<!--	<resultMap type="PayPackage" id="package_rm">
-       <id property="packageNo" column="PACKAGE_NO"/>      
+	
+	<!-- Package resultMap -->
+	<resultMap type="Cart" id="cart_rm">
+      <id property="packageNo" column="PACKAGE_NO"/>      
       <result property="cartNo" column="CART_NO"/>
       <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageImage" column="PACKAGE_IMG"/>
       <result property="packagePrice" column="TOTAL"/>
       <result property="packageType" column="PACKAGE_TYPE"/>
-      
-      <collection property="menuList" 
-      						javaType="java.util.ArrayList" 
-      						ofType="PayMenu"
-      						select="selectCartMenuList" 
-      						Column="CART_NO" />
-	</resultMap> -->
-	
+      <collection property="menuList" javaType="java.util.ArrayList" ofType="PayMenu"
+      select="selectCartMenuList" column="CART_NO" />
+	</resultMap>
 	
 	<!-- PayMenu resultMap -->
-<!-- 	<resultMap type="PayMenu" id="menu_rm">
+	<resultMap type="CartMenu" id="cartMenu_rm">
       <id property="cartMenuNo" column="CART_MENU_NO"/>
       <result property="menuName" column="MENU_NAME"/>
       <result property="menuPrice" column="MENU_PRICE"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
-      
-      <collection property="optionList" 
-      						javaType="java.util.ArrayList" 
-      						ofType="PayOption"
-      						select="selectCartOptionList" 
-      						column="CART_MENU_NO" />
-	</resultMap> --> 
+      <collection property="optionList" javaType="java.util.ArrayList" ofType="PayOption"
+      select="selectCartOptionList" column="CART_MENU_NO" />
+	</resultMap>
 
 
 	<!-- payOption resultMap -->
-<!-- 	<resultMap type="PayOption" id="option_rm">
+	<resultMap type="CartOption" id="cartOption_rm">
       <id property="optionNo" column="OPTION_NO"/>
       <result property="optionName" column="OPTION_NAME"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionCount" column="CART_OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
 	</resultMap>
-	 -->
 
-    <!-- resultMap의 collection 태그
-   		- 조회 결과를 지정된 컬렉션 형태로 필드에 대입하는 태그
-   		- 별도로 지정된 select구문을 수행하고 수행 결과를 해당 필드에 대입
-   		
-   		property : 대입될 필드명
-   		javaType : 컬렉션 객체의 타입
-   		ofType	 : 제네릭 - 타입제한
-   		select 	 : 수행할 select태그의 id
-   		column 	 : select수행 시 전달할 파라미터를 가지고 있는 컬럼
-    -->
-	
 
-		<!-- 주문 번호 반환  -->
- 		<!--  useGeneratedKeys 속성 : DB 내부적으로 생성한 키(시퀀스 등)
- 				useGeneratedKeys="true" : JDBC getGeneratedKeys()메서드 사용 허용 ** 필수 사용
-	
-				* 마이바티스의 동적 SQL *
-				- SQL구문에 작성되는 태그로 프로그램 수행 중 추가적인 SQL 수행 및 SQL 형태 변형 가능 		
-					(마이바티스 기능 중 가장 강력한 기능)
-					
-				* 동적 SQL의 <selectKey>
-				<selectKey> : INSERT/UPDATE에 사용된 키를 원하는 변수/필드에 담아서 반환하는 태그
-				
-				keyProperty : key를 담을 변수를 지정하는 속성
-				
-				order	: 메인 SQL이 수행되기 전(BEFOR) 또는 후(AFTER)에 <selectKey>의 SQL이 수행되도록 순서를 지정 -->
-		
-		<!-- 장바구니 삽입 -->		
-		<insert id="insertCart" parameterType="Cart" useGeneratedKeys="true">
- 			<selectKey keyProperty="cartNo" resultType="_int" order="BEFORE">
- 				SELECT SEQ_CART_NO.NEXTVAL FROM DUAL
- 			</selectKey>
- 			INSERT INTO CART 
-			VALUES (#{cartNo}, #{memberNo}, #{packageNo})
- 		</insert>
- 		
- 		
- 		<!-- 장바구니에 담길 메뉴 선택(장바구니에 담은 메뉴들)  -->
-		<insert id="insertMenu" parameterType="CartMenu" useGeneratedKeys="true">
- 			<selectKey keyProperty="cartMenuNo" resultType="_int" order="BEFORE">
- 				SELECT SEQ_CART_MENU_NO.NEXTVAL FROM DUAL
- 			</selectKey>
- 			INSERT INTO CART_MENU 
-			VALUES (#{cartMenuNo}, #{cartNo}, #{menuNo})
- 		</insert>
 
  		
 </mapper>
