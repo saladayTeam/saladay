@@ -29,6 +29,7 @@ const reviewSalad = document.querySelector(".review-detail-salad");
 const reviewNickname = document.querySelector(".review-detail-nickname");
 const reviewText = document.querySelector(".review-detail-text");
 const reviewLike = document.querySelector(".review-detail-likeCount");
+const reviewHeart = document.getElementById("reviewHeart");
 
 // 리뷰 이미지 클릭시 실행
 function selectReviewDetail(reviewNo, reviewMemberNo){
@@ -84,16 +85,21 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
             $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
 
-            const reviewHeart = document.getElementById("reviewHeart");
+
             if(rDetail[0].likeCheck==0){
                 reviewHeart.classList.remove("fa-solid");
                 reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-regular");
+
+                if(memberNo != ""){
+                    reviewHeart.setAttribute("onclick", "reviewLikeUp("+rDetail[0].reviewNo+", "+memberNo+")");
+                }
+
             } else{
                 reviewHeart.classList.remove("fa-regular");
                 reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-solid");
-                reviewHeart.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")");
+                reviewHeart.setAttribute("onclick", "reviewLikeDown("+rDetail[0].reviewNo+", "+memberNo+")");
             }
 
         },
@@ -129,4 +135,49 @@ if( confirm("정말 삭제 하시겠습니까?") ){
         });
     }
 }
+
+
+// 좋아요 증가
+function reviewLikeUp(reviewNo, memberNo){
+    
+    $.ajax({
+        url : "/review/likeUp",
+        data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
+        type : "GET" ,
+        success : (result)=>{
+            if(result >0){ // 성공
+
+                reviewHeart.classList.remove('fa-regular'); // 빈하트 클래스 삭제
+                reviewHeart.classList.add('fa-solid'); // 채워진 하트 클래스 추가
+                reviewLike.innerText = Number(reviewLike.innerText)+1; // 1증가
+            }else{ // 실패
+                console.log("증가 실패");
+            }
+        },
+        error : ()=>{ console.log("증가 에러"); }
+    });
+}
+
+
+// 좋아요 감소
+function reviewLikeDown(reviewNo, memberNo){
+    $.ajax({
+        url : "/review/likeDown",
+        data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
+        type : "GET" ,
+        success : (result)=>{
+            if(result >0){ // 성공
+
+                reviewHeart.classList.add('fa-regular'); // 빈하트 클래스 추가
+                reviewHeart.classList.remove('fa-solid'); // 채워진 하트 클래스 삭제
+                reviewLike.innerText = Number(reviewLike.innerText)-1; // 1감소
+            }else{ // 실패
+                console.log("증가 실패");
+            }
+        },
+        error : ()=>{ console.log("증가 에러"); }
+    });
+}
+
+
 
