@@ -29,8 +29,9 @@ body{
     letter-spacing: 0px;
     /* font-family: 'shrimp'; */
     font-family: 'sugar snow' !important;
+    /* font-family: 'BlackHan'; */
     color: #17633D;
-    font-weight: bold;
+    font-weight: bolder;
     font-style: normal;
     font-size: 36px;
 }

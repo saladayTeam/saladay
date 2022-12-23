@@ -7,7 +7,7 @@
 	<div class="left-side-header">마이 페이지</div>
 	<ul class="my-page-list">
 		<li>
-			<input type="radio" name="myPageType" value="1" id="myPageType1" checked> 
+			<input type="radio" name="myPageType" value="1" id="myPageType1"> 
 			<label for="myPageType1"><a href="/member/myPage/info" class="myPageType1">회원 정보 수정</a></label>
 		</li>
 		
@@ -23,7 +23,7 @@
 		
 		<li>
 			<input type="radio" name="myPageType" value="4" id="myPageType4"> 
-			<label for="myPageType4"><a href="/member/myPage/myReview" class="myPageType4">나의 리뷰</a></label>
+			<label for="myPageType4"><a href="/member/myPage/selectMyReview" class="myPageType4">나의 리뷰</a></label>
 		</li>
 		
 		<li>
@@ -31,4 +31,7 @@
 			<label for="myPageType5"><a href="/member/myPage/secession" class="myPageType5">회원 탈퇴</a></label>
 		</li>
 	</ul>
+	
+	
+	
 </div>

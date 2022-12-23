@@ -1,5 +1,6 @@
 main {
   width: 1200px;
+  height: auto;
 }
 
 /*영양정보 검색 header*************************************************************/
@@ -96,6 +97,116 @@ select{
   
 } */
 
+select{
+  font-size: 16px;
+  color: #666;
+  width: 70%;
+  float: right;
+  height: 43px;
+  line-height: 43px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+}
+
 .big-box{
+  color: #666;
   display: flex;
+  /* font-size: 20px; */
+}
+
+.main-box{
+  color: #666;
+  /* width: 1200px; */
+  width: 100%;
+  margin-top: 30px;
+  /* padding: 65px; */
+  margin-bottom: 30px;
+}
+
+.select-box{
+  padding-right: 30px;
+  padding-left: 30px;
+  width: 50%;
+  color: #666;
+}
+
+.calorie{
+  padding-right: 30px;
+  padding-left: 30px;
+  width: 50%;
+}
+
+label{
+  color: black;
+  top: 0;
+    left: 0;
+    height: 43px;
+    line-height: 43px;
+    width: 110px;
+    font-size: 18px;
+    color: #666;
+    justify-content: center;
+}
+
+.select-box > div{
+  /* position: relative; */
+  margin-top: 10px;
+}
+
+.option-box{
+  padding: 25px 30px;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #17633d;
+  margin-top: 10px;
+  /* overflow-y: auto; */
+}
+
+.total{
+  margin-top: 15px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 16px;
+  color: #555;
+}
+
+.strong{
+  font-size: 22px;
+    font-weight: 600;
+    color: #175436;
+}
+
+.option-box{
+  font-size: 14px;
+}
+
+.empty > div{
+  display: flex;
+  padding: 10px;
+}
+
+.empty{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.delete-btn:hover{
+  cursor: pointer;
+}
+
+.delete-btn>img{
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+
+.menu-name{
+  margin-right: 4px;
+}
+.menu-calorie{
+  margin-right: 3px;
 }
