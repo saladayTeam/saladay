@@ -54,25 +54,21 @@ public class ReviewController {
 	public String selectReviewDetail(int reviewNo, Model model, 
 			@SessionAttribute(value = "loginMember", required = false) Member loginMember) {
 
-		List<Review> rDetail = service.selectReviewDetail(reviewNo);
+		int memberNo;
+		Map<String, Object> map= new HashMap<String, Object>();
 		
-		// 좋아요 기능
-		if(rDetail !=null) { // 게시글 상세조회 성공 시
-
-			if(loginMember !=null) { // 로그인 상태인 경우
-				Map<String, Object> map= new HashMap<String, Object>();
-				map.put("reviewNo", reviewNo);
-				map.put("memberNo", loginMember.getMemberNo());
-				
-				// BOARD_LIKE 테이블에 게시글 번호와 로그인한 회원번호가 일치하는지 조회하는 서비스
-				int result = service.reviewLikeCheck(map);
-				
-				if(result >0) { // 좋아요가 되어있는 경우
-					
-					model.addAttribute("likeCheck", "on");
-				}
-			}
+		// 로그인 확인 / 멤버 넘버 세팅
+		if (loginMember == null) { // 로그인하지 않았을 때
+			memberNo = -1;
+			map.put("reviewNo", reviewNo);
+			map.put("memberNo", memberNo);
+		} else {
+			memberNo = loginMember.getMemberNo();
+			map.put("reviewNo", reviewNo);
+			map.put("memberNo", loginMember.getMemberNo());
 		}
+		
+		List<Review> rDetail = service.selectReviewDetail(map);
 		
 		return new Gson().toJson(rDetail);
 	}
@@ -84,14 +80,14 @@ public class ReviewController {
 	public int reviewLikeUp(@RequestParam Map<String, Object> paramMap) {
 		return service.reviewLikeUp(paramMap);
 	}
-	
+
 	// 좋아요 수 감소(DELETE)
 	@GetMapping("/review/likeDown")
 	@ResponseBody
 	public int reviewLikeDown(@RequestParam Map<String, Object> paramMap) {
 		return service.reviewLikeDown(paramMap);
 	}
-	
+
 	// 리뷰 삭제(UPDATE)
 	@GetMapping("/review/delete")
 	@ResponseBody

@@ -15,6 +15,7 @@
 	<result property="menuNo" column="MENU_NO"/>
 	<result property="menuName" column="MENU_NAME"/>
 	<result property="likeCount" column="LIKE_COUNT"/>
+	<result property="likeCheck" column="LIKE_CHECK"/>
 	<result property="thumbnail" column="THUMBNAIL"/>
 	
 	<!-- 리뷰 이미지 리스트 -->
@@ -91,7 +92,8 @@ SELECT REVIEW_NO, RATING, REVIEW_CONTENT, MEMBER_NO, MEMBER_NICKNAME, MENU_NAME,
 	  WHERE L.REVIEW_NO = R.REVIEW_NO) LIKE_COUNT,
 	(SELECT IMG_PATH || IMG_RENAME FROM REVIEW_IMG I
 	WHERE IMG_ORDER =0
-	AND I.REVIEW_NO = R.REVIEW_NO) THUMBNAIL
+	AND I.REVIEW_NO = R.REVIEW_NO) THUMBNAIL,
+	(SELECT COUNT(*) FROM "LIKE" L WHERE L.REVIEW_NO = R.REVIEW_NO AND MEMBER_NO = #{memberNo}) LIKE_CHECK
 FROM "REVIEW" R
 JOIN "MEMBER" USING(MEMBER_NO)
 JOIN "ORDER_MENU" USING(ORDER_MENU_NO)

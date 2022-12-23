@@ -44,7 +44,6 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             // rDetail : 반환 받은 리뷰 상세 조회 내용 
             console.log(rDetail);
 
-
             // 리뷰 삭제
             const deleteBtn = document.getElementById("review-modal-delete");
             if(memberNo == ""){
@@ -85,17 +84,17 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
             $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
 
-            // 리뷰 좋아요
-            // const reviewHeart = document.getElementById("reviewHeart");
-            // if (reviewHeart != null) {
-            //         reviewHeart.addEventListener("click", e =>{
-            //             // 로그인 상태가 아닌 경우
-            //         if(memberNo==""){
-            //             alert("로그인 후 이용해주세요.")
-            //             return;
-            //         }
-            //     });
-            // }
+            const reviewHeart = document.getElementById("reviewHeart");
+            if(rDetail[0].likeCheck==0){
+                reviewHeart.classList.remove("fa-solid");
+                reviewHeart.classList.add("fa-heart");
+                reviewHeart.classList.add("fa-regular");
+            } else{
+                reviewHeart.classList.remove("fa-regular");
+                reviewHeart.classList.add("fa-heart");
+                reviewHeart.classList.add("fa-solid");
+                reviewHeart.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")");
+            }
 
         },
         error : function(req, status, error){
