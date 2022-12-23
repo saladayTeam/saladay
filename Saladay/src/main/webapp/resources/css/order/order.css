@@ -1,237 +1,243 @@
-    @import url('../main/main.css');
+@import url("../main/main.css");
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'NanumSquareNeo-Variable';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "NanumSquareNeo-Variable";
 }
 
 /* 주문/결제하기 페이지명 */
 .section-tit {
-    width: 1200px;
-    line-height: 40px;
-    font-size: 20px; 
-    margin-top: 30px;
+  width: 1200px;
+  line-height: 40px;
+  font-size: 20px;
+  margin-top: 30px;
 }
 
 /* 구매하기 전체 영역 */
-.order-wrapper{
-    width: 1200px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.order-wrapper {
+  width: 1200px;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
 }
-
 
 /* *************************************** */
 /* 주문자 정보 */
 .orderer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin: 10px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
 }
 
 .orderer-left {
-    width: 50%;
-    padding: 10px 0px 10px 0px;
+  width: 50%;
+  padding: 20px;
 }
 
 .orderer-info {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
-.orderer-left p{
-    display: flex;
-    height: 40px;
-    padding : 5px 0px;
+.orderer-left p {
+  display: flex;
+  height: 40px;
+  padding: 5px 0px;
 }
 
-.orderer-right{
-    width: 50%;
-    padding: 10px 0;
-    border-left: 1px solid #ddd;
+.orderer-right {
+  width: 50%;
+  padding: 20px;
+  border-left: 1px solid #ddd;
 }
 
 .orderer-right p {
-    display: flex;
-    height: 35px;
-    padding-left: 10px;
+  display: flex;
+  height: 35px;
+  padding-left: 10px;
 }
 
-.o-th{
-    flex-basis: 60%;  
-    line-height: 30px;
+.o-th {
+  flex-basis: 60%;
+  line-height: 30px;
+  font-weight: bold;
 }
 
-.o-td{
-    flex-basis: 40%;
-    text-align: right;
-    padding-right: 10px;
-    align-items: center;
-    line-height: 30px;
+.o-td {
+  flex-basis: 40%;
+  text-align: right;
+  padding-right: 10px;
+  align-items: center;
+  line-height: 30px;
 }
-
 
 /* 배송정보 변경 */
-#orderName, #orderTel{
-    width: 100%;
-    height: 90%;
-    outline: none;
-    border: 1px solid #ddd;
-    padding-left: 10px;
+#orderName,
+#orderTel {
+  width: 239px;
+  height: 90%;
+  outline: none;
+  border: 1px solid #ddd;
+  padding-left: 10px;
 }
 
 .address-area {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
-#sample6_postcode{
-    width: 30%; 
+#sample6_postcode {
+  width: 30%;
 }
 
 .address-area button {
-    width: 90px;
+  width: 65px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.address-area button {
+  cursor: pointer;
 }
 
 /* 주소영역 행 구역 */
 .address-area input {
-    outline: none;
-    border: 1px solid #ddd;
-    margin-right: 10px;
-    margin-left: 300px;
-    width: 70%;  
-    padding-left: 10px;
+  outline: none;
+  border: 1px solid #ddd;
+  margin-right: 10px;
+  margin-left: 300px;
+  width: 70%;
+  padding-left: 10px;
 }
-
-
-
 
 /* ********************************************************* */
 /* 주문상품 정보 */
-.order-items{
-    margin: 10px 0;
+.order-items {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 총 내역 */
 .order-package {
-    width: 100%;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    display: flex;
-    margin: 10px 0;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #ddd;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .pack-name {
-    flex-basis: 65%;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-    font-weight: bold;
+  flex-basis: 65%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  font-weight: bold;
 }
 
-.pack-price{
-    flex-basis: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+.pack-price {
+  flex-basis: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
 }
 
-.pack-i{
-    flex-basis: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    cursor: pointer;
+.pack-i {
+  flex-basis: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-#icon{
-    display: none;
-    cursor: pointer;
+#icon {
+  display: none;
+  cursor: pointer;
 }
 
-.fa-solid{
-    font-size: 30px;
-    color: #bababa;
-    cursor: pointer;
+.fa-solid {
+  font-size: 30px;
+  color: #17633d;
+  cursor: pointer;
 }
 
-.show-area{
-    width: 800px;
-    display: none;
-    margin: 0 auto;
+.show-area {
+  width: 1100px;
+  display: none;
+  margin: 0 auto;
 }
-
 
 /* 주문목록 상세 내역 */
 .order-header {
-    display: flex;
-    text-align: center;
-    font-weight: bold;
-    border-top: 1px solid #ddd;
-    padding: 5px 0px;
-    margin-top: 15px;
+  display: flex;
+  text-align: center;
+  font-weight: bold;
+  border-top: 1px solid #ddd;
+  padding: 5px 0px;
+  margin-top: 15px;
 }
 
 /* 주문한 메뉴의 목록 */
-.order-all {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-}
-
 
 .order-area {
-    display: flex;
-    text-align: center;
+  display: flex;
+  text-align: center;
 }
 
 .order-menu {
-    flex-basis: 60%;
-    text-align: left;
-    padding-left : 50px;
-    line-height: 30px;
+  flex-basis: 60%;
+  text-align: left;
+  padding-left: 50px;
+  line-height: 30px;
 }
 
-.order-quantity{
-    flex-basis: 20%;
-    line-height: 30px;
+.order-quantity {
+  flex-basis: 20%;
+  line-height: 30px;
 }
-.order-price{
-    flex-basis: 20%;
-    line-height: 30px;
+.order-price {
+  flex-basis: 20%;
+  line-height: 30px;
 }
 
 /* 토핑 이름만 크기 다르게  */
 .order-option {
-    font-size: 14px;
-    color: #575454;
-    padding-left: 70px;
-    flex-basis: 60%;
-    text-align: left;
-    line-height: 30px;
+  font-size: 14px;
+  color: #575454;
+  padding-left: 70px;
+  flex-basis: 60%;
+  text-align: left;
+  line-height: 30px;
 }
-
 
 /* .order-area:last-child{
     border-bottom: 1px solid #ddd;
 } */
 
-
 /* 배송일 영역 */
 .select-delivery {
-    padding : 20px 0px;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+  padding: 20px;
 }
 
 .select-delivery p {
-    line-height: 30px;
+  line-height: 30px;
+}
+
+.cal-container {
+  display: flex;
+}
+
+.cal {
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 /*배송일 선택 달력 */
@@ -282,54 +288,98 @@ input[data-placeholder]::before{
 } */
 
 /* 배송일 지정 */
-#deliveryDate, #deliveryDate2 {
-    position: relative;
-    width: 280px;
-    height: 40px;
-    padding-left: 5px;
-    padding-right: 20px;
-    background: url(../../images/calendar.png) no-repeat right 10px center / 20px auto;
-    border: 1px solid #e1e1e1;
-    border-radius: 5px;
+#deliveryDate,
+#deliveryDate2 {
+  position: relative;
+  width: 280px;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 20px;
+  background: url(../../images/calendar.png) no-repeat right 10px center / 20px
+    auto;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
 }
 
-#deliveryDate:focus, #deliveryDate2:focus {
-    border: 1px solid #17633d;
-    outline: none;
+#deliveryDate:focus,
+#deliveryDate2:focus {
+  border: 1px solid #17633d;
+  outline: none;
 }
 
 /* 결제수단 */
-.payment-area{
-    padding : 20px 0px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    align-items: center;
+.payment-area {
+  padding: 20px;
+  display: flex;
+  align-items: center;
 }
 
-.payment-area img{
-    width: 200px;
-    height: 40px;
+.payment-area img {
+  height: 50px;
+  border-radius: 10px;
 }
 
+#kakaopay {
+  border: none;
+  margin-left: 30px;
+}
 
 .check-area {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.check-area > h3 {
+  margin-bottom: 5px;
+}
+
+.headline {
+  border-top: 1px solid #ccc;
+}
+
+.check-area span {
+  line-height: 150%;
+}
+
+.check-info {
+  display: flex;
+}
+
+.check-info-head {
+  flex-basis: 30%;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.check-info-data {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
 }
 
 /* 구매하기 버튼 */
-#imporPayment{
-    width: 100%;
-    height: 50px;
-    background-color: #17633d;
-    border : none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    cursor: pointer;
-    margin: auto;
-    letter-spacing: 3px;
-    padding: 13px 0px;
+#payBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #17633d;
+  color: white;
+  height: 60px;
+
+  border-radius: 20px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  width: 1200px;
+
+  border: none;
+}
+
+hr {
+  margin: 10px 0;
+  width: 1200px;
 }
