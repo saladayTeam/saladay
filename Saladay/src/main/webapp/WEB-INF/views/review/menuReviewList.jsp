@@ -47,18 +47,20 @@
                             <c:forEach var="review" items="${reviewList}">
                                 <li class="albumLi">
                                     <%-- 리뷰 이미지가 있을 경우 --%>
-                                    <c:if test="${not empty review.thumbnail}">  
-                                    <a href="/review/detail/${review.reviewNo}">
-                                    <img src="${review.thumbnail}" class="review-img"></a>
+                                    <c:if test="${not empty review.thumbnail}">
+                                    <span>
+                                        <img src="${review.thumbnail}" class="review-img list-thumbnail" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
+                                    </span>
                                     </c:if>
                                     <%-- 리뷰 이미지가 없을 경우 --%>
                                     <c:if test="${empty review.thumbnail}">
-                                    <a href="/review/detail/${review.reviewNo}">
-                                    <img src="/resources/images/review/reviewImg.png" class="review-img"></a>
+                                    <span>
+                                        <img src="/resources/images/review/reviewImg.png" class="review-img list-thumbnail" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
+                                    </span>
                                     </c:if> 
                                     <div class="review-content">
                                         <a href="/review/${review.menuNo}" class="review-menu-name">[${review.menuName}]</a>
-                                        <a href="/review/detail/${review.reviewNo}" class="review-content">${review.reviewContent}</a>
+                                        <span class="review-content">${review.reviewContent}</span>
                                     </div>
                                     <div class="review-writer">
                                         ${review.memberNickname}
@@ -98,9 +100,10 @@
             </div>
         </div>
 
-<%--         <div class="modal">
+        <div class="review-modal">
+            <span id="modal-close">&times;</span>
             <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp"></jsp:include>
-        </div> --%>
+        </div>
 
     </main>
     <!-- 푸터 -->
@@ -110,7 +113,10 @@
         $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
         $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
-        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;"); 
+        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
+        const memberNo = "${loginMember.memberNo}";
+        const authority = "${loginMember.authority}";
+        const reviewNo = "${review.reviewNo}";
     </script>
     <script src="/resources/js/review/review.js"></script>
 </body>

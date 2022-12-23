@@ -86,7 +86,7 @@
 }
 
 .rating{
-    color: #999999;
+    color: #fec43b;
 }
 
 /* 페이지네이션 */
@@ -218,7 +218,7 @@
 
 /* 리뷰 별점 */
 .review-detail-star{
-    color: #17633d;
+    color: #fec43b;
 }
 
 /* 리뷰 작성일 */
