@@ -23,6 +23,8 @@
         <h3>주문/결제하기</h3>
     </div>
 
+    <hr />
+
     <!-- 폼태그로 넘길 값은 주문번호, 가격, 주문자명, 폰번호, 주소, 패키지 번호 등-->
     <section class="order-wrapper">
         <div class="orderer">
@@ -78,6 +80,8 @@
                 </div>
             
         </div>
+
+        <hr />
         
         <div class="order-items">
             <h3>주문 목록</h3>
@@ -98,9 +102,9 @@
                 <!-- 주문한 메뉴 내용 c:forEach -->
                     <%-- 선택 메인 메뉴 --%>
                     <li class="order-area">
-                        <div class="order-menu">쉬림프샐러드</div>
-                        <div class="order-quantity">1</div>
-                        <div class="order-price">8900</div>
+                        <div class="order-menu headline">쉬림프샐러드</div>
+                        <div class="order-quantity headline">1</div>
+                        <div class="order-price headline">8900</div>
                     </li>
                     <%-- 선택한 옵션 --%>
                     <li class="order-area">
@@ -114,9 +118,9 @@
                 <!-- 주문한 메뉴 내용 c:forEach -->
                     <%-- 선택 메인 메뉴 --%>
                     <li class="order-area">
-                        <div class="order-menu">쉬림프샐러드</div>
-                        <div class="order-quantity">1</div>
-                        <div class="order-price">8900</div>
+                        <div class="order-menu headline">쉬림프샐러드</div>
+                        <div class="order-quantity headline">1</div>
+                        <div class="order-price headline">8900</div>
                     </li>
                     <%-- 선택한 옵션 --%>
                     <li class="order-area">
@@ -130,9 +134,9 @@
                 <!-- 주문한 메뉴 내용 c:forEach -->
                     <%-- 선택 메인 메뉴 --%>
                     <li class="order-area">
-                        <div class="order-menu">쉬림프샐러드</div>
-                        <div class="order-quantity">1</div>
-                        <div class="order-price">8900</div>
+                        <div class="order-menu headline">쉬림프샐러드</div>
+                        <div class="order-quantity headline">1</div>
+                        <div class="order-price headline">8900</div>
                     </li>
                     <%-- 선택한 옵션 --%>
                     <li class="order-area">
@@ -145,37 +149,56 @@
             </div>
         </div>
 
-    
+        <hr />
+
         <div class="select-delivery">
             <h3>배송일 선택</h3>
-            <div>
-                <p>원하는 수령 날짜를 선택해주세요</p>
-                <%-- <p><input type="date" data-placeholder="배송일 선택" required></p> --%>
-                <p><input type="text" id="deliveryDate" name="deliveryDate" placeholder="배송일 선택" required></p>
-            </div>
-            <%-- 선택한 패키지 번호에 따라서 2차 배송일 지정 --%>
-            <c:if test="${ packageNo ne 4  || packageNo ne 5 || packageNo ne 6}">
-                <div>
-                    <p>2차 수령 날짜를 선택해주세요</p>
-                    <p><input type="text" id="deliveryDate2" name="deliveryDate2" placeholder="배송일 선택" required></p>
+            <div class="cal-container">
+                <div class=cal>
+                    <p>원하는 수령 날짜를 선택해주세요</p>
+                    <%-- <p><input type="date" data-placeholder="배송일 선택" required></p> --%>
+                    <p><input type="text" id="deliveryDate" name="deliveryDate" placeholder="배송일 선택" required></p>
                 </div>
-            </c:if>
+                <%-- 선택한 패키지 번호에 따라서 2차 배송일 지정 --%>
+                <c:if test="${ packageNo ne 4  || packageNo ne 5 || packageNo ne 6}">
+                    <div class=cal>
+                        <p>2차 수령 날짜를 선택해주세요</p>
+                        <p><input type="text" id="deliveryDate2" name="deliveryDate2" placeholder="배송일 선택" required></p>
+                    </div>
+                </c:if>
+            </div>    
         </div>
         
+        <hr />
 
         <div class="payment-area">
             <h3>결제수단</h3>
-            <img src="../../resources/images/kakaoPay.svg" alt="">
+            <input type=radio id=kakaopay checked>&nbsp;&nbsp;<img src="/resources/images/order/kakaoPay.svg" alt="">
         </div>
+
+        <hr />
 
         <div class="check-area">
             <h3>결제 예상 금액</h3>
-            <p><span>상품 수 / 금액</span><span>3개 / 32700원</span></p>
-            <p><span>배송비</span><span>0원(무료배송)</span></p>
-            <p><span>총 금액</span><span>32700원</span></p>
+            <div class=check-info>
+                <span class="check-info-head headline">상품 수 / 금액</span>
+                <span class="check-info-data headline">33200 원</span>
+            </div>
+            <div class=check-info>
+                <span class="check-info-head">배송비</span>
+                <span class="check-info-data">0 원(무료 배송)</span>
+            </div>
+            <div class=check-info>
+                <span class="check-info-head">할인금액</span>
+                <span class="check-info-data">-3000 원</span>
+            </div>
+            <div class=check-info>
+                <span class="check-info-head headline">총 금액</span>
+                <span class="check-info-data headline">30200 원</span>
+            </div>
         </div>
         
-        <div> <button type="button" id="imporPayment">구매하기</button> </div>
+        <button type="button" id="payBtn">구매하기</button>
     </section>
 
     <!-- footer -->
