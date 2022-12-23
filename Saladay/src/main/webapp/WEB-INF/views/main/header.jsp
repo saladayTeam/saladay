@@ -41,7 +41,7 @@
             <li><a href="/admin">관리자 메뉴</a></li>
           </c:when>
           <c:otherwise>
-            <li><a><img src="/resources/images/main/shopping-cart.png"
+            <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"
                     alt=""
                     width="25px"
                     height="25px"
