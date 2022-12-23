@@ -95,8 +95,9 @@ window.onload = function() {
             var mName = $(this).text();
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
-            $('#menuNo').eq(currentIdx).text($(this).next().next().val())
-            console.log($('#menuNo'));;
+            $('.menuNo').eq(currentIdx).text($(this).next().next().val())
+            console.log($('.menu-detail').val());
+            console.log($('.menuNo').val());
             // console.log( $('.menu-title'));
 
             return false;

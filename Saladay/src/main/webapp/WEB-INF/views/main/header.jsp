@@ -54,7 +54,7 @@
           <%-- 로그인 상태라면 --%>
           <c:when test="${not empty loginMember}">
             <li><a href="/member/logout">로그아웃</a></li>
-            <li><a href="/member/info">마이페이지</a></li>
+            <li><a href="/member/myPage/info">마이페이지</a></li>
           </c:when>
           <%-- 로그인 상태가 아니라면 --%>
           <c:otherwise>

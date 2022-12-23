@@ -1,5 +1,7 @@
 package kr.co.saladay.member.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.member.model.dao.MemberDAO;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.review.model.vo.Review;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -58,6 +61,13 @@ public class MemberServiceImpl implements MemberService{
 		return dao.emailDupCheck(memberEmail);
 	}
 
+	//닉네임 중복 체크
+	@Override
+	public int nicknameDupCheck(String memberNickname) {
+		
+		return dao.nicknameDupCheck(memberNickname);
+	}
+	
 	//이메일 아이디 찾기
 	@Override
 	public Member findID(Member member) {
@@ -103,6 +113,14 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int secession(int memberNo) {
 		return dao.secession(memberNo);
+	}
+
+
+	//내 리뷰 조회
+	@Override
+	public List<Review> selectMyReview(int memberNo) {
+		
+		return dao.selectMyReview(memberNo);
 	}
 	
 	

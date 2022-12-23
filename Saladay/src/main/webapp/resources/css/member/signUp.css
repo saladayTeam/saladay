@@ -12,7 +12,6 @@
 /* main */
 main {
 	font-family: 'SUIT-Regular';
-    /* width: 1200px; */
     flex-basis: 85%;
     display: flex;
     flex-direction: column;
@@ -40,7 +39,7 @@ button {
 }
 
 /* 로고사이즈 */
-.signUp-header > img{
+.signUp-header img{
     width: 160px;
     height: 100px;
 }

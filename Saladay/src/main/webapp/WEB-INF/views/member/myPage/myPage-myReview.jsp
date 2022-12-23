@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
 
-    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-info.css">
+    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>	
@@ -29,66 +29,63 @@
         	<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
 
             <div class="right-side">
-                <form action="/member/updateInfo" class="my-page-info-frm" name="my-page-info-frm" method="post">
+               
                 <div class="my-info-list">
 
                     <div class="my-page-header">
-                        <h1 class="main-title">회원 정보</h1>
-                        <p class="main-sub-title">회원 정보를 수정할 수 있습니다</p>
+                        <h1 class="main-title">나의 리뷰</h1>
                     </div>
 
-                    <div class="my-info-detail">
-                        <span class="empty-space1">이메일</span>
-                        <input type="text" id="memberEmail" name="memberEmail" autocomplete="off" readonly class="input-read-only" maxlength="6" value="${loginMember.memberEmail}">
-                        <span class="input-row-message" id="memberEmailMessage"></span>
+					<div class="review-list">
+						
+						<c:if test="${empty reviewList}">
+							<div class="my-review-detail">
+							
+								<div class="empty-review">앗! 작성한 리뷰가 없어요.
+								 상품을 구매하시고 리뷰를 작성해보세요.</div>
+							
+							</div>
+							<button class="order-btn"><a href="/menu/packageList">상품 구매하러 가기</a></button>
+						</c:if>
+					
+					
+						<c:forEach items="${reviewList}" var="review">
+	                    <div class="my-review-detail">
+	                    	<div class="img">
+	                    	<c:if test="${review.thumbnail == null }">
+	                        	<img src="/resources/images/review/reviewImg.png" style="width:200px; height:200px;">
+	                        </c:if>
+	                        <c:if test="${review.thumbnail != null}">
+	                        	<img src="${review.thumbnail}" style="width:200px; height:200px;">
+	                        </c:if>
+	                        </div>
+	                        <div class="content">
+		                        <ul>
+		                        	<li>리뷰 작성일 : ${review.reviewDate}</li>
+		                        	<li><span class="text-muted ${review.rating}"></span></li>
+		                        	<li>${review.menuName}</li>
+		                        	<li class="review-content">내용 : ${review.reviewContent}</li>
+		                        </ul>
+	                        </div>
+	                    </div>
+						</c:forEach>
+						
                     </div>
-
-                    <div class="my-info-detail">
-                        <span class="empty-space1">이 &nbsp  름  </span>
-                        <input type="text" id="memberName" name="memberName" autocomplete="off" readonly class="input-read-only" maxlength="5" value="${loginMember.memberName}">
-                        <span class="input-row-message" id="memberNameMessage"></span>
-                    </div>
-
-                    <div class="my-info-detail">
-                        <i style="font-size:12px; color:#249C66;" class="fa-solid fa-check"></i><span class="empty-space2">닉네임</span>
-                        <input type="text" class="writable" id="memberNickname" name="memberNickname" autocomplete="off" maxlength="6" value="${loginMember.memberNickname}">
-                        <span class="input-row-message" id="memberNicknameMessage"></span>
-                    </div>
-
-                    <div class="my-info-detail">
-                        <i style="font-size:12px; color:#249C66;" class="fa-solid fa-check"></i><span>전화번호</span>
-                        <input class="writable input-tel" type="text" id="memberTel" name="memberTel" autocomplete="off" maxlength="11" value="${loginMember.memberTel}">
-                        <span class="input-row-message" id="memberTelMessage"></span>
-                    </div>
-
-                    <div class="my-info-detail-address">
-                        <i style="font-size:12px; color:#249C66;" class="fa-solid fa-check"></i><span class="empty-space">주 &nbsp 소</span>
-                        
-                        <button type="button" id="addressSearch" class="address-search-btn">주소 검색</button>
-                        
-                        
-                        <c:set var="address" value="${fn:split(loginMember.memberAddress, ',,') }"/>
-                        
-                        	
-                        <input type="text" id="postCode" name="memberAddress" autocomplete="off" readonly class="address-input1" value="${address[0]}">
-                        
-                        <input type="text" id="address" name="memberAddress" autocomplete="off" readonly class="address-input" value="${address[1]}">
-
-                        <input type="text" id="detailAddress" name="memberAddress" autocomplete="off" placeholder="상세 주소" class="address-input writable" value="${address[2]}">
-                    
-                        
-                    </div>
-                    <button class="submit-btn">정보 수정</button>
                 </div>
-                </form>
+           
             </div>
         </div>
 
 
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="/resources/js/member/validate.js"></script>
+    <script>
+        $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
+        $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
+        $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
+        $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
+        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
+    </script>
 </body>
 </html>

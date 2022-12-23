@@ -2,7 +2,10 @@ package kr.co.saladay.menu.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import kr.co.saladay.menu.model.service.MenuService;
 import kr.co.saladay.menu.model.vo.Option;
 @Controller
@@ -48,4 +51,14 @@ public class MenuController {
 	public String packageList2() {
 		return "menu/packageList2";
 	}
+	
+	
+	// 메뉴(샐러드와 옵션) 선택 상세 페이지
+	@GetMapping("/selectMenu/{packageNo}")
+	public String selectMenu(@PathVariable("packageNo") int packageNo, Model model) {
+		model.addAttribute("packageNo", packageNo);
+		
+		return "menu/selectMenu";
+	}
+	
 }

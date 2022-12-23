@@ -289,7 +289,7 @@ if(currentMemberPw != null) {
             data: {"currentMemberPw":currentMemberPw.value},
             type: "POST",
             success: result => {
-                if(result) {        // 피밀번호가 일치할 때
+                if(result) {        // 비밀번호가 일치할 때
                     currentMemberPwMessage.innerText = "비밀번호가 일치합니다."
                     currentMemberPwMessage.classList.add("confirm");
                     currentMemberPwMessage.classList.remove("error");
@@ -446,10 +446,29 @@ if(memberNickname != null) {
         const regEx = /^[a-zA-Z가-힣0-9]{2,6}$/;
     
         if(regEx.test(memberNickname.value)) {                  // 유효한 형식일 때
-            memberNicknameMessage.innerText = "유효한 형식의 닉네임입니다.";
-            memberNicknameMessage.classList.add("confirm");
-            memberNicknameMessage.classList.remove("error");
-            validate.memberNickname = true;
+            //닉네임 중복체크
+            $.ajax({
+                url: "/member/nicknameDupCheck",
+                data: { "memberNickname": memberNickname.value },
+                success: (result) => {
+                    console.log("result : " + result);
+                    if (result > 0) {
+                        memberNicknameMessage.innerText = "이미 사용중인 닉네임입니다.";
+                        memberNicknameMessage.classList.add("error");
+                        memberNicknameMessage.classList.remove("confirm");
+                        validate.memberNickname = false;
+                    } else {
+                        memberNicknameMessage.innerText = "사용 가능한 닉네임입니다.";
+                        memberNicknameMessage.classList.add("confirm");
+                        memberNicknameMessage.classList.remove("error");
+                        validate.memberNickname = true;
+                    }
+                },
+                error: (err) => {
+                    console.log("닉네임 중복 검사 실패");
+                }
+            });
+            
         } else {                                                 // 유효한 형식이 아닐 때 
             memberNicknameMessage.innerText = "특수문자를 제외한 2 ~ 6글자";
             memberNicknameMessage.classList.add("error");
