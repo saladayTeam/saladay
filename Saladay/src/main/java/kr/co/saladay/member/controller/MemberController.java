@@ -1,5 +1,7 @@
 package kr.co.saladay.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,8 +19,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.review.model.vo.Review;
 
 @SessionAttributes({"loginMember","cartPackage"})
 @RequestMapping("/member")
@@ -147,6 +152,20 @@ public class MemberController {
 	public int emailDupCheck(String memberEmail) {
 		return service.emailDupCheck(memberEmail);
 	}
+	
+	
+	/** 닉네임 중복확인
+	 * @param memberNickname
+	 * @return
+	 */
+	@ResponseBody 
+	@GetMapping("/nicknameDupCheck")
+	public int nicknameDupCheck(String memberNickname) {
+		int result = service.nicknameDupCheck(memberNickname);
+		return result;
+	}
+	
+	
 	
 	/** 이메일 아이디 찾기 페이지 이동
 	 * @return member/findID 포워드
@@ -283,7 +302,7 @@ public class MemberController {
 	/**마이페이지-내 정보
 	 * @return myPage-info.jsp 포워드
 	 */
-	@GetMapping("/info")
+	@GetMapping("/myPage//info")
 	public String myInfo() {
 		return "member/myPage/myPage-info";
 	}
@@ -336,7 +355,7 @@ public class MemberController {
 	/**마이페이지-회원탈퇴
 	 * @return myPage-secession.jsp 포워드
 	 */
-	@GetMapping("/secession")
+	@GetMapping("myPage/secession")
 	public String secession() {
 		return "member/myPage/myPage-secession";
 	}
@@ -379,7 +398,7 @@ public class MemberController {
 	/**마이페이지-비밀번호 변경
 	 * @return myPage-changePw.jsp 포워드
 	 */
-	@GetMapping("/myPageChangePw")
+	@GetMapping("myPage/myPageChangePw")
 	public String myPagePw() {
 		return "member/myPage/myPage-changePw";
 	}
@@ -400,18 +419,40 @@ public class MemberController {
 	/**마이페이지-나의 주문
 	 * @return myPage-order.jsp 포워드
 	 */
-	@GetMapping("/myOrder")
+	@GetMapping("myPage/myOrder")
 	public String myOrder() {
 		return "member/myPage/myPage-order";
 	}
 	
-	/**마이페이지-나의 주문
-	 * @return myPage-order.jsp 포워드
+	/**마이페이지-나의 리뷰
+	 * @return myPage-review.jsp 포워드
 	 */
-	@GetMapping("/myReview")
+	@GetMapping("myPage/myReview")
 	public String myReview() {
 		return "member/myPage/myPage-myReview";
 	}
+	
+	@ResponseBody
+	@GetMapping("myPage/selectMyReview")
+	public String selectMyReview(Member loginMember){
+		
+		List<Review>reviewList = null;		
+		String jsonReportList="";
+		
+		try {
+			
+			reviewList = service.selectMyReview(loginMember.getMemberNo());
+			ObjectMapper objectMapper = new ObjectMapper();
+			jsonReportList = objectMapper.writeValueAsString(reviewList);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+		return jsonReportList;
+	}
+	
+	
 	
 	/* 서비스 이용약관
 	 * @return TermsOfService.jsp 포워드

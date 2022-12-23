@@ -40,6 +40,15 @@
 		AND MEMBER_DEL_FL = 'N'
 	</select>
 
+	<!-- 닉네임 중복 체크 -->
+ 	<select id= "nicknameDupCheck" parameterType="string" resultType="_int">
+ 	 	SELECT COUNT(*) 
+		FROM MEMBER 
+		WHERE MEMBER_NICKNAME = #{memberNickname}
+		AND MEMBER_DEL_FL = 'N'
+ 	</select>
+
+
 	<!-- 이메일 아이디 찾기 -->
 	<select id="findID" parameterType="Member" resultMap="member_rm">
 		SELECT MEMBER_NAME, MEMBER_EMAIL
