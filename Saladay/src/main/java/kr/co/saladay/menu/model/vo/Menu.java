@@ -14,5 +14,6 @@ public class Menu {
 	private String menuImage;
 	private String menuContent;
 	private String menuDeleteFlag;
+	private int menuCalorie;
 	
 }

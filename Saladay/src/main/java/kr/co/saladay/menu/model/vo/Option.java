@@ -14,4 +14,6 @@ public class Option {
 	private String optionImage;
 	private int optionPrice;
 	private String optionDeleteFlag;
+	private int optionCalorie;
+	
 }

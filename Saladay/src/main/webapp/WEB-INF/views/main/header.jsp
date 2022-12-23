@@ -26,7 +26,6 @@
 	});
 });
 </script>
-
   <header>
     <section></section>
     <section>
@@ -69,11 +68,11 @@
   </header>
   <nav>
     <ul>
-      <li><a href="/intro">소개</a></li>
-      <li><a href="/menu/menuList">메뉴</a></li>
-      <li><a href="/menu/packageList">정기구독</a></li>
-      <li><a href="/nutrition">영양정보</a></li>
-      <li><a href="/review">리뷰</a></li>
+      <li><a href="/intro">BRAND</a></li>
+      <li><a href="/menu/menuList">MENU</a></li>
+      <li><a href="/menu/packageList">STORE</a></li>
+      <li><a href="/nutrition">CALORIE</a></li>
+      <li><a href="/review">REVIEW</a></li>
       <li><a href="/FAQ">FAQ</a></li>
     </ul>
   </nav>
