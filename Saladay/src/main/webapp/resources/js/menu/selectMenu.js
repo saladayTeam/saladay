@@ -96,8 +96,8 @@ window.onload = function() {
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
             $('.menuNo').eq(currentIdx).val($(this).next().next().val()) // 메뉴 번호 넘기기 위해서 .val사용
-            console.log("aaaaa", $('.menu-detail').val());
-            console.log("vvvvvvv",$('.menuNo').val());
+            // console.log("aaaaa", $('.menu-detail').val());
+            // console.log("vvvvvvv",$('.menuNo').val());
             // console.log( $('.menu-title'));
 
             return false;
@@ -167,5 +167,6 @@ if(cartBtn != null){
     
 //   })
 // }
+
 
 

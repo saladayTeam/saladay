@@ -1,14 +1,16 @@
-package kr.co.saladay.pay.model.dao;
+package kr.co.saladay.cart.model.dao;
 
 import java.util.List;
+
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.saladay.pay.model.vo.CartMenu;
-import kr.co.saladay.pay.model.vo.CartOption;
-import kr.co.saladay.pay.model.vo.Cart;
+import kr.co.saladay.cart.model.vo.Cart;
+import kr.co.saladay.cart.model.vo.CartMenu;
+import kr.co.saladay.cart.model.vo.CartOption;
+
 
 @Repository
 public class CartDAO {

@@ -1,6 +1,6 @@
-package kr.co.saladay.pay.model.service;
+package kr.co.saladay.cart.model.service;
 
-import kr.co.saladay.pay.model.vo.Cart;
+import kr.co.saladay.cart.model.vo.Cart;
 
 public interface CartService {
 

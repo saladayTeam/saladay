@@ -1,9 +1,10 @@
-package kr.co.saladay.pay.controller;
+package kr.co.saladay.order.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import kr.co.saladay.pay.model.service.OrderService;
+
+import kr.co.saladay.order.model.service.OrderService;
 
 @Controller
 public class OrderController {

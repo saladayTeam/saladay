@@ -1,4 +1,4 @@
-package kr.co.saladay.pay.model.vo;
+package kr.co.saladay.cart.model.vo;
 
 import java.util.List;
 

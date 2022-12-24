@@ -1,16 +1,17 @@
-package kr.co.saladay.pay.model.service;
+package kr.co.saladay.cart.model.service;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.co.saladay.pay.model.dao.CartDAO;
-import kr.co.saladay.pay.model.vo.CartMenu;
-import kr.co.saladay.pay.model.vo.CartOption;
-import kr.co.saladay.pay.model.vo.Cart;
+import kr.co.saladay.cart.model.dao.CartDAO;
+import kr.co.saladay.cart.model.vo.Cart;
+import kr.co.saladay.cart.model.vo.CartMenu;
+import kr.co.saladay.cart.model.vo.CartOption;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -46,7 +47,7 @@ public class CartServiceImpl implements CartService {
 		int cartNo = cart.getCartNo();
 		
 		// 장바구니에 담은 메뉴
-		List<CartMenu> menuList=cart.getMenuList();
+		List<CartMenu> menuList = cart.getMenuList();
 		
 		// 실제 장바구니 메뉴별 옵션
 		List<CartOption> cartOptionList= new ArrayList<CartOption>();
