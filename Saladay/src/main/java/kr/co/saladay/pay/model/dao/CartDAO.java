@@ -21,8 +21,8 @@ public class CartDAO {
 	 * @param memberNo
 	 * @return cartPackage
 	 */
-	public Cart selectCartPackage(int memberNo) {
-		return sqlSession.selectOne("cartMapper.selectCartPackage", memberNo);
+	public Cart selectCart(int memberNo) {
+		return sqlSession.selectOne("cartMapper.selectCart", memberNo);
 	}
 
 	/** 장바구니 삭제
@@ -48,7 +48,6 @@ public class CartDAO {
 	 * @return
 	 */
 	public int insertCartMenuNo(CartMenu menu) {
-		
 		return sqlSession.insert("cartMapper.insertCartMenuNo", menu);
 	}
 
@@ -57,8 +56,15 @@ public class CartDAO {
 	 * @return
 	 */
 	public int insertCartMenuOption(CartOption option) {
-		
 		return sqlSession.insert("cartMapper.insertCartMenuOption", option);
+	}
+
+	/** 장바구니 여부 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public int checkCart(int memberNo) {
+		return sqlSession.selectOne("cartMapper.checkCart", memberNo);
 	}
 
 	

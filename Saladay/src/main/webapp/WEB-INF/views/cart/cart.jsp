@@ -44,7 +44,7 @@
           <hr />
 
           <c:choose>
-            <c:when test="${empty cartPackage}">
+            <c:when test="${empty cart}">
               <div class="cart-empty">
                 <span>앗! 장바구니가 비어 있네요</span>
               </div>
@@ -53,10 +53,10 @@
               <!-- 패키지 -->
               <li class="cart-container">
                   <div class="cart-package-image">
-                  <img src="${cartPackage.packageImage}" alt="이미지" width="220px" height="140px"/>
+                  <img src="${cart.packageImage}" alt="이미지" width="220px" height="140px"/>
                   </div>
                   <div class="cart-package-info">
-                  <span>${cartPackage.packageName}</span>
+                  <span>${cart.packageName}</span>
                   </div>
                   <div class="cart-package-count">
                   <span>1</span>
@@ -69,7 +69,7 @@
                   </div>
               </li>
               <!-- 메뉴 -->
-              <c:forEach var="menu" items="${cartPackage.menuList}">
+              <c:forEach var="menu" items="${cart.menuList}">
                 <li class="cart-container">
                     <div class="cart-package-image"></div>
                     <div class="cart-menu-info">
@@ -106,11 +106,11 @@
                 </c:forEach>
               </c:forEach>
 
-              <c:if test="${cartPackage.packageType==2}">
+              <c:if test="${cart.packageType==2}">
 
                 <hr />
 
-                <c:forEach var="menu" items="${cartPackage.menuList}">
+                <c:forEach var="menu" items="${cart.menuList}">
                   <li class="cart-container">
                       <div class="cart-package-image"></div>
                       <div class="cart-menu-info">
@@ -156,11 +156,11 @@
                   <div class="cart-package-count"></div>
                   <div class="cart-package-price"></div>
                   <div class="cart-package-total">
-                    <c:if test="${cartPackage.packageType==1}">
-                      <span>${cartPackage.packagePrice}</span>
+                    <c:if test="${cart.packageType==1}">
+                      <span>${cart.packagePrice}</span>
                     </c:if>
-                    <c:if test="${cartPackage.packageType==2}">
-                      <span>${cartPackage.packagePrice*2}</span>
+                    <c:if test="${cart.packageType==2}">
+                      <span>${cart.packagePrice*2}</span>
                     </c:if>
                   </div>
               </li>

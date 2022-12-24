@@ -8,7 +8,7 @@ public interface CartService {
 	 * @param memberNo
 	 * @return cartPackage
 	 */
-	Cart selectCartPackage(int memberNo);
+	Cart selectCart(int memberNo);
 
 	/** 장바구니 삭제
 	 * @param memberNo
@@ -22,6 +22,12 @@ public interface CartService {
 	 * @return cartNo
 	 */
 	int insertCart(Cart cart);
+
+	/** 장바구니 여부 조회
+	 * @param memberNo
+	 * @return
+	 */
+	int checkCart(int memberNo);
 
 
 }

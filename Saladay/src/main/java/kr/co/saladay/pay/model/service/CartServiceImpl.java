@@ -20,9 +20,9 @@ public class CartServiceImpl implements CartService {
 	
 	// 장바구니에 담은 패키지 조회(패키지에 담은 메뉴별 옵션 모두 포함)
 	@Override
-	public Cart selectCartPackage(int memberNo) {
+	public Cart selectCart(int memberNo) {
 		
-		Cart cartPackage=dao.selectCartPackage(memberNo);
+		Cart cartPackage=dao.selectCart(memberNo);
 				
 		return cartPackage;
 	}
@@ -36,6 +36,7 @@ public class CartServiceImpl implements CartService {
 	
 	
 	// 장바구니 담기
+	@Transactional
 	@Override
 	public int insertCart(Cart cart) {
 		
@@ -70,5 +71,12 @@ public class CartServiceImpl implements CartService {
 		}
 		
 		return cartNo;
+	}
+	
+	
+	// 장바구니 여부 조회
+	@Override
+	public int checkCart(int memberNo) {
+		return dao.checkCart(memberNo);
 	}
 }

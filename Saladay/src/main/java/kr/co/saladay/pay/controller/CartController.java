@@ -21,7 +21,7 @@ import kr.co.saladay.pay.model.vo.Cart;
 
 @Controller
 @RequestMapping("/cart")
-@SessionAttributes({"cartPackage", "message"}) 
+@SessionAttributes({"cart", "message"}) 
 public class CartController {
 	
 	@Autowired
@@ -33,20 +33,19 @@ public class CartController {
 		
 		int memberNo=loginMember.getMemberNo();
 		
-		Cart cartPackage=service.selectCartPackage(memberNo);
+		Cart cart=service.selectCart(memberNo);
 				
-		model.addAttribute("cartPackage", cartPackage);
+		model.addAttribute("cart", cart);
 		
 		return "cart/cart";
 	
 	}
 	
-	
+	// 장바구니 내역 삭제
 	@GetMapping("/delete")
 	public String deleteCart(@SessionAttribute("loginMember") Member loginMember,
 			RedirectAttributes ra, @RequestHeader("referer") String referer,
 			SessionStatus status) {
-		
 		
 		String path="";
 		String message="";
@@ -77,12 +76,17 @@ public class CartController {
 							RedirectAttributes ra, 
 							@RequestHeader("referer") String referer) { 		
 		
-		
-		cart.setMemberNo(loginMember.getMemberNo());
-		int cartNo = service.insertCart(cart); 
+		// 장바구니 내역 조회
+		// int checkCart = service.checkCart(loginMember.getMemberNo());
+		// int delete=service.deleteCart(loginMember.getMemberNo());
 		
 		String message = null;
 		String path = null;
+
+
+		cart.setMemberNo(loginMember.getMemberNo());
+		int cartNo = service.insertCart(cart); 
+		
 	
 		if(cartNo > 0) {
 			message ="장바구니에 정상적으로 추가되었습니다.";
@@ -93,8 +97,11 @@ public class CartController {
 		}
 		
 		ra.addAttribute(message);
-		
+	
 		return "redirect: " + path;
 		
 	}
+	
+	
+	
 }
