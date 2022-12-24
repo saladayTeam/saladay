@@ -95,7 +95,7 @@ window.onload = function() {
             var mName = $(this).text();
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
-            $('.menuNo').eq(currentIdx).val($(this).next().next().val())
+            $('.menuNo').eq(currentIdx).val($(this).next().next().val()) // 메뉴 번호 넘기기 위해서 .val사용
             console.log("aaaaa", $('.menu-detail').val());
             console.log("vvvvvvv",$('.menuNo').val());
             // console.log( $('.menu-title'));
@@ -154,7 +154,7 @@ if(cartBtn != null){
     
     if(loginMemberNo == "") {
       alert("로그인 후 이용하실 수 있습니다.");
-      location.href = "/member/login";
+      location.href = "#";
     } else {
       location.href = ""; 
     }
