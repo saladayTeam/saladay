@@ -47,6 +47,7 @@ public class CartController {
 			RedirectAttributes ra, @RequestHeader("referer") String referer,
 			SessionStatus status) {
 		
+		
 		String path="";
 		String message="";
 		
@@ -76,16 +77,16 @@ public class CartController {
 							RedirectAttributes ra, 
 							@RequestHeader("referer") String referer) { 		
 		
+		
 		cart.setMemberNo(loginMember.getMemberNo());
 		int cartNo = service.insertCart(cart); 
-		
 		
 		String message = null;
 		String path = null;
 	
 		if(cartNo > 0) {
 			message ="장바구니에 정상적으로 추가되었습니다.";
-			path = "cart/cart";
+			path = "/cart";
 		} else {
 			message = "장바구니에 담은 내용을 다시 확인해주세요.";
 			path = referer;

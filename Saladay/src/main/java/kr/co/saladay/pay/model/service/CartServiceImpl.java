@@ -39,6 +39,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public int insertCart(Cart cart) {
 		
+		
 		// 장바구니 번호 생성
 		int result = dao.insertCart(cart);
 		int cartNo = cart.getCartNo();
@@ -57,17 +58,16 @@ public class CartServiceImpl implements CartService {
 			int cartMenuNo = menu.getCartMenuNo();
 			
 			// optionList == 담겨져 온 옵션...............
-//			List<CartOption> optionList = menu.getOptionList();
-//			for(CartOption option : optionList) {
-//				if(option.getOptionCount()>0) {
-//					option.setCartMenuNo(cartMenuNo);
-//					cartOptionList.add(option);
-//					int result2 = dao.insertCartMenuOption(option);
-//				}
-//			}
+			List<CartOption> optionList = menu.getOptionList();
+			for(CartOption option : optionList) {
+				if(option.getOptionCount()>0) {
+					option.setCartMenuNo(cartMenuNo);
+					cartOptionList.add(option);
+					int result3 = dao.insertCartMenuOption(option);
+				}
+			}
 		
 		}
-		System.out.println(menuList);
 		
 		return cartNo;
 	}

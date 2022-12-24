@@ -106,9 +106,22 @@
 		VALUES (#{cartMenuNo}, #{cartNo}, #{menuNo})
 	</insert>
 	
+	
+	
+<!-- 	<insert id="insertCartMenuNo" parameterType="java.util.list">
+    INSERT INTO CART_MENU(CART_MENU_NO)
+    SELECT SEQ_CART_MENU_NO.NEXTVAL, A.* FROM(
+    <foreach item="item" collection="list" separator="UNION ALL " >
+        select #{menu.cartNo} as CART_NO
+        #{menu.menuNo} as MENU_NO
+        from dual
+    </foreach>) A
+	</insert> -->
+
+	
 	<!-- 장바구니 메뉴별 옵션  -->
 	<insert id="insertCartMenuOption" parameterType="CartOption">
-		INSERT CART_MENU_OPTION
+		INSERT INTO CART_MENU_OPTION
 		VALUES (#{cartMenuNo}, #{optionNo}, #{optionCount})
 	</insert>
 	

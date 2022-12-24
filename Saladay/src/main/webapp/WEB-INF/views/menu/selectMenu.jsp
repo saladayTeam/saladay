@@ -54,7 +54,7 @@
     </div>
     <main> 
         
-        <form action="/cart/" method="post" id="addCartForm">
+        <form action="/cart" method="post" id="addCartForm">
         
         <section class="content">
                 
@@ -97,7 +97,7 @@
                                     <h3 class="menu-title">위 메뉴에서 샐러드를 선택하세요.</h3>
                                     <p class="menu-detail">토핑은 추가 선택이 가능합니다.</p>
                                 </div>
-                                <input type="hidden" class="menuNo" name="menuList[${i}].cartMenuNo" value="">
+                                <input type="hidden" class="menuNo" name="menuList[${i}].menuNo" value="">
                                 <div class="menu-content">
                                     <div class="menu-img">
                                         <img src="" width="500">
