@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.saladay.pay.model.vo.CartMenu;
+import kr.co.saladay.pay.model.vo.CartOption;
 import kr.co.saladay.pay.model.vo.Cart;
 
 @Repository
@@ -34,13 +35,32 @@ public class CartDAO {
 	
 	
 	
-	// 장바구니 담기
+	/** 장바구니 담기(장바구니 번호 생성)
+	 * @param cart
+	 * @return
+	 */
 	public int insertCart(Cart cart) {
 		return sqlSession.insert("cartMapper.insertCart", cart);
 	}
 
-	// 장바구니에 담은 메뉴
-	public int insertCartMenu(Cart cart) {
-		return sqlSession.insert("cartMapper.insertCartMenu", cart);
+	/** 장바구니별 메뉴 담기
+	 * @param menu
+	 * @return
+	 */
+	public int insertCartMenuNo(CartMenu menu) {
+		
+		return sqlSession.insert("cartMapper.insertCartMenuNo", menu);
 	}
+
+	/** 장바구니별 옵션 담기
+	 * @param option
+	 * @return
+	 */
+	public int insertCartMenuOption(CartOption option) {
+		
+		return sqlSession.insert("cartMapper.insertCartMenuOption", option);
+	}
+
+	
+	
 }

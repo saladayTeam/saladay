@@ -1,5 +1,8 @@
 package kr.co.saladay.pay.controller;
 
+import java.lang.StackWalker.Option;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,6 +68,7 @@ public class CartController {
 	}
 	
 	
+	
 	// 장바구니 담기
 	@PostMapping("")
 	public String insertCart(@SessionAttribute("loginMember") Member loginMember
@@ -73,13 +77,13 @@ public class CartController {
 							@RequestHeader("referer") String referer) { 		
 		
 		cart.setMemberNo(loginMember.getMemberNo());
-		int result = service.insertCart(cart); 
+		int cartNo = service.insertCart(cart); 
 		
 		
 		String message = null;
 		String path = null;
 	
-		if(result > 0) {
+		if(cartNo > 0) {
 			message ="장바구니에 정상적으로 추가되었습니다.";
 			path = "cart/cart";
 		} else {
@@ -90,6 +94,6 @@ public class CartController {
 		ra.addAttribute(message);
 		
 		return "redirect: " + path;
-			
+		
 	}
 }

@@ -16,6 +16,7 @@ public class CartOption {
 	private int optionPrice;
 	private int optionCount;
 	private String optionDeleteFlag;
+	private int cartMenuNo;
 	
 	List<CartOption> optionList;	
 	

@@ -1,5 +1,6 @@
 package kr.co.saladay.pay.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +40,34 @@ public class CartServiceImpl implements CartService {
 	public int insertCart(Cart cart) {
 		
 		// 장바구니 번호 생성
-		int cartNo = dao.insertCart(cart);
+		int result = dao.insertCart(cart);
+		int cartNo = cart.getCartNo();
 		
-		// 장바구니에 내용 담기
-		if(cartNo > 0) {
+		// 장바구니에 담은 메뉴
+		List<CartMenu> menuList=cart.getMenuList();
+		
+		// 실제 장바구니 메뉴별 옵션
+		List<CartOption> cartOptionList= new ArrayList<CartOption>();
+		
+		
+		for(CartMenu menu : menuList) {
+			menu.setCartNo(cartNo);
 			
-			int cartMenoNo = dao.insertCartMenu(cart);
+			int result2 = dao.insertCartMenuNo(menu);
+			int cartMenuNo = menu.getCartMenuNo();
+			
+			// optionList == 담겨져 온 옵션...............
+//			List<CartOption> optionList = menu.getOptionList();
+//			for(CartOption option : optionList) {
+//				if(option.getOptionCount()>0) {
+//					option.setCartMenuNo(cartMenuNo);
+//					cartOptionList.add(option);
+//					int result2 = dao.insertCartMenuOption(option);
+//				}
+//			}
+		
 		}
+		System.out.println(menuList);
 		
 		return cartNo;
 	}
