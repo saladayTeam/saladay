@@ -54,7 +54,7 @@
     </div>
     <main> 
         
-        <form action="/cart" method="post" id="addCartForm">
+        <form action="/cart" method="post" id="addCartForm" onsubmit ="return selectValidate()" >
         
         <section class="content">
                 
@@ -97,7 +97,7 @@
                                     <h3 class="menu-title">위 메뉴에서 샐러드를 선택하세요.</h3>
                                     <p class="menu-detail">토핑은 추가 선택이 가능합니다.</p>
                                 </div>
-                                <input type="hidden" class="menuNo" name="menuList[${i}].menuNo" value="">
+                                <input type="hidden" id="memuNo" class="menuNo" name="menuList[${i}].menuNo" value="">
                                 <div class="menu-content">
                                     <div class="menu-img">
                                         <img src="" width="500">
@@ -124,10 +124,10 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" id="mainOptionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
-                                                    <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/> 
+                                                    <input type="hidden" id="mainOptionNo" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/> 
                                                 </li>
 
                                                 <c:set var="idx" value="${idx + 1}"/>

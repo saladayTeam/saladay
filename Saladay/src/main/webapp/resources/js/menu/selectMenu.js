@@ -140,33 +140,20 @@ $('.menu-box li a').click(function(){
 
 
 
-
-
-
 // 장바구니 담기 버튼
 const cartBtn = document.querySelector(".cartin-btn");
 const orderBtn = document.querySelector(".order-btn");
 
-console.log("연결 ");
-if(cartBtn != null){
-  
-  cartBtn.addEventListener("click", ()=>{
-    
-    if(loginMemberNo == "") {
-      alert("로그인 후 이용하실 수 있습니다.");
-      location.href = "/member/login";
-    } else {
-      location.href = "/cart"; 
-    }
-  })
+const memuNo = document.getElementById("memuNo");
+const mainOptionNo = document.getElementById("mainOptionNo");
+
+const mainOptionCount = document.getElementById("mainOptionCount")
+function selectValidate() {
+
+  if(menuNo.value='') {
+
+  }
+  console.log("메뉴선택");
+  return false;
 }
-
-// 주문/결제 버튼
-// if(orderBtn != null) {
-//   orderBtn.addEventListener("click", (){
-    
-//   })
-// }
-
-
 
