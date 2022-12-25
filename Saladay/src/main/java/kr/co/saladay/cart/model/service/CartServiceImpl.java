@@ -59,7 +59,7 @@ public class CartServiceImpl implements CartService {
 			int result2 = dao.insertCartMenuNo(menu);
 			int cartMenuNo = menu.getCartMenuNo();
 			
-			// optionList == 담겨져 온 옵션...............
+			
 			List<CartOption> optionList = menu.getOptionList();
 			for(CartOption option : optionList) {
 				if(option.getOptionCount()>0) {
