@@ -35,13 +35,13 @@ public class OrderController {
 		
 		String path="";
 		
-		int orderNo=service.insertOrder(cart);
+//		int orderNo=service.insertOrder(cart);
 		
-		if(orderNo>0) {
-			path="";
-		} else {
-			path=referer;
-		}
+//		if(orderNo>0) {
+//			path="";
+//		} else {
+//			path=referer;
+//		}
 		
 		return "redirect:" + path;
 	}
