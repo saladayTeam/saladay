@@ -14,10 +14,9 @@ public class OrderController {
 	@Autowired
 	private OrderService service;
 
-	
 	// 주문/결제하기 페이지
 	@GetMapping("/order")
-	public String orderPage(@SessionAttribute("loginMember") Member loginMember) {
+	public String orderPage() {
 
 		return "order/order";
 	}

@@ -9,5 +9,10 @@ deleteCart.addEventListener("click", () => {
 
 const total = document.getElementById("total");
 total.addEventListener("click", () => {
-  location.href = "/order";
+  if (cartNo == "") {
+    alert("장바구니가 비어있어요!");
+    return;
+  } else {
+    location.href = "/order";
+  }
 });
