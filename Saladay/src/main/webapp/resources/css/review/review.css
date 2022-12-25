@@ -278,3 +278,22 @@
     color: red;
     font-size: 14px;
 }
+
+/* 이미지 슬라이드 */
+
+.modal-mainImage > div:nth-of-type(1){
+    /* border: 1px solid red; */
+/*     height: 80%; */
+}
+
+.active > img{
+    /* border: 1px solid red; */
+/*     width: 100%;
+    object-fit: contain; */
+}
+
+.modal-mainImage > div img{
+    /* border: 1px solid red; */
+/*     height: 20%;
+    object-fit: cover; */
+}

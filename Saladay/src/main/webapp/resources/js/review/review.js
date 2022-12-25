@@ -44,6 +44,32 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
         success : function(rDetail){
             // rDetail : 반환 받은 리뷰 상세 조회 내용 
             console.log(rDetail);
+            console.log(rDetail[0].imageList);
+
+            // 이미지 슬라이드 부분
+            const carouselInner = document.getElementsByClassName("carousel-inner")[0];
+            carouselInner.innerHTML = "";
+            
+            if(rDetail[0].imageList.length != 0){
+                for(let i = 0; i<rDetail[0].imageList.length; i++){
+                    const carouselItem = document.createElement("div");
+                    carouselItem.classList.add("carousel-item");
+                    carouselItem.classList.add("review-images");
+                    
+                    if(i==0){
+                        carouselItem.classList.add("active");
+                    }
+                    
+                    const image = document.createElement("img");
+                    image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
+                    
+                    carouselItem.append(image);
+                    
+                    carouselInner.append(carouselItem);
+                }
+            } else {
+                carouselInner.innerHTML = "";
+            }
 
             // 리뷰 삭제
             const deleteBtn = document.getElementById("review-modal-delete");
