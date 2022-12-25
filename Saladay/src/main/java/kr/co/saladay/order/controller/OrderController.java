@@ -1,9 +1,12 @@
-package kr.co.saladay.pay.controller;
+package kr.co.saladay.order.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import kr.co.saladay.pay.model.service.OrderService;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.order.model.service.OrderService;
 
 @Controller
 public class OrderController {
@@ -14,7 +17,7 @@ public class OrderController {
 	
 	// 주문/결제하기 페이지
 	@GetMapping("/order")
-	public String orderPage() {
+	public String orderPage(@SessionAttribute("loginMember") Member loginMember) {
 
 		return "order/order";
 	}

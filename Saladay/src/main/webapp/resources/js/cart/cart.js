@@ -6,3 +6,8 @@ deleteCart.addEventListener("click", () => {
     return;
   }
 });
+
+const total = document.getElementById("total");
+total.addEventListener("click", () => {
+  location.href = "/order";
+});

@@ -1,6 +1,6 @@
-package kr.co.saladay.pay.model.service;
+package kr.co.saladay.cart.model.service;
 
-import kr.co.saladay.pay.model.vo.Cart;
+import kr.co.saladay.cart.model.vo.Cart;
 
 public interface CartService {
 
@@ -8,7 +8,7 @@ public interface CartService {
 	 * @param memberNo
 	 * @return cartPackage
 	 */
-	Cart selectCartPackage(int memberNo);
+	Cart selectCart(int memberNo);
 
 	/** 장바구니 삭제
 	 * @param memberNo
@@ -16,8 +16,18 @@ public interface CartService {
 	 */
 	int deleteCart(int memberNo);
 
-	// 장바구니 담기
+	
+	/** 장바구니 담기
+	 * @param cart
+	 * @return cartNo
+	 */
 	int insertCart(Cart cart);
+
+	/** 장바구니 여부 조회
+	 * @param memberNo
+	 * @return
+	 */
+	int checkCart(int memberNo);
 
 
 }

@@ -1,4 +1,5 @@
-package kr.co.saladay.pay.controller;
+package kr.co.saladay.cart.controller;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.saladay.cart.model.service.CartService;
+import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.vo.Member;
-import kr.co.saladay.pay.model.service.CartService;
-import kr.co.saladay.pay.model.vo.Cart;
 
 @Controller
 @RequestMapping("/cart")
-@SessionAttributes("cartPackage")
+@SessionAttributes({"cart", "message"}) 
 public class CartController {
 	
 	@Autowired
@@ -30,15 +31,15 @@ public class CartController {
 		
 		int memberNo=loginMember.getMemberNo();
 		
-		Cart cartPackage=service.selectCartPackage(memberNo);
+		Cart cart= service.selectCart(memberNo);
 				
-		model.addAttribute("cartPackage", cartPackage);
+		model.addAttribute("cart", cart);
 		
 		return "cart/cart";
 	
 	}
 	
-	
+	// 장바구니 내역 삭제
 	@GetMapping("/delete")
 	public String deleteCart(@SessionAttribute("loginMember") Member loginMember,
 			RedirectAttributes ra, @RequestHeader("referer") String referer,
@@ -65,21 +66,38 @@ public class CartController {
 	}
 	
 	
+	
 	// 장바구니 담기
-	@PostMapping("/cart")
-	public String insertCart(int packageNo, 
-							Member loginMember, 
-							Model model,
-							Cart cart) { 		
+	@PostMapping("")
+	public String insertCart(@SessionAttribute("loginMember") Member loginMember
+							,Cart cart, 
+							RedirectAttributes ra, 
+							@RequestHeader("referer") String referer) { 		
 		
+		// 장바구니 내역 조회
+		// int checkCart = service.checkCart(loginMember.getMemberNo());
+		// int delete=service.deleteCart(loginMember.getMemberNo());
 		
-		// 장바구니 번호 생성
+		String message = "";
+		String path = "";
+
+
 		cart.setMemberNo(loginMember.getMemberNo());
-		int cartNo = service.insertCart(cart); // 장바구니에 선택한 패키지 저장
+		int cartNo = service.insertCart(cart); 
 		
+	
+		if(cartNo > 0) {
+			message ="장바구니에 정상적으로 추가되었습니다.";
+			path = "/cart";
+		} else {
+			message = "장바구니에 담은 내용을 다시 확인해주세요.";
+			path = referer;
+		}
 		
+		ra.addFlashAttribute("message", message);
+	
+		return "redirect: " + path;
 		
-		return "cart/cart";
 	}
 	
 	
