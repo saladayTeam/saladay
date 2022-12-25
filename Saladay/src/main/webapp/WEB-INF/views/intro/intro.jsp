@@ -39,7 +39,9 @@
       </div>
     </main>
 
+
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+
     
   </body>
 </html>
