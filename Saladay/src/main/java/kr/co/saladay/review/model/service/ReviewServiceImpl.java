@@ -52,11 +52,11 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	// 리뷰 상세조회
+	
 	@Override
-	public List<Review> selectReviewDetail(int reviewNo) {
-		return dao.selectReviewDetail(reviewNo);
+	public List<Review> selectReviewDetail(Map<String, Object> map) {
+		return dao.selectReviewDetail(map);
 	}
-
 	
 	// 좋아요 여부 체크
 	@Override
@@ -81,6 +81,8 @@ public class ReviewServiceImpl implements ReviewService{
 	public int deleteReview(int reviewNo) {
 		return dao.deleteReview(reviewNo);
 	}
+
+
 	
 	
 

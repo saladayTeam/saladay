@@ -23,9 +23,8 @@
     <main>
         <div class="review-list-area">
             <div class="review-title">
-                <span><h1>${reviewList[0].menuName} 샐러드 리뷰</h1></span>
-                <br/>
-                <span>고객님들의 생생한 리뷰를 읽어보세요!</span>
+                <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
+                <h1 class="main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
                 <input type="radio" name="review-check">

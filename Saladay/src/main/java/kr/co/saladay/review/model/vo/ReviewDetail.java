@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Review {
+public class ReviewDetail {
 	private int reviewNo; // 리뷰번호 REVIEW_NO
 	private int rating; // 별점 RATING
 	private String reviewContent; // 리뷰 내용 REVIEW_CONTENT
@@ -23,5 +23,8 @@ public class Review {
 	private int likeCount; // 좋아요 수 LIKE_COUNT
 	private int likeCheck; // 좋아요 여부 LIKE_CHECK
 	private String thumbnail; // 썸네일 THUMBNAIL
+	
+    // 이미지 목록
+    private List<ReviewImage> imageList;
 
 }

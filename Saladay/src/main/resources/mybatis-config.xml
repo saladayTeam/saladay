@@ -28,6 +28,7 @@
 		<typeAlias type="kr.co.saladay.order.model.vo.Order"  alias="Order" />  
 		<typeAlias type="kr.co.saladay.order.model.vo.OrderMenu"  alias="OrderMenu" />  
 		<typeAlias type="kr.co.saladay.order.model.vo.OrderOption"  alias="OrderOption" />  
+		<typeAlias type="kr.co.saladay.review.model.vo.ReviewDetail"  alias="ReviewDetail" />
 	</typeAliases>
 
 

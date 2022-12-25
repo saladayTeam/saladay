@@ -8,8 +8,7 @@
     display: flex;
     justify-content: flex-end;
     width: 1200px;
-    border-top: 3px solid #17633d;
-    margin-top: 15px;
+/*     margin-top: 15px; */
     padding: 20px;
 }
 
@@ -22,16 +21,35 @@
 
 /* 리뷰 카테고리 제목 */
 .review-title {
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-.review-title > span:first-child {
-    font-weight: bold;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    color: black;
+    border-bottom: 3px solid #17633d;
+    padding-bottom: 80px;
+    margin: 50px 0 auto auto;
 }
 
-.review-title > span:last-child {
+.fa-circle-left{
+    font-size: 30px;
+}
+
+.review-back{
+    color: #17633d;
+    text-decoration: none;
+    margin-right: 30px;
+/*     position: absolute;
+    top: 260px;
+    left: 400px; */
+}
+.main-title {
+    font-size: 32px;
+/*     margin-bottom: 20px; */
+}
+
+.review-title > div:last-child {
     font-size: 12px;
     font-weight: bold;
 }
@@ -53,6 +71,7 @@
 .review-img{
     width: 200px;
     height: 200px;
+    cursor: pointer;
 }
 
 /* 리뷰 내용, 작성자, 별점 */
