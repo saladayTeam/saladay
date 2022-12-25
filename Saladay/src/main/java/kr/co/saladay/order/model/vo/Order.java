@@ -1,7 +1,5 @@
 package kr.co.saladay.order.model.vo;
 
-import java.util.List;
-
 import kr.co.saladay.cart.model.vo.Cart;
 import lombok.Getter;
 import lombok.Setter;

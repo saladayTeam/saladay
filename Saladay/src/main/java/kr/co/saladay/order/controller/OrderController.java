@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.co.saladay.cart.model.vo.Cart;
@@ -27,13 +28,22 @@ public class OrderController {
 	@PostMapping("/orderView")
 	public String orderView(Order order,
 			@SessionAttribute("loginMember") Member loginMember,
-			@SessionAttribute("cart") Cart cart) {
+			@SessionAttribute("cart") Cart cart,
+			@RequestHeader("referer") String referer) {
 		
 		order.setCart(cart);
 		
+		String path="";
 		
+		int orderNo=service.insertOrder(cart);
 		
-		return "order/orderView";
+		if(orderNo>0) {
+			path="";
+		} else {
+			path=referer;
+		}
+		
+		return "redirect:" + path;
 	}
 	
 }
