@@ -154,9 +154,9 @@ if(cartBtn != null){
     
     if(loginMemberNo == "") {
       alert("로그인 후 이용하실 수 있습니다.");
-      location.href = "#";
+      location.href = "/member/login";
     } else {
-      location.href = ""; 
+      location.href = "/cart"; 
     }
   })
 }

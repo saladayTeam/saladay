@@ -15,7 +15,7 @@ li {
 /* 메뉴 탭 */
 .menu-section {
   width: 1200px;
-  /* min-height: 150vh; */
+  min-height: 150vh;
   display: flex;
   flex-direction: column;
 }
@@ -79,24 +79,31 @@ li {
 }
 
 .option-name {
-  background-color: #17633d;
   width: 25%;
   height: 100%;
   text-align: center;
-  color: white;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   top: 25px;
-  border: 1px solid #fefefe;
+  border: 1px solid #ddd;
+}
+
+.option-name:hover {
+  font-size: 1.2em;
+  background-color: #17633d;
+}
+.option-name:hover a{
+  font-size: 1.2em;
+  color: white;
 }
 
 .option-name > a {
   display: block;
   justify-content: center;
   text-decoration: none;
-  color: white;
+  color: black;
   margin-top: 5px;
 }
 
@@ -181,3 +188,4 @@ li {
   opacity: 1;
   transition: 0.5s;
 }
+

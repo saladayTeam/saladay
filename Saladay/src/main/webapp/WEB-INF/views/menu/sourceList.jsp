@@ -57,6 +57,6 @@
     
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-
+    <script src="/resources/js/menu/menuList.js"></script>
 </body>
 </html>
