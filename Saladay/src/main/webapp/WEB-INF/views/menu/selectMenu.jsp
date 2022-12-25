@@ -94,10 +94,10 @@
 
                             <div class="menu-list">
                                 <div class="detail">
-                                    <h3 class="menu-title">위 메뉴에서 원하는 샐러드를 선택하세요.</h3>
+                                    <h3 class="menu-title">위 메뉴에서 샐러드를 선택하세요.</h3>
                                     <p class="menu-detail">토핑은 추가 선택이 가능합니다.</p>
                                 </div>
-                                <input type="hidden" class="menuNo" name="menuList[${i}].cartMenuNo" value="">
+                                <input type="hidden" class="menuNo" name="menuList[${i}].menuNo" value="">
                                 <div class="menu-content">
                                     <div class="menu-img">
                                         <img src="" width="500">
@@ -127,7 +127,7 @@
                                                         <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
-                                                    <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/>
+                                                    <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/> 
                                                 </li>
 
                                                 <c:set var="idx" value="${idx + 1}"/>
@@ -206,13 +206,12 @@
         </section>
 
         <div class="bottom-box">
-            <!-- <div>상품이미지</div> -->
             <button class="cartin-btn">장바구니 담기</button>
             <button type="button" class="order-btn"><a href="/order">주문하기</a></button>
         </div>
     </main>
-    
     </form> 
+    
     <!-- footer -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 

@@ -1,4 +1,4 @@
-package kr.co.saladay.pay.controller;
+package kr.co.saladay.order.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

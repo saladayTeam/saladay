@@ -1,4 +1,4 @@
-package kr.co.saladay.pay.model.vo;
+package kr.co.saladay.order.model.vo;
 
 import java.util.List;
 
@@ -9,14 +9,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CartOption {
+public class OrderOption {
 
 	private int optionNo;
 	private String optionName;
 	private int optionPrice;
 	private int optionCount;
 	private String optionDeleteFlag;
+	private int cartMenuNo;
 	
-	List<CartOption> optionList;	
+	List<OrderOption> optionList;	
 	
 }

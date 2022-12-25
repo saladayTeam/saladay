@@ -44,7 +44,7 @@
                         </div>
                         <div class="summary">
                             <li class="menu-title"><span>${sOption.optionName}</span></li> <br>
-                            <li class="menu-content">${sOption.optionPrice}원</li>
+                            <li class="menu-title"><span>${sOption.optionCalorie} Kcal</span></li> <br>
                         </div>
                     </div>
                 </c:forEach>
