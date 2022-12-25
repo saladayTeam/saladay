@@ -23,7 +23,7 @@ public interface ReviewService {
 	 * @param reviewNo
 	 * @return
 	 */
-	List<Review> selectReviewDetail(int reviewNo);
+	List<Review> selectReviewDetail(Map<String, Object> map);
 
 	/** 좋아요 여부 체크
 	 * @param map
