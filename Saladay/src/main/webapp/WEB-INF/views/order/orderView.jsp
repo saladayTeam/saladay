@@ -16,7 +16,7 @@
     <!-- header -->
     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     
-    <section>
+    <section class="order-view-section">
         <div class="view-title">
             <span><h1>주문완료</h1></span>
             <br>
@@ -28,10 +28,10 @@
             </div> -->
 
             <div class="view-content">
-                <p><img class="view-img" src="/resources/images/menu/salad/로스트 닭다리살 샐러드.jpg" alt=""></p>
+                <p><img class="view-img" src="/resources/images/order/checked.png" alt=""></p>
                 
                 <p class="info-p">
-                    <span>주문이 완료되었습니다!</span>
+                    <span>주문이 완료되었습니다.</span>
                 </p>
                 
                 <div class="view-row">
@@ -65,9 +65,8 @@
             <button type="button" class="order-view-btn">주문내역 확인하기</button>
             <button type="button" class="shopping-btn">계속 쇼핑하기</button>
         </div>
-    
     </section>
-
+    
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     
