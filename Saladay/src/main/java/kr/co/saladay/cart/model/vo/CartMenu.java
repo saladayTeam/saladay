@@ -1,4 +1,4 @@
-package kr.co.saladay.pay.model.vo;
+package kr.co.saladay.cart.model.vo;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class CartMenu {
 
+	
 	private int cartMenuNo;
 	private int orderMenuNo;
 	private String menuName;
@@ -18,6 +19,7 @@ public class CartMenu {
 	private String menuDeleteFlag;
 	
 	private int cartNo;
+	private int menuNo;
 	
 	List<CartOption> optionList;
 

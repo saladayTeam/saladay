@@ -1,0 +1,107 @@
+@import url("../main/main.css");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "NanumSquareNeo-Variable";
+}
+
+.order-view-section{
+    margin: 0px;
+    width: 1200px;
+    min-height: 100vh;    
+}
+
+.view-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #17633d;
+}
+
+
+/* 네모박스 */
+.view-wrapper{
+    margin: 50px auto 0;
+    width: 765px;
+    height: 500px;
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+}
+
+/* 주문상품정보*/
+.view-info {
+    margin: 20px 0 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.view-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.view-img {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 40%;
+}
+
+.info-p{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.view-row{
+    width: 50%;
+    line-height: 30px;
+    margin: 5px 0;
+    display: flex;
+    /* font-weight: bold; */
+}
+
+.view-h {
+    flex-basis: 30%;
+}
+.view-d {
+    flex-basis: 70%;
+}
+
+
+/* 버튼 영역 */
+.view-btn-area{
+    width: 765px;
+    display: flex;
+    justify-content:space-around;
+    margin: 0 auto;
+    
+}
+/* 주문내역확인하기 버튼 */
+.order-view-btn {
+    margin-top: 30px;
+    width: 45%;
+    height: 50px;
+    background-color: #17633d;
+    color: white;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.shopping-btn {
+    margin-top: 30px;
+    width: 45%;
+    height: 50px;
+    background-color: #17633d;
+    color: white;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+

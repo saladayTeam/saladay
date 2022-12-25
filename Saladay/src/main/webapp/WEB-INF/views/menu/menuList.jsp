@@ -42,7 +42,7 @@
                         <div class="summary">
                             <li class="menu-title"><span>${menu.menuName}</span></li> <br>
                             <li class="menu-content">${menu.menuContent}</li> <br>
-                            <li class="menu-content">${menu.menuPrice}원</li>
+                            <li class="menu-content">${menu.menuCalorie} Kcal</li> <br>
                         </div>
                     </div>
                 </c:forEach>
@@ -52,6 +52,7 @@
     
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-
+    
+    <script src="/resources/js/menu/menuList.js"></script>
 </body>
 </html>

@@ -79,11 +79,12 @@
 
 <script>
   const loginMemberNo="${loginMember.memberNo}";
+  const cartNo="${cart.cartNo}";
 </script>
 
 <script>
-  const cart = document.getElementById("cart");
-  cart.addEventListener("click", () => {
+  const carticon = document.getElementById("cart");
+  carticon.addEventListener("click", () => {
     if (loginMemberNo == "") {
       alert("로그인 후 이용해주세요");
       location.href = "/member/login";
