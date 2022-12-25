@@ -25,6 +25,11 @@ public class OrderController {
 		return "order/order";
 	}
 	
+	@GetMapping("/orderView")
+	public String orderView() {
+		return "order/orderView";
+	}
+	
 	@PostMapping("/orderView")
 	public String orderView(Order order,
 			@SessionAttribute("loginMember") Member loginMember,
