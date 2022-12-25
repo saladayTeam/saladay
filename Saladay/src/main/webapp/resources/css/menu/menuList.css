@@ -1,22 +1,23 @@
-@import url('../main/main.css');
+@import url("../main/main.css");
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'NanumSquareNeo-Variable';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "NanumSquareNeo-Variable";
 }
 
-ul, li {
-    list-style: none;
+ul,
+li {
+  list-style: none;
 }
 
 /* 메뉴 탭 */
 .menu-section {
-    width: 1200px;
-    min-height: 150vh;
-    display: flex;
-    flex-direction: column;
+  width: 1200px;
+  /* min-height: 150vh; */
+  display: flex;
+  flex-direction: column;
 }
 
 /* 메뉴선택 박스 */
@@ -68,124 +69,115 @@ ul, li {
     margin:  0;
 } */
 
-
-.menu{
-    align-items: center;
-    justify-content: center;
-    width: 1200px;
-    display: flex;
-    height: 50px;
-    font-size: 15px;
+.menu {
+  align-items: center;
+  justify-content: center;
+  width: 1200px;
+  display: flex;
+  height: 50px;
+  font-size: 15px;
 }
 
-.option-name{
-    background-color: #17633D;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 25px;
-    border: 1px solid #fefefe;
+.option-name {
+  background-color: #17633d;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 25px;
+  border: 1px solid #fefefe;
 }
 
-.option-name > a{
-    display: block;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    margin-top: 5px;
+.option-name > a {
+  display: block;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  margin-top: 5px;
 }
 
-
-
-.pd-list-wrapper{
-    width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-    padding-bottom: 150px;
+.pd-list-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 150px;
 }
 
 /* 메뉴 상세 */
-.menu-detail{
-    width: 100%;
-    display: flex;
-    /* justify-content: space-between; */
-    flex-wrap: wrap;
-    margin-top: 30px;
-    
+.menu-detail {
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
-.menu-list{
-    width: 370px;
-    height: 330px;
-    background-color: #fff;
-    float: left;
-    overflow: hidden;
-    text-align: center;
-    position: relative;
+.menu-list {
+  width: 370px;
+  height: 330px;
+  background-color: #fff;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
 }
 
-.menu-wrapper{
-    width: 370px;
-    height: 330px;
-    background-color: #fff;
-    float: left;
-    overflow: hidden;
-    text-align: center;
-    position: relative;
-    margin: 30px 0 0 20px;
-    border: 1px solid #ddd;
-    /* cursor: pointer; */
+.menu-wrapper {
+  width: 370px;
+  height: 330px;
+  background-color: #fff;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  margin: 30px 0 0 20px;
+  border: 1px solid #ddd;
+  /* cursor: pointer; */
 }
-
 
 /* 메뉴 상세 이미지 */
-.menu-list img{
-    width: 270px;
-    height: 190px;
-    margin: 20px auto 0;
-    position: relative;
-    /* z-index: 1; */
+.menu-list img {
+  width: 270px;
+  height: 190px;
+  margin: 20px auto 0;
+  position: relative;
+  /* z-index: 1; */
 }
 
-.menu-title{
-    color: #292929;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0 7px;
-    display: block;
-    /* position: relative; */
-    /* top: 0; */
-    line-height: 120%;
+.menu-title {
+  color: #292929;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 7px;
+  display: block;
+  /* position: relative; */
+  /* top: 0; */
+  line-height: 120%;
 }
 
-
-
-.summary{
-    position: absolute;
-    width: 100%;
-    height: 100%; 
-    text-align: center;
-    vertical-align: middle; 
-    margin: 0;
-    opacity: 0;
-    background-color: #17633D;
-    transition: opacity 0 linear;
-    padding-top: 100px;
-    padding-left: 15px;
-    padding-right: 15px;
+.summary {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  opacity: 0;
+  background-color: #17633d;
+  transition: opacity 0 linear;
+  padding-top: 100px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-.summary * { color: white; }
-
-.menu-wrapper:hover .summary{
-    opacity: 1;
-    transition: 0.5s;
+.summary * {
+  color: white;
 }
 
-
-
-
+.menu-wrapper:hover .summary {
+  opacity: 1;
+  transition: 0.5s;
+}

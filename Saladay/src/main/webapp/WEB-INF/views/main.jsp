@@ -19,7 +19,7 @@
 <body>
   <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 
-  <div class="swiper-container">
+    <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <img src="/resources/images/main/mainImage1.png" alt="메인 이미지" />
@@ -60,7 +60,6 @@
     </div>
 
     <div class="ha"></div>
-
 
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 

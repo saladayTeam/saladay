@@ -19,23 +19,25 @@
 
     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
 
-    <div class="intro-wrapper">
-      <div class="intro-image-area">
-        <img
-          src="/resources/images/intro-image.png"
-          alt=""
-          id="intro-image"
-        />
+    <main>
+      <div class="intro-wrapper">
+        <div class="intro-image-area">
+          <img
+            src="/resources/images/intro-image.png"
+            alt=""
+            id="intro-image"
+          />
+        </div>
+        <div class="intro-pre">
+          <pre>
+            매일 바쁜 삶을 사는 현대인들에게 건강하고 신선한 음식을!
+            일주일 내내 신선한 샐러드 원하는 날짜에 원하는 구성
+            내가 만들어가는 나만의 건강한 일상
+            건강함을 구독하세요
+          </pre>
+        </div>
       </div>
-      <div class="intro-pre">
-        <pre>
-          매일 바쁜 삶을 사는 현대인들에게 건강하고 신선한 음식을!
-          일주일 내내 신선한 샐러드 원하는 날짜에 원하는 구성
-          내가 만들어가는 나만의 건강한 일상
-          건강함을 구독하세요
-        </pre>
-      </div>
-    </div>
+    </main>
 
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     
