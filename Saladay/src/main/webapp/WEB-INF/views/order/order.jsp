@@ -89,9 +89,9 @@
             
             <div class="order-items">
                 <h3>주문 목록</h3>
-                <div class="order-package">
-                    <div class="pack-name"><span>[1주] 샐러드 3팩 패키지</span></div>
-                    <div class="pack-price"><span>32700원</span></div>
+                <div class="order-package" id="order-package">
+                    <div class="pack-name"><span>${cart.packageName}</span></div>
+                    <div class="pack-price"><span>${cart.packagePrice} 원</span></div>
                     <div class="pack-i"><input type="checkbox" id="icon"><label for="icon"><i class="fa-solid fa-caret-down"></i></label></div>
                 </div>
 
@@ -102,53 +102,49 @@
                         <div class="order-price"><span>가격</span></div>
                     </li>
                     
-                    <div class="order-all">
-                    <!-- 주문한 메뉴 내용 c:forEach -->
-                        <%-- 선택 메인 메뉴 --%>
-                        <li class="order-area">
-                            <div class="order-menu headline">쉬림프샐러드</div>
-                            <div class="order-quantity headline">1</div>
-                            <div class="order-price headline">8900</div>
-                        </li>
-                        <%-- 선택한 옵션 --%>
-                        <li class="order-area">
-                            <div class="order-option">양상추</div>
-                            <div class="order-quantity"> 1</div>
-                            <div class="order-price"> 1000</div>
-                        </li>
-                    </div>
+                    <c:forEach var="menu" items="${cart.menuList}">
+                        <div class="order-all">
+                        <!-- 주문한 메뉴 내용 c:forEach -->
+                            <%-- 선택 메인 메뉴 --%>
+                            <li class="order-area">
+                                <div class="order-menu headline">${menu.menuName}</div>
+                                <div class="order-quantity headline">1</div>
+                                <div class="order-price headline">${menu.menuPrice}</div>
+                            </li>
+                            <c:forEach var="option" items="${menu.optionList}">
+                            <%-- 선택한 옵션 --%>
+                                <li class="order-area">
+                                    <div class="order-option">${option.optionName}</div>
+                                    <div class="order-quantity">1</div>
+                                    <div class="order-price">${option.optionPrice}</div>
+                                </li>
+                            </c:forEach>
+                        </div>
+                    </c:forEach>
 
-                    <div class="order-all">
-                    <!-- 주문한 메뉴 내용 c:forEach -->
-                        <%-- 선택 메인 메뉴 --%>
-                        <li class="order-area">
-                            <div class="order-menu headline">쉬림프샐러드</div>
-                            <div class="order-quantity headline">1</div>
-                            <div class="order-price headline">8900</div>
-                        </li>
-                        <%-- 선택한 옵션 --%>
-                        <li class="order-area">
-                            <div class="order-option">양상추</div>
-                            <div class="order-quantity"> 1</div>
-                            <div class="order-price"> 1000</div>
-                        </li>
-                    </div>
+                    <c:if test="${cart.packageType==2}">
+                        <hr />
 
-                    <div class="order-all">
-                    <!-- 주문한 메뉴 내용 c:forEach -->
-                        <%-- 선택 메인 메뉴 --%>
-                        <li class="order-area">
-                            <div class="order-menu headline">쉬림프샐러드</div>
-                            <div class="order-quantity headline">1</div>
-                            <div class="order-price headline">8900</div>
-                        </li>
-                        <%-- 선택한 옵션 --%>
-                        <li class="order-area">
-                            <div class="order-option">양상추</div>
-                            <div class="order-quantity"> 1</div>
-                            <div class="order-price"> 1000</div>
-                        </li>
-                    </div>
+                        <c:forEach var="menu" items="${cart.menuList}">
+                            <div class="order-all">
+                            <!-- 주문한 메뉴 내용 c:forEach -->
+                                <%-- 선택 메인 메뉴 --%>
+                                <li class="order-area">
+                                    <div class="order-menu headline">${menu.menuName}</div>
+                                    <div class="order-quantity headline">1</div>
+                                    <div class="order-price headline">${menu.menuPrice}</div>
+                                </li>
+                                <c:forEach var="option" items="${menu.optionList}">
+                                <%-- 선택한 옵션 --%>
+                                    <li class="order-area">
+                                        <div class="order-option">${option.optionName}</div>
+                                        <div class="order-quantity">1</div>
+                                        <div class="order-price">${option.optionPrice}</div>
+                                    </li>
+                                </c:forEach>
+                            </div>
+                        </c:forEach>
+                    </c:if>
 
                 </div>
             </div>
@@ -164,7 +160,7 @@
                         <p><input type="text" id="deliveryDate" name="deliveryDate" placeholder="배송일 선택" required></p>
                     </div>
                     <%-- 선택한 패키지 번호에 따라서 2차 배송일 지정 --%>
-                    <c:if test="${ packageNo ne 4  || packageNo ne 5 || packageNo ne 6}">
+                    <c:if test="${cart.packageType==2}">
                         <div class=cal>
                             <p>2차 수령 날짜를 선택해주세요</p>
                             <p><input type="text" id="deliveryDate2" name="deliveryDate2" placeholder="배송일 선택" required></p>
@@ -185,8 +181,8 @@
             <div class="check-area">
                 <h3>결제 예상 금액</h3>
                 <div class=check-info>
-                    <span class="check-info-head headline">상품 수 / 금액</span>
-                    <span class="check-info-data headline">33200 원</span>
+                    <span class="check-info-head headline">패키지 금액</span>
+                    <span class="check-info-data headline">${cart.packagePrice} 원</span>
                 </div>
                 <div class=check-info>
                     <span class="check-info-head">배송비</span>
@@ -194,11 +190,25 @@
                 </div>
                 <div class=check-info>
                     <span class="check-info-head">할인금액</span>
-                    <span class="check-info-data">-3000 원</span>
+                    <c:choose>
+                        <c:when test="${cart.packageType==1}">
+                            <span class="check-info-data">0 원</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="check-info-data">${cart.packagePrice*0.1} 원</span>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
                 <div class=check-info>
                     <span class="check-info-head headline">총 금액</span>
-                    <span class="check-info-data headline">30200 원</span>
+                    <c:choose>
+                        <c:when test="${cart.packageType==1}">
+                            <span class="check-info-data headline">${cart.packagePrice} 원</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="check-info-data headline">${cart.packagePrice*2} 원</span>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
             
