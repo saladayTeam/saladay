@@ -28,8 +28,7 @@
 <resultMap type="ReviewImage" id="reviewImage_rm">
 	   <id property="reviewImageNo" column="REVIEW_IMG_NO"/>
 	   <result property="imagePath" column="IMG_PATH"/>
-	   <result property="imageReName" column="IMG_RENAME"/>
-	   <result property="imageOriginal" column="IMG_ORIGINAL"/>
+	   <result property="imageRename" column="IMG_RENAME"/>
 	   <result property="imageOrder" column="IMG_ORDER"/>
 	   <result property="reviewNo" column="REVIEW_NO"/>
 </resultMap>
