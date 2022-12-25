@@ -7,9 +7,10 @@
     font-family: "NanumSquareNeo-Variable";
 }
 
-section{
+.order-view-section{
     margin: 0px;
-    width: 1200px;    
+    width: 1200px;
+    min-height: 100vh;    
 }
 
 .view-title {
@@ -24,7 +25,7 @@ section{
     margin: 50px auto 0;
     width: 765px;
     height: 500px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 10px;
 }
 
@@ -45,12 +46,13 @@ section{
     width: 150px;
     height: 150px;
     margin-top: 20px;
+    border-radius: 40%;
 }
 
 .info-p{
     font-size: 30px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
@@ -70,9 +72,12 @@ section{
 }
 
 
+/* 버튼 영역 */
 .view-btn-area{
+    width: 765px;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
+    margin: 0 auto;
     
 }
 /* 주문내역확인하기 버튼 */
@@ -82,8 +87,8 @@ section{
     height: 50px;
     background-color: #17633d;
     color: white;
-    border-radius: 5px;
-    font-size: 15px;
+    border-radius: 50px;
+    font-size: 20px;
     font-weight: bold;
     border: none;
 }
@@ -94,8 +99,8 @@ section{
     height: 50px;
     background-color: #17633d;
     color: white;
-    border-radius: 5px;
-    font-size: 15px;
+    border-radius: 50px;
+    font-size: 20px;
     font-weight: bold;
     border: none;
 }
