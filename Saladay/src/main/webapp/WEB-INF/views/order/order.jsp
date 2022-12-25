@@ -32,13 +32,16 @@
                 <div class="orderer-left">
                     <h3 class="orderer-info">주문자 정보</h3>
                     <p>
-                        <span class="o-th">주문자</span><span class="o-td" name="memberNo">이성호</span>
+                        <span class="o-th">주문자</span><span class="o-td" name="memberNo">${loginMember.memberName}</span>
                     </p>
                     <p>
-                        <span class="o-th">이메일</span><span class="o-td">emaillllllllll@gmail.com</span>
+                        <span class="o-th">이메일</span><span class="o-td">${loginMember.memberEmail}</span>
                     </p>
                     <p>
-                        <span class="o-th">핸드폰</span><span class="o-td">0101010101</span>
+                        <span class="o-th">핸드폰</span><span class="o-td">${loginMember.memberTel}</span>
+                    </p>
+                    <p>
+                        <span class="o-th">주소</span><span class="o-td">${loginMember.memberAddress}</span>
                     </p>
                 </div>
                 
@@ -46,11 +49,11 @@
                     <form action="#"><!-- 배송정보 변경 초기화 -->
                         <p>
                             <span class="o-th">수령인</span>
-                            <span class="o-td"><input type="text" name="orderName" id="orderName" placeholder="수령인"></span> 
+                            <span class="o-td"><input type="text" name="orderName" id="orderName" placeholder="${loginMember.memberName}"></span> 
                         </p>
                         <p>
                             <span class="o-th">수령인 연락처</span>
-                            <span class="o-td"><input type="tel" name="orderTel" id="orderTel" placeholder="연락처"></span>
+                            <span class="o-td"><input type="tel" name="orderTel" id="orderTel" placeholder="${loginMember.memberTel}"></span>
                         </p>
 
                         <!-- 주소 입력 영역 -->
@@ -61,7 +64,7 @@
                                 <input type="hidden" name="memberAddress"><!-- 회원의 기본 배송지 -->
                             </span>
                         </p>
-
+                            
                         <p class="address-area">
                             <input type="text" name="address" id="sample6_postcode" placeholder="우편번호" 
                                 maxlength="6" autocomplete="off" readonly> <!-- value="${addr[0]}" -->
