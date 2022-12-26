@@ -35,6 +35,5 @@ public class Order {
 	
 	List<OrderMenu> orderMenuList;
 	
-	
 }	
 

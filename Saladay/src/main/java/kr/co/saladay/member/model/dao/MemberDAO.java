@@ -127,7 +127,7 @@ public class MemberDAO {
 	 */
 	public Order selectMyOrder(int memberNo) {
 	
-		return sqlSession.selectOne("orderMapper.selectMyOrder", memberNo);
+		return sqlSession.selectOne("myOrderMapper.selectMyOrder", memberNo);
 	}
 
 

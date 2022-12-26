@@ -51,14 +51,20 @@
 					
 						<c:forEach items="${reviewList}" var="review">
 	                    <div class="my-review-detail">
-	                    	<div class="img">
-	                    	<c:if test="${review.thumbnail == null }">
-	                        	<img src="/resources/images/review/reviewImg.png" style="width:200px; height:200px;">
-	                        </c:if>
-	                        <c:if test="${review.thumbnail != null}">
-	                        	<img src="${review.thumbnail}" style="width:200px; height:200px;">
-	                        </c:if>
+	                    	<div class="review-img-wrapper">
+	                    		
+		                    	<c:if test="${review.thumbnail == null }">
+		                    	<div class="review-img">
+		                        	<img src="/resources/images/review/reviewImg.png" style="width:200px; height:200px;">
+		                        </div>
+		                        </c:if>
+		                        <c:if test="${review.thumbnail != null}">
+		                        <div class="review-img">	
+		                        	<img src="${review.thumbnail}" style="width:200px; height:200px;">
+		                        </div>
+		                        </c:if>
 	                        </div>
+	                        
 	                        <div class="content">
 		                        <ul>
 		                        	<li>리뷰 작성일 : ${review.reviewDate}</li>

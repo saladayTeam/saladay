@@ -4,73 +4,36 @@
 	
 	<!-- Order resultMap -->
 	<resultMap type="Order" id="order_rm">
-      <id property="orderNo" column="ORDER_NO"/>      
-      <result property="orderDate" column="ORDER_DATE"/>
-      <result property="cancleDate" column="ORDER_DATE"/>
-      <result property="orderPrice" column="ORDER_PRICE"/>
-      <result property="orderName" column="ORDER_NAME"/>
-      <result property="orderTel" column="ORDER_TEL"/>
-      <result property="orderAddress" column="ORDER_ADDRESS"/> 
-      <result property="memberNo" column="MEMBER_NO"/>      
-       
-      <collection property="menuList" javaType="java.util.ArrayList" ofType="CartMenu"
-      select="selectCart" column="ORDER_NO" />
+      <id property="packageNo" column="PACKAGE_NO"/>      
+      <result property="cartNo" column="CART_NO"/>
+      <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageImage" column="PACKAGE_IMG"/>
+      <result property="packagePrice" column="TOTAL"/>
+      <result property="packageType" column="PACKAGE_TYPE"/>
+      <collection property="menuList" javaType="java.util.ArrayList" ofType="OrderMenu"
+      select="selectOrderMenuList" column="ORDER_NO" />
 	</resultMap>
 	
-	<!-- PayMenu resultMap -->
-	<resultMap type="CartMenu" id="cartMenu_rm">
+	<!-- OrderMenu resultMap -->
+	<resultMap type="OrderMenu" id="orderMenu_rm">
       <id property="cartMenuNo" column="CART_MENU_NO"/>
       <result property="menuName" column="MENU_NAME"/>
       <result property="menuPrice" column="MENU_PRICE"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
-      <collection property="optionList" javaType="java.util.ArrayList" ofType="CartOption"
+      <collection property="optionList" javaType="java.util.ArrayList" ofType="PayOption"
       select="selectCartOptionList" column="CART_MENU_NO" />
-	</resultMap>
+	</resultMap> 
 
-	<!-- payOption resultMap -->
-	<resultMap type="CartOption" id="cartOption_rm">
+
+	<!-- OrderOption resultMap -->
+	<resultMap type="OrderOption" id="orderOption_rm">
       <id property="optionNo" column="OPTION_NO"/>
       <result property="optionName" column="OPTION_NAME"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionCount" column="CART_OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
-	</resultMap>
+	</resultMap> 
 
-	<!-- 주문번호 생성 및 주문 삽입 -->		
-	<insert id="insertOrderNo" parameterType="Order" useGeneratedKeys="true">
-		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE">
-			SELECT SEQ_ORDER_NO.NEXTVAL FROM DUAL
-		</selectKey>
-		INSERT INTO "ORDER"
-		VALUES (#{orderNo}, DEFAULT, DEFAULT,
-			(SELECT SUM(MENU_PRICE) + SUM(TOTAL_OPT_PRICE) TOTAL FROM (
-		   SELECT  M.MENU_PRICE,
-		      (SELECT SUM(OPTION_PRICE * CART_OPTION_COUNT)  
-		      FROM CART_MENU_OPTION CMO
-		      JOIN "OPTION" O ON(CMO.OPTION_NO = O.OPTION_NO)
-		      WHERE CMO.CART_MENU_NO = CM.CART_MENU_NO) TOTAL_OPT_PRICE
-		   FROM CART C
-		   JOIN CART_MENU CM ON (C.CART_NO = CM.CART_NO)
-		   JOIN MENU M ON (CM.MENU_NO = M.MENU_NO)
-		   WHERE C.MEMBER_NO = #{memberNo}
-		)), DEFAULT, #{orderName}, #{orderTel}, #{orderAddress}, #{memberNo}, #{packageNo} )
-	</insert>
-	
-	
-	<!-- 주문에 담은 메뉴 -->
-	<insert id="insertOrderMenuNo" parameterType="CartMenu" useGeneratedKeys="true">
-		<selectKey keyProperty="orderMenuNo" resultType="_int" order="BEFORE">
-			SELECT SEQ_ORDER_MENU_NO.NEXTVAL FROM DUAL
-		</selectKey>
-		INSERT INTO ORDER_MENU
-		VALUES (#{orderMenuNo}, #{orderNo}, #{menuNo})
-	</insert>
-	
-	<!-- 주문 메뉴별 옵션  -->
-	<insert id="insertOrderMenuOption" parameterType="CartOption">
-		INSERT INTO ORDER_MENU_OPTION
-		VALUES (#{orderMenuNo}, #{optionNo}, #{optionCount})
-	</insert>
 
  		
 </mapper>

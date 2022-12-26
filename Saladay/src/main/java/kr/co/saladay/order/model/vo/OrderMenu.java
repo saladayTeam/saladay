@@ -17,8 +17,10 @@ public class OrderMenu {
 	private int menuPrice;
 	private String menuDeleteFlag;
 	
+	
 	private int OrderNo;
 	private int menuNo;
+	private String menuImage;
 	
 	List<CartOption> optionList;
 
