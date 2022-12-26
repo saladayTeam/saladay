@@ -25,10 +25,10 @@ public class OrderController {
 		return "order/order";
 	}
 	
-	@GetMapping("/orderView")
-	public String orderView() {
-		return "order/orderView";
-	}
+//	@GetMapping("/orderView")
+//	public String orderView() {
+//		return "order/orderView";
+//	}
 	
 	@PostMapping("/orderView")
 	public String orderView(Order order,
@@ -44,11 +44,11 @@ public class OrderController {
 		
 		int orderNo=service.insertOrder(order);
 		
-//		if(orderNo>0) {
-//			path="";
-//		} else {
-//			path=referer;
-//		}
+		if(orderNo>0) {
+			path="/order";
+		} else {
+			path=referer;
+		}
 		
 		return "redirect:" + path;
 	}

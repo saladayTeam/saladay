@@ -46,7 +46,7 @@
                 </div>
                 
                 <div class="orderer-right">
-                    <form action="#"><!-- 배송정보 변경 초기화 -->
+                    <form action="/orderView" method="post"><!-- 배송정보 변경 초기화 -->
                         <p>
                             <span class="o-th">수령인</span>
                             <span class="o-td"><input type="text" name="orderName" id="orderName" placeholder="${loginMember.memberName}"></span> 
@@ -212,7 +212,7 @@
                 </div>
             </div>
             
-            <button type="button" id="payBtn">구매하기</button>
+            <button id="payBtn">구매하기</button>
         </section>
     </main>
 
