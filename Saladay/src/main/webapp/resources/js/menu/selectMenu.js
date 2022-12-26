@@ -208,9 +208,9 @@ if(orderBtn != null) {
       }
 
       // 메뉴가 다 선택되면, 이전 장바구니 내역은 지우고 새로 추가
-      if(confirm("이전에 선택하신 내역이 장바구니에 존재합니다. 이전 내역을 취소하시겠습니까?")){
-        location.href = "/cart/preDelete";
-        location.href = "/order";
+      if(cartNo != null){
+        parent.location = "/cart/preDelete";
+        location.href = "order";
         return true;
       } else{
         location.href = "#";
