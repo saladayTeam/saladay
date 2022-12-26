@@ -124,7 +124,7 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" id="mainOptionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" id="mainOptionCount" class="optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
                                                     <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/> 
@@ -151,7 +151,7 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
                                                     <input type="hidden" value="${subT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/>
@@ -181,7 +181,7 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
                                                     <input type="hidden" value="${source.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/>
