@@ -29,6 +29,7 @@ const reviewSalad = document.querySelector(".review-detail-salad");
 const reviewNickname = document.querySelector(".review-detail-nickname");
 const reviewText = document.querySelector(".review-detail-text");
 const reviewLike = document.querySelector(".review-detail-likeCount");
+const reviewHeart = document.getElementById("reviewHeart");
 
 // 리뷰 이미지 클릭시 실행
 function selectReviewDetail(reviewNo, reviewMemberNo){
@@ -43,7 +44,6 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
         success : function(rDetail){
             // rDetail : 반환 받은 리뷰 상세 조회 내용 
             console.log(rDetail);
-
 
             // 리뷰 삭제
             const deleteBtn = document.getElementById("review-modal-delete");
@@ -85,18 +85,69 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
             $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
 
-            // 리뷰 좋아요
-            // const reviewHeart = document.getElementById("reviewHeart");
-            // if (reviewHeart != null) {
-            //         reviewHeart.addEventListener("click", e =>{
-            //             // 로그인 상태가 아닌 경우
-            //         if(memberNo==""){
-            //             alert("로그인 후 이용해주세요.")
-            //             return;
-            //         }
-            //     });
-            // }
+            // 좋아요 여부 체크하여 빈하트/채워진 하트 출력
+            if(rDetail[0].likeCheck==0){ // 로그인X이거나 좋아요를 누르지 않은 리뷰 == 빈하트
+                reviewHeart.classList.remove("fa-solid");
+                reviewHeart.classList.add("fa-heart");
+                reviewHeart.classList.add("fa-regular");
+                /* reviewHeart.setAttribute("onclick", "reviewLikeUp("+rDetail[0].reviewNo+", "+memberNo+")"); */
 
+            } else{ // 좋아요를 누른 리뷰 == 채워진 하트
+                reviewHeart.classList.remove("fa-regular");
+                reviewHeart.classList.add("fa-heart");
+                reviewHeart.classList.add("fa-solid");
+                /* reviewHeart.setAttribute("onclick", "reviewLikeDown("+rDetail[0].reviewNo+", "+memberNo+")"); */
+            }
+
+            if (reviewHeart != null) {
+
+                reviewHeart.addEventListener("click", e =>{
+                    // 로그인 상태가 아닌 경우
+                    if(memberNo==""){
+                        alert("로그인 후 이용해주세요.")
+                        return;
+                    }
+            
+                    // 로그인 상태이면서 좋아요 상태가 아닌 경우
+                    if(reviewHeart.classList.contains('fa-regular')){ //빈하트인 경우 좋아요 증가
+            
+                        $.ajax({
+                            url : "/review/likeUp",
+                            data : {"reviewNo" : rDetail[0].reviewNo , "memberNo" : memberNo},
+                            type : "GET" ,
+                            success : (result)=>{
+                                if(result >0){ // 성공
+            
+                                    reviewHeart.classList.remove('fa-regular'); // 빈하트 클래스 삭제
+                                    reviewHeart.classList.add('fa-solid'); // 채워진 하트 클래스 추가
+                                    reviewLike.innerText = Number(reviewLike.innerText)+1; // 1증가
+                                }else{ // 실패
+                                    console.log("증가 실패");
+                                }
+                            },
+                            error : ()=>{ console.log("증가 에러"); }
+                        });
+            
+                    } else{ // 채워진 하트인 경우 좋아요 감소
+                        $.ajax({
+                            url : "/review/likeDown",
+                            data : {"reviewNo" : rDetail[0].reviewNo , "memberNo" : memberNo},
+                            type : "GET" ,
+                            success : (result)=>{
+                                if(result >0){ // 성공
+                
+                                    reviewHeart.classList.add('fa-regular'); // 빈하트 클래스 추가
+                                    reviewHeart.classList.remove('fa-solid'); // 채워진 하트 클래스 삭제
+                                    reviewLike.innerText = Number(reviewLike.innerText)-1; // 1감소
+                                }else{ // 실패
+                                    console.log("감소 실패");
+                                }
+                            },
+                            error : ()=>{ console.log("감소 에러"); }
+                        });   
+                    }
+                });
+            }
         },
         error : function(req, status, error){
             console.log("에러 발생");
@@ -106,10 +157,9 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 }
 
 
-//리뷰삭제 ajax
+//리뷰 삭제
 function deleteReview(reviewNo){
-if( confirm("정말 삭제 하시겠습니까?") ){
-    
+    if( confirm("정말 삭제 하시겠습니까?") ){
         $.ajax({
             url : "/review/delete",
             data : {"reviewNo" : reviewNo},
@@ -130,4 +180,3 @@ if( confirm("정말 삭제 하시겠습니까?") ){
         });
     }
 }
-
