@@ -212,7 +212,7 @@
                 </div>
             </div>
             
-            <button id="payBtn" type="button" onclick="payment()">구매하기</button>
+            <button id="payBtn" type="button" onsubmit="payment()">구매하기</button>
         </section>
     </main>
 
@@ -221,10 +221,12 @@
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
     <script>
-        const orderName="${loginMember.memberName}";
+        const packageName="${cart.packageName}";
+        const memberName="${loginMember.memberName}";
         const packagePrice="${cart.packagePrice}";
         const memberEmail="${loginMember.memberEmail}";
         const memberTel="${loginMember.memberTel}";
+        const memberAddress="${loginMember.memberAddress}";
     </script>
 
     <!-- 다음 api -->

@@ -139,35 +139,38 @@ $(document).ready(function () {
 });
 
 //카카오 결제 API
-var IMP = window.IMP; // 생략가능
-IMP.init("impimp50312116"); // 가맹점 식별코드
-// IMP.request_pay(param, callback) 결제창 호출
-IMP.request_pay(
-  {
-    pg: "kakaopay", //pg사 선택 (kakao, kakaopay 둘다 가능)
-    pay_method: "card",
-    merchant_uid: "merchant_" + new Date().getTime(), //주문번호
-    name: "Bunddeuk", // 상품명
-    amount: 1,
-    //customer_uid 파라메터가 있어야 빌링키 발급을 시도함
-    customer_uid: memberName + new Date().getTime(),
-    buyer_email: email,
-    buyer_name: buyer_name,
-    buyer_tel: hp,
-    buyer_addr: addr,
-  },
-  function (rsp) {
-    //callback
-    if (rsp.success) {
-      console.log("빌링키 발급 성공", rsp);
-      //빌링키 발급이 완료되었으므로, 서버에 결제 요청
-      alert("예약 결제가 완료되었습니다!");
-    } else {
-      var msg = "결제에 실패하였습니다.\n";
-      msg += rsp.error_msg;
-      alert(msg);
-      return false;
+
+function payment() {
+  var IMP = window.IMP; // 생략가능
+  IMP.init("imp50312116"); // 가맹점 식별코드
+  // IMP.request_pay(param, callback) 결제창 호출
+  IMP.request_pay(
+    {
+      pg: "kakaopay", //pg사 선택 (kakao, kakaopay 둘다 가능)
+      pay_method: "kakaopay",
+      merchant_uid: "merchant_" + new Date().getTime(), //주문번호
+      name: packageName, // 상품명
+      amount: packagePrice, // 금액
+      //customer_uid 파라메터가 있어야 빌링키 발급을 시도함
+      customer_uid: memberName + new Date().getTime(),
+      buyer_email: memberEmail,
+      buyer_name: memberName,
+      buyer_tel: memberTel,
+      buyer_addr: memberAddress,
+    },
+    function (rsp) {
+      //callback
+      if (rsp.success) {
+        console.log("빌링키 발급 성공", rsp);
+        //빌링키 발급이 완료되었으므로, 서버에 결제 요청
+        alert("결제가 완료되었습니다!");
+      } else {
+        var msg = "결제에 실패하였습니다.\n";
+        msg += rsp.error_msg;
+        alert(msg);
+        return false;
+      }
+      $("#final-support-submit").submit();
     }
-    $("#final-support-submit").submit();
-  }
-);
+  );
+}
