@@ -14,8 +14,8 @@
     <title>review</title>
 
 	<link rel="stylesheet" href="/resources/css/main/main.css">
-    <link rel="stylesheet" href="/resources/css/review/review.css">
     <link rel="stylesheet" href="/resources/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/resources/css/review/review.css">
     <script src="https://kit.fontawesome.com/9f94c365a1.js" crossorigin="anonymous"></script>
 </head>
 <body>

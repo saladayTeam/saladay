@@ -235,6 +235,7 @@
 /* 리뷰 내용 묶음 */
 .review-detail-content{
     line-height: 150%;
+    width: 463.985px;
 }
 
 /* 리뷰 별점 */
@@ -296,4 +297,6 @@
     left: 0;
     min-width: 100%;
     min-height: 300px;
+    width: auto !important;
+    height: 100% !important;
 } 

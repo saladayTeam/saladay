@@ -61,9 +61,9 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     
                     const image = document.createElement("img");
                     image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
-                    image.classList.add("review-images");
                     image.classList.add("d-block");
                     image.classList.add("w-100");
+                    image.classList.add("review-images");
 
                     carouselItem.append(image);
                     carouselInner.append(carouselItem);
@@ -77,9 +77,9 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 carouselItem.classList.add("active");
                 const image = document.createElement("img");
                 image.setAttribute("src", "/resources/images/review/reviewImg.png");
-                image.classList.add("review-images");
                 image.classList.add("d-block");
                 image.classList.add("w-100");
+                image.classList.add("review-images");
 
                 carouselItem.append(image);
                 carouselInner.append(carouselItem);
