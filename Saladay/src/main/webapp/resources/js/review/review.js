@@ -68,9 +68,39 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     carouselItem.append(image);
                     carouselInner.append(carouselItem);
                 }
-            } else {
+            }
 
-                /* 첨부 이미지가 없을 경우 기본 이미지 보여주는 코드 추가 */
+            /* 이미지가 1개일 경우 */
+            if(rDetail[0].imageList.length == 1){
+                for(let i = 0; i<rDetail[0].imageList.length; i++){
+                    const carouselItem = document.createElement("div");
+                    carouselItem.classList.add("carousel-item");
+                    
+                    if(i==0){
+                        carouselItem.classList.add("active");
+                    }
+                    
+                    const image = document.createElement("img");
+                    image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
+                    image.classList.add("d-block");
+                    image.classList.add("w-100");
+                    image.classList.add("review-images");
+
+                    carouselItem.append(image);
+                    carouselInner.append(carouselItem);
+                }
+                /* 버튼들 삭제 */
+                const indicators = document.querySelector(".carousel-indicators");
+                const prev = document.querySelector(".carousel-control-prev");
+                const next = document.querySelector(".carousel-control-next");
+                indicators.innerHTML = "";
+                prev.innerHTML = "";
+                next.innerHTML = "";
+            } 
+            
+            /* 첨부 이미지가 없을 경우 기본 이미지 보여주는 코드 */
+            if(rDetail[0].imageList.length == 0){
+
                 carouselInner.innerHTML = "";
                 const carouselItem = document.createElement("div");
                 carouselItem.classList.add("carousel-item");

@@ -86,6 +86,8 @@
     height: 100%;
     object-fit: cover;
     margin: auto;
+    border-radius: 10px;
+
 }
 
 /* 리뷰 내용, 작성자, 별점 */
