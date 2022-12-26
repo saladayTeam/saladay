@@ -54,7 +54,7 @@
     </div>
     <main> 
         
-        <form action="/cart" method="post" id="addCartForm" onsubmit ="return selectValidate()" >
+        <form action="/cart" method="post" id="addCartForm" onsubmit ="return selectValidate()">
         
         <section class="content">
                 
@@ -97,7 +97,7 @@
                                     <h3 class="menu-title">위 메뉴에서 샐러드를 선택하세요.</h3>
                                     <p class="menu-detail">토핑은 추가 선택이 가능합니다.</p>
                                 </div>
-                                <input type="hidden" id="memuNo" class="menuNo" name="menuList[${i}].menuNo" value="">
+                                <input type="hidden" class="menuNo" name="menuList[${i}].menuNo" value="">
                                 <div class="menu-content">
                                     <div class="menu-img">
                                         <img src="" width="500">
@@ -124,10 +124,10 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" id="mainOptionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" id="mainOptionCount" class="optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
-                                                    <input type="hidden" id="mainOptionNo" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/> 
+                                                    <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/> 
                                                 </li>
 
                                                 <c:set var="idx" value="${idx + 1}"/>
@@ -151,10 +151,10 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
-                                                    <input type="hidden" value="${subT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/>
+                                                    <input type="hidden" value="${subT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/>
                                                 </li>
 
                                                 <c:set var="idx" value="${idx + 1}"/>
@@ -181,10 +181,10 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
-                                                    <input type="hidden" value="${source.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo"/>
+                                                    <input type="hidden" value="${source.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/>
                                                 </li>
 
                                                 <c:set var="idx" value="${idx + 1}"/>
@@ -206,8 +206,8 @@
         </section>
 
         <div class="bottom-box">
-            <button class="cartin-btn">장바구니 담기</button>
-            <button type="button" class="order-btn"><a href="/order">주문하기</a></button>
+            <button id="cartin-btn">장바구니 담기</button>
+            <button type="button" id="order-btn">주문하기</button>
         </div>
     </main>
     </form> 

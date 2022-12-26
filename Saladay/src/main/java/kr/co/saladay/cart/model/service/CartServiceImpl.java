@@ -66,7 +66,7 @@ public class CartServiceImpl implements CartService {
 					option.setCartMenuNo(cartMenuNo);
 					cartOptionList.add(option);
 					int result3 = dao.insertCartMenuOption(option);
-				}
+				} 
 			}
 		
 		}
