@@ -14,11 +14,13 @@ public class Order {
 	
 	private int orderNo;
 	private String orderDate;
-	private String CancleDate;
+	private String cancleDate;
 	private int orderPrice;
-	private String orderName;
-	private String orderTel;
-	private String orderAddress;
+	private String orderName; // 수신자명
+	private String orderTel; // 수신자 전화번호
+	private String orderAddress; // 수신자 주소
+	
+	private int memberNo; // 주문한 회원 번호
 	
 }	
 

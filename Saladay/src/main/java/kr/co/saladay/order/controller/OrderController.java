@@ -37,10 +37,11 @@ public class OrderController {
 			@RequestHeader("referer") String referer) {
 		
 		order.setCart(cart);
+		order.setMemberNo(loginMember.getMemberNo());
 		
 		String path="";
 		
-//		int orderNo=service.insertOrder(cart);
+		int orderNo=service.insertOrder(order);
 		
 //		if(orderNo>0) {
 //			path="";
