@@ -1,6 +1,11 @@
 package kr.co.saladay.order.model.vo;
 
+import java.util.List;
+
+
 import kr.co.saladay.cart.model.vo.Cart;
+import kr.co.saladay.menu.model.vo.Package;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,6 +24,11 @@ public class Order {
 	private String orderName;
 	private String orderTel;
 	private String orderAddress;
+	
+	List<Package> packageList; 
+	
+	List<OrderMenu> orderMenuList;
+	
 	
 }	
 

@@ -1,6 +1,7 @@
 package kr.co.saladay.member.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +22,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
 @SessionAttributes({"loginMember","cart"})
@@ -425,6 +428,30 @@ public class MemberController {
 	public String myOrder() {
 		return "member/myPage/myPage-order";
 	}
+	
+	
+	@GetMapping("myPage/selectMyOrder")
+	public String selectMyOrder(@SessionAttribute(value="loginMember",required=true) Member loginMember,
+			Model model) {
+		
+		int memberNo=loginMember.getMemberNo();
+		
+		Order myOrder= service.selectMyOrder(memberNo);
+				
+		model.addAttribute("myOrder", myOrder);
+		
+		return "member/myPage/myPage-order";
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/**마이페이지-나의 리뷰
 	 * @return myPage-review.jsp 포워드

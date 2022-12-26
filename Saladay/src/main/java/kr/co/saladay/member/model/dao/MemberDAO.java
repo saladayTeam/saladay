@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
 @Repository
@@ -117,6 +118,16 @@ public class MemberDAO {
 	public List<Review> selectMyReview(int memberNo) {
 		
 		return sqlSession.selectList("reviewMapper.selectMyReview",memberNo);
+	}
+
+	
+	/**내 주문 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public Order selectMyOrder(int memberNo) {
+	
+		return sqlSession.selectOne("orderMapper.selectMyOrder", memberNo);
 	}
 
 

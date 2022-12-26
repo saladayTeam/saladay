@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="myOrderMapper">
+	
+	<!-- Order resultMap -->
+	<resultMap type="Order" id="order_rm">
+      <id property="orderNo" column="ORDER_NO"/>      
+      <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageImage" column="PACKAGE_IMG"/>
+      <result property="packagePrice" column="TOTAL"/>
+      <result property="orderDate" column="ORDER_DATE"/>
+      <result property="orderAddress" column="ORDER_ADDRESS"/>
+      <result property="orderName" column="ORDER_NAME"/>
+      <result property="deliveryCode" column="DELIVERY_CODE"/>
+      <collection property="packageList" javaType="java.util.ArrayList" ofType="Package"
+      select="selectPackageList" column="ORDER_NO" />
+      <collection property="orderMenuList" javaType="java.util.ArrayList" ofType="OrderMenu"
+      select="selectOrderMenuList" column="ORDER_NO" />
+      <collection property="deliveryList" javaType="java.util.ArrayList" ofType="Delivery"
+      select="selectDeliveryList" column="ORDER_NO" />
+	</resultMap>
+	
+	<!-- OrderMenu resultMap -->
+	<resultMap type="OrderMenu" id="orderMenu_rm">
+      <id property="orderMenuNo" column="ORDER_MENU_NO"/>
+      <result property="menuNo" column="MENU_NO"/>
+      <result property="menuName" column="MENU_NAME"/>
+      <result property="menuPrice" column="MENU_PRICE"/>
+      <result property="menu" column="MENU_PRICE"/>
+      <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
+      <collection property="optionList" javaType="java.util.ArrayList" ofType="OrderOption"
+      select="selectOptionList" column="ORDER_MENU_NO" />
+	</resultMap> 
+
+
+	<!-- OrderOption resultMap -->
+	<resultMap type="OrderOption" id="orderOption_rm">
+      <id property="optionNo" column="OPTION_NO"/>
+      <result property="optionName" column="OPTION_NAME"/>
+      <result property="optionPrice" column="OPTION_PRICE"/>
+      <result property="optionCount" column="CART_OPTION_COUNT"/>
+      <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+	</resultMap> 
+
+
+ 		
+</mapper>

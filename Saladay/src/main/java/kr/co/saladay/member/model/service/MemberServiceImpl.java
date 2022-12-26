@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.member.model.dao.MemberDAO;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
 @Service
@@ -122,6 +123,16 @@ public class MemberServiceImpl implements MemberService{
 		
 		return dao.selectMyReview(memberNo);
 	}
+
+
 	
+	//내 주문 조회
+	@Override
+	public Order selectMyOrder(int memberNo) {
+		
+		Order orderPackage =  dao.selectMyOrder(memberNo);
+		
+		return orderPackage;
+	}
 	
 }
