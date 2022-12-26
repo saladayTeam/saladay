@@ -50,6 +50,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             const carouselInner = document.getElementsByClassName("carousel-inner")[0];
             carouselInner.innerHTML = "";
             
+            /* 이미지가 2개 이상일 경우 */
             if(rDetail[0].imageList.length != 0){
                 for(let i = 0; i<rDetail[0].imageList.length; i++){
                     const carouselItem = document.createElement("div");
@@ -177,6 +178,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 /* reviewHeart.setAttribute("onclick", "reviewLikeDown("+rDetail[0].reviewNo+", "+memberNo+")"); */
             }
 
+            /* 좋아요 증가/감소 ajax 실행 */
             if (reviewHeart != null) {
 
                 reviewHeart.addEventListener("click", e =>{
