@@ -1,0 +1,107 @@
+main {
+    width: 1200px;
+}
+
+
+.my-page-content {
+    display: flex;
+    width: 100%;
+    min-height: 700px;
+    margin: 50px auto;
+}
+
+/* 좌측 사이드바*************************************************************/
+.left-side {
+    background-color: white;
+    width: 25%;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    border-right: #ddd 3px solid;
+}
+
+
+
+.left-side-header {
+    height: 70px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 70px;
+    border-bottom: #222222 2px solid;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.my-page-list {
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+}
+
+.my-page-list li {
+    height: 54px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.my-page-list li a {
+	 text-decoration: none;
+	 color:black;
+}
+
+
+.my-page-list input[name='myPageType'] {
+    display: none;
+}
+
+.my-page-list label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.2s;
+    margin-right: 15px;
+    
+    border-bottom: 2px solid #ddd;
+}
+
+.my-page-list label:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.my-page-list input:checked + label {
+    border-bottom: 2px solid #17633d;
+
+}
+
+
+/*우측메인 ***********************************************************************************/
+
+
+.right-side {
+    border-radius: 10px;
+    width: 65%;
+    padding: 20px 20px 50px 50px;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+
+/* 회원 정보 헤더--------------------------------- */
+.my-page-header {
+    border-bottom: 1px solid #17633d;
+    width: 100%;
+    margin: 40px 20px 40px 0;
+}
+
+.main-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 리뷰 작성 *************************************************************/
