@@ -46,7 +46,7 @@
                 </div>
                 
                 <div class="orderer-right">
-                    <form action="#"><!-- 배송정보 변경 초기화 -->
+                    <form action="/orderView" method="post"><!-- 배송정보 변경 초기화 -->
                         <p>
                             <span class="o-th">수령인</span>
                             <span class="o-td"><input type="text" name="orderName" id="orderName" placeholder="${loginMember.memberName}"></span> 
@@ -61,7 +61,7 @@
                             <span class="o-th"> 수령인 주소 </span>
                             <span class="o-td">
                                 <input type="checkbox" id="memberAddr"><label for="memberAddr"> 기본 배송지 선택</label>
-                                <input type="hidden" name="memberAddress"><!-- 회원의 기본 배송지 -->
+                                <input type="hidden" name="memberAddress" value="${loginMember.memberAddress}"><!-- 회원의 기본 배송지 -->
                             </span>
                         </p>
                             
@@ -212,7 +212,7 @@
                 </div>
             </div>
             
-            <button type="button" id="payBtn">구매하기</button>
+            <button id="payBtn">구매하기</button>
         </section>
     </main>
 
