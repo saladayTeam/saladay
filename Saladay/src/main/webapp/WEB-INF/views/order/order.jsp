@@ -61,7 +61,7 @@
                             <span class="o-th"> 수령인 주소 </span>
                             <span class="o-td">
                                 <input type="checkbox" id="memberAddr"><label for="memberAddr"> 기본 배송지 선택</label>
-                                <input type="hidden" name="memberAddress"><!-- 회원의 기본 배송지 -->
+                                <input type="hidden" name="memberAddress" value="${loginMember.memberAddress}"><!-- 회원의 기본 배송지 -->
                             </span>
                         </p>
                             
