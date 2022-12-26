@@ -21,13 +21,13 @@
 }
 
 /* 버튼영역 */
-#addBtn, #delBtn, #updateBtn {
+#addBtn, #delBtn {
     width: 100px;
     height: 35px;
-    background-color: #17633d;
-    color: white;
+    background-color: #ddd;
+    color: black;
     border: none;
-    border-radius: 10px;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 18px;
 }
@@ -47,11 +47,6 @@ table th {
 
 table td {
     border-bottom: 1px solid #ddd;
-    height: 40px;
+    height: 30px;
     text-align: center;
 }
-
-
-
-
-

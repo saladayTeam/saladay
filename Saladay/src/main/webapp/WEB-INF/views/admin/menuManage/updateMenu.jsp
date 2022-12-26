@@ -8,16 +8,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>관리자- 메뉴 추가</title>
-
-    <%-- 폰트어썸 --%>
-    <script src="https://kit.fontawesome.com/2aa49fc46f.js"crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/resources/css/main/header.css">
-    <link rel="stylesheet" href="/resources/css/admin/admin.css">
-    <link rel="stylesheet" href="/resources/css/main/footer.css">
+    <title>관리자-메뉴관리</title>
     <link rel="stylesheet" href="/resources/css/admin/menuManage/updateMenu.css">
-
   </head>
 
 <body>
@@ -26,35 +18,47 @@
     <section class="menu-wrapper">
     
       <div class="menu-m-tit">
-        <span><h1>메뉴관리</h1></span>
+        <div>
+          <span>메뉴 관리</span>
+        </div>
+        <div class="m-btn-area">
+          <button type="button" id="addBtn">추가</button>
+          <button type="button" id="delBtn">삭제</button>
+        </div>
       </div>
 
-      <div>
-        <p class="m-h-row">
-          <span class="chek"><input type="checkbox"></span>
-          <%-- <span>메뉴사진</span> --%>
-          <span>메뉴이름</span>
-          <span>메뉴설명</span>
-          <span>가격</span>
-          <span>칼로리</span>
-        </p>
-
-        <p class="m-h-row">
-          <span class="chek"><input type="checkbox"></span>
-          <span><img src="/resources/images/menu/salad/로스트치킨.png" width="50px" height="50px" alt=""></span>
-          <span>메뉴이름</span>
-          <span>메뉴설명</span>
-          <span>가격</span>
-          <span>칼로리</span>
-        </p>
-      </div>
-
+      <table>
+        <colgroup>
+          <col width="2%">
+          <col width="20%">
+          <col width="58%">
+          <col width="10%">
+          <col width="10%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col"><input type="checkbox" class=""></th>
+            <th scope="col"><span>메뉴명</span></th>
+            <th scope="col"><span>메뉴설명</span></th>
+            <th scope="col"><span>메뉴가격</span></th>
+            <th scope="col"><span>메뉴칼로리</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <c:forEach items="${menuList}" var="menu">
+            <tr>
+              <td scope="col"><input type="checkbox"></td>
+              <td scope="col"><span class="menu-n">${menu.menuName}</span></td>
+              <td scope="col"><span class="menu-i">${menu.menuContent}</span></td>
+              <td scope="col"><span class="menu-p">${menu.menuPrice}</span></td>
+              <td scope="col"><span class="menu-c">${menu.menuCalorie} Kcal</span></td>
+            </tr>
+          </c:forEach>
+        </tbody>
       
+      </table>
 
-    <div class="m-btn-area">
-      <button type="button">추가</button>
-      <button type="button">삭제</button>
-    </div>
+   
     </section>  
     
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>

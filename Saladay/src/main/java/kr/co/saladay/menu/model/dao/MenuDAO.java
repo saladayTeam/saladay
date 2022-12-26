@@ -41,4 +41,9 @@ public class MenuDAO {
 		return sqlSession.selectList("menuMapper.selectPackageList");
 	}
 
+	// 옵션 조회
+	public List<Option> selectOptionList() {
+		return sqlSession.selectList("menuMapper.selectOptionList");
+	}
+
 }
