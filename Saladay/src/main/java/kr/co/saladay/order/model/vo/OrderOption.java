@@ -16,8 +16,6 @@ public class OrderOption {
 	private int optionPrice;
 	private int optionCount;
 	private String optionDeleteFlag;
-	private int cartMenuNo;
-	
-	List<OrderOption> optionList;	
+	private int orderMenuNo;
 	
 }
