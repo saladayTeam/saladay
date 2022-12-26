@@ -13,27 +13,27 @@
       <result property="orderAddress" column="ORDER_ADDRESS"/> 
       <result property="memberNo" column="MEMBER_NO"/>      
        
-      <collection property="menuList" javaType="java.util.ArrayList" ofType="orderMenu"
+      <collection property="menuList" javaType="java.util.ArrayList" ofType="CartMenu"
       select="selectCart" column="ORDER_NO" />
 	</resultMap>
 	
-	<!-- OrderMenu resultMap -->
-	<resultMap type="OrderMenu" id="orderMenu_rm">
-      <id property="orderMenuNo" column="ORDER_MENU_NO"/>
+	<!-- PayMenu resultMap -->
+	<resultMap type="CartMenu" id="cartMenu_rm">
+      <id property="cartMenuNo" column="CART_MENU_NO"/>
       <result property="menuName" column="MENU_NAME"/>
       <result property="menuPrice" column="MENU_PRICE"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
-      <collection property="optionList" javaType="java.util.ArrayList" ofType="orderOption"
-      select="selectOrderOptionList" column="ORDER_MENU_NO" />
+      <collection property="optionList" javaType="java.util.ArrayList" ofType="CartOption"
+      select="selectCartOptionList" column="CART_MENU_NO" />
 	</resultMap>
 
 
-	<!-- OrderOption resultMap -->
-	<resultMap type="OrderOption" id="orderOption_rm">
+	<!-- payOption resultMap -->
+	<resultMap type="CartOption" id="cartOption_rm">
       <id property="optionNo" column="OPTION_NO"/>
       <result property="optionName" column="OPTION_NAME"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
-      <result property="optionCount" column="ORDER_OPTION_COUNT"/>
+      <result property="optionCount" column="CART_OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
 	</resultMap>
 
@@ -42,7 +42,7 @@
 		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE">
 			SELECT SEQ_OPTION_NO.NEXTVAL FROM DUAL
 		</selectKey>
-		INSERT INTO OPTION 
+		INSERT INTO ORDER 
 		VALUES (#{orderNo}, #{memberNo}, #{packageNo})
 	</insert>
 	
