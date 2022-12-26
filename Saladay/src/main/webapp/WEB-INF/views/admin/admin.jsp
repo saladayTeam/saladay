@@ -23,16 +23,8 @@
 
 <body>
     
-    <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
     <main>
-
-        <div class="admin-page-content">
-            <jsp:include page="/WEB-INF/views/admin/sidemenu.jsp"></jsp:include>
-
-            <div class="right-side">
-                
-            </div>
-        </div>
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
