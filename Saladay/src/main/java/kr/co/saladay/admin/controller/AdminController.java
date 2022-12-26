@@ -10,4 +10,10 @@ public class AdminController {
 	public String admin() {
 		return "/admin/admin";
 	}
+	
+	@GetMapping("admin/delivery")
+	public String adminDelivery() {
+		return "admin/delivery/calendar";
+		
+	}
 }

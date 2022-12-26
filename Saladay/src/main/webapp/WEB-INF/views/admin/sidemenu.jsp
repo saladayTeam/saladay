@@ -11,7 +11,7 @@
         </li>
         <li>
             <input type="radio" name="adminPageType" value="2" id="adminPageType2" >
-            <label for="adminPageType2"><a class="adminPageType2">배송 관리</a></label>
+            <label for="adminPageType2"><a href="/admin/delivery" class="adminPageType2">배송 관리</a></label>
         </li>
         <li>
             <input type="radio" name="adminPageType" value="3" id="adminPageType3" >
