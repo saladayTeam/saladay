@@ -78,3 +78,9 @@ main {
   flex-wrap: wrap;
   margin: 0 auto;
 }
+
+/* a태그 색상 */
+.admin-page-list li a {
+  text-decoration: none;
+  color:black;
+}
