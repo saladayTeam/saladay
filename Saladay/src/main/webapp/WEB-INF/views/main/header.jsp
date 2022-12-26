@@ -84,12 +84,14 @@
 
 <script>
   const carticon = document.getElementById("cart");
-  carticon.addEventListener("click", () => {
-    if (loginMemberNo == "") {
-      alert("로그인 후 이용해주세요");
-      location.href = "/member/login";
-    } else {
-      location.href="/cart";
-    }
-  });
+  if(carticon!=null){
+    carticon.addEventListener("click", () => {
+      if (loginMemberNo == "") {
+        alert("로그인 후 이용해주세요");
+        location.href = "/member/login";
+      } else {
+        location.href="/cart";
+      }
+    });
+  }
 </script>

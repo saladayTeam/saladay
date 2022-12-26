@@ -101,5 +101,12 @@ public class CartController {
 	}
 	
 	
+	@GetMapping("/preDelete")
+	public String preDelete(@SessionAttribute("loginMember") Member loginMember) {
+		service.deleteCart(loginMember.getMemberNo());
+		return "cart/cart";
+	}
+	
+	
 	
 }
