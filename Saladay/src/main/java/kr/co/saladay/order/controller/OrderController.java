@@ -38,6 +38,7 @@ public class OrderController {
 		
 		order.setCart(cart);
 		order.setMemberNo(loginMember.getMemberNo());
+		order.setPackageNo(cart.getPackageNo());
 		
 		String path="";
 		
