@@ -262,19 +262,28 @@ span {cursor:pointer; }
 }
 
 .minus, .plus{
-    width:10px;
-    height:10px;
+    width:15px;
+    height:15px;
     background: #17633D;
     border-radius:50px;
-    padding: 3px;
+    padding: 5px;
     justify-content: center;
     display: flex;
     align-items: center;
     vertical-align: middle;
     text-align: center;
     color: white;
-    font-size: 8px;
+    font-size: 12px;
 }
+
+.minus{
+    margin-right: 5px;
+}
+
+.plus{
+    margin-left: 5px;
+}
+
 
 input{
     height:15px;
