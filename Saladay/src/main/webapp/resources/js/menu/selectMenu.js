@@ -141,19 +141,53 @@ $('.menu-box li a').click(function(){
 
 
 // 장바구니 담기 버튼
-const cartBtn = document.querySelector(".cartin-btn");
-const orderBtn = document.querySelector(".order-btn");
+const menuNo = document.getElementsByClassName("menuNo");
+const optionNo = document.getElementsByClassName("optionNo");
 
-const memuNo = document.getElementById("memuNo");
-const mainOptionNo = document.getElementById("mainOptionNo");
-
-const mainOptionCount = document.getElementById("mainOptionCount")
 function selectValidate() {
+  console.log("메뉴선택확인");
+  
+  if(cartNo == '') {
+    
+    for(let i=0; i < menuNo.length; i++) {
+      if(menuNo[i].value.trim() == ''){
+        alert(i+1 +"번째 메뉴가 선택되지 않았습니다.");
+        return false;
+      }
+    }
 
-  if(menuNo.value='') {
+    return true;
 
+  } else {
+    
+    if(confirm("장바구니에 이미 선택하신 내역이 존재합니다. 이전 내역을 취소하시겠습니까?")){
+      // cartNo.value = '';
+      location.href = "/cart/preDelete";
+      return true;
+    } else{
+      location.href = "#";
+      return false;
+    }
   }
-  console.log("메뉴선택");
-  return false;
+}
+
+
+// 주문하기 버튼
+const orderBtn = document.getElementById("order-btn");
+if(orderBtn != null) {
+  orderBtn.addEventListener("click", ()=>{
+    if(loginMemberNo==''){
+      alert("로그인 후 이용해주세요.")
+      location.href = "/member/login";
+    } else { // 로그인 되어있을 때
+      
+      if(cartNo == '') {
+        alert("샐러드를 선택하세요.");
+        location.href = "#";
+      } else {
+        location.href = "/order";
+      }
+    }
+  })
 }
 
