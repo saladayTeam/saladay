@@ -157,13 +157,13 @@
                     <div class=cal>
                         <p>원하는 수령 날짜를 선택해주세요</p>
                         <%-- <p><input type="date" data-placeholder="배송일 선택" required></p> --%>
-                        <p><input type="text" id="deliveryDate" name="deliveryDate" placeholder="배송일 선택" required></p>
+                        <p><input type="text" id="deliveryDate" name="deliveryDate" placeholder="배송일 선택" required autocomplete="off"></p>
                     </div>
                     <%-- 선택한 패키지 번호에 따라서 2차 배송일 지정 --%>
                     <c:if test="${cart.packageType==2}">
                         <div class=cal>
                             <p>2차 수령 날짜를 선택해주세요</p>
-                            <p><input type="text" id="deliveryDate2" name="deliveryDate2" placeholder="배송일 선택" required></p>
+                            <p><input type="text" id="deliveryDate2" name="deliveryDate2" placeholder="배송일 선택" required autocomplete="off"></p>
                         </div>
                     </c:if>
                 </div>    
@@ -212,13 +212,20 @@
                 </div>
             </div>
             
-            <button id="payBtn">구매하기</button>
+            <button id="payBtn" type="button" onclick="payment()">구매하기</button>
         </section>
     </main>
 
 
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+
+    <script>
+        const orderName="${loginMember.memberName}";
+        const packagePrice="${cart.packagePrice}";
+        const memberEmail="${loginMember.memberEmail}";
+        const memberTel="${loginMember.memberTel}";
+    </script>
 
     <!-- 다음 api -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -227,6 +234,9 @@
     <!-- Datepicker -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
     <script src="/resources/js/order/order.js"></script>
 </body>
