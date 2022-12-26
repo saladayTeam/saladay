@@ -47,15 +47,15 @@
                                 <li class="albumLi">
                                     <%-- 리뷰 이미지가 있을 경우 --%>
                                     <c:if test="${not empty review.thumbnail}">
-                                    <span>
+                                    <div class="review-img-wrapper">
                                         <img src="${review.thumbnail}" class="review-img list-thumbnail" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
-                                    </span>
+                                    </div>
                                     </c:if>
                                     <%-- 리뷰 이미지가 없을 경우 --%>
                                     <c:if test="${empty review.thumbnail}">
-                                    <span>
+                                    <div class="review-img-wrapper">
                                         <img src="/resources/images/review/reviewImg.png" class="review-img list-thumbnail" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
-                                    </span>
+                                    </div>
                                     </c:if> 
                                     <div class="review-content">
                                         <a href="/review/${review.menuNo}" class="review-menu-name">[${review.menuName}]</a>

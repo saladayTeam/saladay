@@ -373,27 +373,27 @@ VALUES(SEQ_REVIEW_NO.NEXTVAL, 1, '샐러드 맛있어요 하하..', DEFAULT, DEF
 
 -- 리뷰 이미지 샘플 데이터 삽입(썸네일용 IMG_ORDER 0 하나씩만 삽입)
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 1);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 1);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 2);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 2);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 3);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 3);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 4);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 4);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 5);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 5);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 6);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 6);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 7);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 7);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 8);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 8);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 9);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 9);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 10);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 10);
 INSERT INTO "REVIEW_IMG"
-VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 'reviewImg.png', 0, 11);
+VALUES(SEQ_REVIEW_IMG_NO.NEXTVAL, '/resources/images/review/', 'reviewImg.png', 0, 11);
 
 -- 비번 암호화 pass!
 UPDATE MEMBER SET MEMBER_PW ='$2a$10$Ib31oDRifsqCREhr1YDV..Zw5Paq0vNXDAJq28f1gvJ4PN3aRhokK';
