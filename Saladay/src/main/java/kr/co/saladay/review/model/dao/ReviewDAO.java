@@ -61,8 +61,8 @@ public class ReviewDAO {
 	 * @param reviewNo
 	 * @return
 	 */
-	public List<Review> selectReviewDetail(int reviewNo) {
-		return sqlSession.selectList("reviewMapper.selectReviewDetail", reviewNo);
+	public List<Review> selectReviewDetail(Map<String, Object> map) {
+		return sqlSession.selectList("reviewMapper.selectReviewDetail", map);
 	}
 
 	/** 좋아요 여부 체크

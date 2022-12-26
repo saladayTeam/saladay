@@ -60,13 +60,13 @@
 }
 
 .o-th {
-  flex-basis: 60%;
+  flex-basis: 30%;
   line-height: 30px;
   font-weight: bold;
 }
 
 .o-td {
-  flex-basis: 40%;
+  flex-basis: 70%;
   text-align: right;
   padding-right: 10px;
   align-items: center;

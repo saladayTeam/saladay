@@ -17,14 +17,18 @@
 	<!-- VO클래스의 패키지명.클래스명을 길게 작성하는 것이 불편하기 때문에 별칭 부여 -->
 	<typeAliases>
 		<typeAlias type="kr.co.saladay.member.model.vo.Member"  alias="Member" /> 
-		<typeAlias type="kr.co.saladay.menu.model.vo.Menu"  alias="Menu" /> 
 		<typeAlias type="kr.co.saladay.review.model.vo.Review"  alias="Review" />
 		<typeAlias type="kr.co.saladay.review.model.vo.ReviewImage"  alias="ReviewImage" />
+		<typeAlias type="kr.co.saladay.menu.model.vo.Menu"  alias="Menu" /> 
 		<typeAlias type="kr.co.saladay.menu.model.vo.Option"  alias="Option" />  
 		<typeAlias type="kr.co.saladay.menu.model.vo.Package"  alias="Package" />  
-		<typeAlias type="kr.co.saladay.pay.model.vo.CartMenu"  alias="CartMenu" />  
-		<typeAlias type="kr.co.saladay.pay.model.vo.CartOption"  alias="CartOption" />  
-		<typeAlias type="kr.co.saladay.pay.model.vo.Cart"  alias="Cart" />  
+		<typeAlias type="kr.co.saladay.cart.model.vo.Cart"  alias="Cart" />  
+		<typeAlias type="kr.co.saladay.cart.model.vo.CartMenu"  alias="CartMenu" />  
+		<typeAlias type="kr.co.saladay.cart.model.vo.CartOption"  alias="CartOption" />  
+		<typeAlias type="kr.co.saladay.order.model.vo.Order"  alias="Order" />  
+		<typeAlias type="kr.co.saladay.order.model.vo.OrderMenu"  alias="OrderMenu" />  
+		<typeAlias type="kr.co.saladay.order.model.vo.OrderOption"  alias="OrderOption" />  
+		<typeAlias type="kr.co.saladay.review.model.vo.ReviewDetail"  alias="ReviewDetail" />
 	</typeAliases>
 
 

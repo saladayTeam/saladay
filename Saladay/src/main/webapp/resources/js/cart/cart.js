@@ -6,3 +6,13 @@ deleteCart.addEventListener("click", () => {
     return;
   }
 });
+
+const total = document.getElementById("total");
+total.addEventListener("click", () => {
+  if (cartNo == "") {
+    alert("장바구니가 비어있어요!");
+    return;
+  } else {
+    location.href = "/order";
+  }
+});

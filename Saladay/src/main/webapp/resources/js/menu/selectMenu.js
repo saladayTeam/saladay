@@ -95,9 +95,9 @@ window.onload = function() {
             var mName = $(this).text();
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
-            $('.menuNo').eq(currentIdx).text($(this).next().next().val())
-            console.log($('.menu-detail').val());
-            console.log($('.menuNo').val());
+            $('.menuNo').eq(currentIdx).val($(this).next().next().val()) // 메뉴 번호 넘기기 위해서 .val사용
+            // console.log("aaaaa", $('.menu-detail').val());
+            // console.log("vvvvvvv",$('.menuNo').val());
             // console.log( $('.menu-title'));
 
             return false;
@@ -140,37 +140,20 @@ $('.menu-box li a').click(function(){
 
 
 
-
-
-
 // 장바구니 담기 버튼
 const cartBtn = document.querySelector(".cartin-btn");
 const orderBtn = document.querySelector(".order-btn");
 
-console.log("연결 ");
-// if(cartBtn != null){
-  
-//   cartBtn.addEventListener("click", ()=>{
-    
-//     if(loginMemberNo == "") {
-//       // console.log(loginMemberNo);
-//       alert("로그인 후 이용하실 수 있습니다.");
-//       location.href = "/member/login";
-    
-//     } else {
-      
-//       if(confirm("장바구니에 담으시겠습니까?")){
-//         location.href = "/cart"; 
-//       }
-//     }
-//   })
-// }
+const memuNo = document.getElementById("memuNo");
+const mainOptionNo = document.getElementById("mainOptionNo");
 
-// 주문/결제 버튼
-// if(orderBtn != null) {
-//   orderBtn.addEventListener("click", (){
-    
-//   })
-// }
+const mainOptionCount = document.getElementById("mainOptionCount")
+function selectValidate() {
 
+  if(menuNo.value='') {
+
+  }
+  console.log("메뉴선택");
+  return false;
+}
 

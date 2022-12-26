@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="orderMapper">
 	
-	<!-- Package resultMap -->
-	<resultMap type="Cart" id="cart_rm">
+	<!-- Order resultMap -->
+	<!-- <resultMap type="Order" id="order_rm">
       <id property="packageNo" column="PACKAGE_NO"/>      
       <result property="cartNo" column="CART_NO"/>
       <result property="packageName" column="PACKAGE_NAME"/>
@@ -12,27 +12,27 @@
       <result property="packageType" column="PACKAGE_TYPE"/>
       <collection property="menuList" javaType="java.util.ArrayList" ofType="PayMenu"
       select="selectCartMenuList" column="CART_NO" />
-	</resultMap>
+	</resultMap> -->
 	
-	<!-- PayMenu resultMap -->
-	<resultMap type="CartMenu" id="cartMenu_rm">
+	<!-- OrderMenu resultMap -->
+	<!-- <resultMap type="OrderMenu" id="orderMenu_rm">
       <id property="cartMenuNo" column="CART_MENU_NO"/>
       <result property="menuName" column="MENU_NAME"/>
       <result property="menuPrice" column="MENU_PRICE"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
       <collection property="optionList" javaType="java.util.ArrayList" ofType="PayOption"
       select="selectCartOptionList" column="CART_MENU_NO" />
-	</resultMap>
+	</resultMap> -->
 
 
-	<!-- payOption resultMap -->
-	<resultMap type="CartOption" id="cartOption_rm">
+	<!-- OrderOption resultMap -->
+<!-- 	<resultMap type="OrderOption" id="orderOption_rm">
       <id property="optionNo" column="OPTION_NO"/>
       <result property="optionName" column="OPTION_NAME"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionCount" column="CART_OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
-	</resultMap>
+	</resultMap> -->
 
 
 

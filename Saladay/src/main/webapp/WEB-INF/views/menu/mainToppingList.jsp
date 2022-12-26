@@ -44,7 +44,7 @@
                         </div>
                         <div class="summary">
                             <li class="menu-title"><span>${mOption.optionName}</span></li> <br>
-                            <li class="menu-content">${mOption.optionPrice}원</li>
+                            <li class="menu-title"><span>${mOption.optionCalorie} Kcal</span></li> <br>
                         </div>
                     </div>
                 </c:forEach>
@@ -54,6 +54,6 @@
     
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-
+    <script src="/resources/js/menu/menuList.js"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@ import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.review.model.vo.Review;
 
-@SessionAttributes({"loginMember","cartPackage"})
+@SessionAttributes({"loginMember","cart"})
 @RequestMapping("/member")
 @Controller
 public class MemberController {
