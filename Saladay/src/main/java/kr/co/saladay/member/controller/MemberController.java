@@ -426,10 +426,15 @@ public class MemberController {
 	 */
 	@GetMapping("myPage/myOrder")
 	public String myOrder() {
-		return "member/myPage/myPage-order";
+		return "member/myPage/myPage-myOrder";
 	}
 	
 	
+	/** 주문내역 조회
+	 * @param loginMember
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("myPage/selectMyOrder")
 	public String selectMyOrder(@SessionAttribute(value="loginMember",required=true) Member loginMember,
 			Model model) {
@@ -438,9 +443,11 @@ public class MemberController {
 		
 		Order myOrder= service.selectMyOrder(memberNo);
 				
+		System.out.println(myOrder);
+	
 		model.addAttribute("myOrder", myOrder);
 		
-		return "member/myPage/myPage-order";
+		return "member/myPage/myPage-myOrder";
 	
 	}
 	

@@ -27,11 +27,15 @@ public class Order {
 	private String orderAddress="서울"; // 수신자 주소
 	
 	private int memberNo; // 주문한 회원 번호
+	
 	private int packageNo; // 주문한 패키지 넘버
+	private String packageImage; // 주문한 패키지 이미지 경로
+	private int packagePrice; // 주문한 패키지 총 가격
+	
+	private String deliveryCode; //배송코드
+	
 	
 	List<CartMenu> menuList; // 주문한 메뉴 리스트
-	
-	List<Package> packageList; 
 	
 	List<OrderMenu> orderMenuList;
 	

@@ -51,19 +51,20 @@
 					
 						<c:forEach items="${reviewList}" var="review">
 	                    <div class="my-review-detail">
-	                    	<div class="review-img-wrapper">
-	                    		
+	                    	
+	                    	<div class="review-img-wrapper">	
 		                    	<c:if test="${review.thumbnail == null }">
-		               
-		                        	<img src="/resources/images/review/reviewImg.png" style="width:200px; height:200px;">
-		                     
+			               			<div class="review-img">
+			                        	<img src="/resources/images/review/reviewImg.png" width="200px" height="200px">
+			                        </div>
 		                        </c:if>
+		                        
 		                        <c:if test="${review.thumbnail != null}">
-		                 	
-		                        	<img src="${review.thumbnail}" style="width:200px; height:200px;">
-		                       
+			                 	    <div class="review-img">
+			                        	<img src="${review.thumbnail}"  width="200px" height="200px">
+			                        </div>
 		                        </c:if>
-	                        </div>
+	                        </div>    
 	                        
 	                        <div class="content">
 		                        <ul>

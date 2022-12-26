@@ -39,21 +39,7 @@
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
 	</resultMap> 
 
-	<!-- Package resultMap -->
-	<resultMap type="Package" id="package_rm">
-      <id property="packageNo" column="PACKAGE_NO"/>
-      <result property="packageName" column="PACKAGE_NAME"/>
-      <result property="packageType" column="PACKAGE_TYPE"/>
-      <result property="packageImage" column="PACKAGE_IMG"/>
-	</resultMap> 
-	
-	<!-- Delivery resultMap -->
-	<resultMap type="Delivery" id="delivery_rm">
-      <id property="deliveryNo" column="DELIVERY_NO"/>
-      <result property="deliveryDate" column="DELIVERY_DATE"/>
-      <result property="orderNo" column="ORDER_NO"/>
-      <result property="deliveryCode" column="DELIVERY_CODE"/>
-	</resultMap> 
+
 	
 
 
@@ -85,7 +71,7 @@
 		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL
 		ORDER BY ORDER_NO DESC;
 	</select>
- 		
+ 	
  	<!-- 패키지에 담은 메뉴 조회 -->
 	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
 		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG 
@@ -112,7 +98,6 @@
 		ORDER BY OPTION_NO;
 	</select>
  	
- 	<!-- 주문한 패키지 조회 -->
- 	
+
  	
 </mapper>
