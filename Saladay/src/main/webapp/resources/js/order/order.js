@@ -164,11 +164,11 @@ function payment() {
         console.log("빌링키 발급 성공", rsp);
         //빌링키 발급이 완료되었으므로, 서버에 결제 요청
         alert("결제가 완료되었습니다!");
+        document.getElementById("payform").submit();
       } else {
         var msg = "결제에 실패하였습니다.\n";
         msg += rsp.error_msg;
         alert(msg);
-        return false;
       }
       $("#final-support-submit").submit();
     }
