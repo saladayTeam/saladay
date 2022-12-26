@@ -41,7 +41,7 @@
 		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE">
 			SELECT SEQ_ORDER_NO.NEXTVAL FROM DUAL
 		</selectKey>
-		INSERT INTO ORDER
+		INSERT INTO "ORDER"
 		VALUES (#{orderNo}, DEFAULT, DEFAULT,
 			(SELECT SUM(MENU_PRICE) + SUM(TOTAL_OPT_PRICE) TOTAL FROM (
 		   SELECT  M.MENU_PRICE,
