@@ -54,14 +54,14 @@
 	                    	<div class="review-img-wrapper">
 	                    		
 		                    	<c:if test="${review.thumbnail == null }">
-		                    	<div class="review-img">
+		               
 		                        	<img src="/resources/images/review/reviewImg.png" style="width:200px; height:200px;">
-		                        </div>
+		                     
 		                        </c:if>
 		                        <c:if test="${review.thumbnail != null}">
-		                        <div class="review-img">	
+		                 	
 		                        	<img src="${review.thumbnail}" style="width:200px; height:200px;">
-		                        </div>
+		                       
 		                        </c:if>
 	                        </div>
 	                        
