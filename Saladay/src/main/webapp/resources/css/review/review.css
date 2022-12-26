@@ -68,10 +68,26 @@
     justify-content: center;
 }
 
-.review-img{
+/* 리뷰 썸네일 div(정사각형 틀) */
+.review-img-wrapper{
+    position: relative;
     width: 200px;
     height: 200px;
+}
+
+/* 리뷰 썸네일 */
+.review-img{
     cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(50, 50);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+    border-radius: 10px;
+
 }
 
 /* 리뷰 내용, 작성자, 별점 */
@@ -205,6 +221,7 @@
 /* 리뷰 삭제 버튼 */
 .review-delete-area{
     align-self: flex-end;
+    padding-bottom: 10px;
 }
 .review-delete-area > button{
     width: 50px;
@@ -220,19 +237,7 @@
 /* 리뷰 내용 묶음 */
 .review-detail-content{
     line-height: 150%;
-}
-
-/* 리뷰이미지 영역 */
-.review-img-area{
-    width: 500px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.review-images{
-    height: 100%;
+    width: 463.985px;
 }
 
 /* 리뷰 별점 */
@@ -278,3 +283,22 @@
     color: red;
     font-size: 14px;
 }
+
+/* 이미지 슬라이드 */
+/* 리뷰이미지 영역 */
+.carouselExampleIndicators{
+    width: 500px;
+    height: 300px;
+/*     display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.review-images{
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 300px;
+    width: auto !important;
+    height: 100% !important;
+} 

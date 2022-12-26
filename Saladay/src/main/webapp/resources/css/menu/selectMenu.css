@@ -318,21 +318,21 @@ button{
     font-weight: bold;
 }
 
-.cartin-btn{
+#cartin-btn{
     background-color: white;
     border: solid 2px #17633D;
     color: #17633D;
     cursor: pointer;
 }
 
-.order-btn{
+#order-btn{
     background-color: #17633D;
     border: none;
     color: white;
     cursor: pointer;
 }
 
-.order-btn a{
+#order-btn a{
     text-decoration: none;
     color: white;
 }

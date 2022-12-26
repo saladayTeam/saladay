@@ -19,6 +19,7 @@ public class CartMenu {
 	private String menuDeleteFlag;
 	
 	private int cartNo;
+	private int orderNo;
 	private int menuNo;
 	
 	List<CartOption> optionList;

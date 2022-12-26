@@ -44,6 +44,85 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
         success : function(rDetail){
             // rDetail : 반환 받은 리뷰 상세 조회 내용 
             console.log(rDetail);
+            console.log(rDetail[0].imageList);
+
+            // 이미지 슬라이드 부분
+            const carouselInner = document.getElementsByClassName("carousel-inner")[0];
+            carouselInner.innerHTML = "";
+            
+            /* 이미지가 2개 이상일 경우 */
+            if(rDetail[0].imageList.length != 0){
+                for(let i = 0; i<rDetail[0].imageList.length; i++){
+                    const carouselItem = document.createElement("div");
+                    carouselItem.classList.add("carousel-item");
+                    
+                    if(i==0){
+                        carouselItem.classList.add("active");
+                    }
+                    
+                    const image = document.createElement("img");
+                    image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
+                    image.classList.add("d-block");
+                    image.classList.add("w-100");
+                    image.classList.add("review-images");
+
+                    carouselItem.append(image);
+                    carouselInner.append(carouselItem);
+                }
+            }
+
+            /* 이미지가 1개일 경우 */
+            if(rDetail[0].imageList.length == 1){
+                for(let i = 0; i<rDetail[0].imageList.length; i++){
+                    const carouselItem = document.createElement("div");
+                    carouselItem.classList.add("carousel-item");
+                    
+                    if(i==0){
+                        carouselItem.classList.add("active");
+                    }
+                    
+                    const image = document.createElement("img");
+                    image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
+                    image.classList.add("d-block");
+                    image.classList.add("w-100");
+                    image.classList.add("review-images");
+
+                    carouselItem.append(image);
+                    carouselInner.append(carouselItem);
+                }
+                /* 버튼들 삭제 */
+                const indicators = document.querySelector(".carousel-indicators");
+                const prev = document.querySelector(".carousel-control-prev");
+                const next = document.querySelector(".carousel-control-next");
+                indicators.innerHTML = "";
+                prev.innerHTML = "";
+                next.innerHTML = "";
+            } 
+            
+            /* 첨부 이미지가 없을 경우 기본 이미지 보여주는 코드 */
+            if(rDetail[0].imageList.length == 0){
+
+                carouselInner.innerHTML = "";
+                const carouselItem = document.createElement("div");
+                carouselItem.classList.add("carousel-item");
+                carouselItem.classList.add("active");
+                const image = document.createElement("img");
+                image.setAttribute("src", "/resources/images/review/reviewImg.png");
+                image.classList.add("d-block");
+                image.classList.add("w-100");
+                image.classList.add("review-images");
+
+                carouselItem.append(image);
+                carouselInner.append(carouselItem);
+
+                /* 버튼들 삭제 */
+                const indicators = document.querySelector(".carousel-indicators");
+                const prev = document.querySelector(".carousel-control-prev");
+                const next = document.querySelector(".carousel-control-next");
+                indicators.innerHTML = "";
+                prev.innerHTML = "";
+                next.innerHTML = "";
+            }
 
             // 리뷰 삭제
             const deleteBtn = document.getElementById("review-modal-delete");
@@ -99,6 +178,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 /* reviewHeart.setAttribute("onclick", "reviewLikeDown("+rDetail[0].reviewNo+", "+memberNo+")"); */
             }
 
+            /* 좋아요 증가/감소 ajax 실행 */
             if (reviewHeart != null) {
 
                 reviewHeart.addEventListener("click", e =>{

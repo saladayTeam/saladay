@@ -90,21 +90,23 @@
 
                   <!-- 옵션 -->
                   <c:forEach var="option" items="${menu.optionList}">
-                  <li class="cart-container">
-                      <div class="cart-package-image"></div>
-                      <div class="cart-option-info option">
-                      <span>${option.optionName}</span>
-                      </div>
-                      <div class="cart-package-count option">
-                      <span>${option.optionCount}</span>
-                      </div>
-                      <div class="cart-package-price option">
-                      <span>${option.optionPrice*option.optionCount}</span>
-                      </div>
-                      <div class="cart-package-total">
-                      <span></span>
-                      </div>
-                  </li>
+                    <c:if test="${option.optionCount > 0}">
+                    <li class="cart-container">
+                        <div class="cart-package-image"></div>
+                        <div class="cart-option-info option">
+                        <span>${option.optionName}</span>
+                        </div>
+                        <div class="cart-package-count option">
+                        <span>${option.optionCount}</span>
+                        </div>
+                        <div class="cart-package-price option">
+                        <span>${option.optionPrice*option.optionCount}</span>
+                        </div>
+                        <div class="cart-package-total">
+                        <span></span>
+                        </div>
+                    </li>
+                    </c:if>
                   </c:forEach>
                 </c:forEach>
 
