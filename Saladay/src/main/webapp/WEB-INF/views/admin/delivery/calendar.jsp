@@ -9,15 +9,19 @@
     <%-- <link href='../../resources/css/calendar/main.css' rel='stylesheet' />
     <script src='../../resources/js/calendar/main.js'></script> --%>
     <script src='/resources/js/calendar/fullcalendar-6.0.1/dist/index.global.js'></script>
+ 
+    <link rel="stylesheet" href="../../resources/css/admin/calendar/calendar.css">
     <script>
 
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          initialView: 'dayGridMonth',
+          locale: "ko"
         });
         calendar.render();
       });
+      
 
     </script>
 
@@ -26,18 +30,18 @@
     <link rel="stylesheet" href="/resources/css/main/footer.css">
   </head>
   <body>
-    <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
 
     <main>
 
-      <div class="admin-page-content">
+      <%-- <div class="admin-page-content">
         <jsp:include page="/WEB-INF/views/admin/sidemenu.jsp"></jsp:include>
-          <div class="right-side">
+          <div class="right-side"> --%>
 
             <div id='calendar'></div>
 
-          </div>
-      </div>
+          <%-- </div>
+      </div> --%>
 
     </main>
 
