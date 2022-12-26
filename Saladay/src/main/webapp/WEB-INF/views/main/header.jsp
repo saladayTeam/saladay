@@ -37,6 +37,13 @@
       <ul class="header-menu">
         <c:choose>
           <c:when test="${loginMember.authority==99}">
+            <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"
+                    alt=""
+                    width="25px"
+                    height="25px"
+                    id="cart"/>
+                </a>
+              </li>
             <li><a href="/admin">관리자 메뉴</a></li>
           </c:when>
           <c:otherwise>
@@ -73,7 +80,7 @@
       <li><a href="/menu/packageList">STORE</a></li>
       <li><a href="/nutrition">CALORIE</a></li>
       <li><a href="/review">REVIEW</a></li>
-      <li><a href="/FAQ">FAQ</a></li>
+      <li><a href="/FAQ">FAQ</a></li> 
     </ul>
   </nav>
 
