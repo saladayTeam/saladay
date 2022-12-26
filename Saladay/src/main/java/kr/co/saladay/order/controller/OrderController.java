@@ -39,13 +39,16 @@ public class OrderController {
 		order.setCart(cart);
 		order.setMemberNo(loginMember.getMemberNo());
 		order.setPackageNo(cart.getPackageNo());
+		order.setOrderName(loginMember.getMemberName());
+		order.setOrderTel(loginMember.getMemberTel());
+		order.setOrderAddress(loginMember.getMemberAddress());
 		
 		String path="";
 		
 		int orderNo=service.insertOrder(order);
 		
 		if(orderNo>0) {
-			path="/order";
+			path="/orderView";
 		} else {
 			path=referer;
 		}

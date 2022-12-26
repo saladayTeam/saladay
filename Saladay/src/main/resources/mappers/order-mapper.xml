@@ -53,7 +53,7 @@
 		   JOIN CART_MENU CM ON (C.CART_NO = CM.CART_NO)
 		   JOIN MENU M ON (CM.MENU_NO = M.MENU_NO)
 		   WHERE C.MEMBER_NO = #{memberNo}
-		)), DEFAULT, #{orderName}, #{orderTel}, #{orderAddress} #{memberNo}, #{packageNo} )
+		)), DEFAULT, #{orderName}, #{orderTel}, #{orderAddress}, #{memberNo}, #{packageNo} )
 	</insert>
 	
 	
@@ -62,7 +62,7 @@
 		<selectKey keyProperty="orderMenuNo" resultType="_int" order="BEFORE">
 			SELECT SEQ_ORDER_MENU_NO.NEXTVAL FROM DUAL
 		</selectKey>
-		INSERT INTO CART_MENU
+		INSERT INTO ORDER_MENU
 		VALUES (#{orderMenuNo}, #{orderNo}, #{menuNo})
 	</insert>
 	

@@ -31,7 +31,7 @@ public class OrderServiceImpl implements OrderService{
 			orderMenu.setOrderNo(orderNo);
 			
 			int result2=dao.insertOrderMenuNo(orderMenu);
-			int orderMenuNo=orderMenu.getOrderNo();
+			int orderMenuNo=orderMenu.getOrderMenuNo();
 			
 			List<CartOption> orderOptionList=orderMenu.getOptionList();
 			

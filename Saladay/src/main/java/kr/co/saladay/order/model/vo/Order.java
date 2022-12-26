@@ -19,8 +19,8 @@ public class Order {
 	private String orderDate; // 주문 날짜
 	private String cancleDate; // 취소 날짜
 	private int orderPrice; // 결제 금액
-	private String orderName="이성호"; // 수신자명
-	private String orderTel="01063406324"; // 수신자 전화번호
+	private String orderName; // 수신자명
+	private String orderTel; // 수신자 전화번호
 	private String orderAddress="서울"; // 수신자 주소
 	
 	private int memberNo; // 주문한 회원 번호
