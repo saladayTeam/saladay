@@ -148,9 +148,9 @@ IMP.request_pay(
     pay_method: "card",
     merchant_uid: "merchant_" + new Date().getTime(), //주문번호
     name: "Bunddeuk", // 상품명
-    amount: amount,
+    amount: 1,
     //customer_uid 파라메터가 있어야 빌링키 발급을 시도함
-    customer_uid: buyer_name + new Date().getTime(),
+    customer_uid: memberName + new Date().getTime(),
     buyer_email: email,
     buyer_name: buyer_name,
     buyer_tel: hp,
