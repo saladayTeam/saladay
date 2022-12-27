@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +92,7 @@
                 <h3>주문 목록</h3>
                 <div class="order-package" id="order-package">
                     <div class="pack-name"><span>${cart.packageName}</span></div>
-                    <div class="pack-price"><span>${cart.packagePrice} 원</span></div>
+                    <div class="pack-price"><span><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" /> 원</span></div>
                     <div class="pack-i"><input type="checkbox" id="icon"><label for="icon"><i class="fa-solid fa-caret-down"></i></label></div>
                 </div>
 
@@ -101,7 +102,7 @@
                         <div class="order-quantity"><span>수량</span></div>
                         <div class="order-price"><span>가격</span></div>
                     </li>
-                    
+                    <div class=week>1주</div>
                     <c:forEach var="menu" items="${cart.menuList}">
                         <div class="order-all">
                         <!-- 주문한 메뉴 내용 c:forEach -->
@@ -123,7 +124,8 @@
                     </c:forEach>
 
                     <c:if test="${cart.packageType==2}">
-                        <hr />
+
+                        <div class=week>2주</div>
 
                         <c:forEach var="menu" items="${cart.menuList}">
                             <div class="order-all">
@@ -182,7 +184,7 @@
                 <h3>결제 예상 금액</h3>
                 <div class=check-info>
                     <span class="check-info-head headline">패키지 금액</span>
-                    <span class="check-info-data headline">${cart.packagePrice} 원</span>
+                    <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" /> 원</span>
                 </div>
                 <div class=check-info>
                     <span class="check-info-head">배송비</span>
@@ -195,13 +197,20 @@
                             <span class="check-info-data">0 원</span>
                         </c:when>
                         <c:otherwise>
-                            <span class="check-info-data">${cart.packagePrice*0.1} 원</span>
+                            <span class="check-info-data"> <fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice*0.1}" /> 원</span>
                         </c:otherwise>
                     </c:choose>
                 </div>
                 <div class=check-info>
                     <span class="check-info-head headline">총 금액</span>
-                    <span class="check-info-data headline">${cart.packagePrice} 원</span>
+                    <c:choose>
+                        <c:when test="${cart.packageType==1}">
+                            <span class="check-info-data headline">${cart.packagePrice} 원</span>
+                        </c:when>
+                        <c:otherwise>
+                            <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice*0.9}" /> 원</span>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
             
@@ -214,12 +223,13 @@
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
     <script>
-        const packageName="${cart.packageName}";
-        const memberName="${loginMember.memberName}";
-        const packagePrice="${cart.packagePrice}";
-        const memberEmail="${loginMember.memberEmail}";
-        const memberTel="${loginMember.memberTel}";
-        const memberAddress="${loginMember.memberAddress}";
+        // 결제 정보 전달을 위한 변수 선언
+        const packageName="${cart.packageName}"; // 주문한 패키지 이름
+        const memberName="${loginMember.memberName}"; // 주문한 멤버 이름
+        const packagePrice="${cart.packagePrice}"; // 주문한 패키지 가격
+        const memberEmail="${loginMember.memberEmail}"; // 주문한 멤버 아이디(이메일)
+        const memberTel="${loginMember.memberTel}"; // 주문한 멤버 전화번호
+        const memberAddress="${loginMember.memberAddress}"; // 주문한 멤버 주소
     </script>
 
     <!-- 다음 api -->
