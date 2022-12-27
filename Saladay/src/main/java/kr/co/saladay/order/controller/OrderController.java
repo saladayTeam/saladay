@@ -18,7 +18,6 @@ import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.service.OrderService;
 import kr.co.saladay.order.model.vo.Order;
-import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes("cart")
 @Controller
@@ -80,7 +79,7 @@ public class OrderController {
 			path="/orderView";
 			ra.addFlashAttribute("order", order);
 			cartService.deleteCart(loginMember.getMemberNo());
-			int deliveryResult=service.insertDelivery(paramMap);
+//			int deliveryResult=service.insertDelivery(paramMap);
 			status.setComplete();
 		} else {
 			path=referer;
