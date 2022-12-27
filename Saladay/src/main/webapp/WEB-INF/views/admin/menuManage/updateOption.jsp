@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>관리자-옵션관리</title>
-    <link rel="stylesheet" href="/resources/css/admin/menuManage/updateOption.css">
+    <link rel="stylesheet" href="/resources/css/admin/menuManage/updateMenu.css">
     <!-- 폰트어썸 -->
     <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
   </head>
@@ -24,8 +24,8 @@
           <span>옵션 관리</span>
         </div>
         <div class="m-btn-area">
-          <button type="button" id="addBtn">옵션추가</button>
-          <button type="button" id="delBtn"><i class="fa-solid fa-trash-can"></i></button>
+          <button type="button" id="addBtn">추가</button>
+          <button type="button" id="delBtn">삭제</button>
         </div>
       </div>
 
