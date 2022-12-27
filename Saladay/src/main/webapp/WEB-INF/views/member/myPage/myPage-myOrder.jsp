@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/resources/css/member/myPage/myPage-info.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
+    <!-- 폰트어썸 -->
+    <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
     
 </head>
 
@@ -56,7 +58,13 @@
 	                            	<div class="package-detail">
 	                            		<ul>
 	                            			<li>${order.packageName}</li>
-	                            			<li><span>1주차 배송 ${order.deliveryCode}</span><span>2주차 배송</span></li>
+	                            			
+	                            			<li>
+	                            				<span>1주차 배송 ${order.deliveryCode}</span>
+	                            				<c:if test="${order.packageType==2}">
+	                            				<span>2주차 배송 ${order.deliveryCode}</span>
+	                            				</c:if>
+	                            			</li>
 	                            			<li>주문일자 : ${order.orderDate}</li>
 	                            			<li>수취인 : ${order.orderName}</li>
 	                            			<li> ${order.orderTel}</li>
@@ -64,6 +72,61 @@
 	                            		</ul>
 	                            	</div>
                             	</div>
+                            	
+                            	<div>
+                            		<div class="pack-i"><input type="checkbox" id="icon"><label for="icon"><i class="fa-solid fa-caret-down"></i></label></div>
+                            	</div>
+                            	<div class="show-area"> <!-- 화살표 누르면 고른 메뉴 조회 가능-->
+				                    <li class="order-header">
+				                        <div class="order-menu"><span>주문상품</span></div>
+				                        <div class="order-quantity"><span>수량</span></div>
+				                        <div class="order-price"><span>가격</span></div>
+				                    </li>
+				                    <div class=week>1주</div>
+				                    <c:forEach var="menu" items="${cart.menuList}">
+				                        <div class="order-all">
+				                        <!-- 주문한 메뉴 내용 c:forEach -->
+				                            <%-- 선택 메인 메뉴 --%>
+				                            <li class="order-area">
+				                                <div class="order-menu headline">${menu.menuName}</div>
+				                                <div class="order-quantity headline">1</div>
+				                                <div class="order-price headline">${menu.menuPrice}</div>
+				                            </li>
+				                            <c:forEach var="option" items="${menu.optionList}">
+				                            <%-- 선택한 옵션 --%>
+				                                <li class="order-area">
+				                                    <div class="order-option">${option.optionName}</div>
+				                                    <div class="order-quantity">1</div>
+				                                    <div class="order-price">${option.optionPrice}</div>
+				                                </li>
+				                            </c:forEach>
+				                        </div>
+				                    </c:forEach>
+				
+				                    <c:if test="${cart.packageType==2}">
+				
+				                        <div class=week>2주</div>
+				
+				                        <c:forEach var="menu" items="${cart.menuList}">
+				                            <div class="order-all">
+				                            <!-- 주문한 메뉴 내용 c:forEach -->
+				                                <%-- 선택 메인 메뉴 --%>
+				                                <li class="order-area">
+				                                    <div class="order-menu headline">${menu.menuName}</div>
+				                                    <div class="order-quantity headline">1</div>
+				                                    <div class="order-price headline">${menu.menuPrice}</div>
+				                                </li>
+				                                <c:forEach var="option" items="${menu.optionList}">
+				                                <%-- 선택한 옵션 --%>
+				                                    <li class="order-area">
+				                                        <div class="order-option">${option.optionName}</div>
+				                                        <div class="order-quantity">1</div>
+				                                        <div class="order-price">${option.optionPrice}</div>
+				                                    </li>
+				                                </c:forEach>
+				                            </div>
+				                        </c:forEach>
+				                    </c:if>
                             	<!-- 메뉴 -->
                             	<c:forEach var="menu" items="${order.orderMenuList}">
                             		 <div class="menu-list">
