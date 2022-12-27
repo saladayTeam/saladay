@@ -160,12 +160,7 @@
                     <div class="cart-package-count"></div>
                     <div class="cart-package-price"></div>
                     <div class="cart-package-total">
-                      <c:if test="${cart.packageType==1}">
-                        <span>${cart.packagePrice}</span>
-                      </c:if>
-                      <c:if test="${cart.packageType==2}">
-                        <span>${cart.packagePrice*2}</span>
-                      </c:if>
+                      <span>${cart.packagePrice}</span>
                     </div>
                 </li>
                 </div>

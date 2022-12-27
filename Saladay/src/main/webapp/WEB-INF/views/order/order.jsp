@@ -201,14 +201,7 @@
                 </div>
                 <div class=check-info>
                     <span class="check-info-head headline">총 금액</span>
-                    <c:choose>
-                        <c:when test="${cart.packageType==1}">
-                            <span class="check-info-data headline">${cart.packagePrice} 원</span>
-                        </c:when>
-                        <c:otherwise>
-                            <span class="check-info-data headline">${cart.packagePrice*2} 원</span>
-                        </c:otherwise>
-                    </c:choose>
+                    <span class="check-info-data headline">${cart.packagePrice} 원</span>
                 </div>
             </div>
             
