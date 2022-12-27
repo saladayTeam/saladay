@@ -20,11 +20,16 @@
           locale: "ko",
           // navLinks: true,
           editable: true,
-          default: {
-            start   : 'today, prevYear, nextYear, viewWeekends',
-            center : 'prev, title, next',
-            end  : 'month, agendaWeek, agendaDay, listWeek'
-          },
+          // default: {
+          //   start   : 'today, prevYear, nextYear, viewWeekends',
+          //   center : 'prev, title, next',
+          //   end  : 'month, agendaWeek, agendaDay, listWeek'
+          // },
+          headerToolbar : {
+        	start: "",
+            center: "prev title next",
+            end: 'dayGridMonth,dayGridWeek,dayGridDay'
+            },
           events: [{
         title: '이미나', 
         start: '2022-12-14',
