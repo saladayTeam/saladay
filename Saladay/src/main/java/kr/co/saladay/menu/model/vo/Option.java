@@ -13,6 +13,7 @@ public class Option {
 	private String optionName;
 	private String optionImage;
 	private int optionPrice;
+	private String price; // 옵션 가격 표기
 	private String optionDeleteFlag;
 	private int optionCalorie;
 	
