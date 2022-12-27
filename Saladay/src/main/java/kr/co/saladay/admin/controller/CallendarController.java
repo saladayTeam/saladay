@@ -4,12 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AdminController {
-
-	@GetMapping("/admin")
-	public String admin() {
-		return "/admin/admin";
+public class CallendarController {
+	
+	@GetMapping("admin/delivery")
+	public String adminDelivery() {
+		return "admin/delivery/calendar";
+		
 	}
+	
 	
 
 }
