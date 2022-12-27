@@ -206,25 +206,74 @@ main {
 	
 }
 
-.pack-i {
-	color:	#17633d;
+
+/*숨김 펼침*******************/
+.hide-checkbox{
+    opacity: 0;
+    margin-left:530px;
+}
+
+.hide-text {
+	font-size: 5px;
+	margin-right:5px;
+	cursor: pointer;
+}
+
+.fa-solid {
+	cursor: pointer;
+    font-size: 15px;
+}
+
+.hide {
+	display:none;
+}
+
+#hide-${order.orderNo}:checked ~ .hide {
+    display:block;
+}
+
+
+
+
+
+/*tr***************************/
+.tr {
+	display:flex;
+	font-size:10px;
+	font-weight: bold;
+	margin-left:95px;
+}
+
+.tr1 {
+	margin-right: 95px;	
+}
+
+.tr2 {
+	margin-right: 105px;
 }
 
 .menu-list{
 	display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     font-size: 14px;
 }
 
 
+.package-type{
+	font-size:12px;
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
 
 .menu-table {
 	width: 500px; 
-	border:1 solid red;
-	border-top:none;
-	border-right:none
+	margin:2px;
+	border-top:1px solid #ccc;
 }
 
 .menu-table ul {
@@ -232,25 +281,19 @@ main {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	border-top:1 solid red;
 } 
 
-/* list-style-type 블릿표시 padding: 0; 들여쓰기*/
-.menu-table .menu-tr {
-	font-weight: bold;
-	text-align: center;
-	font-size: 10px;
-}
 
 .menu-table ul li {
 	text-align: center;
+	font-size: 11px;
 	float: left;
-	margin: 0;
+	margin: 2px;
 	padding: 2px, 1px;
-	border-right:1 solid red;
 	width:120px;
 }
 
 .menu-td {
 	width:200px;
 } 
+

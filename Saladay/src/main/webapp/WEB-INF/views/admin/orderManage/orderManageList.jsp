@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="orderList" value="${map.orderList}"/>
+<c:set var="pagination" value="${map.pagination}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,27 +40,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>123</td>
-                    <td>2022-12-27</td>
-                    <td>[1주] 샐러드 3팩 패키지</td>
-                    <td>김샐러드</td>
-                    <td>35000원</td>
-                    <td>취소요청중</td>
-                </tr>
-                <tr>
-                    <td>122</td>
-                    <td>2022-12-27</td>
-                    <td>[2주] 샐러드 3팩 패키지</td>
-                    <td>김샐러드</td>
-                    <td>70000원</td>
-                    <td></td>
-                </tr>
+                <c:forEach var="order" items="${orderList}">
+                    <tr><a href="/admin/orderManage/${order.orderNo}">
+                        <td>${order.orderNo}</td>
+                        <td>${order.orderDate}</td>
+                        <td>${order.packageName}</td>
+                        <td>${order.memberName}</td>
+                        <td><fmt:formatNumber type="number" maxFractionDigits="0"  value="${order.orderPrice}" /> 원</td>
+                        <c:if test="${order.orderDeleteFlag=='N'}">
+                        <td></td>
+                        </c:if>
+                        <c:if test="${order.orderDeleteFlag=='Y'}">
+                        <td>취소요청중</td>
+                        </c:if>
+                        <c:if test="${order.orderDeleteFlag=='A'}">
+                        <td>취소완료</td>
+                        </c:if>
+                    </a></tr>
+                </c:forEach>
             </tbody>
         </table>
 
         <div class="pagination-area">
-<%--             <c:if test="${not empty reviewList}"> --%>
+            <c:if test="${not empty orderList}">
                 <ul class="pagination">
                     <!-- 이전 목록 마지막 번호로 이동 --> 
                     <li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
@@ -76,7 +82,7 @@
                     <!-- 다음 목록 시작 번호로 이동 -->
                     <li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
                 </ul>
-<%--             </c:if> --%>
+            </c:if>
         </div>
 
     </main>

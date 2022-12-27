@@ -2,3 +2,20 @@
     width: 100%;
     margin: 65px;
 }
+
+.fc-toolbar-chunk{
+    display: flex;
+}
+
+.fc .fc-button-primary {
+    background-color: white;
+    border-color: #17633D;
+    border: solid 2px #17633D;
+    color: #17633D;
+}
+
+.fc .fc-button-primary:hover{
+    background-color: #17633D;
+    border: solid 2px #17633D;
+}
+

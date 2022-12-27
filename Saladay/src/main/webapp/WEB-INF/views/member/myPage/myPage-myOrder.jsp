@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <!-- 폰트어썸 -->
-    <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
-    
+    <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -74,14 +73,22 @@
                             	</div>
                            		
                             	<!-- 메뉴 -->
+                            	<input type="checkbox" id="hide-${order.orderNo}" class="hide-checkbox">
+                				<label for="hide-${order.orderNo}"><span class="hide-text">상세내역</span><i class="fa-solid fa-caret-down"></i></label>
+                            	<div class="hide">
+                            	
+	                            	<div class="package-type">1주차</div>
+	                            	<div class="tr">
+	                            		<span class="tr1">메뉴 이름</span>
+	                            		<span class="tr2">수량</span>
+	                            		<span class="tr3">가격</span>
+	                            	</div>
+                            	
                             	<c:forEach var="menu" items="${order.orderMenuList}">
                             		 <div class="menu-list">
+                            		 	
                             		 	<div class="menu-table">
-                            		 		<ul class="menu-tr">
-                            		 			<li class="menu-td">메뉴 이름</li>
-                            		 			<li>수량</li>
-                            		 			<li>가격</li>
-                            		 		</ul>
+                            		 		
                             		 		<ul>
                             		 			<li class="menu-td">${menu.menuName}</li>
                             		 			<li>1</li>
@@ -96,15 +103,51 @@
 								                    <ul>
 		                            		 			<li class="menu-td">${option.optionName}</li>
 		                            		 			<li>${option.optionCount}</li>
-		                            		 			<li>${option.optionPrice*option.optionCount}</li>
+		                            		 			<li>${option.optionPrice*option.optionCount}원</li>
                             		 				</ul>
-								                    
 								                    </c:if>
 								                    
 							                    </c:forEach>
                             		 	</div>
                             		 </div>
                             	</c:forEach>
+                            	
+                            	<c:if test="${order.packageType==2}">
+                            		<!-- 메뉴 -->
+                            		<div class="package-type">2주차</div>
+                            		<div><span>메뉴 이름</span><span>수량</span><span>가격</span></div>
+                            		
+                            		<c:forEach var="menu" items="${order.orderMenuList}">
+                            			 <div class="menu-list">
+                            			 	<div class="menu-table">
+                            		 		<ul class="menu-tr">
+                            		 			<li class="menu-td">메뉴 이름</li>
+                            		 			<li>수량</li>
+                            		 			<li>가격</li>
+                            		 		</ul>
+                            		 		<ul>
+                            		 			<li class="menu-td">${menu.menuName}</li>
+                            		 			<li>1</li>
+                            		 			<li>${menu.menuPrice}원</li>
+                            		 			<li><div class="review-btn" onclick="">리뷰 작성</div></li>
+                            		 		</ul>
+                            					
+                            				<!-- 옵션 -->
+							                <c:forEach var="option" items="${menu.optionList}">
+							                    	
+								                <c:if test="${option.optionCount > 0}">
+								                <ul>
+		                            		 		<li class="menu-td">${option.optionName}</li>
+		                            		 		<li>${option.optionCount}</li>
+		                            		 		<li>${option.optionPrice*option.optionCount}</li>
+                            		 			</ul>
+								                </c:if>
+							                    </c:forEach>
+                            		 	</div>
+                            		 </div>
+                            	</c:forEach>
+                            	</c:if>
+                            	</div>
                             <div class="order-bottom">
 	                            <div class="order-cancel-btn" onclick="">주문 취소</div>
 	                            <div class="total-price">결제 금액 : ${order.orderPrice} 원</div>
