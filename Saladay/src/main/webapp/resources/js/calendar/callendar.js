@@ -13,6 +13,28 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
         dayMaxEventRows: 6 // adjust to 6 only for timeGridWeek/timeGridDay
       }
     }
-    , events: data, //이 부분이 json을 받아서 calendar에 뿌리는 공간
+    , //events: data, //이 부분이 json을 받아서 calendar에 뿌리는 공간
+    events: [{
+        title: '이미나', 
+         start: '2022-12-14'
+        , end: '2022-12-14' 
+        // , backgroundColor: "green"
+      },
+      {
+        title: '이고미', 
+         start: '2022-12-15'
+        , end: '2022-12-15' 
+        // , backgroundColor: "green"
+      }
+  ],
 
   });
+
+var calendar = new Calendar(calendarEl, {
+events: [
+    { // this object will be "parsed" into an Event Object
+    title: 'The Title', // a property!
+    allDay: true // a property! ** see important note below about 'end' **
+    }
+]
+})
