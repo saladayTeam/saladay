@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -24,6 +25,7 @@ public class CartController {
 	@Autowired
 	private CartService service;
 	
+	// 장바구니 조회
 	@GetMapping("/cart")
 	public String cart(@SessionAttribute(value="loginMember",required=true) Member loginMember,
 			Model model) {
@@ -39,7 +41,7 @@ public class CartController {
 	}
 	
 	// 장바구니 내역 삭제
-	@GetMapping("/delete")
+	@GetMapping("/cart/delete")
 	public String deleteCart(@SessionAttribute("loginMember") Member loginMember,
 			RedirectAttributes ra, @RequestHeader("referer") String referer,
 			SessionStatus status) {
@@ -66,24 +68,34 @@ public class CartController {
 	
 	
 	
+	
 	// 장바구니 담기
 	@PostMapping("/cart")
 	public String insertCart(@SessionAttribute("loginMember") Member loginMember
 							,Cart cart, 
 							RedirectAttributes ra, 
-							@RequestHeader("referer") String referer) { 		
+							@RequestHeader("referer") String referer,
+							SessionStatus status) { 		
 		
+		// 장바구니 내역 조회
+		int checkCart = service.checkCart(loginMember.getMemberNo());
 		
-		String message = "";
-		String path = "";
-
+		if(checkCart > 0 ) { // 회원의 이전 장바구니 내역이 존재하면 장바구니 내역 삭제
+			service.deleteCart(loginMember.getMemberNo());
+			status.setComplete();
+		} 
+		
 		cart.setMemberNo(loginMember.getMemberNo());
 		int cartNo = service.insertCart(cart); 
 		
+		String message = "";
+		String path = "";
 	
+		
 		if(cartNo > 0) {
 			message ="장바구니에 정상적으로 추가되었습니다.";
 			path = "/cart";
+		
 		} else {
 			message = "장바구니에 담은 내용을 다시 확인해주세요.";
 			path = referer;
@@ -91,36 +103,37 @@ public class CartController {
 		
 		ra.addFlashAttribute("message", message);
 	
-		return "redirect: " + path;
-		
-	}
-	
-	
-	@GetMapping("/preDelete")
-	public String preDelete(@SessionAttribute("loginMember") Member loginMember, SessionStatus status) {
-		service.deleteCart(loginMember.getMemberNo());
-		status.setComplete();
-		
-		return "cart/cart";
+		return "redirect:"+path;
 	}
 	
 	
 	
+//	@GetMapping("/cart/preDelete")
+//	public String preDelete(@SessionAttribute("loginMember") Member loginMember,
+//							SessionStatus status) {
+//		
+//		// 장바구니 내역 조회
+//		int checkCart = service.checkCart(loginMember.getMemberNo());
+//		
+//		
+//		if(checkCart > 0 ) { // 회원의 이전 장바구니 내역이 존재하면 장바구니 내역 삭제
+//			service.deleteCart(loginMember.getMemberNo());
+//			status.setComplete();
+//		} 
+//		
+//		return "redirect :" + "/cart";
+//		
+//	}
+//	
 	@PostMapping("/order")
 	public String order(@SessionAttribute("loginMember") Member loginMember,
-						@SessionAttribute("cart") Cart cart,
+						Cart cart,
 						SessionStatus status, 
 						Model model) { 		
 
 		int memberNo = loginMember.getMemberNo();
 		
-		// 장바구니 내역 조회
-		int checkCart = service.checkCart(loginMember.getMemberNo());
 		
-		if(checkCart > 0 ) { // 회원의 이전 장바구니 내역이 존재하면 장바구니 내역 삭제
-			service.deleteCart(memberNo);
-			status.setComplete();
-		}
 		
 		// 새로 장바구니에 담기
 		cart.setMemberNo(memberNo);
@@ -133,8 +146,7 @@ public class CartController {
 		model.addAttribute("cart",cart);
 	
 		return "order/order";
+		
 	}
-	
-	
 	
 }
