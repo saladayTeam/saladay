@@ -35,6 +35,7 @@ font-weight: bold;
 td{
     border-bottom: 1px solid #f2f2f2;
     height: 30px;
+    text-align: center;
 }
 
 th{
