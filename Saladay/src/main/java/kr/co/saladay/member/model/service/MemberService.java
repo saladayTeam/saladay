@@ -1,8 +1,11 @@
 package kr.co.saladay.member.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
 public interface MemberService {
@@ -83,6 +86,14 @@ public interface MemberService {
 	 * @return List<Review>
 	 */
 	public List<Review> selectMyReview(int memberNo);
+
+
+	
+	/**내 주문 조회
+	 * @param memberNo
+	 * @return 
+	 */
+	public List<Order> selectMyOrder(int memberNo);
 
 
 

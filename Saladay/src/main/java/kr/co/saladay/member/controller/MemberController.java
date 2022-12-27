@@ -1,6 +1,8 @@
 package kr.co.saladay.member.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +23,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
 @SessionAttributes({"loginMember","cart"})
@@ -70,7 +74,7 @@ public class MemberController {
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());			// 쿠키 생성
 			
 			if(saveId != null) {							// 아이디 저장이 체크되었다면
-				cookie.setMaxAge(60 * 60 * 24 * 365);									// 쿠키 생명주기 1년 지정
+				cookie.setMaxAge(60 * 60 * 24 * 14);									// 쿠키 생명주기 14일 지정
 			} else {
 				cookie.setMaxAge(0);													// 쿠기 삭제
 			}
@@ -299,6 +303,8 @@ public class MemberController {
 
 	
 	
+	//*****************************************************************************************************************************************************************************
+	
 	/**마이페이지-내 정보
 	 * @return myPage-info.jsp 포워드
 	 */
@@ -421,8 +427,41 @@ public class MemberController {
 	 */
 	@GetMapping("myPage/myOrder")
 	public String myOrder() {
-		return "member/myPage/myPage-order";
+		return "member/myPage/myPage-myOrder";
 	}
+	
+	
+	/** 주문내역 조회
+	 * @param loginMember
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("myPage/selectMyOrder")
+	public String selectMyOrder(@SessionAttribute(value="loginMember",required=true) Member loginMember,
+			Model model) {
+		
+		int memberNo=loginMember.getMemberNo();
+		
+		//ArrayList<Order> myOrder= service.selectMyOrder(memberNo);
+		
+		List<Order> myOrder= service.selectMyOrder(memberNo);
+		
+		System.out.println(myOrder);
+	
+		model.addAttribute("myOrder", myOrder);
+		
+		return "member/myPage/myPage-myOrder";
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/**마이페이지-나의 리뷰
 	 * @return myPage-review.jsp 포워드

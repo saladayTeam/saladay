@@ -118,10 +118,29 @@ main {
   	display: flex;
 }
 
-.img {
-	width: 200px;
-	height: 200px;
+/* 리뷰 썸네일 div(정사각형 틀) */
+.review-img-wrapper{
+    position: relative;
+    width: 200px;
+    height: 200px;
 }
+
+/* 리뷰 썸네일 */
+.review-img{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(50, 50);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+    border-radius: 10px;
+
+}
+
+
 
 .content {
 	width: 400px;

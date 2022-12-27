@@ -18,7 +18,7 @@
 		
 		<li>
 			<input type="radio" name="myPageType" value="3" id="myPageType3"> 
-			<label for="myPageType3"><a href="/member/myPage/myOrder" class="myPageType3">주문 내역</a></label>
+			<label for="myPageType3"><a href="/member/myPage/selectMyOrder" class="myPageType3">주문 내역</a></label>
 		</li>
 		
 		<li>
