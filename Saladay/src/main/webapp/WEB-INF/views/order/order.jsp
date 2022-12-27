@@ -89,7 +89,6 @@
             </div>
 
             <hr />
-            
             <div class="order-items">
                 <h3>주문 목록</h3>
                 <div class="order-package" id="order-package">
@@ -118,7 +117,7 @@
                             <%-- 선택한 옵션 --%>
                                 <li class="order-area">
                                     <div class="order-option">${option.optionName}</div>
-                                    <div class="order-quantity">1</div>
+                                    <div class="order-quantity">${option.optionCount}</div>
                                     <div class="order-price">${option.optionPrice}</div>
                                 </li>
                             </c:forEach>
@@ -142,7 +141,7 @@
                                 <%-- 선택한 옵션 --%>
                                     <li class="order-area">
                                         <div class="order-option">${option.optionName}</div>
-                                        <div class="order-quantity">1</div>
+                                        <div class="order-quantity">${option.optionCount}</div>
                                         <div class="order-price">${option.optionPrice}</div>
                                     </li>
                                 </c:forEach>

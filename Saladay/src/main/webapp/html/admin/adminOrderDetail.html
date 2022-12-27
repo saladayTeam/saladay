@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문상세조회</title>
+    <link rel="stylesheet" href="../../resources/css/admin/orderManage/adminOrderList.css">
+</head>
+<body>
+    헤더
+    <!-- <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include> -->
+    <main>
+        <div class="admin-order-title">
+            <span><h1>주문상세조회</h1></span>
+            <br />
+            <span>고객의 주문 내역을 조회하고 주문을 취소할 수 있습니다.</span>
+        </div>
+        <div class="cart-wrapper">
+            <span>주문번호 : 123</span>
+            <hr />
+            <li class="cart-table-header">
+                <div class="cart-package-image"><span>패키지</span></div>
+                <div class="cart-package-info"><span>상품정보</span></div>
+                <div class="cart-package-count"><span>수량</span></div>
+                <div class="cart-package-price"><span>가격</span></div>
+                <div class="cart-package-total"><span>상품금액</span></div>
+            </li>
+
+            <hr />
+                <!-- 패키지 -->
+                
+                <li class="cart-container">
+                    <div class="cart-package-image">
+                    <img src="${cart.packageImage}" alt="이미지" width="220px" height="140px"/>
+                    </div>
+                    <div class="cart-package-info">
+                    <span>${cart.packageName}</span>
+                    </div>
+                    <div class="cart-package-count">
+                    <span>1</span>
+                    </div>
+                    <div class="cart-package-price">
+                    <span></span>
+                    </div>
+                    <div class="cart-package-total">
+                    <span></span>
+                    </div>
+                </li>
+                <div class=week>1주</div>
+                <!-- 메뉴 -->
+                  <li class="cart-container">
+                      <div class="cart-package-image"></div>
+                      <div class="cart-menu-info">
+                      <span>${menu.menuName}</span>
+                      </div>
+                      <div class="cart-package-count">
+                      <span>1</span>
+                      </div>
+                      <div class="cart-package-price menu">
+                      <span>${menu.menuPrice}</span>
+                      </div>
+                      <div class="cart-package-total">
+                      <span></span>
+                      </div>
+                  </li>
+
+                  <!-- 옵션 -->
+                    <li class="cart-container">
+                        <div class="cart-package-image"></div>
+                        <div class="cart-option-info option">
+                        <span>${option.optionName}</span>
+                        </div>
+                        <div class="cart-package-count option">
+                        <span>${option.optionCount}</span>
+                        </div>
+                        <div class="cart-package-price option">
+                        <span>${option.optionPrice*option.optionCount}</span>
+                        </div>
+                        <div class="cart-package-total">
+                        <span></span>
+                        </div>
+                    </li>
+
+                <!-- 패키지 타입 2인 경우 -->
+
+                  <div class=week>2주</div>
+                    <li class="cart-container">
+                        <div class="cart-package-image"></div>
+                        <div class="cart-menu-info">
+                        <span>${menu.menuName}</span>
+                        </div>
+                        <div class="cart-package-count">
+                        <span>1</span>
+                        </div>
+                        <div class="cart-package-price menu">
+                        <span>${menu.menuPrice}</span>
+                        </div>
+                        <div class="cart-package-total">
+                        <span></span>
+                        </div>
+                    </li>
+
+                    <li class="cart-container">
+                        <div class="cart-package-image"></div>
+                        <div class="cart-option-info option">
+                        <span>${option.optionName}</span>
+                        </div>
+                        <div class="cart-package-count option">
+                        <span>${option.optionCount}</span>
+                        </div>
+                        <div class="cart-package-price option">
+                        <span>${option.optionPrice*option.optionCount}</span>
+                        </div>
+                        <div class="cart-package-total">
+                        <span></span>
+                        </div>
+                    </li>
+                </c:if>  
+
+                <hr />
+
+                <!-- 패키지 총 금액 -->
+                <li class="cart-table-header">
+                    <div class="cart-package-image"></div>
+                    <div class="cart-package-info"></div>
+                    <div class="cart-package-count"></div>
+                    <div class="cart-package-price"></div>
+                    <div class="cart-package-total">
+                      <span><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" /> 원</span>
+                    </div>
+                </li>
+                </div>
+          </div>
+
+    </main>
+    푸터
+    <!-- <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include> -->
+</body>
+</html>

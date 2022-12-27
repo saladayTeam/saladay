@@ -18,7 +18,6 @@ import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.service.OrderService;
 import kr.co.saladay.order.model.vo.Order;
-import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes("cart")
 @Controller
@@ -63,7 +62,7 @@ public class OrderController {
 		if(order.getOrderTel().equals("")) {
 			order.setOrderTel(loginMember.getMemberTel());			
 		}
-		if(address.equals("")) {
+		if(order.getOrderAddress().equals("")) {
 			order.setOrderAddress(String.join(",,", address));
 		}
 		order.setOrderAddress(loginMember.getMemberAddress());
@@ -74,10 +73,13 @@ public class OrderController {
 		
 		int orderNo=service.insertOrder(order);
 		
+		paramMap.put("orderNo", order.getOrderNo());
+		
 		if(orderNo>0) {
 			path="/orderView";
 			ra.addFlashAttribute("order", order);
 			cartService.deleteCart(loginMember.getMemberNo());
+//			int deliveryResult=service.insertDelivery(paramMap);
 			status.setComplete();
 		} else {
 			path=referer;
