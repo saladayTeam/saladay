@@ -1,9 +1,11 @@
 package kr.co.saladay.order.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.cart.model.vo.CartMenu;
 import kr.co.saladay.cart.model.vo.CartOption;
@@ -19,6 +21,7 @@ public class OrderServiceImpl implements OrderService{
 	@Autowired
 	private OrderDAO dao;
 	
+	@Transactional
 	@Override
 	public int insertOrder(Order order) {
 		
@@ -44,5 +47,12 @@ public class OrderServiceImpl implements OrderService{
 		return orderNo;
 	}
 
+	@Transactional
+	@Override
+	public int insertDelivery(Map<String, Object> paramMap) {
+	
+		
+		return 0;
+	}
 
 }

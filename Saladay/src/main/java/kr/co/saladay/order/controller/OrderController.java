@@ -74,10 +74,13 @@ public class OrderController {
 		
 		int orderNo=service.insertOrder(order);
 		
+		paramMap.put("orderNo", order.getOrderNo());
+		
 		if(orderNo>0) {
 			path="/orderView";
 			ra.addFlashAttribute("order", order);
 			cartService.deleteCart(loginMember.getMemberNo());
+			int deliveryResult=service.insertDelivery(paramMap);
 			status.setComplete();
 		} else {
 			path=referer;
