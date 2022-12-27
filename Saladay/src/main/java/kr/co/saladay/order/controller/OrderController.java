@@ -18,6 +18,7 @@ import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.service.OrderService;
 import kr.co.saladay.order.model.vo.Order;
+import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes("cart")
 @Controller
@@ -47,14 +48,24 @@ public class OrderController {
 			@SessionAttribute("cart") Cart cart,
 			@RequestHeader("referer") String referer,
 			@RequestParam Map<String, Object> paramMap,
+			String[] address,
 			RedirectAttributes ra,
 			SessionStatus status) {
-				
+		
+		
 		order.setCart(cart);
 		order.setMemberNo(loginMember.getMemberNo());
 		order.setPackageNo(cart.getPackageNo());
-		order.setOrderName(loginMember.getMemberName());
-		order.setOrderTel(loginMember.getMemberTel());
+		
+		if(order.getOrderName().equals("")) {
+			order.setOrderName(loginMember.getMemberName());			
+		}
+		if(order.getOrderTel().equals("")) {
+			order.setOrderTel(loginMember.getMemberTel());			
+		}
+		if(address.equals("")) {
+			order.setOrderAddress(String.join(",,", address));
+		}
 		order.setOrderAddress(loginMember.getMemberAddress());
 		order.setOrderPrice(cart.getPackagePrice());
 		

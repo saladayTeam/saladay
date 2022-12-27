@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +44,7 @@
                         <span class="o-th">핸드폰</span><span class="o-td">${loginMember.memberTel}</span>
                     </p>
                     <p>
-                        <span class="o-th">주소</span><span class="o-td">${loginMember.memberAddress}</span>
+                        <span class="o-th">주소</span><span class="o-td">${fn:replace(loginMember.memberAddress, ',,', ' ')}</span>
                     </p>
                 </div>
                 
@@ -62,7 +64,7 @@
                             <span class="o-th"> 수령인 주소 </span>
                             <span class="o-td">
                                 <input type="checkbox" id="memberAddr"><label for="memberAddr"> 기본 배송지 선택</label>
-                                <input type="hidden" name="memberAddress" value="${loginMember.memberAddress}"><!-- 회원의 기본 배송지 -->
+                                <input type="hidden" name="memberAddress" value="${fn:replace(loginMember.memberAddress, ',,', ' ')}"><!-- 회원의 기본 배송지 -->
                             </span>
                         </p>
                             
