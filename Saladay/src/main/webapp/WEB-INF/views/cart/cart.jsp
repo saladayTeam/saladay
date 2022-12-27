@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +54,7 @@
               </c:when>
               <c:otherwise>
                 <!-- 패키지 -->
+                
                 <li class="cart-container">
                     <div class="cart-package-image">
                     <img src="${cart.packageImage}" alt="이미지" width="220px" height="140px"/>
@@ -70,6 +72,7 @@
                     <span></span>
                     </div>
                 </li>
+                <div class=week>1주</div>
                 <!-- 메뉴 -->
                 <c:forEach var="menu" items="${cart.menuList}">
                   <li class="cart-container">
@@ -112,8 +115,8 @@
 
                 <c:if test="${cart.packageType==2}">
 
-                  <hr />
-
+                  <%-- <hr/> --%>
+                  <div class=week>2주</div>
                   <c:forEach var="menu" items="${cart.menuList}">
                     <li class="cart-container">
                         <div class="cart-package-image"></div>
@@ -160,12 +163,7 @@
                     <div class="cart-package-count"></div>
                     <div class="cart-package-price"></div>
                     <div class="cart-package-total">
-                      <c:if test="${cart.packageType==1}">
-                        <span>${cart.packagePrice}</span>
-                      </c:if>
-                      <c:if test="${cart.packageType==2}">
-                        <span>${cart.packagePrice*2}</span>
-                      </c:if>
+                      <span><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" /> 원</span>
                     </div>
                 </li>
                 </div>
