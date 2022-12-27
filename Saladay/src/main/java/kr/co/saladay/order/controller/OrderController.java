@@ -63,7 +63,7 @@ public class OrderController {
 		if(order.getOrderTel().equals("")) {
 			order.setOrderTel(loginMember.getMemberTel());			
 		}
-		if(address.equals("")) {
+		if(order.getOrderAddress().equals("")) {
 			order.setOrderAddress(String.join(",,", address));
 		}
 		order.setOrderAddress(loginMember.getMemberAddress());
