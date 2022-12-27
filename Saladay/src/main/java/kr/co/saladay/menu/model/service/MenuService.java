@@ -22,6 +22,9 @@ public interface MenuService {
 	List<Option> selectSourceList();
 
 	// 패키지 목록 조회
-	List<Map<String, Object>> selectPackageList(); 
+	List<Map<String, Object>> selectPackageList();
+
+	// 옵션 조회
+	List<Option> selectOptionList(); 
 
 }

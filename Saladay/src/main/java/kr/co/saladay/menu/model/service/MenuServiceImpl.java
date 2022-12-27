@@ -49,5 +49,10 @@ public class MenuServiceImpl implements MenuService {
 		return dao.selectPackageList();
 	}
 	
+	// 옵션 전부 조회
+	@Override
+	public List<Option> selectOptionList() {
+		return dao.selectOptionList();
+	}
 	
 }

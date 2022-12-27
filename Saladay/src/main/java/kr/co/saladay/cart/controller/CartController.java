@@ -18,14 +18,13 @@ import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.vo.Member;
 
 @Controller
-@RequestMapping("/cart")
 @SessionAttributes({"cart", "message"}) 
 public class CartController {
 	
 	@Autowired
 	private CartService service;
 	
-	@GetMapping("")
+	@GetMapping("/cart")
 	public String cart(@SessionAttribute(value="loginMember",required=true) Member loginMember,
 			Model model) {
 		
@@ -68,19 +67,15 @@ public class CartController {
 	
 	
 	// 장바구니 담기
-	@PostMapping("")
+	@PostMapping("/cart")
 	public String insertCart(@SessionAttribute("loginMember") Member loginMember
 							,Cart cart, 
 							RedirectAttributes ra, 
 							@RequestHeader("referer") String referer) { 		
 		
-		// 장바구니 내역 조회
-		// int checkCart = service.checkCart(loginMember.getMemberNo());
-		// int delete=service.deleteCart(loginMember.getMemberNo());
 		
 		String message = "";
 		String path = "";
-
 
 		cart.setMemberNo(loginMember.getMemberNo());
 		int cartNo = service.insertCart(cart); 
@@ -102,9 +97,42 @@ public class CartController {
 	
 	
 	@GetMapping("/preDelete")
-	public String preDelete(@SessionAttribute("loginMember") Member loginMember) {
+	public String preDelete(@SessionAttribute("loginMember") Member loginMember, SessionStatus status) {
 		service.deleteCart(loginMember.getMemberNo());
+		status.setComplete();
+		
 		return "cart/cart";
+	}
+	
+	
+	
+	@PostMapping("/order")
+	public String order(@SessionAttribute("loginMember") Member loginMember,
+						@SessionAttribute("cart") Cart cart,
+						SessionStatus status, 
+						Model model) { 		
+
+		int memberNo = loginMember.getMemberNo();
+		
+		// 장바구니 내역 조회
+		int checkCart = service.checkCart(loginMember.getMemberNo());
+		
+		if(checkCart > 0 ) { // 회원의 이전 장바구니 내역이 존재하면 장바구니 내역 삭제
+			service.deleteCart(memberNo);
+			status.setComplete();
+		}
+		
+		// 새로 장바구니에 담기
+		cart.setMemberNo(memberNo);
+		int cartNo = service.insertCart(cart);
+		
+		System.out.println(cartNo);
+		cart.setCartNo(cartNo);
+		
+		cart = service.selectCart(memberNo);
+		model.addAttribute("cart",cart);
+	
+		return "order/order";
 	}
 	
 	

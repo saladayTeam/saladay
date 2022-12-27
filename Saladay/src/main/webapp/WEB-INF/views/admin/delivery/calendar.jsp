@@ -16,14 +16,13 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          locale: "ko"
+          initialView: 'dayGridMonth'
         });
         calendar.render();
       });
-      
 
     </script>
+
 
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/admin/admin.css">
@@ -44,7 +43,7 @@
       </div> --%>
 
     </main>
-
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+    <script src="/resources/js/callendar/callendar.js"></script>
   </body>
 </html>
