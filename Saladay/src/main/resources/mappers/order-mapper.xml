@@ -33,6 +33,14 @@
       <result property="optionCount" column="CART_OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
 	</resultMap> 
+	
+	<resultMap type="OrderDelivery" id="orderDelivery_rm">
+      <id property="deliveryNo" column="DELIVERY_NO"/>
+      <result property="deliveryDate" column="DELIVERY_DATE"/>
+      <result property="orderNo" column="ORDER_NO"/>
+      <result property="deliveryCode" column="DELIVERY_CODE"/>      
+	</resultMap> 
+	
 
 
  		
