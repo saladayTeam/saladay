@@ -23,5 +23,7 @@ public class OrderMenu {
 	private String menuImage;
 	
 	List<CartOption> optionList;
+	
+	List<OrderOption> orderOptionList;
 
 }

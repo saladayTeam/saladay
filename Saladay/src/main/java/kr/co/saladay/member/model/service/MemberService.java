@@ -1,6 +1,8 @@
 package kr.co.saladay.member.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.vo.Order;
@@ -91,7 +93,7 @@ public interface MemberService {
 	 * @param memberNo
 	 * @return 
 	 */
-	public Order selectMyOrder(int memberNo);
+	public List<Order> selectMyOrder(int memberNo);
 
 
 

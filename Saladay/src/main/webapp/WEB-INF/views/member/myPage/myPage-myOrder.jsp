@@ -43,7 +43,11 @@
                             </c:if>
 
                             <c:if test="${!empty myOrder}">
-                            	<c:forEach var="menu" items="${myOrder.orderMenuList }">
+                            <c:forEach var="order" items="${myOrder}" >
+                            	${order.orderNo}, ${order.packageName},
+                            	${order.packageImage}, ${order.packagePrice}
+                            	<!-- 메뉴 -->
+                            	<c:forEach var="menu" items="${order.orderMenuList}">
                             		 <li class="cart-container">
 					                      <div class="cart-package-image"></div>
 					                      <div class="cart-menu-info">
@@ -59,28 +63,28 @@
 					                      <span></span>
 					                      </div>
 					                  </li>
-                            	<!-- 옵션 -->
-			                  <c:forEach var="option" items="${menu.optionList}">
-			                    <c:if test="${option.optionCount > 0}">
-			                    <li class="cart-container">
-			                        <div class="cart-package-image"></div>
-			                        <div class="cart-option-info option">
-			                        <span>${option.optionName}</span>
-			                        </div>
-			                        <div class="cart-package-count option">
-			                        <span>${option.optionCount}</span>
-			                        </div>
-			                        <div class="cart-package-price option">
-			                        <span>${option.optionPrice*option.optionCount}</span>
-			                        </div>
-			                        <div class="cart-package-total">
-			                        <span></span>
-			                        </div>
-			                    </li>
-			                    </c:if>
-			                  </c:forEach>
+                            	  <!-- 옵션 -->
+				                  <c:forEach var="option" items="${menu.optionList}">
+				                    <c:if test="${option.optionCount > 0}">
+				                    <li class="cart-container">
+				                        <div class="cart-package-image"></div>
+				                        <div class="cart-option-info option">
+				                        <span>${option.optionName}</span>
+				                        </div>
+				                        <div class="cart-package-count option">
+				                        <span>${option.optionCount}</span>
+				                        </div>
+				                        <div class="cart-package-price option">
+				                        <span>${option.optionPrice*option.optionCount}</span>
+				                        </div>
+				                        <div class="cart-package-total">
+				                        <span></span>
+				                        </div>
+				                    </li>
+				                    </c:if>
+				                  </c:forEach>
                             </c:forEach>
-                                
+                                </c:forEach>
                                
                                 
                                 

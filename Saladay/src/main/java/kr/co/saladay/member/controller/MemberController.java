@@ -1,5 +1,6 @@
 package kr.co.saladay.member.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -441,8 +442,10 @@ public class MemberController {
 		
 		int memberNo=loginMember.getMemberNo();
 		
-		Order myOrder= service.selectMyOrder(memberNo);
-				
+		//ArrayList<Order> myOrder= service.selectMyOrder(memberNo);
+		
+		List<Order> myOrder= service.selectMyOrder(memberNo);
+		
 		System.out.println(myOrder);
 	
 		model.addAttribute("myOrder", myOrder);

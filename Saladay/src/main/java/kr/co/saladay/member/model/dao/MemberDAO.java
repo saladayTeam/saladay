@@ -1,5 +1,6 @@
 package kr.co.saladay.member.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.vo.Order;
+import kr.co.saladay.order.model.vo.OrderMenu;
 import kr.co.saladay.review.model.vo.Review;
 
 @Repository
@@ -125,9 +127,15 @@ public class MemberDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public Order selectMyOrder(int memberNo) {
+	/**
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Order> selectMyOrder(int memberNo) {
 	
-		return sqlSession.selectOne("myOrderMapper.selectMyOrder", memberNo);
+		List<Order> orderResult = sqlSession.selectList("myOrderMapper.selectMyOrder", memberNo);
+		
+		return orderResult;
 	}
 
 

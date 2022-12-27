@@ -1,6 +1,8 @@
 package kr.co.saladay.member.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -128,9 +130,9 @@ public class MemberServiceImpl implements MemberService{
 	
 	//내 주문 조회
 	@Override
-	public Order selectMyOrder(int memberNo) {
+	public List<Order> selectMyOrder(int memberNo) {
 		
-		Order orderPackage =  dao.selectMyOrder(memberNo);
+		List<Order> orderPackage =  dao.selectMyOrder(memberNo);
 		
 		return orderPackage;
 	}
