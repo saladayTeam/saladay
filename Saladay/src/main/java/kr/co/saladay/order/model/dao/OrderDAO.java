@@ -1,5 +1,7 @@
 package kr.co.saladay.order.model.dao;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,10 @@ public class OrderDAO {
 	// 주문한 메뉴별 옵션 담기
 	public int insertorderMenuOption(CartOption orderOption) {
 		return sqlSession.insert("orderMapper.insertOrderMenuOption", orderOption);
+	}
+
+	public int insertDelivery(Map<String, Object> paramMap) {
+		return sqlSession.insert("orderMapper.insertDelivery", paramMap);
 	}
 
 	
