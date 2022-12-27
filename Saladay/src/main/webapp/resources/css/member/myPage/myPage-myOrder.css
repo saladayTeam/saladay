@@ -1,0 +1,256 @@
+
+main {
+    width: 1200px;
+}
+
+
+.my-page-content {
+    display: flex;
+    width: 100%;
+    min-height: 700px;
+    margin: 50px auto;
+}
+
+/* 좌측 사이드바*************************************************************/
+.left-side {
+    background-color: white;
+    width: 25%;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    border-right: #ddd 3px solid;
+}
+
+
+
+.left-side-header {
+    height: 70px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 70px;
+    border-bottom: #222222 2px solid;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.my-page-list {
+    width: 100%;
+    list-style: none;
+    padding: 10px;
+}
+
+.my-page-list li {
+    height: 54px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.my-page-list li a {
+	 text-decoration: none;
+	 color:black;
+}
+
+
+.my-page-list input[name='myPageType'] {
+    display: none;
+}
+
+.my-page-list label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.2s;
+    margin-right: 15px;
+    
+    border-bottom: 2px solid #ddd;
+}
+
+.my-page-list label:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.my-page-list input:checked + label {
+    border-bottom: 2px solid #17633d;
+
+}
+
+
+/*우측메인 ***********************************************************************************/
+
+
+.right-side {
+    border-radius: 10px;
+    width: 65%;
+    padding: 20px 20px 50px 50px;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+
+/* 마이페이지 헤더--------------------------------- */
+.my-page-header {
+    border-bottom: 1px solid #17633d;
+    width: 100%;
+    margin: 40px 20px 40px 0;
+}
+
+.main-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/*주문 내용--------------------------------------*/
+
+.my-order-content {
+    width: 640px;
+    margin-bottom: 20px;
+    list-style: none;
+    border: #ddd 2px solid;
+  	padding: 15px;
+}
+
+.order-detail{
+    display: flex;
+
+}
+
+.order-number {
+	width:100%;
+	height:100%;
+	margin-bottom:5px;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.package-img{
+	margin-right : 20px;
+}
+
+.package-detail li {
+	margin-bottom : 5px;
+    font-size: 12px;
+}
+
+.order-btn {
+    width: 160px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    background-color: #17633d;
+    
+    float: right;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    
+    margin-top:30px
+}
+
+
+
+
+.review-btn {
+    width: 60px;
+    height: 14px;
+    font-size: 8px;
+    font-weight: bolder;
+    color: white;
+    background-color: #17633d;
+    
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    text-align : center;
+    line-height : 14px;
+    margin-bottom:5px;
+    text-align : center;
+}
+
+
+
+.order-bottom{
+	display:flex;
+}
+
+.order-cancel-btn {
+    width: 100px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: white;
+    background-color: #17633d;
+    
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    text-align : center;
+    line-height : 24px;
+    margin-bottom:5px;
+}
+
+.total-price {
+	margin-top : 10px;
+	margin-left : 370px;
+	height: 100%;
+	font-size:14px;
+	font-weight: bolder;
+	
+	
+}
+
+.pack-i {
+	color:	#17633d;
+}
+
+.menu-list{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+
+
+.menu-table {
+	width: 500px; 
+	border:1 solid red;
+	border-top:none;
+	border-right:none
+}
+
+.menu-table ul {
+	clear: left;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	border-top:1 solid red;
+} 
+
+/* list-style-type 블릿표시 padding: 0; 들여쓰기*/
+.menu-table .menu-tr {
+	font-weight: bold;
+	text-align: center;
+	font-size: 10px;
+}
+
+.menu-table ul li {
+	text-align: center;
+	float: left;
+	margin: 0;
+	padding: 2px, 1px;
+	border-right:1 solid red;
+	width:120px;
+}
+
+.menu-td {
+	width:200px;
+} 

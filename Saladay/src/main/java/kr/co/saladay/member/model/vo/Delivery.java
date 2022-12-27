@@ -1,5 +1,4 @@
-package kr.co.saladay.delivery.model.vo;
-
+package kr.co.saladay.member.model.vo;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,4 +13,5 @@ public class Delivery {
 	private String deliveryDate;
 	private int orderNo;
 	private String deliveryCode;
+	
 }

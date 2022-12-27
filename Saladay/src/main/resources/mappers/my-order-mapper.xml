@@ -7,9 +7,12 @@
       <id property="orderNo" column="ORDER_NO"/>      
       <result property="packageName" column="PACKAGE_NAME"/>
       <result property="packageImage" column="PACKAGE_IMG"/>
+      <result property="packageType" column="PACKAGE_TYPE"/>
       <result property="orderDate" column="ORDER_DATE"/>
       <result property="orderAddress" column="ORDER_ADDRESS"/>
       <result property="orderName" column="ORDER_NAME"/>
+      <result property="orderPrice" column="ORDER_PRICE"/>
+      <result property="orderTel" column="ORDER_TEL"/>
       <result property="deliveryCode" column="DELIVERY_CODE"/>
       <collection property="orderMenuList" javaType="java.util.ArrayList" ofType="OrderMenu"
       select="selectOrderMenuList" column="ORDER_NO" />
@@ -44,8 +47,8 @@
 
 	<!-- 나의 주문 조회 -->
 	<select id="selectMyOrder" resultMap="order_rm">
-		SELECT ORDER_NO, PACKAGE_NAME, PACKAGE_IMG,
-	   		ORDER_DATE, DELIVERY_CODE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL
+		SELECT ORDER_NO, PACKAGE_NAME, PACKAGE_IMG, PACKAGE_TYPE,
+	   		ORDER_DATE, DELIVERY_CODE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
@@ -54,9 +57,9 @@
 		LEFT JOIN "DELIVERY" USING (ORDER_NO)
 		LEFT JOIN "MENU" USING(MENU_NO)
 		WHERE MEMBER_NO = #{memberNo}
-		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,
+		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,PACKAGE_TYPE,
 			 ORDER_DATE, DELIVERY_CODE,
-		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL
+		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
 		ORDER BY ORDER_NO DESC
 	</select>
  	
