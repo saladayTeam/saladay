@@ -209,11 +209,9 @@ if(orderBtn != null) {
         }
       }
 
-      if(cartNo != null ) {
-        location.href = "/cart/preDelete";
-        addCartForm.setAttribute("action", "/order");
-        addCartForm.submit();
-      }
+      
+      addCartForm.setAttribute("action", "/order");
+      addCartForm.submit();
 
     }
   })

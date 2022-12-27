@@ -16,11 +16,40 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          initialView: 'dayGridMonth',
+          locale: "ko",
+          // navLinks: true,
+          editable: true,
+          // default: {
+          //   start   : 'today, prevYear, nextYear, viewWeekends',
+          //   center : 'prev, title, next',
+          //   end  : 'month, agendaWeek, agendaDay, listWeek'
+          // },
+          headerToolbar : {
+        	start: "",
+            center: "prev title next",
+            end: 'dayGridMonth,dayGridWeek,dayGridDay'
+            },
+          events: [{
+        title: '이미나', 
+        start: '2022-12-14',
+        end: '2022-12-14' 
+        , backgroundColor: "green"
+      },
+      {
+        title: '이고미', 
+        start: '2022-12-15',
+        end: '2022-12-15',
+        backgroundColor: "green",
+        border: "solid 1px green"
+      }]
+      ,eventClick:function(info){
+          window.location.href(info.event.url);
+          }
         });
         calendar.render();
       });
-
+      
     </script>
 
 
@@ -43,7 +72,8 @@
       </div> --%>
 
     </main>
+
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-    <script src="/resources/js/callendar/callendar.js"></script>
+    <script src="/resources/js/calendar/callendar.js"></script>
   </body>
 </html>

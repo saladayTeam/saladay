@@ -1,14 +1,14 @@
 package kr.co.saladay.cart.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -19,7 +19,7 @@ import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.vo.Member;
 
 @Controller
-@SessionAttributes({"cart", "message"}) 
+@SessionAttributes({"message"}) 
 public class CartController {
 	
 	@Autowired
@@ -28,23 +28,24 @@ public class CartController {
 	// 장바구니 조회
 	@GetMapping("/cart")
 	public String cart(@SessionAttribute(value="loginMember",required=true) Member loginMember,
-			Model model) {
+			Model model, HttpSession session) {
 		
 		int memberNo=loginMember.getMemberNo();
 		
 		Cart cart= service.selectCart(memberNo);
 				
-		model.addAttribute("cart", cart);
+		session.setAttribute("cart", cart);
 		
 		return "cart/cart";
-	
 	}
+	
 	
 	// 장바구니 내역 삭제
 	@GetMapping("/cart/delete")
 	public String deleteCart(@SessionAttribute("loginMember") Member loginMember,
-			RedirectAttributes ra, @RequestHeader("referer") String referer,
-			SessionStatus status) {
+							RedirectAttributes ra,
+							@RequestHeader("referer") String referer,
+							HttpSession session) {
 		
 		String path="";
 		String message="";
@@ -60,12 +61,11 @@ public class CartController {
 		}
 		
 		ra.addFlashAttribute("message", message);
+		session.removeAttribute("cart");
 		
-		status.setComplete();
 		
 		return "redirect:"+path;
 	}
-	
 	
 	
 	
@@ -86,7 +86,9 @@ public class CartController {
 		} 
 		
 		cart.setMemberNo(loginMember.getMemberNo());
+		// System.out.println(cart);
 		int cartNo = service.insertCart(cart); 
+		System.out.println(cartNo);
 		
 		String message = "";
 		String path = "";
@@ -102,50 +104,39 @@ public class CartController {
 		}
 		
 		ra.addFlashAttribute("message", message);
-	
+		
 		return "redirect:"+path;
 	}
 	
 	
-	
-//	@GetMapping("/cart/preDelete")
-//	public String preDelete(@SessionAttribute("loginMember") Member loginMember,
-//							SessionStatus status) {
-//		
-//		// 장바구니 내역 조회
-//		int checkCart = service.checkCart(loginMember.getMemberNo());
-//		
-//		
-//		if(checkCart > 0 ) { // 회원의 이전 장바구니 내역이 존재하면 장바구니 내역 삭제
-//			service.deleteCart(loginMember.getMemberNo());
-//			status.setComplete();
-//		} 
-//		
-//		return "redirect :" + "/cart";
-//		
-//	}
-//	
+	// 주문하기 버튼
 	@PostMapping("/order")
 	public String order(@SessionAttribute("loginMember") Member loginMember,
-						Cart cart,
-						SessionStatus status, 
-						Model model) { 		
+						Cart newCart,
+						HttpSession session) { 		
 
 		int memberNo = loginMember.getMemberNo();
 		
+		// 장바구니 내역 조회
+		int checkCart = service.checkCart(loginMember.getMemberNo());
+		
+		if(checkCart > 0 ) { // 회원의 이전 장바구니 내역이 존재하면 장바구니 내역 삭제
+			service.deleteCart(memberNo);
+
+		} 
 		
 		
 		// 새로 장바구니에 담기
-		cart.setMemberNo(memberNo);
-		int cartNo = service.insertCart(cart);
+		newCart.setMemberNo(memberNo);
+		int cartNo = service.insertCart(newCart);
 		
-		System.out.println(cartNo);
-		cart.setCartNo(cartNo);
+		//System.out.println(cartNo);
+		newCart.setCartNo(cartNo);
 		
-		cart = service.selectCart(memberNo);
-		model.addAttribute("cart",cart);
-	
-		return "order/order";
+		newCart = service.selectCart(memberNo);
+		session.setAttribute("cart",newCart);
+		
+		return "redirect:/order";
 		
 	}
 	

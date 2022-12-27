@@ -1,7 +1,5 @@
 package kr.co.saladay.review.model.vo;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
