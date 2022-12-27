@@ -62,5 +62,9 @@
 	SELECT * FROM "PACKAGE" ORDER BY 1
 	</select>
 
+	<!-- 옵션 전부 조회 -->
+	<select id="selectOptionList" resultMap="option_rm">
+	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' ORDER BY 1
+	</select>
 
 </mapper>

@@ -1,0 +1,52 @@
+@import url(../admin.css);
+@import url(../../main/header.css);
+@import url(../../main/footer.css);
+
+/* 메뉴관리 영역 */
+.menu-wrapper{
+    min-height: 100vh;
+    width: 1200px;
+    padding: 50px;
+    
+}
+
+.menu-m-tit {
+    min-height: 50px;
+    border-bottom: 3px solid #17633d;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 버튼영역 */
+#addBtn, #delBtn {
+    width: 100px;
+    height: 35px;
+    background-color: #ddd;
+    color: black;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+table {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+table th {
+    border: 1px solid #ddd;
+    background-color: #f1f2f1;
+    height: 30px;
+}
+
+table td {
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+    text-align: center;
+}

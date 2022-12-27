@@ -67,6 +67,12 @@ public class MenuInterceptor implements HandlerInterceptor {
 			application.setAttribute("packageList", packageList);
 		}
 		
+		// 옵션 조회
+		if( application.getAttribute("optionList") == null) {
+			List<Option> optionList = service.selectOptionList();
+			application.setAttribute("optionList", optionList);
+		}
+		
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 		
 	}

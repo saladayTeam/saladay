@@ -43,6 +43,7 @@ window.onload = function() {
         // 다음 버튼을 눌렀을때
       if (event.target.className === 'next') {
           console.log(`${currentIdx} /  ${slideLis.length}`);
+          window.scrollTo({ top: 100, behavior: "smooth" }); 
         if(currentIdx == slideLis.length -1){
             return;
         }
@@ -59,6 +60,7 @@ window.onload = function() {
         }
       } else if (event.target.className === 'prev') {
           if (currentIdx !== 0) {
+            window.scrollTo({ top: 100, behavior: "smooth" }); 
             translate += liWidth;
             slider.style.transform = `translateX(${translate}px)`;
             currentIdx -= 1;
@@ -194,6 +196,7 @@ const addCartForm = document.getElementById("addCartForm");
 const orderBtn = document.getElementById("order-btn");
 if(orderBtn != null) {
   orderBtn.addEventListener("click", ()=>{
+    
     if(loginMemberNo==''){
       alert("로그인 후 이용해주세요.")
       location.href = "/member/login";
@@ -207,16 +210,8 @@ if(orderBtn != null) {
         }
       }
 
-      // 메뉴가 다 선택되면, 이전 장바구니 내역은 지우고 새로 추가
-      if(confirm("이전에 선택하신 내역이 장바구니에 존재합니다. 이전 내역을 취소하시겠습니까?")){
-        location.href = "/cart/preDelete";
-        location.href = "/order";
-        return true;
-      } else{
-        location.href = "#";
-        return false;
-      }
-
+      addCartForm.setAttribute("action", "/order");
+      addCartForm.submit();
     }
   })
 }

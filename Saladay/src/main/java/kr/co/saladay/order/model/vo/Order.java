@@ -35,7 +35,6 @@ public class Order {
 	
 	private String deliveryCode; //배송코드
 	
-	
 	List<CartMenu> menuList; // 주문한 메뉴 리스트
 	
 	List<OrderMenu> orderMenuList;  // 주문한 메뉴 리스트

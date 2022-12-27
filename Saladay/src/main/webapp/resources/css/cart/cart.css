@@ -105,6 +105,20 @@ hr {
   margin-left: 60px;
 }
 
+.week{
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  /* border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb; */
+  margin: 5px 0;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+
+/* ------------------------------------------------ */
+
 .delete-cart {
   display: flex;
   justify-content: flex-end;
