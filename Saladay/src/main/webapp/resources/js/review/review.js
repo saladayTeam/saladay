@@ -30,6 +30,9 @@ const reviewNickname = document.querySelector(".review-detail-nickname");
 const reviewText = document.querySelector(".review-detail-text");
 const reviewLike = document.querySelector(".review-detail-likeCount");
 const reviewHeart = document.getElementById("reviewHeart");
+const indicators = document.querySelector(".carousel-indicators");
+const prev = document.querySelector(".carousel-control-prev");
+const next = document.querySelector(".carousel-control-next");
 
 // 리뷰 이미지 클릭시 실행
 function selectReviewDetail(reviewNo, reviewMemberNo){
@@ -62,12 +65,17 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     
                     const image = document.createElement("img");
                     image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
-                    image.classList.add("d-block");
-                    image.classList.add("w-100");
+                   /*  image.classList.add("d-block"); */
+                    /* image.classList.add("w-100"); */
                     image.classList.add("review-images");
 
                     carouselItem.append(image);
                     carouselInner.append(carouselItem);
+                    
+                    /* 버튼 다시 보이게 처리 */
+                    indicators.classList.remove("rd-hidden");
+                    prev.classList.remove("rd-hidden");
+                    next.classList.remove("rd-hidden");
                 }
             }
 
@@ -83,20 +91,17 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     
                     const image = document.createElement("img");
                     image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
-                    image.classList.add("d-block");
-                    image.classList.add("w-100");
+                    /* image.classList.add("d-block"); */
+                    /* image.classList.add("w-100"); */
                     image.classList.add("review-images");
 
                     carouselItem.append(image);
                     carouselInner.append(carouselItem);
                 }
                 /* 버튼들 삭제 */
-                const indicators = document.querySelector(".carousel-indicators");
-                const prev = document.querySelector(".carousel-control-prev");
-                const next = document.querySelector(".carousel-control-next");
-                indicators.innerHTML = "";
-                prev.innerHTML = "";
-                next.innerHTML = "";
+                indicators.classList.add("rd-hidden");
+                prev.classList.add("rd-hidden");
+                next.classList.add("rd-hidden");
             } 
             
             /* 첨부 이미지가 없을 경우 기본 이미지 보여주는 코드 */
@@ -108,20 +113,17 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 carouselItem.classList.add("active");
                 const image = document.createElement("img");
                 image.setAttribute("src", "/resources/images/review/reviewImg.png");
-                image.classList.add("d-block");
-                image.classList.add("w-100");
+                /* image.classList.add("d-block");
+                image.classList.add("w-100"); */
                 image.classList.add("review-images");
 
                 carouselItem.append(image);
                 carouselInner.append(carouselItem);
 
                 /* 버튼들 삭제 */
-                const indicators = document.querySelector(".carousel-indicators");
-                const prev = document.querySelector(".carousel-control-prev");
-                const next = document.querySelector(".carousel-control-next");
-                indicators.innerHTML = "";
-                prev.innerHTML = "";
-                next.innerHTML = "";
+                indicators.classList.add("rd-hidden");
+                prev.classList.add("rd-hidden");
+                next.classList.add("rd-hidden");
             }
 
             // 리뷰 삭제
