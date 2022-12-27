@@ -196,6 +196,7 @@ const addCartForm = document.getElementById("addCartForm");
 const orderBtn = document.getElementById("order-btn");
 if(orderBtn != null) {
   orderBtn.addEventListener("click", ()=>{
+    
     if(loginMemberNo==''){
       alert("로그인 후 이용해주세요.")
       location.href = "/member/login";
@@ -209,16 +210,8 @@ if(orderBtn != null) {
         }
       }
 
-      // 메뉴가 다 선택되고, 이전 장바구니 내역이 있다면 지우고 새로 추가
-      if(cartNo != null){
-        location.href = "/cart/preDelete";
-        location.href = "order";
-        return true;
-      } else{
-        location.href = "#";
-        return false;
-      }
-
+      addCartForm.setAttribute("action", "/order");
+      addCartForm.submit();
     }
   })
 }
