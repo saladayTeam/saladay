@@ -46,8 +46,8 @@ main {
 }
 
 .my-page-list li a {
-	 text-decoration: none;
-	 color:black;
+	text-decoration: none;
+	color:black;
 }
 
 
@@ -105,3 +105,66 @@ main {
 }
 
 /* 리뷰 작성 *************************************************************/
+
+/* 주문정보 부분 */
+.rw-info-area{
+    margin-bottom: 20px;
+}
+
+/* 별점 */
+.rw-rating-area{
+    width: 150px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* 리뷰 작성 공간 */
+.rw-review-content-area{
+    margin: 20px 0px 20px;
+}
+
+/* 리뷰 질문 */
+.rw-question{
+    margin-bottom: 5px;
+}
+/* 리뷰 내용 */
+.rw-review-content{
+    width: 600px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+/* 이미지 추가 */
+.rw-image-area{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rw-images{
+    width: 180px;
+    height: 180px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+/* 글쓰기 버튼 */
+.submit-btn {
+    width: 160px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    background-color: #17633d;
+    
+    float: right;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    
+    margin-top:30px
+}

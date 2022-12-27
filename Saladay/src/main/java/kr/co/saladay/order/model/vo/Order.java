@@ -2,7 +2,10 @@ package kr.co.saladay.order.model.vo;
 
 import java.util.List;
 
+
 import kr.co.saladay.cart.model.vo.Cart;
+import kr.co.saladay.menu.model.vo.Package;
+
 import kr.co.saladay.cart.model.vo.CartMenu;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,9 +27,18 @@ public class Order {
 	private String orderAddress="서울"; // 수신자 주소
 	
 	private int memberNo; // 주문한 회원 번호
+	
 	private int packageNo; // 주문한 패키지 넘버
+	private String packageName;//주문한 패키지 이름
+	private String packageImage; // 주문한 패키지 이미지 경로
+	private int packagePrice; // 주문한 패키지 총 가격
+	
+	private String deliveryCode; //배송코드
+	
 	
 	List<CartMenu> menuList; // 주문한 메뉴 리스트
+	
+	List<OrderMenu> orderMenuList;  // 주문한 메뉴 리스트
 	
 }	
 
