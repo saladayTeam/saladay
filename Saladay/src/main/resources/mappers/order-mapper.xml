@@ -41,7 +41,41 @@
       <result property="deliveryCode" column="DELIVERY_CODE"/>      
 	</resultMap> 
 	
-
+	<!-- 주문번호 생성 및 주문 삽입 -->		
+	<insert id="insertOrderNo" parameterType="Order" useGeneratedKeys="true">
+		<selectKey keyProperty="orderNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_ORDER_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO "ORDER"
+		VALUES (#{orderNo}, DEFAULT, DEFAULT,
+			(SELECT SUM(MENU_PRICE) + SUM(TOTAL_OPT_PRICE) TOTAL FROM (
+		   SELECT  M.MENU_PRICE,
+		      (SELECT SUM(OPTION_PRICE * CART_OPTION_COUNT)  
+		      FROM CART_MENU_OPTION CMO
+		      JOIN "OPTION" O ON(CMO.OPTION_NO = O.OPTION_NO)
+		      WHERE CMO.CART_MENU_NO = CM.CART_MENU_NO) TOTAL_OPT_PRICE
+		   FROM CART C
+		   JOIN CART_MENU CM ON (C.CART_NO = CM.CART_NO)
+		   JOIN MENU M ON (CM.MENU_NO = M.MENU_NO)
+		   WHERE C.MEMBER_NO = #{memberNo}
+		)), DEFAULT, #{orderName}, #{orderTel}, #{orderAddress}, #{memberNo}, #{packageNo} )
+	</insert>
+	
+	
+	<!-- 주문에 담은 메뉴 -->
+	<insert id="insertOrderMenuNo" parameterType="CartMenu" useGeneratedKeys="true">
+		<selectKey keyProperty="orderMenuNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_ORDER_MENU_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO ORDER_MENU
+		VALUES (#{orderMenuNo}, #{orderNo}, #{menuNo})
+	</insert>
+	
+	<!-- 주문 메뉴별 옵션  -->
+	<insert id="insertOrderMenuOption" parameterType="CartOption">
+		INSERT INTO ORDER_MENU_OPTION
+		VALUES (#{orderMenuNo}, #{optionNo}, #{optionCount})
+	</insert>
 
  		
 </mapper>
