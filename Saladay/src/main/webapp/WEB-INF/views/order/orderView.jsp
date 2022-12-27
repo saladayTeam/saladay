@@ -36,27 +36,27 @@
                 
                 <div class="view-row">
                     <span class="view-h">주문번호</span>
-                    <span class="view-d">1</span>
+                    <span class="view-d">${order.orderNo}</span>
                 </div>
                 
                 <div class="view-row">
                     <span class="view-h">수령인</span>
-                    <span class="view-d">이성호</span>
+                    <span class="view-d">${order.orderName}</span>
                 </div>
                 
                 <div class="view-row">
                     <span class="view-h">배송주소</span>
-                    <span class="view-d">서울시 중구 남대문로120</span>
+                    <span class="view-d">${order.orderAddress}</span>
                 </div>
                 
                 <div class="view-row">
                     <span class="view-h">수령상품</span>
-                    <span class="view-d">[1주] 샐러드 3팩 패키지</span>
+                    <span class="view-d">${order.cart.packageName}</span>
                 </div>
                 
                 <div class="view-row">
                     <span class="view-h">결제금액</span>
-                    <span class="view-d">53500 원</span>
+                    <span class="view-d">${order.orderPrice} 원</span>
                 </div>
             </div>
         </div>
