@@ -57,108 +57,51 @@
 	                            	</div>
 	                            	<div class="package-detail">
 	                            		<ul>
-	                            			<li>${order.packageName}</li>
+	                            			<li>주문 상품 : ${order.packageName}</li>
 	                            			
 	                            			<li>
-	                            				<span>1주차 배송 ${order.deliveryCode}</span>
+	                            				<span>1주차 배송 : ${order.deliveryCode}</span>
 	                            				<c:if test="${order.packageType==2}">
 	                            				<span>2주차 배송 ${order.deliveryCode}</span>
 	                            				</c:if>
 	                            			</li>
 	                            			<li>주문일자 : ${order.orderDate}</li>
-	                            			<li>수취인 : ${order.orderName}</li>
-	                            			<li> ${order.orderTel}</li>
-	                            			<li>${order.orderAddress}</li>
+	                            			<li>수령인 : ${order.orderName}</li>
+	                            			<li>수령인 연락처 : ${order.orderTel}</li>
+	                            			<li>수령인 주소 : ${order.orderAddress}</li>
 	                            		</ul>
 	                            	</div>
                             	</div>
-                            	
-                            	<div>
-                            		<div class="pack-i"><input type="checkbox" id="icon"><label for="icon"><i class="fa-solid fa-caret-down"></i></label></div>
-                            	</div>
-                            	<div class="show-area"> <!-- 화살표 누르면 고른 메뉴 조회 가능-->
-				                    <li class="order-header">
-				                        <div class="order-menu"><span>주문상품</span></div>
-				                        <div class="order-quantity"><span>수량</span></div>
-				                        <div class="order-price"><span>가격</span></div>
-				                    </li>
-				                    <div class=week>1주</div>
-				                    <c:forEach var="menu" items="${cart.menuList}">
-				                        <div class="order-all">
-				                        <!-- 주문한 메뉴 내용 c:forEach -->
-				                            <%-- 선택 메인 메뉴 --%>
-				                            <li class="order-area">
-				                                <div class="order-menu headline">${menu.menuName}</div>
-				                                <div class="order-quantity headline">1</div>
-				                                <div class="order-price headline">${menu.menuPrice}</div>
-				                            </li>
-				                            <c:forEach var="option" items="${menu.optionList}">
-				                            <%-- 선택한 옵션 --%>
-				                                <li class="order-area">
-				                                    <div class="order-option">${option.optionName}</div>
-				                                    <div class="order-quantity">1</div>
-				                                    <div class="order-price">${option.optionPrice}</div>
-				                                </li>
-				                            </c:forEach>
-				                        </div>
-				                    </c:forEach>
-				
-				                    <c:if test="${cart.packageType==2}">
-				
-				                        <div class=week>2주</div>
-				
-				                        <c:forEach var="menu" items="${cart.menuList}">
-				                            <div class="order-all">
-				                            <!-- 주문한 메뉴 내용 c:forEach -->
-				                                <%-- 선택 메인 메뉴 --%>
-				                                <li class="order-area">
-				                                    <div class="order-menu headline">${menu.menuName}</div>
-				                                    <div class="order-quantity headline">1</div>
-				                                    <div class="order-price headline">${menu.menuPrice}</div>
-				                                </li>
-				                                <c:forEach var="option" items="${menu.optionList}">
-				                                <%-- 선택한 옵션 --%>
-				                                    <li class="order-area">
-				                                        <div class="order-option">${option.optionName}</div>
-				                                        <div class="order-quantity">1</div>
-				                                        <div class="order-price">${option.optionPrice}</div>
-				                                    </li>
-				                                </c:forEach>
-				                            </div>
-				                        </c:forEach>
-				                    </c:if>
+                           		
                             	<!-- 메뉴 -->
                             	<c:forEach var="menu" items="${order.orderMenuList}">
                             		 <div class="menu-list">
-                            		 	<div>
+                            		 	<div class="menu-table">
+                            		 		<ul class="menu-tr">
+                            		 			<li class="menu-td">메뉴 이름</li>
+                            		 			<li>수량</li>
+                            		 			<li>가격</li>
+                            		 		</ul>
                             		 		<ul>
-                            		 			<li><div>${menu.menuName}</div><div class="review-btn" onclick="">리뷰 작성</div></li>
-                            		 			<li>${menu.menuPrice}</li>
+                            		 			<li class="menu-td">${menu.menuName}</li>
+                            		 			<li>1</li>
+                            		 			<li>${menu.menuPrice}원</li>
+                            		 			<li><div class="review-btn" onclick="">리뷰 작성</div></li>
+                            		 		</ul>
                             					
                             					<!-- 옵션 -->
 							                    <c:forEach var="option" items="${menu.optionList}">
 							                    	
 								                    <c:if test="${option.optionCount > 0}">
-								                    <li class="cart-container">
-								                        <div class="cart-package-image"></div>
-								                        <div class="cart-option-info option">
-								                        <span>${option.optionName}</span>
-								                        </div>
-								                        <div class="cart-package-count option">
-								                        <span>${option.optionCount}</span>
-								                        </div>
-								                        <div class="cart-package-price option">
-								                        <span>${option.optionPrice*option.optionCount}</span>
-								                        </div>
-								                        <div class="cart-package-total">
-								                        <span></span>
-								                        </div>
-								                    </li>
+								                    <ul>
+		                            		 			<li class="menu-td">${option.optionName}</li>
+		                            		 			<li>${option.optionCount}</li>
+		                            		 			<li>${option.optionPrice*option.optionCount}</li>
+                            		 				</ul>
+								                    
 								                    </c:if>
 								                    
 							                    </c:forEach>
-							                    
-                            		 		</ul>
                             		 	</div>
                             		 </div>
                             	</c:forEach>
