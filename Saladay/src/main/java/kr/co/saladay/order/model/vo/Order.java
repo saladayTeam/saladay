@@ -31,7 +31,7 @@ public class Order {
 	private int packageNo; // 주문한 패키지 넘버
 	private String packageName;//주문한 패키지 이름
 	private String packageImage; // 주문한 패키지 이미지 경로
-	private int packagePrice; // 주문한 패키지 총 가격
+	private int packageType; // 주문한 패키지 타입
 	
 	private String deliveryCode; //배송코드
 	
