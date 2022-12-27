@@ -75,7 +75,7 @@
   </header>
   <nav>
     <ul>
-      <li><a href="#">주문관리</a></li>
+      <li><a href="/admin/orderManage">주문관리</a></li>
       <li><a href="/admin/delivery">배송관리</a></li>
       <li><a href="#">매출관리</a></li>
       <li><a href="/admin/updateMenu">메뉴관리</a></li>
