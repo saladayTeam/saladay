@@ -3,7 +3,7 @@
 <mapper namespace="menuManageMapper">
 	
 	<!-- resultMap -->
-	<resultMap type="" id="">
+<!-- 	<resultMap type="" id="">
       <id property="" column=""/>
       <result property="" column=""/>
       <result property="" column=""/>
@@ -12,6 +12,6 @@
       <result property="" column=""/>
       <result property="" column=""/>
       <result property="" column=""/>
-	</resultMap>
+	</resultMap> -->
 	
 </mapper>
