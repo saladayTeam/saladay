@@ -3,6 +3,7 @@ package kr.co.saladay.order.model.service;
 import java.util.Map;
 
 import kr.co.saladay.order.model.vo.Order;
+import kr.co.saladay.order.model.vo.OrderDelivery;
 
 public interface OrderService {
 
@@ -10,7 +11,7 @@ public interface OrderService {
 	int insertOrder(Order order);
 
 	// 배송 생성
-	int insertDelivery(Map<String, Object> paramMap);
+	int insertDelivery(Order order, OrderDelivery delivery);
 
 
 }
