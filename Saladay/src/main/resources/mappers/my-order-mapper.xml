@@ -13,7 +13,6 @@
       <result property="orderName" column="ORDER_NAME"/>
       <result property="orderPrice" column="ORDER_PRICE"/>
       <result property="orderTel" column="ORDER_TEL"/>
-      <result property="deliveryCode" column="DELIVERY_CODE"/>
       <collection property="orderMenuList" javaType="java.util.ArrayList" ofType="OrderMenu"
       select="selectOrderMenuList" column="ORDER_NO" />
      
@@ -27,6 +26,8 @@
       <result property="menuPrice" column="MENU_PRICE"/>
       <result property="menuImage" column="MENU_IMG"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
+      <result property="deliveryNo" column="DELIVERY_NO"/>
+      <result property="deliveryCode" column="DELIVERY_CODE"/>
       <collection property="optionList" javaType="java.util.ArrayList" ofType="OrderOption"
       select="selectOptionList" column="ORDER_MENU_NO" />
 	</resultMap> 
@@ -48,7 +49,7 @@
 	<!-- 나의 주문 조회 -->
 	<select id="selectMyOrder" resultMap="order_rm">
 		SELECT ORDER_NO, PACKAGE_NAME, PACKAGE_IMG, PACKAGE_TYPE,
-	   		ORDER_DATE, DELIVERY_CODE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
+	   		ORDER_DATE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
@@ -58,18 +59,19 @@
 		LEFT JOIN "MENU" USING(MENU_NO)
 		WHERE MEMBER_NO = #{memberNo}
 		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,PACKAGE_TYPE,
-			 ORDER_DATE, DELIVERY_CODE,
+			 ORDER_DATE, 
 		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
 		ORDER BY ORDER_NO DESC
 	</select>
  	
  	<!-- 패키지에 담은 메뉴 조회 -->
 	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
-		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG 
+		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG, DELIVERY_NO, DELIVERY_CODE 
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
 		LEFT JOIN "MENU" USING (MENU_NO)
+		LEFT JOIN "DELIVERY" USING (ORDER_NO)
 		WHERE ORDER_NO=#{orderNo}
 		AND MENU_DEL_FL='N'
 		ORDER BY ORDER_MENU_NO

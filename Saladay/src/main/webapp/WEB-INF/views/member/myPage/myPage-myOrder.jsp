@@ -61,7 +61,7 @@
 	                            			<li>
 	                            				<span>1주차 배송 : ${order.deliveryCode}</span>
 	                            				<c:if test="${order.packageType==2}">
-	                            				<span>2주차 배송 ${order.deliveryCode}</span>
+	                            				<span>2주차 배송 : ${order.deliveryCode}</span>
 	                            				</c:if>
 	                            			</li>
 	                            			<li>주문일자 : ${order.orderDate}</li>
@@ -93,7 +93,11 @@
                             		 			<li class="menu-td">${menu.menuName}</li>
                             		 			<li>1</li>
                             		 			<li>${menu.menuPrice}원</li>
+                            		 			
+                            		 			<c:if test="${menu.deliveryCode eq 'D'}">
                             		 			<li><div class="review-btn" onclick="">리뷰 작성</div></li>
+                            		 			</c:if>
+                            		 			
                             		 		</ul>
                             					
                             					<!-- 옵션 -->
@@ -115,33 +119,39 @@
                             	<c:if test="${order.packageType==2}">
                             		<!-- 메뉴 -->
                             		<div class="package-type">2주차</div>
-                            		<div><span>메뉴 이름</span><span>수량</span><span>가격</span></div>
                             		
+	                            	<div class="tr">
+	                            		<span class="tr1">메뉴 이름</span>
+	                            		<span class="tr2">수량</span>
+	                            		<span class="tr3">가격</span>
+	                            	</div>
+	                            	
                             		<c:forEach var="menu" items="${order.orderMenuList}">
-                            			 <div class="menu-list">
-                            			 	<div class="menu-table">
-                            		 		<ul class="menu-tr">
-                            		 			<li class="menu-td">메뉴 이름</li>
-                            		 			<li>수량</li>
-                            		 			<li>가격</li>
-                            		 		</ul>
+                            		 <div class="menu-list">
+                            		 	
+                            		 	<div class="menu-table">
+                            		 		
                             		 		<ul>
                             		 			<li class="menu-td">${menu.menuName}</li>
                             		 			<li>1</li>
                             		 			<li>${menu.menuPrice}원</li>
+                            		 			
+                            		 			<c:if test="${menu.deliveryCode eq 'D'}">
                             		 			<li><div class="review-btn" onclick="">리뷰 작성</div></li>
+												</c:if>
                             		 		</ul>
                             					
-                            				<!-- 옵션 -->
-							                <c:forEach var="option" items="${menu.optionList}">
+                            					<!-- 옵션 -->
+							                    <c:forEach var="option" items="${menu.optionList}">
 							                    	
-								                <c:if test="${option.optionCount > 0}">
-								                <ul>
-		                            		 		<li class="menu-td">${option.optionName}</li>
-		                            		 		<li>${option.optionCount}</li>
-		                            		 		<li>${option.optionPrice*option.optionCount}</li>
-                            		 			</ul>
-								                </c:if>
+								                    <c:if test="${option.optionCount > 0}">
+								                    <ul>
+		                            		 			<li class="menu-td">${option.optionName}</li>
+		                            		 			<li>${option.optionCount}</li>
+		                            		 			<li>${option.optionPrice*option.optionCount}원</li>
+                            		 				</ul>
+								                    </c:if>
+								                    
 							                    </c:forEach>
                             		 	</div>
                             		 </div>
