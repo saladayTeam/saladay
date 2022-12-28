@@ -64,13 +64,14 @@
         </div>
         
         <div class="view-btn-area">
-            <button type="button" class="order-view-btn">주문내역 확인하기</button>
-            <button type="button" class="shopping-btn">계속 쇼핑하기</button>
+            <button type="button" class="order-view-btn" id="myOrderView">주문내역 확인하기</button>
+            <button type="button" class="shopping-btn" id="continueShopping">계속 쇼핑하기</button>
         </div>
     </section>
     
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     
+    <script src="/resources/js/order/orderView.js"></script>
 </body>
 </html>

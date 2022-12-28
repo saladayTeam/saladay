@@ -44,18 +44,7 @@
 			SELECT SEQ_ORDER_NO.NEXTVAL FROM DUAL
 		</selectKey>
 		INSERT INTO "ORDER"
-		VALUES (#{orderNo}, DEFAULT, DEFAULT,
-			(SELECT SUM(MENU_PRICE) + SUM(NVL(TOTAL_OPT_PRICE,0)) TOTAL FROM (
-		   SELECT  M.MENU_PRICE,
-		      (SELECT SUM(NVL(OPTION_PRICE,0) * NVL(CART_OPTION_COUNT,0))  
-		      FROM CART_MENU_OPTION CMO
-		      JOIN "OPTION" O ON(CMO.OPTION_NO = O.OPTION_NO)
-		      WHERE CMO.CART_MENU_NO = CM.CART_MENU_NO) TOTAL_OPT_PRICE
-		   FROM CART C
-		   JOIN CART_MENU CM ON (C.CART_NO = CM.CART_NO)
-		   JOIN MENU M ON (CM.MENU_NO = M.MENU_NO)
-		   WHERE C.MEMBER_NO = #{memberNo})) 
-			, DEFAULT, #{orderName}, #{orderTel}, #{orderAddress}, #{memberNo}, #{packageNo} )
+		VALUES (#{orderNo}, DEFAULT, DEFAULT, #{orderPrice}, DEFAULT, #{orderName}, #{orderTel}, #{orderAddress}, #{memberNo}, #{packageNo} )
 	</insert>
 	
 	
