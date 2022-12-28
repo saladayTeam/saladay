@@ -46,8 +46,8 @@
 	<!-- Delivery resultMap -->
 	<resultMap type="Delivery" id="delivery_rm">
       <id property="deliveryNo" column="DELIVERY_NO"/>
-      <result property="deliveryDate" column="OPTION_NAME"/>
-      <result property="deliveryCode" column="OPTION_PRICE"/>
+      <result property="deliveryDate" column="DELIVERY_DATE"/>
+      <result property="deliveryCode" column="DELIVERY_CODE"/>
       <result property="orderNo" column="ORDER_NO"/>
 	</resultMap> 
 
@@ -100,7 +100,7 @@
  	
 	<!-- 주문 조회 시 배송 조회 -->
 	<select id="selectMyDelivery" resultMap="delivery_rm">
-		SELECT DELIVERY_NO, DELIVERY_CODE, DELIVERY_DATE, ORDER_NO 
+		SELECT DELIVERY_NO, DELIVERY_CODE, TO_CHAR(DELIVERY_DATE, 'YYYY-MM-DD') DELIVERY_DATE, ORDER_NO 
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)

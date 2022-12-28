@@ -51,8 +51,12 @@
                             
                             <div  class="my-order-content">
                             	<div class="order-number">주문번호 ${order.orderNo}</div>
-                            	
-                            	
+                            	 <c:forEach var="delivery" items="${myDelivery}" varStatus="vs" >
+                            	 	<c:if test="${delivery.orderNo == order.orderNo }">
+                            	 	<div> ${delivery.deliveryDate}일자 배송</div>
+                            	 	<div>현재 ${delivery.deliveryCode}</div>
+                            	 	</c:if>
+                            	</c:forEach>
                             	<div class="order-detail">
 	                            	<div class="package-img">
 	                            		<img src="${order.packageImage}" width="180px" height="110px" >
@@ -120,25 +124,11 @@
                             	</c:if>
                             	</div>
                             <div class="order-bottom">
-	                            <div class="delivery-btn" onclick="document.getElementById('modalId${vs.index}').style.display='block'">배송 확인</div>
+	                            <div class="order-cancel-btn" onclick="">주문 취소</div>
 	                            <div class="total-price">결제 금액 : ${order.orderPrice} 원</div>
                             </div>
                             </div>
-                            <div id="modal" class="modal-overlay">
-        					<div class="modal-window">
-						            <div class="title">
-						                <h2>모달</h2>
-						            </div>
-						            <div class="close-area">X</div>
-						            <div class="content">
-						                <p>가나다라마바사 아자차카타파하</p>
-						                <p>가나다라마바사 아자차카타파하</p>
-						                <p>가나다라마바사 아자차카타파하</p>
-						                <p>가나다라마바사 아자차카타파하</p>
-						                
-						            </div>
-						        </div>
-						    </div>
+                           
      
                             </c:forEach>
 							
@@ -155,21 +145,6 @@
 
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-    <%--배송 확인 모달창 --%>
-    <script>
-      const open${order.orderNo} = () => {
-	  document.querySelector(".modal${order.orderNo}").classList.remove("hidden${order.orderNo}");
-	  }
-		
-     
-	  const close${order.orderNo} = () => {
-	    document.querySelector(".modal${order.orderNo}").classList.add("hidden${order.orderNo}");
-	  }
-	 
-	  
-	  document.querySelector(".open-btn-${order.orderNo}").addEventListener("click", open${order.orderNo});
-	  document.querySelector(".close-btn-${order.orderNo}").addEventListener("click", close${order.orderNo});
-	  document.querySelector(".bg${order.orderNo}").addEventListener("click", close${order.orderNo});
-	 </script>
+   
 </body>
 </html>
