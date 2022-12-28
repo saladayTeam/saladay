@@ -1,0 +1,187 @@
+body > div {
+    width: 1200px;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+.admin-order-title {
+margin-top: 30px;
+margin-bottom: 10px;
+}
+
+.admin-order-title > span:first-child {
+font-weight: bold;
+display: flex;
+}
+
+.admin-order-title > span:last-child {
+font-size: 12px;
+font-weight: bold;
+}
+
+.admin-order-table-header {
+    display: flex;
+    font-weight: bold;
+}
+
+.admin-order-container {
+display: flex;
+}
+
+.admin-order-container span {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.admin-order-wrapper {
+border-top: 3px solid #17633d;
+margin-top: 15px;
+padding: 20px;
+}
+
+.admin-order-wrapper > span:first-child {
+font-weight: bold;
+}
+
+.admin-order-package-image {
+flex-basis: 20%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.admin-order-package-info {
+flex-basis: 55%;
+display: flex;
+align-items: center;
+font-weight: bold;
+}
+
+.admin-order-menu-info {
+flex-basis: 55%;
+display: flex;
+align-items: center;
+font-weight: bold;
+}
+
+.admin-order-option-info {
+flex-basis: 55%;
+display: flex;
+align-items: center;
+}
+
+.admin-order-package-info > span {
+margin-left: 20px;
+}
+
+.admin-order-package-count {
+flex-basis: 5%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.admin-order-package-price {
+flex-basis: 10%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.admin-order-package-total {
+flex-basis: 10%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.admin-order-menu-info > span {
+margin-left: 40px;
+}
+
+.admin-order-option-info > span {
+margin-left: 60px;
+}
+
+.week{
+text-align: center;
+padding: 10px;
+font-weight: bold;
+/* border-top: 1px solid #bbb;
+border-bottom: 1px solid #bbb; */
+margin: 5px 0;
+background-color: #ddd;
+border-radius: 10px;
+}
+
+
+/* ------------------------------------------------ */
+
+.delete-admin-order {
+display: flex;
+justify-content: flex-end;
+padding: 20px;
+}
+
+.delete-admin-order > span {
+/* background-color: #17633d; */
+border: 2px solid #bbb;
+color: black;
+border-radius: 20px;
+padding: 10px;
+font-weight: bold;
+font-size: 15px;
+}
+
+.delete-admin-order > span:hover {
+cursor: pointer;
+background-color: #17633d;
+color: white;
+font-weight: bold;
+transition-duration: 0.5s;
+}
+
+.total {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #17633d;
+color: white;
+height: 60px;
+
+border-radius: 20px;
+
+font-size: 15px;
+font-weight: bold;
+
+width: 1200px;
+
+border: none;
+}
+
+.total:hover {
+cursor: pointer;
+}
+
+.total > span:first-child {
+margin-right: 20px;
+}
+
+.menu {
+font-weight: bold;
+}
+
+.option {
+font-size: 12px;
+}
+
+.admin-order-empty {
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 20px;
+color: #bbb;
+height: 300px;
+}
