@@ -38,3 +38,39 @@ events: [
     }
 ]
 })
+
+
+// 리스트 가져오기
+$.ajax({
+  url : "/admin/delivery", // 리스트를 받아올 경로
+  data : {"groupNo": groupNo}, 
+  type : "GET", // 요청 방식
+  dataType : "JSON", // 응답 데이터 형식
+
+  success : (planList) => { // controller에서 받아온 데이터
+  for(let item of planList) {
+
+      if(item.planAllday==='Y') { // 시간을 설정 안한경우
+          calendar.addEvent({
+              id: item.planNo,
+              title: item.planTitle,
+              start: item.planStart,
+              end : item.planEnd,
+              allDay: true,
+              backgroundColor: item.planColor,
+          });
+      }
+
+      if(item.planAllday==='F') { // 시간을 설정한 경우
+          calendar.addEvent({
+              id: item.planNo,
+              title: item.planTitle,
+              start: item.planStart,
+              end : item.planEnd,
+              allDay: false,
+              backgroundColor: item.planColor,
+          });
+      }
+  }
+  }
+})

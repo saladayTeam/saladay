@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.saladay.cart.model.vo.CartMenu;
 import kr.co.saladay.cart.model.vo.CartOption;
 import kr.co.saladay.order.model.vo.Order;
+import kr.co.saladay.order.model.vo.OrderDelivery;
 
 @Repository
 public class OrderDAO {
@@ -33,8 +34,9 @@ public class OrderDAO {
 		return sqlSession.insert("orderMapper.insertOrderMenuOption", orderOption);
 	}
 
-	public int insertDelivery(Map<String, Object> paramMap) {
-		return sqlSession.insert("orderMapper.insertDelivery", paramMap);
+	// 배송 생성
+	public int insertDelivery(OrderDelivery delivery) {
+		return sqlSession.insert("orderMapper.insertDelivery", delivery);
 	}
 
 	

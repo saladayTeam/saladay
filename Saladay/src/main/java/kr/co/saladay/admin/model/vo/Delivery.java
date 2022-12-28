@@ -21,6 +21,4 @@ public class Delivery {
 	private String deliveryStatus; // 배송상태
 	private String orderDelFl; // 주문취소상태
 	
-	
-
 }
