@@ -1,4 +1,4 @@
-console.log("메뉴관리");
+console.log("회원관리");
 
 const allCheck = document.getElementById("allCheck");
 const chks = document.getElementsByName("rowCheck");
@@ -14,6 +14,8 @@ const chks = document.getElementsByName("rowCheck");
     });
 })();
 
+
+// 회원탈퇴처리
 function deleteValue(){
     const valueArr = new Array();
     const list = chks;
@@ -27,22 +29,22 @@ function deleteValue(){
     console.log(valueArr);
     
     if(valueArr.length==0){
-        alert("선택된 메뉴가 없습니다.");
+        alert("선택된 회원이 없습니다.");
     
     } else {
-        if(confirm("정말로 삭제하시겠습니까?")) {
+        if(confirm("탈퇴시키겠습니까?")) {
             // console.log("ajax연결해서 삭제하기");
 
             $.ajax({
-                url : "/admin/deleteMenu",
+                url : "",
                 type : "post",
                 data : {valueArr:valueArr},
                 success : function() {
-                    alert("선택하신 메뉴가 삭제되었습니다.");
-                    location.reload("/admin/updateMenu"); // 페이지 새로고침
+                    alert("");
+                    location.reload(""); // 페이지 새로고침
                 },
                 error: function(){
-                    alert("메뉴 삭제 실패")
+                    alert("실패")
                 }
             })
         }
@@ -50,13 +52,4 @@ function deleteValue(){
 }
 
 
-// 메뉴 추가 팝업창
-const addBtn = document.getElementById("addBtn");
-
-if(addBtn!= null) {
-    addBtn.addEventListener("click", function(){
-        const options = "width=610, height=600, left=-200, top=-900";
-        window.open("/admin/registMenu", "popupWindow", options)
-    })
-}
 

@@ -408,3 +408,10 @@ li {
     background-color: #17633D;
     color: white !important;
 }
+
+.idx-tit {
+    min-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
