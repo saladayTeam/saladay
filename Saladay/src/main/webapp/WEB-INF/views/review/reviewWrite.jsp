@@ -8,17 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>리뷰 쓰기</title>
 
-    <link rel="stylesheet" href="../../resources/css/review/reviewWrite.css">
-    <link rel="stylesheet" href="../../resources/css/main/header.css">
-    <link rel="stylesheet" href="../../resources/css/main/footer.css">
+    <link rel="stylesheet" href="/resources/css/review/reviewWrite.css">
+    <link rel="stylesheet" href="/resources/css/main/header.css">
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
 </head>
 <body>
-    header
-    <!-- <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include> -->
+    <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     <main>
         <div class="my-page-content">
-            myPage-list
-        <!-- <jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include> -->
+			<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
             <div class="right-side">
                 <div class="my-info-list">
                     <div class="my-page-header">
@@ -61,7 +59,6 @@
             </div>
         </div>
     </main>
-    footer
-    <!-- <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include> -->
+    <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
 </html>
