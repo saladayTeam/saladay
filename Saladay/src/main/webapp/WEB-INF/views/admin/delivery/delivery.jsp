@@ -72,6 +72,10 @@
           <%-- </div>
       </div> --%>
 
+      <div>
+        ${list}
+      </div>
+
 
     </main>
 

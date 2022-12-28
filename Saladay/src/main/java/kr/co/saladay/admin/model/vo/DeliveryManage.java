@@ -21,5 +21,6 @@ public class DeliveryManage {
 	private String deliveryStatus; // 배송상태
 	private String orderDelFl; // 주문취소상태
 	private String deliveryCode; // 배송코드
+	private int deliveryNo; // 배송번호
 	
 }
