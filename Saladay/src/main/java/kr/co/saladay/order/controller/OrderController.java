@@ -75,7 +75,12 @@ public class OrderController {
 		}
 		
 		// 주문 가격=카트 가격
-		order.setOrderPrice(cart.getPackagePrice());
+		if(cart.getPackageType()==1) {
+			order.setOrderPrice(cart.getPackagePrice());
+			// 2주 패키지일때 10% 할인 가격
+		} else { 
+			order.setOrderPrice((int)(cart.getPackagePrice()*0.9));
+		}
 		
 		String path="";
 		String message="";
@@ -92,7 +97,7 @@ public class OrderController {
 			int insertDelivery=service.insertDelivery(order,delivery);
 			
 			// 2주 패키지 일때 2번째 배송요청일 추가
-			if(order.getCart().getPackageType()==2) {
+			if(cart.getPackageType()==2) {
 				delivery.setDeliveryDate(deliveryDate2);
 				int insertDelivery2=service.insertDelivery(order,delivery);
 			}

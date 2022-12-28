@@ -131,16 +131,51 @@ if ("$(#deliveryDate)" != null) {
   });
 }
 
-//문서가 준비되면 제일 먼저 실행
-$(document).ready(function () {
-  $("#payBtn").click(function () {
-    payment(); //버튼 클릭하면 호출
-  });
-});
+const orderPostcode=document.getElementById("sample6_postcode");
+const deliveryDate=document.getElementById("deliveryDate");
+const deliveryDate2=document.getElementById("deliveryDate2");
+
 
 //카카오 결제 API
 
+//문서가 준비되면 제일 먼저 실행
+// $(document).ready(function () {
+//   $("#payBtn").click(function () {
+//     payment(); //버튼 클릭하면 호출
+//   });
+// });
+
 function payment() {
+
+  if(memberAddress.trim().length==0&orderPostcode.value.trim().length==0){
+    alert("주소를 입력해주세요");
+    orderPostcode.focus();
+    return false;
+  }
+
+  if(deliveryDate2==null){
+    if(deliveryDate.value.trim().length==0){
+      alert("1차 배송일을 선택해주세요");
+      deliveryDate.focus();
+      return false;
+    }
+  } else {
+    if(deliveryDate.value.trim().length==0&deliveryDate2.value.trim().length==0){
+      alert("배송일을 선택해주세요");
+      deliveryDate.focus();
+      return false;
+    } else if (deliveryDate.value.trim().length==0&!deliveryDate2.value.trim().length==0){
+      alert("1차 배송일을 선택해주세요");
+      deliveryDate.focus();
+      return false;
+    } else if(!deliveryDate.value.trim().length==0&deliveryDate2.value.trim().length==0){
+      alert("2차 배송일을 선택해주세요");
+      deliveryDate2.focus();
+      return false;
+    }
+    }
+  }
+
   var IMP = window.IMP; // 생략가능
   IMP.init("imp50312116"); // 가맹점 식별코드
   // IMP.request_pay(param, callback) 결제창 호출
@@ -156,7 +191,7 @@ function payment() {
       buyer_email: memberEmail,
       buyer_name: memberName,
       buyer_tel: memberTel,
-      buyer_addr: memberAddress,
+      // buyer_addr: memberAddress,
     },
     function (rsp) {
       //callback

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +48,7 @@
                 
                 <div class="view-row">
                     <span class="view-h">배송주소</span>
-                    <span class="view-d">${order.orderAddress}</span>
+                    <span class="view-d">${fn:replace(order.orderAddress, ',,', ' ')}</span>
                 </div>
                 
                 <div class="view-row">
@@ -56,7 +58,7 @@
                 
                 <div class="view-row">
                     <span class="view-h">결제금액</span>
-                    <span class="view-d">${order.orderPrice} 원</span>
+                    <span class="view-d"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${order.orderPrice}" /> 원</span>
                 </div>
             </div>
         </div>

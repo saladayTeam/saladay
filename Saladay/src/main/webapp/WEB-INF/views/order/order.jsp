@@ -62,10 +62,9 @@
                         <!-- 주소 입력 영역 -->
                         <p>
                             <span class="o-th"> 수령인 주소 </span>
-                            <span class="o-td">
-                                <input type="checkbox" id="memberAddr"><label for="memberAddr"> 기본 배송지 선택</label>
-                                <input type="hidden" name="memberAddress" value="${fn:replace(loginMember.memberAddress, ',,', ' ')}"><!-- 회원의 기본 배송지 -->
-                            </span>
+                            <%-- <span class="o-td">
+                                <input type="checkbox" id="memberAddr" name="newAddress"><label for="memberAddr"> 기본 배송지 선택</label>
+                            </span> --%>
                         </p>
                             
                         <p class="address-area">
@@ -227,7 +226,15 @@
         // 결제 정보 전달을 위한 변수 선언
         const packageName="${cart.packageName}"; // 주문한 패키지 이름
         const memberName="${loginMember.memberName}"; // 주문한 멤버 이름
-        const packagePrice="${cart.packagePrice}"; // 주문한 패키지 가격
+
+        // 주문한 패키지 가격
+        let packagePrice=0;
+        if("${cart.packageType==1}"){
+            packagePrice=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" />;
+        } else {
+            packagePrice=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice*0.9}" />;
+        }
+
         const memberEmail="${loginMember.memberEmail}"; // 주문한 멤버 아이디(이메일)
         const memberTel="${loginMember.memberTel}"; // 주문한 멤버 전화번호
         const memberAddress="${loginMember.memberAddress}"; // 주문한 멤버 주소
