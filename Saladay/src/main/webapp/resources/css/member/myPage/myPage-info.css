@@ -246,8 +246,84 @@ main {
 }
  
 
-/*회원탈퇴 페이지***************************************/
+/*회원탈퇴 페이지*********************************************************/
 .my-secession-content {
     line-height: 180%;
 }
 
+.agree-detail {
+	width: 640px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: bolder;
+    list-style: none;
+    border: #ddd 2px solid;
+  	padding: 15px;
+}
+
+.open-btn-2 {
+	font-weight:lighter;
+	font-size: 12px;
+	margin-left:10px;
+}
+
+
+.agree-detail input{
+	margin-left:400px;
+}
+
+input[type="checkbox"]{
+
+width: 14px; 
+
+height: 14px; 
+
+}
+
+/*개인정보 처리방침 모달***********************************/
+.modal2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1210;
+}
+
+
+.modal2 .bg2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-2 {
+    position: absolute;
+    background-color: #fff;
+    width:700px;
+    height:300px;
+    padding: 15px;
+}
+
+.close-btn-2 {
+    display: block;
+    width: 20px;
+    margin-left:650px;
+    margin-bottom:10px;
+}
+
+.hidden2 {
+    display: none;
+}
+
+textarea{
+	width: 100%;
+    height: 80%;
+    border: none;
+    outline:none;
+    resize: none;
+    font-family: 'SUIT-Regular';
+}
