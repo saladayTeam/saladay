@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메뉴 등록</title>
     <link rel="stylesheet" href="/resources/css/admin/menuManage/registMenuPopup.css">
-    <script src="https://kit.fontawesome.com/2aa49fc46f.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="update-menu-popup">
@@ -20,10 +20,11 @@
             </caption>
 
             <colgroup>
-                <col style="width: 15%">
-                <col style="width: 75%"> 
+                <col style="width: 20%">
+                <col style="width: 80%"> 
             </colgroup>
-
+            
+        <form action="/admin/updateMenu" method="POST" enctype="multipart/form-data" id="registFrm" onsubmit="return registValidate();">
             <tbody>
                 <tr class="t-row">
                     <th><label for="menuName">메뉴명</label></th>
@@ -31,21 +32,20 @@
                         <input type="text" placeholder="메뉴명을 입력하세요." id="menuName" name="menuName">
                     </td>
                 </tr>
-                <tr class="t-row">
-                    <th><label for="menuImage">메뉴사진</label></th>
+                <%-- <tr class="t-row">
+                    <th><label for="inputMenu">메뉴사진</label></th>
                     <td>
                         <div class="img-box">
                             <div class="preview-area">
-                                <img id="profile-image" src="/resources/images/review/reviewImg.png">
-                                <span id="delete-image"><i class="fa-thin fa-delete-left"></i></span>
+                                <img id="menu-image" src="/resources/images/review/reviewImg.png">
+                            <span id="delete-image">&times;</span>
                             </div>
                             <div class="menu-img-area">
-                                <input type="file" id="menuImage" name="menuImage" accept="image/*">
-                                <button>사진선택</button>
+                                <input type="file" id="inputMenu" name="menuImage" accept="image/*">
                             </div>
                         </div>
                     </td>
-                </tr>
+                </tr> --%>
                 <tr class="t-row">
                     <th><label for="menuContent">메뉴설명</label></th>
                     <td>
@@ -61,16 +61,17 @@
                 <tr class="t-row">
                     <th><label for="calorie">칼로리</label></th>
                     <td>
-                        <input type="text" placeholder="칼로리는 숫자만 입력하세요." id="calorie" name="calorie">
+                        <input type="text" placeholder="칼로리는 숫자만 입력하세요." id="menuCalorie" name="menuCalorie">
                     </td>
                 </tr>
             </tbody>
         </table>
 
         <div class="menu-btn-area">
-            <button type="button" id="registBtn"><strong>메뉴등록</strong></button>
+            <button id="registBtn"><strong>메뉴등록</strong></button>
             <button type="button" id="closeBtn"><strong>취소</strong></button>
         </div> 
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="/resources/js/admin/menuManage/registMenuPopup.js"></script>
