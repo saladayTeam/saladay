@@ -1,14 +1,20 @@
 package kr.co.saladay.admin.controller;
 
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.saladay.admin.model.service.MenuManageService;
+import kr.co.saladay.menu.model.vo.Menu;
 
 
 @Controller
@@ -69,9 +75,30 @@ public class MenuManageController {
 	}
 	
 	
-	@GetMapping("/registMenuPopup")
+	// 메뉴 등록 팝업창
+	@GetMapping("/admin/registMenu")
 	public String menuPopup() {
 		return "/admin/menuManage/registMenuPopup";
+	}
+	
+	
+	// 새 메뉴 등록
+	@PostMapping("/admin/updateMenu")
+	public String registMenu(/*@RequestParam(value="menuImage") MultipartFile menuImage*/ // 업로드 된 메뉴 이미지
+							Menu registFrm, // 메뉴
+							RedirectAttributes ra, // 메세지 전달용
+							HttpServletRequest req // 저장할 서버 경로
+							) throws Exception {
+	
+		System.out.println(registFrm);
+		// 업로드 된 파일의 서버 내부 경로 준비
+		String webPath = "/resources/images/menu/salad/";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		
+		String message = null;
+		
+		return null;
 	}
 	
 }
