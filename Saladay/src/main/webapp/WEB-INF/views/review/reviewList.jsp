@@ -25,7 +25,7 @@
     <main>
         <div class="review-list-area">
             <div class="review-title">
-                <h1 class="main-title">전체 샐러드 리뷰</h1>
+                <h1 class="review-main-title">전체 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
                 <input type="radio" name="review-check">

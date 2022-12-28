@@ -30,6 +30,7 @@
     border-bottom: 3px solid #17633d;
     padding-bottom: 80px;
     margin: 50px 0 auto auto;
+    font-family: "NanumSquareNeo-Variable" !important;
 }
 
 .fa-circle-left{
@@ -47,7 +48,7 @@
     color: #17633d;
 }
 
-.main-title {
+.review-main-title {
     font-size: 32px;
 /*     margin-bottom: 20px; */
 }
