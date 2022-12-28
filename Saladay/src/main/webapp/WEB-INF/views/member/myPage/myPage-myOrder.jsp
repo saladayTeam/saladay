@@ -95,7 +95,7 @@
                             		 			<li>${menu.menuPrice}원</li>
                             		 			
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
-                            		 			<li><div class="review-btn" onclick="">리뷰 작성</div></li>
+                            		 			<li><div class="review-btn" onclick="location='/review/write'">리뷰 작성</div></li>
                             		 			</c:if>
                             		 			
                             		 		</ul>
@@ -137,7 +137,7 @@
                             		 			<li>${menu.menuPrice}원</li>
                             		 			
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
-                            		 			<li><div class="review-btn" onclick="">리뷰 작성</div></li>
+                            		 			<li><div class="review-btn" onclick="location='/review/write'">리뷰 작성</div></li>
 												</c:if>
                             		 		</ul>
                             					
