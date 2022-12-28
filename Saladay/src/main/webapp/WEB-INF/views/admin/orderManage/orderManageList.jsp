@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/admin/admin.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
-    <link rel="stylesheet" href="/resources/css/admin/orderManage/adminOrderList.css">
+    <link rel="stylesheet" href="/resources/css/admin/orderManage/orderManageList.css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
@@ -41,7 +41,7 @@
             </thead>
             <tbody>
                 <c:forEach var="order" items="${orderList}">
-                    <tr><a href="/admin/orderManage/${order.orderNo}">
+                    <tr onClick="location.href='/admin/orderManage/${order.orderNo}'" class="admin-order-click">
                         <td>${order.orderNo}</td>
                         <td>${order.orderDate}</td>
                         <td>${order.packageName}</td>
@@ -56,7 +56,7 @@
                         <c:if test="${order.orderDeleteFlag=='A'}">
                         <td>취소완료</td>
                         </c:if>
-                    </a></tr>
+                    </tr>
                 </c:forEach>
             </tbody>
         </table>
@@ -88,4 +88,5 @@
     </main>
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
+    <script src="/resources/js/admin/orderManage/orderManageList.js"></script>
 </html>
