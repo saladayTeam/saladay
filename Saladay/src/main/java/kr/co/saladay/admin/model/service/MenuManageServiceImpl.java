@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.admin.model.dao.MenuManageDAO;
 import kr.co.saladay.admin.model.vo.OrderManagePagination;
-import kr.co.saladay.admin.model.vo.Pagination;
 import kr.co.saladay.menu.model.vo.Menu;
 import kr.co.saladay.menu.model.vo.Option;
 import kr.co.saladay.review.model.vo.Review;
@@ -27,7 +26,7 @@ public class MenuManageServiceImpl implements MenuManageService {
 		
 		int cnt = dao.getMenuCount();
 
-		Pagination pagination = new Pagination(cnt, cp);
+		OrderManagePagination pagination = new OrderManagePagination(cnt, cp);
 		
 		List<Menu> menuList = dao.selectMenuList(pagination);
 		
@@ -53,7 +52,7 @@ public class MenuManageServiceImpl implements MenuManageService {
 		
 		int cnt = dao.getOptionCount();
 		
-		Pagination pagination = new Pagination(cnt, cp);
+		OrderManagePagination pagination = new OrderManagePagination(cnt, cp);
 		
 		List<Option> optionList = dao.selectOptionList(pagination);
 		
