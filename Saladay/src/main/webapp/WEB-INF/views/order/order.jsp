@@ -229,10 +229,10 @@
 
         // 주문한 패키지 가격
         let packagePrice=0;
-        if("${cart.packageType==1}"){
-            packagePrice=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" />;
+        if(${cart.packageType}==1){
+            packagePrice="${cart.packagePrice}";
         } else {
-            packagePrice=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice*0.9}" />;
+            packagePrice="${cart.packagePrice*0.9}";
         }
 
         const memberEmail="${loginMember.memberEmail}"; // 주문한 멤버 아이디(이메일)
