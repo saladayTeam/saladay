@@ -1,6 +1,7 @@
 #calendar{
     width: 100%;
     margin: 65px;
+    height: 800px;
 }
 
 .fc-toolbar-chunk{

@@ -8,7 +8,7 @@
     <meta charset='utf-8' />
     <%-- <link href='../../resources/css/calendar/main.css' rel='stylesheet' />
     <script src='../../resources/js/calendar/main.js'></script> --%>
-    <script src='/resources/js/callendar/fullcalendar-6.0.1/dist/index.global.js'></script>
+    <script src='/resources/js/calendar/fullcalendar-6.0.1/dist/index.global.js'></script>
  
     <link rel="stylesheet" href="../../resources/css/admin/calendar/calendar.css">
     <%-- <script>
@@ -72,11 +72,11 @@
           <%-- </div>
       </div> --%>
 
-      
 
     </main>
 
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-    <script src="/resources/js/callendar/callendar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="/resources/js/calendar/calendar.js"></script>
   </body>
 </html>

@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Delivery {
+public class DeliveryManage {
 	
 	private String deliveryDate; // 배송받을 날짜
 	private String orderName; // 수신자명
@@ -20,5 +20,6 @@ public class Delivery {
 	private int orderPrice;  // 상품금액
 	private String deliveryStatus; // 배송상태
 	private String orderDelFl; // 주문취소상태
+	private String deliveryCode; // 배송코드
 	
 }
