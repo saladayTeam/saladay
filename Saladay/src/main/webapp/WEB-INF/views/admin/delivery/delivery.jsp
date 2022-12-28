@@ -8,10 +8,10 @@
     <meta charset='utf-8' />
     <%-- <link href='../../resources/css/calendar/main.css' rel='stylesheet' />
     <script src='../../resources/js/calendar/main.js'></script> --%>
-    <script src='/resources/js/calendar/fullcalendar-6.0.1/dist/index.global.js'></script>
+    <script src='/resources/js/callendar/fullcalendar-6.0.1/dist/index.global.js'></script>
  
     <link rel="stylesheet" href="../../resources/css/admin/calendar/calendar.css">
-    <script>
+    <%-- <script>
 
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -30,27 +30,28 @@
             center: "prev title next",
             end: 'dayGridMonth,dayGridWeek,dayGridDay'
             },
-          events: [{
-        title: '이미나', 
-        start: '2022-12-14',
-        end: '2022-12-14' 
-        , backgroundColor: "green"
-      },
-      {
-        title: '이고미', 
-        start: '2022-12-15',
-        end: '2022-12-15',
-        backgroundColor: "green",
-        border: "solid 1px green"
-      }]
-      ,eventClick:function(info){
+      //     events: [{
+      //   title: '이미나', 
+      //   start: '2022-12-14',
+      //   end: '2022-12-14' 
+      //   , backgroundColor: "green"
+      // },
+      // {
+      //   title: '이고미', 
+      //   start: '2022-12-15',
+      //   end: '2022-12-15',
+      //   backgroundColor: "green",
+      //   border: "solid 1px green"
+      // }]
+      // ,
+      eventClick:function(info){
           window.location.href(info.event.url);
           }
         });
         calendar.render();
       });
       
-    </script>
+    </script> --%>
 
 
     <link rel="stylesheet" href="/resources/css/main/header.css">
@@ -76,6 +77,6 @@
     </main>
 
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-    <script src="/resources/js/calendar/callendar.js"></script>
+    <script src="/resources/js/callendar/callendar.js"></script>
   </body>
 </html>

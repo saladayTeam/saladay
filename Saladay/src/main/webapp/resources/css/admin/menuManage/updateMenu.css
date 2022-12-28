@@ -24,14 +24,19 @@
 #addBtn, #delBtn, #updateBtn {
     width: 100px;
     height: 35px;
-    background-color: #17633d;
-    color: white;
-    border: none;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
     border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
 }
 
+#addBtn:hover, #delBtn:hover {
+    background-color: #17633d;
+    color: white;
+    border: none;
+}
 
 table {
     width: 100%;
@@ -49,6 +54,43 @@ table td {
     border-bottom: 1px solid #ddd;
     height: 40px;
     text-align: center;
+}
+
+.menu-n a{
+    text-decoration: none;
+    color: black;
+}
+
+/* 페이지네이션 */
+.pagination {
+    margin: 50px auto;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    font-size: 13px;
+}
+
+.pagination > li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    letter-spacing: -2px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+/* 현재 페이지 번호 */
+.pagination .current{
+    color: #17633d;
+    font-weight: bold;
 }
 
 
