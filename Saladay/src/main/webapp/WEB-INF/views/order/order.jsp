@@ -206,7 +206,7 @@
                     <span class="check-info-head headline">총 금액</span>
                     <c:choose>
                         <c:when test="${cart.packageType==1}">
-                            <span class="check-info-data headline">${cart.packagePrice} 원</span>
+                            <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" /> 원</span>
                         </c:when>
                         <c:otherwise>
                             <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice*0.9}" /> 원</span>
