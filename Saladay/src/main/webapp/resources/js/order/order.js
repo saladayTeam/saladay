@@ -174,7 +174,6 @@ function payment() {
       return false;
     }
     }
-  }
 
   var IMP = window.IMP; // 생략가능
   IMP.init("imp50312116"); // 가맹점 식별코드
@@ -207,5 +206,5 @@ function payment() {
       }
       $("#final-support-submit").submit();
     }
-  );
-}
+  )
+  }
