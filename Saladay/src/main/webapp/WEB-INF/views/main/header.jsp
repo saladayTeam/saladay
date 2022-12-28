@@ -37,50 +37,23 @@
       <ul class="header-menu">
         <c:choose>
           <c:when test="${loginMember.authority==99}">
-            <c:choose>
-              <c:when test="${checkCart==0}">
-                <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"
+            <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"
                     alt=""
                     width="25px"
                     height="25px"
                     id="cart"/>
-                  </a>
-                </li>
-              </c:when>
-              <c:otherwise>
-                <li><a id="cart-img"><img src="/resources/images/main/shopping-cart-full.png"
-                    alt=""
-                    width="25px"
-                    height="25px"
-                    id="cart"/>
-                  </a>
-                </li>
-              </c:otherwise>
-            </c:choose>
-            
+                </a>
+              </li>
             <li><a href="/admin">관리자 메뉴</a></li>
           </c:when>
           <c:otherwise>
-            <c:choose>
-              <c:when test="${checkCart==0}">
-                <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"
+            <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"
                     alt=""
                     width="25px"
                     height="25px"
                     id="cart"/>
-                  </a>
-                </li>
-              </c:when>
-              <c:otherwise>
-                <li><a id="cart-img"><img src="/resources/images/main/shopping-cart-full.png"
-                    alt=""
-                    width="25px"
-                    height="25px"
-                    id="cart"/>
-                  </a>
-                </li>
-              </c:otherwise>
-            </c:choose>
+                </a>
+              </li>
           </c:otherwise>
         </c:choose>
         
