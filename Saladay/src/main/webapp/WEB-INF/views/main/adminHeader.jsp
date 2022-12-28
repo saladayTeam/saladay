@@ -80,7 +80,7 @@
       <li><a href="#">매출관리</a></li>
       <li><a href="/admin/updateMenu">메뉴관리</a></li>
       <li><a href="/admin/updateOption">옵션관리</a></li>
-      <li><a href="#">회원관리</a></li> 
+      <li><a href="/admin/memberManage">회원관리</a></li> 
     </ul>
   </nav>
 

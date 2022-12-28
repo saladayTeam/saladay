@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberManageMapper">
+
+	<resultMap type="Member" id="member_rm">
+		<id property="memberNo" column="MEMBER_NO"/>
+		<result property="memberEmail" column="MEMBER_EMAIL"/>
+		<result property="memberPw" column="MEMBER_PW"/>
+		<result property="memberNickname" column="MEMBER_NICKNAME"/>
+		<result property="memberName" column="MEMBER_NAME"/>
+		<result property="memberTel" column="MEMBER_TEL"/>
+		<result property="memberAddress" column="MEMBER_ADDRESS"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="authority" column="AUTHORITY"/>
+		<result property="memberDeleteFlag" column="MEMBER_DEL_FL"/>
+	</resultMap>
+
+	<!-- 회원 수 조회 -->
+	<select id="getMemberCount" parameterType="_int" resultType="_int">
+	SELECT COUNT(*) FROM "MEMBER"
+	</select>
+	
+	<select id="selectMemberList" resultMap="member_rm">
+	SELECT MEMBER_NO, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_TEL, TO_CHAR(ENROLL_DATE, 'yyyy.MM.dd') ENROLL_DATE, MEMBER_DEL_FL 
+	FROM MEMBER
+	ORDER BY MEMBER_NO DESC
+	</select>
+	
+	
+	
+</mapper>

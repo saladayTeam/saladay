@@ -92,11 +92,10 @@ public class MenuManageController {
 	
 		System.out.println(registFrm);
 		// 업로드 된 파일의 서버 내부 경로 준비
-		String webPath = "/resources/images/menu/salad/";
-		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+//		String webPath = "/resources/images/menu/salad/";
+//		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 		
 		
-		String message = null;
 		
 		return null;
 	}
