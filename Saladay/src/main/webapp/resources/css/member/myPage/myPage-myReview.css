@@ -106,6 +106,23 @@ main {
 }
 
 /*리뷰 내용--------------------------------------*/
+.review-del-btn {
+    width: 60px;
+    height: 20px;
+    font-size: 10px;
+    font-weight: bolder;
+    color: white;
+    background-color: #17633d;
+    
+    margin-left:340px;
+    margin-bottom:5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    text-align : center;
+    line-height : 20px;
+    text-align : center;
+}
 
 .my-review-detail {
     width: 640px;
@@ -145,7 +162,6 @@ main {
 .content {
 	width: 400px;
 	margin-left: 20px;
-	padding-top:20px;
 }
 
 .content li {
@@ -194,4 +210,7 @@ main {
 	color:white;
 }
 
+.hide {
+	display:none;
+}
 
