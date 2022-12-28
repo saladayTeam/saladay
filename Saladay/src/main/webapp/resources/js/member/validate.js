@@ -41,7 +41,8 @@ const memberTelMessage = document.getElementById("memberTelMessage");
 const addressBtn = document.getElementById("addressSearch");
 
 // 약관
-const agree = document.getElementById("agree1");
+const agree1 = document.getElementById("agree1");
+const agree2 = document.getElementById("agree2");
 
 const lastPathName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 
@@ -90,18 +91,26 @@ form.addEventListener("submit", e=>{
         }
     }
     if(lastPathName == "secession") {
+        if(document.querySelectorAll("input[type='checkbox']:checked").length != 1) {   // 약관 1개가 체크 되어있지 않으면
+            alert("약관에 동의해주세요");
+            e.preventDefault();
+            return;
+        }
         if(!confirm("정말 탈퇴하시겠습니까?")) {
             e.preventDefault();
         }
     }
 
-    if(agree != null) {
-        if(document.querySelectorAll("input[type='checkbox']:checked").length != 2) {   // 약관 2개가 모두 체크 되어있지 않으면
-            alert("약관에 동의해주세요");
-            e.preventDefault();
-            return;
+    // 회원 가입약관 동의
+    if(lastPathName == "signUp") {
+        if(agree1 != null || agree2 != null) {
+            if(document.querySelectorAll("input[type='checkbox']:checked").length != 2) {   // 약관 2개가 모두 체크 되어있지 않으면
+                alert("약관에 동의해주세요");
+                e.preventDefault();
+                return;
+            }
         }
-    }
+    } 
 });
 
 // 이메일 -------------------------------------------------------------------------------------------------------
