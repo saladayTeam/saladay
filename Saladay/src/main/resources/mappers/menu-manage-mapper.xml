@@ -2,16 +2,77 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="menuManageMapper">
 	
-	<!-- resultMap -->
-<!-- 	<resultMap type="" id="">
-      <id property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-	</resultMap> -->
+		<!-- Menu resultMap -->
+	<resultMap type="Menu" id="menu_rm">
+      <id property="menuNo" column="MENU_NO"/>
+      <result property="menuName" column="MENU_NAME"/>
+      <!-- <result property="menuPrice" column="MENU_PRICE"/> -->
+      <result property="price" column="MENU_PRICE"/>
+      <result property="menuImage" column="MENU_IMG"/>
+      <result property="menuContent" column="MENU_CONTENT"/>
+      <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
+      <result property="menuCalorie" column="CALORIE"/>
+	</resultMap>
+
+
+	<!-- Option resultMap -->
+	<resultMap type="Option" id="option_rm">
+      <id property="optionNo" column="OPTION_NO"/>
+      <result property="optionType" column="OPTION_TYPE"/>
+      <result property="optionName" column="OPTION_NAME"/>
+      <result property="optionImage" column="OPTION_IMG"/>
+      <!-- <result property="optionPrice" column="OPTION_PRICE"/> -->
+      <result property="price" column="OPTION_PRICE"/>
+      <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+      <result property="optionCalorie" column="CALORIE"/>
+	</resultMap>
+	
+	<!-- Package resultMap -->
+	<resultMap type="Package" id="package_rm">
+      <id property="packageNo" column="PACKAGE_NO"/>
+      <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageType" column="PACKAGE_TYPE"/>
+      <result property="packageImage" column="PACKAGE_IMG"/>
+	</resultMap>
+	
+	<!-- 메뉴 갯수 조회 -->
+	<select id="getMenuCount" parameterType="_int" resultType="_int">
+	SELECT COUNT(*) FROM "MENU" WHERE MENU_DEL_FL = 'N'
+	</select>
+	
+	<!-- 메뉴 조회  -->
+	<select id="selectMenuList" resultMap="menu_rm">
+	SELECT MENU_NO, MENU_NAME, MENU_IMG, MENU_CONTENT,CALORIE, 
+				 REGEXP_REPLACE(REVERSE(REGEXP_REPLACE(REVERSE(TO_CHAR(MENU_PRICE)), '([0-9]{3})','\1,')), '^,','') MENU_PRICE 
+	FROM MENU 
+	WHERE MENU_DEL_FL = 'N'
+	</select>
+	
+	<!-- 메뉴 삭제 -->
+	<update id="menuDelete">
+		UPDATE MENU SET MENU_DEL_FL = 'Y'
+		WHERE MENU_NO = #{menuNo}
+	</update>
+	
+	
+	<!-- 옵션 개수 조회 -->
+	<select id="getOptionCount" parameterType="_int" resultType="_int">
+	SELECT COUNT(*) FROM "OPTION" WHERE OPTION_DEL_FL = 'N'
+	</select>
+	
+	<!-- 옵션 조회 -->
+	<select id="selectOptionList" resultMap="option_rm">
+	SELECT OPTION_NO, OPTION_TYPE, OPTION_NAME, OPTION_IMG, CALORIE, 
+				 REGEXP_REPLACE(REVERSE(REGEXP_REPLACE(REVERSE(TO_CHAR(OPTION_PRICE)), '([0-9]{3})','\1,')), '^,','') OPTION_PRICE 
+	FROM "OPTION"
+	WHERE OPTION_DEL_FL = 'N'
+	</select>
+	
+	
+	<!-- 옵션 삭제 -->
+	<update id="optionDelete">
+		UPDATE "OPTION" SET OPTION_DEL_FL = 'Y'
+		WHERE OPTION_NO = #{optionNo}
+	</update>
 	
 </mapper>

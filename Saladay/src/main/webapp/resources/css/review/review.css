@@ -30,21 +30,25 @@
     border-bottom: 3px solid #17633d;
     padding-bottom: 80px;
     margin: 50px 0 auto auto;
+    font-family: "NanumSquareNeo-Variable" !important;
 }
 
 .fa-circle-left{
     font-size: 30px;
 }
 
+/* 전체리뷰보러가기 */
 .review-back{
     color: #17633d;
     text-decoration: none;
     margin-right: 30px;
-/*     position: absolute;
-    top: 260px;
-    left: 400px; */
 }
-.main-title {
+
+.review-back:hover{
+    color: #17633d;
+}
+
+.review-main-title {
     font-size: 32px;
 /*     margin-bottom: 20px; */
 }
@@ -109,6 +113,10 @@
 /* 리뷰 메뉴명 */
 .review-menu-name{
     color: #999999;
+}
+
+.review-menu-name:hover{
+    color: #17633d;
 }
 
 /* 리뷰 작성자 */

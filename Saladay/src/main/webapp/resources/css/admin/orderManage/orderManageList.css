@@ -81,3 +81,13 @@ thead th {
     color: #17633d;
     font-weight: bold;
 }
+
+/* 행 클릭시 주문 상세 페이지로 이동 */
+.admin-order-click{
+    cursor: pointer;
+}
+
+.admin-order-click:hover{
+    background-color: #17633d93;
+    color: white;
+}
