@@ -4,14 +4,24 @@
 	
 	<!-- resultMap -->
 	<resultMap type="Delivery" id="delivery_rm">
-      <id property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
-      <result property="" column=""/>
+      <id property="orderNo" column="ORDER_NO"/>
+      <result property="deliveryDate" column="DELIVERY_DATE"/>
+      <result property="orderName" column="ORDER_NAME"/>
+      <result property="orderTel" column="ORDER_TEL"/>
+      <result property="orderAddress" column="ORDER_ADDRESS"/>
+      <result property="package" column="PACKAGE"/>
+      <result property="orderPrice" column="ORDER_PRICE"/>
+      <result property="deliveryStatus" column="DELIVERY_STATUS"/>
+      <result property="deliveryCode" column="DELIVERY_CODE"/>
+      <result property="orderDelFl" column="ORDER_DEL_FL"/>
 	</resultMap>
+	
+	<!-- 배송정보 불러오기 -->
+	<select id="selectDelList" resultMap="delivery_rm">
+		SELECT O.ORDER_NO, DELIVERY_DATE, ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, PACKAGE_NO, ORDER_PRICE, DELIVERY_STATUS, D.DELIVERY_CODE, ORDER_DEL_FL
+		FROM DELIVERY D
+		JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
+		JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
+	</select>
 	
 </mapper>

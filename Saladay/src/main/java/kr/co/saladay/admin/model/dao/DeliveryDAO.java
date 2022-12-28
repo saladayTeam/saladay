@@ -17,7 +17,7 @@ public class DeliveryDAO {
 	// 배송현황 조회
 	public List<Delivery> adminDelivery() {
 		
-		return sqlSession.selectList("");
+		return sqlSession.selectList("deliveryMapper.selectDelList");
 	}
 	
 	
