@@ -67,6 +67,7 @@
 	                        </div>    
 	                        
 	                        <div class="content">
+	                        	<div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div>
 		                        <ul>
 		                        	<li>리뷰 작성일 : ${review.reviewDate}</li>
 		                        	<li><span class="text-muted ${review.rating}"></span></li>
@@ -94,5 +95,28 @@
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
         $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
     </script>
+    <script>
+    const reviewDel=(reviewNo)=>{
+        if( confirm("정말 삭제 하시겠습니까?") ){
+        $.ajax({
+            url : "/review/delete",
+            type : "get",
+            data : { reviewNo : reviewNo },
+            success : result => {
+                if(result > 0){
+                    alert("리뷰가 삭제되었습니다");
+                }else{
+                    alert("삭제 실패");
+                }
+                location.reload();
+            },
+            error : error => {
+                console.log(error);
+            }
+        })
+        }
+    }
+    </script>
+    
 </body>
 </html>

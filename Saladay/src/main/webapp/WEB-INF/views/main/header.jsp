@@ -87,6 +87,7 @@
 <script>
   const loginMemberNo="${loginMember.memberNo}";
   const cartNo="${cart.cartNo}";
+  const checkCart = "${checkCart}"
 </script>
 
 <script>
