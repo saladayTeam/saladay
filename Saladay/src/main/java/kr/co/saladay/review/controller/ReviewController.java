@@ -94,5 +94,14 @@ public class ReviewController {
 	public int deleteReview(int reviewNo) {
 		return service.deleteReview(reviewNo);
 	}
+	
+	// 리뷰 작성(INSERT)
+	@GetMapping("/review/write")
+	public String writeBoard(@SessionAttribute("loginMember") Member loginMember,
+			Model model) {
+		
+		
+		return "/review/reviewWrite";
+	}
 
 }
