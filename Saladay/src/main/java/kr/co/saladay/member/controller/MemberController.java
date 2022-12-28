@@ -23,18 +23,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kr.co.saladay.cart.model.service.CartService;
 import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
-@SessionAttributes({"loginMember","cart"})
+@SessionAttributes({"loginMember","cart", "checkCart"})
 @RequestMapping("/member")
 @Controller
 public class MemberController {
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private CartService cartService;
 	
 	/**로그인 페이지
 	 * @return login.jsp 포워드
@@ -70,6 +74,10 @@ public class MemberController {
 			message = "회원 정보가 맞지 않습니다.";
 			ra.addFlashAttribute("message", message);
 		} else {											// 로그인 성공 시 
+			
+			// 장바구니 내역 조회
+			int checkCart = cartService.checkCart(loginMember.getMemberNo());
+			model.addAttribute("checkCart", checkCart);
 			
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());			// 쿠키 생성
 			

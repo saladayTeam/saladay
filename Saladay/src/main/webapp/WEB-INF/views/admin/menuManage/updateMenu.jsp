@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>관리자-메뉴관리</title>
     <link rel="stylesheet" href="/resources/css/admin/menuManage/updateMenu.css">
+    
   </head>
 
 <body>
@@ -30,6 +31,10 @@
       </div>
 
       <table>
+        <caption style="display:none">
+            <summary>메뉴조회</summary>
+        </caption>
+
         <colgroup>
           <col width="2%">
           <col width="20%">
@@ -37,6 +42,7 @@
           <col width="10%">
           <col width="10%">
         </colgroup>
+
         <thead>
           <tr>
             <th scope="col"><input type="checkbox" name="allCheck" id="allCheck"></th>
@@ -46,6 +52,7 @@
             <th scope="col"><span>메뉴칼로리</span></th>
           </tr>
         </thead>
+
         <tbody>
           <c:forEach items="${menuList}" var="menu">
             <tr>

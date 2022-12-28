@@ -94,6 +94,7 @@
 
                             <div class="menu-list">
                                 <div class="detail">
+                                    <p class="idx">[${i+1}번째 샐러드]</p>
                                     <h3 class="menu-title">위 메뉴에서 샐러드를 선택하세요.</h3>
                                     <p class="menu-detail">토핑은 추가 선택이 가능합니다.</p>
                                 </div>

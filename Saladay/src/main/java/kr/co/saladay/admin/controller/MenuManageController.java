@@ -30,7 +30,7 @@ public class MenuManageController {
 	
 	
 	// 메뉴 삭제
-	@PostMapping("/menu/delete")
+	@PostMapping("/admin/deleteMenu")
 	public String menuDelete(@RequestParam(value="valueArr[]") String[] valueArr) {
 		// System.out.println(valueArr);
 
@@ -56,7 +56,7 @@ public class MenuManageController {
 	
 	
 	// 옵션 삭제
-	@PostMapping("/option/delete")
+	@PostMapping("/admin/deleteOption")
 	public String optionDelete(@RequestParam(value="valueArr[]") String[] valueArr) {
 		// System.out.println(valueArr);
 
@@ -66,6 +66,12 @@ public class MenuManageController {
 		}
 		
 		return "redirect:/admin/updateOption";
+	}
+	
+	
+	@GetMapping("/registMenuPopup")
+	public String menuPopup() {
+		return "/admin/menuManage/registMenuPopup";
 	}
 	
 }

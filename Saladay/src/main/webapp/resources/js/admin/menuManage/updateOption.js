@@ -34,7 +34,7 @@ function deleteValue(){
             // console.log("ajax연결해서 삭제하기");
 
             $.ajax({
-                url : "/option/delete",
+                url : "/admin/deleteOption",
                 type : "post",
                 data : {valueArr:valueArr},
                 success : function() {

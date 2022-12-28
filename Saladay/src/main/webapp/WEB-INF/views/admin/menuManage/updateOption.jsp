@@ -32,6 +32,10 @@
       </div>
 
       <table>
+        <caption style="display:none">
+            <summary>메뉴조회</summary>
+        </caption>
+
         <colgroup>
           <col width="2%">
           <col width="32%">
@@ -39,6 +43,7 @@
           <col width="23%">
           <col width="23%">
         </colgroup>
+
         <thead>
           <tr>
             <th scope="col"><input type="checkbox" name="allCheck" id="allCheck"></th>
@@ -48,6 +53,7 @@
             <th scope="col"><span>옵션칼로리</span></th>
           </tr>
         </thead>
+        
         <tbody>
           <c:forEach items="${optionList}" var="option">
             <tr>
