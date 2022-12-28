@@ -3,7 +3,7 @@
 <mapper namespace="deliveryManageMapper">
 	
 	<!-- resultMap -->
-	<resultMap type="Delivery" id="delivery_rm">
+	<resultMap type="DeliveryManage" id="deliveryManage_rm">
       <id property="orderNo" column="ORDER_NO"/>
       <result property="deliveryDate" column="DELIVERY_DATE"/>
       <result property="orderName" column="ORDER_NAME"/>
@@ -17,7 +17,7 @@
 	</resultMap>
 	
 	<!-- 배송정보 불러오기 -->
-	<select id="selectDelList" resultMap="delivery_rm">
+	<select id="selectDelList" resultMap="deliveryManage_rm">
 		SELECT O.ORDER_NO, DELIVERY_DATE, ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, PACKAGE_NO, ORDER_PRICE, DELIVERY_STATUS, D.DELIVERY_CODE, ORDER_DEL_FL
 		FROM DELIVERY D
 		JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
