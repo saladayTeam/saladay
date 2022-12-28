@@ -11,6 +11,7 @@ import kr.co.saladay.cart.model.vo.CartMenu;
 import kr.co.saladay.cart.model.vo.CartOption;
 import kr.co.saladay.order.model.dao.OrderDAO;
 import kr.co.saladay.order.model.vo.Order;
+import kr.co.saladay.order.model.vo.OrderDelivery;
 
 
 
@@ -46,10 +47,15 @@ public class OrderServiceImpl implements OrderService{
 		return orderNo;
 	}
 
+	@Transactional
 	@Override
-	public int insertDelivery(Map<String, Object> paramMap) {
+	public int insertDelivery(Order order, OrderDelivery delivery) {
 		
-		return dao.insertDelivery(paramMap);
+		delivery.setOrderNo(order.getOrderNo());
+		int insertDelivery=dao.insertDelivery(delivery);
+		
+		return insertDelivery;
 	}
+	
 
 }

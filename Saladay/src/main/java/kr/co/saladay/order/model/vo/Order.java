@@ -24,7 +24,7 @@ public class Order {
 	private int orderPrice; // 결제 금액
 	private String orderName; // 수신자명
 	private String orderTel; // 수신자 전화번호
-	private String orderAddress="서울"; // 수신자 주소
+	private String orderAddress; // 수신자 주소
 	
 	private int memberNo; // 주문한 회원 번호
 	

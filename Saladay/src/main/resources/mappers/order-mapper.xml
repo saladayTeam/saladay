@@ -14,7 +14,7 @@
       <result property="memberNo" column="MEMBER_NO"/>      
 	</resultMap>
 	
-	<!-- PayMenu resultMap -->
+	<!-- CartMenu resultMap -->
 	<resultMap type="CartMenu" id="cartMenu_rm">
       <id property="cartMenuNo" column="CART_MENU_NO"/>
       <result property="menuName" column="MENU_NAME"/>
@@ -22,13 +22,20 @@
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
 	</resultMap>
 
-	<!-- payOption resultMap -->
+	<!-- CartOption resultMap -->
 	<resultMap type="CartOption" id="cartOption_rm">
       <id property="optionNo" column="OPTION_NO"/>
       <result property="optionName" column="OPTION_NAME"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionCount" column="CART_OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+	</resultMap>
+	
+	<resultMap type="OrderDelivery" id="orderDelivery_rm">
+      <id property="deliveryNo" column="DELIVERY_NO"/>
+      <result property="deliveryDate" column="DELIVERY_NAME"/>
+      <result property="orderNo" column="ORDER_NO"/>
+      <result property="deliveryCode" column="DELIVERY_CODE"/>
 	</resultMap>
 
 	<!-- 주문번호 생성 및 주문 삽입 -->		
@@ -65,6 +72,14 @@
 	<insert id="insertOrderMenuOption" parameterType="CartOption">
 		INSERT INTO ORDER_MENU_OPTION
 		VALUES (#{orderMenuNo}, #{optionNo}, #{optionCount})
+	</insert>
+	
+	<insert id="insertDelivery" parameterType="orderDelivery">
+		<selectKey keyProperty="deliveryNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_DELIVERY_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO DELIVERY
+		VALUES (#{deliveryNo},#{deliveryDate},#{orderNo},DEFAULT)
 	</insert>
 
  		
