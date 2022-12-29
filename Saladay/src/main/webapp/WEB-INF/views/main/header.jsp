@@ -44,7 +44,7 @@
                     id="cart"/>
                 </a>
               </li>
-            <li><a href="/admin">관리자 메뉴</a></li>
+            <li><a href="/admin/dashboard">관리자 메뉴</a></li>
           </c:when>
           <c:otherwise>
             <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"

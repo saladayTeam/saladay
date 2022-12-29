@@ -1,8 +1,12 @@
 package kr.co.saladay.admin.controller;
 
+import java.io.PrintWriter;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.saladay.admin.model.service.MenuManageService;
 import kr.co.saladay.menu.model.vo.Menu;
+import kr.co.saladay.menu.model.vo.Option;
 
 
 @Controller
@@ -25,7 +30,7 @@ public class MenuManageController {
 	private MenuManageService service;
 	
 	// 메뉴 관리 
-	@GetMapping("/admin/updateMenu")
+	@GetMapping("/admin/menuManage")
 	public String menuManage(@RequestParam(value="cp", required=false, defaultValue="1") int cp, Model model) {
 		
 		Map<String, Object> map = service.selectMenuList(cp);
@@ -51,7 +56,7 @@ public class MenuManageController {
 	
 	
 	// 옵션 관리
-	@GetMapping("/admin/updateOption")
+	@GetMapping("/admin/optionManage")
 	public String optionManage(@RequestParam(value="cp", required=false, defaultValue="1") int cp, Model model) {
 		
 		Map<String, Object> map = service.selectOptionList(cp);
@@ -76,28 +81,87 @@ public class MenuManageController {
 	
 	
 	// 메뉴 등록 팝업창
-	@GetMapping("/admin/registMenu")
+	@GetMapping("/admin/regist/menu")
 	public String menuPopup() {
 		return "/admin/menuManage/registMenuPopup";
 	}
 	
 	
 	// 새 메뉴 등록
-	@PostMapping("/admin/updateMenu")
-	public String registMenu(/*@RequestParam(value="menuImage") MultipartFile menuImage*/ // 업로드 된 메뉴 이미지
-							Menu registFrm, // 메뉴
+	@PostMapping("/admin/regist/menu")
+	public String registMenu(@RequestParam(value="inputMenuImg", required = false) MultipartFile inputMenuImg, // 업로드 된 메뉴 이미지
+							Menu newMenu, // 메뉴
 							RedirectAttributes ra, // 메세지 전달용
-							HttpServletRequest req // 저장할 서버 경로
+							HttpServletRequest req, // 저장할 서버 경로
+							HttpServletResponse resp
 							) throws Exception {
 	
-		System.out.println(registFrm);
+		
+		ServletContext application = req.getSession().getServletContext();
+
 		// 업로드 된 파일의 서버 내부 경로 준비
-//		String webPath = "/resources/images/menu/salad/";
-//		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		String webPath = "/resources/images/menu/salad/";
+		String filePath = application.getRealPath(webPath);
 		
+		int result = service.registMenu(newMenu, inputMenuImg, webPath, filePath);
 		
-		
+		if (result > 0) {
+			
+			// application scope에 추가
+			List<Menu> menuList = (List<Menu>)application.getAttribute("menuList");
+			menuList.add(newMenu);
+			
+			
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script> alert('메뉴가 정상적으로 등록되었습니다.'); window.close(); opener.location.reload(); </script>");
+			out.flush(); 
+		}
+
 		return null;
 	}
+	
+	
+	// 옵션 등록 팝업창
+	@GetMapping("/admin/regist/option")
+	public String optionPopup() {
+		return "/admin/menuManage/registOptionPopup";
+	}
+	
+	
+	// 새 옵션 등록
+	@PostMapping("/admin/regist/option")
+	public String registOption(@RequestParam(value="inputOptionImg", required = false) MultipartFile inputOptionImg, // 업로드 된 옵션 이미지
+							Option newOption, // 옵션
+							RedirectAttributes ra, // 메세지 전달용
+							HttpServletRequest req, // 저장할 서버 경로
+							HttpServletResponse resp
+							) throws Exception {
+	
+		
+		ServletContext application = req.getSession().getServletContext();
+
+		// 업로드 된 파일의 서버 내부 경로 준비
+		String webPath = "/resources/images/menu/topping/";
+		String filePath = application.getRealPath(webPath);
+		
+		int result = service.registOption(newOption, inputOptionImg, webPath, filePath);
+		
+		if (result > 0) {
+			
+			// application scope에 추가
+			List<Option> optionList = (List<Option>)application.getAttribute("optionList");
+			optionList.add(newOption);
+			
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script> alert('옵션이 정상적으로 추가되었습니다.'); window.close(); opener.location.reload(); </script>");
+			out.flush(); 
+		}
+
+		return null;
+	}
+	
+	
 	
 }

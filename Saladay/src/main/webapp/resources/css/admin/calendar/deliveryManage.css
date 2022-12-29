@@ -1,0 +1,14 @@
+.admin-order-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.admin-order-title > span:first-child {
+    font-weight: bold;
+    display: flex;
+}
+
+.admin-order-title > span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+}

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.saladay.admin.model.dao.OrderManageDAO;
+import kr.co.saladay.admin.model.vo.DeliveryManage;
+import kr.co.saladay.admin.model.vo.OrderManage;
 import kr.co.saladay.admin.model.vo.OrderManagePagination;
 import kr.co.saladay.review.model.vo.Pagination;
 import kr.co.saladay.review.model.vo.Review;
@@ -33,6 +35,18 @@ public class OrderManageServiceImpl implements OrderManageService{
 		map.put("orderList", orderList);
 		
 		return map;
+	}
+
+	// 주문 상세 조회
+	@Override
+	public OrderManage selectOrderDetail(int orderNo) {
+		return dao.selectOrderDetail(orderNo);
+	}
+
+	// 주문별 배송정보 조회
+	@Override
+	public List<DeliveryManage> selectOrderDetailDelivery(int orderNo) {
+		return dao.selectOrderDetailDelivery(orderNo);
 	}
 
 }

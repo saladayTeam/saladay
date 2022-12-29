@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="menuList" value="${map.menuList}"/>
@@ -10,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>관리자-메뉴관리</title>
+    <title>메뉴관리</title>
     <link rel="stylesheet" href="/resources/css/admin/menuManage/updateMenu.css">
     
   </head>
@@ -48,8 +49,8 @@
             <th scope="col"><input type="checkbox" name="allCheck" id="allCheck"></th>
             <th scope="col"><span>메뉴명</span></th>
             <th scope="col"><span>메뉴설명</span></th>
-            <th scope="col"><span>메뉴가격</span></th>
-            <th scope="col"><span>메뉴칼로리</span></th>
+            <th scope="col"><span>가격</span></th>
+            <th scope="col"><span>칼로리</span></th>
           </tr>
         </thead>
 
@@ -59,7 +60,7 @@
               <td scope="col"><input type="checkbox" name="rowCheck" value="${menu.menuNo}"></td>
               <td scope="col"><span class="menu-n"><a href="${menu.menuImage}">${menu.menuName}</a></span></td>
               <td scope="col"><span class="menu-i">${menu.menuContent}</span></td>
-              <td scope="col"><span class="menu-p">${menu.price}</span></td>
+              <td scope="col"><span class="menu-p"><fmt:formatNumber type="number" maxFractionDigits="3" value="${menu.menuPrice}" /></span></td>
               <td scope="col"><span class="menu-c">${menu.menuCalorie} Kcal</span></td>
             </tr>
           </c:forEach>
