@@ -26,8 +26,10 @@ public class Order {
 	private String orderName; // 수신자명
 	private String orderTel; // 수신자 전화번호
 	private String orderAddress; // 수신자 주소
+	private String orderDeleteFlag; // 주문 취소 여부
 	
 	private int memberNo; // 주문한 회원 번호
+	private String memberName; // 주문한 회원 이름
 	
 	private int packageNo; // 주문한 패키지 넘버
 	private String packageName;//주문한 패키지 이름
