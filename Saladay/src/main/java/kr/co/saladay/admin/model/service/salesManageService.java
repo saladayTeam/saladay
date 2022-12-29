@@ -11,9 +11,19 @@ public interface salesManageService {
 	List<Integer> monthOrerPrice();
 
 	// 주문한 패키지 별 개수
-	List<Integer> packageCount();
+	List<Integer> packageOrderCount();
 
 	// 주문한 메뉴별 개수
-	List<Integer> menuCount();
+	List<Integer> menuOrderCount();
+
+	// 월
+	List<String> month();
+	
+	// 패키지 목록 배열
+	List<String> packageNameList();
+	
+	// 메뉴 목록 배열
+	List<String> menuNameList();
+
 
 }

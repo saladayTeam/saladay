@@ -21,10 +21,20 @@ main>div{
     justify-content: space-between;
 }
 
-.chart-container{
+.chart-container-1{
     display: flex;
     width: 1200px;
     height: 500px;
 
     margin-top: 30px;
 }
+
+.chart-container-2{
+    display: flex;
+    width: 1200px;
+    height: 500px;
+
+    justify-content: center;
+    margin-top: 30px;
+}
+

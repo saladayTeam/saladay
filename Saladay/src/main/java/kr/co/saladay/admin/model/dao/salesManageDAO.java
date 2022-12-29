@@ -20,11 +20,23 @@ public class salesManageDAO {
 		return sqlSession.selectList("salesManageMapper.monthOrderPrice");
 	}
 
-	public List<Integer> packageCount() {
-		return sqlSession.selectList("salesManageMapper.packageCount");
+	public List<Integer> packageOrderCount() {
+		return sqlSession.selectList("salesManageMapper.packageOrderCount");
 	}
 
-	public List<Integer> menuCount() {
-		return sqlSession.selectList("salesManageMapper.menuCount");
+	public List<Integer> menuOrderCount() {
+		return sqlSession.selectList("salesManageMapper.menuOrderCount");
+	}
+
+	public List<String> month() {
+		return sqlSession.selectList("salesManageMapper.month");
+	}
+
+	public List<String> packageNameList() {
+		return sqlSession.selectList("salesManageMapper.packageNameList");
+	}
+
+	public List<String> menuNameList() {
+		return sqlSession.selectList("salesManageMapper.menuNameList");
 	}
 }

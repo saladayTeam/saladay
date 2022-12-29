@@ -3,10 +3,10 @@ const ctx = document.getElementById('myChart1').getContext('2d');
 const myChart1 = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월','23년 1월'],
+        labels: month,
         datasets: [{
-            label: '# of Votes',
-            data: monthOrderCount,
+            label: '월간 매출액',
+            data: monthOrderPrice,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -24,6 +24,13 @@ const myChart1 = new Chart(ctx, {
                 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
+        },
+        {
+            label: '월간 주문 건수',
+            data: monthOrderCount,
+            borderColor: '#17633d',
+            type:'line',
+            order:0
         }]
     },
     options: {
@@ -31,18 +38,23 @@ const myChart1 = new Chart(ctx, {
             y: {
                 beginAtZero: true
             }
-        }
+        },
+        plugins: {
+            legend: {
+              position: 'top',
+            }
     }
+}
 });
 
 const ctx2 = document.getElementById('myChart2').getContext('2d');
 const myChart2 = new Chart(ctx2, {
-    type: 'bar',
+    type: 'pie',
     data: {
-        labels: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월','23년 1월'],
+        labels: packageNameList,
         datasets: [{
-            label: '# of Votes',
-            data: monthOrderCount,
+            label: '주문 건수',
+            data: packageOrderCount,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -62,23 +74,17 @@ const myChart2 = new Chart(ctx2, {
             borderWidth: 1
         }]
     },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+    
 });
 
 const ctx3 = document.getElementById('myChart3').getContext('2d');
 const myChart3 = new Chart(ctx3, {
-    type: 'bar',
+    type: 'pie',
     data: {
-        labels: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월','23년 1월'],
+        labels: menuNameList,
         datasets: [{
-            label: '# of Votes',
-            data: monthOrderCount,
+            label: '주문 건수',
+            data: menuOrderCount,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -98,12 +104,6 @@ const myChart3 = new Chart(ctx3, {
             borderWidth: 1
         }]
     },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+    
 });
 

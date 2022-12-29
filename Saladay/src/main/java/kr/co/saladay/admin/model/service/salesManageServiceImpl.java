@@ -27,14 +27,32 @@ public class salesManageServiceImpl implements salesManageService {
 	
 	// 주무한 패키지 별 개수
 	@Override
-	public List<Integer> packageCount() {
-		return dao.packageCount();
+	public List<Integer> packageOrderCount() {
+		return dao.packageOrderCount();
 	}
 	
 	
 	// 주문한 메뉴 별 개수
 	@Override
-	public List<Integer> menuCount() {
-		return dao.menuCount();
+	public List<Integer> menuOrderCount() {
+		return dao.menuOrderCount();
+	}
+	
+	//월
+	@Override
+	public List<String> month() {
+		return dao.month();
+	}
+	
+	// 패키지 목록
+	@Override
+	public List<String> packageNameList() {
+		return dao.packageNameList();
+	}
+	
+	// 메뉴 목록
+	@Override
+	public List<String> menuNameList() {
+		return dao.menuNameList();
 	}
 }

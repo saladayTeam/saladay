@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>매출관리</title>
+    <title>대시보드</title>
 
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
@@ -23,14 +23,16 @@
     <main>
         <div class="menu-m-tit">
             <div>
-            <span>매출 관리</span>
+            <span>대시보드</span>
             </div>
         </div>
 
-        <div class="chart-container">
-            <canvas id="myChart1" width="300" height="400"></canvas>
-            <canvas id="myChart2" width="300" height="400"></canvas>
-            <canvas id="myChart3" width="300" height="400"></canvas>
+        <div class="chart-container-1">
+            <canvas id="myChart1" width="1200" height="400"></canvas>
+        </div>
+        <div class="chart-container-2">
+            <canvas id="myChart2" width="600" height="400"></canvas>
+            <canvas id="myChart3" width="600" height="400"></canvas>
         </div>
     </main>
 
@@ -46,11 +48,19 @@
         const monthOrderPrice=JSON.parse("${monthOrderPrice}");
 
         // 주문한 패키지 별 개수
-        const packageCount=JSON.parse("${packageCount}")
+        const packageOrderCount=JSON.parse("${packageOrderCount}");
 
         // 주문한 메뉴별 개수
-        const menuCount=JSON.parse("${menuCount}")
+        const menuOrderCount=JSON.parse("${menuOrderCount}");
 
+        // 월
+        const month=JSON.parse('${month}');
+
+        // 패키지 목록
+        const packageNameList=JSON.parse('${packageNameList}');
+
+        // 메뉴 목록
+        const menuNameList=JSON.parse('${menuNameList}');
 
     </script>
 
