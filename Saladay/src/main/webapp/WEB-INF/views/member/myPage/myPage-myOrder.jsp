@@ -149,7 +149,12 @@
                             	 	<c:if test="${delivery.orderNo == order.orderNo }">
                             	 		<c:if test="${delivery.deliveryCode eq 'A' }">
 	                            	 		<c:if test="${not loop_flag }">
-	                            	 		<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">주문 취소</div>
+	                            	 			<c:if test="${order.orderDeleteFlag eq 'N'}">
+	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">주문 취소</div>
+	                            	 			</c:if>
+	                            	 			<c:if test="${order.orderDeleteFlag eq 'Y'}">
+	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">취소 요청중</div>
+	                            	 			</c:if>
 	                            	 		<c:set var="loop_flag" value="true" />
 	       									</c:if>
                             	 		</c:if>
@@ -185,7 +190,7 @@
             data : { orderNo : orderNo },
             success : result => {
                 if(result > 0){
-                    alert("주문을 취소했습니다");
+                    alert("주문취소 요청중입니다");
                 }else{
                     alert("취소 실패");
                 }
