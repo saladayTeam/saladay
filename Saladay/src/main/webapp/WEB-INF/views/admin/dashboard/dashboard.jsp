@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <link rel="stylesheet" href="/resources/css/admin/dashboard/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body>
 
