@@ -8,40 +8,33 @@ const myChart1 = new Chart(ctx, {
             label: '월간 매출액',
             data: monthOrderPrice,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                '#17633d93'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'white'
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            hoverOffset: 4
         },
         {
             label: '월간 주문 건수',
             data: monthOrderCount,
-            borderColor: '#17633d',
+            borderColor: 'orange',
             type:'line',
+            tension:0.1,
+            fill: true,
             order:0
         }]
     },
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: false
             }
         },
         plugins: {
             legend: {
-              position: 'top',
+            position: 'top',
             }
     }
 }
@@ -56,22 +49,18 @@ const myChart2 = new Chart(ctx2, {
             label: '주문 건수',
             data: packageOrderCount,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                '#f1828d',
+                '#848ccf',
+                '#252958',
+                '#f9b42d',
+                '#3498db',
+                '#ff4c30'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'white'
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            hoverOffset: 4
         }]
     },
     
@@ -86,22 +75,23 @@ const myChart3 = new Chart(ctx3, {
             label: '주문 건수',
             data: menuOrderCount,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                '#F94144',
+                '#F3722C',
+                '#F8961E',
+                '#F9844A',
+                '#F9C74F',
+                '#90BE6D',
+                '#43AA8B',
+                '#4D908E',
+                '#577590',
+                '#277DA1',
+                '#9d4edd'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'white'
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            hoverOffset: 4
         }]
     },
     

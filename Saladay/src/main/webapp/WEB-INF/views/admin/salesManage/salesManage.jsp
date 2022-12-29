@@ -23,16 +23,23 @@
     <main>
         <div class="menu-m-tit">
             <div>
-            <span>대시보드</span>
+                <span>대시보드</span>
             </div>
         </div>
 
         <div class="chart-container-1">
+            <span>월간 매출액 / 월간 주문 건수</span>
             <canvas id="myChart1" width="1200" height="400"></canvas>
         </div>
         <div class="chart-container-2">
-            <canvas id="myChart2" width="600" height="400"></canvas>
-            <canvas id="myChart3" width="600" height="400"></canvas>
+            <div class="chart-order">
+                <span>패키지 별 월간 주문 건수</span>
+                <canvas id="myChart2" width="500" height="400"></canvas>
+            </div>
+            <div class="chart-order">
+                <span>메뉴 별 월간 주문 건수</span>
+                <canvas id="myChart3" width="500" height="400"></canvas>
+            </div>
         </div>
     </main>
 

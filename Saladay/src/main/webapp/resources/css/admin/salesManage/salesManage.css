@@ -3,7 +3,7 @@ main{
     flex-direction: column;
     align-items: center;
     width: 1200px;
-    min-height: 100vh;
+    min-height: 200vh;
     padding: 50px;
 }
 
@@ -24,17 +24,63 @@ main>div{
 .chart-container-1{
     display: flex;
     width: 1200px;
-    height: 500px;
+    height: 450px;
 
-    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 20px;
+}
+
+.chart-container-1>span{
+    padding: 10px;
+    background-color: #17633d;
+    border-radius: 15px;
+
+    width: 90%;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+    color: white;
+    
+    margin-bottom: 10px;
 }
 
 .chart-container-2{
     display: flex;
     width: 1200px;
-    height: 500px;
 
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 30px;
+}
+
+.chart-order{
+    display: flex;
+    flex-basis: 49%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #ccc;
+    border-radius: 15px;    
+
+    padding: 20px;
+}
+
+.chart-order>span{
+    padding: 10px;
+    background-color: #17633d;
+    border-radius: 15px;
+
+    width: 90%;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+    color: white;
 }
 
