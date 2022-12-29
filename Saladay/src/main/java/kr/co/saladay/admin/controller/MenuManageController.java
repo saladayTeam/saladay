@@ -86,21 +86,26 @@ public class MenuManageController {
 	
 	// 새 메뉴 등록
 	@PostMapping("/admin/regist/menu")
-	public String registMenu(@RequestParam(value="menuImage2", required = false) MultipartFile menuImage, // 업로드 된 메뉴 이미지
+	public String registMenu(@RequestParam(value="inputMenuImg", required = false) MultipartFile inputMenuImg, // 업로드 된 메뉴 이미지
 							Menu newMenu, // 메뉴
 							RedirectAttributes ra, // 메세지 전달용
 							HttpServletRequest req, // 저장할 서버 경로
 							HttpServletResponse resp
 							) throws Exception {
 	
-		System.out.println(newMenu);
+		
 		// 업로드 된 파일의 서버 내부 경로 준비
-//		String webPath = "/resources/images/menu/salad/";
-//		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		resp.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.println("<script>window.close(); opener.location.reload();</script>");
-		out.flush(); 
+		String webPath = "/resources/images/menu/salad/";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		int result = service.registMenu(newMenu, inputMenuImg, webPath, folderPath);
+		
+		if (result > 0) {
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>window.close(); opener.location.reload();</script>");
+			out.flush(); 
+		}
 
 		return null;
 	}

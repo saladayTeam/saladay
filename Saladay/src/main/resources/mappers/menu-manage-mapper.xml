@@ -71,4 +71,14 @@
 		WHERE OPTION_NO = #{optionNo}
 	</update>
 	
+	
+	<!-- 새 메뉴 등록 -->
+	<insert id="registMenu" parameterType="Menu" useGeneratedKeys="true">
+		<selectKey keyProperty="menuNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_MENU_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO MENU 
+		VALUES(#{menuNo}, #{menuName}, #{menuPrice}, #{menuImage}, #{menuContent}, DEFAULT, #{menuCalorie})
+	</insert>
+	
 </mapper>

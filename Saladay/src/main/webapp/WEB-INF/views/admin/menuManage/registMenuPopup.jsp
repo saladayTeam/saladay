@@ -41,7 +41,7 @@
                                 <span id="delete-image">&times;</span>
                                 </div>
                                 <div class="menu-img-area">
-                                    <input type="file" id="inputMenu" name="menuImage2" accept="image/*">
+                                    <input type="file" id="inputMenuImg" name="inputMenuImg" accept="image/*"> <%-- 이미지 파일은 vo와 다르게 보내야함 --%>
                                 </div>
                             </div>
                         </td>
