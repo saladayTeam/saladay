@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if(li.deliveryCode==='A'&&li.packageNo===4) { // 패키지번호 4
-          if(li.orderNo[0]){
+          if(li.rowNum==1){
               tempList.push({
                 id: li.deliveryNo,
                 title: li.orderNo +"-1) "+ li.orderName,
@@ -119,54 +119,54 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             }
 
-        if(li.deliveryCode==='A'&&li.packageNo===5) { // 패키지번호 6
-          if(li.orderNo===li.orderNo){
-            if(li.deliveryNo>li.deliveryNo){
-              tempList.push({
-                id: li.deliveryNo,
-                title: li.orderNo +"-1) "+ li.orderName,
-                start: li.deliveryDate,
-                end : li.deliveryDate,
-                allDay: true,
-                backgroundColor: "blue",
-                borderColor: "blue"
-              });
-            }else{
-              tempList.push({
-                id: li.deliveryNo,
-                title: li.orderNo +"-2) "+ li.orderName,
-                start: li.deliveryDate,
-                end : li.deliveryDate,
-                allDay: true,
-                backgroundColor: "blue",
-                borderColor: "blue"
-              });
-            }
-          }
+        if(li.deliveryCode==='A'&&li.packageNo===5) { // 패키지번호 5
+          // if(li.orderNo===li.orderNo){
+          //   if(li.deliveryNo>li.deliveryNo){
+          //     tempList.push({
+          //       id: li.deliveryNo,
+          //       title: li.orderNo +"-1) "+ li.orderName,
+          //       start: li.deliveryDate,
+          //       end : li.deliveryDate,
+          //       allDay: true,
+          //       backgroundColor: "blue",
+          //       borderColor: "blue"
+          //     });
+          //   }else{
+          //     tempList.push({
+          //       id: li.deliveryNo,
+          //       title: li.orderNo +"-2) "+ li.orderName,
+          //       start: li.deliveryDate,
+          //       end : li.deliveryDate,
+          //       allDay: true,
+          //       backgroundColor: "blue",
+          //       borderColor: "blue"
+          //     });
+          //   }
+          // }
         }
 
         if(li.deliveryCode==='A'&&li.packageNo===6) { // 패키지번호 6
-          if(li.orderNo[0]){
-            tempList.push({
-              id: li.deliveryNo,
-              title: li.orderNo +"-1) "+ li.orderName,
-              start: li.deliveryDate,
-              end : li.deliveryDate,
-              allDay: true,
-              backgroundColor: "purple",
-              borderColor: "purple"
-            });
-          }else{
-            tempList.push({
-              id: li.deliveryNo,
-              title: li.orderNo +"-2) "+ li.orderName,
-              start: li.deliveryDate,
-              end : li.deliveryDate,
-              allDay: true,
-              backgroundColor: "purple",
-              borderColor: "purple"
-            });
-          }
+          // if(li.orderNo[0]){
+          //   tempList.push({
+          //     id: li.deliveryNo,
+          //     title: li.orderNo +"-1) "+ li.orderName,
+          //     start: li.deliveryDate,
+          //     end : li.deliveryDate,
+          //     allDay: true,
+          //     backgroundColor: "purple",
+          //     borderColor: "purple"
+          //   });
+          // }else{
+          //   tempList.push({
+          //     id: li.deliveryNo,
+          //     title: li.orderNo +"-2) "+ li.orderName,
+          //     start: li.deliveryDate,
+          //     end : li.deliveryDate,
+          //     allDay: true,
+          //     backgroundColor: "purple",
+          //     borderColor: "purple"
+          //   });
+          // }
         }
      }
 
