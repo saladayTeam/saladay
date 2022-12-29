@@ -77,7 +77,7 @@ public class MenuManageController {
 	
 	// 옵션 삭제
 	@PostMapping("/admin/deleteOption")
-	public String optionDelete(@RequestParam(value="valueArr") String[] valueArr, HttpServletRequest req) {
+	public String optionDelete(@RequestParam(value="valueArr[]") String[] valueArr, HttpServletRequest req) {
 		// System.out.println(valueArr);
 		
 		ServletContext application = req.getSession().getServletContext();
