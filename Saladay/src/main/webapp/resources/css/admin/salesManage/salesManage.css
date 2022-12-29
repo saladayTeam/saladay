@@ -1,0 +1,30 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1200px;
+    min-height: 100vh;
+    padding: 50px;
+}
+
+main>div{
+    width: 1200px;
+}
+
+.menu-m-tit {
+    min-height: 50px;
+    border-bottom: 3px solid #17633d;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-container{
+    display: flex;
+    width: 1200px;
+    height: 500px;
+
+    margin-top: 30px;
+}

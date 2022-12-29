@@ -46,6 +46,7 @@
 		<mapper resource="/mappers/order-manage-mapper.xml" />
 		<mapper resource="/mappers/menu-manage-mapper.xml" />
 		<mapper resource="/mappers/delivery-manage-mapper.xml" />
+		<mapper resource="/mappers/sales-manage-mapper.xml" />
 
 	</mappers>
 </configuration>

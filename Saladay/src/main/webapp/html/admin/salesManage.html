@@ -10,8 +10,30 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
-    <canvas id="myChart" width="400" height="400"></canvas>
 
+    <main>
+        <div>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+
+
+    </main>
+
+    <script>
+        // 월별 주문 개수
+        const monthOrderCount=JSON.parse("${monthOrderCount}");
+
+        // 월별 매출액
+        const monthOrderPrice=JSON.parse("${monthOrderPrice}");
+
+        // 주문한 패키지 별 개수
+        const packageCount=JSON.parse("${packageCount}")
+
+        // 주문한 메뉴별 개수
+        const menuCount=JSON.parse("${menuCount}")
+
+
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> 
     <script src="/src/main/webapp/resources/js/admin/salesManage/salesManage.js"></script>
