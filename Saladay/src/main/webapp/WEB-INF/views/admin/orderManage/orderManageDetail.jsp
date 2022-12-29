@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +16,8 @@
     <link rel="stylesheet" href="/resources/css/admin/admin.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <link rel="stylesheet" href="/resources/css/admin/orderManage/orderManageDetail.css">
-    <%-- 폰트어썸 --%>
-    <script src="https://kit.fontawesome.com/9f94c365a1.js" crossorigin="anonymous"></script>
+    <!-- 폰트어썸 -->
+    <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
@@ -40,8 +41,6 @@
             </c:if>
             <c:if test="${orderDetail.orderDeleteFlag=='A'}">
             <span style="color:red;">취소완료</span>
-            <br />
-            <span>취소일시 : ${orderDetail.cancleDate}</span>
             </c:if>
             <br />
             <hr />
@@ -60,7 +59,7 @@
                         <span class="o-th">핸드폰</span><span class="o-td">${orderDetail.memberTel}</span>
                     </p>
                     <p>
-                        <span class="o-th">주소</span><span class="o-td">${orderDetail.memberAddress}</span>
+                        <span class="o-th">주소</span><span class="o-td">${fn:replace(orderDetail.memberAddress, ',,', ' ')}</span>
                     </p>
                 </div>
                 
@@ -73,7 +72,7 @@
                         <span class="o-th">핸드폰</span><span class="o-td">${orderDetail.orderTel}</span>
                     </p>
                     <p>
-                        <span class="o-th">주소</span><span class="o-td">${orderDetail.orderAddress}</span>
+                        <span class="o-th">주소</span><span class="o-td">${fn:replace(orderDetail.orderAddress, ',,', ' ')}</span>
                     </p>
 
                 </div>
@@ -84,8 +83,8 @@
             <div class="order-items">
                 <h3>주문 목록</h3>
                 <div class="order-package" id="order-package">
-                    <div class="pack-name"><span>${cart.packageName}</span></div>
-                    <div class="pack-price"><span><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" /> 원</span></div>
+                    <div class="pack-name"><span>${orderDetail.packageName}</span></div>
+                    <div class="pack-price"><span><fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.packagePrice}" /> 원</span></div>
                     <div class="pack-i"><input type="checkbox" id="icon"><label for="icon"><i class="fa-solid fa-caret-down"></i></label></div>
                 </div>
 
@@ -96,7 +95,7 @@
                         <div class="order-price"><span>가격</span></div>
                     </li>
                     <div class="week">1주</div>
-                    <c:forEach var="menu" items="${cart.menuList}">
+                    <c:forEach var="menu" items="${orderDetail.orderMenuList}">
                         <div class="order-all">
                         <!-- 주문한 메뉴 내용 c:forEach -->
                             <%-- 선택 메인 메뉴 --%>
@@ -116,29 +115,12 @@
                         </div>
                     </c:forEach>
 
-                    <c:if test="${cart.packageType==2}">
+                    <c:if test="${orderDetail.packageType==2}">
 
                         <div class="week">2주</div>
-
-                        <c:forEach var="menu" items="${cart.menuList}">
-                            <div class="order-all">
-                            <!-- 주문한 메뉴 내용 c:forEach -->
-                                <%-- 선택 메인 메뉴 --%>
-                                <li class="order-area">
-                                    <div class="order-menu headline">${menu.menuName}</div>
-                                    <div class="order-quantity headline">1</div>
-                                    <div class="order-price headline">${menu.menuPrice}</div>
-                                </li>
-                                <c:forEach var="option" items="${menu.optionList}">
-                                <%-- 선택한 옵션 --%>
-                                    <li class="order-area">
-                                        <div class="order-option">${option.optionName}</div>
-                                        <div class="order-quantity">${option.optionCount}</div>
-                                        <div class="order-price">${option.optionPrice}</div>
-                                    </li>
-                                </c:forEach>
-                            </div>
-                        </c:forEach>
+                        <div class="package-type">
+                            <i class="fa-solid fa-truck-fast fa-flip-horizontal"></i></i>2주차는 1주차와 동일한 구성으로 배송됩니다.
+                        </div>
                     </c:if>
 
                 </div>
@@ -149,43 +131,41 @@
             <div class="select-delivery">
                 <h3>배송 정보</h3>
                 <div class="cal-container">
-                <%-- 취소 요청중인 주문인 경우 --%>
-                <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
-                    <div style="color:blue;">앗! 취소요청중인 주문입니다.</div>
-                    <div class=cal>
-                        <p>1차 배송일 : ${orderDetailDelivery[0].deliveryDate}</p>
-                        <p>배송 상태 : ${orderDetailDelivery[0].deliveryStatus}</p>
-                    </div>
-                    <%-- 2차 배송일이 있는 경우 --%>
-                    <c:if test="${orderDetail.packageType==2}">
-                        <hr />
+                    <%-- 취소 요청중인 주문인 경우 --%>
+                    <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
+                        <div style="color:blue;">앗! 취소요청중인 주문입니다.</div>
                         <div class=cal>
-                            <p>2차 배송일 : ${orderDetailDelivery[1].deliveryDate}</p>
-                            <p>배송 상태 : ${orderDetailDelivery[1].deliveryStatus}</p>
+                            <p>1차 배송일 : ${orderDetailDelivery[0].deliveryDate}</p>
+                            <p>배송 상태 : ${orderDetailDelivery[0].deliveryStatus}</p>
                         </div>
+                        <%-- 2차 배송일이 있는 경우 --%>
+                        <c:if test="${orderDetail.packageType==2}">
+                            <hr />
+                            <div class=cal>
+                                <p>2차 배송일 : ${orderDetailDelivery[1].deliveryDate}</p>
+                                <p>배송 상태 : ${orderDetailDelivery[1].deliveryStatus}</p>
+                            </div>
+                        </c:if>
                     </c:if>
-                </c:if>
-                <%-- 정상 주문인 경우 --%>
-                <c:if test="${orderDetail.orderDeleteFlag=='N'}">
-                    <div class=cal>
-                        <p>1차 배송일 : ${orderDetailDelivery[0].deliveryDate}</p>
-                        <p>배송 상태 : ${orderDetailDelivery[0].deliveryStatus}</p>
-                    </div>
-                    <%-- 2차 배송일이 있는 경우 --%>
-                    <c:if test="${orderDetail.packageType==2}">
-                        <hr />
+                    <%-- 정상 주문인 경우 --%>
+                    <c:if test="${orderDetail.orderDeleteFlag=='N'}">
                         <div class=cal>
-                            <p>2차 배송일 : ${orderDetailDelivery[1].deliveryDate}</p>
-                            <p>배송 상태 : ${orderDetailDelivery[1].deliveryStatus}</p>
+                            <p>1차 배송일 : ${orderDetailDelivery[0].deliveryDate}</p>
+                            <p>배송 상태 : ${orderDetailDelivery[0].deliveryStatus}</p>
                         </div>
+                        <%-- 2차 배송일이 있는 경우 --%>
+                        <c:if test="${orderDetail.packageType==2}">
+                            <hr />
+                            <div class=cal>
+                                <p>2차 배송일 : ${orderDetailDelivery[1].deliveryDate}</p>
+                                <p>배송 상태 : ${orderDetailDelivery[1].deliveryStatus}</p>
+                            </div>
+                        </c:if>
                     </c:if>
-                </c:if>
-                <%-- 취소 완료된 주문인 경우 --%>
-                <c:if test="${orderDetail.orderDeleteFlag=='A'}">
-                <div style="color:red;">취소완료된 주문입니다.</div>
-                <br />
-                <span>취소일시 : ${orderDetail.cancleDate}</span>
-                </c:if>
+                    <%-- 취소 완료된 주문인 경우 --%>
+                    <c:if test="${orderDetail.orderDeleteFlag=='A'}">
+                    <div style="color:red;">배송 정보가 없습니다.</div>
+                    </c:if>
 
                 </div>    
             </div>
@@ -196,7 +176,7 @@
                 <h3>결제 금액</h3>
                 <div class=check-info>
                     <span class="check-info-head headline">패키지 금액</span>
-                    <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice}" /> 원</span>
+                    <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.packagePrice}" /> 원</span>
                 </div>
                 <div class=check-info>
                     <span class="check-info-head">배송비</span>
@@ -205,31 +185,42 @@
                 <div class=check-info>
                     <span class="check-info-head">할인금액</span>
                     <c:choose>
-                        <c:when test="${cart.packageType==1}">
+                        <c:when test="${orderDetail.packageType==1}">
                             <span class="check-info-data">0 원</span>
                         </c:when>
                         <c:otherwise>
-                            <span class="check-info-data"> <fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice*0.1}" /> 원</span>
+                            <span class="check-info-data"> <fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.packagePrice*0.1}" /> 원</span>
                         </c:otherwise>
                     </c:choose>
                 </div>
                 <div class=check-info>
                     <span class="check-info-head headline">총 금액</span>
-                    <c:choose>
-                        <c:when test="${cart.packageType==1}">
-                            <span class="check-info-data headline">${cart.packagePrice} 원</span>
-                        </c:when>
-                        <c:otherwise>
-                            <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${cart.packagePrice*0.9}" /> 원</span>
-                        </c:otherwise>
-                    </c:choose>
+                    <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.orderPrice}" /> 원</span>
                 </div>
             </div>
-            
-            <button id="payBtn" type="button" onclick="payment()">주문 취소</button>
+            <c:choose>
+                <c:when test="${orderDetail.orderDeleteFlag=='A'}">
+                <hr />
+                <div class="select-delivery">
+                    <h3>취소 내역</h3>
+                    <div class="cal-container">
+                        <span style="color:red;">취소완료된 주문입니다.</span>
+                        <br />
+                        <span>취소일시 : ${orderDetail.cancleDate}</span>
+                    </div>
+                </div>
+                </c:when>
+                <c:otherwise>
+                    <form action="/admin/orderManage/delete" method="post">
+                        <input type="hidden" name="orderNo" value="${orderDetail.orderNo}">
+                        <button id="payBtn" type="button">주문 취소</button>
+                    </form>
+                </c:otherwise>
+            </c:choose>
         </section>
 
     </main>
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
+    <script src="/resources/js/admin/orderManage/orderManageDetail.js"></script>
 </html>

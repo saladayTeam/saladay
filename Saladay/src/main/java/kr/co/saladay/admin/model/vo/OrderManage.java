@@ -27,6 +27,7 @@ public class OrderManage {
 	private String orderName; // 배송지 수령인 이름
 	private String orderTel; // 배송지 수령인 전화번호
 	private String orderAddress; // 배송지 수령인 주소
+	private int packagePrice; // 결제전 금액
 	private int orderPrice; // 결제 금액
 	private String orderDeleteFlag; // 주문 취소 여부
 	
