@@ -18,4 +18,5 @@ public class OrderOption {
 	private String optionDeleteFlag;
 	private int orderMenuNo;
 	
+	private String reviewCheck; //NVL 결과값 저장
 }

@@ -105,7 +105,16 @@
                             		 			<li>${menu.menuPrice}원</li>
                             		 			
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
-                            		 			<li><div class="review-btn" onclick="location='/review/write'">리뷰 작성</div></li>
+                            		 			<c:forEach var="option" items="${menu.optionList}">
+                            		 				<c:if test="${option.reviewCheck eq 'possible'}">
+                            		 				<li><div class="review-btn" onclick="location='/review/write'">리뷰 작성</div></li>
+                            		 				</c:if>
+                            		 				
+                            		 				<c:if test="${option.reviewCheck eq 'done'}">
+                            		 				<li><div class="review-completed-btn">작성 완료</div></li>
+                            		 				</c:if>
+                            		 				
+                            		 			</c:forEach>
                             		 			</c:if>
                             		 			
                             		 		</ul>
@@ -129,7 +138,7 @@
                             	<c:if test="${order.packageType==2}">
                             		
                             		<div class="package-type"><i class="fa-solid fa-truck-fast fa-flip-horizontal"></i></i>2주차는 1주차와 동일한 구성으로 배송됩니다.</div>
-                            
+                                
                             	</c:if>
                             	</div>
                             	
