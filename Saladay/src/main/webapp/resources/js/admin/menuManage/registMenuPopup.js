@@ -10,7 +10,7 @@ if (closeBtn!=null) {
 // 메뉴 이미지 변경
 const menuImage = document.getElementById("menu-image");
 const deleteImage = document.getElementById("delete-image");
-const inputMenu = document.getElementById("inputMenu");
+const inputMenuImg = document.getElementById("inputMenuImg");
 
 // 초기 이미지 상태를 저장하는 변수
 // (true : 업로드된 이미지 있음,    false : 기본 이미지)
@@ -23,7 +23,7 @@ let deleteCheck = -1;
 // 이미지 수정 페이지에 초기 이미지 경로
 const originalImage = menuImage.getAttribute("src");
 
-if(inputMenu != null) { 
+if(inputMenuImg != null) { 
     // 해당 화면 진입 시 이미지 상태를 저장(initCheck)
     if (menuImage.getAttribute("src") == "/resources/images/review/reviewImg.png") {
         // 기본이미지인 경우
@@ -39,7 +39,7 @@ if(inputMenu != null) {
 
     // 이미지가 선택되었을 때 미리보기
     // 파일선택의 값이 변했을 때(이미지 파일이 선택되었을 때)
-    inputMenu.addEventListener("change", e => {
+    inputMenuImg.addEventListener("change", e => {
         
         // e.target(이미지가 발생한 요소, imageInput)
         // 화살표 함수에서 this는 window의 객체를 의미하므로 사용XXXXX 
@@ -56,8 +56,7 @@ if(inputMenu != null) {
             // FileReader(file을 읽는 객체)
             // - 웹 애플리케이션이 비동기적으로 데이터를 읽기 위해 읽을 파일을 가리키는 file 객체(자바스크립트에서 제공)
             // - 읽어들인 파일을 사용자 컴퓨터에 저장할 수 있다.
-            
-            console.log(inputMenu);
+        
             reader.readAsDataURL(e.target.files[0]);
             // FileReader().readAsDataURL("파일정보");
             // -> 지정된 파일을 실제로 읽기 시작
@@ -72,7 +71,6 @@ if(inputMenu != null) {
                 // img태그의 src속성으로 읽은 파일의 경로 추가
                 // 이미지 미리보기
                 menuImage.setAttribute("src", e.target.result)
-                console.log("들어갔는가" + menuImage);
                 deleteCheck = 1;
             };
 
@@ -89,7 +87,7 @@ if(inputMenu != null) {
     deleteImage.addEventListener("click", ()=>{
 
         menuImage.setAttribute("src", "/resources/images/review/reviewImg.png");
-        inputMenu.value="";
+        inputMenuImg.value="";
         deleteCheck = 0;
     });
 }
@@ -101,7 +99,6 @@ const menuContent = document.getElementById("menuContent");
 const menuPrice = document.getElementById("menuPrice");
 const calorie = document.getElementById("menuCalorie");
 
-
 function registValidate(){
 
     // 메뉴명
@@ -110,7 +107,7 @@ function registValidate(){
         menuName.focus();
         return false;
     } else {
-        const reg1 =  /^[a-zA-Zㄱ-힣0-9\s]{2,50}$/;
+        const reg1 =  /^[a-zA-Zㄱ-힣0-9\s!~@#$%^&*()_-]{2,50}$/;
         if(!reg1.test(menuName.value)) {
             alert("메뉴명을 확인하세요.");
             menuName.focus();
@@ -121,12 +118,11 @@ function registValidate(){
 
     // 메뉴설명
     if(menuContent.value.trim().length == 0) {
-        console.log("등록폼 연결");
         alert("메뉴의 설명을 입력하세요.");
         menuContent.focus();
         return false;
     }  else {
-        const reg2 = /^[a-zA-Zㄱ-힣0-9\s]{2,100}$/;
+        const reg2 = /^[a-zA-Zㄱ-힣0-9!~@#$%^&*()_-\s]{2,1000}$/;
         if(!reg2.test(menuContent.value)) {
             alert("메뉴의 설명을 확인하세요.");
             menuContent.focus();
@@ -164,30 +160,18 @@ function registValidate(){
         }
     }
 
-    // 메뉴이미지
-    // if (menuImage.src == 'http://localhost/resources/images/review/reviewImg.png') {
-    //     alert("이미지 변경 후 클릭하세요")
-    //     return false;
-    // }
+    메뉴이미지
+    if (menuImage.src == 'http://localhost/resources/images/review/reviewImg.png') {
+        alert("이미지 변경 후 클릭하세요")
+        return false;
+    }
 
-    console.log("정상입력");
-    alert("정상입력");
     return true;
 }
 
 
-const registFrm = document.getElementById("registFrm");
-registBtn.addEventListener("click", function(){
-    $.ajax({
-        url:"/admin/updateMenu",
-        type:"post",
-        data:{registFrm:registFrm},
-        success:function(){
-            console.log("연결");
-        },
-        error:function(){
-            console.log("실패");
-        }
-    })
-})
+
+
+
+
 

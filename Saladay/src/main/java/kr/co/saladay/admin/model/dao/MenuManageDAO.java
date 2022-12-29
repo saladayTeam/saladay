@@ -3,6 +3,7 @@ package kr.co.saladay.admin.model.dao;
 import java.util.List;
 
 
+
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,15 @@ public class MenuManageDAO {
 	 */
 	public void optionDelete(int optionNo) {
 		sqlSession.update("menuManageMapper.optionDelete", optionNo);
+	}
+
+
+	/** 새 메뉴 등록
+	 * @param newMenu
+	 * @return
+	 */
+	public int registMenu(Menu newMenu) {
+		return sqlSession.insert("menuManageMapper.registMenu", newMenu);
 	}
 
 

@@ -39,7 +39,7 @@ function deleteValue(){
                 data : {valueArr:valueArr},
                 success : function() {
                     alert("선택하신 옵션이 삭제되었습니다.");
-                    location.reload("/admin/updateOption"); // 페이지 새로고침
+                    location.reload("/admin/optionManage"); // 페이지 새로고침
                 },
                 error: function(){
                     alert("옵션 삭제 실패")
