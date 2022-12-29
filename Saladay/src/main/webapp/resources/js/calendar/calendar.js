@@ -1,35 +1,3 @@
-// var calendar = new FullCalendar.Calendar(calendarEl, {
-//     initialView: 'dayGridMonth' //기본 캘린더 
-//    , selectable: true //날짜 드래그해서 지정가능
-//    , selectMirror: true
-//    , displayEventEnd: {//시작시간, 끝나는 시간 다 보이게 하기
-//         month: false
-//        , basicWeek: true
-//        , "default": true
-//     }
-//    , dayMaxEventRows: true //일정이 너무 많으면 more버튼으로 일정확인
-//    , views: {
-//       timeGrid: {
-//         dayMaxEventRows: 6 // adjust to 6 only for timeGridWeek/timeGridDay
-//       }
-//     }
-//     , //events: data, //이 부분이 json을 받아서 calendar에 뿌리는 공간
-//     events: [{
-//         title: '이미나', 
-//          start: '2022-12-14'
-//         , end: '2022-12-14' 
-//         // , backgroundColor: "green"
-//       },
-//       {
-//         title: '이고미', 
-//          start: '2022-12-15'
-//         , end: '2022-12-15' 
-//         // , backgroundColor: "green"
-//       }
-//   ],
-
-//   });
-
 let list;
 document.addEventListener('DOMContentLoaded', function() {
   
@@ -39,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dataType : "JSON", // 응답 데이터 형식
     async : false,
     success : (result) => { // controller에서 받아온 데이터
-      // console.log(result);
+      console.log(result);
       
       const tempList = [];
 
@@ -55,7 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
               // backgroundColor: "#C21010",
               // borderColor: "#C21010"
               backgroundColor: "#17633d",
-              borderColor: "#17633d"
+              borderColor: "#17633d",
+              extendedProps: {
+                risk: '7'
+              }
           });
         }
 
@@ -67,7 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
               end : li.deliveryDate,
               allDay: true,
               backgroundColor: "#f1828d",
-              borderColor: "#f1828d"
+              borderColor: "#f1828d",
+              extendedProps: {
+                risk: li.packageNo
+              }
           });
         }
 
@@ -79,7 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
               end : li.deliveryDate,
               allDay: true,
               backgroundColor: "#848ccf",
-              borderColor: "#848ccf"
+              borderColor: "#848ccf",
+              extendedProps: {
+                risk: li.packageNo
+              }
           });
         }
 
@@ -91,7 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
               end : li.deliveryDate,
               allDay: true,
               backgroundColor: "#252958",
-              borderColor: "#252958"
+              borderColor: "#252958",
+              extendedProps: {
+                risk: li.packageNo
+              }
           });
         }
 
@@ -104,7 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 end : li.deliveryDate,
                 allDay: true,
                 backgroundColor: "#f9b42d",
-                borderColor: "#f9b42d"
+                borderColor: "#f9b42d",
+                extendedProps: {
+                  risk: li.packageNo
+                }
               });
             }else{
                 tempList.push({
@@ -114,7 +97,10 @@ document.addEventListener('DOMContentLoaded', function() {
                   end : li.deliveryDate,
                   allDay: true,
                   backgroundColor: "#f9b42d",
-                  borderColor: "#f9b42d"
+                  borderColor: "#f9b42d",
+                  extendedProps: {
+                    risk: li.packageNo
+                  }
                 });
               }
             }
@@ -128,7 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
               end : li.deliveryDate,
               allDay: true,
               backgroundColor: "#3498db",
-              borderColor: "#3498db"
+              borderColor: "#3498db",
+              extendedProps: {
+                risk: li.packageNo
+              }
             });
           }else{
               tempList.push({
@@ -138,7 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 end : li.deliveryDate,
                 allDay: true,
                 backgroundColor: "#3498db",
-                borderColor: "#3498db"
+                borderColor: "#3498db",
+                extendedProps: {
+                  risk: li.packageNo
+                }
               });
             }
           }
@@ -152,7 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
               end : li.deliveryDate,
               allDay: true,
               backgroundColor: "#ff4c30",
-              borderColor: "#ff4c30"
+              borderColor: "#ff4c30",
+              extendedProps: {
+                risk: li.packageNo
+              }
             });
           }else{
               tempList.push({
@@ -162,13 +157,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 end : li.deliveryDate,
                 allDay: true,
                 backgroundColor: "#ff4c30",
-                borderColor: "#ff4c30"
+                borderColor: "#ff4c30",
+                extendedProps: {
+                  risk: li.packageNo
+                }
               });
             }
           }
         }
         
      list = tempList;
+
+     
 
     }
   })
@@ -194,14 +194,83 @@ document.addEventListener('DOMContentLoaded', function() {
       selectOne(li.deliveryNo);
 
     },
+    eventDidMount : function(info){
+      // console.log(info);
+      // console.log(info.event.extendedProps);
+
+      // if(info.event.extendedProps.risk != null){
+        info.el.classList.add("no" + info.event.extendedProps.risk );
+      // }
+    }
   });
+
+
     
   calendar.render();
 });
 
-$('.filter').on('change', function () {
-  $('#calendar').fullCalendar('rerenderEvents');
+
+
+$(".inputGroup .filter").on("click", function(){
+
+  if($(this).prop("checked")){
+    $("." + $(this).attr("id")).show();
+  }else{
+    $("." + $(this).attr("id")).hide();
+  }
 });
+
+
+
+// var inputGroup = false;
+//   if( $('#calendar').find(".input-group").length == 1 ){
+//     inputGroup = true;
+//   }
+
+// if ( events.risk == 6 ) {
+//   element.addClass("no6");
+//   if( ".inputGroup" && !$("#no6").is(":checked") ){
+//     element.hide();
+//   }
+// }
+// Click handler
+// $("#calendar").on("click", "input[type='checkbox']", function(){
+//   if($(this).is(":checked")){
+//     $('#calendar').find("."+$(this).attr("id")).show();
+//   }else{
+//     $('#calendar').find("."+$(this).attr("id")).hide();
+//   }
+// });
+
+
+// 안씀
+
+
+// $('.filter').on('change', function () {
+//   $('#calendar').fullCalendar('rerenderEvents');
+// });
+
+
+// function filtering(event) {
+//   var show_packageNo = true;
+
+//   var packageNo = $('input:checkbox.filter:checked').map(function () {
+//     return $(this).val();
+//   }).get();
+//   var types = $('#type_filter').val();
+
+//   show_packageNo = packageNo.indexOf(event.packageNo) >= 0;
+
+//   // if (packageNo && packageNo.length > 0) {
+//   //   if (packageNo[0] == "all") {
+//   //     show_packageNo = true;
+//   //   } else {
+//   //     show_type = types.indexOf(event.type) >= 0;
+//   //   }
+//   // }
+
+//   return show_packageNo;
+// }
 
 
 
@@ -241,3 +310,4 @@ $('.filter').on('change', function () {
 //   }
 //   }
 // })
+

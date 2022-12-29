@@ -67,28 +67,50 @@
         <jsp:include page="/WEB-INF/views/admin/sidemenu.jsp"></jsp:include>
           <div class="right-side"> --%>
 
-          <div>
-            <div id="select">
-              <div>카테고리별 확인</div>
-              <div class="input-box">
-                <label for="calendar_view">구분별</label>
-                <select class="filter" name="select" id="select">
-                  <option value="3pack">3팩</option>
-                  <option value="5pack">5팩</option>
-                  <option value="7pack">7팩</option>
-                  <option value="3pack2week">3팩2주</option>
-                  <option value="3pack2week">5팩2주</option>
-                  <option value="3pack2week">7팩2주</option>
-                </select>
+
+
+          <div class="col-lg-6">
+            <%-- <label for="calendar_view">패키지별</label> --%>
+            <div class="inputGroup">
+              <div class="checkbox" id="f1828d">
+                  <label class="checkbox-inline">3팩</label>
+                    <input class='filter' type="checkbox" id="no1" value="1" checked>
+              </div>
+              <div class="checkbox" id="a848ccf">
+                  <label class="checkbox-inline">5팩</label>
+                    <input class='filter' type="checkbox" id="no2" value="2"checked>
+              </div>
+              <div class="checkbox" id="a252958">
+                  <label class="checkbox-inline">7팩</label>
+                    <input class='filter' type="checkbox" id="no3" value="3" checked>
+              </div>
+              <div class="checkbox" id="f9b42d">
+                  <label class="checkbox-inline">3팩2주</label>
+                    <input class='filter' type="checkbox" id="no4" value="4" checked>
+              </div>
+              <div class="checkbox" id="a3498db">
+                  <label class="checkbox-inline">5팩2주</label>
+                    <input class='filter' type="checkbox" id="no5" value="5" checked>
+              </div>
+              <div class="checkbox" id="ff4c30">
+                  <label class="checkbox-inline">7팩2주</label>
+                    <input class='filter' type="checkbox" id="no6" value="6" checked>
+              </div>
+              <div class="checkbox" id="a17633d">
+                  <label class="checkbox-inline">배송완료</label>
+                    <input class='filter' type="checkbox" id="no7" value="D" checked>
               </div>
             </div>
+          </div>
+          </div>
             <div id='calendar'></div>
           </div>
+
 
           <%-- </div>
       </div> --%>
 
-      <div>
+      <%-- <div>
         <div class="color" id="f1828d">패키지 번호 1</div>
         <div class="color" id="a848ccf">패키지 번호 2</div>
         <div class="color" id="a252958">패키지 번호 3</div>
@@ -96,7 +118,7 @@
         <div class="color" id="a3498db">패키지 번호 5</div>
         <div class="color" id="ff4c30">패키지 번호 6</div>
         <div class="color" id="a17633d">배송완료</div>
-      </div>
+      </div> --%>
 
 
     </main>
