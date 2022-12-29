@@ -24,9 +24,16 @@ public class DeliveryController {
 	@Autowired
 	private DeliveryService service;
 	
-	// 배송관리 페이지
 
+	// 배송관리
 	@GetMapping("/admin/delivery")
+	public String deliveryManage(){
+		
+		return "admin/delivery/deliveryManage";
+	}
+
+	// 배송일정
+	@GetMapping("/admin/deliveryCalendar")
 	public String adminDelivery(
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp,
 			Model model) {
@@ -34,7 +41,7 @@ public class DeliveryController {
 		List<DeliveryManage> list = service.adminDelivery(cp);
 		model.addAttribute("list", list);
 		
-		return "admin/delivery/delivery";
+		return "admin/delivery/deliveryCalendar";
 		
 	}
 	
