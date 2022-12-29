@@ -85,24 +85,22 @@ public class MenuManageServiceImpl implements MenuManageService {
 		// 개행 문자 처리(반드시 XSS방지 처리 먼저 수행)
 		newMenu.setMenuContent(Util.newLineHandling(newMenu.getMenuContent()));
 		
-		// 메뉴이미지명 변경
-		String rename = null;
+		// #{menuImage} == "/resources/images/menu/salad/메뉴명";
+		String menuImg = null;
 		if(inputMenuImg.getSize() == 0) { // 업로드 된 이미지 파일이 없는 경우 
 			newMenu.setMenuImage(null);
 		
 		} else { // 업로드 된 파일이 있는 경우
-			rename = Util.fileRename(inputMenuImg.getOriginalFilename());
-			newMenu.setMenuImage(webPath+rename);
+			menuImg = inputMenuImg.getOriginalFilename();
+			newMenu.setMenuImage(webPath+menuImg);
 		}
 		
-		// System.out.println(newMenu);
-		
-		
+		// 새 메뉴 등록 
 		int result = dao.registMenu(newMenu);
 		
 		if(result > 0) { // 이미지 등록 성공 시 실제로 서버에 저장
-			if(rename!=null) {
-				inputMenuImg.transferTo(new File(folderPath + rename));
+			if(menuImg!=null) {
+				inputMenuImg.transferTo(new File(folderPath + menuImg));
 			}
 		} else {
 			throw new Exception("파일 업로드 실패"); // 예외 강제 발생

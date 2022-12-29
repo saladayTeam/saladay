@@ -107,7 +107,7 @@ function registValidate(){
         menuName.focus();
         return false;
     } else {
-        const reg1 =  /^[a-zA-Zㄱ-힣0-9\s]{2,50}$/;
+        const reg1 =  /^[a-zA-Zㄱ-힣0-9\s!~@#$%^&*()_-]{2,50}$/;
         if(!reg1.test(menuName.value)) {
             alert("메뉴명을 확인하세요.");
             menuName.focus();
@@ -122,7 +122,7 @@ function registValidate(){
         menuContent.focus();
         return false;
     }  else {
-        const reg2 = /^[a-zA-Zㄱ-힣0-9\s]{2,300}$/;
+        const reg2 = /^[a-zA-Zㄱ-힣0-9!~@#$%^&*()_-\s]{2,1000}$/;
         if(!reg2.test(menuContent.value)) {
             alert("메뉴의 설명을 확인하세요.");
             menuContent.focus();

@@ -1,8 +1,10 @@
 package kr.co.saladay.admin.controller;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -94,16 +96,24 @@ public class MenuManageController {
 							) throws Exception {
 	
 		
+		ServletContext application = req.getSession().getServletContext();
+
 		// 업로드 된 파일의 서버 내부 경로 준비
 		String webPath = "/resources/images/menu/salad/";
-		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		String folderPath = application.getRealPath(webPath);
 		
 		int result = service.registMenu(newMenu, inputMenuImg, webPath, folderPath);
 		
 		if (result > 0) {
+			
+			// application에 추가
+			List<Menu> menuList = (List<Menu>)application.getAttribute("menuList");
+			menuList.add(newMenu);
+			
+			
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
-			out.println("<script>window.close(); opener.location.reload();</script>");
+			out.println("<script> alert('메뉴가 정상적으로 등록되었습니다.'); window.close(); opener.location.reload(); </script>");
 			out.flush(); 
 		}
 
