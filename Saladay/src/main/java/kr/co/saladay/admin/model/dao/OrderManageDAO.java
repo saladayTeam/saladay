@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.saladay.admin.model.vo.DeliveryManage;
 import kr.co.saladay.admin.model.vo.OrderManage;
 import kr.co.saladay.admin.model.vo.OrderManagePagination;
 import kr.co.saladay.review.model.vo.Review;
@@ -35,5 +36,10 @@ public class OrderManageDAO {
 	// 주문 상세 조회
 	public OrderManage selectOrderDetail(int orderNo) {
 		return sqlSession.selectOne("orderManageMapper.selectOrderDetail", orderNo);
+	}
+
+	// 주문별 배송정보 조회
+	public List<DeliveryManage> selectOrderDetailDelivery(int orderNo) {
+		return sqlSession.selectList("orderManageMapper.selectOrderDetailDelivery", orderNo);
 	}
 }

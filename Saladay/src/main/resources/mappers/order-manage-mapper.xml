@@ -65,7 +65,7 @@
 	</select>
 	
 	<!-- 주문별 배송정보 -->
-	<select id="selectOrderDetailDelivery">
+	<select id="selectOrderDetailDelivery" resultMap="deliveryManage_rm">
 	SELECT ROW_NUMBER() OVER(PARTITION BY D.ORDER_NO ORDER BY D.ORDER_NO, D.DELIVERY_DATE) ROW_NUM,
 	DELIVERY_NO, O.ORDER_NO, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') DELIVERY_DATE, DELIVERY_STATUS
 	FROM DELIVERY D

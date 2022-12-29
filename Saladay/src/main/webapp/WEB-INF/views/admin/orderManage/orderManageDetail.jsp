@@ -149,18 +149,44 @@
             <div class="select-delivery">
                 <h3>배송 정보</h3>
                 <div class="cal-container">
+                <%-- 취소 요청중인 주문인 경우 --%>
+                <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
+                    <div style="color:blue;">앗! 취소요청중인 주문입니다.</div>
                     <div class=cal>
-                        <p>1차 배송일 : 22-12-29</p>
-                        <p>배송 상태 : 결제완료</p>
+                        <p>1차 배송일 : ${orderDetailDelivery[0].deliveryDate}</p>
+                        <p>배송 상태 : ${orderDetailDelivery[0].deliveryStatus}</p>
                     </div>
-                    <%-- 선택한 패키지 번호에 따라서 2차 배송일 지정 --%>
-                    <c:if test="${cart.packageType==2}">
+                    <%-- 2차 배송일이 있는 경우 --%>
+                    <c:if test="${orderDetail.packageType==2}">
                         <hr />
                         <div class=cal>
-                            <p>2차 배송일 : 22-12-30</p>
-                            <p>배송 상태 : 결제완료</p>
+                            <p>2차 배송일 : ${orderDetailDelivery[1].deliveryDate}</p>
+                            <p>배송 상태 : ${orderDetailDelivery[1].deliveryStatus}</p>
                         </div>
                     </c:if>
+                </c:if>
+                <%-- 정상 주문인 경우 --%>
+                <c:if test="${orderDetail.orderDeleteFlag=='N'}">
+                    <div class=cal>
+                        <p>1차 배송일 : ${orderDetailDelivery[0].deliveryDate}</p>
+                        <p>배송 상태 : ${orderDetailDelivery[0].deliveryStatus}</p>
+                    </div>
+                    <%-- 2차 배송일이 있는 경우 --%>
+                    <c:if test="${orderDetail.packageType==2}">
+                        <hr />
+                        <div class=cal>
+                            <p>2차 배송일 : ${orderDetailDelivery[1].deliveryDate}</p>
+                            <p>배송 상태 : ${orderDetailDelivery[1].deliveryStatus}</p>
+                        </div>
+                    </c:if>
+                </c:if>
+                <%-- 취소 완료된 주문인 경우 --%>
+                <c:if test="${orderDetail.orderDeleteFlag=='A'}">
+                <div style="color:red;">취소완료된 주문입니다.</div>
+                <br />
+                <span>취소일시 : ${orderDetail.cancleDate}</span>
+                </c:if>
+
                 </div>    
             </div>
             
