@@ -15,12 +15,17 @@ body{
 }
 
 .update-menu-popup{
-    width: 720px;
-    height: 750px;
-    padding: 0 40px;
+    width: 600px;
+    height: 400px;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
+.update-menu-popup h2 {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #17633d;
+}
 .menu-table {
     width: 100%;
     padding: 0 20px;
@@ -30,16 +35,19 @@ body{
     display: none;
 }
 
-.menu-table th {
+.t-row th {
     font-size: 13px;
     color: #222;
     text-align: left;
     font-weight: normal;
 }
+.t-row td{
+    width: 100%;
+}
 
 .menu-table input {
     margin: 0;
-    width: 350px;
+    width: 100%;
     cursor: pointer;
     padding: 5px 0 5px 5px;
     outline: none;
@@ -49,7 +57,7 @@ body{
 
 .menu-table textarea {
     cursor: pointer;
-    width: 350px;
+    width: 100%;
     height: 6.25em;
     outline: none;
     resize: none;
@@ -61,7 +69,6 @@ body{
 label {
     cursor: pointer;
 }
-
 
 
 
@@ -86,10 +93,6 @@ label {
     height: 150px;
 }
 
-/* 사진선택 */
-#menuImage{
-    display: none;
-}
 
 .menu-img-area button {
     background-color: #f2f2f2;
@@ -106,14 +109,16 @@ label {
     top:0;
     right: 210px;
     cursor: pointer;
-    color: antiquewhite;
+    color: white;
 }
+
+
 /* 버튼영역 */
 .menu-btn-area {
-    width: 450px;
-    margin-left: 100px;
-    text-align: center;
+    width: 560px;
+    text-align: right;
     padding-top: 20px;
+
 }
 
 .menu-btn-area button{
@@ -121,6 +126,7 @@ label {
     background-color: #17633d;
     border: none;
     color: white;
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 5px;
+    
 }
