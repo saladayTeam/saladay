@@ -202,6 +202,22 @@ main {
     text-align : center;
 }
 
+.review-completed-btn {
+	width: 60px;
+    height: 14px;
+    font-size: 8px;
+    font-weight: bolder;
+    color: white;
+    background-color: #ccc;
+    
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    text-align : center;
+    line-height : 14px;
+    margin-bottom:5px;
+    text-align : center;
+}
 
 /*flex-end 끝부터 배치********/
 .order-bottom{
