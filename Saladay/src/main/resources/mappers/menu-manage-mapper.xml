@@ -25,13 +25,6 @@
       <result property="optionCalorie" column="CALORIE"/>
 	</resultMap>
 	
-	<!-- Package resultMap -->
-	<resultMap type="Package" id="package_rm">
-      <id property="packageNo" column="PACKAGE_NO"/>
-      <result property="packageName" column="PACKAGE_NAME"/>
-      <result property="packageType" column="PACKAGE_TYPE"/>
-      <result property="packageImage" column="PACKAGE_IMG"/>
-	</resultMap>
 	
 	<!-- 메뉴 갯수 조회 -->
 	<select id="getMenuCount" parameterType="_int" resultType="_int">
@@ -79,6 +72,15 @@
 		</selectKey>
 		INSERT INTO MENU 
 		VALUES(#{menuNo}, #{menuName}, #{menuPrice}, #{menuImage}, #{menuContent}, DEFAULT, #{menuCalorie})
+	</insert>
+	
+	<!-- 새 옵션 등록 -->
+	<insert id="registOption" parameterType="Option" useGeneratedKeys="true">
+		<selectKey keyProperty="optionNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_OPTION_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO "OPTION"
+		VALUES(#{optionNo}, #{optionType}, #{optionName}, #{optionImage}, #{optionPrice}, DEFAULT, #{optionCalorie})
 	</insert>
 	
 </mapper>

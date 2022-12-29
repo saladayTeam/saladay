@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.saladay.menu.model.vo.Menu;
+import kr.co.saladay.menu.model.vo.Option;
 
 public interface MenuManageService {
 
@@ -42,10 +43,21 @@ public interface MenuManageService {
 	 * @param newMenu
 	 * @param inputMenuImg
 	 * @param webPath
-	 * @param folderPath
+	 * @param filePath
 	 * @throws Exception 
 	 */
-	int registMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String folderPath) throws Exception;
+	int registMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String filePath) throws Exception;
+
+
+
+	/** 새 옵션 등록
+	 * @param newOption
+	 * @param inputOptionImg
+	 * @param webPath
+	 * @param filePath
+	 * @return
+	 */
+	int registOption(Option newOption, MultipartFile inputOptionImg, String webPath, String filePath) throws Exception;
 
 
 

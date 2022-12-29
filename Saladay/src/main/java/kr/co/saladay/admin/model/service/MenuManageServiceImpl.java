@@ -76,7 +76,7 @@ public class MenuManageServiceImpl implements MenuManageService {
 	// 새 메뉴 등록
 	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int registMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String folderPath) throws Exception {
+	public int registMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String filePath) throws Exception {
 		
 		// XSS(크로스 사이트 스크립트 공격) 방지 
 		newMenu.setMenuName(Util.XSSHandling(newMenu.getMenuName()));
@@ -100,7 +100,37 @@ public class MenuManageServiceImpl implements MenuManageService {
 		
 		if(result > 0) { // 이미지 등록 성공 시 실제로 서버에 저장
 			if(menuImg!=null) {
-				inputMenuImg.transferTo(new File(folderPath + menuImg));
+				inputMenuImg.transferTo(new File(filePath + menuImg));
+			}
+		} else {
+			throw new Exception("파일 업로드 실패"); // 예외 강제 발생
+		}
+		
+		return result;
+	}
+	
+	
+	// 새 옵션 등록
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int registOption(Option newOption, MultipartFile inputOptionImg, String webPath, String filePath) throws Exception{
+		
+		
+		String optionImg = null;
+		if(inputOptionImg.getSize() == 0) { // 업로드 된 이미지 파일이 없는 경우 
+			newOption.setOptionImage(null);
+		
+		} else { // 업로드 된 파일이 있는 경우
+			optionImg = inputOptionImg.getOriginalFilename();
+			newOption.setOptionImage(webPath+optionImg);
+		}
+		
+		// 새 옵션 등록 
+		int result = dao.registOption(newOption);
+		
+		if(result > 0) { // 이미지 등록 성공 시 실제로 서버에 저장
+			if(optionImg!=null) {
+				inputOptionImg.transferTo(new File(filePath + optionImg));
 			}
 		} else {
 			throw new Exception("파일 업로드 실패"); // 예외 강제 발생

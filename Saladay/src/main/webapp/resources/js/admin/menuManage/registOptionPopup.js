@@ -8,9 +8,9 @@ if (closeBtn!=null) {
 
 
 // 메뉴 이미지 변경
-const menuImage = document.getElementById("menu-image");
+const optionImage = document.getElementById("option-image");
 const deleteImage = document.getElementById("delete-image");
-const inputMenuImg = document.getElementById("inputMenuImg");
+const inputOptionImg = document.getElementById("inputOptionImg");
 
 // 초기 이미지 상태를 저장하는 변수
 // (true : 업로드된 이미지 있음,    false : 기본 이미지)
@@ -21,11 +21,11 @@ let initCheck;
 let deleteCheck = -1;
 
 // 이미지 수정 페이지에 초기 이미지 경로
-const originalImage = menuImage.getAttribute("src");
+const originalImage = optionImage.getAttribute("src");
 
-if(inputMenuImg != null) { 
+if(inputOptionImg != null) { 
     // 해당 화면 진입 시 이미지 상태를 저장(initCheck)
-    if (menuImage.getAttribute("src") == "/resources/images/review/reviewImg.png") {
+    if (optionImage.getAttribute("src") == "/resources/images/review/reviewImg.png") {
         // 기본이미지인 경우
         initCheck = false;
     } else {
@@ -39,7 +39,7 @@ if(inputMenuImg != null) {
 
     // 이미지가 선택되었을 때 미리보기
     // 파일선택의 값이 변했을 때(이미지 파일이 선택되었을 때)
-    inputMenuImg.addEventListener("change", e => {
+    inputOptionImg.addEventListener("change", e => {
         
         // e.target(이미지가 발생한 요소, imageInput)
         // 화살표 함수에서 this는 window의 객체를 의미하므로 사용XXXXX 
@@ -70,98 +70,84 @@ if(inputMenuImg != null) {
 
                 // img태그의 src속성으로 읽은 파일의 경로 추가
                 // 이미지 미리보기
-                menuImage.setAttribute("src", e.target.result)
+                optionImage.setAttribute("src", e.target.result)
                 deleteCheck = 1;
             };
 
         } else { // 파일 선택에서 취소를 누른 경우
             
             // 초기 이미지로 변경
-            menuImage.setAttribute("src", originalImage);
+            optionImage.setAttribute("src", originalImage);
             deleteCheck = -1;
         }
     });
     
-
+    
     // x버튼이 클릭된 경우는 무조건 기본이미지로 변경
     deleteImage.addEventListener("click", ()=>{
 
-        menuImage.setAttribute("src", "/resources/images/review/reviewImg.png");
-        inputMenuImg.value="";
+        optionImage.setAttribute("src", "/resources/images/review/reviewImg.png");
+        inputOptionImg.value="";
         deleteCheck = 0;
     });
 }
 
 
 // 제출 전 유효성 검사
-const menuName = document.getElementById("menuName");
-const menuContent = document.getElementById("menuContent");
-const menuPrice = document.getElementById("menuPrice");
-const calorie = document.getElementById("menuCalorie");
+const optionName = document.getElementById("optionName");
+const optionType = document.getElementById("optionType");
+const optionPrice = document.getElementById("optionPrice");
+const optionCalorie = document.getElementById("optionCalorie");
 
 function registValidate(){
 
-    // 메뉴명
-    if(menuName.value.trim().length == 0) {
-        alert("메뉴명을 입력하세요.");
-        menuName.focus();
+    // 옵션명
+    if(optionName.value.trim().length == 0) {
+        alert("옵션명을 입력하세요.");
+        optionName.focus();
         return false;
     } else {
-        const reg1 =  /^[a-zA-Zㄱ-힣0-9\s!~@#$%^&*()_-]{2,50}$/;
-        if(!reg1.test(menuName.value)) {
-            alert("메뉴명을 확인하세요.");
-            menuName.focus();
+        const reg1 =  /^[a-zA-Zㄱ-힣0-9\s!~@#$%^&*()_-]{2,10}$/;
+        if(!reg1.test(optionName.value)) {
+            alert("옵션명을 확인하세요.");
+            optionName.focus();
             return false;
         }
     }
 
 
-    // 메뉴설명
-    if(menuContent.value.trim().length == 0) {
-        alert("메뉴의 설명을 입력하세요.");
-        menuContent.focus();
-        return false;
-    }  else {
-        const reg2 = /^[a-zA-Zㄱ-힣0-9!~@#$%^&*()_-\s]{2,1000}$/;
-        if(!reg2.test(menuContent.value)) {
-            alert("메뉴의 설명을 확인하세요.");
-            menuContent.focus();
-            return false;
-        }
-    }
-
-    // 메뉴 가격
-    if(menuPrice.value.trim().length == 0) {
-        alert("메뉴 가격을 입력하세요.");
-        menuPrice.focus();
+    // 옵션 가격
+    if(optionPrice.value.trim().length == 0) {
+        alert("옵션 가격을 입력하세요.");
+        optionPrice.focus();
         return false;
     } else {
-        const reg3 = /^[0-9]+$/; 
-        if (!reg3.test(menuPrice.value)) {
-            alert("메뉴 가격은 숫자만 입력 가능합니다.");
-            menuPrice.value="";
-            menuPrice.focus();
+        const reg2 = /^[0-9]+$/; 
+        if (!reg2.test(optionPrice.value)) {
+            alert("옵션 가격은 숫자만 입력 가능합니다.");
+            optionPrice.value="";
+            optionPrice.focus();
             return false;
         }
     }
 
     // 칼로리
-    if(calorie.value.trim().length == 0) {
+    if(optionCalorie.value.trim().length == 0) {
         alert("칼로리를 입력하세요.");
-        calorie.focus();
+        optionCalorie.focus();
         return false;
     } else {
-        const reg4 = /^[0-9]+$/; 
-        if (!reg4.test(calorie.value)) {
+        const reg3 = /^[0-9]+$/; 
+        if (!reg3.test(optionCalorie.value)) {
             alert("칼로리는 숫자만 입력 가능합니다.");
-            calorie.value='';
-            calorie.focus();
+            optionCalorie.value='';
+            optionCalorie.focus();
             return false;
         }
     }
 
-    // 메뉴이미지
-    if (menuImage.src == 'http://localhost/resources/images/review/reviewImg.png') {
+    // 옵션이미지
+    if (optionImage.src == 'http://localhost/resources/images/review/reviewImg.png') {
         alert("이미지를 선택하세요.")
         return false;
     }
