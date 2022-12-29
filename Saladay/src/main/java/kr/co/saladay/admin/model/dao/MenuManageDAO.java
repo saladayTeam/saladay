@@ -84,5 +84,14 @@ public class MenuManageDAO {
 	}
 
 
+	/** 새 옵션 등록
+	 * @param newOption
+	 * @return
+	 */
+	public int registOption(Option newOption) {
+		return sqlSession.insert("menuManageMapper.registOption", newOption);
+	}
+
+
 
 }
