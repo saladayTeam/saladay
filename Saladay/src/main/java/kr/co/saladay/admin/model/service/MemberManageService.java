@@ -10,4 +10,9 @@ public interface MemberManageService {
 	 */
 	Map<String, Object> selectMemberList(int cp);
 
+	/** 강제탈퇴처리
+	 * @param memberNo
+	 */
+	void memberSecession(int memberNo);
+
 }

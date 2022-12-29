@@ -18,13 +18,23 @@
 	<!-- 회원 수 조회 -->
 	<select id="getMemberCount" parameterType="_int" resultType="_int">
 	SELECT COUNT(*) FROM "MEMBER"
+	WHERE AUTHORITY = 1
 	</select>
 	
+	
+	<!-- 전체 회원 조회 -->
 	<select id="selectMemberList" resultMap="member_rm">
 	SELECT MEMBER_NO, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_TEL, TO_CHAR(ENROLL_DATE, 'yyyy.MM.dd') ENROLL_DATE, MEMBER_DEL_FL 
 	FROM MEMBER
+	WHERE AUTHORITY = 1
 	ORDER BY MEMBER_NO DESC
 	</select>
+	
+	<!-- 강제탈퇴처리 -->
+	<update id="memberSecession">
+	UPDATE "MEMBER" SET MEMBER_DEL_FL = 'Y'
+	WHERE MEMBER_NO = #{memberNo}
+	</update>
 	
 	
 	

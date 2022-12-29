@@ -16,31 +16,29 @@ const chks = document.getElementsByName("rowCheck");
 
 
 // 회원탈퇴처리
-function deleteValue(){
-    const valueArr = new Array();
+function secessionValue(){
+    const memberArr = new Array();
     const list = chks;
     
     for(let i=0; i<list.length; i++) { 
         if(list[i].checked){ // 선택된 내용을 배열에 저장
-            valueArr.push(list[i].value);
+            memberArr.push(list[i].value);
         }
     }
     
-    console.log(valueArr);
+    console.log(memberArr);
     
-    if(valueArr.length==0){
+    if(memberArr.length==0){
         alert("선택된 회원이 없습니다.");
     
     } else {
         if(confirm("탈퇴시키겠습니까?")) {
-            // console.log("ajax연결해서 삭제하기");
-
             $.ajax({
-                url : "",
+                url : "/admin/secession",
                 type : "post",
-                data : {valueArr:valueArr},
+                data : {memberArr:memberArr},
                 success : function() {
-                    alert("");
+                    alert("선택하신 회원이 탈퇴처리되었습니다.");
                     location.reload(""); // 페이지 새로고침
                 },
                 error: function(){

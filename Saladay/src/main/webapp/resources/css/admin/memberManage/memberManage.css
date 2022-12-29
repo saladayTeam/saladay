@@ -2,21 +2,35 @@
 @import url(../../main/header.css);
 @import url(../../main/footer.css);
 
+
 /* 회원 영역 */
 .mem-wrapper{
     min-height: 100vh;
     width: 1200px;
-    padding: 50px;
 }
 
 .mem-m-tit {
-    min-height: 50px;
+    margin-top: 30px;
+    padding-bottom: 15px;
     border-bottom: 3px solid #17633d;
-    font-size: 1.5em;
-    font-weight: bold;
+}
 
+
+.mem-m-tit span {
+    font-weight: bold;
+    display: flex;
+}
+
+.mem span {
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.mem {
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
 }
 
 
@@ -40,8 +54,8 @@
 
 table {
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    padding: 20px;
 }
 
 table th {
