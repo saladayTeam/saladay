@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
               start: li.deliveryDate,
               end : li.deliveryDate,
               allDay: true,
-              backgroundColor: "red",
-              borderColor: "red"
+              backgroundColor: "#f1828d",
+              borderColor: "#f1828d"
           });
         }
 
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
               start: li.deliveryDate,
               end : li.deliveryDate,
               allDay: true,
-              backgroundColor: "orange",
-              borderColor: "orange"
+              backgroundColor: "#848ccf",
+              borderColor: "#848ccf"
           });
         }
 
@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
               start: li.deliveryDate,
               end : li.deliveryDate,
               allDay: true,
-              backgroundColor: "yellow",
-              borderColor: "yellow"
+              backgroundColor: "#252958",
+              borderColor: "#252958"
           });
         }
 
@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: li.deliveryDate,
                 end : li.deliveryDate,
                 allDay: true,
-                backgroundColor: "green",
-                borderColor: "green"
+                backgroundColor: "#f9b42d",
+                borderColor: "#f9b42d"
               });
             }else{
                 tempList.push({
@@ -113,63 +113,61 @@ document.addEventListener('DOMContentLoaded', function() {
                   start: li.deliveryDate,
                   end : li.deliveryDate,
                   allDay: true,
-                  backgroundColor: "green",
-                  borderColor: "green"
+                  backgroundColor: "#f9b42d",
+                  borderColor: "#f9b42d"
                 });
               }
             }
 
         if(li.deliveryCode==='A'&&li.packageNo===5) { // 패키지번호 5
-          // if(li.orderNo===li.orderNo){
-          //   if(li.deliveryNo>li.deliveryNo){
-          //     tempList.push({
-          //       id: li.deliveryNo,
-          //       title: li.orderNo +"-1) "+ li.orderName,
-          //       start: li.deliveryDate,
-          //       end : li.deliveryDate,
-          //       allDay: true,
-          //       backgroundColor: "blue",
-          //       borderColor: "blue"
-          //     });
-          //   }else{
-          //     tempList.push({
-          //       id: li.deliveryNo,
-          //       title: li.orderNo +"-2) "+ li.orderName,
-          //       start: li.deliveryDate,
-          //       end : li.deliveryDate,
-          //       allDay: true,
-          //       backgroundColor: "blue",
-          //       borderColor: "blue"
-          //     });
-          //   }
-          // }
-        }
+          if(li.rowNum==1){
+            tempList.push({
+              id: li.deliveryNo,
+              title: li.orderNo +"-1) "+ li.orderName,
+              start: li.deliveryDate,
+              end : li.deliveryDate,
+              allDay: true,
+              backgroundColor: "#3498db",
+              borderColor: "#3498db"
+            });
+          }else{
+              tempList.push({
+                id: li.deliveryNo,
+                title: li.orderNo +"-2) "+ li.orderName,
+                start: li.deliveryDate,
+                end : li.deliveryDate,
+                allDay: true,
+                backgroundColor: "#3498db",
+                borderColor: "#3498db"
+              });
+            }
+          }
 
         if(li.deliveryCode==='A'&&li.packageNo===6) { // 패키지번호 6
-          // if(li.orderNo[0]){
-          //   tempList.push({
-          //     id: li.deliveryNo,
-          //     title: li.orderNo +"-1) "+ li.orderName,
-          //     start: li.deliveryDate,
-          //     end : li.deliveryDate,
-          //     allDay: true,
-          //     backgroundColor: "purple",
-          //     borderColor: "purple"
-          //   });
-          // }else{
-          //   tempList.push({
-          //     id: li.deliveryNo,
-          //     title: li.orderNo +"-2) "+ li.orderName,
-          //     start: li.deliveryDate,
-          //     end : li.deliveryDate,
-          //     allDay: true,
-          //     backgroundColor: "purple",
-          //     borderColor: "purple"
-          //   });
-          // }
+          if(li.rowNum==1){
+            tempList.push({
+              id: li.deliveryNo,
+              title: li.orderNo +"-1) "+ li.orderName,
+              start: li.deliveryDate,
+              end : li.deliveryDate,
+              allDay: true,
+              backgroundColor: "#ff4c30",
+              borderColor: "#ff4c30"
+            });
+          }else{
+              tempList.push({
+                id: li.deliveryNo,
+                title: li.orderNo +"-2) "+ li.orderName,
+                start: li.deliveryDate,
+                end : li.deliveryDate,
+                allDay: true,
+                backgroundColor: "#ff4c30",
+                borderColor: "#ff4c30"
+              });
+            }
+          }
         }
-     }
-
+        
      list = tempList;
 
     }
@@ -200,6 +198,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
   calendar.render();
 });
+
+$('.filter').on('change', function () {
+  $('#calendar').fullCalendar('rerenderEvents');
+});
+
 
 
 
