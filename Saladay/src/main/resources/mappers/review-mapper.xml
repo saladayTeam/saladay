@@ -163,4 +163,10 @@ UPDATE "REVIEW" SET
 REVIEW_DEL_FL = 'Y'
 WHERE REVIEW_NO=#{reviewNo}
 </update>
+
+<!-- 리뷰 이미지 삭제 -->
+<delete id="deleteImgList">
+DELETE FROM BOARD_IMG 
+WHERE REVIEW_NO=#{reviewNo}
+</delete>
 </mapper>

@@ -1,5 +1,6 @@
 package kr.co.saladay.review.model.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import kr.co.saladay.review.model.dao.ReviewDAO;
 import kr.co.saladay.review.model.vo.Pagination;
 import kr.co.saladay.review.model.vo.Review;
+import kr.co.saladay.review.model.vo.ReviewImage;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
@@ -79,6 +81,13 @@ public class ReviewServiceImpl implements ReviewService{
 	// 리뷰 삭제
 	@Override
 	public int deleteReview(int reviewNo) {
+		
+		// 리뷰가 삭제될 때 이미지 테이블의 이미지도 삭제
+		List<ReviewImage> img =new ArrayList<>();
+		if(!img.isEmpty()) {
+			dao.deleteImgList(reviewNo);
+		}
+		
 		return dao.deleteReview(reviewNo);
 	}
 

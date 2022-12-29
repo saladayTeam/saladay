@@ -97,4 +97,12 @@ public class ReviewDAO {
 		return sqlSession.update("reviewMapper.deleteReview", reviewNo);
 	}
 
+	/** 리뷰 이미지 삭제
+	 * @param reviewNo
+	 */
+	public void deleteImgList(int reviewNo) {
+		sqlSession.delete("reviewMapper.deleteImgList", reviewNo);
+		
+	}
+
 }
