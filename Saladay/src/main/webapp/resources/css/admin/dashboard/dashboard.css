@@ -1,0 +1,86 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1200px;
+    min-height: 200vh;
+    padding: 50px;
+}
+
+main>div{
+    width: 1200px;
+}
+
+.menu-m-tit {
+    min-height: 50px;
+    border-bottom: 3px solid #17633d;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-container-1{
+    display: flex;
+    width: 1200px;
+    height: 450px;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 20px;
+}
+
+.chart-container-1>span{
+    padding: 10px;
+    background-color: #17633d;
+    border-radius: 15px;
+
+    width: 90%;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+    color: white;
+    
+    margin-bottom: 10px;
+}
+
+.chart-container-2{
+    display: flex;
+    width: 1200px;
+
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.chart-order{
+    display: flex;
+    flex-basis: 49%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #ccc;
+    border-radius: 15px;    
+
+    padding: 20px;
+}
+
+.chart-order>span{
+    padding: 10px;
+    background-color: #17633d;
+    border-radius: 15px;
+
+    width: 90%;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: center;
+    color: white;
+}
+

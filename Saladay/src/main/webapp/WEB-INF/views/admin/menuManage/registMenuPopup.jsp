@@ -33,7 +33,7 @@
                         </td>
                     </tr>
                     <tr class="t-row">
-                        <th><label for="inputMenu">메뉴사진</label></th>
+                        <th><label for="inputMenuImg">메뉴사진</label></th>
                         <td>
                             <div class="img-box">
                                 <div class="preview-area">
@@ -59,7 +59,7 @@
                         </td>
                     </tr>
                     <tr class="t-row">
-                        <th><label for="calorie">칼로리</label></th>
+                        <th><label for="menuCalorie">칼로리</label></th>
                         <td>
                             <input type="text" placeholder="칼로리는 숫자만 입력하세요." id="menuCalorie" name="menuCalorie">
                         </td>
