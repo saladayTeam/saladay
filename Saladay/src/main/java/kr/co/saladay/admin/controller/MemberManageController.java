@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.saladay.admin.model.service.MemberManageService;
@@ -24,6 +25,18 @@ public class MemberManageController {
 		model.addAttribute("map", map);
 		
 		return "admin/memberManage/memberManage";
+	}
+	
+	// 강제탈퇴처리
+	@PostMapping("/admin/secession")
+	public String memberSecession(@RequestParam(value="memberArr[]") String[] memberArr) {
+
+		for(int i=0; i < memberArr.length; i++) {
+			int memberNo = Integer.parseInt(memberArr[i]);
+			service.memberSecession(memberNo);
+		}
+		
+		return "redirect:/admin/memberManage";
 	}
 	
 }

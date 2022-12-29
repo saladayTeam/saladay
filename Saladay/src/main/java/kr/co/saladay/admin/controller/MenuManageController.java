@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.saladay.admin.model.service.MenuManageService;
+import kr.co.saladay.menu.model.service.MenuService;
 import kr.co.saladay.menu.model.vo.Menu;
 import kr.co.saladay.menu.model.vo.Option;
 
@@ -28,6 +29,9 @@ public class MenuManageController {
 	
 	@Autowired
 	private MenuManageService service;
+	
+	@Autowired
+	private MenuService menuService;
 	
 	// 메뉴 관리 
 	@GetMapping("/admin/menuManage")
@@ -42,15 +46,20 @@ public class MenuManageController {
 	
 	// 메뉴 삭제
 	@PostMapping("/admin/deleteMenu")
-	public String menuDelete(@RequestParam(value="valueArr[]") String[] valueArr) {
+	public String menuDelete(@RequestParam(value="valueArr[]") String[] valueArr, HttpServletRequest req ) {
 		// System.out.println(valueArr);
-
+		
+		ServletContext application = req.getSession().getServletContext();
+		
 		for(int i=0; i < valueArr.length; i++) {
 			int menuNo = Integer.parseInt(valueArr[i]);
 			service.menuDelete(menuNo);
 		}
 		
-		return "redirect:/admin/updateMenu";
+		List<Menu> menuList = menuService.selectMenuList();
+		application.setAttribute("menuList", menuList);
+		
+		return "redirect:/admin/menuManage";
 	}
 	
 	
@@ -68,15 +77,20 @@ public class MenuManageController {
 	
 	// 옵션 삭제
 	@PostMapping("/admin/deleteOption")
-	public String optionDelete(@RequestParam(value="valueArr[]") String[] valueArr) {
+	public String optionDelete(@RequestParam(value="valueArr") String[] valueArr, HttpServletRequest req) {
 		// System.out.println(valueArr);
-
+		
+		ServletContext application = req.getSession().getServletContext();
+		
 		for(int i=0; i < valueArr.length; i++) {
 			int optionNo = Integer.parseInt(valueArr[i]);
 			service.optionDelete(optionNo);
 		}
 		
-		return "redirect:/admin/updateOption";
+		List<Option> optionList = menuService.selectOptionList();
+		application.setAttribute("optionList", optionList);
+
+		return "redirect:/admin/optionManage";
 	}
 	
 	
@@ -110,7 +124,6 @@ public class MenuManageController {
 			// application scope에 추가
 			List<Menu> menuList = (List<Menu>)application.getAttribute("menuList");
 			menuList.add(newMenu);
-			
 			
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();

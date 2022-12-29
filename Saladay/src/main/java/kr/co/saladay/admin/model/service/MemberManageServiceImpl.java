@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.admin.model.dao.MemberManageDAO;
 import kr.co.saladay.admin.model.vo.OrderManagePagination;
@@ -33,5 +34,13 @@ public class MemberManageServiceImpl implements MemberManageService{
 		map.put("memberList", memberList);
 		
 		return map;
+	}
+	
+	// 강제탈퇴처리
+	@Transactional
+	@Override
+	public void memberSecession(int memberNo) {
+		dao.memberSecession(memberNo);
+		
 	}
 }

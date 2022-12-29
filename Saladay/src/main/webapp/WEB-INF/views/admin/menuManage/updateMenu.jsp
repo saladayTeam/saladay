@@ -19,15 +19,15 @@
 <body>
     <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
     
-    <section class="menu-wrapper">
-    
+    <main>
       <div class="menu-m-tit">
-        <div>
-          <span>메뉴 관리</span>
-        </div>
-        <div class="m-btn-area">
-          <button type="button" id="addBtn">추가</button>
-          <button type="button" id="delBtn" onclick="deleteValue();">삭제</button>
+          <span><h1>메뉴관리</h1></span>
+        <div class="tit">
+          <span>새로운 메뉴를 추가하거나 기존 메뉴를 삭제하실 수 있습니다.</span>
+          <div class="m-btn-area">
+            <button type="button" id="addBtn">추가</button>
+            <button type="button" id="delBtn" onclick="deleteValue();">삭제</button>
+          </div>
         </div>
       </div>
 
@@ -92,7 +92,7 @@
             </c:if>
         </div>
       
-    </section>  
+    </main>  
     
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
