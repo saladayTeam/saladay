@@ -2,16 +2,66 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="orderManageMapper">
 	
-	<!-- Order resultMap -->
+	 <!-- Order resultMap -->
+	 <resultMap type="Order" id="order_rm">
+      <id property="orderNo" column="ORDER_NO"/>      
+      <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="memberName" column="MEMBER_NAME"/>
+      <result property="orderDate" column="ORDER_DATE"/>
+      <result property="orderPrice" column="ORDER_PRICE"/>
+      <result property="orderDeleteFlag" column="ORDER_DEL_FL"/>
+     </resultMap>
+	
+	<!-- OrderManage resultMap -->
 	<resultMap type="OrderManage" id="orderManage_rm">
       <id property="orderNo" column="ORDER_NO"/>
       <result property="orderDate" column="ORDER_DATE"/>
+      <result property="cancleDate" column="CANCLE_DATE"/>
       <result property="packageNo" column="PACKAGE_NO"/>
       <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageType" column="PACKAGE_TYPE"/>
       <result property="memberNo" column="MEMBER_NO"/>
       <result property="memberName" column="MEMBER_NAME"/>
+      <result property="memberEmail" column="MEMBER_EMAIL"/>
+      <result property="memberTel" column="MEMBER_TEL"/>
+      <result property="memberAddress" column="MEMBER_ADDRESS"/>
+      <result property="orderName" column="ORDER_NAME"/>
+      <result property="orderTel" column="ORDER_TEL"/>
+      <result property="orderAddress" column="ORDER_ADDRESS"/>
       <result property="orderPrice" column="ORDER_PRICE"/>
       <result property="orderDeleteFlag" column="ORDER_DEL_FL"/>
+      <collection property="orderMenuList" javaType="java.util.ArrayList" ofType="OrderMenu"
+      select="selectOrderMenuList" column="ORDER_NO" />
+	</resultMap>
+	
+		<!-- OrderMenu resultMap -->
+	<resultMap type="OrderMenu" id="orderMenu_rm">
+      <id property="orderMenuNo" column="ORDER_MENU_NO"/>
+      <result property="menuNo" column="MENU_NO"/>
+      <result property="menuName" column="MENU_NAME"/>
+      <result property="menuPrice" column="MENU_PRICE"/>
+      <result property="menuImage" column="MENU_IMG"/>
+      <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
+      <collection property="optionList" javaType="java.util.ArrayList" ofType="OrderOption"
+      select="selectOptionList" column="ORDER_MENU_NO" />
+	</resultMap> 
+
+	<!-- OrderOption resultMap -->
+	<resultMap type="OrderOption" id="orderOption_rm">
+      <id property="optionNo" column="OPTION_NO"/>
+      <result property="optionName" column="OPTION_NAME"/>
+      <result property="optionPrice" column="OPTION_PRICE"/>
+      <result property="optionCount" column="OPTION_COUNT"/>
+      <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+	</resultMap> 
+	
+	<!-- DeliveryManage resultMap -->
+	<resultMap type="DeliveryManage" id="deliveryManage_rm">
+      <id property="orderNo" column="ORDER_NO"/>
+      <result property="deliveryDate" column="DELIVERY_DATE"/>
+      <result property="deliveryStatus" column="DELIVERY_STATUS"/>
+      <result property="deliveryNo" column="DELIVERY_NO"/>
+      <result property="rowNum" column="ROW_NUM"/>
 	</resultMap>
 	
 	<!-- 전체 주문 수 조회 -->
@@ -20,7 +70,7 @@
 	</select>
 	
 	<!-- 전체 주문 목록 조회 -->
-	<select id="selectOrderList" resultMap="orderManage_rm">
+	<select id="selectOrderList" resultMap="order_rm">
 	SELECT ORDER_NO, 
 	<![CDATA[
 		CASE
@@ -33,6 +83,54 @@
 	FROM "ORDER"
 	JOIN "PACKAGE" USING(PACKAGE_NO)
 	JOIN "MEMBER" USING(MEMBER_NO)
-	ORDER BY ORDER_NO DESC
+	ORDER BY ORDER_DATE DESC, ORDER_NO DESC
+	</select>
+	
+	<!-- 주문 상세조회 -->
+	<select id="selectOrderDetail" resultMap="orderManage_rm">
+	SELECT ORDER_NO, PACKAGE_NO, PACKAGE_NAME, PACKAGE_TYPE,
+         ORDER_DATE, ORDER_DEL_FL, CANCLE_DATE, MEMBER_NAME, MEMBER_EMAIL, MEMBER_TEL, MEMBER_ADDRESS,
+         ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, ORDER_PRICE
+	FROM "ORDER"
+	JOIN "MEMBER" USING(MEMBER_NO)
+	JOIN "PACKAGE" USING (PACKAGE_NO)
+	WHERE ORDER_NO=#{orderNo}
+	</select>
+	
+ 	<!-- 주문별 메뉴 조회 -->
+	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
+	SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE
+	FROM "ORDER"
+	LEFT JOIN ORDER_MENU USING (ORDER_NO)
+	LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
+	LEFT JOIN "MENU" USING (MENU_NO)
+	WHERE ORDER_NO=#{orderNo}
+	AND MENU_DEL_FL='N'
+	ORDER BY ORDER_MENU_NO
+	</select>	
+ 		
+ 	<!-- 주문한 메뉴 별 옵션 조회 -->
+	<select id="selectOptionList" resultMap="orderOption_rm">
+	SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, OPTION_PRICE 
+	FROM "ORDER"
+	LEFT JOIN ORDER_MENU USING (ORDER_NO)
+	LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
+	LEFT JOIN "PACKAGE" USING (PACKAGE_NO)
+	JOIN "OPTION" USING (OPTION_NO)
+	LEFT JOIN "MENU" USING (MENU_NO)
+	WHERE ORDER_MENU_NO=#{orderMenuNo}
+	AND MENU_DEL_FL='N'
+	ORDER BY OPTION_NO
+	</select>
+	
+	<!-- 주문별 배송정보 -->
+	<select id="selectOrderDetailDelivery" resultMap="deliveryManage_rm">
+	SELECT ROW_NUMBER() OVER(PARTITION BY D.ORDER_NO ORDER BY D.ORDER_NO, D.DELIVERY_DATE) ROW_NUM,
+	DELIVERY_NO, O.ORDER_NO, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') DELIVERY_DATE, DELIVERY_STATUS
+	FROM DELIVERY D
+	JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
+	JOIN "PACKAGE" USING (PACKAGE_NO)
+	JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
+	WHERE O.ORDER_NO=#{orderNo}
 	</select>
 </mapper>

@@ -39,7 +39,7 @@ function deleteValue(){
                 data : {valueArr:valueArr},
                 success : function() {
                     alert("선택하신 메뉴가 삭제되었습니다.");
-                    location.reload("/admin/updateMenu"); // 페이지 새로고침
+                    location.reload("/admin/menuManage"); // 페이지 새로고침
                 },
                 error: function(){
                     alert("메뉴 삭제 실패")
@@ -56,7 +56,7 @@ const addBtn = document.getElementById("addBtn");
 if(addBtn!= null) {
     addBtn.addEventListener("click", function(){
         const options = "width=610, height=600, left=-200, top=-900";
-        window.open("/admin/registMenu", "popupWindow", options)
+        window.open("/admin/regist/menu", "popupWindow", options)
     })
 }
 

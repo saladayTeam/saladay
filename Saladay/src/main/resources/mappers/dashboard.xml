@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="salesManageMapper">
+	
+	<!-- 월별 주문 건수 -->
+	<select id="monthOrderCount" resultType="int">
+		SELECT  COUNT(ORDER_NO) AS ORDER_COUNT
+		FROM "ORDER"
+		WHERE ORDER_DATE IS NOT NULL
+		GROUP BY SUBSTR(ORDER_DATE,1,5)
+		ORDER BY  SUBSTR(ORDER_DATE,1,5) ASC
+	</select>
+	
+	<!-- 월 별 매출액 -->
+	<select id="monthOrderPrice" resultType="int">
+		SELECT  SUM(ORDER_PRICE) AS MONTH_ORDER_PRICE 
+		FROM "ORDER"
+		WHERE ORDER_DATE IS NOT NULL
+		GROUP BY SUBSTR(ORDER_DATE,1,5)
+		ORDER BY SUBSTR(ORDER_DATE,1,5) ASC
+	</select>
+	
+	<!-- 패키지 별 판매건수 -->
+	<select id="packageOrderCount" resultType="int">
+		SELECT COUNT(*) FROM "ORDER"
+		GROUP BY PACKAGE_NO
+		ORDER BY PACKAGE_NO
+	</select>
+	
+	<!-- 메뉴 별 판매건수 -->
+	<select id="menuOrderCount" resultType="int">
+		SELECT COUNT(MENU_NO)
+		FROM ORDER_MENU
+		GROUP BY MENU_NO
+		ORDER BY MENU_NO
+	</select>
+	
+	<!-- 월 -->
+	<select id="month" resultType="string">
+		SELECT SUBSTR(ORDER_DATE,1,5)
+		FROM "ORDER"
+		WHERE ORDER_DATE IS NOT NULL
+		GROUP BY SUBSTR(ORDER_DATE,1,5)
+		ORDER BY  SUBSTR(ORDER_DATE,1,5) ASC
+	</select>
+	
+	<!-- 패키지 목록 -->
+	<select id="packageNameList" resultType="string">
+		SELECT PACKAGE_NAME  
+		FROM "PACKAGE"
+		ORDER BY PACKAGE_NO
+	</select>
+	
+	<!-- 메뉴 목록 -->
+	<select id="menuNameList" resultType="string">
+		SELECT MENU_NAME 
+		FROM MENU
+		ORDER BY MENU_NO
+	</select>
+	
+	
+	
+	
+</mapper>

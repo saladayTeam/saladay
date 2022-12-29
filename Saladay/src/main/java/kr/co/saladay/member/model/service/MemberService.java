@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
@@ -94,6 +95,13 @@ public interface MemberService {
 	 * @return 
 	 */
 	public List<Order> selectMyOrder(int memberNo);
+
+
+	/**내 주문 조회 시 배송 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Delivery> selectMyDelivery(int memberNo);
 
 
 

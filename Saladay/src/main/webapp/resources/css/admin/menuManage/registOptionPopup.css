@@ -1,0 +1,140 @@
+@font-face {
+    font-family: "NanumSquareNeo-Variable";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+    format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    display: block;
+    font-family: "NanumSquareNeo-Variable";
+}
+
+.update-option-popup{
+    width: 600px;
+    height: 400px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.update-option-popup h2 {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #17633d;
+}
+.option-table {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.option-table caption {
+    display: none;
+}
+
+.t-row th {
+    font-size: 13px;
+    color: #222;
+    text-align: left;
+    font-weight: normal;
+}
+.t-row td{
+    width: 100%;
+}
+
+.option-table input {
+    margin: 0;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px 0 5px 5px;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.option-table textarea {
+    cursor: pointer;
+    width: 100%;
+    height: 6.25em;
+    outline: none;
+    resize: none;
+    padding: 5px 0 5px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label {
+    cursor: pointer;
+}
+
+/* 사진 영역 */
+.img-box{
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 미리보기 영역 */
+.preview-area {
+    margin: 10px 0;
+    width: 100%;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+
+.option-img-area button {
+    background-color: #f2f2f2;
+    color: #222;
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-bottom: 10px;
+
+    border-radius: 2px;
+}
+
+#delete-image{
+    position: absolute;
+    top:0;
+    right: 210px;
+    cursor: pointer;
+    color: white;
+}
+
+
+select {
+    width: 100px; 
+    padding: 3px 0 3px 2px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;  
+    border-radius: 0px; 
+    
+    outline: none;
+}
+
+/* 버튼영역 */
+.option-btn-area {
+    width: 560px;
+    text-align: right;
+    padding-top: 20px;
+
+}
+
+.option-btn-area button{
+    cursor: pointer;
+    background-color: #17633d;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}

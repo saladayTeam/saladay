@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.member.model.dao.MemberDAO;
+import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
@@ -135,6 +136,13 @@ public class MemberServiceImpl implements MemberService{
 		List<Order> orderPackage =  dao.selectMyOrder(memberNo);
 		
 		return orderPackage;
+	}
+
+	//내 주문 조회 시 배송조회
+	@Override
+	public List<Delivery> selectMyDelivery(int memberNo) {
+		
+		return dao.selectMyDelivery(memberNo);
 	}
 	
 }
