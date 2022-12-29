@@ -2,7 +2,7 @@ package kr.co.saladay.admin.model.service;
 
 import java.util.List;
 
-public interface salesManageService {
+public interface DashboardService {
 
 	// 월별 주문 개수
 	List<Integer> monthOrderCount();

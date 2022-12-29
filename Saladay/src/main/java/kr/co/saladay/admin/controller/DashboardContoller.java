@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
-import kr.co.saladay.admin.model.service.salesManageService;
+import kr.co.saladay.admin.model.service.DashboardService;
 
 @RequestMapping("/admin")
 @Controller
-public class SalesManageContoller {
+public class DashboardContoller {
 	
 	@Autowired
-	salesManageService service;
+	DashboardService service;
 
-	@GetMapping("/salesManage")
+	@GetMapping("/dashboard")
 	public String sales(Model model) {
 		
 		// 월별 주문 개수
@@ -53,7 +53,7 @@ public class SalesManageContoller {
 		model.addAttribute("packageNameList", new Gson().toJson(packageNameList));
 		model.addAttribute("menuNameList", new Gson().toJson(menuNameList));
 		
-		return "/admin/salesManage/salesManage";
+		return "/admin/dashboard/dashboard";
 	}
 	
 }

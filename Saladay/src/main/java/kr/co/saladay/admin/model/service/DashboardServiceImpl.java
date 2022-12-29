@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.saladay.admin.model.dao.salesManageDAO;
+import kr.co.saladay.admin.model.dao.DashboardDAO;
 
 @Service
-public class salesManageServiceImpl implements salesManageService {
+public class DashboardServiceImpl implements DashboardService {
 
 	@Autowired
-	salesManageDAO dao;
+	DashboardDAO dao;
 	
 	// 월별 주문 개수
 	@Override

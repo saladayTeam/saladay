@@ -44,7 +44,7 @@
                     id="cart"/>
                 </a>
               </li>
-            <li><a href="/admin">관리자 메뉴</a></li>
+            <li><a href="/admin/dashboard">관리자 메뉴</a></li>
           </c:when>
           <c:otherwise>
             <li><a id="cart-img"><img src="/resources/images/main/shopping-cart.png"
@@ -75,9 +75,9 @@
   </header>
   <nav>
     <ul>
+      <li><a href="/admin/dashboard">대시보드</a></li>
       <li><a href="/admin/orderManage">주문관리</a></li>
       <li><a href="/admin/delivery">배송관리</a></li>
-      <li><a href="/admin/salesManage">매출관리</a></li>
       <li><a href="/admin/updateMenu">메뉴관리</a></li>
       <li><a href="/admin/updateOption">옵션관리</a></li>
       <li><a href="/admin/memberManage">회원관리</a></li> 
