@@ -6,12 +6,29 @@
 	<resultMap type="OrderManage" id="orderManage_rm">
       <id property="orderNo" column="ORDER_NO"/>
       <result property="orderDate" column="ORDER_DATE"/>
+      <result property="cancleDate" column="CANCLE_DATE"/>
       <result property="packageNo" column="PACKAGE_NO"/>
       <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageType" column="PACKAGE_TYPE"/>
       <result property="memberNo" column="MEMBER_NO"/>
       <result property="memberName" column="MEMBER_NAME"/>
+      <result property="memberEmail" column="MEMBER_EMAIL"/>
+      <result property="memberTel" column="MEMBER_TEL"/>
+      <result property="memberAddress" column="MEMBER_ADDRESS"/>
+      <result property="orderName" column="ORDER_NAME"/>
+      <result property="orderTel" column="ORDER_TEL"/>
+      <result property="orderAddress" column="ORDER_ADDRESS"/>
       <result property="orderPrice" column="ORDER_PRICE"/>
       <result property="orderDeleteFlag" column="ORDER_DEL_FL"/>
+	</resultMap>
+	
+		<!-- resultMap -->
+	<resultMap type="DeliveryManage" id="deliveryManage_rm">
+      <id property="orderNo" column="ORDER_NO"/>
+      <result property="deliveryDate" column="DELIVERY_DATE"/>
+      <result property="deliveryStatus" column="DELIVERY_STATUS"/>
+      <result property="deliveryNo" column="DELIVERY_NO"/>
+      <result property="rowNum" column="ROW_NUM"/>
 	</resultMap>
 	
 	<!-- 전체 주문 수 조회 -->
@@ -34,5 +51,27 @@
 	JOIN "PACKAGE" USING(PACKAGE_NO)
 	JOIN "MEMBER" USING(MEMBER_NO)
 	ORDER BY ORDER_DATE DESC, ORDER_NO DESC
+	</select>
+	
+	<!-- 주문 상세조회 -->
+	<select id="selectOrderDetail" resultMap="orderManage_rm">
+	SELECT ORDER_NO, PACKAGE_NO, PACKAGE_NAME, PACKAGE_TYPE,
+         ORDER_DATE, ORDER_DEL_FL, CANCLE_DATE, MEMBER_NAME, MEMBER_EMAIL, MEMBER_TEL, MEMBER_ADDRESS,
+         ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, ORDER_PRICE
+	FROM "ORDER"
+	JOIN "MEMBER" USING(MEMBER_NO)
+	JOIN "PACKAGE" USING (PACKAGE_NO)
+	WHERE ORDER_NO=#{orderNo}
+	</select>
+	
+	<!-- 주문별 배송정보 -->
+	<select id="selectOrderDetailDelivery">
+	SELECT ROW_NUMBER() OVER(PARTITION BY D.ORDER_NO ORDER BY D.ORDER_NO, D.DELIVERY_DATE) ROW_NUM,
+	DELIVERY_NO, O.ORDER_NO, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') DELIVERY_DATE, DELIVERY_STATUS
+	FROM DELIVERY D
+	JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
+	JOIN "PACKAGE" USING (PACKAGE_NO)
+	JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
+	WHERE O.ORDER_NO=#{orderNo}
 	</select>
 </mapper>

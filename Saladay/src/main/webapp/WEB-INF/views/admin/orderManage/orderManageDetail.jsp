@@ -27,13 +27,23 @@
             <span>고객의 주문 내역을 조회하고 주문을 취소할 수 있습니다.</span>
         </div>
         <div class="admin-order-number">
-            <span>주문번호 : 123</span>
+            <span>주문번호 : ${orderDetail.orderNo}</span>
             <br />
-            <span>주문일시 : 22-12-28</span>
+            <span>주문일시 : ${orderDetail.orderDate}</span>
             <br />
-            <span>주문상태 : 취소요청중</span>
+            <span>주문상태 : </span>
+            <c:if test="${orderDetail.orderDeleteFlag=='N'}">
+            <span>정상주문</span>
+            </c:if>
+            <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
+            <span style="color:blue;">취소요청중</span>
+            </c:if>
+            <c:if test="${orderDetail.orderDeleteFlag=='A'}">
+            <span style="color:red;">취소완료</span>
             <br />
-            <span style="color:red;">취소 완료시 취소일자 보여야함</span>
+            <span>취소일시 : ${orderDetail.cancleDate}</span>
+            </c:if>
+            <br />
             <hr />
         </div>
         <section class="order-wrapper">
@@ -41,29 +51,29 @@
                 <div class="orderer-left">
                     <h3 class="orderer-info">주문자 정보</h3>
                     <p>
-                        <span class="o-th">주문자</span><span class="o-td" name="memberNo">${loginMember.memberName}</span>
+                        <span class="o-th">주문자</span><span class="o-td" name="memberNo"> ${orderDetail.memberName}</span>
+                    </p>
+                    <p> 
+                        <span class="o-th">이메일</span><span class="o-td">${orderDetail.memberEmail}</span>
                     </p>
                     <p>
-                        <span class="o-th">이메일</span><span class="o-td">${loginMember.memberEmail}</span>
+                        <span class="o-th">핸드폰</span><span class="o-td">${orderDetail.memberTel}</span>
                     </p>
                     <p>
-                        <span class="o-th">핸드폰</span><span class="o-td">${loginMember.memberTel}</span>
-                    </p>
-                    <p>
-                        <span class="o-th">주소</span><span class="o-td">${loginMember.memberAddress}</span>
+                        <span class="o-th">주소</span><span class="o-td">${orderDetail.memberAddress}</span>
                     </p>
                 </div>
                 
                 <div class="orderer-right">
                     <h3 class="orderer-info">배송지 정보</h3>
                     <p>
-                        <span class="o-th">수령인</span><span class="o-td" name="memberNo">${loginMember.memberName}</span>
+                        <span class="o-th">수령인</span><span class="o-td" name="memberNo">${orderDetail.orderName}</span>
                     </p>
                     <p>
-                        <span class="o-th">핸드폰</span><span class="o-td">${loginMember.memberTel}</span>
+                        <span class="o-th">핸드폰</span><span class="o-td">${orderDetail.orderTel}</span>
                     </p>
                     <p>
-                        <span class="o-th">주소</span><span class="o-td">${loginMember.memberAddress}</span>
+                        <span class="o-th">주소</span><span class="o-td">${orderDetail.orderAddress}</span>
                     </p>
 
                 </div>

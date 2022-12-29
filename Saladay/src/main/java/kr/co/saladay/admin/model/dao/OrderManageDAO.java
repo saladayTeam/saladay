@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.saladay.admin.model.vo.OrderManage;
 import kr.co.saladay.admin.model.vo.OrderManagePagination;
 import kr.co.saladay.review.model.vo.Review;
 
@@ -16,15 +17,23 @@ public class OrderManageDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+
+	// 전체 주문 수 조회
 	public int getListCount() {
 		return sqlSession.selectOne("orderManageMapper.getListCount");
 	}
 
+	// 전체 주문 목록 조회
 	public List<Review> selectOrderList(OrderManagePagination pagination) {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
 		return sqlSession.selectList("orderManageMapper.selectOrderList", null, rowBounds);
+	}
+
+	// 주문 상세 조회
+	public OrderManage selectOrderDetail(int orderNo) {
+		return sqlSession.selectOne("orderManageMapper.selectOrderDetail", orderNo);
 	}
 }

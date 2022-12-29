@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.saladay.admin.model.service.OrderManageService;
+import kr.co.saladay.admin.model.vo.OrderManage;
 
 @Controller
 public class OrderManageController {
@@ -39,6 +40,10 @@ public class OrderManageController {
 			) {
 		
 		// 주문 상세조회 서비스
+		OrderManage orderDetail = service.selectOrderDetail(orderNo);
+		model.addAttribute("orderDetail", orderDetail);
+		
+		// 주문별 배송정보 조회 서비스
 		
 		// 이전 주소 얻어오기
 		String referer = req.getHeader("referer");
