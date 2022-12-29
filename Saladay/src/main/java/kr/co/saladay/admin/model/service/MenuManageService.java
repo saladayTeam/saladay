@@ -2,6 +2,11 @@ package kr.co.saladay.admin.model.service;
 
 import java.util.Map;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import kr.co.saladay.menu.model.vo.Menu;
+import kr.co.saladay.menu.model.vo.Option;
+
 public interface MenuManageService {
 
 	/** 메뉴 목록 조회
@@ -31,6 +36,28 @@ public interface MenuManageService {
 	 * @param optionNo
 	 */
 	void optionDelete(int optionNo);
+
+
+
+	/** 새 메뉴 등록
+	 * @param newMenu
+	 * @param inputMenuImg
+	 * @param webPath
+	 * @param filePath
+	 * @throws Exception 
+	 */
+	int registMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String filePath) throws Exception;
+
+
+
+	/** 새 옵션 등록
+	 * @param newOption
+	 * @param inputOptionImg
+	 * @param webPath
+	 * @param filePath
+	 * @return
+	 */
+	int registOption(Option newOption, MultipartFile inputOptionImg, String webPath, String filePath) throws Exception;
 
 
 

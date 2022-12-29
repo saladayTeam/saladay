@@ -11,7 +11,6 @@ public class Menu {
 	private int menuNo;
 	private String menuName;
 	private int menuPrice;
-	private String price; // 메뉴 가격 표기
 	private String menuImage;
 	private String menuContent;
 	private String menuDeleteFlag;

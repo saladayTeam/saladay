@@ -13,5 +13,6 @@ public class Delivery {
 	private String deliveryDate;
 	private int orderNo;
 	private String deliveryCode;
-	
+	private int rowNum;
+	private String deliveryStatus;
 }
