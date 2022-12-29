@@ -1,3 +1,10 @@
+/* 고정폭 폰트 적용 */
+@font-face {
+    font-family: 'D2Coding';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 main {
     width: 1200px;
@@ -125,7 +132,10 @@ main {
 
 }
 
-.order-number {
+/*주문내용 헤더*/
+.order-content-header {
+	display: flex;
+	justify-content: space-between;
 	width:100%;
 	height:100%;
 	margin-bottom:5px;
@@ -133,13 +143,23 @@ main {
     font-weight: bolder;
 }
 
+.order-number{
+	margin-top:5px;
+}
+.delivery-content {
+	font-size:12px;
+	font-family: 'D2Coding' !important;
+}
+
+
+
 .package-img{
 	margin-right : 20px;
 }
 
 .package-detail li {
 	margin-bottom : 5px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .order-btn {
@@ -183,12 +203,20 @@ main {
 }
 
 
-
+/*flex-end 끝부터 배치********/
 .order-bottom{
 	display:flex;
+	justify-content: flex-end;
 }
 
-.delivery-btn {
+.total-price {
+	font-size:14px;
+	font-weight: bolder;
+	margin: 5px 0 15px 370px;
+	
+}
+
+.order-cancel-btn {
     width: 100px;
     height: 24px;
     font-size: 14px;
@@ -204,18 +232,12 @@ main {
     margin-bottom:5px;
 }
 
-.total-price {
-	margin-top : 10px;
-	margin-left : 370px;
-	font-size:14px;
-	font-weight: bolder;
-	
-	
-}
 
-.fa-rocket{
+
+.fa-truck-fast{
 	color: #17633d;
-	margin-right:8px;
+	font-size:4px;
+	margin-right:5px;
 }
 
 

@@ -50,13 +50,22 @@
                             <c:forEach var="order" items="${myOrder}" varStatus="vs" >
                             
                             <div  class="my-order-content">
-                            	<div class="order-number">주문번호 ${order.orderNo}</div>
-                            	 <c:forEach var="delivery" items="${myDelivery}" varStatus="vs" >
-                            	 	<c:if test="${delivery.orderNo == order.orderNo }">
-                            	 	<div> ${delivery.deliveryDate}일자 배송</div>
-                            	 	<div>현재 ${delivery.deliveryCode}</div>
-                            	 	</c:if>
-                            	</c:forEach>
+                            	<div class="order-content-header">
+	                            	<div class="order-number">주문번호 ${order.orderNo}</div>
+	                            	<div>
+	                            	<c:forEach var="delivery" items="${myDelivery}" >
+	                            	 	<c:if test="${delivery.orderNo == order.orderNo }">
+	                            	 	<div class="delivery-content">
+	                            	 		<span class="font">${delivery.rowNum}주차 배송 :</span>
+	                            	 		<span>${delivery.deliveryDate}</span>
+	                            	 		<span class="delivery-status">${delivery.deliveryStatus}</span>
+	                            	 	</div>
+	                            	 	</c:if>
+	                            	</c:forEach>
+	                            	</div>
+                            	</div>
+                            	
+                            	
                             	<div class="order-detail">
 	                            	<div class="package-img">
 	                            		<img src="${order.packageImage}" width="180px" height="110px" >
@@ -119,12 +128,25 @@
                             	
                             	<c:if test="${order.packageType==2}">
                             		
-                            		<div class="package-type"><i class="fa-solid fa-rocket"></i>2주차는 1주차와 동일한 구성으로 배송됩니다.</div>
+                            		<div class="package-type"><i class="fa-solid fa-truck-fast fa-flip-horizontal"></i></i>2주차는 1주차와 동일한 구성으로 배송됩니다.</div>
                             
                             	</c:if>
                             	</div>
+                            	
+                            <!-- 배송상태가 결제완료 일 때 주문취소 버튼(1개만 나오게 flag) -->	
                             <div class="order-bottom">
-	                            <div class="order-cancel-btn" onclick="">주문 취소</div>
+                            	<c:set var="loop_flag" value="false" />
+                            	<c:forEach var="delivery" items="${myDelivery}">
+                            	 	<c:if test="${delivery.orderNo == order.orderNo }">
+                            	 		<c:if test="${delivery.deliveryCode eq 'A' }">
+	                            	 		<c:if test="${not loop_flag }">
+	                            	 		<div class="order-cancel-btn" onclick="">주문 취소</div>
+	                            	 		<c:set var="loop_flag" value="true" />
+	       									</c:if>
+                            	 		</c:if>
+                            	 	</c:if>
+                            	</c:forEach>
+	                            
 	                            <div class="total-price">결제 금액 : ${order.orderPrice} 원</div>
                             </div>
                             </div>
