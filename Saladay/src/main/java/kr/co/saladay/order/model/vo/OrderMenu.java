@@ -3,7 +3,9 @@ package kr.co.saladay.order.model.vo;
 import java.util.List;
 
 
+
 import kr.co.saladay.cart.model.vo.CartOption;
+import kr.co.saladay.member.model.vo.ReviewCheck;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,5 +32,5 @@ public class OrderMenu {
 	List<CartOption> optionList;
 	
 	List<OrderOption> orderOptionList;
-
+	
 }

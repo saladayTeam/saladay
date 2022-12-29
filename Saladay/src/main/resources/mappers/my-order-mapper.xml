@@ -30,8 +30,6 @@
       <result property="deliveryNo" column="DELIVERY_NO"/>
       <result property="deliveryCode" column="DELIVERY_CODE"/>
       <result property="deliveryDate" column="DELIVERY_DATE"/>
-      <collection property="reviewCheckList" javaType="java.util.ArrayList" ofType="OrderOption"
-      select="reviewCheckList" column="ORDER_MENU_NO"></collection>
       <collection property="optionList" javaType="java.util.ArrayList" ofType="OrderOption"
       select="selectOptionList" column="ORDER_MENU_NO" />
 	</resultMap> 
@@ -43,6 +41,11 @@
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionCount" column="OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+	</resultMap> 
+
+	<!-- ReviewCheck resultMap -->
+	<resultMap type="ReviewCheck" id="reviewCheck_rm">
+      <id property="orderMenuNo" column="ORDER_MENU_NO"/>
       <result property="reviewCheck" column="REVIEW_CHECK"/>
 	</resultMap> 
 
@@ -69,6 +72,7 @@
 		LEFT JOIN "DELIVERY" USING (ORDER_NO)
 		LEFT JOIN "MENU" USING(MENU_NO)
 		WHERE MEMBER_NO = #{memberNo}
+		AND ORDER_DEL_FL='N'
 		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,PACKAGE_TYPE,
 			 ORDER_DATE, 
 		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
@@ -89,9 +93,9 @@
 		ORDER BY ORDER_MENU_NO
 	</select>	
  		
- 	<!-- 메뉴 별 옵션 조회 + 리뷰작성여부 조회-->
+ 	<!-- 메뉴 별 옵션 조회 -->
 	<select id="selectOptionList" resultMap="orderOption_rm">
-		SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, OPTION_PRICE, NVL2(REVIEW_NO, 'done' ,'possible')REVIEW_CHECK
+		SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, OPTION_PRICE
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
@@ -119,6 +123,22 @@
 		LEFT JOIN "MENU" USING(MENU_NO)
 		LEFT JOIN "DELIVERY_MANAGE" USING(DELIVERY_CODE)
 		WHERE MEMBER_NO = #{memberNo}
+		AND ORDER_DEL_FL='N'
 		GROUP BY DELIVERY_DATE, DELIVERY_NO, DELIVERY_CODE,ORDER_NO, DELIVERY_STATUS
  	</select>
+ 	
+ 	<!-- 리뷰체크 리스트-->
+ 	<select id="reviewCheckList" resultMap="reviewCheck_rm">
+ 	SELECT NVL2(REVIEW_NO, 'done' ,'possible')REVIEW_CHECK, ORDER_MENU_NO 
+	FROM "ORDER_MENU"
+	LEFT JOIN REVIEW USING(ORDER_MENU_NO)
+	JOIN "ORDER" USING(ORDER_NO)
+	ORDER BY ORDER_MENU_NO
+	</select>
+	
+	<update id="cancelMyOrder">
+	UPDATE "ORDER" SET
+	ORDER_DEL_FL = 'Y'
+	WHERE ORDER_NO=#{orderNo}
+	</update>
 </mapper>
