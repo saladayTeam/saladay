@@ -33,6 +33,7 @@
 		<typeAlias type="kr.co.saladay.order.model.vo.OrderDelivery"  alias="OrderDelivery" />
 		<typeAlias type="kr.co.saladay.admin.model.vo.OrderManage"  alias="OrderManage" />
 		<typeAlias type="kr.co.saladay.admin.model.vo.DeliveryManage"  alias="DeliveryManage" />
+		<typeAlias type="kr.co.saladay.admin.model.vo.SalesMenu"  alias="SalesMenu" />
 	</typeAliases>
 
 
@@ -47,6 +48,7 @@
 		<mapper resource="/mappers/order-manage-mapper.xml" />
 		<mapper resource="/mappers/menu-manage-mapper.xml" />
 		<mapper resource="/mappers/delivery-manage-mapper.xml" />
+		<mapper resource="/mappers/dashboard.xml" />
 		<mapper resource="/mappers/member-manage-mapper.xml" />
 
 	</mappers>

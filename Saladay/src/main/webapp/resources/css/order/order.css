@@ -395,6 +395,10 @@ input[data-placeholder]::before{
   border: none;
 }
 
+#payBtn:hover{
+  cursor: pointer;
+}
+
 hr {
   margin: 10px 0;
   width: 1200px;
