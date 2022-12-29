@@ -26,6 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.co.saladay.cart.model.service.CartService;
 import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.service.MemberService;
+import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
@@ -454,9 +455,11 @@ public class MemberController {
 		
 		List<Order> myOrder= service.selectMyOrder(memberNo);
 		
-		System.out.println(myOrder);
-	
+		List<Delivery> myDelivery = service.selectMyDelivery(memberNo);
+		
+		
 		model.addAttribute("myOrder", myOrder);
+		model.addAttribute("myDelivery", myDelivery);
 		
 		return "member/myPage/myPage-myOrder";
 	
