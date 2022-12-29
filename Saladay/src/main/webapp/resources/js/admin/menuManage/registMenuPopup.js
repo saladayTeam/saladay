@@ -56,8 +56,7 @@ if(inputMenu != null) {
             // FileReader(file을 읽는 객체)
             // - 웹 애플리케이션이 비동기적으로 데이터를 읽기 위해 읽을 파일을 가리키는 file 객체(자바스크립트에서 제공)
             // - 읽어들인 파일을 사용자 컴퓨터에 저장할 수 있다.
-            
-            console.log(inputMenu);
+        
             reader.readAsDataURL(e.target.files[0]);
             // FileReader().readAsDataURL("파일정보");
             // -> 지정된 파일을 실제로 읽기 시작
@@ -101,7 +100,11 @@ const menuContent = document.getElementById("menuContent");
 const menuPrice = document.getElementById("menuPrice");
 const calorie = document.getElementById("menuCalorie");
 
+// 등록 폼
+const registFrm = document.getElementById("registFrm");
 
+
+// on
 function registValidate(){
 
     // 메뉴명
@@ -171,23 +174,18 @@ function registValidate(){
     // }
 
     console.log("정상입력");
+    console.log(inputMenu);
     alert("정상입력");
-    return true;
+
+    // document.registFrm.action = "/admin/menuManage";
+    // document.registFrm.target = opener.window.name;
+    // document.registFrm.submit();
+    // self.close();
 }
 
 
-const registFrm = document.getElementById("registFrm");
-registBtn.addEventListener("click", function(){
-    $.ajax({
-        url:"/admin/updateMenu",
-        type:"post",
-        data:{registFrm:registFrm},
-        success:function(){
-            console.log("연결");
-        },
-        error:function(){
-            console.log("실패");
-        }
-    })
-})
+
+
+
+
 

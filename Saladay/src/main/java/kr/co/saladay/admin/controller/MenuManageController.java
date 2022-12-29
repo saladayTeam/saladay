@@ -1,8 +1,10 @@
 package kr.co.saladay.admin.controller;
 
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,7 @@ public class MenuManageController {
 	private MenuManageService service;
 	
 	// 메뉴 관리 
-	@GetMapping("/admin/updateMenu")
+	@GetMapping("/admin/menuManage")
 	public String menuManage(@RequestParam(value="cp", required=false, defaultValue="1") int cp, Model model) {
 		
 		Map<String, Object> map = service.selectMenuList(cp);
@@ -51,7 +53,7 @@ public class MenuManageController {
 	
 	
 	// 옵션 관리
-	@GetMapping("/admin/updateOption")
+	@GetMapping("/admin/optionManage")
 	public String optionManage(@RequestParam(value="cp", required=false, defaultValue="1") int cp, Model model) {
 		
 		Map<String, Object> map = service.selectOptionList(cp);
@@ -76,27 +78,30 @@ public class MenuManageController {
 	
 	
 	// 메뉴 등록 팝업창
-	@GetMapping("/admin/registMenu")
+	@GetMapping("/admin/regist/menu")
 	public String menuPopup() {
 		return "/admin/menuManage/registMenuPopup";
 	}
 	
 	
 	// 새 메뉴 등록
-	@PostMapping("/admin/updateMenu")
-	public String registMenu(/*@RequestParam(value="menuImage") MultipartFile menuImage*/ // 업로드 된 메뉴 이미지
-							Menu registFrm, // 메뉴
+	@PostMapping("/admin/regist/menu")
+	public String registMenu(@RequestParam(value="menuImage2", required = false) MultipartFile menuImage, // 업로드 된 메뉴 이미지
+							Menu newMenu, // 메뉴
 							RedirectAttributes ra, // 메세지 전달용
-							HttpServletRequest req // 저장할 서버 경로
+							HttpServletRequest req, // 저장할 서버 경로
+							HttpServletResponse resp
 							) throws Exception {
 	
-		System.out.println(registFrm);
+		System.out.println(newMenu);
 		// 업로드 된 파일의 서버 내부 경로 준비
 //		String webPath = "/resources/images/menu/salad/";
 //		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-		
-		
-		
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>window.close(); opener.location.reload();</script>");
+		out.flush(); 
+
 		return null;
 	}
 	

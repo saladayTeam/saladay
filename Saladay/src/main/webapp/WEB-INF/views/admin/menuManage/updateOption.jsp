@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="optionList" value="${map.optionList}"/>
@@ -10,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>관리자-옵션관리</title>
+    <title>옵션관리</title>
     <link rel="stylesheet" href="/resources/css/admin/menuManage/updateMenu.css">
     <!-- 폰트어썸 -->
     <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
@@ -49,8 +50,8 @@
             <th scope="col"><input type="checkbox" name="allCheck" id="allCheck"></th>
             <th scope="col"><span>옵션명</span></th>
             <th scope="col"><span>구분</span></th>
-            <th scope="col"><span>옵션가격</span></th>
-            <th scope="col"><span>옵션칼로리</span></th>
+            <th scope="col"><span>가격</span></th>
+            <th scope="col"><span>칼로리</span></th>
           </tr>
         </thead>
         
@@ -58,20 +59,20 @@
           <c:forEach items="${optionList}" var="option">
             <tr>
               <td scope="col"><input type="checkbox" name="rowCheck" value="${option.optionNo}"></td>
-              <td scope="col"><span class="menu-n"><a href="${option.optionImage}">${option.optionName}</a></span></td>
+              <td scope="col"><span><a href="${option.optionImage}">${option.optionName}</a></span></td>
               <c:choose>
                 <c:when test="${option.optionType eq 'M'}">
-                <td scope="col"><span class="menu-i">메인토핑</span></td>
+                <td scope="col"><span>메인토핑</span></td>
                 </c:when>
                 <c:when test="${option.optionType eq 'S'}">
-                <td scope="col"><span class="menu-i">소스</span></td>
+                <td scope="col"><span>소스</span></td>
                 </c:when>
                 <c:otherwise>
-                <td scope="col"><span class="menu-i">야채</span></td>
+                <td scope="col"><span>야채</span></td>
                 </c:otherwise>
               </c:choose>
-              <td scope="col"><span class="menu-p">${option.price}</span></td>
-              <td scope="col"><span class="menu-c">${option.optionCalorie} Kcal</span></td>
+              <td scope="col"><span><fmt:formatNumber type="number" maxFractionDigits="3" value="${option.optionPrice}"/></span></td>
+              <td scope="col"><span>${option.optionCalorie} Kcal</span></td>
             </tr>
           </c:forEach>
         </tbody>
