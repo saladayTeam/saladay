@@ -33,5 +33,12 @@ public class MemberManageDAO {
 		
 		return sqlSession.selectList("memberManageMapper.selectMemberList", null, rowBounds);
 	}
+
+	/** 강제탈퇴처리
+	 * @param memberNo
+	 */
+	public void memberSecession(int memberNo) {
+		sqlSession.update("memberManageMapper.memberSecession", memberNo);
+	}
 	
 }

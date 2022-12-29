@@ -6,19 +6,42 @@
 .menu-wrapper{
     min-height: 100vh;
     width: 1200px;
-    padding: 50px;
-    
 }
 
 .menu-m-tit {
-    min-height: 50px;
+    margin-top: 30px;
+    padding-bottom: 15px;
     border-bottom: 3px solid #17633d;
-    font-size: 1.5em;
-    font-weight: bold;
+}
 
+.menu-m-tit span {
+    font-weight: bold;
+    display: flex;
+}
+
+.tit {
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;  
 }
+
+.tit span {
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.menu-i{
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    text-decoration: none;
+}
+
 
 /* 버튼영역 */
 #addBtn, #delBtn, #updateBtn {

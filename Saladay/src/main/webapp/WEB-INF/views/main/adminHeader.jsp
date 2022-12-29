@@ -78,8 +78,8 @@
       <li><a href="/admin/dashboard">대시보드</a></li>
       <li><a href="/admin/orderManage">주문관리</a></li>
       <li><a href="/admin/delivery">배송관리</a></li>
-      <li><a href="/admin/updateMenu">메뉴관리</a></li>
-      <li><a href="/admin/updateOption">옵션관리</a></li>
+      <li><a href="/admin/menuManage">메뉴관리</a></li>
+      <li><a href="/admin/optionManage">옵션관리</a></li>
       <li><a href="/admin/memberManage">회원관리</a></li> 
     </ul>
   </nav>
