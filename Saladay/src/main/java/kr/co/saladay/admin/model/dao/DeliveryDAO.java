@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.saladay.admin.model.vo.Delivery;
+import kr.co.saladay.admin.model.vo.DeliveryManage;
 
 @Repository
 public class DeliveryDAO {
@@ -15,9 +15,9 @@ public class DeliveryDAO {
 	private SqlSessionTemplate sqlSession;
 
 	// 배송현황 조회
-	public List<Delivery> adminDelivery() {
+	public List<DeliveryManage> adminDelivery() {
 		
-		return sqlSession.selectList("deliveryMapper.selectDelList");
+		return sqlSession.selectList("deliveryManageMapper.selectDelList");
 	}
 	
 	

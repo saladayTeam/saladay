@@ -2,6 +2,7 @@ package kr.co.saladay.order.model.vo;
 
 import java.util.List;
 
+
 import kr.co.saladay.cart.model.vo.CartOption;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,9 @@ public class OrderMenu {
 	private int OrderNo;
 	private int menuNo;
 	private String menuImage;
+	
+	private int deliveryNo;
+	private String deliveryCode;
 	
 	List<CartOption> optionList;
 	
