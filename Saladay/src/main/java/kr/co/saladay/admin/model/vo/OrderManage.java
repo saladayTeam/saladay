@@ -1,5 +1,9 @@
 package kr.co.saladay.admin.model.vo;
 
+import java.util.List;
+
+import kr.co.saladay.cart.model.vo.CartMenu;
+import kr.co.saladay.order.model.vo.OrderMenu;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,5 +29,7 @@ public class OrderManage {
 	private String orderAddress; // 배송지 수령인 주소
 	private int orderPrice; // 결제 금액
 	private String orderDeleteFlag; // 주문 취소 여부
+	
+	List<OrderMenu> orderMenuList;  // 주문한 메뉴 리스트
 
 }
