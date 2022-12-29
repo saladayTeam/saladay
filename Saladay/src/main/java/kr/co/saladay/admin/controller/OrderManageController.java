@@ -10,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.saladay.admin.model.service.OrderManageService;
 import kr.co.saladay.admin.model.vo.DeliveryManage;
@@ -56,6 +59,32 @@ public class OrderManageController {
 		model.addAttribute("referer", referer);
 		
 		return "/admin/orderManage/orderManageDetail";
+	}
+	
+	// 주문 취소
+	@GetMapping("/admin/orderManage/{orderNo}/delete")
+	public String withdrawOrder(@RequestHeader("referer") String referer,
+			@PathVariable("orderNo") int orderNo,
+			RedirectAttributes ra
+			) {
+		
+		int result = service.withdrawOrder(orderNo);
+		
+		String message = null;
+		String path = null;
+		
+		if(result>0) { // 주문 취소 성공 시
+			message = "주문이 취소되었습니다.";
+			path = "/admin/orderManage/" + orderNo;
+			
+		} else { // 주문 취소 실패 시
+			message = "주문 취소 실패";
+			path = referer;
+		}
+		
+		ra.addFlashAttribute(message);
+		
+		return "redirect:" + path;
 	}
 	
 	

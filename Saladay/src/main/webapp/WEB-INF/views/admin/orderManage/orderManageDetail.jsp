@@ -211,10 +211,7 @@
                 </div>
                 </c:when>
                 <c:otherwise>
-                    <form action="/admin/orderManage/delete" method="post">
-                        <input type="hidden" name="orderNo" value="${orderDetail.orderNo}">
-                        <button id="payBtn" type="button">주문 취소</button>
-                    </form>
+                    <button id="withdrawOrderBtn" type="button">주문 취소</button>
                 </c:otherwise>
             </c:choose>
         </section>
@@ -222,5 +219,8 @@
     </main>
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 </body>
+    <script>
+        const orderDeleteFlag = "${orderDetail.orderDeleteFlag}";
+    </script>
     <script src="/resources/js/admin/orderManage/orderManageDetail.js"></script>
 </html>

@@ -26,4 +26,10 @@ public interface OrderManageService {
 	 */
 	List<DeliveryManage> selectOrderDetailDelivery(int orderNo);
 
+	/** 주문 취소
+	 * @param orderNo
+	 * @return result
+	 */
+	int withdrawOrder(int orderNo);
+
 }
