@@ -25,6 +25,7 @@ public class OrderMenu {
 	
 	private int deliveryNo;
 	private String deliveryCode;
+	private String deliveryDate;
 	
 	List<CartOption> optionList;
 	

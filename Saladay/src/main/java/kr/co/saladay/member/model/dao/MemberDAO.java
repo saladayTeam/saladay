@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.order.model.vo.OrderMenu;
@@ -127,15 +128,21 @@ public class MemberDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	/**
-	 * @param memberNo
-	 * @return
-	 */
 	public List<Order> selectMyOrder(int memberNo) {
 	
 		List<Order> orderResult = sqlSession.selectList("myOrderMapper.selectMyOrder", memberNo);
 		
 		return orderResult;
+	}
+
+	
+	/**내 주문 조회 시 배송 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Delivery> selectMyDelivery(int memberNo) {
+		
+		return sqlSession.selectList("myOrderMapper.selectMyDelivery", memberNo);
 	}
 
 
