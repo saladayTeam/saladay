@@ -26,14 +26,14 @@
         <div class="review-list-area">
             <div class="review-title">
                 <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
-                <h1 class="main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
+                <h1 class="review-main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
-                <input type="radio" name="review-check">
+<%--                 <input type="radio" name="review-check">
                 <label for="review-check" id="#">최신순&nbsp&nbsp</label>
 
                 <input type="radio" name="review-check">
-                <label for="review-check" id="#">좋아요 순</label>
+                <label for="review-check" id="#">좋아요 순</label> --%>
             </div>
 
             <!-- 리뷰 목록 내용 -->

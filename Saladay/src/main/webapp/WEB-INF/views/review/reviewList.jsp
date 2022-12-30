@@ -28,11 +28,11 @@
                 <h1 class="review-main-title">전체 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
-                <input type="radio" name="review-check">
+<%--                 <input type="radio" name="review-check">
                 <label for="review-check" id="#">최신순&nbsp&nbsp</label>
 
                 <input type="radio" name="review-check">
-                <label for="review-check" id="#">좋아요 순</label>
+                <label for="review-check" id="#">좋아요 순</label> --%>
             </div>
 
             <!-- 리뷰 목록 내용 -->

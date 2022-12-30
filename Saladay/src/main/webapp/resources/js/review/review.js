@@ -250,6 +250,7 @@ function deleteReview(reviewNo){
                 if(result > 0){
                     alert("리뷰가 삭제되었습니다");
                     modal.style.display="none";
+                    location.reload("");
                 }else{
                     alert("삭제 실패");
                 }
