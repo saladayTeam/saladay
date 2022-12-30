@@ -112,7 +112,8 @@
                                             메인토핑 <img src="/resources/images/menu/icon/meat.png" class="add-icon">
                                         </div>
                                         <ul class="topping-list">
-                                            <c:forEach items="${mainTopping}" var="mainT">
+                                            <c:forEach items="${optionList}" var="mainT">
+                                            <c:if test="${mainT.optionType eq 'M'}">
                                                 <li class="topping">
                                                     <div class="img-box">
                                                         <img src="${mainT.optionImage}" class="topping-img">
@@ -130,8 +131,8 @@
                                                     </div>
                                                     <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/> 
                                                 </li>
-
                                                 <c:set var="idx" value="${idx + 1}"/>
+                                            </c:if>
                                             </c:forEach>
                                         </ul>
                                     <div class="add-menu" id="add-sub">
@@ -139,7 +140,8 @@
                                             서브토핑 <img src="/resources/images/menu/icon/broccoli.png" class="add-icon">
                                         </div>
                                         <ul class="topping-list">
-                                            <c:forEach items="${subTopping}" var="subT">
+                                            <c:forEach items="${optionList}" var="subT">
+                                            <c:if test="${subT.optionType eq 'T'}">
                                                 <li class="topping">
                                                     <div class="img-box">
                                                         <img src="${subT.optionImage}" class="topping-img">
@@ -159,6 +161,7 @@
                                                 </li>
 
                                                 <c:set var="idx" value="${idx + 1}"/>
+                                            </c:if>
                                             </c:forEach>
                                         </ul>
                                     </div>
@@ -169,7 +172,8 @@
                                             </div>
                                         </div>
                                         <ul class="topping-list">
-                                            <c:forEach items="${sourceList}" var="source">
+                                            <c:forEach items="${optionList}" var="source">
+                                            <c:if test="${source.optionType eq 'S'}">
                                                 <li class="topping">
                                                     <div class="img-box">
                                                         <img src="${source.optionImage}" class="topping-img">
@@ -181,7 +185,7 @@
                                                         + ${source.optionPrice}
                                                     </div>
                                                     <div class="add-number">
-                                                        <span class="minus">-</span>
+                                                        <span class="minus">-</span>    
                                                         <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
@@ -189,6 +193,7 @@
                                                 </li>
 
                                                 <c:set var="idx" value="${idx + 1}"/>
+                                            </c:if>
                                             </c:forEach>
                                         </ul>
                                     </div>

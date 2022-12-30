@@ -41,21 +41,21 @@
 
 
 	<!-- 메인 토핑 조회 -->
-	<select id="selectMainTopping" resultMap="option_rm">
+<!-- 	<select id="selectMainTopping" resultMap="option_rm">
 	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' AND OPTION_TYPE = 'M' ORDER BY 1
-	</select>
+	</select> -->
 
 
 	<!-- 서브 토핑 조회 -->
-	<select id="selectSubTopping" resultMap="option_rm">
+<!-- 	<select id="selectSubTopping" resultMap="option_rm">
 	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' AND OPTION_TYPE = 'T' ORDER BY 1
 	</select>
-
+ -->
 
 	<!-- 소스 조회 -->
-	<select id="selectSourceList" resultMap="option_rm">
+<!-- 	<select id="selectSourceList" resultMap="option_rm">
 	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' AND OPTION_TYPE = 'S' ORDER BY 1
-	</select>
+	</select> -->
 	
 	<!-- 패키지 조회 -->
 	<select id="selectPackageList" resultMap="package_rm">
