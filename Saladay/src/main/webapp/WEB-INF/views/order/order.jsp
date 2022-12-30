@@ -41,7 +41,11 @@
                         <span class="o-th">이메일</span><span class="o-td">${loginMember.memberEmail}</span>
                     </p>
                     <p>
-                        <span class="o-th">핸드폰</span><span class="o-td">${loginMember.memberTel}</span>
+                        <span class="o-th">핸드폰</span><span class="o-td">
+                            ${fn:substring(loginMember.memberTel,0,3)} -
+                            ${fn:substring(loginMember.memberTel,3,7)} -
+                            ${fn:substring(loginMember.memberTel,7,11)}
+                        </span>
                     </p>
                     <p>
                         <span class="o-th">주소</span><span class="o-td">${fn:replace(loginMember.memberAddress, ',,', ' ')}</span>
