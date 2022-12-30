@@ -234,7 +234,6 @@ main {
     background-color: #ccc;
     
     border-radius: 5px;
-    cursor: pointer;
     border: none;
     text-align : center;
     line-height : 14px;
@@ -272,7 +271,20 @@ main {
     margin-bottom:5px;
 }
 
-
+.order-cancel-btn-ing {
+    width: 100px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: white;
+    background-color: #17633d;
+    
+    border-radius: 5px;
+    border: none;
+    text-align : center;
+    line-height : 24px;
+    margin-bottom:5px;
+}
 
 .fa-truck-fast{
 	color: #17633d;
