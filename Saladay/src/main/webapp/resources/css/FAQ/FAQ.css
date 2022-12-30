@@ -7,25 +7,31 @@ main {
 .faq-header {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bolder;
-  color: black;
+  flex-direction: column;
   border-bottom: 3px solid #17633d;
-  padding-bottom: 80px;
+  padding-bottom: 20px;
   margin: 50px 0 auto auto;
 }
 
 .main-title {
   font-size: 32px;
-  margin-bottom: 20px;
+  font-weight: bolder;
+  color: black;
 }
+
+
+/* 관리자일 때 버튼 영역 */
+.faq-btn-area {
+  display: flex;
+  justify-content: end;
+}
+
 
 /*faq content*************************************************************/
 
 .faq-content {
-  width: 800px;
-  min-height: 700px;
+  width: 1100px;
+  min-height: 100vh;
   margin: 50px auto;
   line-height: 150%;
 }
@@ -45,7 +51,7 @@ main {
   border-top: 1px solid #aaa;
 }
 
-.faq input {
+input {
   display: none;
 }
 
@@ -68,18 +74,15 @@ main {
   transition: max-height 0.2s;
 }
 
-.faq input:checked + label + div {
+.faq input:checked + label + span +div {
   /* 내용 영역 펼침 */
   display: block;
 }
 
-.fa-q {
+.fa-q, .fa-a {
   color: #17633d;
 }
 
-.fa-a {
-  color: #17633d;
-}
 
 .question {
   font-size: 16px;
@@ -88,6 +91,26 @@ main {
   margin: 5px 20px 0 0;
 }
 
-.answer-detail {
-  width: 80%;
+
+#delBtn {
+  border: none;
+  cursor: pointer;
+}
+
+/* 버튼영역 */
+#addFaq {
+  width: 100px;
+  height: 35px;
+  background-color: #f2f2f2;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#addFaq:hover {
+  background-color: #17633d;
+  color: white;
+  border: none;
 }
