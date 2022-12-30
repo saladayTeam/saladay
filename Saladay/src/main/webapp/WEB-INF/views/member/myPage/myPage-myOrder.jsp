@@ -106,16 +106,14 @@
                             		 			<li>${menu.menuPrice}원</li>
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
                             		 				
-                            		 				<c:if test="${reviewCheck.orderMenuNo == menu.orderMenuNo }">
-                            		 					<c:if test="${reviewCheck.reviewCheck eq 'possible'}">
-                            		 					<li><div class="review-btn" onclick="location='/review/write'">리뷰 작성</div></li>
-                            		 					</c:if>
-                            		 				
-	                            		 				<c:if test="${reviewCheck.reviewCheck eq 'done'}">
-	                            		 				<li><div class="review-completed-btn">작성 완료</div></li>
-	                            		 				</c:if>
+                            		 				<c:if test="${menu.reviewCheck eq 'possible'}">
+                            		 				<li><div class="review-btn" onclick="location='/member/myPage/reviewWrite/{menu.orderMenuNo}'">리뷰 작성</div></li>
                             		 				</c:if>
                             		 				
+	                            		 			<c:if test="${menu.reviewCheck eq 'done'}">
+	                            		 			<li><div class="review-completed-btn">작성 완료</div></li>
+	                            		 			</c:if>
+                            		 			
                             		 			</c:if>
                             		 		</ul>
                             					

@@ -147,13 +147,6 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 
-	//리뷰체크리스트 조회
-	@Override
-	public List<ReviewCheck> selectReviewCheckList() {
-		
-		return dao.selectReviewCheckList();
-	}
-
 	//내 주문 취소
 	@Override
 	public int cancelMyOrder(int orderNo) {

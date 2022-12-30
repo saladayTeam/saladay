@@ -31,6 +31,7 @@
       <result property="deliveryNo" column="DELIVERY_NO"/>
       <result property="deliveryCode" column="DELIVERY_CODE"/>
       <result property="deliveryDate" column="DELIVERY_DATE"/>
+      <result property="reviewCheck" column="REVIEW_CHECK"/>
       <collection property="optionList" javaType="java.util.ArrayList" ofType="OrderOption"
       select="selectOptionList" column="ORDER_MENU_NO" />
 	</resultMap> 
@@ -81,13 +82,19 @@
 	</select>
  	
  	
- 	<!-- 패키지에 담은 메뉴 조회 -->
+ 	<!-- 패키지에 담은 메뉴 조회 + 배송상태확인 + 리뷰 작성확인 -->
 	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
-		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG
+		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG,
+			(SELECT D.DELIVERY_CODE 
+			FROM DELIVERY D
+			WHERE D.ORDER_NO = #{orderNo}
+			AND ROWNUM=1) AS DELIVERY_CODE,
+			NVL2(REVIEW_NO, 'done' ,'possible')REVIEW_CHECK 
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
 		LEFT JOIN "MENU" USING (MENU_NO)
+		LEFT JOIN "REVIEW" USING (ORDER_MENU_NO)
 		WHERE NOT ORDER_DEL_FL='A'
 		AND ORDER_NO=#{orderNo}
 		AND MENU_DEL_FL='N'
@@ -129,15 +136,8 @@
 		GROUP BY DELIVERY_DATE, DELIVERY_NO, DELIVERY_CODE,ORDER_NO, DELIVERY_STATUS
  	</select>
  	
- 	<!-- 리뷰체크 리스트-->
- 	<select id="reviewCheckList" resultMap="reviewCheck_rm">
- 	SELECT NVL2(REVIEW_NO, 'done' ,'possible')REVIEW_CHECK, ORDER_MENU_NO 
-	FROM "ORDER_MENU"
-	LEFT JOIN REVIEW USING(ORDER_MENU_NO)
-	JOIN "ORDER" USING(ORDER_NO)
-	ORDER BY ORDER_MENU_NO
-	</select>
 	
+	<!-- 내 주문 취소 -->
 	<update id="cancelMyOrder">
 	UPDATE "ORDER" SET
 	ORDER_DEL_FL = 'Y'
