@@ -107,7 +107,7 @@
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
                             		 				
                             		 				<c:if test="${menu.reviewCheck eq 'possible'}">
-                            		 				<li><div class="review-btn" onclick="location='/member/myPage/reviewWrite/{menu.orderMenuNo}'">리뷰 작성</div></li>
+                            		 				<li><div class="review-btn" onclick="location='/member/myPage/reviewWrite/${menu.orderMenuNo}'">리뷰 작성</div></li>
                             		 				</c:if>
                             		 				
 	                            		 			<c:if test="${menu.reviewCheck eq 'done'}">

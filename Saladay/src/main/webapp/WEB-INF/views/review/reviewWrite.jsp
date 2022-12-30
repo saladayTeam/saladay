@@ -24,11 +24,14 @@
                     </div>
 
                     <div class="rw-info-area">
+                        <div class="rw-orderNo">
+                            주문번호 : ${reviewInfo.orderNo}
+                        </div>
                         <div class="rw-package">
-                            선택한 주문번호 - 패키지명
+                            주문상품 : ${reviewInfo.packageName}
                         </div>
                         <div class="rw-menu">
-                            메뉴명(옵션도 보이게 할건지?)
+                            주문메뉴 : ${reviewInfo.menuName} 샐러드
                         </div>
                     </div>
                     <div class="rw-rating-area">

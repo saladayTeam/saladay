@@ -91,6 +91,12 @@ public class ReviewServiceImpl implements ReviewService{
 		return dao.deleteReviewImg(reviewNo);
 	}
 
+	// 리뷰 작성시 보여줄 기본 정보
+	@Override
+	public Review reviewWriteInfo(int orderMenuNo) {
+		return dao.reviewWriteInfo(orderMenuNo);
+	}
+
 
 	
 	

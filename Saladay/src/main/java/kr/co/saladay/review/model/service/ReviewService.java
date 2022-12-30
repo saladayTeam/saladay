@@ -55,4 +55,10 @@ public interface ReviewService {
 	 */
 	int deleteReviewImg(int reviewNo);
 
+	/** 리뷰 작성시 보여줄 기본 정보
+	 * @param orderMenuNo
+	 * @return
+	 */
+	Review reviewWriteInfo(int orderMenuNo);
+
 }

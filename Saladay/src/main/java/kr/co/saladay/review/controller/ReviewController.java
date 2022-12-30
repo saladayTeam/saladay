@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -103,13 +104,28 @@ public class ReviewController {
 		return service.deleteReviewImg(reviewNo);
 	}
 	
+	// 리뷰 작성 페이지 이동
+	@GetMapping("/member/myPage/reviewWrite/{orderMenuNo}")
+	public String reviewWrite(@SessionAttribute("loginMember") Member loginMember,
+			@PathVariable("orderMenuNo") int orderMenuNo, 
+			Model model) {
+		
+		// 리뷰 작성시 보여줄 기본 정보
+		Review reviewInfo = service.reviewWriteInfo(orderMenuNo);
+		
+		model.addAttribute("reviewInfo", reviewInfo);
+		
+		return "/review/reviewWrite";
+	}
+	
 	// 리뷰 작성(INSERT)
-	@GetMapping("/review/write")
-	public String writeBoard(@SessionAttribute("loginMember") Member loginMember,
+	@PostMapping("/member/myPage/reviewWrite/{orderMenuNo}")
+	public String reviewWrite(
+			@PathVariable("orderMenuNo") int orderMenuNo,
 			Model model) {
 		
 		
-		return "/review/reviewWrite";
+		return "/member/myPage/myPage-myReview";
 	}
 
 }

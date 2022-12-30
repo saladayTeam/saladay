@@ -11,12 +11,14 @@
 	<result property="reviewDeleteFlag" column="REVIEW_DEL_FL"/>
 	<result property="memberNo" column="MEMBER_NO"/>
 	<result property="memberNickname" column="MEMBER_NICKNAME"/>
+	<result property="orderNo" column="ORDER_NO"/>
 	<result property="orderMenuNo" column="ORDER_MENU_NO"/>
 	<result property="menuNo" column="MENU_NO"/>
 	<result property="menuName" column="MENU_NAME"/>
 	<result property="likeCount" column="LIKE_COUNT"/>
 	<result property="likeCheck" column="LIKE_CHECK"/>
 	<result property="thumbnail" column="THUMBNAIL"/>
+	<result property="packageName" column="PACKAGE_NAME"/>
 	
 </resultMap>
 
@@ -166,7 +168,17 @@ WHERE REVIEW_NO=#{reviewNo}
 
 <!-- 리뷰 이미지 삭제 -->
 <delete id="deleteReviewImg">
-DELETE FROM BOARD_IMG 
+DELETE FROM "REVIEW_IMG"
 WHERE REVIEW_NO=#{reviewNo}
 </delete>
+
+<!-- 리뷰 작성시 기본 정보 -->
+<select id="reviewWriteInfo" parameterType="_int" resultMap="review_rm">
+SELECT ORDER_MENU_NO, MENU_NAME, ORDER_NO, PACKAGE_NAME
+FROM ORDER_MENU
+JOIN "ORDER" USING(ORDER_NO)
+JOIN "MENU" USING(MENU_NO)
+JOIN "PACKAGE" USING(PACKAGE_NO)
+WHERE ORDER_MENU_NO = #{orderMenuNo}
+</select>
 </mapper>

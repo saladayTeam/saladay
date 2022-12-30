@@ -105,4 +105,12 @@ public class ReviewDAO {
 		return sqlSession.delete("reviewMapper.deleteReviewImg", reviewNo);
 	}
 
+	/** 리뷰 작성시 보여줄 기본 정보
+	 * @param orderMenuNo
+	 * @return
+	 */
+	public Review reviewWriteInfo(int orderMenuNo) {
+		return sqlSession.selectOne("reviewMapper.reviewWriteInfo", orderMenuNo);
+	}
+
 }
