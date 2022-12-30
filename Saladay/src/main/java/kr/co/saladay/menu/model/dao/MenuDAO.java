@@ -22,19 +22,19 @@ public class MenuDAO {
 	}
 
 	// 메인 토핑 조회
-	public List<Option> selectMainTopping() {
-		return sqlSession.selectList("menuMapper.selectMainTopping");
-	}
+//	public List<Option> selectMainTopping() {
+//		return sqlSession.selectList("menuMapper.selectMainTopping");
+//	}
 
 	// 서브 토핑 조회
-	public List<Option> selectSubTopping() {
-		return sqlSession.selectList("menuMapper.selectSubTopping");
-	}
+//	public List<Option> selectSubTopping() {
+//		return sqlSession.selectList("menuMapper.selectSubTopping");
+//	}
 	
 	// 소스 조회
-	public List<Option> selectSourceList() {
-		return sqlSession.selectList("menuMapper.selectSourceList");
-	}
+//	public List<Option> selectSourceList() {
+//		return sqlSession.selectList("menuMapper.selectSourceList");
+//	}
 
 	// 패키지 목록 조회
 	public List<Map<String, Object>> selectPackageList() {

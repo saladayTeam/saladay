@@ -13,13 +13,13 @@ public interface MenuService {
 	List<Menu> selectMenuList();
 
 	// 메인 토핑 조회
-	List<Option> selectMainTopping();
+	// List<Option> selectMainTopping();
 
 	// 서브 토핑 조회
-	List<Option> selectSubTopping();
+	// List<Option> selectSubTopping();
 
 	// 소스 조회
-	List<Option> selectSourceList();
+	// List<Option> selectSourceList();
 
 	// 패키지 목록 조회
 	List<Map<String, Object>> selectPackageList();
