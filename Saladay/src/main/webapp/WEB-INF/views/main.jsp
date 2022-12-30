@@ -65,5 +65,6 @@
 
     <script src="/resources/js/main/main.js"></script>
     <script src="/resources/js/main/swiper.min.js"></script>
+
 </body>
 </html>
