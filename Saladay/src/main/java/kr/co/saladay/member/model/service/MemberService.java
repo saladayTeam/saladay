@@ -105,12 +105,6 @@ public interface MemberService {
 	public List<Delivery> selectMyDelivery(int memberNo);
 
 
-	/**체크리스트 조회
-	 * @return
-	 */
-	public List<ReviewCheck> selectReviewCheckList();
-
-
 	/**내 주문 취소
 	 * @param orderNo
 	 * @return

@@ -146,13 +146,7 @@ public class MemberDAO {
 		return sqlSession.selectList("myOrderMapper.selectMyDelivery", memberNo);
 	}
 
-	/**리뷰체크리스트 조회
-	 * @return
-	 */
-	public List<ReviewCheck> selectReviewCheckList() {
-		
-		return sqlSession.selectList("myOrderMapper.reviewCheckList");
-	}
+
 
 	/**내 주문 취소
 	 * @param orderNo

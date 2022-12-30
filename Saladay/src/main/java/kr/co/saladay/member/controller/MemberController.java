@@ -458,11 +458,8 @@ public class MemberController {
 		
 		List<Delivery> myDelivery = service.selectMyDelivery(memberNo);
 		
-		List<ReviewCheck> reviewCheckList = service.selectReviewCheckList();
-		
 		model.addAttribute("myOrder", myOrder);
 		model.addAttribute("myDelivery", myDelivery);
-		model.addAttribute("reviewCheckList",reviewCheckList);
 		
 		return "member/myPage/myPage-myOrder";
 	
