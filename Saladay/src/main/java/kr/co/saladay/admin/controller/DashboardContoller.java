@@ -50,9 +50,37 @@ public class DashboardContoller {
 		List<String> menuNameList=service.menuNameList();
 		
 		ServletContext application=req.getSession().getServletContext();
-		List<Menu> menuList=(List<Menu>)application.getAttribute("menuList");
 		
+		// 대시보드 메뉴 테이블 조회
+		List<SalesMenu> salesMenuList=service.salesMenuList();
+		
+		int preMonthMenuSales=service.selectPreMonthMenuSales();
+		int currentMonthMenuSales=service.selectCurrentMonthMenuSales();
+		
+		
+		for(SalesMenu salesMenu:salesMenuList) {
+			salesMenu.setPreMonthMenuSales(preMonthMenuSales);
+			salesMenu.setCurrentMonthMenuSales(currentMonthMenuSales);
 			
+			int preMonthSales=salesMenu.getPreMonthSales();
+			int currentMonthSales=salesMenu.getCurrentMonthSales();
+			
+			if(preMonthSales!=0) {
+				double changeRate=(((currentMonthSales-preMonthSales)/preMonthSales)*100);
+				salesMenu.setChangeRate(changeRate);				
+			} else {
+				salesMenu.setChangeRate(0);
+			}
+
+			if(currentMonthMenuSales!=0) {
+				double percentageOfSales=((salesMenu.getCurrentMonthSales()/currentMonthMenuSales)*100);
+				salesMenu.setPercentageOfSales(percentageOfSales);        		
+			} else {
+				salesMenu.setPercentageOfSales(0);
+			}
+			
+		}
+		
 		
 		model.addAttribute("monthOrderCount", new Gson().toJson(monthOrderCount));
 		
@@ -65,6 +93,8 @@ public class DashboardContoller {
 		model.addAttribute("month", new Gson().toJson(month));
 		model.addAttribute("packageNameList", new Gson().toJson(packageNameList));
 		model.addAttribute("menuNameList", new Gson().toJson(menuNameList));
+		
+		model.addAttribute("salesMenuList", salesMenuList);
 		
 		return "/admin/dashboard/dashboard";
 	}

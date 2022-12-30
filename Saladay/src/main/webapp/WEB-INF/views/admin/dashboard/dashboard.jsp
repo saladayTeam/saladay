@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,7 @@
     <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
 
     <main>
+        <c:set var="lastindex" value="${fn:length(monthOrderPrice)-1}" />
         <div class="menu-m-tit">
             <div>
                 <span>대시보드</span>
@@ -32,36 +34,107 @@
         <div class="chart-container-1">
             <span>월간 매출액 / 월간 주문 건수</span>
             <canvas id="myChart1" width="1200" height="400"></canvas>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>전월 총 매출액</th>
-                            <th>당월 총 매출액</th>
-                            <th>증감율</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <c:set var="lastindex" value="${fn:length(monthOrderPrice)-1}" />
-                            <td>${monthOrderPrice[lastindex-1]}</td>
-                            <td>${monthOrderPrice[lastindex]}</td>
-                            <td>${((monthOrderPrice[lastindex]-monthOrderPrice[lastindex-1])/monthOrderPrice[lastindex-1])*100}%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table>
+                <caption style="display:none">
+                    <summary>매출액 비교</summary>
+                </caption>
+
+                <colgroup>
+                    <col width="33%">
+                    <col width="33%">
+                    <col width="33%">
+                </colgroup>
+
+                <thead>
+                    <tr>
+                        <th scope="col">전월 총 매출액</th>
+                        <th scope="col">당월 총 매출액</th>
+                        <th scope="col">증감율</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="col"> 
+                            <fmt:formatNumber type="number" maxFractionDigits="0"  value="${monthOrderPrice[lastindex-1]}" />
+                        </td>
+                        <td scope="col">
+                            <fmt:formatNumber type="number" maxFractionDigits="0"  value="${monthOrderPrice[lastindex]}" />
+                        </td>
+                        <td scope="col">
+                            <fmt:formatNumber type="percent" value="${((monthOrderPrice[lastindex]-monthOrderPrice[lastindex-1])/monthOrderPrice[lastindex-1])}"  pattern="0.0%"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="chart-container-2">
-            <div class="chart-order">
-                <span>패키지 별 월간 주문 건수</span>
-                <canvas id="myChart2" width="500" height="400"></canvas>
+            <div class="chart-order-container">
+                <div class="chart-order">
+                    <span>패키지 별 월간 주문 건수</span>
+                    <canvas id="myChart2" width="500" height="400"></canvas>
+                </div>
+                <div class="chart-order">
+                    <span>메뉴 별 월간 주문 건수</span>
+                    <canvas id="myChart3" width="500" height="400"></canvas>
+                </div>
             </div>
-            <div class="chart-order">
-                <span>메뉴 별 월간 주문 건수</span>
-                <canvas id="myChart3" width="500" height="400"></canvas>
-            </div>
+            <table>
+                <caption style="display:none">
+                    <summary>메뉴 별 판매량 및 매출액</summary>
+                </caption>
+
+                <colgroup>
+                    <col width="20%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="10%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="15%">
+                </colgroup>
+
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>전월 판매 수량</th>
+                        <th>전월 판매 매출</th>
+                        <th>당월 판매 수량</th>
+                        <th>당월 판매 매출</th>
+                        <th>전월 대비 증감</th>
+                        <th>매출 비중</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <c:forEach var="salesMenu" items="${salesMenuList}">
+                        <tr>
+                            <td>
+                                ${salesMenu.menuName}
+                            </td>
+                            <td>
+                                ${salesMenu.preMonthSalesQuantity}
+                            </td>
+                            <td>
+                                ${salesMenu.preMonthSales}
+                            </td>
+                            <td>
+                                ${salesMenu.currentMonthSalesQuantity}
+                            </td>
+                            <td>
+                                ${salesMenu.currentMonthSales}
+                            </td>
+                            <td>
+                                ${salesMenu.changeRate}%
+                            </td>
+                            <td>
+                                ${salesMenu.percentageOfSales}%
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
         </div>
+
     </main>
 
     <!-- footer -->
