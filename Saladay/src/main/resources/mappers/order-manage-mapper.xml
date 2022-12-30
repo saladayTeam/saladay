@@ -20,6 +20,7 @@
       <result property="packageNo" column="PACKAGE_NO"/>
       <result property="packageName" column="PACKAGE_NAME"/>
       <result property="packageType" column="PACKAGE_TYPE"/>
+      <result property="packagePrice" column="TOTAL"/>
       <result property="memberNo" column="MEMBER_NO"/>
       <result property="memberName" column="MEMBER_NAME"/>
       <result property="memberEmail" column="MEMBER_EMAIL"/>
@@ -90,7 +91,28 @@
 	<select id="selectOrderDetail" resultMap="orderManage_rm">
 	SELECT ORDER_NO, PACKAGE_NO, PACKAGE_NAME, PACKAGE_TYPE,
          ORDER_DATE, ORDER_DEL_FL, CANCLE_DATE, MEMBER_NAME, MEMBER_EMAIL, MEMBER_TEL, MEMBER_ADDRESS,
-         ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, ORDER_PRICE
+         ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, ORDER_PRICE,
+            CASE WHEN PACKAGE_TYPE=1 THEN (SELECT SUM(MENU_PRICE) + SUM(NVL(TOTAL_OPT_PRICE,0)) TOTAL FROM (
+			   SELECT  M.MENU_PRICE,
+			      (SELECT SUM(NVL(OPTION_PRICE,0) * NVL(OPTION_COUNT,0))  
+			      FROM ORDER_MENU_OPTION OMO
+			      JOIN "OPTION" O ON(OMO.OPTION_NO = O.OPTION_NO)
+			      WHERE OMO.ORDER_MENU_NO = OM.ORDER_MENU_NO) TOTAL_OPT_PRICE
+			   FROM "ORDER" O
+			   JOIN ORDER_MENU OM ON (O.ORDER_NO = OM.ORDER_NO)
+			   JOIN MENU M ON (OM.MENU_NO = M.MENU_NO)
+			   WHERE O.ORDER_NO  = #{orderNo})) 
+			   ELSE ((SELECT SUM(MENU_PRICE) + SUM(NVL(TOTAL_OPT_PRICE,0)) TOTAL FROM (
+			   SELECT  M.MENU_PRICE,
+			      (SELECT SUM(NVL(OPTION_PRICE,0) * NVL(OPTION_COUNT,0))  
+			      FROM ORDER_MENU_OPTION OMO
+			      JOIN "OPTION" O ON(OMO.OPTION_NO = O.OPTION_NO)
+				      WHERE OMO.ORDER_MENU_NO = OM.ORDER_MENU_NO) TOTAL_OPT_PRICE
+			   FROM "ORDER" O
+			   JOIN ORDER_MENU OM ON (O.ORDER_NO = OM.ORDER_NO)
+			   JOIN MENU M ON (OM.MENU_NO = M.MENU_NO)
+			   WHERE O.ORDER_NO  = #{orderNo}
+				))*2) END AS TOTAL
 	FROM "ORDER"
 	JOIN "MEMBER" USING(MEMBER_NO)
 	JOIN "PACKAGE" USING (PACKAGE_NO)
@@ -133,4 +155,12 @@
 	JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
 	WHERE O.ORDER_NO=#{orderNo}
 	</select>
+	
+	<!-- 주문 취소 -->
+	<update id="withdrawOrder">
+	UPDATE "ORDER" SET 
+	ORDER_DEL_FL ='A',
+	CANCLE_DATE = SYSDATE 
+	WHERE ORDER_NO = #{orderNo}
+	</update>
 </mapper>

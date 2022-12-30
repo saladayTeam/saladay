@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.member.model.vo.ReviewCheck;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.order.model.vo.OrderMenu;
 import kr.co.saladay.review.model.vo.Review;
@@ -143,6 +144,23 @@ public class MemberDAO {
 	public List<Delivery> selectMyDelivery(int memberNo) {
 		
 		return sqlSession.selectList("myOrderMapper.selectMyDelivery", memberNo);
+	}
+
+	/**리뷰체크리스트 조회
+	 * @return
+	 */
+	public List<ReviewCheck> selectReviewCheckList() {
+		
+		return sqlSession.selectList("myOrderMapper.reviewCheckList");
+	}
+
+	/**내 주문 취소
+	 * @param orderNo
+	 * @return
+	 */
+	public int cancelMyOrder(int orderNo) {
+		
+		return sqlSession.update("myOrderMapper.cancelMyOrder",orderNo);
 	}
 
 

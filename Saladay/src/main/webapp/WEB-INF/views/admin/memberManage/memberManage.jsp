@@ -19,16 +19,17 @@
 <body>
     <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
     
-    <section class="mem-wrapper">
-    
+    <main>
       <div class="mem-m-tit">
-        <div>
-          <span>회원 관리</span>
-        </div>
-        <div class="m-btn-area">
-          <button type="button" id="memDel" onclick="deleteValue();">탈퇴처리</button>
-        </div>
+          <span><h1>회원관리</h1></span>
+          <div class="mem">
+            <span>가입된 회원 내역입니다.</span>
+            <div class="m-btn-area">
+              <button type="button" id="memDel" onclick="secessionValue();">탈퇴처리</button>
+            </div>
+          </div>
       </div>
+
 
       <table>
         <caption style="display:none">
@@ -37,18 +38,18 @@
 
         <colgroup>
           <col width="2%">
-          <col width="10%">
-          <col width="20%">
+          <col width="5%">
+          <col width="17%">
           <col width="20%">
           <col width="28%">
-          <col width="10%">
-          <col width="10%">
+          <col width="20%">
+          <col width="18%">
         </colgroup>
 
         <thead>
           <tr>
             <th scope="col"><input type="checkbox" name="allCheck" id="allCheck"></th>
-            <th scope="col"><span>회원번호</span></th>
+            <th scope="col"><span>번호</span></th>
             <th scope="col"><span>회원명</span></th>
             <th scope="col"><span>닉네임</span></th>
             <th scope="col"><span>전화번호</span></th>
@@ -104,7 +105,7 @@
             </c:if>
         </div>
       
-    </section>  
+    </main>  
     
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 

@@ -49,4 +49,10 @@ public interface ReviewService {
 	 */
 	int deleteReview(int reviewNo);
 
+	/** 리뷰 이미지 삭제
+	 * @param reviewNo
+	 * @return
+	 */
+	int deleteReviewImg(int reviewNo);
+
 }

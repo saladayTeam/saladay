@@ -6,6 +6,7 @@ import java.util.Map;
 
 import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.member.model.vo.ReviewCheck;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
@@ -102,6 +103,19 @@ public interface MemberService {
 	 * @return
 	 */
 	public List<Delivery> selectMyDelivery(int memberNo);
+
+
+	/**체크리스트 조회
+	 * @return
+	 */
+	public List<ReviewCheck> selectReviewCheckList();
+
+
+	/**내 주문 취소
+	 * @param orderNo
+	 * @return
+	 */
+	public int cancelMyOrder(int orderNo);
 
 
 

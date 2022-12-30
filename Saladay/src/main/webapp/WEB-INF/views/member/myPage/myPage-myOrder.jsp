@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -76,7 +77,7 @@
 	                            			<li>주문일자 : ${order.orderDate}</li>
 	                            			<li>수령인 : ${order.orderName}</li>
 	                            			<li>수령인 연락처 : ${order.orderTel}</li>
-	                            			<li>수령인 주소 : ${order.orderAddress}</li>
+	                            			<li>수령인 주소 : ${fn:replace(order.orderAddress, ',,', ' ')}</li>
 	                            		</ul>
 	                            	</div>
                             	</div>
@@ -103,11 +104,19 @@
                             		 			<li class="menu-td">${menu.menuName}</li>
                             		 			<li>1</li>
                             		 			<li>${menu.menuPrice}원</li>
-                            		 			
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
-                            		 			<li><div class="review-btn" onclick="location='/review/write'">리뷰 작성</div></li>
+                            		 				
+                            		 				<c:if test="${reviewCheck.orderMenuNo == menu.orderMenuNo }">
+                            		 					<c:if test="${reviewCheck.reviewCheck eq 'possible'}">
+                            		 					<li><div class="review-btn" onclick="location='/review/write'">리뷰 작성</div></li>
+                            		 					</c:if>
+                            		 				
+	                            		 				<c:if test="${reviewCheck.reviewCheck eq 'done'}">
+	                            		 				<li><div class="review-completed-btn">작성 완료</div></li>
+	                            		 				</c:if>
+                            		 				</c:if>
+                            		 				
                             		 			</c:if>
-                            		 			
                             		 		</ul>
                             					
                             					<!-- 옵션 -->
@@ -129,7 +138,7 @@
                             	<c:if test="${order.packageType==2}">
                             		
                             		<div class="package-type"><i class="fa-solid fa-truck-fast fa-flip-horizontal"></i></i>2주차는 1주차와 동일한 구성으로 배송됩니다.</div>
-                            
+                                
                             	</c:if>
                             	</div>
                             	
@@ -140,14 +149,19 @@
                             	 	<c:if test="${delivery.orderNo == order.orderNo }">
                             	 		<c:if test="${delivery.deliveryCode eq 'A' }">
 	                            	 		<c:if test="${not loop_flag }">
-	                            	 		<div class="order-cancel-btn" onclick="">주문 취소</div>
+	                            	 			<c:if test="${order.orderDeleteFlag eq 'N'}">
+	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">주문 취소</div>
+	                            	 			</c:if>
+	                            	 			<c:if test="${order.orderDeleteFlag eq 'Y'}">
+	                            	 			<div class="order-cancel-btn" >취소 요청중</div>
+	                            	 			</c:if>
 	                            	 		<c:set var="loop_flag" value="true" />
 	       									</c:if>
                             	 		</c:if>
                             	 	</c:if>
                             	</c:forEach>
 	                            
-	                            <div class="total-price">결제 금액 : ${order.orderPrice} 원</div>
+	                            <div class="total-price">결제 금액 : <fmt:formatNumber type="number" maxFractionDigits="0"  value="${order.orderPrice}" />원</div>
                             </div>
                             </div>
                            
@@ -167,6 +181,27 @@
 
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-   
+    <script>
+    const cancelMyOrder=(orderNo)=>{
+        if( confirm("정말 취소 하시겠습니까?") ){
+        $.ajax({
+            url : "/member/myPage/cancelMyOrder",
+            type : "get",
+            data : { orderNo : orderNo },
+            success : result => {
+                if(result > 0){
+                    alert("주문취소 요청중입니다");
+                }else{
+                    alert("취소 실패");
+                }
+                location.reload();
+            },
+            error : error => {
+                console.log(error);
+            }
+        })
+        }
+    }
+    </script>
 </body>
 </html>

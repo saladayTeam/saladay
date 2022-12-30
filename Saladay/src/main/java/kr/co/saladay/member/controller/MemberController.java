@@ -28,6 +28,7 @@ import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.member.model.vo.ReviewCheck;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
 
@@ -457,16 +458,26 @@ public class MemberController {
 		
 		List<Delivery> myDelivery = service.selectMyDelivery(memberNo);
 		
+		List<ReviewCheck> reviewCheckList = service.selectReviewCheckList();
 		
 		model.addAttribute("myOrder", myOrder);
 		model.addAttribute("myDelivery", myDelivery);
+		model.addAttribute("reviewCheckList",reviewCheckList);
 		
 		return "member/myPage/myPage-myOrder";
 	
 	}
 	
 	
-	
+	/**내 주문 취소
+	 * @param reviewNo
+	 * @return
+	 */
+	@ResponseBody
+	@GetMapping("/myPage/cancelMyOrder")
+	public int cancelMyOrder(int orderNo) {
+		return service.cancelMyOrder(orderNo);
+	}
 	
 	
 	

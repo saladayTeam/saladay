@@ -13,6 +13,7 @@
       <result property="orderName" column="ORDER_NAME"/>
       <result property="orderPrice" column="ORDER_PRICE"/>
       <result property="orderTel" column="ORDER_TEL"/>
+      <result property="orderDeleteFlag" column="ORDER_DEL_FL"/>
       <collection property="orderMenuList" javaType="java.util.ArrayList" ofType="OrderMenu"
       select="selectOrderMenuList" column="ORDER_NO" />
 	</resultMap>
@@ -43,6 +44,12 @@
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
 	</resultMap> 
 
+	<!-- ReviewCheck resultMap -->
+	<resultMap type="ReviewCheck" id="reviewCheck_rm">
+      <id property="orderMenuNo" column="ORDER_MENU_NO"/>
+      <result property="reviewCheck" column="REVIEW_CHECK"/>
+	</resultMap> 
+
 	<!-- Delivery resultMap -->
 	<resultMap type="Delivery" id="delivery_rm">
       <id property="deliveryNo" column="DELIVERY_NO"/>
@@ -57,7 +64,7 @@
 	<!-- 나의 주문 조회 -->
 	<select id="selectMyOrder" resultMap="order_rm">
 		SELECT ORDER_NO, PACKAGE_NAME, PACKAGE_IMG, PACKAGE_TYPE,
-	   		ORDER_DATE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
+	   		ORDER_DATE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE,ORDER_DEL_FL
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
@@ -65,37 +72,40 @@
 		LEFT JOIN "OPTION" USING (OPTION_NO)
 		LEFT JOIN "DELIVERY" USING (ORDER_NO)
 		LEFT JOIN "MENU" USING(MENU_NO)
-		WHERE MEMBER_NO = #{memberNo}
+		WHERE NOT ORDER_DEL_FL='A'
+		AND MEMBER_NO = #{memberNo}
 		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,PACKAGE_TYPE,
 			 ORDER_DATE, 
-		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE
+		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE,ORDER_DEL_FL
 		ORDER BY ORDER_NO DESC
 	</select>
  	
  	
  	<!-- 패키지에 담은 메뉴 조회 -->
 	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
-		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG, DELIVERY_NO, DELIVERY_CODE, DELIVERY_DATE 
+		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
 		LEFT JOIN "MENU" USING (MENU_NO)
-		LEFT JOIN "DELIVERY" USING (ORDER_NO)
-		WHERE ORDER_NO=#{orderNo}
+		WHERE NOT ORDER_DEL_FL='A'
+		AND ORDER_NO=#{orderNo}
 		AND MENU_DEL_FL='N'
 		ORDER BY ORDER_MENU_NO
 	</select>	
  		
  	<!-- 메뉴 별 옵션 조회 -->
 	<select id="selectOptionList" resultMap="orderOption_rm">
-		SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, OPTION_PRICE 
+		SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, OPTION_PRICE
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
 		LEFT JOIN "PACKAGE" USING (PACKAGE_NO)
 		JOIN "OPTION" USING (OPTION_NO)
 		LEFT JOIN "MENU" USING (MENU_NO)
-		WHERE ORDER_MENU_NO=#{orderMenuNo}
+		LEFT JOIN "REVIEW" USING(ORDER_MENU_NO)
+		WHERE NOT ORDER_DEL_FL='A'
+		AND ORDER_MENU_NO=#{orderMenuNo}
 		AND MENU_DEL_FL='N'
 		ORDER BY OPTION_NO
 	</select>
@@ -114,7 +124,23 @@
 		LEFT JOIN "DELIVERY" USING (ORDER_NO) 
 		LEFT JOIN "MENU" USING(MENU_NO)
 		LEFT JOIN "DELIVERY_MANAGE" USING(DELIVERY_CODE)
-		WHERE MEMBER_NO = #{memberNo}
+		WHERE NOT ORDER_DEL_FL='A'
+		AND MEMBER_NO = #{memberNo}
 		GROUP BY DELIVERY_DATE, DELIVERY_NO, DELIVERY_CODE,ORDER_NO, DELIVERY_STATUS
  	</select>
+ 	
+ 	<!-- 리뷰체크 리스트-->
+ 	<select id="reviewCheckList" resultMap="reviewCheck_rm">
+ 	SELECT NVL2(REVIEW_NO, 'done' ,'possible')REVIEW_CHECK, ORDER_MENU_NO 
+	FROM "ORDER_MENU"
+	LEFT JOIN REVIEW USING(ORDER_MENU_NO)
+	JOIN "ORDER" USING(ORDER_NO)
+	ORDER BY ORDER_MENU_NO
+	</select>
+	
+	<update id="cancelMyOrder">
+	UPDATE "ORDER" SET
+	ORDER_DEL_FL = 'Y'
+	WHERE ORDER_NO=#{orderNo}
+	</update>
 </mapper>

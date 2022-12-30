@@ -49,4 +49,10 @@ public class OrderManageServiceImpl implements OrderManageService{
 		return dao.selectOrderDetailDelivery(orderNo);
 	}
 
+	// 주문 취소
+	@Override
+	public int withdrawOrder(int orderNo) {
+		return dao.withdrawOrder(orderNo);
+	}
+
 }
