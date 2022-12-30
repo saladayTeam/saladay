@@ -37,7 +37,8 @@
         
         <div class="pd-list-wrapper">
             <div class="menu-detail">
-                <c:forEach items="${sourceList}" var="source">
+                <c:forEach items="${optionList}" var="source">
+                <c:if test="${source.optionType eq 'S'}">
                     <div class="menu-wrapper">
                         <div class="menu-list">
                             <li class="menu-img"><img src="${source.optionImage}" alt=""></li>
@@ -49,6 +50,7 @@
 
                         </div>
                     </div>
+                </c:if>
                 </c:forEach>
             </div>
         </div>

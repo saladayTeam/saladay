@@ -36,7 +36,8 @@
         
         <div class="pd-list-wrapper">
             <div class="menu-detail">
-                <c:forEach items="${mainTopping}" var="mOption">
+                <c:forEach items="${optionList}" var="mOption">
+                <c:if test="${mOption.optionType eq 'M'}">
                     <div class="menu-wrapper">
                         <div class="menu-list">
                             <li class="menu-img"><img src="${mOption.optionImage}" alt=""></li>
@@ -47,6 +48,7 @@
                             <li class="menu-title"><span>${mOption.optionCalorie} Kcal</span></li> <br>
                         </div>
                     </div>
+                </c:if>
                 </c:forEach>
             </div>
         </div>

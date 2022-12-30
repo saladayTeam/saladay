@@ -44,22 +44,22 @@ public class MenuInterceptor implements HandlerInterceptor {
 		
 		
 		// 메인 토핑 조회
-		if( application.getAttribute("mainTopping") == null) {
-			List<Option> mainTopping = service.selectMainTopping();
-			application.setAttribute("mainTopping", mainTopping);
-		}
+//		if( application.getAttribute("mainTopping") == null) {
+//			List<Option> mainTopping = service.selectMainTopping();
+//			application.setAttribute("mainTopping", mainTopping);
+//		}
 		
 		// 서브 토핑 조회
-		if( application.getAttribute("subTopping") == null) {
-			List<Option> subTopping = service.selectSubTopping();
-			application.setAttribute("subTopping", subTopping);
-		}
+//		if( application.getAttribute("subTopping") == null) {
+//			List<Option> subTopping = service.selectSubTopping();
+//			application.setAttribute("subTopping", subTopping);
+//		}
 		
 		// 소스 조회
-		if( application.getAttribute("sourceList") == null) {
-			List<Option> sourceList = service.selectSourceList();
-			application.setAttribute("sourceList", sourceList);
-		}
+//		if( application.getAttribute("sourceList") == null) {
+//			List<Option> sourceList = service.selectSourceList();
+//			application.setAttribute("sourceList", sourceList);
+//		}
 		
 		// 패키지 조회
 		if( application.getAttribute("packageList") == null) {
