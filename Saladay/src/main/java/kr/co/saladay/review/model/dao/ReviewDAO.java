@@ -99,10 +99,10 @@ public class ReviewDAO {
 
 	/** 리뷰 이미지 삭제
 	 * @param reviewNo
+	 * @return 
 	 */
-	public void deleteImgList(int reviewNo) {
-		sqlSession.delete("reviewMapper.deleteImgList", reviewNo);
-		
+	public int deleteReviewImg(int reviewNo) {
+		return sqlSession.delete("reviewMapper.deleteReviewImg", reviewNo);
 	}
 
 }

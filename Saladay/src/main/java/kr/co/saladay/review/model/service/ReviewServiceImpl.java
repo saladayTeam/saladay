@@ -82,13 +82,13 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 	public int deleteReview(int reviewNo) {
 		
-		// 리뷰가 삭제될 때 이미지 테이블의 이미지도 삭제
-		List<ReviewImage> img =new ArrayList<>();
-		if(!img.isEmpty()) {
-			dao.deleteImgList(reviewNo);
-		}
-		
 		return dao.deleteReview(reviewNo);
+	}
+
+	// 리뷰 이미지 삭제
+	@Override
+	public int deleteReviewImg(int reviewNo) {
+		return dao.deleteReviewImg(reviewNo);
 	}
 
 

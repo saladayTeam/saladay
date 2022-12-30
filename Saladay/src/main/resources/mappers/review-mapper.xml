@@ -165,7 +165,7 @@ WHERE REVIEW_NO=#{reviewNo}
 </update>
 
 <!-- 리뷰 이미지 삭제 -->
-<delete id="deleteImgList">
+<delete id="deleteReviewImg">
 DELETE FROM BOARD_IMG 
 WHERE REVIEW_NO=#{reviewNo}
 </delete>

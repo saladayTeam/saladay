@@ -95,6 +95,14 @@ public class ReviewController {
 		return service.deleteReview(reviewNo);
 	}
 	
+	// 리뷰 이미지 삭제(DELETE)
+	// 리뷰가 삭제될 때 리뷰 테이블의 이미지도 삭제
+	@GetMapping("/review/deleteImg")
+	@ResponseBody
+	public int deleteReviewImg(int reviewNo) {
+		return service.deleteReviewImg(reviewNo);
+	}
+	
 	// 리뷰 작성(INSERT)
 	@GetMapping("/review/write")
 	public String writeBoard(@SessionAttribute("loginMember") Member loginMember,
