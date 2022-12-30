@@ -56,7 +56,11 @@
                         <span class="o-th">이메일</span><span class="o-td">${orderDetail.memberEmail}</span>
                     </p>
                     <p>
-                        <span class="o-th">핸드폰</span><span class="o-td">${orderDetail.memberTel}</span>
+                        <span class="o-th">핸드폰</span><span class="o-td">
+                        	   ${fn:substring(orderDetail.memberTel,0,3)} -
+	                           ${fn:substring(orderDetail.memberTel,3,7)} -
+	                           ${fn:substring(orderDetail.memberTel,7,11)}
+	                     </span>
                     </p>
                     <p>
                         <span class="o-th">주소</span><span class="o-td">${fn:replace(orderDetail.memberAddress, ',,', ' ')}</span>
