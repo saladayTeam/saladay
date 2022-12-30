@@ -107,7 +107,7 @@
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
                             		 				
                             		 				<c:if test="${menu.reviewCheck eq 'possible'}">
-                            		 				<li><div class="review-btn" onclick="location='/member/myPage/reviewWrite/{menu.orderMenuNo}'">리뷰 작성</div></li>
+                            		 				<li><div class="review-btn" onclick="location='/member/myPage/reviewWrite/${menu.orderMenuNo}'">리뷰 작성</div></li>
                             		 				</c:if>
                             		 				
 	                            		 			<c:if test="${menu.reviewCheck eq 'done'}">
@@ -145,7 +145,7 @@
                             	<c:set var="loop_flag" value="false" />
                             	<c:forEach var="delivery" items="${myDelivery}">
                             	 	<c:if test="${delivery.orderNo == order.orderNo }">
-                            	 		<c:if test="${delivery.deliveryCode eq 'A' }">
+                            	 		<c:if test="${delivery.rowNum == 1 && delivery.deliveryCode eq 'A' }">
 	                            	 		<c:if test="${not loop_flag }">
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'N'}">
 	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">주문 취소</div>
