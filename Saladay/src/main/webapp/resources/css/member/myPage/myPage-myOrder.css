@@ -117,7 +117,7 @@ main {
 	top:0;
 }
 
-/*주문 내용--------------------------------------*/
+/*주문 내용--------------------------------------------*/
 
 .my-order-content {
     width: 640px;
@@ -132,7 +132,7 @@ main {
 
 }
 
-/*주문내용 헤더*/
+/*주문내용 헤더*************************************************/
 .order-content-header {
 	display: flex;
 	justify-content: space-between;
@@ -148,19 +148,42 @@ main {
 }
 .delivery-content {
 	font-size:12px;
-	font-family: 'D2Coding' !important;
+	text-align:right;
+	margin-bottom:2px;
+}
+.dc-1 {
+	display: inline-block;
+	width: 63px;
+}
+.dc-2 {
+	display: inline-block;
+	width:80px;
+}
+.dc-3{
+	display: inline-block;
+	width: 48px;
 }
 
-
-
+/*주문 이미지************************************/
 .package-img{
-	margin-right : 20px;
+	margin-right : 15px;
+}
+
+.package-detail {
+	margin-top : 7px;
 }
 
 .package-detail li {
 	margin-bottom : 5px;
     font-size: 14px;
 }
+
+.pd-1 {
+	display: inline-block;
+	width:85px;
+}
+
+
 
 .order-btn {
     width: 160px;
@@ -228,8 +251,9 @@ main {
 .total-price {
 	font-size:14px;
 	font-weight: bolder;
-	margin: 5px 0 15px 370px;
-	
+	margin: 5px 0 0 306px;
+	text-align: right;
+	width: 200px;
 }
 
 .order-cancel-btn {
@@ -240,7 +264,7 @@ main {
     color: white;
     background-color: #17633d;
     
-    border-radius: 5px;
+    border-radius: 5px; 
     cursor: pointer;
     border: none;
     text-align : center;
@@ -345,6 +369,9 @@ main {
 
 .menu-td {
 	width:200px;
+	
 } 
 
-
+.fa-check {
+	color: #17633d;
+}
