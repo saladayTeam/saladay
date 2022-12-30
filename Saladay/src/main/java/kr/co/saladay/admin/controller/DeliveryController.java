@@ -3,20 +3,28 @@ package kr.co.saladay.admin.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
 
 import kr.co.saladay.admin.model.service.DeliveryService;
 import kr.co.saladay.admin.model.vo.DeliveryManage;
+import kr.co.saladay.menu.model.vo.Option;
 
 @Controller
 public class DeliveryController {
@@ -27,7 +35,12 @@ public class DeliveryController {
 
 	// 배송관리
 	@GetMapping("/admin/delivery")
-	public String deliveryManage(){
+	public String deliveryManage(
+			@RequestParam(value="cp", required=false, defaultValue="1") int cp,
+			Model model) {
+		
+		List<DeliveryManage> list = service.adminDelivery(cp);
+		model.addAttribute("list", list);
 		
 		return "admin/delivery/deliveryManage";
 	}
@@ -67,5 +80,14 @@ public class DeliveryController {
 //		return "/admin/delivery/delivery";
 //	}
 	
+
+	// 배송상태 수정 
+	@GetMapping("/admin/updateDelivery")
+	@ResponseBody
+	public int updateDelivery(int deliveryNo) {
+		// System.out.println(valueArr);
+		
+		return service.updateDelivery(deliveryNo);
+	}
 
 }

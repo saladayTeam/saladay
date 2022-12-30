@@ -9,4 +9,8 @@ public interface DeliveryService {
 	// 배송현황 조회
 	List<DeliveryManage> adminDelivery(int cp);
 
+	// 배송상태 수정
+	int updateDelivery(int deliveryNo);
+
+
 }
