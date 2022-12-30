@@ -2,6 +2,8 @@ package kr.co.saladay.admin.model.service;
 
 import java.util.List;
 
+import kr.co.saladay.admin.model.vo.SalesMenu;
+
 public interface DashboardService {
 
 	// 월별 주문 개수
@@ -24,6 +26,13 @@ public interface DashboardService {
 	
 	// 메뉴 목록 배열
 	List<String> menuNameList();
+
+	// 대시보드 메뉴 테이블 조회
+	List<SalesMenu> salesMenuList();
+
+	int selectPreMonthMenuSales();
+
+	int selectCurrentMonthMenuSales();
 
 
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="faqMapper">
+	<!-- faq resultMap -->
+	<resultMap type="FAQ" id="faq_rm">
+      <id property="faqNo" column="FAQ_NO"/>
+      <result property="faqTitle" column="FAQ_TITLE"/>
+      <result property="faqContent" column="FAQ_CONTENT"/>
+      <result property="faqDeleteFlag" column="FAQ_DEL_FL"/>
+	</resultMap>
+
+	
+	<select id="selectFaqList" resultMap="faq_rm">
+	SELECT * FROM FAQ WHERE FAQ_DEL_FL='N'
+	</select>
+
+</mapper>
