@@ -42,4 +42,9 @@ public class OrderManageDAO {
 	public List<DeliveryManage> selectOrderDetailDelivery(int orderNo) {
 		return sqlSession.selectList("orderManageMapper.selectOrderDetailDelivery", orderNo);
 	}
+
+	// 주문 취소
+	public int withdrawOrder(int orderNo) {
+		return sqlSession.update("orderManageMapper.withdrawOrder",orderNo);
+	}
 }

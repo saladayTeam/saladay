@@ -11,3 +11,30 @@ if (showIcon != null) {
     }
     });
 }
+
+// 주문 취소
+const withdrawOrderBtn = document.getElementById("withdrawOrderBtn");
+if (withdrawOrderBtn != null) {
+    withdrawOrderBtn.addEventListener("click", ()=>{
+
+        console.log("연결확인");
+
+        if(orderDeleteFlag=='N'){
+
+            if(confirm("취소요청이 등록되지 않은 주문건입니다. \n주문을 취소하시겠습니까?")) {
+                // /admin/orderManage/{orderNo}/delete GET방식
+                // 삭제 후 /admin/orderManage/{orderNo}
+                
+                location.href = location.pathname + "/delete";
+            }
+
+        } else{
+            if(confirm("주문을 취소하시겠습니까?")) {
+                
+                location.href = location.pathname + "/delete";
+            }
+        }
+
+    });
+
+}

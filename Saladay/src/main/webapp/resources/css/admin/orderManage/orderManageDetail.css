@@ -270,90 +270,6 @@ margin-top: 10px;
 margin-left: 10px;
 }
 
-/*배송일 선택 달력 */
-/* input[type="date"] {
-    position: relative;
-    width: 300px;
-    height: 40px;
-    padding-left: 5px;
-    padding-right: 20px;
-    background: url(../../images/calendar.png) no-repeat right 10px center / 20px auto;
-    border: 1px solid #e1e1e1;
-    border-radius: 5px;
-}
-
-input[type="date"]:focus{
-    border: 1px solid #17633d;
-    outline: none;
-    }
-
-input[type="date"]::-webkit-clear-button, input[type="date"]::-webkit-inner-spin-button{
-    display: none;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator{
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: transparent;
-    color: transparent;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-}
-
-input[type="date"]::before{
-    content : attr(data-placeholder);
-    width: 100%;
-} 
-
-input[type="date"]:valid::before {
-    display: none;
-}
-
-input[data-placeholder]::before{
-    color: #bababa;
-    font-size: 15px;
-    padding-left: 5px;
-} */
-
-/* 배송일 지정 */
-#deliveryDate,
-#deliveryDate2 {
-position: relative;
-width: 280px;
-height: 40px;
-padding-left: 5px;
-padding-right: 20px;
-background: url(../../images/calendar.png) no-repeat right 10px center / 20px
-    auto;
-border: 1px solid #e1e1e1;
-border-radius: 5px;
-}
-
-#deliveryDate:focus,
-#deliveryDate2:focus {
-border: 1px solid #17633d;
-outline: none;
-}
-
-/* 결제수단 */
-.payment-area {
-padding: 20px;
-display: flex;
-align-items: center;
-}
-
-.payment-area img {
-height: 50px;
-border-radius: 10px;
-}
-
-#kakaopay {
-border: none;
-margin-left: 30px;
-}
-
 .check-area {
 display: flex;
 flex-direction: column;
@@ -391,7 +307,7 @@ padding: 8px;
 }
 
 /* 구매하기 버튼 */
-#payBtn {
+#withdrawOrderBtn {
 display: flex;
 justify-content: center;
 align-items: center;
