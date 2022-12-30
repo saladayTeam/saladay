@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +32,25 @@
         <div class="chart-container-1">
             <span>월간 매출액 / 월간 주문 건수</span>
             <canvas id="myChart1" width="1200" height="400"></canvas>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>전월 총 매출액</th>
+                            <th>당월 총 매출액</th>
+                            <th>증감율</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <c:set var="lastindex" value="${fn:length(monthOrderPrice)-1}" />
+                            <td>${monthOrderPrice[lastindex-1]}</td>
+                            <td>${monthOrderPrice[lastindex]}</td>
+                            <td>${((monthOrderPrice[lastindex]-monthOrderPrice[lastindex-1])/monthOrderPrice[lastindex-1])*100}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="chart-container-2">
             <div class="chart-order">

@@ -55,7 +55,10 @@ public class DashboardContoller {
 			
 		
 		model.addAttribute("monthOrderCount", new Gson().toJson(monthOrderCount));
+		
 		model.addAttribute("monthOrderPrice", new Gson().toJson(monthOrderPrice));
+		model.addAttribute("monthOrderPrice", monthOrderPrice);
+		
 		model.addAttribute("packageOrderCount", new Gson().toJson(packageOrderCount));
 		model.addAttribute("menuOrderCount", new Gson().toJson(menuOrderCount));
 		
