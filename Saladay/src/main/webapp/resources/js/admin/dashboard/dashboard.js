@@ -2,8 +2,10 @@
 const ctx = document.getElementById('myChart1').getContext('2d');
 const myChart1 = new Chart(ctx, {
     type: 'bar',
+    plugins: [ChartDataLabels],
     data: {
         labels: month,
+        plugins: [ChartDataLabels],
         datasets: [{
             label: '월간 매출액',
             data: monthOrderPrice,
@@ -35,14 +37,19 @@ const myChart1 = new Chart(ctx, {
         plugins: {
             legend: {
             position: 'top',
-            }
-    }
+            datalabels: {
+                color: 'black'
+              }
+            },
+    },
+    
 }
 });
 
 const ctx2 = document.getElementById('myChart2').getContext('2d');
 const myChart2 = new Chart(ctx2, {
     type: 'pie',
+    plugins: [ChartDataLabels],
     data: {
         labels: packageNameList,
         datasets: [{
@@ -63,12 +70,23 @@ const myChart2 = new Chart(ctx2, {
             hoverOffset: 4
         }]
     },
-    
+    options: {
+        
+        plugins: {
+            legend: {
+            position: 'bottom',
+            datalabels: {
+                color: 'black'
+                }
+            },
+    },
+}
 });
 
 const ctx3 = document.getElementById('myChart3').getContext('2d');
 const myChart3 = new Chart(ctx3, {
     type: 'pie',
+    plugins: [ChartDataLabels],
     data: {
         labels: menuNameList,
         datasets: [{
@@ -94,6 +112,16 @@ const myChart3 = new Chart(ctx3, {
             hoverOffset: 4
         }]
     },
-    
+    options: {
+        
+        plugins: {
+            legend: {
+                position: 'bottom',
+                datalabels: {
+                    color: 'black'
+                }
+            },
+    },
+}    
 });
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.saladay.admin.model.dao.DashboardDAO;
+import kr.co.saladay.admin.model.vo.SalesMenu;
 
 @Service
 public class DashboardServiceImpl implements DashboardService {
@@ -55,4 +56,20 @@ public class DashboardServiceImpl implements DashboardService {
 	public List<String> menuNameList() {
 		return dao.menuNameList();
 	}
+	
+	@Override
+	public List<SalesMenu> salesMenuList() {
+		return dao.salesMenuList();
+	}
+	
+	@Override
+	public int selectPreMonthMenuSales() {
+		return dao.selectPreMonthMenuSales();
+	}
+	
+	@Override
+	public int selectCurrentMonthMenuSales() {
+		return dao.selectCurrentMonthMenuSales();
+	}
+	
 }

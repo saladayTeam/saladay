@@ -57,9 +57,9 @@
 	                            	<c:forEach var="delivery" items="${myDelivery}" >
 	                            	 	<c:if test="${delivery.orderNo == order.orderNo }">
 	                            	 	<div class="delivery-content">
-	                            	 		<span class="font">${delivery.rowNum}주차 배송 :</span>
-	                            	 		<span>${delivery.deliveryDate}</span>
-	                            	 		<span class="delivery-status">${delivery.deliveryStatus}</span>
+	                            	 		<div class="dc-1">${delivery.rowNum}주차 배송 :</div>
+	                            	 		<div class="dc-2">${delivery.deliveryDate}</div>
+	                            	 		<div class="dc-3">${delivery.deliveryStatus}</div>
 	                            	 	</div>
 	                            	 	</c:if>
 	                            	</c:forEach>
@@ -73,11 +73,15 @@
 	                            	</div>
 	                            	<div class="package-detail">
 	                            		<ul>
-	                            			<li>주문 상품 : ${order.packageName}</li>
-	                            			<li>주문일자 : ${order.orderDate}</li>
-	                            			<li>수령인 : ${order.orderName}</li>
-	                            			<li>수령인 연락처 : ${order.orderTel}</li>
-	                            			<li>수령인 주소 : ${fn:replace(order.orderAddress, ',,', ' ')}</li>
+	                            			<li><div class="pd-1">주문 상품 </div>: ${order.packageName}</li>
+	                            			<li><div class="pd-1">주문일자 </div>: ${fn:substring(order.orderDate,0,10)}
+	                            			${fn:substring(order.orderDate,11,13)} ${fn:substring(order.orderDate,13,15)}시
+	                            												 ${fn:substring(order.orderDate,16,18)}분</li>
+	                            			<li><div class="pd-1">수령인 </div>: ${order.orderName}</li>
+	                            			<li><div class="pd-1">수령인 연락처 </div>: <span>${fn:substring(order.orderTel,0,3)} -
+	                            			${fn:substring(order.orderTel,3,7)} -
+	                            			${fn:substring(order.orderTel,7,11)}</span></li>
+	                            			<li><div class="pd-1">수령인 주소 </div>: ${fn:replace(order.orderAddress, ',,', ' ')}</li>
 	                            		</ul>
 	                            	</div>
                             	</div>
@@ -101,7 +105,7 @@
                             		 	<div class="menu-table">
                             		 		
                             		 		<ul>
-                            		 			<li class="menu-td">${menu.menuName}</li>
+                            		 			<li class="menu-td"><i class="fa-solid fa-check fa-2xs"></i>${menu.menuName}</li>
                             		 			<li>1</li>
                             		 			<li>${menu.menuPrice}원</li>
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
@@ -142,18 +146,18 @@
                             	
                             <!-- 배송상태가 결제완료 일 때 주문취소 버튼(1개만 나오게 flag) -->	
                             <div class="order-bottom">
-                            	<c:set var="loop_flag" value="false" />
+                            	<!--<c:set var="loop_flag" value="false" />-->
                             	<c:forEach var="delivery" items="${myDelivery}">
                             	 	<c:if test="${delivery.orderNo == order.orderNo }">
-                            	 		<c:if test="${delivery.deliveryCode eq 'A' }">
-	                            	 		<c:if test="${not loop_flag }">
+                            	 		<c:if test="${delivery.rowNum == 1 && delivery.deliveryCode eq 'A' }">
+	                            	 		<!--<c:if test="${not loop_flag }">-->
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'N'}">
 	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">주문 취소</div>
 	                            	 			</c:if>
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'Y'}">
-	                            	 			<div class="order-cancel-btn" >취소 요청중</div>
+	                            	 			<div class="order-cancel-btn-ing" >취소 요청중</div>
 	                            	 			</c:if>
-	                            	 		<c:set var="loop_flag" value="true" />
+	                            	 		<!--<c:set var="loop_flag" value="true" />-->
 	       									</c:if>
                             	 		</c:if>
                             	 	</c:if>
