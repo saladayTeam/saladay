@@ -79,8 +79,10 @@
                         <label for="menu">메인토핑</label>
                         <select class="select">
                             <option value=""  hidden>메인토핑</option>
-                            <c:forEach var="main" items="${mainTopping}">
+                            <c:forEach var="main" items="${optionList}">
+                            <c:if test="${main.optionType eq 'M'}">
                                 <option value="${main.optionCalorie}">${main.optionName}</option>
+                            </c:if>
                             </c:forEach>
                         </select>
                     </div>
@@ -89,8 +91,10 @@
                         <label for="menu">서브토핑</label>
                         <select class="select">
                             <option value=""  hidden>서브토핑</option>
-                            <c:forEach var="sub" items="${subTopping}">
+                            <c:forEach var="sub" items="${optionList}">
+                            <c:if test="${sub.optionType eq 'T'}" >
                                 <option value="${sub.optionCalorie}">${sub.optionName}</option>
+                            </c:if>
                             </c:forEach>
                         </select>
                     </div>
@@ -99,8 +103,10 @@
                         <label for="menu">소스</label>
                         <select class="select">
                             <option value=""  hidden>소스</option>
-                            <c:forEach var="source" items="${sourceList}">
+                            <c:forEach var="source" items="${optionList}">
+                            <c:if test="${source.optionType eq 'S'}" >
                                 <option value="${source.optionCalorie}">${source.optionName}</option>
+                            </c:if>
                             </c:forEach>
                         </select>
                     </div>

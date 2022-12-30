@@ -62,13 +62,13 @@
               <td scope="col"><span><a href="${option.optionImage}">${option.optionName}</a></span></td>
               <c:choose>
                 <c:when test="${option.optionType eq 'M'}">
-                <td scope="col"><span>메인토핑</span></td>
+                <td scope="col"><span>메인토핑</span> <img class="topping-img" src="/resources/images/menu/icon/meat.png" alt="메인토핑"></td>
                 </c:when>
                 <c:when test="${option.optionType eq 'S'}">
-                <td scope="col"><span>소스</span></td>
+                <td scope="col"><span>소스</span> <img class="topping-img" src="/resources/images/menu/icon/chili-sauce.png" alt="소스"></td>
                 </c:when>
                 <c:otherwise>
-                <td scope="col"><span>야채</span></td>
+                <td scope="col"><span>서브토핑</span> <img class="topping-img" src="/resources/images/menu/icon/broccoli.png" alt="서브토핑"></td>
                 </c:otherwise>
               </c:choose>
               <td scope="col"><span><fmt:formatNumber type="number" maxFractionDigits="3" value="${option.optionPrice}"/></span></td>

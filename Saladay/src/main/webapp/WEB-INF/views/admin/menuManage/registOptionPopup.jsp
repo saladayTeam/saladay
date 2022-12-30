@@ -29,7 +29,7 @@
                     <tr class="t-row">
                         <th><label for="optionName">옵션명</label></th>
                         <td>
-                            <input type="text" placeholder="옵션명을 입력하세요." id="optionName" name="optionName">
+                            <input type="text" placeholder="옵션명을 입력하세요." id="optionName" name="optionName" autocomplete="off">
                         </td>
                     </tr>
                     <tr class="t-row">
@@ -47,7 +47,7 @@
                         <td>
                             <div class="img-box">
                                 <div class="preview-area">
-                                    <img id="option-image" src="/resources/images/review/reviewImg.png">
+                                    <label for="inputOptionImg"><img id="option-image" src="/resources/images/review/reviewImg.png"></label>
                                 <span id="delete-image">&times;</span>
                                 </div>
                                 <div class="menu-img-area">
@@ -59,13 +59,13 @@
                     <tr class="t-row">
                         <th><label for="optionPrice">옵션가격</label></th>
                         <td>
-                            <input type="text" placeholder="옵션의 가격은 숫자만 입력하세요." id="optionPrice" name="optionPrice">
+                            <input type="text" placeholder="옵션의 가격은 숫자만 입력하세요." id="optionPrice" name="optionPrice" autocomplete="off" >
                         </td>
                     </tr>
                     <tr class="t-row">
                         <th><label for="optionCalorie">칼로리</label></th>
                         <td>
-                            <input type="text" placeholder="칼로리는 숫자만 입력하세요." id="optionCalorie" name="optionCalorie">
+                            <input type="text" placeholder="칼로리는 숫자만 입력하세요." id="optionCalorie" name="optionCalorie" autocomplete="off" >
                         </td>
                     </tr>
                 </tbody>

@@ -29,7 +29,7 @@
                     <tr class="t-row">
                         <th><label for="menuName">메뉴명</label></th>
                         <td>
-                            <input type="text" placeholder="메뉴명을 입력하세요." id="menuName" name="menuName">
+                            <input type="text" placeholder="메뉴명을 입력하세요." id="menuName" name="menuName" autocomplete="off" >
                         </td>
                     </tr>
                     <tr class="t-row">
@@ -37,7 +37,7 @@
                         <td>
                             <div class="img-box">
                                 <div class="preview-area">
-                                    <img id="menu-image" src="/resources/images/review/reviewImg.png">
+                                    <label for="inputMenuImg"><img id="menu-image" src="/resources/images/review/reviewImg.png"></label>
                                 <span id="delete-image">&times;</span>
                                 </div>
                                 <div class="menu-img-area">
@@ -55,13 +55,13 @@
                     <tr class="t-row">
                         <th><label for="menuPrice">메뉴가격</label></th>
                         <td>
-                            <input type="text" placeholder="메뉴의 가격은 숫자만 입력하세요." id="menuPrice" name="menuPrice">
+                            <input type="text" placeholder="메뉴의 가격은 숫자만 입력하세요." id="menuPrice" name="menuPrice" autocomplete="off" >
                         </td>
                     </tr>
                     <tr class="t-row">
                         <th><label for="menuCalorie">칼로리</label></th>
                         <td>
-                            <input type="text" placeholder="칼로리는 숫자만 입력하세요." id="menuCalorie" name="menuCalorie">
+                            <input type="text" placeholder="칼로리는 숫자만 입력하세요." id="menuCalorie" name="menuCalorie" autocomplete="off" >
                         </td>
                     </tr>
                 </tbody>
