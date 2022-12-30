@@ -4,7 +4,7 @@ main{
     align-items: center;
     width: 1200px;
     min-height: 200vh;
-    padding: 50px;
+    /* padding: 50px; */
 }
 
 main>div{
@@ -12,13 +12,28 @@ main>div{
 }
 
 .menu-m-tit {
-    min-height: 50px;
+    margin-top: 30px;
+    padding-bottom: 15px;
     border-bottom: 3px solid #17633d;
-    font-size: 1.5em;
-    font-weight: bold;
+}
 
+.menu-m-tit span {
+    font-weight: bold;
+    display: flex;
+}
+
+.tit {
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;  
+}
+
+.tit span {
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto 0;
+    height: 35px;
+    align-items: center;
 }
 
 .chart-container-1{
