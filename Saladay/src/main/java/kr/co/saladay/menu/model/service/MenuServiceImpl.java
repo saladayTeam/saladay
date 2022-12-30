@@ -25,23 +25,23 @@ public class MenuServiceImpl implements MenuService {
 
 
 	// 메인 토핑 조회
-	@Override
-	public List<Option> selectMainTopping() {
-		return dao.selectMainTopping();
-	}
+//	@Override
+//	public List<Option> selectMainTopping() {
+//		return dao.selectMainTopping();
+//	}
 
 	// 서브 토핑 조회
-	@Override
-	public List<Option> selectSubTopping() {
-		return dao.selectSubTopping();
-	}
+//	@Override
+//	public List<Option> selectSubTopping() {
+//		return dao.selectSubTopping();
+//	}
 
 	
 	// 소스 조회
-	@Override
-	public List<Option> selectSourceList() {
-		return dao.selectSourceList();
-	}
+//	@Override
+//	public List<Option> selectSourceList() {
+//		return dao.selectSourceList();
+//	}
 
 	// 패키지 목록 조회
 	@Override

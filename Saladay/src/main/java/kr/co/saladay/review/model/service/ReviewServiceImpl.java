@@ -1,5 +1,6 @@
 package kr.co.saladay.review.model.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import kr.co.saladay.review.model.dao.ReviewDAO;
 import kr.co.saladay.review.model.vo.Pagination;
 import kr.co.saladay.review.model.vo.Review;
+import kr.co.saladay.review.model.vo.ReviewImage;
 
 @Service
 public class ReviewServiceImpl implements ReviewService{
@@ -79,7 +81,14 @@ public class ReviewServiceImpl implements ReviewService{
 	// 리뷰 삭제
 	@Override
 	public int deleteReview(int reviewNo) {
+		
 		return dao.deleteReview(reviewNo);
+	}
+
+	// 리뷰 이미지 삭제
+	@Override
+	public int deleteReviewImg(int reviewNo) {
+		return dao.deleteReviewImg(reviewNo);
 	}
 
 

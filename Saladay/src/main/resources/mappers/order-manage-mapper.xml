@@ -155,4 +155,12 @@
 	JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
 	WHERE O.ORDER_NO=#{orderNo}
 	</select>
+	
+	<!-- 주문 취소 -->
+	<update id="withdrawOrder">
+	UPDATE "ORDER" SET 
+	ORDER_DEL_FL ='A',
+	CANCLE_DATE = SYSDATE 
+	WHERE ORDER_NO = #{orderNo}
+	</update>
 </mapper>
