@@ -19,6 +19,10 @@ public class DeliveryDAO {
 		
 		return sqlSession.selectList("deliveryManageMapper.selectDelList");
 	}
+
+	public int updateDelivery(int deliveryNo) {
+		return sqlSession.update("deliveryManageMapper.updateDelivery", deliveryNo);
+	}
 	
 	
 

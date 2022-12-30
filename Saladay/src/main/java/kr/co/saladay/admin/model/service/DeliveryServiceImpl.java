@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.admin.model.dao.DeliveryDAO;
 import kr.co.saladay.admin.model.vo.DeliveryManage;
@@ -21,13 +22,20 @@ public class DeliveryServiceImpl implements DeliveryService{
 	@Override
 	public List<DeliveryManage> adminDelivery(int cp) {
 		
-		
-		
 		List<DeliveryManage> deliveryList = dao.adminDelivery();
 		
 		return deliveryList;
 		
 	}
+
+	// 배송상태 수정
+	@Transactional
+	@Override
+	public int updateDelivery(int deliveryNo) {
+		
+		return dao.updateDelivery(deliveryNo);
+	}
+
 	
 	
 	
