@@ -18,20 +18,20 @@
 
     <section class="menu-section">
         <div class="menu">
-            <div class="option-name"> 
-                <a href="/menu/menuList"> Salad</a>
+            <div class="option-name" id="type1"> 
+                <a href="/menu/menuList" id="a1"> Salad</a>
             </div>
 
-            <div class="option-name"> 
-                <a href="/menu/mainTopping">Main Topping</a>
+            <div class="option-name" id="type2"> 
+                <a href="/menu/mainTopping" id="a2">Main Topping</a>
             </div>
 
-            <div class="option-name"> 
-                <a href="/menu/subTopping">Sub Topping</a>
+            <div class="option-name" id="type3"> 
+                <a href="/menu/subTopping" id="a3">Sub Topping</a>
             </div>
 
-            <div class="option-name"> 
-                <a href="/menu/sourceList">Source</a> 
+            <div class="option-name" id="type4"> 
+                <a href="/menu/sourceList" id="a4">Source</a> 
             </div>
         </div>
         

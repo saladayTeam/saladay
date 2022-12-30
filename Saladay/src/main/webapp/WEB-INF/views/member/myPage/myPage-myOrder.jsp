@@ -201,5 +201,6 @@
         }
     }
     </script>
+    <script src="/resources/js/member/myPage/myPage.js"></script>
 </body>
 </html>
