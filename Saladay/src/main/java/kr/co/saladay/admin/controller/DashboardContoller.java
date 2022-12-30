@@ -73,7 +73,8 @@ public class DashboardContoller {
 			}
 
 			if(currentMonthMenuSales!=0) {
-				double percentageOfSales=((salesMenu.getCurrentMonthSales()/currentMonthMenuSales)*100);
+				double percentageOfSales=(((double)salesMenu.getCurrentMonthSales()/currentMonthMenuSales)*100);
+				percentageOfSales =  Math.round( percentageOfSales * 10.0 ) / 10.0;
 				salesMenu.setPercentageOfSales(percentageOfSales);        		
 			} else {
 				salesMenu.setPercentageOfSales(0);

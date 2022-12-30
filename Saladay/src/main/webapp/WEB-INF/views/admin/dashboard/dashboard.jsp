@@ -115,13 +115,13 @@
                                 ${salesMenu.preMonthSalesQuantity}
                             </td>
                             <td>
-                                ${salesMenu.preMonthSales}
+                                <fmt:formatNumber type="number" maxFractionDigits="0"  value="${salesMenu.preMonthSales}" />
                             </td>
                             <td>
                                 ${salesMenu.currentMonthSalesQuantity}
                             </td>
                             <td>
-                                ${salesMenu.currentMonthSales}
+                                <fmt:formatNumber type="number" maxFractionDigits="0"  value="${salesMenu.currentMonthSales}" />
                             </td>
                             <td>
                                 ${salesMenu.changeRate}%
@@ -139,7 +139,6 @@
 
     <!-- footer -->
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
-
 
     <script>
         // 월별 주문 개수
