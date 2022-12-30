@@ -1,58 +1,76 @@
 
-const myPageType = document.getElementsByName("myPageType");
 
 
+//URL주소가 맨 뒤가 ""일 때 radio 버튼 체크
+let URL = window.location.href;
+let splitURL = URL.split("/");
+let lastURL = splitURL[splitURL.length - 1];
 
-for(let myPage of  myPageType){
-    myPage.addEventListener("click", function(){
+if(lastURL == "info") {
+    document.getElementById("myPageType1").checked = true;
+}
 
-        //회원정보 수정
-    if(myPage.value == 4){
-            $.ajax({
-                url : "/member/myPage/selectMyReview",
-                type : "GET",
-                dataType : "json",
-                success : reviewAll => {
-                    console.log(reviewAll);
-                    console.log(reviewAll[0]);
-                    const reviewList= document.getElementsByClassName("review-list")[0];
-                    reviewList.innerHTML = "";
+if(lastURL == "myPageChangePw"){
+    document.getElementById("myPageType2").checked = true;
+}
 
-                    for(let review of reviewAll){
-                        console.log(review);
-                        //div 생성
-                        const myReviewDetail = document.createElement("div");
-                        myReviewDetail.className = "my-review-detail";
-                        reviewList.appendChild(myReviewDetail);
+if(lastURL == "selectMyOrder"){
+    document.getElementById("myPageType3").checked = true;
+}
 
-                        //div 안에 ul 생성
-                        const myReviewUl = document.createElement("ul");
-                        myReviewDetail.appendChild(myReviewUl);
+if(lastURL == "selectMyReview"){
+    document.getElementById("myPageType4").checked = true;
+}
 
-                        //ul 안에 li 생성
-                        const myReviewLi1 = document.createElement("li");
-                        myReviewUl.appendChild(myReviewLi1);
-                        myReviewLi1.innerText = "리뷰 작성일 : " + review.reviewDate;
-
-                        const myReviewLi2 = document.createElement("li");
-                        myReviewUl.appendChild(myReviewLi2);
-                        myReviewLi2.innerText = "평점 : " + review.rating;
-
-                        const myReviewLi3 = document.createElement("li");
-                        myReviewUl.appendChild(myReviewLi3);
-                        myReviewLi3.innerText = review.menuName;
-
-                        const myReviewLi4 = document.createElement("li");
-                        myReviewUl.appendChild(myReviewLi4);
-                        myReviewLi4.innerText = review.reviewContent;
-                    }
-                },
-                error : error => {
-                    console.log(error);
-                }
-            })
-        };
-    })
+if(lastURL == "secession"){
+    document.getElementById("myPageType5").checked = true;
 }
 
 
+// URL주소가 맨 뒤가 ""일 때 class 추가 
+if(lastURL == "menuList") {
+    document.getElementById("type1").classList.add("checked");
+    document.getElementById("type2").classList.remove("checked");
+    document.getElementById("type3").classList.remove("checked");
+    document.getElementById("type4").classList.remove("checked");
+
+    document.getElementById("a1").classList.add("checked2");
+    document.getElementById("a2").classList.remove("checked2");
+    document.getElementById("a3").classList.remove("checked2");
+    document.getElementById("a4").classList.remove("checked2");
+}
+if(lastURL == "mainTopping") {
+    document.getElementById("type1").classList.remove("checked");
+    document.getElementById("type2").classList.add("checked");
+    document.getElementById("type3").classList.remove("checked");
+    document.getElementById("type4").classList.remove("checked");
+
+    document.getElementById("a1").classList.remove("checked2");
+    document.getElementById("a2").classList.add("checked2");
+    document.getElementById("a3").classList.remove("checked2");
+    document.getElementById("a4").classList.remove("checked2");
+}
+
+if(lastURL == "subTopping") {
+    document.getElementById("type1").classList.remove("checked");
+    document.getElementById("type2").classList.remove("checked");
+    document.getElementById("type3").classList.add("checked");
+    document.getElementById("type4").classList.remove("checked");
+
+    document.getElementById("a1").classList.remove("checked2");
+    document.getElementById("a2").classList.remove("checked2");
+    document.getElementById("a3").classList.add("checked2");
+    document.getElementById("a4").classList.remove("checked2");
+}
+
+if(lastURL == "sourceList") {
+    document.getElementById("type1").classList.remove("checked");
+    document.getElementById("type2").classList.remove("checked");
+    document.getElementById("type3").classList.remove("checked");
+    document.getElementById("type4").classList.add("checked");
+
+    document.getElementById("a1").classList.remove("checked2");
+    document.getElementById("a2").classList.remove("checked2");
+    document.getElementById("a3").classList.remove("checked2");
+    document.getElementById("a4").classList.add("checked2");
+}

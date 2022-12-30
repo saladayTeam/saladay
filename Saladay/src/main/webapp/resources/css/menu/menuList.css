@@ -95,7 +95,6 @@ li {
   background-color: #17633d;
 }
 .option-name:hover a{
-  font-size: 1.2em;
   color: white;
 }
 
@@ -106,6 +105,18 @@ li {
   color: black;
   margin-top: 5px;
 }
+
+/*매뉴리스트 체크 시 추가 class*/
+.checked {
+	background-color: #17633d;
+}
+
+.checked2 {
+ 	font-size: 1.2em;
+    text-decoration: none;
+    color: white !important;
+}
+
 
 .pd-list-wrapper {
   width: 1200px;
