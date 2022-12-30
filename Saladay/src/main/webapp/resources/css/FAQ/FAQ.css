@@ -74,10 +74,11 @@ input {
   transition: max-height 0.2s;
 }
 
-.faq input:checked + label + span +div {
+.faq input:checked + label +span + div {
   /* 내용 영역 펼침 */
   display: block;
 }
+
 
 .fa-q, .fa-a {
   color: #17633d;
@@ -91,14 +92,13 @@ input {
   margin: 5px 20px 0 0;
 }
 
-
-#delBtn {
+.faq span {
   border: none;
   cursor: pointer;
 }
 
 /* 버튼영역 */
-#addFaq {
+#addBtn {
   width: 100px;
   height: 35px;
   background-color: #f2f2f2;
@@ -109,7 +109,7 @@ input {
   font-size: 18px;
 }
 
-#addFaq:hover {
+#addBtn:hover {
   background-color: #17633d;
   color: white;
   border: none;

@@ -11,4 +11,16 @@ public interface FaqService {
 	 */
 	List<FAQ> selectFaqList();
 
+	/** FAQ 작성
+	 * @param faq
+	 * @return
+	 */
+	int registFAQ(FAQ faq) throws Exception;
+
+	/** FAQ 삭제
+	 * @param faqNo
+	 * @return
+	 */
+	int deleteFAQ(int faqNo);
+
 }

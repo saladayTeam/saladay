@@ -9,9 +9,25 @@
       <result property="faqDeleteFlag" column="FAQ_DEL_FL"/>
 	</resultMap>
 
-	
+	<!-- FAQ목록 조회 -->
 	<select id="selectFaqList" resultMap="faq_rm">
 	SELECT * FROM FAQ WHERE FAQ_DEL_FL='N'
 	</select>
 
+
+	<!-- FAQ 등록 -->
+	<insert id="registFAQ" parameterType="FAQ" useGeneratedKeys="true">
+		<selectKey keyProperty="faqNo" resultType="_int" order="BEFORE">
+			SELECT SEQ_FAQ_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO FAQ 
+		VALUES(#{faqNo}, #{faqTitle}, #{faqContent}, DEFAULT)
+	</insert>
+	
+	
+	<!-- FAQ 삭제 -->
+	<update id="deleteFAQ">
+	UPDATE FAQ SET FAQ_DEL_FL = 'Y'
+	WHERE FAQ_NO = #{faqNo} 
+	</update>
 </mapper>

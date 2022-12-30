@@ -25,10 +25,10 @@
     <main>
         
         <div class="faq-header">
-            <h1 class="main-title">가장 자주 하는 질문 FAQ</h1>
+            <h1 class="main-title">자주 하는 질문 FAQ</h1>
             <c:if test="${loginMember.authority eq 99}">
             <div class="faq-btn-area">
-                <button type="button" id="addFaq">글작성</button>
+                <button type="button" id="addBtn">FAQ 작성</button>
             </div>
             </c:if>
         </div>
@@ -40,9 +40,14 @@
                 <li> 
                     <input type="checkbox" id="qna-${status.index+1}">
                     <label for="qna-${status.index+1}" class="question"><i class="fa-solid fa-q">&nbsp;</i>${faq.faqTitle}</label>
-                    <c:if test="${loginMember.authority eq 99}">
-                    <span  id="delBtn"><i class="fa-solid fa-trash-can"></i></span>
-                    </c:if>
+                    <c:choose>
+                        <c:when test="${loginMember.authority eq 99}"> 
+                            <span onclick="deleteFAQ(${faq.faqNo})" class="delBtn"><i class="fa-solid fa-trash-can"></i></span>
+                        </c:when>
+                        <c:otherwise>
+                            <span></span>
+                        </c:otherwise>
+                    </c:choose>
                     <div class="answer">
                         <i class="fa-solid fa-a">&nbsp;</i>
                         <span>${faq.faqContent}</span>
@@ -55,5 +60,7 @@
 
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+
+    <script src="/resources/js/FAQ/FAQ.js"></script>
 </body>
 </html>

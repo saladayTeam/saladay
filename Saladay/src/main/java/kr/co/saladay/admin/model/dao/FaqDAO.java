@@ -21,6 +21,22 @@ public class FaqDAO {
 		
 		return sqlSession.selectList("faqMapper.selectFaqList");
 	}
+
+	/** FAQ 작성
+	 * @param faq
+	 * @return
+	 */
+	public int registFAQ(FAQ faq) {
+		return sqlSession.insert("faqMapper.registFAQ", faq);
+	}
+
+	/** FAQ 삭제
+	 * @param faqNo
+	 * @return
+	 */
+	public int deleteFAQ(int faqNo) {
+		return sqlSession.update("faqMapper.deleteFAQ", faqNo);
+	}
 	
 	
 }
