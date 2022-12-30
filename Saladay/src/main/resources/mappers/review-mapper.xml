@@ -181,4 +181,28 @@ JOIN "MENU" USING(MENU_NO)
 JOIN "PACKAGE" USING(PACKAGE_NO)
 WHERE ORDER_MENU_NO = #{orderMenuNo}
 </select>
+
+<!-- 리뷰 작성 -->
+<insert id="reviewWrite" parameterType="Review" useGeneratedKeys = "true">
+<selectKey keyProperty="reviewNo" resultType="_int" order="BEFORE">
+SELECT SEQ_REVIEW_NO.NEXTVAL FROM DUAL
+</selectKey>
+INSERT INTO "REVIEW"
+VALUES(#{reviewNo}, #{rating}, #{reviewContent}, DEFAULT, DEFAULT, #{memberNo}, #{orderMenuNo})
+</insert>
+
+<!-- 리뷰 첨부 이미지 삽입 -->
+<insert id="insertReviewImageList" parameterType="list">
+INSERT INTO REVIEW_IMG
+SELECT SEQ_REVIEW_IMG_NO.NEXTVAL REVIEW_IMG_NO, A* FROM
+<foreach collection="list" item="img"
+	open="(" close = ") A" separator = "UNION ALL">
+.
+	SELECT #{img.imagePath} IMG_PATH,
+			#{img.imageReName} IMG_RENAME,
+			#{img.imageOrder} IMG_ORDER,
+			#{img.reviewNo} REVIEW_NO
+	FROM DUAL
+</foreach>
+</insert>
 </mapper>

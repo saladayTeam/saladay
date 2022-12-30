@@ -1,8 +1,11 @@
 package kr.co.saladay.review.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
 
@@ -106,13 +112,12 @@ public class ReviewController {
 	
 	// 리뷰 작성 페이지 이동
 	@GetMapping("/member/myPage/reviewWrite/{orderMenuNo}")
-	public String reviewWrite(@SessionAttribute("loginMember") Member loginMember,
-			@PathVariable("orderMenuNo") int orderMenuNo, 
-			Model model) {
+	public String reviewWrite(
+			@PathVariable("orderMenuNo") int orderMenuNo, Model model){
 		
 		// 리뷰 작성시 보여줄 기본 정보
 		Review reviewInfo = service.reviewWriteInfo(orderMenuNo);
-		
+
 		model.addAttribute("reviewInfo", reviewInfo);
 		
 		return "/review/reviewWrite";
@@ -120,12 +125,33 @@ public class ReviewController {
 	
 	// 리뷰 작성(INSERT)
 	@PostMapping("/member/myPage/reviewWrite/{orderMenuNo}")
-	public String reviewWrite(
-			@PathVariable("orderMenuNo") int orderMenuNo,
-			Model model) {
+	public String reviewWrite(Review review,
+			@RequestParam(value = "images", required=false) List<MultipartFile> imageList,
+			@SessionAttribute("loginMember") Member loginMember,
+			@PathVariable("orderMenuNo") int orderMenuNo, 
+			RedirectAttributes ra, HttpSession session,
+			@RequestHeader("referer") String referer) throws IOException {
 		
+		review.setOrderMenuNo(orderMenuNo);
 		
-		return "/member/myPage/myPage-myReview";
+		review.setMemberNo(loginMember.getMemberNo());
+		
+		String webPath = "/resources/images/review/";
+		
+		String folderPath = session.getServletContext().getRealPath(webPath);
+		
+		int reviewNo = service.reviewWrite(review, imageList, webPath, folderPath);
+		
+		String message = null;
+		
+		if(reviewNo>0) {
+			message = "리뷰가 등록되었습니다.";
+			return "/member/myPage/myPage-myReview";
+		} else {
+			message = "리뷰 등록 실패";
+			return "redirect:" + referer;
+		}
+
 	}
 
 }

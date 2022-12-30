@@ -1,7 +1,10 @@
 package kr.co.saladay.review.model.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.saladay.review.model.vo.Review;
 
@@ -60,5 +63,14 @@ public interface ReviewService {
 	 * @return
 	 */
 	Review reviewWriteInfo(int orderMenuNo);
+
+	/** 리뷰 작성
+	 * @param review
+	 * @param imageList
+	 * @param webPath
+	 * @param folderPath
+	 * @return
+	 */
+	int reviewWrite(Review review, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
 
 }
