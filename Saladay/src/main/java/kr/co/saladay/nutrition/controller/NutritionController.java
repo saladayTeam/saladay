@@ -14,13 +14,5 @@ public class NutritionController {
 		return "nutrition/nutrition";
 	}
 	
-	/**FAQ 페이지
-	 * @return FAQ.jsp 포워드
-	 */
-	@GetMapping("/FAQ")
-	public String FAQPage() {
-		return "FAQ/FAQ";
-	}
-	
 
 }
