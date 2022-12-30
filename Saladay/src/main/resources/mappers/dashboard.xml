@@ -1,28 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="salesManageMapper">
+<mapper namespace="dashboardMapper">
+	
+	<resultMap type="SalesMenu" id="salesMenu_rm">
+      <id property="menuNo" column="MENU_NO"/>            
+      <result property="menuName" column="MENU_NAME"/>
+      <result property="preMonthSalesQuantity" column="PREMONTH_SALES_QUANTITY"/>
+      <result property="preMonthSales" column="PREMONTH_SALES"/>
+      <result property="currentMonthSalesQuantity" column="CURRENTMONTH_SALES_QUANTITY"/>
+      <result property="currentMonthSales" column="CURRENTMONTH_SALES"/>
+	</resultMap>
+	
+	<!-- 전월 메뉴 별 총 판매금액 -->
+	<select id="selectPreMonthMenuSales" resultType="int">
+		SELECT NVL(SUM(MENU_PRICE),0) AS PREMONTH_MENU_SALES
+	  FROM "ORDER_MENU" SUB
+	  JOIN "MENU" M ON (SUB.MENU_NO = M.MENU_NO)
+	  WHERE ORDER_NO IN (SELECT ORDER_NO FROM "ORDER"
+	              WHERE TO_CHAR(ORDER_DATE,'YYMM') = TO_CHAR(SYSDATE,'YYMM') -1
+	              AND ORDER_DEL_FL='N')
+	  AND SUB.MENU_NO = M.MENU_NO	
+	</select>
+	
+	<!-- 당월 메뉴 별 총 판매금액 -->
+	<select id="selectCurrentMonthMenuSales" resultType="int">
+		SELECT NVL(SUM(MENU_PRICE),0) AS CURRENTMONTH_MENU_SALES
+    FROM "ORDER_MENU" SUB
+    JOIN "MENU" M ON (SUB.MENU_NO = M.MENU_NO)
+    WHERE ORDER_NO IN (SELECT ORDER_NO FROM "ORDER"
+                WHERE TO_CHAR(ORDER_DATE,'YYMM') = TO_CHAR(SYSDATE,'YYMM')
+                AND ORDER_DEL_FL='N')
+    AND SUB.MENU_NO = M.MENU_NO
+	</select>
+	
+	<!-- 메뉴 테이블 조회 -->
+	<select id="salesMenuList" resultMap="salesMenu_rm">
+		SELECT MENU_NO, MENU_NAME,
+		   (SELECT COUNT(*)
+		      FROM "ORDER_MENU" SUB
+		      JOIN "MENU" M ON (SUB.MENU_NO = M.MENU_NO)
+		      WHERE ORDER_NO IN (SELECT ORDER_NO FROM "ORDER"
+		                  WHERE TO_CHAR(ORDER_DATE,'YYMM') = TO_CHAR(SYSDATE,'YYMM') -1
+		                  AND ORDER_DEL_FL='N')
+		      AND SUB.MENU_NO = MAIN.MENU_NO) "PREMONTH_SALES_QUANTITY",
+		   (SELECT NVL(SUM(MENU_PRICE),0)
+		      FROM "ORDER_MENU" SUB
+		      JOIN "MENU" M ON (SUB.MENU_NO = M.MENU_NO)
+		      WHERE ORDER_NO IN (SELECT ORDER_NO FROM "ORDER"
+		                  WHERE TO_CHAR(ORDER_DATE,'YYMM') = TO_CHAR(SYSDATE,'YYMM') -1
+		                  AND ORDER_DEL_FL='N')
+		      AND SUB.MENU_NO = MAIN.MENU_NO) "PREMONTH_SALES",
+		   (SELECT COUNT(*)
+		      FROM "ORDER_MENU" SUB
+		      JOIN "MENU" M ON (SUB.MENU_NO = M.MENU_NO)
+		      WHERE ORDER_NO IN (SELECT ORDER_NO FROM "ORDER"
+		                  WHERE TO_CHAR(ORDER_DATE,'YYMM') = TO_CHAR(SYSDATE,'YYMM')
+		                  AND ORDER_DEL_FL='N')
+		      AND SUB.MENU_NO = MAIN.MENU_NO) "CURRENTMONTH_SALES_QUANTITY",
+		   (SELECT NVL(SUM(MENU_PRICE),0)
+		      FROM "ORDER_MENU" SUB
+		      JOIN "MENU" M ON (SUB.MENU_NO = M.MENU_NO)
+		      WHERE ORDER_NO IN (SELECT ORDER_NO FROM "ORDER"
+		                  WHERE TO_CHAR(ORDER_DATE,'YYMM') = TO_CHAR(SYSDATE,'YYMM')
+		                  AND ORDER_DEL_FL='N')
+		      AND SUB.MENU_NO = MAIN.MENU_NO) "CURRENTMONTH_SALES"
+		FROM MENU MAIN
+		WHERE MENU_DEL_FL='N'
+		AND MENU_PRICE IS NOT NULL
+		ORDER BY MENU_NO
+	</select>	
 	
 	<!-- 월별 주문 건수 -->
 	<select id="monthOrderCount" resultType="int">
-		SELECT  COUNT(ORDER_NO) AS ORDER_COUNT
+		SELECT  NVL(COUNT(ORDER_NO),0) AS ORDER_COUNT
 		FROM "ORDER"
 		WHERE ORDER_DATE IS NOT NULL
+		AND ORDER_DEL_FL='N'
 		GROUP BY SUBSTR(ORDER_DATE,1,5)
-		ORDER BY  SUBSTR(ORDER_DATE,1,5) ASC
+		ORDER BY SUBSTR(ORDER_DATE,1,5) ASC
 	</select>
 	
 	<!-- 월 별 매출액 -->
 	<select id="monthOrderPrice" resultType="int">
-		SELECT  SUM(ORDER_PRICE) AS MONTH_ORDER_PRICE 
+		SELECT  NVL(SUM(ORDER_PRICE),0) AS MONTH_ORDER_PRICE 
 		FROM "ORDER"
 		WHERE ORDER_DATE IS NOT NULL
+		AND ORDER_DEL_FL='N'
 		GROUP BY SUBSTR(ORDER_DATE,1,5)
 		ORDER BY SUBSTR(ORDER_DATE,1,5) ASC
 	</select>
 	
 	<!-- 패키지 별 판매건수 -->
 	<select id="packageOrderCount" resultType="int">
-		SELECT COUNT(*) FROM "ORDER"
+		SELECT NVL(COUNT(*),0) FROM "ORDER"
+		WHERE ORDER_DEL_FL='N'
 		GROUP BY PACKAGE_NO
 		ORDER BY PACKAGE_NO
 	</select>
@@ -31,6 +102,8 @@
 	<select id="menuOrderCount" resultType="int">
 		SELECT COUNT(MENU_NO)
 		FROM ORDER_MENU
+		JOIN "ORDER" USING (ORDER_NO)
+		WHERE ORDER_DEL_FL='N'
 		GROUP BY MENU_NO
 		ORDER BY MENU_NO
 	</select>
@@ -40,6 +113,7 @@
 		SELECT SUBSTR(ORDER_DATE,1,5)
 		FROM "ORDER"
 		WHERE ORDER_DATE IS NOT NULL
+		AND ORDER_DEL_FL='N'
 		GROUP BY SUBSTR(ORDER_DATE,1,5)
 		ORDER BY  SUBSTR(ORDER_DATE,1,5) ASC
 	</select>
@@ -55,10 +129,8 @@
 	<select id="menuNameList" resultType="string">
 		SELECT MENU_NAME 
 		FROM MENU
+		WHERE MENU_DEL_FL='N'
 		ORDER BY MENU_NO
 	</select>
-	
-	
-	
 	
 </mapper>
