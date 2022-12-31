@@ -43,7 +43,7 @@ window.onload = function() {
         // 다음 버튼을 눌렀을때
       if (event.target.className === 'next') {
           console.log(`${currentIdx} /  ${slideLis.length}`);
-          window.scrollTo({ top: 100, behavior: "smooth" }); 
+          window.scrollTo({ top: 500, behavior: "smooth" }); 
         if(currentIdx == slideLis.length -1){
             return;
         }
@@ -60,7 +60,7 @@ window.onload = function() {
         }
       } else if (event.target.className === 'prev') {
           if (currentIdx !== 0) {
-            window.scrollTo({ top: 100, behavior: "smooth" }); 
+            window.scrollTo({ top: 500, behavior: "smooth" }); 
             translate += liWidth;
             slider.style.transform = `translateX(${translate}px)`;
             currentIdx -= 1;
