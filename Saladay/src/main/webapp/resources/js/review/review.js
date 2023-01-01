@@ -126,25 +126,6 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 next.classList.add("rd-hidden");
             }
 
-            // 리뷰 삭제
-            const deleteBtn = document.getElementById("review-modal-delete");
-            if(memberNo == ""){
-                deleteBtn.style.display="none";
-            }
-            if(memberNo !=reviewMemberNo){
-                deleteBtn.style.display="none";
-            }
-            if(authority == ""){
-                deleteBtn.style.display="none";
-            }
-            // 관리자 권한이거나 본인이작성한 리뷰인 경우
-            if(authority==99||memberNo==reviewMemberNo){
-                deleteBtn.style.display="";
-                deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")");
-                // 개인 삭제
-                // 관리자 삭제
-            }
-
             // 리뷰 조회
             // 기존에 있던 별점 class 삭제
             reviewStar.classList.remove("5");
@@ -160,24 +141,92 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             reviewText.innerHTML = rDetail[0].reviewContent;
             reviewLike.innerText = rDetail[0].likeCount;
 
+            // 별점
             $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
             $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
             $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
             $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
             $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
 
+            // 리뷰 삭제
+            const deleteBtn = document.getElementById("review-modal-delete");
+            if(memberNo == ""){
+                deleteBtn.style.display="none";
+            }
+            if(memberNo !=reviewMemberNo){
+                deleteBtn.style.display="none";
+            }
+            if(authority == ""){
+                deleteBtn.style.display="none";
+            }
+            // 관리자 권한이거나 본인이작성한 리뷰인 경우== 리뷰 삭제 버튼 노출
+            if(authority==99||memberNo==reviewMemberNo){
+                deleteBtn.style.display="";
+                /* deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")"); */
+                // 개인 삭제
+                // 관리자 삭제
+
+                // 리뷰 삭제 ajax 실행
+                deleteBtn.addEventListener("click", e =>{
+                    if( confirm("정말 삭제 하시겠습니까?") ){
+                        $.ajax({
+                            url : "/review/delete",
+                            data : {"reviewNo" : rDetail[0].reviewNo},
+                            type : "GET",
+                            success: function(result){
+                                if(result > 0){
+                                    
+                                    /* 리뷰 이미지가 존재할 때 같이 삭제*/
+                                    if(rDetail[0].imageList.length != 0){
+                                        $.ajax({
+                                            url : "/review/deleteImg",
+                                            data : {"reviewNo" : rDetail[0].reviewNo},
+                                            type : "GET",
+                                            success: function(result){
+                                                if(result > 0){
+                                                    alert("리뷰가 삭제되었습니다");
+                                                    modal.style.display="none";
+                                                    location.reload("");
+                                                }else{
+                                                    alert("리뷰 삭제 실패");
+                                                }
+                                            },
+                                            error : function(req, status, error){
+                                                console.log("리뷰 삭제 실패")
+                                                console.log(req.responseText);
+                                            }
+                                        });
+                                    } else{
+                                        /* 리뷰 이미지가 없을 때 */
+                                        alert("리뷰가 삭제되었습니다");
+                                        modal.style.display="none";
+                                        location.reload("");
+                                    }
+
+                                }else{
+                                    alert("삭제 실패");
+                                }
+                            },
+                
+                            error : function(req, status, error){
+                                console.log("리뷰 삭제 실패")
+                                console.log(req.responseText);
+                            }
+                        });
+                    }
+                });
+            }
+
             // 좋아요 여부 체크하여 빈하트/채워진 하트 출력
             if(rDetail[0].likeCheck==0){ // 로그인X이거나 좋아요를 누르지 않은 리뷰 == 빈하트
                 reviewHeart.classList.remove("fa-solid");
                 reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-regular");
-                /* reviewHeart.setAttribute("onclick", "reviewLikeUp("+rDetail[0].reviewNo+", "+memberNo+")"); */
 
             } else{ // 좋아요를 누른 리뷰 == 채워진 하트
                 reviewHeart.classList.remove("fa-regular");
                 reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-solid");
-                /* reviewHeart.setAttribute("onclick", "reviewLikeDown("+rDetail[0].reviewNo+", "+memberNo+")"); */
             }
 
             /* 좋아요 증가/감소 ajax 실행 */
@@ -240,26 +289,26 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 
 
 //리뷰 삭제
-function deleteReview(reviewNo){
-    if( confirm("정말 삭제 하시겠습니까?") ){
-        $.ajax({
-            url : "/review/delete",
-            data : {"reviewNo" : reviewNo},
-            type : "GET",
-            success: function(result){
-                if(result > 0){
-                    alert("리뷰가 삭제되었습니다");
-                    modal.style.display="none";
-                    location.reload("");
-                }else{
-                    alert("삭제 실패");
-                }
-            },
+// function deleteReview(reviewNo){
+//     if( confirm("정말 삭제 하시겠습니까?") ){
+//         $.ajax({
+//             url : "/review/delete",
+//             data : {"reviewNo" : reviewNo},
+//             type : "GET",
+//             success: function(result){
+//                 if(result > 0){
+//                     alert("리뷰가 삭제되었습니다");
+//                     modal.style.display="none";
+//                     location.reload("");
+//                 }else{
+//                     alert("삭제 실패");
+//                 }
+//             },
 
-            error : function(req, status, error){
-                console.log("리뷰 삭제 실패")
-                console.log(req.responseText);
-            }
-        });
-    }
-}
+//             error : function(req, status, error){
+//                 console.log("리뷰 삭제 실패")
+//                 console.log(req.responseText);
+//             }
+//         });
+//     }
+// }
