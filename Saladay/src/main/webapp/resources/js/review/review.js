@@ -126,28 +126,6 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 next.classList.add("rd-hidden");
             }
 
-            // 리뷰 조회
-            // 기존에 있던 별점 class 삭제
-            reviewStar.classList.remove("5");
-            reviewStar.classList.remove("4");
-            reviewStar.classList.remove("3");
-            reviewStar.classList.remove("2");
-            reviewStar.classList.remove("1");
-
-            reviewStar.classList.add(rDetail[0].rating);
-            reviewDate.innerText = rDetail[0].reviewDate;
-            reviewSalad.innerText = "[" + rDetail[0].menuName + "]";
-            reviewNickname.innerText = rDetail[0].memberNickname;
-            reviewText.innerHTML = rDetail[0].reviewContent;
-            reviewLike.innerText = rDetail[0].likeCount;
-
-            // 별점
-            $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
-            $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
-            $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
-            $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
-            $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
-
             // 리뷰 삭제
             const deleteBtn = document.getElementById("review-modal-delete");
             if(memberNo == ""){
@@ -159,7 +137,8 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             if(authority == ""){
                 deleteBtn.style.display="none";
             }
-            // 관리자 권한이거나 본인이작성한 리뷰인 경우== 리뷰 삭제 버튼 노출
+            // 관리자 권한이거나 본인이작성한 리뷰인 경우
+            // 리뷰 삭제 버튼 노출
             if(authority==99||memberNo==reviewMemberNo){
                 deleteBtn.style.display="";
                 /* deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")"); */
@@ -171,7 +150,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     if( confirm("정말 삭제 하시겠습니까?") ){
                         $.ajax({
                             url : "/review/delete",
-                            data : {"reviewNo" : rDetail[0].reviewNo},
+                            data : {"reviewNo" : reviewNo},
                             type : "GET",
                             success: function(result){
                                 if(result > 0){
@@ -180,7 +159,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                                     if(rDetail[0].imageList.length != 0){
                                         $.ajax({
                                             url : "/review/deleteImg",
-                                            data : {"reviewNo" : rDetail[0].reviewNo},
+                                            data : {"reviewNo" : reviewNo},
                                             type : "GET",
                                             success: function(result){
                                                 if(result > 0){
@@ -217,6 +196,27 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 });
             }
 
+            // 리뷰 조회
+            // 기존에 있던 별점 class 삭제
+            reviewStar.classList.remove("5");
+            reviewStar.classList.remove("4");
+            reviewStar.classList.remove("3");
+            reviewStar.classList.remove("2");
+            reviewStar.classList.remove("1");
+
+            reviewStar.classList.add(rDetail[0].rating);
+            reviewDate.innerText = rDetail[0].reviewDate;
+            reviewSalad.innerText = "[" + rDetail[0].menuName + "]";
+            reviewNickname.innerText = rDetail[0].memberNickname;
+            reviewText.innerHTML = rDetail[0].reviewContent;
+            reviewLike.innerText = rDetail[0].likeCount;
+
+            $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
+            $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
+            $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
+            $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
+            $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
+
             // 좋아요 여부 체크하여 빈하트/채워진 하트 출력
             if(rDetail[0].likeCheck==0){ // 로그인X이거나 좋아요를 누르지 않은 리뷰 == 빈하트
                 reviewHeart.classList.remove("fa-solid");
@@ -244,7 +244,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             
                         $.ajax({
                             url : "/review/likeUp",
-                            data : {"reviewNo" : rDetail[0].reviewNo , "memberNo" : memberNo},
+                            data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
                             type : "GET" ,
                             success : (result)=>{
                                 if(result >0){ // 성공
@@ -262,7 +262,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     } else{ // 채워진 하트인 경우 좋아요 감소
                         $.ajax({
                             url : "/review/likeDown",
-                            data : {"reviewNo" : rDetail[0].reviewNo , "memberNo" : memberNo},
+                            data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
                             type : "GET" ,
                             success : (result)=>{
                                 if(result >0){ // 성공

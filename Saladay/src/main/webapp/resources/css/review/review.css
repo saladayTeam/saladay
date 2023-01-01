@@ -1,3 +1,7 @@
+*{
+    font-family: "NanumSquareNeo-Variable" !important;
+}
+
 .review-list-area{
     width: 1200px;
     margin: 0;
@@ -21,6 +25,7 @@
 
 /* 리뷰 카테고리 제목 */
 .review-title {
+    font-family: "NanumSquareNeo-Variable" !important;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -30,7 +35,6 @@
     border-bottom: 3px solid #17633d;
     padding-bottom: 80px;
     margin: 50px 0 auto auto;
-    font-family: "NanumSquareNeo-Variable" !important;
 }
 
 .fa-circle-left{
@@ -314,7 +318,7 @@
     height: 326px !important;
     width: auto !important;
     min-width: auto;
-} 
+}
 
 .carousel-item{
     text-align: center;
