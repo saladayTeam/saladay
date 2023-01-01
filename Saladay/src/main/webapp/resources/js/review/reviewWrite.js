@@ -146,5 +146,33 @@ function addReviewImg(){
             }
         });  
     }
+}
 
+// 리뷰 insert전 유효성 검사
+const rating = document.getElementById("rating");
+const reviewContent = document.getElementById("reviewContent");
+
+function rwValidate(){
+
+    // 별점
+    if(rating.value==0){
+        alert("별점을 1점 이상 입력하세요.");
+        rating.focus();
+        return false;
+    }
+
+    // 리뷰 내용
+    if(reviewContent.value.trim().length == 0) {
+        alert("리뷰 내용을 입력하세요.");
+        reviewContent.focus();
+        return false;
+    }  else {
+        const reg = /^[a-zA-Zㄱ-힣0-9!~@#$%^&*()_-\s]{10,1000}$/;
+        if(!reg.test(reviewContent.value)) {
+            alert("리뷰 내용을 10자 이상 입력해주세요.");
+            reviewContent.focus();
+            return false;
+        }
+    }
+    
 }

@@ -34,7 +34,7 @@
                             주문메뉴 : ${reviewInfo.menuName} 샐러드
                         </div>
                     </div>
-                    <form action="/member/myPage/reviewWrite/${orderMenuNo}" enctype="multipart/form-data" method="POST" class="review-write" onsubmit="return writeValidate()">
+                    <form action="/member/myPage/reviewWrite/${orderMenuNo}" enctype="multipart/form-data" method="POST" class="review-write" onsubmit="return rwValidate()">
                         <div class="rw-rating-area">
 
                             <div class="rw-rating">
@@ -44,14 +44,14 @@
                                 <span class="rw-star">
                                     ★★★★★
                                     <span>★★★★★</span>
-                                    <input name = "rating" type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="5">
+                                    <input name = "rating" type="range" oninput="drawStar(this)" value="0" step="1" min="0" max="5" id="rating">
                                 </span>
                             </div>
                         </div>
                         <div class="rw-review-content-area">
                             <div class="rw-review-content">
                                 <label for="reviewContent"></label>
-                                <textarea placeholder="리뷰를 작성해주세요." name="reviewContent" class="review-detail-text"></textarea>
+                                <textarea placeholder="리뷰를 작성해주세요." name="reviewContent" class="review-detail-text" id="reviewContent"></textarea>
                             </div>
                         </div>
                         <div class="rw-image-area">
