@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.saladay.review.model.vo.Pagination;
 import kr.co.saladay.review.model.vo.Review;
+import kr.co.saladay.review.model.vo.ReviewImage;
 
 @Repository
 public class ReviewDAO {
@@ -103,6 +104,35 @@ public class ReviewDAO {
 	 */
 	public int deleteReviewImg(int reviewNo) {
 		return sqlSession.delete("reviewMapper.deleteReviewImg", reviewNo);
+	}
+
+	/** 리뷰 작성시 보여줄 기본 정보
+	 * @param orderMenuNo
+	 * @return
+	 */
+	public Review reviewWriteInfo(int orderMenuNo) {
+		return sqlSession.selectOne("reviewMapper.reviewWriteInfo", orderMenuNo);
+	}
+
+	/** 리뷰 작성
+	 * @param review
+	 * @return reviewNo
+	 */
+	public int reviewWrite(Review review) {
+		int result = sqlSession.insert("reviewMapper.reviewWrite", review);
+		
+		if(result>0) result = review.getReviewNo();
+		
+		return result;
+	}
+
+	
+	/** 리뷰 첨부 이미지 삽입(리스트)
+	 * @param reviewImageList
+	 * @return result
+	 */
+	public int insertReviewImageList(List<ReviewImage> reviewImageList) {
+		return sqlSession.insert("reviewMapper.insertReviewImageList", reviewImageList);
 	}
 
 }

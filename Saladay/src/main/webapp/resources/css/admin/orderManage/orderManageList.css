@@ -22,10 +22,11 @@ font-weight: bold;
 }
 
 .admin-order-table{
-    width: 1200px;
     border-top: 3px solid #17633d;
-    margin-top: 15px;
-    padding: 20px;
+    padding-top: 20px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 /* .admin-order-thead > th{
     color: #4e4e4e;
@@ -38,16 +39,12 @@ td{
     text-align: center;
 }
 
-th{
-    color: #4e4e4e;
-}
 
 thead th {
-    height: 40px;
     padding: 2px;
-    /* board-top: 1px solid #666; */
-    border-bottom: 1px solid #f2f2f2;
-    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #f1f2f1;
+    height: 30px;
 }
 
 

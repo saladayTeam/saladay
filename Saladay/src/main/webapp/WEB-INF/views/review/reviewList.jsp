@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>review</title>
+    <title>Review</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/main/main.css">
@@ -28,11 +28,11 @@
                 <h1 class="review-main-title">전체 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
-                <input type="radio" name="review-check">
+<%--                 <input type="radio" name="review-check">
                 <label for="review-check" id="#">최신순&nbsp&nbsp</label>
 
                 <input type="radio" name="review-check">
-                <label for="review-check" id="#">좋아요 순</label>
+                <label for="review-check" id="#">좋아요 순</label> --%>
             </div>
 
             <!-- 리뷰 목록 내용 -->
