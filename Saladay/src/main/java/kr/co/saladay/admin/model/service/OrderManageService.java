@@ -10,9 +10,10 @@ public interface OrderManageService {
 
 	/** 전체 주문 목록 조회
 	 * @param cp
+	 * @param orderStatus 
 	 * @return map
 	 */
-	Map<String, Object> selectOrderList(int cp);
+	Map<String, Object> selectOrderList(int cp, int orderStatus);
 
 	/** 주문 상세 조회
 	 * @param orderNo

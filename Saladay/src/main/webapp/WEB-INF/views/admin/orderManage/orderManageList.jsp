@@ -20,12 +20,31 @@
     <link rel="stylesheet" href="/resources/css/admin/orderManage/orderManageList.css">
 </head>
 <body>
+
+    <%-- 검색을 진행한 경우 --%>
+    <c:if test="${not empty param.orderStatus}">
+        <c:set var="sURL" value="&orderStatus=${orderStatus}"/>
+    </c:if>
     <jsp:include page="/WEB-INF/views/main/adminHeader.jsp"></jsp:include>
     <main>
         <div class="admin-order-title">
             <span><h1>주문관리</h1></span>
-            <br />
-            <span>고객의 주문 내역을 조회할 수 있습니다</span>
+            <div class="tit">
+                <span>고객의 주문 내역을 조회할 수 있습니다</span>
+                <div class="order-status-area">
+                    <form action ="/admin/orderManage" method="get">
+                        <select id = "orderStatus" class="${orderStatus}" name="orderStatus">
+                            <option value="0">전체주문</option>
+                            <option value="1">정상주문</option>
+                            <option value="2">취소요청</option>
+                            <option value="3">주문취소</option>
+                        </select>
+                        <button type="submit" class="osBtn">
+                            검색
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <table class="admin-order-table">
@@ -65,7 +84,7 @@
             <c:if test="${not empty orderList}">
                 <ul class="pagination">
                     <!-- 이전 목록 마지막 번호로 이동 --> 
-                    <li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
+                    <li><a href="?cp=${pagination.prevPage}${sURL}">&lt;</a></li>
                         <c:forEach var="i" begin="${pagination.startPage}" 
                         end="${pagination.endPage}" step="1">
                             <c:choose>
@@ -75,12 +94,12 @@
                                 </c:when>
                                 <c:otherwise>
                                     <!-- 현재 페이지를 제외한 나머지 -->
-                                    <li><a href="?cp=${i}">${i}</a></li>
+                                    <li><a href="?cp=${i}${sURL}">${i}</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
+                    <li><a href="?cp=${pagination.nextPage}${sURL}">&gt;</a></li>
                 </ul>
             </c:if>
         </div>

@@ -325,3 +325,28 @@ width: 1200px;
     font-weight: bold;
 }
 
+/* 뒤로가기 버튼 */
+
+.tit {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;  
+}
+
+.tit span {
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.osBtn{
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+

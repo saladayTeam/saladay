@@ -22,13 +22,13 @@ public class OrderManageServiceImpl implements OrderManageService{
 
 	// 전체 주문 목록 조회
 	@Override
-	public Map<String, Object> selectOrderList(int cp) {
+	public Map<String, Object> selectOrderList(int cp, int orderStatus) {
 		
-		int listCount = dao.getListCount();
+		int listCount = dao.getListCount(orderStatus);
 
 		OrderManagePagination pagination = new OrderManagePagination(listCount, cp);
 		
-		List<Review> orderList = dao.selectOrderList(pagination);
+		List<Review> orderList = dao.selectOrderList(orderStatus, pagination);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
