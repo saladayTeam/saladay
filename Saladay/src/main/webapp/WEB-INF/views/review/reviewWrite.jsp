@@ -24,17 +24,17 @@
                     </div>
 
                     <div class="rw-info-area">
-                        <div class="rw-orderNo">
+                        <div class="rw-orderNo rw-info">
                             주문번호 : ${reviewInfo.orderNo}
                         </div>
-                        <div class="rw-package">
+                        <div class="rw-package rw-info">
                             주문상품 : ${reviewInfo.packageName}
                         </div>
-                        <div class="rw-menu">
+                        <div class="rw-menu rw-info">
                             주문메뉴 : ${reviewInfo.menuName} 샐러드
                         </div>
                     </div>
-                    <form action="/member/myPage/reviewWrite/${orderMenuNo}" enctype="multipart/form-data" method="POST" class="review-write">
+                    <form action="/member/myPage/reviewWrite/${orderMenuNo}" enctype="multipart/form-data" method="POST" class="review-write" onsubmit="return writeValidate()">
                         <div class="rw-rating-area">
 
                             <div class="rw-rating">
@@ -49,30 +49,25 @@
                             </div>
                         </div>
                         <div class="rw-review-content-area">
-                            <div class="rw-question">
-                                어떤 점이 좋았나요?
-                            </div>
                             <div class="rw-review-content">
                                 <label for="reviewContent"></label>
-                                <textarea placeholder="리뷰를 작성해주세요." name="reviewContent"></textarea>
+                                <textarea placeholder="리뷰를 작성해주세요." name="reviewContent" class="review-detail-text"></textarea>
                             </div>
                         </div>
                         <div class="rw-image-area">
-                            <div class="rw-images">이미지 추가</div>
+                            <div class="reviewImg">
                                 <label for="img0">
-                                    <img class="preview">
+                                    <img class="preview" src="">
                                 </label>
-                                <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
+                                <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
                                 <span class="delete-image">&times;</span>
-                            <div class="rw-images">이미지 추가</div>
-                            <div class="rw-images">이미지 추가</div>
+                            </div>
                         </div>
                         <div class="rw-btn-area">
-                            <button type="submit" class="submit-btn">글쓰기</button>
+                            <button type="submit" class="submit-btn">리뷰 쓰기</button>
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
     </main>
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>

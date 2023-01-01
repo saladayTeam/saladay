@@ -131,7 +131,7 @@ public class ReviewController {
 			@PathVariable("orderMenuNo") int orderMenuNo, 
 			RedirectAttributes ra, HttpSession session,
 			@RequestHeader("referer") String referer) throws IOException {
-		
+
 		review.setOrderMenuNo(orderMenuNo);
 		
 		review.setMemberNo(loginMember.getMemberNo());
@@ -140,17 +140,22 @@ public class ReviewController {
 		
 		String folderPath = session.getServletContext().getRealPath(webPath);
 		
+		// 리뷰 작성 서비스
 		int reviewNo = service.reviewWrite(review, imageList, webPath, folderPath);
 		
 		String message = null;
+		String path = null;
 		
 		if(reviewNo>0) {
 			message = "리뷰가 등록되었습니다.";
-			return "/member/myPage/myPage-myReview";
+			path="/member/myPage/selectMyReview";
 		} else {
 			message = "리뷰 등록 실패";
-			return "redirect:" + referer;
+			path = referer;
 		}
+		
+		ra.addFlashAttribute(message);
+		return "redirect:"+path;
 
 	}
 

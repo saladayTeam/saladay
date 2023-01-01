@@ -194,15 +194,14 @@ VALUES(#{reviewNo}, #{rating}, #{reviewContent}, DEFAULT, DEFAULT, #{memberNo}, 
 <!-- 리뷰 첨부 이미지 삽입 -->
 <insert id="insertReviewImageList" parameterType="list">
 INSERT INTO REVIEW_IMG
-SELECT SEQ_REVIEW_IMG_NO.NEXTVAL REVIEW_IMG_NO, A* FROM
-<foreach collection="list" item="img"
-	open="(" close = ") A" separator = "UNION ALL">
-.
-	SELECT #{img.imagePath} IMG_PATH,
-			#{img.imageRename} IMG_RENAME,
-			#{img.imageOrder} IMG_ORDER,
-			#{img.reviewNo} REVIEW_NO
-	FROM DUAL
-</foreach>
+SELECT SEQ_REVIEW_IMG_NO.NEXTVAL REVIEW_IMG_NO, A.* FROM
+	<foreach collection="list" item="img"
+		open="(" close = ") A" separator = "UNION ALL">
+		SELECT #{img.imagePath} IMG_PATH,
+				#{img.imageRename} IMG_RENAME,
+				#{img.imageOrder} IMG_ORDER,
+				#{img.reviewNo} REVIEW_NO
+		FROM DUAL
+	</foreach>
 </insert>
 </mapper>
