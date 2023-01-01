@@ -199,7 +199,7 @@ SELECT SEQ_REVIEW_IMG_NO.NEXTVAL REVIEW_IMG_NO, A* FROM
 	open="(" close = ") A" separator = "UNION ALL">
 .
 	SELECT #{img.imagePath} IMG_PATH,
-			#{img.imageReName} IMG_RENAME,
+			#{img.imageRename} IMG_RENAME,
 			#{img.imageOrder} IMG_ORDER,
 			#{img.reviewNo} REVIEW_NO
 	FROM DUAL

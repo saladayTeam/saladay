@@ -34,34 +34,49 @@
                             주문메뉴 : ${reviewInfo.menuName} 샐러드
                         </div>
                     </div>
-                    <div class="rw-rating-area">
-                        <div class="rw-rating">
-                            이 메뉴 어땠나요?
+                    <form action="/member/myPage/reviewWrite/${orderMenuNo}" enctype="multipart/form-data" method="POST" class="review-write">
+                        <div class="rw-rating-area">
+
+                            <div class="rw-rating">
+                                이 메뉴 어땠나요?
+                            </div>
+                            <div class="rw-star-area">
+                                <span class="rw-star">
+                                    ★★★★★
+                                    <span>★★★★★</span>
+                                    <input name = "rating" type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="5">
+                                </span>
+                            </div>
                         </div>
-                        <div class="rw-star">
-                            ★★★☆☆
+                        <div class="rw-review-content-area">
+                            <div class="rw-question">
+                                어떤 점이 좋았나요?
+                            </div>
+                            <div class="rw-review-content">
+                                <label for="reviewContent"></label>
+                                <textarea placeholder="리뷰를 작성해주세요." name="reviewContent"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="rw-review-content-area">
-                        <div class="rw-question">
-                            어떤 점이 좋았나요?
+                        <div class="rw-image-area">
+                            <div class="rw-images">이미지 추가</div>
+                                <label for="img0">
+                                    <img class="preview">
+                                </label>
+                                <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
+                                <span class="delete-image">&times;</span>
+                            <div class="rw-images">이미지 추가</div>
+                            <div class="rw-images">이미지 추가</div>
                         </div>
-                        <div class="rw-review-content">
-                            리뷰내용 리뷰내용 리뷰내용 리뷰내용 아주 긴 리뷰내용 긴 리뷰 긴 리뷰 긴긴긴 리뷰리뷰리뷰
+                        <div class="rw-btn-area">
+                            <button type="submit" class="submit-btn">글쓰기</button>
                         </div>
-                    </div>
-                    <div class="rw-image-area">
-                        <div class="rw-images">이미지 추가</div>
-                        <div class="rw-images">이미지 추가</div>
-                        <div class="rw-images">이미지 추가</div>
-                    </div>
-                    <div class="rw-btn-area">
-                        <button class="submit-btn">글쓰기</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </main>
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/resources/js/review/reviewWrite.js"></script>
 </body>
 </html>

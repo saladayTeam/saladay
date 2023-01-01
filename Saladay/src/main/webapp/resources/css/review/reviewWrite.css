@@ -111,15 +111,6 @@ main {
     margin-bottom: 20px;
 }
 
-/* 별점 */
-.rw-rating-area{
-    width: 150px;
-    height: 50px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 5px;
-}
-
 /* 리뷰 작성 공간 */
 .rw-review-content-area{
     margin: 20px 0px 20px;
@@ -167,4 +158,38 @@ main {
     transition: all 0.3s;
     
     margin-top:30px
+}
+
+/* 별점 공간 */
+/* .rw-rating-area{
+    width: 150px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+} */
+
+/* 리뷰 별점 드래그 */
+.rw-star{
+    position: relative;
+    font-size: 2rem;
+    color: #ddd;
+}
+
+.rw-star input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.rw-star span{
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #fec43b;
+    overflow: hidden;
+    pointer-events: none;
 }
