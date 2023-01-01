@@ -156,4 +156,12 @@
 	CANCLE_DATE = SYSDATE 
 	WHERE ORDER_NO = #{orderNo}
 	</update>
+	
+	<!-- 주문 취소 요청 철회 -->
+	<update id="withdrawOrderCancle">
+	UPDATE "ORDER" SET 
+	ORDER_DEL_FL ='N',
+	CANCLE_DATE = NULL 
+	WHERE ORDER_NO = #{orderNo}
+	</update>
 </mapper>

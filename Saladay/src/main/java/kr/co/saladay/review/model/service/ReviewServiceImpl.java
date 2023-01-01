@@ -141,6 +141,7 @@ public class ReviewServiceImpl implements ReviewService{
 				}
 			}
 			
+			// DB에 저장
 			if(!reviewImageList.isEmpty()) {
 				
 				int result = dao.insertReviewImageList(reviewImageList);
@@ -154,7 +155,7 @@ public class ReviewServiceImpl implements ReviewService{
 						
 						imageList.get(index).transferTo(new File(folderPath+renameList.get(i)));
 					}
-				}
+				} 
 			}
 		}
 		
