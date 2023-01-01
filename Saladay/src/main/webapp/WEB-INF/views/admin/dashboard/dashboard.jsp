@@ -26,8 +26,9 @@
     <main>
         <c:set var="lastindex" value="${fn:length(monthOrderPrice)-1}" />
         <div class="menu-m-tit">
-            <div>
-                <span>대시보드</span>
+            <span><h1>대시보드</h1></span>
+            <div class="tit">
+                <span>회사를 살려보자 ! 샐러데이 타이쿤</span>
             </div>
         </div>
 

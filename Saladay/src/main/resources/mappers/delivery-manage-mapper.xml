@@ -15,16 +15,25 @@
       <result property="deliveryCode" column="DELIVERY_CODE"/>
       <result property="orderDelFl" column="ORDER_DEL_FL"/>
       <result property="deliveryNo" column="DELIVERY_NO"/>
+      <result property="packageNo" column="PACKAGE_NO"/>
+      <result property="packageName" column="PACKAGE_NAME"/>
       <result property="rowNum" column="ROW_NUM"/>
 	</resultMap>
 	
 	<!-- 배송정보 불러오기 -->
 	<select id="selectDelList" resultMap="deliveryManage_rm">
 		SELECT ROW_NUMBER() OVER(PARTITION BY D.ORDER_NO ORDER BY D.ORDER_NO, D.DELIVERY_DATE) ROW_NUM,
-		DELIVERY_NO, O.ORDER_NO, DELIVERY_DATE, ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, PACKAGE_NO, ORDER_PRICE, DELIVERY_STATUS, D.DELIVERY_CODE, ORDER_DEL_FL
+		DELIVERY_NO, O.ORDER_NO, TO_CHAR(DELIVERY_DATE, 'YYYY-MM-DD')DELIVERY_DATE, ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, O.PACKAGE_NO, P.PACKAGE_NAME, ORDER_PRICE, DELIVERY_STATUS, D.DELIVERY_CODE, ORDER_DEL_FL
 		FROM DELIVERY D
 		JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
 		JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
+		JOIN "PACKAGE" P ON (P.PACKAGE_NO=O.PACKAGE_NO)
+		ORDER BY DELIVERY_NO DESC
 	</select>
+	
+	<!-- 배송상태 변경(배송완료로) -->
+	<update id="updateDelivery">
+		UPDATE "DELIVERY" SET DELIVERY_CODE='D' WHERE DELIVERY_NO = #{deliveryNo}
+	</update>
 	
 </mapper>

@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "NanumSquareNeo-Variable";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+  format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: block;
+  font-family: "NanumSquareNeo-Variable";
+}
+
+.regist-popup {
+  width: 680px;
+  height: 400px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+.regist-popup h2 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #17633d;
+}
+
+
+.wrapper{
+  width: 100%;
+  min-height: 400px;
+
+  padding: 0;
+}
+
+/* 제목영역 */
+.regist-h {
+  height: 40px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.regist-h div {
+  margin: auto;
+}
+
+.regist-h input {
+  width:590px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding-left: 10px;
+  outline: none;
+}
+
+
+/* 내용영역 */
+.regist-c {
+  height: 300px;
+  display: flex;
+}
+
+.regist-c div {
+  margin: auto;
+}
+
+.regist-c textarea {
+  width: 583px;
+  min-height: 300px;
+  resize: none;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+
+/* 버튼영역 */
+.b-area {
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.b-area button{
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  background-color: #17633d;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: auto;
+  font-size: 20px;
+}
