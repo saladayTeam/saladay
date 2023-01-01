@@ -31,13 +31,31 @@ font-weight: bold;
     color: #4e4e4e;
 } */
 
-/* 테이블 내용 */
+/* 테이블 내용 폭 고정 */
+tbody td:nth-of-type(1){
+    width: 141px;
+}
+tbody td:nth-of-type(2){
+    width: 210px;
+}
+tbody td:nth-of-type(3){
+    width: 358px;
+}
+tbody td:nth-of-type(4){
+    width: 141px;
+}
+tbody td:nth-of-type(5){
+    width: 175px;
+}
+tbody td:nth-of-type(6){
+    width: 161px;
+}
+
 td{
     border-bottom: 1px solid #f2f2f2;
     height: 40px;
     text-align: center;
 }
-
 
 thead th {
     padding: 2px;
@@ -106,6 +124,8 @@ thead th {
     width: 80px;
     height: 35px;
     font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
 #orderStatus:focus{
     outline: none;
