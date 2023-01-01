@@ -47,4 +47,9 @@ public class OrderManageDAO {
 	public int withdrawOrder(int orderNo) {
 		return sqlSession.update("orderManageMapper.withdrawOrder",orderNo);
 	}
+
+	// 주문 취소 요청 철회
+	public int withdrawOrderCancle(int orderNo) {
+		return sqlSession.update("orderManageMapper.withdrawOrderCancle",orderNo);
+	}
 }

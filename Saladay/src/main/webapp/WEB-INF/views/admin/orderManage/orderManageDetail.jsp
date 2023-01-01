@@ -57,10 +57,10 @@
                     </p>
                     <p>
                         <span class="o-th">핸드폰</span><span class="o-td">
-                        	   ${fn:substring(orderDetail.memberTel,0,3)} -
-	                           ${fn:substring(orderDetail.memberTel,3,7)} -
-	                           ${fn:substring(orderDetail.memberTel,7,11)}
-	                     </span>
+                            ${fn:substring(orderDetail.memberTel,0,3)} -
+                            ${fn:substring(orderDetail.memberTel,3,7)} -
+                            ${fn:substring(orderDetail.memberTel,7,11)}
+                        </span>
                     </p>
                     <p>
                         <span class="o-th">주소</span><span class="o-td">${fn:replace(orderDetail.memberAddress, ',,', ' ')}</span>
@@ -73,10 +73,14 @@
                         <span class="o-th">수령인</span><span class="o-td" name="memberNo">${orderDetail.orderName}</span>
                     </p>
                     <p>
-                        <span class="o-th">핸드폰</span><span class="o-td">${orderDetail.orderTel}</span>
+                        <span class="o-th">배송지 전화번호</span><span class="o-td">
+                            ${fn:substring(orderDetail.orderTel,0,3)} -
+                            ${fn:substring(orderDetail.orderTel,3,7)} -
+                            ${fn:substring(orderDetail.orderTel,7,11)}
+                        </span>
                     </p>
                     <p>
-                        <span class="o-th">주소</span><span class="o-td">${fn:replace(orderDetail.orderAddress, ',,', ' ')}</span>
+                        <span class="o-th">배송지 주소</span><span class="o-td">${fn:replace(orderDetail.orderAddress, ',,', ' ')}</span>
                     </p>
 
                 </div>
@@ -202,22 +206,26 @@
                     <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.orderPrice}" /> 원</span>
                 </div>
             </div>
-            <c:choose>
-                <c:when test="${orderDetail.orderDeleteFlag=='A'}">
-                <hr />
-                <div class="select-delivery">
-                    <h3>취소 내역</h3>
-                    <div class="cal-container">
-                        <span style="color:red;">취소완료된 주문입니다.</span>
-                        <br />
-                        <span>취소일시 : ${orderDetail.cancleDate}</span>
-                    </div>
+            <c:if test="${orderDetail.orderDeleteFlag=='A'}">
+            <hr />
+            <div class="select-delivery">
+                <h3>취소 내역</h3>
+                <div class="cal-container">
+                    <span style="color:red;">취소완료된 주문입니다.</span>
+                    <br />
+                    <span>취소일시 : ${orderDetail.cancleDate}</span>
                 </div>
-                </c:when>
-                <c:otherwise>
-                    <button id="withdrawOrderBtn" type="button">주문 취소</button>
-                </c:otherwise>
-            </c:choose>
+            </div>
+            </c:if>
+            <c:if test="${orderDetail.orderDeleteFlag=='N'}">
+                <button id="withdrawOrderBtn" type="button" class="withdrawOrderBtn">주문 취소</button>
+            </c:if>
+            <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
+                <div class="btn-area">
+                    <button id="cancleBtn" type="button">요청 철회</button>
+                    <button id="withdrawOrderBtn" class="withdrawBtn" type="button">주문 취소</button>
+                </div>
+            </c:if>
         </section>
 
     </main>

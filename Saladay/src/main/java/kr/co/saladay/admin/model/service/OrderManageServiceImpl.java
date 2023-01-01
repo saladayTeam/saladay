@@ -54,5 +54,11 @@ public class OrderManageServiceImpl implements OrderManageService{
 	public int withdrawOrder(int orderNo) {
 		return dao.withdrawOrder(orderNo);
 	}
+	
+	// 주문 취소 요청 철회
+	@Override
+	public int withdrawOrderCancle(int orderNo) {
+		return dao.withdrawOrderCancle(orderNo);
+	}
 
 }

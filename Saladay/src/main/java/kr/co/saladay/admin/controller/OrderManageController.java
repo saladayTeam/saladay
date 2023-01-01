@@ -87,6 +87,32 @@ public class OrderManageController {
 		return "redirect:" + path;
 	}
 	
+	// 주문 취소 요청 철회
+	@GetMapping("/admin/orderManage/{orderNo}/update")
+	public String withdrawOrderCancle(@RequestHeader("referer") String referer,
+			@PathVariable("orderNo") int orderNo,
+			RedirectAttributes ra
+			) {
+		
+		int result = service.withdrawOrderCancle(orderNo);
+		
+		String message = null;
+		String path = null;
+		
+		if(result>0) { // 주문 취소 요청 철회 성공 시
+			message = "주문 취소 요청이 철회되었습니다.";
+			path = "/admin/orderManage/" + orderNo;
+			
+		} else { // 주문 취소 요청 철회 실패 시
+			message = "주문 취소 요청 철회 실패";
+			path = referer;
+		}
+		
+		ra.addFlashAttribute(message);
+		
+		return "redirect:" + path;
+	}
+	
 	
 
 }

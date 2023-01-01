@@ -32,4 +32,10 @@ public interface OrderManageService {
 	 */
 	int withdrawOrder(int orderNo);
 
+	/** 주문 취소 요청 철회
+	 * @param orderNo
+	 * @return
+	 */
+	int withdrawOrderCancle(int orderNo);
+
 }

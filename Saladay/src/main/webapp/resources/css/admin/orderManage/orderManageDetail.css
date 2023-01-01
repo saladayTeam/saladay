@@ -91,34 +91,6 @@ align-items: center;
 line-height: 30px;
 }
 
-/* 배송정보 변경 */
-#orderName,
-#orderTel {
-width: 239px;
-height: 90%;
-outline: none;
-border: 1px solid #ddd;
-padding-left: 10px;
-}
-
-.address-area {
-margin: 5px 0;
-}
-
-#sample6_postcode {
-width: 30%;
-}
-
-.address-area button {
-width: 65px;
-border: none;
-background-color: #ddd;
-border-radius: 10px;
-}
-
-.address-area button {
-cursor: pointer;
-}
 
 /* 주소영역 행 구역 */
 .address-area input {
@@ -306,8 +278,8 @@ justify-content: flex-end;
 padding: 8px;
 }
 
-/* 구매하기 버튼 */
-#withdrawOrderBtn {
+/* 주문 취소하기 버튼 */
+.withdrawOrderBtn {
 display: flex;
 justify-content: center;
 align-items: center;
@@ -323,9 +295,33 @@ font-weight: bold;
 width: 1200px;
 
 border: none;
+cursor: pointer;
 }
 
 hr {
 margin: 10px 0;
 width: 1200px;
 }
+
+/* 취소요청중인 건 */
+.btn-area{
+    display: flex;
+    justify-content: end;
+}
+
+#cancleBtn{
+    margin-right: 10px;
+}
+
+.withdrawBtn, #cancleBtn{
+    width: 585px;
+    height: 60px;
+    background-color: #17633d;
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
