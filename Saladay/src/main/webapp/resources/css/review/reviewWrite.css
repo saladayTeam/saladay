@@ -108,17 +108,15 @@ main {
 
 /* 주문정보 부분 */
 .rw-info-area{
+    border-bottom: #ccc 1px solid;
+    padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
-/* 별점 */
-.rw-rating-area{
-    width: 150px;
-    height: 50px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 5px;
+.rw-info{
+    margin: 10px 0 10px;
 }
+
 
 /* 리뷰 작성 공간 */
 .rw-review-content-area{
@@ -129,26 +127,70 @@ main {
 .rw-question{
     margin-bottom: 5px;
 }
+
 /* 리뷰 내용 */
-.rw-review-content{
-    width: 600px;
-    height: 200px;
-    padding: 10px;
-    border: 1px solid #ddd;
+.review-detail-text{
+    border: #ccc 1px solid;
     border-radius: 10px;
+    color: #666666;
+    padding: 10px;
+    margin-top: 5px;
+    overflow:auto;
+    width: 580px;
+    height: 150px;
+    padding: 5px;
+    font-size: 16px;
+    resize: none;
 }
 
-/* 이미지 추가 */
+.review-detail-text:focus {
+    outline: none;
+}
+
+/* 이미지 전체를 감싸는 div */
 .rw-image-area{
     display: flex;
-    justify-content: space-between;
 }
 
-.rw-images{
+.reviewImg{
     width: 180px;
     height: 180px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+
+    margin-right: 20px;
+    display: inline-block;
+    text-align: center;
+
+    position: relative;
+}
+
+.reviewImg > label{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.inputImage{
+    display: none;
+}
+
+
+/* 이미지 */
+.reviewImg img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 이미지 삭제 버튼 */
+.delete-image{
+    position: absolute;
+    top: 0;
+    right: 7px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 /* 글쓰기 버튼 */
@@ -167,4 +209,29 @@ main {
     transition: all 0.3s;
     
     margin-top:30px
+}
+
+/* 리뷰 별점 드래그 */
+.rw-star{
+    position: relative;
+    font-size: 2rem;
+    color: #ddd;
+}
+
+.rw-star input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.rw-star span{
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #fec43b;
+    overflow: hidden;
+    pointer-events: none;
 }

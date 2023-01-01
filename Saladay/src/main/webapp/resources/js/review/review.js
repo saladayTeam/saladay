@@ -138,11 +138,62 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 deleteBtn.style.display="none";
             }
             // 관리자 권한이거나 본인이작성한 리뷰인 경우
+            // 리뷰 삭제 버튼 노출
             if(authority==99||memberNo==reviewMemberNo){
                 deleteBtn.style.display="";
-                deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")");
+                /* deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")"); */
                 // 개인 삭제
                 // 관리자 삭제
+
+                // 리뷰 삭제 ajax 실행
+                deleteBtn.addEventListener("click", e =>{
+                    if( confirm("정말 삭제 하시겠습니까?") ){
+                        $.ajax({
+                            url : "/review/delete",
+                            data : {"reviewNo" : reviewNo},
+                            type : "GET",
+                            success: function(result){
+                                if(result > 0){
+                                    
+                                    /* 리뷰 이미지가 존재할 때 같이 삭제*/
+                                    if(rDetail[0].imageList.length != 0){
+                                        $.ajax({
+                                            url : "/review/deleteImg",
+                                            data : {"reviewNo" : reviewNo},
+                                            type : "GET",
+                                            success: function(result){
+                                                if(result > 0){
+                                                    alert("리뷰가 삭제되었습니다");
+                                                    modal.style.display="none";
+                                                    location.reload("");
+                                                }else{
+                                                    alert("리뷰 삭제 실패");
+                                                }
+                                            },
+                                            error : function(req, status, error){
+                                                console.log("리뷰 삭제 실패")
+                                                console.log(req.responseText);
+                                            }
+                                        });
+                                    } else{
+                                        /* 리뷰 이미지가 없을 때 */
+                                        alert("리뷰가 삭제되었습니다");
+                                        modal.style.display="none";
+                                        location.reload("");
+                                    }
+
+                                }else{
+                                    alert("삭제 실패");
+                                }
+                            },
+                
+                            error : function(req, status, error){
+                                console.log("리뷰 삭제 실패")
+                                console.log(req.responseText);
+                            }
+                        });
+                    }
+                });
             }
 
             // 리뷰 조회
@@ -171,13 +222,11 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 reviewHeart.classList.remove("fa-solid");
                 reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-regular");
-                /* reviewHeart.setAttribute("onclick", "reviewLikeUp("+rDetail[0].reviewNo+", "+memberNo+")"); */
 
             } else{ // 좋아요를 누른 리뷰 == 채워진 하트
                 reviewHeart.classList.remove("fa-regular");
                 reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-solid");
-                /* reviewHeart.setAttribute("onclick", "reviewLikeDown("+rDetail[0].reviewNo+", "+memberNo+")"); */
             }
 
             /* 좋아요 증가/감소 ajax 실행 */
@@ -195,7 +244,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             
                         $.ajax({
                             url : "/review/likeUp",
-                            data : {"reviewNo" : rDetail[0].reviewNo , "memberNo" : memberNo},
+                            data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
                             type : "GET" ,
                             success : (result)=>{
                                 if(result >0){ // 성공
@@ -213,7 +262,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     } else{ // 채워진 하트인 경우 좋아요 감소
                         $.ajax({
                             url : "/review/likeDown",
-                            data : {"reviewNo" : rDetail[0].reviewNo , "memberNo" : memberNo},
+                            data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
                             type : "GET" ,
                             success : (result)=>{
                                 if(result >0){ // 성공
@@ -240,25 +289,26 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 
 
 //리뷰 삭제
-function deleteReview(reviewNo){
-    if( confirm("정말 삭제 하시겠습니까?") ){
-        $.ajax({
-            url : "/review/delete",
-            data : {"reviewNo" : reviewNo},
-            type : "GET",
-            success: function(result){
-                if(result > 0){
-                    alert("리뷰가 삭제되었습니다");
-                    modal.style.display="none";
-                }else{
-                    alert("삭제 실패");
-                }
-            },
+// function deleteReview(reviewNo){
+//     if( confirm("정말 삭제 하시겠습니까?") ){
+//         $.ajax({
+//             url : "/review/delete",
+//             data : {"reviewNo" : reviewNo},
+//             type : "GET",
+//             success: function(result){
+//                 if(result > 0){
+//                     alert("리뷰가 삭제되었습니다");
+//                     modal.style.display="none";
+//                     location.reload("");
+//                 }else{
+//                     alert("삭제 실패");
+//                 }
+//             },
 
-            error : function(req, status, error){
-                console.log("리뷰 삭제 실패")
-                console.log(req.responseText);
-            }
-        });
-    }
-}
+//             error : function(req, status, error){
+//                 console.log("리뷰 삭제 실패")
+//                 console.log(req.responseText);
+//             }
+//         });
+//     }
+// }
