@@ -62,7 +62,7 @@
     <select id="getReviewCount" parameterType="_int" resultType="_int">
     	SELECT COUNT(*) FROM "REVIEW"  
 		WHERE MEMBER_NO  =  #{memberNo}
-		AND REVIEW_DEL_FL  = 'Y' 
+		AND REVIEW_DEL_FL  = 'N' 
     </select>	
 
 
