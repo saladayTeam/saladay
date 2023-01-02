@@ -12,5 +12,11 @@ public interface DeliveryService {
 	// 배송상태 수정
 	int updateDelivery(int deliveryNo);
 
+	/** 배송일정 모달
+	 * @param deliveryNo
+	 * @return
+	 */
+	DeliveryManage selectDeliveryDetail(int deliveryNo);
+
 
 }

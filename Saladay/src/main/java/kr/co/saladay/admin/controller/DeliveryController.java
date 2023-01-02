@@ -89,5 +89,18 @@ public class DeliveryController {
 		
 		return service.updateDelivery(deliveryNo);
 	}
+	
+	// 캘린더 일정 하나 정보 가져오기
+	@PostMapping("/admin/selectDeliveryCalendar")
+	@ResponseBody
+	public String selectDeliveryDetail(
+			@RequestParam(value="deliveryNo", required=false) int deliveryNo
+			) {
+		
+		DeliveryManage delivery = service.selectDeliveryDetail(deliveryNo);
+		
+		return new Gson().toJson(delivery);
+	}
+	
 
 }

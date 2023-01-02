@@ -190,9 +190,8 @@ document.addEventListener('DOMContentLoaded', function() {
     //   window.location.href(info.event.url);
     //   }
     eventClick: function(info) {
-      li.deliveryNo = info.event.id;
-      selectOne(li.deliveryNo);
-
+      deliveryNo = info.event.id;
+      selectOne(deliveryNo);
     },
     eventDidMount : function(info){
       // console.log(info);
