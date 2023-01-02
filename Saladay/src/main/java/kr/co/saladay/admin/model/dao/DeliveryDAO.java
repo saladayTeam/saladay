@@ -23,6 +23,16 @@ public class DeliveryDAO {
 	public int updateDelivery(int deliveryNo) {
 		return sqlSession.update("deliveryManageMapper.updateDelivery", deliveryNo);
 	}
+
+	/**
+	 * 배송일정 상세조회
+	 * @param deliveryNo
+	 * @return
+	 */
+	public DeliveryManage selectDeliveryDetail(int deliveryNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("deliveryManageMapper.selectDeliveryDetail", deliveryNo);
+	}
 	
 	
 
