@@ -1,6 +1,12 @@
 .admin-order-title {
     margin-top: 30px;
     margin-bottom: 10px;
+    width: 100%;
+    margin-top: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #17633d;
+    display: flex;
+    justify-content: space-between;
 }
 
 .admin-order-title > span:first-child {
@@ -11,4 +17,77 @@
 .admin-order-title > span:last-child {
     font-size: 12px;
     font-weight: bold;
+}
+
+.admin-order-title {
+    
+}
+
+.admin-order-title > span:first-child {
+    font-weight: bold;
+    display: flex;
+}
+    
+    .admin-order-title > span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+}
+    
+table{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+td{
+    border-bottom: 1px solid #f2f2f2;
+    height: 40px;
+    text-align: center;
+}
+
+thead th {
+    padding: 2px;
+    border: 1px solid #ddd;
+    background-color: #f1f2f1;
+    height: 30px;
+}
+
+/* 캘린더 버튼 */
+#calendar{
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.calendarBtn{
+    width: 15%;
+    margin-top: 30px;
+    margin-right: -85px;
+
+}
+
+.calendarBtn:hover{
+    cursor: pointer;
+}
+
+#calendar:hover{
+    cursor: pointer;
+    background-color: #17633d;
+    color: white;
+}
+
+.title{
+    width: 85%;
+}
+
+.title span{
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto 0;
 }

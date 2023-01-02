@@ -24,10 +24,14 @@
     <%-- 헤더 --%>
     <main>
         <div class="admin-order-title">
-            <span><h1>배송관리</h1></span>
-            <br />
-            <span>고객의 배송 정보를 업데이트할 수 있습니다</span>
-            <button onclick="location.href='/admin/deliveryCalendar'">캘린더</button>
+            <div class="title">
+              <span><h1>배송관리</h1></span>
+              <br />
+              <span>고객의 배송 정보를 업데이트할 수 있습니다</span>
+            </div>
+            <div class="calendarBtn">
+              <button onclick="location.href='/admin/deliveryCalendar'" id="calendar">캘린더</button>
+            </div>
 
             <%-- <div>${list}</div> --%>
         </div>
