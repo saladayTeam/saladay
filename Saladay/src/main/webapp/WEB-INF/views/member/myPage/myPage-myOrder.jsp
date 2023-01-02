@@ -178,43 +178,29 @@
                         </div>
                         
                     </div>
-						<div class="pagination-area">
-                            <ul class="pagination">
-                                
-                                <!-- 첫 페이지로 이동 -->
-                                <li><a href="/myPage/selectMyOrder?cp=${pagination.startPage}"
-                                    class="arrow pprev">&lt;&lt;</a></li>
-                                <!-- 이전 목록 마지막 번호로 이동 -->
-                                <li><a href="/myPage/selectMyOrder?cp=${pagination.prevPage}"
-                                    class="arrow prev">&lt;</a></li>
-                    
-                                
-                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-                                    <c:choose>
-                                        <c:when test="${i==pagination.currentPage}">
-                                            <!-- 현재 보고있는 페이지 -->
-                                            <li><a class="current">${i}</a></li>
-                                        </c:when>
-                    
-                                        <c:otherwise>
-                                            <!-- 현재 페이지를 제외한 나머지 -->
-                                            <li><a href="/myPage/selectMyOrder?cp=${i}">${i}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
-                                
-
-                                <!-- 다음 목록 시작 번호로 이동 -->
-                                <li><a href="/myPage/selectMyOrder?cp=${pagination.nextPage}"
-                                    class="arrow next">&gt;</a></li>
-                    
-                                <!-- 끝 페이지로 이동 -->
-                                <li><a href="/myPage/selectMyOrder?cp=${pagination.maxPage}"
-                                    class="arrow nnext">&gt;&gt;</a></li>
-                    
-                            </ul>
-                            </div>
-                  
+					<div class="pagination-area">
+						<c:if test="${not empty myOrder}">
+							<ul class="pagination">
+								<!-- 이전 목록 마지막 번호로 이동 --> 
+								<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
+									<c:forEach var="i" begin="${pagination.startPage}" 
+									end="${pagination.endPage}" step="1">
+										<c:choose>
+											<c:when test="${i == pagination.currentPage}">
+												<!-- 현재 보고있는 페이지 -->
+												<li><a class="current">${i}</a></li>
+											</c:when>
+											<c:otherwise>
+												<!-- 현재 페이지를 제외한 나머지 -->
+												<li><a href="?cp=${i}">${i}</a></li>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+								<!-- 다음 목록 시작 번호로 이동 -->
+								<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
+							</ul>
+						</c:if>
+					</div>
 
             </div>
         </div>
