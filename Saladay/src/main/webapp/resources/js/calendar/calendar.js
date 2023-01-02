@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initialView: 'dayGridMonth',
     locale: "ko",
     // navLinks: true,
-    editable: true,
+    // editable: true,
     headerToolbar : {
     start: "",
       center: "prev title next",
@@ -310,3 +310,139 @@ $(".inputGroup .filter").on("click", function(){
 //   }
 // })
 
+/* 일정 조회(selectOne) */
+
+// 일정 조회 함수
+function selectOne(thisId){
+    let deliveryNo = thisId;
+
+    $.ajax({
+        url : "/admin/delivery/selectDeliveryCalendar",
+        data : {"deliveryNo":deliveryNo},
+        type : "POST",
+        dataType : "JSON",
+
+        success : (list) => {
+          deliveryNo = list.deliveryNo;
+
+            // 시작 날짜
+            const deliveryNo = document.getElementById('deliveryNo');
+            deliveryNo.innerText = list.deliveryNo;
+
+            // 요일
+            const orderNo = document.getElementById('orderNo');
+            orderNo.innerText = plan.planStartDate;
+
+            // 2. 제목 상자
+            const titleBox = document.getElementById('titleBox');
+            titleBox.innerText = plan.planTitle;
+
+            // 3. 기간 상자
+            const periodBox = document.getElementById('periodBox');
+
+            // 기간 변수 조립하기
+            let period = "";
+
+            // 시작 연도
+            const startYear = plan.planStart.substring(0, 4) + '년';
+
+            // 시작 월
+            const startMonth = plan.planStart.substring(5, 7) + '월';
+            
+            // 시작 일
+            // startDay 사용함
+
+            // 기간에 시작 날짜까지 추가
+            period = startYear + " " + startMonth + " " + startDay + "일";
+
+            // 시작 시간
+            let startMeridiem = "";
+            let startHour = "";
+            let startMinute = "";
+
+            if(plan.planStart.length > 10) {
+                
+                startHour = plan.planStart.substring(11, 13);
+
+                if(startHour >= 12) {
+                    startMeridiem = "오후";
+                    startHour -= 12;
+                    if(startHour < 10) {
+                        startHour = '0' + startHour;
+                    }
+                } else {
+                    startMeridiem = "오전";
+                }
+                
+                // 시작 분
+                startMinute = plan.planStart.substring(14, 16);
+
+                period += " " + startMeridiem + " " + startHour + ":" + startMinute;
+
+            }
+
+            if(!(plan.planStart === plan.planEnd)) {
+
+                // 종료 연도
+                const endYear = plan.planEnd.substring(0, 4) + '년';
+
+                // 종료 월
+                const endMonth = plan.planEnd.substring(5, 7) + '월';
+
+                // 종료 일
+                const endDay = plan.planEnd.substring(8, 10) + '일';
+
+                // 종료 시간
+                let endMeridiem = "";
+                let endHour = "";
+                let endMinute = "";
+
+                period += " - " + endYear + " " + endMonth + " " + endDay + " ";
+
+                if(plan.planEnd.length > 10) {
+
+                    endHour = plan.planEnd.substring(11, 13);
+
+                    if(endHour >= 12) {
+                        endMeridiem = "오후";
+                        endHour -= 12;
+                        if(endHour < 10) {
+                            endHour = '0' + endHour;
+                        }
+
+                    } else {
+                        endMeridiem = "오전";
+                    }
+
+                    // 종료 분
+                    endMinute = plan.planEnd.substring(14, 16);
+
+                    period += endMeridiem + " " + endHour + ":" + endMinute;
+                }
+            }
+
+            periodBox.innerText = period;
+            
+            // 4. 색깔 상자
+            const colorBox = document.getElementById('selectedColor');
+            colorBox.setAttribute("style", "background-color:" + plan.planColor);
+
+            // 5. 작성자 상자
+            const memberNameBox = document.getElementById('memberNameBox');
+            memberNameBox.innerHTML = "&nbsp;&nbsp;&#183;&nbsp;&nbsp;" + plan.memberName;
+
+
+            // 6. 내용 상자
+            const contentBox = document.getElementById('contentBox');
+            const content = plan.planContent;
+            contentBox.innerText = content;
+        },
+        error : () => {
+            alert("데이터 전송에 실패하였습니다.")
+        }
+    })
+    const detailModal = document.getElementById('modal');
+    detailModal.classList.toggle('modal');
+
+
+} // end makePlanDetail
