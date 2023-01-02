@@ -285,3 +285,96 @@ main {
 #modal-close:hover{
     transform: scale(1.2);
 }
+
+
+/*********************page-select(페이지네이션)******************************/
+
+.pagination-area {
+    width: 640px;
+    height: 60px;
+    border: #ccc solid 1px;
+    padding: 10px 20px;
+    margin-top: 30px;
+}
+
+/* .page-select button {
+    width: 62px;
+    height: 36px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+} */
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+
+.pagination li {
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+
+}
+
+/* .pagination-ajax {
+    display: inline-flex;
+} */
+
+.pagination a {
+    /* display: block;
+    width: 100%;
+    height: 100%;
+    
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-weight: bolder; */
+
+    display:block;
+	margin-top: 5px;
+    margin-right: 10px;
+	float:left;
+	border:1px solid #e6e6e6;
+	width:28px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	background-color:#fff;
+	font-size:16px;
+	color:#333;
+    font-weight: bolder; 
+	text-decoration:none;
+}
+
+.arrow {
+	border:1px solid #ccc;
+
+}
+
+.pagination a:active {
+    color : #333;
+    background-color: #fff;
+    
+}
+
+.pagination a:hover {
+    color: #fff;
+    background-color: #17633d;
+    transition: 0.4s;
+}
+
+a.current {
+    background-color: #17633d;
+    color: #fff;
+}
+
+
