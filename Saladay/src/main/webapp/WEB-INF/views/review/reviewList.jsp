@@ -20,6 +20,10 @@
     <script src="https://kit.fontawesome.com/9f94c365a1.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <%-- 검색을 진행한 경우 --%>
+    <c:if test="${not empty param.reviewRating}">
+        <c:set var="sURL" value="&reviewRating=${reviewRating}"/>
+    </c:if>
     <!-- 헤더 -->
     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     <main>
@@ -28,11 +32,19 @@
                 <h1 class="review-main-title">전체 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
-<%--                 <input type="radio" name="review-check">
-                <label for="review-check" id="#">최신순&nbsp&nbsp</label>
-
-                <input type="radio" name="review-check">
-                <label for="review-check" id="#">좋아요 순</label> --%>
+                <form action ="/review" method="get">
+                    <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
+                        <option value="0">전체별점</option>
+                        <option value="50" class="optStar">★★★★★</option>
+                        <option value="40" class="optStar">★★★★</option>
+                        <option value="30" class="optStar">★★★</option>
+                        <option value="20" class="optStar">★★</option>
+                        <option value="10" class="optStar">★</option>
+                    </select>
+                    <button type="submit" class="rrBtn">
+                        검색
+                    </button>
+                </form>
             </div>
 
             <!-- 리뷰 목록 내용 -->
@@ -79,7 +91,7 @@
                 <c:if test="${not empty reviewList}">
                     <ul class="pagination">
                         <!-- 이전 목록 마지막 번호로 이동 --> 
-                        <li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
+                        <li><a href="?cp=${pagination.prevPage}${sURL}">&lt;</a></li>
                             <c:forEach var="i" begin="${pagination.startPage}" 
                             end="${pagination.endPage}" step="1">
                                 <c:choose>
@@ -89,12 +101,12 @@
                                     </c:when>
                                     <c:otherwise>
                                         <!-- 현재 페이지를 제외한 나머지 -->
-                                        <li><a href="?cp=${i}">${i}</a></li>
+                                        <li><a href="?cp=${i}${sURL}">${i}</a></li>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
                         <!-- 다음 목록 시작 번호로 이동 -->
-                        <li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
+                        <li><a href="?cp=${pagination.nextPage}${sURL}">&gt;</a></li>
                     </ul>
                 </c:if>
             </div>
@@ -109,13 +121,7 @@
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     <!-- jQuery 라이브러리(.js 파일) 추가(CDN 방식) -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-
     <script>
-        $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
-        $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
-        $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
-        $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
-        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
         const memberNo = "${loginMember.memberNo}";
         const authority = "${loginMember.authority}";
         const reviewNo = "${review.reviewNo}";
@@ -126,5 +132,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/resources/js/review/review.js"></script>
+    <script src="/resources/js/review/reviewRating.js"></script>
 </body>
 </html>

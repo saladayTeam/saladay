@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -28,6 +29,7 @@ import kr.co.saladay.review.model.service.ReviewService;
 import kr.co.saladay.review.model.vo.Review;
 
 @Controller
+@SessionAttributes({"reviewRating"})
 public class ReviewController {
 
 	@Autowired
@@ -36,10 +38,14 @@ public class ReviewController {
 	// 리뷰 목록 조회
 	@GetMapping("/review")
 	public String selectReviewList(Model model,
-			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			@RequestParam(value = "reviewRating" , required = false, defaultValue = "0") int reviewRating //별점순 정렬
+			) {
 
-		Map<String, Object> map = service.selectReviewList(cp);
+		Map<String, Object> map = service.selectReviewList(cp, reviewRating);
+		//reviewRating 0 == 전체, 그외 숫자 == 별점
 		model.addAttribute("map", map);
+		model.addAttribute("reviewRating", reviewRating);
 
 		return "/review/reviewList";
 	}
@@ -47,7 +53,8 @@ public class ReviewController {
 	// 특정 메뉴 리뷰 목록 조회
 	@GetMapping("/review/{menuNo}")
 	public String selectMenuReviewList(Model model, @PathVariable("menuNo") int menuNo,
-			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+			) {
 
 		Map<String, Object> map = service.selectMenuReviewList(cp, menuNo);
 		model.addAttribute("map", map);

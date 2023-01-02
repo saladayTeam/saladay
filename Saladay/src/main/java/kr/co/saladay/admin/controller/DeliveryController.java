@@ -91,7 +91,7 @@ public class DeliveryController {
 	}
 	
 	// 캘린더 일정 하나 정보 가져오기
-	@PostMapping("/admin/selectDeliveryCalendar")
+	@PostMapping("/admin/delivery/selectDeliveryCalendar")
 	@ResponseBody
 	public String selectDeliveryDetail(
 			@RequestParam(value="deliveryNo", required=false) int deliveryNo

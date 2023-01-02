@@ -4,6 +4,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="myOrder" value="${map.orderPackage}"/>
+<c:set var="myDelivery" value="${map.myDelivery}"/>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -174,12 +178,33 @@
                         </div>
                         
                     </div>
-
-                  
+					<div class="pagination-area">
+						<c:if test="${not empty myOrder}">
+							<ul class="pagination">
+								<!-- 이전 목록 마지막 번호로 이동 --> 
+								<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
+									<c:forEach var="i" begin="${pagination.startPage}" 
+									end="${pagination.endPage}" step="1">
+										<c:choose>
+											<c:when test="${i == pagination.currentPage}">
+												<!-- 현재 보고있는 페이지 -->
+												<li><a class="current">${i}</a></li>
+											</c:when>
+											<c:otherwise>
+												<!-- 현재 페이지를 제외한 나머지 -->
+												<li><a href="?cp=${i}">${i}</a></li>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+								<!-- 다음 목록 시작 번호로 이동 -->
+								<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
+							</ul>
+						</c:if>
+					</div>
 
             </div>
         </div>
-	
+	                        
 
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>

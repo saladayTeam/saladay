@@ -58,6 +58,13 @@
 		   <result property="reviewNo" column="REVIEW_NO"/>
 	</resultMap>
 
+    <!-- 내 리뷰 수 조회 -->
+    <select id="getReviewCount" parameterType="_int" resultType="_int">
+    	SELECT COUNT(*) FROM "REVIEW"  
+		WHERE MEMBER_NO  =  #{memberNo}
+		AND REVIEW_DEL_FL  = 'N' 
+    </select>	
+
 
 	<!-- 나의 리뷰 목록 조회 -->
 	<select id="selectMyReview" resultMap="my_review_rm">

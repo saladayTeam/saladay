@@ -1,5 +1,6 @@
 package kr.co.saladay.review.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,20 +22,20 @@ public class ReviewDAO {
 	/** 전체 리뷰 수 조회
 	 * @return
 	 */
-	public int getListCount() {
-		return sqlSession.selectOne("reviewMapper.getListCount");
+	public int getListCount(int reviewRating) {
+		return sqlSession.selectOne("reviewMapper.getListCount", reviewRating);
 	}
 
 	/** 전체 리뷰 목록 조회
 	 * @param pagination
 	 * @return
 	 */
-	public List<Review> selectReviewList(Pagination pagination) {
+	public List<Review> selectReviewList(int reviewRating, Pagination pagination) {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("reviewMapper.selectReviewList", null, rowBounds);
+		return sqlSession.selectList("reviewMapper.selectReviewList", reviewRating, rowBounds);
 	}
 
 	/** 특정 메뉴 리뷰 수 조회
@@ -42,6 +43,7 @@ public class ReviewDAO {
 	 * @return
 	 */
 	public int getMenuReviewListCount(int menuNo) {
+	
 		return sqlSession.selectOne("reviewMapper.getMenuReviewListCount", menuNo);
 	}
 
@@ -54,7 +56,7 @@ public class ReviewDAO {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-		
+	
 		return sqlSession.selectList("reviewMapper.selectMenuReviewList", menuNo, rowBounds);
 	}
 
