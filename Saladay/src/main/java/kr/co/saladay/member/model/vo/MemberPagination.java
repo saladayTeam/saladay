@@ -7,7 +7,7 @@ public class MemberPagination {
 	   private int listCount;         // 전체 게시글 수
 	   
 	   private int limit = 3;         // 한 페이지 목록에 보여지는 게시글 수
-	   private int pageSize = 10;      // 보여질 페이지 번호 개수
+	   private int pageSize = 5;      // 보여질 페이지 번호 개수
 	   
 	   private int maxPage;         // 마지막 페이지 번호
 	   private int startPage;         // 보여지는 맨 앞 페이지 번호 
@@ -154,7 +154,7 @@ public class MemberPagination {
 	      // prevPage : 이전 페이지네이션 목록의 끝 번호
 	      // nextPage : 다음 페이지네이션 목록의 시작 번호
 	      
-	      if(currentPage <= 3)   prevPage = 1;
+	      if(currentPage <= 5)   prevPage = 1;
 	      else
 	         //prevPage = (currentPage - 1) / pageSize * pageSize;
 	         prevPage = startPage - 1;
