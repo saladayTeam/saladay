@@ -39,8 +39,8 @@ public class DeliveryController {
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp,
 			Model model) {
 		
-		List<DeliveryManage> list = service.adminDelivery(cp);
-		model.addAttribute("list", list);
+		Map<String, Object> map = service.selectAdminDelivery(cp);
+		model.addAttribute("map", map);
 		
 		return "admin/delivery/deliveryManage";
 	}

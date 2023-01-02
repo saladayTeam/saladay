@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.saladay.admin.model.dao.DeliveryDAO;
 import kr.co.saladay.admin.model.vo.DeliveryManage;
+import kr.co.saladay.admin.model.vo.OrderManagePagination;
 import kr.co.saladay.review.model.vo.Review;
 
 @Service
@@ -17,6 +18,22 @@ public class DeliveryServiceImpl implements DeliveryService{
 	
 	@Autowired
 	private DeliveryDAO dao;
+	
+	// 배송 현황 목록 조회
+	@Override
+	public Map<String, Object> selectAdminDelivery(int cp) {
+		int deliveryCount = dao.getDeliveryCount();
+		
+		OrderManagePagination pagination = new OrderManagePagination(deliveryCount, cp);
+		
+		List<DeliveryManage> deliveryList = dao.adminDelivery(pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("deliveryList", deliveryList);
+		
+		return map;
+	}
 
 	// 배송현황 조회
 	@Override
@@ -43,6 +60,8 @@ public class DeliveryServiceImpl implements DeliveryService{
 	public DeliveryManage selectDeliveryDetail(int deliveryNo) {
 		return dao.selectDeliveryDetail(deliveryNo);
 	}
+
+
 	
 	
 

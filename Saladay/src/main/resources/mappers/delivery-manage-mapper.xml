@@ -23,6 +23,8 @@
 	<!-- 배송건수 조회 -->
 	<select id="getDeliveryCount" parameterType="_int" resultType="_int">
 		SELECT COUNT(*) FROM "DELIVERY"
+		JOIN "ORDER" USING("ORDER_NO")
+		WHERE ORDER_DEL_FL ='N'
 	</select>
 	
 	<!-- 배송정보 불러오기 -->
@@ -33,6 +35,7 @@
 		JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
 		JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
 		JOIN "PACKAGE" P ON (P.PACKAGE_NO=O.PACKAGE_NO)
+		WHERE ORDER_DEL_FL ='N'
 		ORDER BY DELIVERY_DATE DESC
 	</select>
 	
