@@ -61,6 +61,12 @@
       <result property="rowNum" column="ROW_NUM"/>
 	</resultMap> 
 
+    <!-- 게시글 수 조회 -->
+    <select id="getListCount" parameterType="_int" resultType="_int">
+    	SELECT COUNT(*) FROM "ORDER"  
+		WHERE NOT ORDER_DEL_FL  = 'A'
+		AND MEMBER_NO  =  #{memberNo}
+    </select>	
 
 	<!-- 나의 주문 조회 -->
 	<select id="selectMyOrder" resultMap="order_rm">

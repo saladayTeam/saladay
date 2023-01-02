@@ -71,3 +71,31 @@
     display: flex;
     justify-content: center;
 }
+
+.modal{
+    display: none;
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.7);
+    
+    width: 100vw;
+    height: 300vh;
+
+    top: 0;
+    z-index: 10000;
+
+}
+
+#modal{
+    background-color: white;
+    width: 500px;
+    min-height: 200px;
+    height: auto;
+    
+    position: fixed; 
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    
+    z-index: 15000;
+
+}
+
