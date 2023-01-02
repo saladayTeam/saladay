@@ -42,7 +42,9 @@
             <div class="review-detail-text"></div>
         </div>
         <div class="review-detail-like">
-            <span><i id="reviewHeart"></i></span><span class="review-detail-likeCount"></span>
+            <span id="heart-area"><%-- <i id="reviewHeart"></i> --%>
+            <img id="reviewHeart">
+            </span><span class="review-detail-likeCount"></span>
         </div>
     </div>
 </body>
