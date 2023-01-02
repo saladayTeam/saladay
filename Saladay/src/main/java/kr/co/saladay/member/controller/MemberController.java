@@ -28,6 +28,8 @@ import kr.co.saladay.cart.model.vo.Cart;
 import kr.co.saladay.member.model.service.MemberService;
 import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.member.model.vo.MyReview;
+import kr.co.saladay.member.model.vo.MyReviewOrder;
 import kr.co.saladay.member.model.vo.ReviewCheck;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
@@ -499,13 +501,17 @@ public class MemberController {
 	public String selectMyReview(@SessionAttribute("loginMember")Member loginMember,
 			Model model){
 		
-		List<Review>reviewList = null;		
+		List<MyReview>reviewList = null;	
+		List<MyReviewOrder>reviewOrder = null;
 		
 		try {
 			
 			reviewList = service.selectMyReview(loginMember.getMemberNo());
 			
+			reviewOrder = service.selectReviewOrder(loginMember.getMemberNo());
+			
 			model.addAttribute("reviewList",reviewList);
+			model.addAttribute("reviewOrder",reviewOrder);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

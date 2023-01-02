@@ -55,24 +55,32 @@
 	                    	<div class="review-img-wrapper">	
 		                    	<c:if test="${review.thumbnail == null }">
 			               			<div class="review-img">
-			                        	<img src="/resources/images/review/reviewImg.png" width="200px" height="200px">
+			                        	<img src="/resources/images/review/reviewImg.png" width="180px" height="180px">
 			                        </div>
 		                        </c:if>
 		                        
 		                        <c:if test="${review.thumbnail != null}">
 			                 	    <div class="review-img">
-			                        	<img src="${review.thumbnail}"  width="200px" height="200px">
+			                        	<img src="${review.thumbnail}"  width="180px" height="180px">
 			                        </div>
 		                        </c:if>
 	                        </div>    
 	                        
 	                        <div class="content">
-	                        	<div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div>
+	                        	<!--<div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div> -->
 		                        <ul>
-		                        	<li>리뷰 작성일 : ${review.reviewDate}</li>
-		                        	<li><span class="text-muted ${review.rating}"></span></li>
-		                        	<li>${review.menuName}</li>
-		                        	<li class="review-content">내용 : ${review.reviewContent}</li>
+		                        	<li><div class="c-1">주문 번호 </div>: ${review.orderNo}</li>
+		                        	
+		                        	<c:forEach var="order" items="${reviewOrder}">
+		                        		<c:if test="${order.orderNo == review.orderNo}">
+		                        		<li><div class="c-1">주문 일자 </div>: ${order.orderDate}</li>
+		                        		</c:if>
+		                        	</c:forEach>
+		                        	
+		                        	<li><div class="c-1">리뷰 작성일 </div>: ${review.reviewDate}</li>
+		                        	<li><div class="c-2">평점 </div>: <span class="text-muted ${review.rating}"></span></li>
+		                        	<li><div class="c-2">메뉴 </div>: ${review.menuName}</li>
+		                        	<li class="review-content"><div class="c-3">작성 내용 </div>${review.reviewContent}</li>
 		                        </ul>
 	                        </div>
 	                    </div>
@@ -95,7 +103,7 @@
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
         $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
     </script>
-    <script>
+    <%-- <script>
     const reviewDel=(reviewNo)=>{
         if( confirm("정말 삭제 하시겠습니까?") ){
         $.ajax({
@@ -116,7 +124,7 @@
         })
         }
     }
-    </script>
+    </script>--%>
     <script src="/resources/js/member/myPage/myPage.js"></script>
 </body>
 </html>
