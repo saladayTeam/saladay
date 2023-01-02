@@ -104,7 +104,7 @@ public interface MemberService {
 	 * @param memberNo
 	 * @return 
 	 */
-	public List<Order> selectMyOrder(int memberNo);
+	public Map<String, Object> selectMyOrder(int memberNo);
 
 
 	/**내 주문 조회 시 배송 조회

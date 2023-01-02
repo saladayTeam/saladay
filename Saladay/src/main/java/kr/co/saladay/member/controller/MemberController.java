@@ -456,7 +456,9 @@ public class MemberController {
 		
 		//ArrayList<Order> myOrder= service.selectMyOrder(memberNo);
 		
-		List<Order> myOrder= service.selectMyOrder(memberNo);
+		Map<String,Object>map=service.selectMyOrder(memberNo);
+		
+		List<Order> myOrder= 
 		
 		List<Delivery> myDelivery = service.selectMyDelivery(memberNo);
 		

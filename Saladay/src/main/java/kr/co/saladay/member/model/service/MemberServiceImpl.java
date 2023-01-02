@@ -139,7 +139,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	//내 주문 조회
 	@Override
-	public List<Order> selectMyOrder(int memberNo) {
+	public Map<String, Object> selectMyOrder(int memberNo) {
 		
 		List<Order> orderPackage =  dao.selectMyOrder(memberNo);
 		
