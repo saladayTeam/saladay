@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.saladay.admin.model.service.OrderManageService;
@@ -20,6 +21,7 @@ import kr.co.saladay.admin.model.vo.DeliveryManage;
 import kr.co.saladay.admin.model.vo.OrderManage;
 
 @Controller
+@SessionAttributes({"orderStatus"})
 public class OrderManageController {
 	
 	@Autowired
@@ -28,10 +30,14 @@ public class OrderManageController {
 	// 전체 주문 목록 조회
 	@GetMapping("/admin/orderManage")
 	public String selectOrderList(Model model,
-			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			@RequestParam(value = "orderStatus" , required = false, defaultValue = "0") int orderStatus //주문상태(취소 등)
+			) {
 		
-		Map<String, Object> map = service.selectOrderList(cp);
+		Map<String, Object> map = service.selectOrderList(cp, orderStatus);
+		//orderStatus 0 == 전체, 1 == 정상, 2 == 취소요청, 3 == 주문취소
 		model.addAttribute("map", map);
+		model.addAttribute("orderStatus", orderStatus);
 		
 		return "/admin/orderManage/orderManageList";
 	}
@@ -79,6 +85,32 @@ public class OrderManageController {
 			
 		} else { // 주문 취소 실패 시
 			message = "주문 취소 실패";
+			path = referer;
+		}
+		
+		ra.addFlashAttribute(message);
+		
+		return "redirect:" + path;
+	}
+	
+	// 주문 취소 요청 철회
+	@GetMapping("/admin/orderManage/{orderNo}/update")
+	public String withdrawOrderCancle(@RequestHeader("referer") String referer,
+			@PathVariable("orderNo") int orderNo,
+			RedirectAttributes ra
+			) {
+		
+		int result = service.withdrawOrderCancle(orderNo);
+		
+		String message = null;
+		String path = null;
+		
+		if(result>0) { // 주문 취소 요청 철회 성공 시
+			message = "주문 취소 요청이 철회되었습니다.";
+			path = "/admin/orderManage/" + orderNo;
+			
+		} else { // 주문 취소 요청 철회 실패 시
+			message = "주문 취소 요청 철회 실패";
 			path = referer;
 		}
 		

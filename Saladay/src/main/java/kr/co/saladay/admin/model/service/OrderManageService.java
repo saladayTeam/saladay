@@ -10,9 +10,10 @@ public interface OrderManageService {
 
 	/** 전체 주문 목록 조회
 	 * @param cp
+	 * @param orderStatus 
 	 * @return map
 	 */
-	Map<String, Object> selectOrderList(int cp);
+	Map<String, Object> selectOrderList(int cp, int orderStatus);
 
 	/** 주문 상세 조회
 	 * @param orderNo
@@ -31,5 +32,11 @@ public interface OrderManageService {
 	 * @return result
 	 */
 	int withdrawOrder(int orderNo);
+
+	/** 주문 취소 요청 철회
+	 * @param orderNo
+	 * @return
+	 */
+	int withdrawOrderCancle(int orderNo);
 
 }
