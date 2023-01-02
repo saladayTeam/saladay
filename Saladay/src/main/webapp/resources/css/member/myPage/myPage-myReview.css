@@ -126,7 +126,7 @@ main {
 
 .my-review-detail {
     width: 640px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 15px;
     font-weight: bolder;
     list-style: none;
@@ -138,8 +138,8 @@ main {
 /* 리뷰 썸네일 div(정사각형 틀) */
 .review-img-wrapper{
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 }
 
 /* 리뷰 썸네일 */
@@ -165,17 +165,33 @@ main {
 }
 
 .content li {
-	margin-bottom:20px
+	
 }
 
 .review-content {
-
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
+}
+
+.c-1 {
+	display: inline-block;
+	width: 85px;
+	margin-top:5px;
+}
+
+.c-2 {
+	display: inline-block;
+	width: 35px;
+	margin-top:5px;
+}
+
+.c-3 {
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 
