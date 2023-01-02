@@ -14,13 +14,13 @@ public interface ReviewService {
 	 * @param cp
 	 * @return map
 	 */
-	Map<String, Object> selectReviewList(int cp);
+	Map<String, Object> selectReviewList(int cp, int reviewRating);
 
 	/** 특정 메뉴 리뷰 목록 조회
 	 * @param cp
 	 * @return map
 	 */
-	Map<String, Object> selectMenuReviewList(int cp, int menuNo);
+	Map<String, Object> selectMenuReviewList(int cp, int menuNo, int reviewRating);
 
 	/** 리뷰 상세 조회
 	 * @param reviewNo

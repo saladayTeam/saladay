@@ -1,5 +1,6 @@
 package kr.co.saladay.review.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,28 +22,32 @@ public class ReviewDAO {
 	/** 전체 리뷰 수 조회
 	 * @return
 	 */
-	public int getListCount() {
-		return sqlSession.selectOne("reviewMapper.getListCount");
+	public int getListCount(int reviewRating) {
+		return sqlSession.selectOne("reviewMapper.getListCount", reviewRating);
 	}
 
 	/** 전체 리뷰 목록 조회
 	 * @param pagination
 	 * @return
 	 */
-	public List<Review> selectReviewList(Pagination pagination) {
+	public List<Review> selectReviewList(int reviewRating, Pagination pagination) {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("reviewMapper.selectReviewList", null, rowBounds);
+		return sqlSession.selectList("reviewMapper.selectReviewList", reviewRating, rowBounds);
 	}
 
 	/** 특정 메뉴 리뷰 수 조회
 	 * @param menuNo
 	 * @return
 	 */
-	public int getMenuReviewListCount(int menuNo) {
-		return sqlSession.selectOne("reviewMapper.getMenuReviewListCount", menuNo);
+	public int getMenuReviewListCount(int menuNo, int reviewRating) {
+	   	Map<String, Object> map = new HashMap<String, Object>();
+		map.put("menuNo", menuNo);
+		map.put("reviewRating", reviewRating);
+		
+		return sqlSession.selectOne("reviewMapper.getMenuReviewListCount", map);
 	}
 
 	/** 특정 메뉴 리뷰 목록 조회
@@ -50,12 +55,15 @@ public class ReviewDAO {
 	 * @param menuNo
 	 * @return
 	 */
-	public List<Review> selectMenuReviewList(Pagination pagination, int menuNo) {
+	public List<Review> selectMenuReviewList(Pagination pagination, int menuNo, int reviewRating) {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+	   	Map<String, Object> map = new HashMap<String, Object>();
+		map.put("menuNo", menuNo);
+		map.put("reviewRating", reviewRating);
 		
-		return sqlSession.selectList("reviewMapper.selectMenuReviewList", menuNo, rowBounds);
+		return sqlSession.selectList("reviewMapper.selectMenuReviewList", map, rowBounds);
 	}
 
 	/** 리뷰 상세 조회
