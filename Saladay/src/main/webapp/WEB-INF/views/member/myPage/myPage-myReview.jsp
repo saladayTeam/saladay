@@ -11,10 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
 	
-    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <link rel="stylesheet" href="/resources/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/resources/css/review/review.css">
+    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
     <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>	
 
  
@@ -57,13 +59,13 @@
 	                    	<div class="review-img-wrapper">	
 		                    	<c:if test="${review.thumbnail == null }">
 			               			<div class="review-img">
-			                        	<img src="/resources/images/review/reviewImg.png" width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
+			                        	<img src="/resources/images/review/reviewImg.png" class="review-img list-thumbnail" width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${loginMember.memberNo})">
 			                        </div>
 		                        </c:if>
 		                        
 		                        <c:if test="${review.thumbnail != null}">
 			                 	    <div class="review-img">
-			                        	<img src="${review.thumbnail}"  width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
+			                        	<img src="${review.thumbnail}"  class="review-img list-thumbnail" width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${loginMember.memberNo})">
 			                        </div>
 		                        </c:if>
 	                        </div>    
@@ -108,9 +110,13 @@
         $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
         $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
+        const memberNo = "${loginMember.memberNo}";
+        const authority = "${loginMember.authority}";
+        const reviewNo = "${review.reviewNo}";
+        const likeCheck = "${review.likeCheck}";
     </script>
     <script>
-    const reviewDel=(reviewNo)=>{
+/*     const reviewDel=(reviewNo)=>{
         if( confirm("정말 삭제 하시겠습니까?") ){
         $.ajax({
             url : "/review/delete",
@@ -129,10 +135,11 @@
             }
         })
         }
-    }
+    } */
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/resources/js/member/myPage/myPage.js"></script>
-    <script src="/resources/js/review/myReview.js"></script>
+    <script src="/resources/js/member/myPage/myReview.js"></script>
 </body>
 </html>
