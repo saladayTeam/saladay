@@ -38,3 +38,17 @@ if (withdrawOrderBtn != null) {
     });
 
 }
+// 주문 취소 요청 철회
+const cancleBtn = document.getElementById("cancleBtn");
+if (cancleBtn != null) {
+    cancleBtn.addEventListener("click", ()=>{
+
+        if(confirm("고객의 취소 요청이 등록된 주문건입니다. \n요청을 철회하시겠습니까?")) {
+            // /admin/orderManage/{orderNo}/update GET방식
+            // 삭제 후 /admin/orderManage/{orderNo}
+            
+            location.href = location.pathname + "/update";
+        }
+    });
+
+}

@@ -20,17 +20,19 @@ public class OrderManageDAO {
 
 
 	// 전체 주문 수 조회
-	public int getListCount() {
-		return sqlSession.selectOne("orderManageMapper.getListCount");
+	public int getListCount(int orderStatus) {
+		return sqlSession.selectOne("orderManageMapper.getListCount", orderStatus);
 	}
 
 	// 전체 주문 목록 조회
-	public List<Review> selectOrderList(OrderManagePagination pagination) {
+	public List<Review> selectOrderList(int orderStatus, OrderManagePagination pagination) {
+		
+		//orderStatus 0 == 전체, 1 == 정상, 2 == 취소요청, 3 == 주문취소
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("orderManageMapper.selectOrderList", null, rowBounds);
+		return sqlSession.selectList("orderManageMapper.selectOrderList", orderStatus, rowBounds);
 	}
 
 	// 주문 상세 조회
@@ -46,5 +48,10 @@ public class OrderManageDAO {
 	// 주문 취소
 	public int withdrawOrder(int orderNo) {
 		return sqlSession.update("orderManageMapper.withdrawOrder",orderNo);
+	}
+
+	// 주문 취소 요청 철회
+	public int withdrawOrderCancle(int orderNo) {
+		return sqlSession.update("orderManageMapper.withdrawOrderCancle",orderNo);
 	}
 }
