@@ -21,6 +21,9 @@
     <%-- 헤더 --%>
     <main>
 
+    <%-- 모달 --%>
+    <jsp:include page="/WEB-INF/views/admin/delivery/selectDeliveryCalendar.jsp"></jsp:include>
+    <%-- 모달 --%>
           <div class="col-lg-6">
             <div class="inputGroup">
               <div class="checkbox" id="f1828d">
