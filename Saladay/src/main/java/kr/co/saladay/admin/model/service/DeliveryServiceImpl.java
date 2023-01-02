@@ -36,6 +36,16 @@ public class DeliveryServiceImpl implements DeliveryService{
 		return dao.updateDelivery(deliveryNo);
 	}
 
+	/**
+	 * 배송일정 모달
+	 */
+	@Override
+	public DeliveryManage selectDeliveryDetail(int deliveryNo) {
+		return dao.selectDeliveryDetail(deliveryNo);
+	}
+	
+	
+
 	
 	
 	
