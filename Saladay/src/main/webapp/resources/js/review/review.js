@@ -17,6 +17,7 @@ const modalClose=document.getElementById("modal-close");
         // Modal 닫기 버튼
         modalClose.addEventListener("click", () =>{
             modal.style.display="none";
+            location.reload("");
         });
     }
 })();
@@ -29,10 +30,11 @@ const reviewSalad = document.querySelector(".review-detail-salad");
 const reviewNickname = document.querySelector(".review-detail-nickname");
 const reviewText = document.querySelector(".review-detail-text");
 const reviewLike = document.querySelector(".review-detail-likeCount");
-const reviewHeart = document.getElementById("reviewHeart");
 const indicators = document.querySelector(".carousel-indicators");
 const prev = document.querySelector(".carousel-control-prev");
 const next = document.querySelector(".carousel-control-next");
+const heartArea = document.getElementById("heart-area");
+const reviewHeart = document.getElementById("reviewHeart");
 
 // 리뷰 이미지 클릭시 실행
 function selectReviewDetail(reviewNo, reviewMemberNo){
@@ -219,13 +221,19 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 
             // 좋아요 여부 체크하여 빈하트/채워진 하트 출력
             if(rDetail[0].likeCheck==0){ // 로그인X이거나 좋아요를 누르지 않은 리뷰 == 빈하트
+                // reviewHeart.classList.remove("fa-solid");
+                // reviewHeart.classList.add("fa-heart");
+                // reviewHeart.classList.add("fa-regular");
+                // 폰트어썸 -> 이미지로 처리
+                reviewHeart.setAttribute("src", "/resources/images/review/heart01.png");
+                reviewHeart.classList.add("rd-heart");
                 reviewHeart.classList.remove("fa-solid");
-                reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-regular");
 
             } else{ // 좋아요를 누른 리뷰 == 채워진 하트
+                reviewHeart.setAttribute("src", "/resources/images/review/heart02.png");
+                reviewHeart.classList.add("rd-heart");
                 reviewHeart.classList.remove("fa-regular");
-                reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-solid");
             }
 
@@ -248,7 +256,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                             type : "GET" ,
                             success : (result)=>{
                                 if(result >0){ // 성공
-            
+                                    reviewHeart.setAttribute("src", "/resources/images/review/heart02.png");
                                     reviewHeart.classList.remove('fa-regular'); // 빈하트 클래스 삭제
                                     reviewHeart.classList.add('fa-solid'); // 채워진 하트 클래스 추가
                                     reviewLike.innerText = Number(reviewLike.innerText)+1; // 1증가
@@ -266,7 +274,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                             type : "GET" ,
                             success : (result)=>{
                                 if(result >0){ // 성공
-                
+                                    reviewHeart.setAttribute("src", "/resources/images/review/heart01.png");
                                     reviewHeart.classList.add('fa-regular'); // 빈하트 클래스 추가
                                     reviewHeart.classList.remove('fa-solid'); // 채워진 하트 클래스 삭제
                                     reviewLike.innerText = Number(reviewLike.innerText)-1; // 1감소
