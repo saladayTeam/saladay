@@ -1,6 +1,7 @@
 package kr.co.saladay.member.model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import kr.co.saladay.member.model.dao.MemberDAO;
 import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.member.model.vo.MemberPagination;
 import kr.co.saladay.member.model.vo.MyReview;
 import kr.co.saladay.member.model.vo.MyReviewOrder;
 import kr.co.saladay.member.model.vo.ReviewCheck;
@@ -136,16 +138,25 @@ public class MemberServiceImpl implements MemberService{
 	
 		return dao.selectReviewOrder(memberNo);
 	}
-	
+
 	//내 주문 조회
 	@Override
-	public Map<String, Object> selectMyOrder(int memberNo) {
+	public Map<String, Object> selectMyOrder(int memberNo, int cp) {
 		
-		List<Order> orderPackage =  dao.selectMyOrder(memberNo);
+		int listCount = dao.getListCount(memberNo);
 		
-		return orderPackage;
+		MemberPagination pagination = new MemberPagination(listCount,cp); 
+		
+		List<Order> orderPackage =  dao.selectMyOrder(memberNo, pagination);
+		
+		Map<String, Object>map = new HashMap<String,Object>();
+		map.put("pagination", pagination);
+		map.put("orderPackage", orderPackage);
+		
+		return map;
 	}
 
+	
 	//내 주문 조회 시 배송조회
 	@Override
 	public List<Delivery> selectMyDelivery(int memberNo) {
@@ -160,6 +171,9 @@ public class MemberServiceImpl implements MemberService{
 		
 		return dao.cancelMyOrder(orderNo);
 	}
+
+
+
 
 
 

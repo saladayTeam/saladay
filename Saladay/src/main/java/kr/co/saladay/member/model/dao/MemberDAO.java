@@ -3,12 +3,14 @@ package kr.co.saladay.member.model.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.member.model.vo.MemberPagination;
 import kr.co.saladay.member.model.vo.MyReview;
 import kr.co.saladay.member.model.vo.MyReviewOrder;
 import kr.co.saladay.member.model.vo.ReviewCheck;
@@ -135,16 +137,28 @@ public class MemberDAO {
 		return sqlSession.selectList("myReviewMapper.selectReviewOrder",memberNo);
 	}
 	
+	/**주문 수 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public int getListCount(int memberNo) {
+		
+		return sqlSession.selectOne("myOrderMapper.getListCount", memberNo);
+	}	
 	
 	/**내 주문 조회
 	 * @param memberNo
 	 * @return
 	 */
-	public List<Order> selectMyOrder(int memberNo) {
+	public List<Order> selectMyOrder( int memberNo, MemberPagination pagination) {
 	
-		List<Order> orderResult = sqlSession.selectList("myOrderMapper.selectMyOrder", memberNo);
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
 		
-		return orderResult;
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		
+		return sqlSession.selectList("myOrderMapper.selectMyOrder", memberNo, rowBounds);
 	}
 
 	
@@ -167,6 +181,10 @@ public class MemberDAO {
 		
 		return sqlSession.update("myOrderMapper.cancelMyOrder",orderNo);
 	}
+
+
+
+	
 
 
 
