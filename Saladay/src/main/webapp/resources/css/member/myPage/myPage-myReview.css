@@ -49,6 +49,13 @@ main {
 .my-page-list li a {
 	 text-decoration: none;
 	 color:black;
+	 
+	 display:block;
+	 padding:16px 65px 16px 65px ;
+}
+
+.my-page-list li a:hover {
+    cursor: pointer;
 }
 
 
@@ -70,7 +77,6 @@ main {
 
 .my-page-list label:hover {
     background-color: #ddd;
-    cursor: pointer;
 }
 
 .my-page-list input:checked + label {
