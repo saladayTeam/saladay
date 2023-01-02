@@ -110,9 +110,19 @@ main {
 }
 
 /*회원정보 내용--------------------------------------*/
-.empty-space1 {
-	margin-right:27px;
+.info-margin {
+	display: inline-block;
+	margin-right:5px;
 }
+
+.info-margin2 {
+	margin-right:32px;
+}
+
+.info-margin3{
+	margin-right:34px;
+}
+
 
 .empty-space2 {
 	margin-right:15px;
@@ -192,7 +202,7 @@ main {
     display: inline;
     border:none;
     outline:none;
-    width: 92px;
+    width: 98px;
 }
 
 .address-search-btn {
@@ -313,6 +323,7 @@ height: 14px;
     width: 20px;
     margin-left:650px;
     margin-bottom:10px;
+    cursor: pointer;
 }
 
 .hidden2 {
