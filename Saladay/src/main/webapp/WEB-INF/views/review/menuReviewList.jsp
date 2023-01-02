@@ -33,7 +33,7 @@
                 <h1 class="review-main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
-                <form action ="/review/${reviewList[0].menuNo}" method="get">
+<%--                 <form action ="/review/${reviewList[0].menuNo}" method="get">
                     <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
                         <option value="0">전체별점</option>
                         <option value="50" class="optStar">★★★★★</option>
@@ -45,7 +45,7 @@
                     <button type="submit" class="rrBtn">
                         검색
                     </button>
-                </form>
+                </form> --%>
             </div>
 
             <!-- 리뷰 목록 내용 -->
@@ -122,6 +122,11 @@
     <!-- 푸터 -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
     <script>
+        $(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
+        $(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
+        $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
+        $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
+        $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
         const memberNo = "${loginMember.memberNo}";
         const authority = "${loginMember.authority}";
         const reviewNo = "${review.reviewNo}";
@@ -130,6 +135,5 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/resources/js/review/review.js"></script>
-    <script src="/resources/js/review/reviewRating.js"></script>
     </body>
 </html>

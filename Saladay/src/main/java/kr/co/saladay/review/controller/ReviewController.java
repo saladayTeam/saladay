@@ -53,13 +53,11 @@ public class ReviewController {
 	// 특정 메뉴 리뷰 목록 조회
 	@GetMapping("/review/{menuNo}")
 	public String selectMenuReviewList(Model model, @PathVariable("menuNo") int menuNo,
-			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
-			@RequestParam(value = "reviewRating" , required = false, defaultValue = "0") int reviewRating //별점순 정렬
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp
 			) {
 
-		Map<String, Object> map = service.selectMenuReviewList(cp, menuNo, reviewRating);
+		Map<String, Object> map = service.selectMenuReviewList(cp, menuNo);
 		model.addAttribute("map", map);
-		model.addAttribute("reviewRating", reviewRating);
 
 		return "/review/menuReviewList";
 	}

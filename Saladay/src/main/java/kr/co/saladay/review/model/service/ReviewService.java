@@ -20,7 +20,7 @@ public interface ReviewService {
 	 * @param cp
 	 * @return map
 	 */
-	Map<String, Object> selectMenuReviewList(int cp, int menuNo, int reviewRating);
+	Map<String, Object> selectMenuReviewList(int cp, int menuNo);
 
 	/** 리뷰 상세 조회
 	 * @param reviewNo

@@ -43,13 +43,13 @@ public class ReviewServiceImpl implements ReviewService{
 
 	// 특정 메뉴 리뷰 목록 조회
 	@Override
-	public Map<String, Object> selectMenuReviewList(int cp, int menuNo, int reviewRating) {
+	public Map<String, Object> selectMenuReviewList(int cp, int menuNo) {
 		
-		int menuReviewListCount = dao.getMenuReviewListCount(menuNo, reviewRating);
+		int menuReviewListCount = dao.getMenuReviewListCount(menuNo);
 
 		Pagination pagination = new Pagination(menuReviewListCount, cp);
 		
-		List<Review> menuReviewList = dao.selectMenuReviewList(pagination, menuNo, reviewRating);
+		List<Review> menuReviewList = dao.selectMenuReviewList(pagination, menuNo);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
