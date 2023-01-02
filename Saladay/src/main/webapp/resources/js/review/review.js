@@ -36,6 +36,10 @@ const next = document.querySelector(".carousel-control-next");
 const heartArea = document.getElementById("heart-area");
 const reviewHeart = document.getElementById("reviewHeart");
 
+// 첨부 이미지 유무를 확인하는 변수
+// true : 첨부 이미지 있음, false : 첨부 이미지 없음
+let imgCheck = false;
+
 // 리뷰 이미지 클릭시 실행
 function selectReviewDetail(reviewNo, reviewMemberNo){
 
@@ -78,6 +82,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     indicators.classList.remove("rd-hidden");
                     prev.classList.remove("rd-hidden");
                     next.classList.remove("rd-hidden");
+                    imgCheck = true;
                 }
             }
 
@@ -104,6 +109,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 indicators.classList.add("rd-hidden");
                 prev.classList.add("rd-hidden");
                 next.classList.add("rd-hidden");
+                imgCheck = true;
             } 
             
             /* 첨부 이미지가 없을 경우 기본 이미지 보여주는 코드 */
@@ -126,6 +132,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 indicators.classList.add("rd-hidden");
                 prev.classList.add("rd-hidden");
                 next.classList.add("rd-hidden");
+                imgCheck = false;
             }
 
             // 리뷰 삭제
@@ -143,59 +150,9 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             // 리뷰 삭제 버튼 노출
             if(authority==99||memberNo==reviewMemberNo){
                 deleteBtn.style.display="";
-                /* deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")"); */
+                deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")");
                 // 개인 삭제
                 // 관리자 삭제
-
-                // 리뷰 삭제 ajax 실행
-                deleteBtn.addEventListener("click", e =>{
-                    if( confirm("정말 삭제 하시겠습니까?") ){
-                        $.ajax({
-                            url : "/review/delete",
-                            data : {"reviewNo" : reviewNo},
-                            type : "GET",
-                            success: function(result){
-                                if(result > 0){
-                                    
-                                    /* 리뷰 이미지가 존재할 때 같이 삭제*/
-                                    if(rDetail[0].imageList.length != 0){
-                                        $.ajax({
-                                            url : "/review/deleteImg",
-                                            data : {"reviewNo" : reviewNo},
-                                            type : "GET",
-                                            success: function(result){
-                                                if(result > 0){
-                                                    alert("리뷰가 삭제되었습니다");
-                                                    modal.style.display="none";
-                                                    location.reload("");
-                                                }else{
-                                                    alert("리뷰 삭제 실패");
-                                                }
-                                            },
-                                            error : function(req, status, error){
-                                                console.log("리뷰 삭제 실패")
-                                                console.log(req.responseText);
-                                            }
-                                        });
-                                    } else{
-                                        /* 리뷰 이미지가 없을 때 */
-                                        alert("리뷰가 삭제되었습니다");
-                                        modal.style.display="none";
-                                        location.reload("");
-                                    }
-
-                                }else{
-                                    alert("삭제 실패");
-                                }
-                            },
-                
-                            error : function(req, status, error){
-                                console.log("리뷰 삭제 실패")
-                                console.log(req.responseText);
-                            }
-                        });
-                    }
-                });
             }
 
             // 리뷰 조회
@@ -224,7 +181,8 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 // reviewHeart.classList.remove("fa-solid");
                 // reviewHeart.classList.add("fa-heart");
                 // reviewHeart.classList.add("fa-regular");
-                // 폰트어썸 -> 이미지로 처리
+
+                // 폰트어썸X -> 이미지로 처리
                 reviewHeart.setAttribute("src", "/resources/images/review/heart01.png");
                 reviewHeart.classList.add("rd-heart");
                 reviewHeart.classList.remove("fa-solid");
@@ -237,6 +195,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 reviewHeart.classList.add("fa-solid");
             }
 
+            // 리뷰하트에 리뷰번호 값 넣어두기
             reviewHeart.setAttribute("reviewNo", rDetail[0].reviewNo);
         },
         error : function(req, status, error){
@@ -247,35 +206,58 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 }
 
 
-//리뷰 삭제
-// function deleteReview(reviewNo){
-//     if( confirm("정말 삭제 하시겠습니까?") ){
-//         $.ajax({
-//             url : "/review/delete",
-//             data : {"reviewNo" : reviewNo},
-//             type : "GET",
-//             success: function(result){
-//                 if(result > 0){
-//                     alert("리뷰가 삭제되었습니다");
-//                     modal.style.display="none";
-//                     location.reload("");
-//                 }else{
-//                     alert("삭제 실패");
-//                 }
-//             },
+// 리뷰 삭제
+function deleteReview(reviewNo){
+    if( confirm("정말 삭제 하시겠습니까?") ){
+        $.ajax({
+            url : "/review/delete",
+            data : {"reviewNo" : reviewNo},
+            type : "GET",
+            success: function(result){
+                if(result > 0){
+                    /* 리뷰 이미지가 존재할 때 같이 삭제*/
+                    if(imgCheck){
+                        $.ajax({
+                            url : "/review/deleteImg",
+                            data : {"reviewNo" : reviewNo},
+                            type : "GET",
+                            success: function(result){
+                                if(result > 0){
+                                    alert("리뷰가 삭제되었습니다");
+                                    modal.style.display="none";
+                                    location.reload("");
+                                }else{
+                                    alert("리뷰 삭제 실패");
+                                }
+                            },
+                            error : function(req, status, error){
+                                console.log("리뷰 삭제 실패")
+                                console.log(req.responseText);
+                            }
+                        });
+                    } else{
+                        /* 리뷰 이미지가 없을 때 */
+                        alert("리뷰가 삭제되었습니다");
+                        modal.style.display="none";
+                        location.reload("");
+                    }
 
-//             error : function(req, status, error){
-//                 console.log("리뷰 삭제 실패")
-//                 console.log(req.responseText);
-//             }
-//         });
-//     }
-// }
+                }else{
+                    alert("삭제 실패");
+                }
+            },
+
+            error : function(req, status, error){
+                console.log("리뷰 삭제 실패")
+                console.log(req.responseText);
+            }
+        });
+    }
+}
 
 /* 좋아요 증가/감소 ajax 실행 */
 if (reviewHeart != null) {
 
-    /* reviewHeart.removeEventListener("click", null); */
     reviewHeart.addEventListener("click", e =>{
         // 로그인 상태가 아닌 경우
         if(memberNo==""){
@@ -289,7 +271,7 @@ if (reviewHeart != null) {
             $.ajax({
                 url : "/review/likeUp",
                 data : {"reviewNo" : reviewHeart.getAttribute("reviewNo")
-                 , "memberNo" : memberNo},
+                , "memberNo" : memberNo},
                 type : "GET" ,
                 success : (result)=>{
                     if(result >0){ // 성공
