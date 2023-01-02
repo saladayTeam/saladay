@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <link rel="stylesheet" href="/resources/lib/owlcarousel/assets/owl.carousel.min.css">
-      <link rel="stylesheet" href="/resources/css/review/review.css">  
     <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>	
 
  
@@ -70,20 +69,20 @@
 	                        </div>    
 	                        
 	                        <div class="content">
-	                        	<div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div>
+	                        	
 		                        <ul>
-		                        	<li><div class="c-1">주문 번호 </div>: ${review.orderNo}</li>
+		                        	<li class="review-order-no"><div>주문 번호  &nbsp; &nbsp; : ${review.orderNo} </div><div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div></li>
 		                        	
 		                        	<c:forEach var="order" items="${reviewOrder}">
 		                        		<c:if test="${order.orderNo == review.orderNo}">
-		                        		<li><div class="c-1">주문 일자 </div>: ${order.orderDate}</li>
+		                        		<li class="review-order-date"><div>주문 일자 </div>: ${order.orderDate}</li>
 		                        		</c:if>
 		                        	</c:forEach>
 		                        	
-		                        	<li><div class="c-1">리뷰 작성일 </div>: ${review.reviewDate}</li>
-		                        	<li><div class="c-2">평점 </div>: <span class="text-muted ${review.rating}"></span></li>
-		                        	<li><div class="c-2">메뉴 </div>: ${review.menuName}</li>
-		                        	<li class="review-content"><div class="c-3">작성 내용 </div>${review.reviewContent}</li>
+		                        	<li class="review-date"><div>리뷰 작성일 </div>: ${review.reviewDate}</li>
+		                        	<li class="review-rating"><div>평점 </div>: <span class="text-muted ${review.rating}"></span></li>
+		                        	<li class="review-menu"><div>메뉴 </div>: ${review.menuName}</li>
+		                        	<li class="review-content"><div>작성 내용 </div>${review.reviewContent}</li>
 		                        </ul>
 	                        </div>
 	                    </div>
@@ -94,6 +93,7 @@
            
             </div>
         </div>
+        
         <div class="review-modal">
             <span id="modal-close">&times;</span>
             <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp"></jsp:include>
@@ -133,6 +133,6 @@
     </script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/resources/js/member/myPage/myPage.js"></script>
-    <script src="/resources/js/review/review.js"></script>
+    <script src="/resources/js/review/myReview.js"></script>
 </body>
 </html>

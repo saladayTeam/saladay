@@ -119,14 +119,11 @@ main {
     color: white;
     background-color: #17633d;
     
-    margin-left:340px;
-    margin-bottom:5px;
     border-radius: 5px;
     cursor: pointer;
     border: none;
     text-align : center;
     line-height : 20px;
-    text-align : center;
 }
 
 .my-review-detail {
@@ -163,15 +160,37 @@ main {
 }
 
 
-
 .content {
 	width: 400px;
 	margin-left: 20px;
-	margin-top:5px;
+	margin-top:5px;	
 }
 
 .content li {
-	
+	margin-bottom:5px;
+}
+
+.review-order-no{
+	display: flex;
+	justify-content: space-between;
+}
+
+.review-order-date div{
+	display: inline-block;
+	width:80px;
+}
+
+.review-date div{
+	display: inline-block;
+	width:80px;
+}
+
+.review-rating div{
+	display: inline-block;
+}
+
+.review-menu div{
+	display: inline-block;
 }
 
 .review-content {
@@ -183,20 +202,7 @@ main {
     word-wrap: break-word;
 }
 
-.c-1 {
-	display: inline-block;
-	width: 85px;
-	margin-top:5px;
-}
-
-.c-2 {
-	display: inline-block;
-	width: 35px;
-	margin-top:5px;
-}
-
-.c-3 {
-	margin-top:5px;
+.review-content div{
 	margin-bottom:5px;
 }
 
@@ -236,3 +242,46 @@ main {
 	display:none;
 }
 
+
+/* ************************************************** */
+/* 리뷰 상세 모달 */
+.review-modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    left:0;
+    z-index: 1210;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+    overflow: auto;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.review-modal, .review-modal *{
+    box-sizing: content-box !important;
+}
+    
+/* 리뷰 모달 닫기 */
+#modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+#modal-close:hover{
+    transform: scale(1.2);
+}
