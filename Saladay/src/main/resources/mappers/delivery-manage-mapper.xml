@@ -20,6 +20,11 @@
       <result property="rowNum" column="ROW_NUM"/>
 	</resultMap>
 	
+	<!-- 배송건수 조회 -->
+	<select id="getDeliveryCount" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM "DELIVERY"
+	</select>
+	
 	<!-- 배송정보 불러오기 -->
 	<select id="selectDelList" resultMap="deliveryManage_rm">
 		SELECT ROW_NUMBER() OVER(PARTITION BY D.ORDER_NO ORDER BY D.ORDER_NO, D.DELIVERY_DATE) ROW_NUM,
@@ -28,7 +33,7 @@
 		JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
 		JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
 		JOIN "PACKAGE" P ON (P.PACKAGE_NO=O.PACKAGE_NO)
-		ORDER BY DELIVERY_NO DESC
+		ORDER BY DELIVERY_DATE DESC
 	</select>
 	
 	<!-- 배송상태 변경(배송완료로) -->
