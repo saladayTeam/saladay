@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import kr.co.saladay.member.model.dao.MemberDAO;
 import kr.co.saladay.member.model.vo.Delivery;
 import kr.co.saladay.member.model.vo.Member;
+import kr.co.saladay.member.model.vo.MyReview;
+import kr.co.saladay.member.model.vo.MyReviewOrder;
 import kr.co.saladay.member.model.vo.ReviewCheck;
 import kr.co.saladay.order.model.vo.Order;
 import kr.co.saladay.review.model.vo.Review;
@@ -123,12 +125,17 @@ public class MemberServiceImpl implements MemberService{
 
 	//내 리뷰 조회
 	@Override
-	public List<Review> selectMyReview(int memberNo) {
+	public List<MyReview> selectMyReview(int memberNo) {
 		
 		return dao.selectMyReview(memberNo);
 	}
 
-
+	//리뷰 조회 시 주문일자 조회
+	@Override
+	public List<MyReviewOrder> selectReviewOrder(int memberNo) {
+	
+		return dao.selectReviewOrder(memberNo);
+	}
 	
 	//내 주문 조회
 	@Override
@@ -153,5 +160,8 @@ public class MemberServiceImpl implements MemberService{
 		
 		return dao.cancelMyOrder(orderNo);
 	}
+
+
+
 	
 }

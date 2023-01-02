@@ -27,7 +27,7 @@ margin-top: 15px;
 padding: 20px;
 }
 
-.admin-order-number > span {
+.admin-order-number > div {
 font-weight: bold;
 }
 
@@ -350,3 +350,8 @@ width: 1200px;
     font-size: 15px;
 }
 
+
+.ao-message{
+    margin-top: 10px;
+    font-weight: bold;
+}

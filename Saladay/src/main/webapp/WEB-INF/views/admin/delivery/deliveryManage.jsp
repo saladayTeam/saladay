@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<c:set var="deliveryList" value="${map.deliveryList}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,10 +27,14 @@
     <%-- 헤더 --%>
     <main>
         <div class="admin-order-title">
-            <span><h1>배송관리</h1></span>
-            <br />
-            <span>고객의 배송 정보를 업데이트할 수 있습니다</span>
-            <button onclick="location.href='/admin/deliveryCalendar'">캘린더</button>
+            <div class="title">
+              <span><h1>배송관리</h1></span>
+              <br />
+              <span>고객의 배송 정보를 업데이트할 수 있습니다</span>
+            </div>
+            <div class="calendarBtn">
+              <button onclick="location.href='/admin/deliveryCalendar'" id="calendar">캘린더</button>
+            </div>
 
             <%-- <div>${list}</div> --%>
         </div>
@@ -60,7 +67,7 @@
         </thead>
 
         <tbody>
-          <c:forEach items="${list}" var="delivery">
+          <c:forEach items="${deliveryList}" var="delivery">
             <tr>
               <%-- <td scope="col"><input type="checkbox" name="rowCheck" value="${delivery.deliveryNo}"></td> --%>
               <td scope="col"><span class="menu-n">${delivery.deliveryNo}</a></span></td>
@@ -83,8 +90,8 @@
       
       </table>
 
-      <%-- <div class="pagination-area">
-            <c:if test="${not empty menuList}">
+      <div class="pagination-area">
+            <c:if test="${not empty deliveryList}">
                 <ul class="pagination">
                     <!-- 이전 목록 마지막 번호로 이동 --> 
                     <li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
@@ -105,7 +112,7 @@
                     <li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
                 </ul>
             </c:if>
-        </div> --%>
+        </div>
 
         
 

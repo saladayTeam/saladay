@@ -39,8 +39,8 @@ public class DeliveryController {
 			@RequestParam(value="cp", required=false, defaultValue="1") int cp,
 			Model model) {
 		
-		List<DeliveryManage> list = service.adminDelivery(cp);
-		model.addAttribute("list", list);
+		Map<String, Object> map = service.selectAdminDelivery(cp);
+		model.addAttribute("map", map);
 		
 		return "admin/delivery/deliveryManage";
 	}
@@ -89,5 +89,18 @@ public class DeliveryController {
 		
 		return service.updateDelivery(deliveryNo);
 	}
+	
+	// 캘린더 일정 하나 정보 가져오기
+	@PostMapping("/admin/selectDeliveryCalendar")
+	@ResponseBody
+	public String selectDeliveryDetail(
+			@RequestParam(value="deliveryNo", required=false) int deliveryNo
+			) {
+		
+		DeliveryManage delivery = service.selectDeliveryDetail(deliveryNo);
+		
+		return new Gson().toJson(delivery);
+	}
+	
 
 }

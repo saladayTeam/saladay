@@ -522,8 +522,6 @@ if(memberTel != null) {
 
 
 // 주소 Daum API
-document.getElementById("addressSearch").addEventListener("click", execDaumPostcode);
-
 function execDaumPostcode() {
     new daum.Postcode({
         oncomplete: data => {

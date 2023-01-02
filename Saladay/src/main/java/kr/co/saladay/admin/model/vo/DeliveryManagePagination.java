@@ -1,10 +1,10 @@
-package kr.co.saladay.review.model.vo;
+package kr.co.saladay.admin.model.vo;
 
-public class Pagination {
-	   private int currentPage;      // 현재 페이지 번호
+public class DeliveryManagePagination {
+	private int currentPage;      // 현재 페이지 번호
 	   private int listCount;         // 전체 게시글 수
 	   
-	   private int limit = 12;         // 한 페이지 목록에 보여지는 게시글 수
+	   private int limit = 20;         // 한 페이지 목록에 보여지는 게시글 수
 	   private int pageSize = 5;      // 보여질 페이지 번호 개수
 	   
 	   private int maxPage;         // 마지막 페이지 번호 // >>
@@ -15,7 +15,7 @@ public class Pagination {
 	   private int nextPage;         // 다음 페이지의 페이지 번호 맨 앞 // >
 	   
 	   
-	   public Pagination(int listCount, int currentPage) {
+	   public DeliveryManagePagination(int listCount, int currentPage) {
 	      this.listCount = listCount;
 	      this.currentPage = currentPage;
 	      
@@ -24,7 +24,7 @@ public class Pagination {
 	      makePagination();
 	   }
 	   
-	   public Pagination(int listCount, int currentPage, int limit, int pageSize) {
+	   public DeliveryManagePagination(int listCount, int currentPage, int limit, int pageSize) {
 	      this.listCount = listCount;
 	      this.currentPage = currentPage;
 	      this.limit = limit;
