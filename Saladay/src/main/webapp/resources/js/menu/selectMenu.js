@@ -43,7 +43,7 @@ window.onload = function() {
         // 다음 버튼을 눌렀을때
       if (event.target.className === 'next') {
           console.log(`${currentIdx} /  ${slideLis.length}`);
-          window.scrollTo({ top: 100, behavior: "smooth" }); 
+          window.scrollTo({ top: 440, behavior: "smooth" }); 
         if(currentIdx == slideLis.length -1){
             return;
         }
@@ -60,7 +60,7 @@ window.onload = function() {
         }
       } else if (event.target.className === 'prev') {
           if (currentIdx !== 0) {
-            window.scrollTo({ top: 100, behavior: "smooth" }); 
+            window.scrollTo({ top: 440, behavior: "smooth" }); 
             translate += liWidth;
             slider.style.transform = `translateX(${translate}px)`;
             currentIdx -= 1;
@@ -97,6 +97,7 @@ window.onload = function() {
             var mName = $(this).text();
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
+            $('.menu-price').eq(currentIdx).text($(this).next().next().next().val().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
             $('.menuNo').eq(currentIdx).val($(this).next().next().val()) // 메뉴 번호 넘기기 위해서 .val사용
             // console.log("aaaaa", $('.menu-detail').val());
             // console.log("vvvvvvv",$('.menuNo').val());
