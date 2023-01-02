@@ -105,6 +105,11 @@ main {
     margin-bottom: 20px;
 }
 
+.main-sub-title {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: grey;
+}
 /*리뷰 내용--------------------------------------*/
 .review-del-btn {
     width: 60px;
@@ -138,8 +143,8 @@ main {
 /* 리뷰 썸네일 div(정사각형 틀) */
 .review-img-wrapper{
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
 }
 
 /* 리뷰 썸네일 */
@@ -162,6 +167,7 @@ main {
 .content {
 	width: 400px;
 	margin-left: 20px;
+	margin-top:5px;
 }
 
 .content li {

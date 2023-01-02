@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
+    <link rel="stylesheet" href="/resources/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/resources/css/review/review.css">    
     <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>	
 
  
@@ -34,6 +36,7 @@
 
                     <div class="my-page-header">
                         <h1 class="main-title">나의 리뷰</h1>
+                         <p class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</p>
                     </div>
 
 					<div class="review-list">
@@ -55,13 +58,13 @@
 	                    	<div class="review-img-wrapper">	
 		                    	<c:if test="${review.thumbnail == null }">
 			               			<div class="review-img">
-			                        	<img src="/resources/images/review/reviewImg.png" width="180px" height="180px">
+			                        	<img src="/resources/images/review/reviewImg.png" width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
 			                        </div>
 		                        </c:if>
 		                        
 		                        <c:if test="${review.thumbnail != null}">
 			                 	    <div class="review-img">
-			                        	<img src="${review.thumbnail}"  width="180px" height="180px">
+			                        	<img src="${review.thumbnail}"  width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
 			                        </div>
 		                        </c:if>
 	                        </div>    
@@ -91,7 +94,10 @@
            
             </div>
         </div>
-
+        <div class="review-modal">
+            <span id="modal-close">&times;</span>
+            <jsp:include page="/WEB-INF/views/review/reviewDetail.jsp"></jsp:include>
+        </div>
 
     </main>    
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
@@ -125,6 +131,7 @@
         }
     }
     </script>--%>
+    <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/resources/js/member/myPage/myPage.js"></script>
 </body>
 </html>
