@@ -127,9 +127,19 @@ public class MemberServiceImpl implements MemberService{
 
 	//내 리뷰 조회
 	@Override
-	public List<MyReview> selectMyReview(int memberNo) {
+	public Map<String, Object> selectMyReview(int memberNo, int cp) {
 		
-		return dao.selectMyReview(memberNo);
+		int listCount = dao.getReviewCount(memberNo);
+		
+		MemberPagination pagination = new MemberPagination(listCount, cp); 
+		
+		List<MyReview> myReview = dao.selectMyReview(memberNo, pagination);
+		
+		Map<String, Object>map = new HashMap<String,Object>();
+		map.put("pagination", pagination);
+		map.put("myReview", myReview);
+		
+		return map;
 	}
 
 	//리뷰 조회 시 주문일자 조회

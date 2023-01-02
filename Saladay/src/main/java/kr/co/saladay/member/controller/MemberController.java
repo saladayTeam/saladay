@@ -472,7 +472,6 @@ public class MemberController {
 	
 	}
 	
-
 	
 	/**내 주문 취소
 	 * @param reviewNo
@@ -483,10 +482,6 @@ public class MemberController {
 	public int cancelMyOrder(int orderNo) {
 		return service.cancelMyOrder(orderNo);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -505,19 +500,19 @@ public class MemberController {
 	 */
 	@GetMapping("myPage/selectMyReview")
 	public String selectMyReview(@SessionAttribute("loginMember")Member loginMember,
-			Model model){
+			Model model, @RequestParam(value="cp",required=false, defaultValue="1")int cp){
 		
-		List<MyReview>reviewList = null;	
 		List<MyReviewOrder>reviewOrder = null;
 		
 		try {
 			
-			reviewList = service.selectMyReview(loginMember.getMemberNo());
+			Map<String,Object>map = service.selectMyReview(loginMember.getMemberNo(), cp);
 			
 			reviewOrder = service.selectReviewOrder(loginMember.getMemberNo());
 			
-			model.addAttribute("reviewList",reviewList);
-			model.addAttribute("reviewOrder",reviewOrder);
+			map.put("reviewOrder", reviewOrder);
+			
+			model.addAttribute("map",map);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

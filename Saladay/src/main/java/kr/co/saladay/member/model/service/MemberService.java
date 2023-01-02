@@ -87,9 +87,10 @@ public interface MemberService {
 	
 	/**내 리뷰 조회
 	 * @param memberNo 
+	 * @param cp 
 	 * @return List<Review>
 	 */
-	public List<MyReview> selectMyReview(int memberNo);
+	public Map<String, Object> selectMyReview(int memberNo, int cp);
 
 	
 	/**리뷰 조회 시 주문일자 조회
