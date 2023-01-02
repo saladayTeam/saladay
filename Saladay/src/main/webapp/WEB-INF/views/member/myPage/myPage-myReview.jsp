@@ -17,12 +17,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
 	
-    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
-    <link rel="stylesheet" href="/resources/css/main/header.css">
-    <link rel="stylesheet" href="/resources/css/main/footer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
     <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>	
-
+	<link rel="stylesheet" href="/resources/css/main/header.css">
+    <link rel="stylesheet" href="/resources/css/main/footer.css">
  
 </head>
 
@@ -41,7 +41,7 @@
 
                     <div class="my-page-header">
                         <h1 class="main-title">나의 리뷰</h1>
-                        <!-- <p class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</p> -->
+                        <p class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</p>
                     </div>
 
 					<div class="review-list">
@@ -63,13 +63,13 @@
 	                    	<div class="review-img-wrapper">	
 		                    	<c:if test="${review.thumbnail == null }">
 			               			<div class="review-img">
-			                        	<img src="/resources/images/review/reviewImg.png" width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
+			                        	<img src="/resources/images/review/reviewImg.png" class="review-img list-thumbnail" width="200px" height="200px" onclick="selectReviewDetail(${review.reviewNo}, ${loginMember.memberNo})">
 			                        </div>
 		                        </c:if>
 		                        
 		                        <c:if test="${review.thumbnail != null}">
 			                 	    <div class="review-img">
-			                        	<img src="${review.thumbnail}"  width="170px" height="170px" onclick="selectReviewDetail(${review.reviewNo}, ${review.memberNo})">
+			                        	<img src="${review.thumbnail}"  class="review-img list-thumbnail" width="200px" height="200px" onclick="selectReviewDetail(${review.reviewNo}, ${loginMember.memberNo})">
 			                        </div>
 		                        </c:if>
 	                        </div>    
@@ -77,17 +77,17 @@
 	                        <div class="content">
 	                        	
 		                        <ul>
-		                        	<li class="review-order-no"><div>주문 번호  &nbsp; &nbsp; : ${review.orderNo} </div><div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div></li>
+		                        	<li class="review-content-1"><div>주문 번호</div>: ${review.orderNo} </li>
 		                        	
 		                        	<c:forEach var="order" items="${reviewOrder}">
 		                        		<c:if test="${order.orderNo == review.orderNo}">
-		                        		<li class="review-order-date"><div>주문 일자 </div>: ${order.orderDate}</li>
+		                        		<li class="review-content-1"><div>주문 일자 </div>: ${order.orderDate}</li>
 		                        		</c:if>
 		                        	</c:forEach>
 		                        	
-		                        	<li class="review-date"><div>리뷰 작성일 </div>: ${review.reviewDate}</li>
-		                        	<li class="review-rating"><div>평점 </div>: <span class="text-muted ${review.rating}"></span></li>
-		                        	<li class="review-menu"><div>메뉴 </div>: ${review.menuName}</li>
+		                        	<li class="review-content-1"><div>리뷰 작성일 </div>: ${review.reviewDate}</li>
+		                        	<li class="review-content-2"><div>평점 </div>: <span class="text-muted ${review.rating}"></span></li>
+		                        	<li class="review-content-2"><div>메뉴 </div>: ${review.menuName}</li>
 		                        	<li class="review-content"><div>작성 내용 </div>${review.reviewContent}</li>
 		                        </ul>
 	                        </div>
@@ -136,9 +136,13 @@
         $(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
         $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
+        const memberNo = "${loginMember.memberNo}";
+        const authority = "${loginMember.authority}";
+        const reviewNo = "${review.reviewNo}";
+        const likeCheck = "${review.likeCheck}";
     </script>
-    <script>
-    const reviewDel=(reviewNo)=>{
+    <%-- <script>
+       const reviewDel=(reviewNo)=>{
         if( confirm("정말 삭제 하시겠습니까?") ){
         $.ajax({
             url : "/review/delete",
@@ -157,10 +161,11 @@
             }
         })
         }
-    }
-    </script>
+    } 
+    </script>--%>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/resources/js/member/myPage/myPage.js"></script>
-    <script src="/resources/js/review/myReview.js"></script>
+    <script src="/resources/js/review/review.js"></script>
 </body>
 </html>

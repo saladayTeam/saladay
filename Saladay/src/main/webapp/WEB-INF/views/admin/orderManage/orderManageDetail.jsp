@@ -32,20 +32,22 @@
             </div>
         </div>
         <div class="admin-order-number">
-            <span>주문번호 : ${orderDetail.orderNo}</span>
+            <div class="ao-info">주문번호 : ${orderDetail.orderNo}</div>
             <br />
-            <span>주문일시 : ${orderDetail.orderDate}</span>
+            <div class="ao-info">주문일시 : ${orderDetail.orderDate}</div>
             <br />
-            <span>주문상태 : </span>
-            <c:if test="${orderDetail.orderDeleteFlag=='N'}">
-            <span>정상주문</span>
-            </c:if>
-            <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
-            <span style="color:blue;">취소요청중</span>
-            </c:if>
-            <c:if test="${orderDetail.orderDeleteFlag=='A'}">
-            <span style="color:red;">취소완료</span>
-            </c:if>
+            <div class="ao-info">
+                <span>주문상태 : </span>
+                <c:if test="${orderDetail.orderDeleteFlag=='N'}">
+                <span>정상주문</span>
+                </c:if>
+                <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
+                <span style="color:blue;">취소요청중</span>
+                </c:if>
+                <c:if test="${orderDetail.orderDeleteFlag=='A'}">
+                <span style="color:red;">취소완료</span>
+                </c:if>
+            </div>
             <br />
             <hr />
         </div>
@@ -145,7 +147,7 @@
                 <div class="cal-container">
                     <%-- 취소 요청중인 주문인 경우 --%>
                     <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
-                        <div style="color:blue;">앗! 취소요청중인 주문입니다.</div>
+                        <div style="color:blue;" class="ao-message">앗! 취소요청중인 주문입니다.</div>
                         <div class=cal>
                             <p>1차 배송일 : ${orderDetailDelivery[0].deliveryDate}</p>
                             <p>배송 상태 : ${orderDetailDelivery[0].deliveryStatus}</p>
@@ -176,7 +178,7 @@
                     </c:if>
                     <%-- 취소 완료된 주문인 경우 --%>
                     <c:if test="${orderDetail.orderDeleteFlag=='A'}">
-                    <div style="color:red;">배송 정보가 없습니다.</div>
+                    <div style="color:red;" class="ao-message">배송 정보가 없습니다.</div>
                     </c:if>
 
                 </div>    
@@ -215,9 +217,9 @@
             <div class="select-delivery">
                 <h3>취소 내역</h3>
                 <div class="cal-container">
-                    <span style="color:red;">취소완료된 주문입니다.</span>
+                    <div style="color:red;" class="ao-message">취소완료된 주문입니다.</div>
                     <br />
-                    <span>취소일시 : ${orderDetail.cancleDate}</span>
+                    <div>취소일시 : ${orderDetail.cancleDate}</div>
                 </div>
             </div>
             </c:if>

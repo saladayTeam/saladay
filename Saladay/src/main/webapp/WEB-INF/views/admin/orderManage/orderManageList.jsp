@@ -42,7 +42,10 @@
                         <button type="submit" class="osBtn">
                             검색
                         </button>
+                        <button type="button" class="osBtn" id="goToImport">아임포트</button>
                     </form>
+                    <div>
+                    </div>
                 </div>
             </div>
         </div>

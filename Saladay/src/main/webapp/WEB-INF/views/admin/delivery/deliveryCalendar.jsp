@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/admin/admin.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
+    <title>배송일정</title>
 
   </head>
   <body>

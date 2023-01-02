@@ -103,6 +103,7 @@ main {
 .main-title {
     font-size: 18px;
     margin-bottom: 20px;
+    font-weight: bolder;
 }
 
 .main-sub-title {
@@ -140,8 +141,8 @@ main {
 /* 리뷰 썸네일 div(정사각형 틀) */
 .review-img-wrapper{
     position: relative;
-    width: 170px;
-    height: 170px;
+    width: 200px;
+    height: 200px;
 }
 
 /* 리뷰 썸네일 */
@@ -162,7 +163,6 @@ main {
 
 .content {
 	width: 400px;
-	margin-left: 20px;
 	margin-top:5px;	
 }
 
@@ -170,28 +170,17 @@ main {
 	margin-bottom:5px;
 }
 
-.review-order-no{
-	display: flex;
-	justify-content: space-between;
-}
-
-.review-order-date div{
+.review-content-1 div{
 	display: inline-block;
 	width:80px;
 }
 
-.review-date div{
+.review-content-2 div{
 	display: inline-block;
-	width:80px;
+	width: 35px;
 }
 
-.review-rating div{
-	display: inline-block;
-}
 
-.review-menu div{
-	display: inline-block;
-}
 
 .review-content {
     overflow: hidden;
@@ -208,7 +197,7 @@ main {
 
 
 .text-muted {
-	color:#fec43b;
+	color:#fec43b !important;
 }
 
 .empty-review {
@@ -287,94 +276,120 @@ main {
 }
 
 
-/*********************page-select(페이지네이션)******************************/
-
-.pagination-area {
-    width: 640px;
-    height: 60px;
-    border: #ccc solid 1px;
-    padding: 10px 20px;
-    margin-top: 30px;
-}
-
-/* .page-select button {
-    width: 62px;
-    height: 36px;
-    border: none;
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    border-radius: 3px;
-    font-weight: bold;
-    cursor: pointer;
-} */
-
-.pagination {
-    list-style: none;
+/* 리뷰 상세 조회 */
+.review-detail{
+/*     border: solid 1px black; */
+    background-color: white;
+    width: 500px;
     display: flex;
     justify-content: center;
-    padding: 0;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 5px;
 }
 
-
-.pagination li {
-    width: 20px;
-    margin: 0 5px;
-    text-align: center;
-
+/* 리뷰 삭제 버튼 */
+.review-delete-area{
+    align-self: flex-end;
+    padding-bottom: 10px;
+}
+.review-delete-area > button{
+    width: 50px;
+    height: 30px;
+    font-weight: bold;
+    border: 0;
+    background-color: #17633d;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* .pagination-ajax {
-    display: inline-flex;
-} */
+/* 리뷰 내용 묶음 */
+.review-detail-content{
+    line-height: 150%;
+    width: 463.985px;
+}
 
-.pagination a {
-    /* display: block;
+/* 리뷰 별점 */
+.review-detail-star{
+    color: #fec43b;
+}
+
+/* 리뷰 작성일 */
+.review-detail-date{
+    color: #666666;
+}
+
+/* 샐러드명 */
+.review-detail-salad{
+    font-weight: bold;
+    color: #666666;
+}
+
+/* 리뷰 작성자 닉네임 */
+.review-detail-nickname{
+    color: #666666;
+    display: flex;
+}
+
+/* 리뷰 내용 */
+.review-detail-text{
+    border: #999999 1px solid;
+    border-radius: 10px;
+    color: #666666;
+    padding-right: 10px;
+    margin-top: 5px;
+    overflow:auto;
     width: 100%;
-    height: 100%;
-    
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    box-sizing: border-box;
-    font-weight: bolder; */
-
-    display:block;
-	margin-top: 5px;
-    margin-right: 10px;
-	float:left;
-	border:1px solid #e6e6e6;
-	width:28px;
-	height:28px;
-	line-height:28px;
-	text-align:center;
-	background-color:#fff;
-	font-size:16px;
-	color:#333;
-    font-weight: bolder; 
-	text-decoration:none;
+    height: 100px;
+    padding: 5px;
+    font-size: 14px;
+    line-height: 120%;
+}
+/* 좋아요 */
+.review-detail-like{
+    margin-top: 10px;
+    align-self: flex-end;
+    color: red;
+    font-size: 14px;
 }
 
-.arrow {
-	border:1px solid #ccc;
-
+/* 이미지 슬라이드 */
+/* 리뷰이미지 영역 */
+.carouselExampleIndicators{
+    width: 500px;
+    height: 300px;
+/*     display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
-.pagination a:active {
-    color : #333;
-    background-color: #fff;
-    
+.review-images{
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 300px;
+    width: auto !important;
+    height: 100% !important;
+
+    height: 326px !important;
+    width: auto !important;
+    min-width: auto;
 }
 
-.pagination a:hover {
-    color: #fff;
-    background-color: #17633d;
-    transition: 0.4s;
+.carousel-item{
+    text-align: center;
 }
 
-a.current {
-    background-color: #17633d;
-    color: #fff;
+/* 이미지가 하나거나 없을 때 버튼 안보이게 하는 클래스 */
+.rd-hidden{
+    display: none !important;
+}
+
+/* 리뷰 하트 이미지(폰트어썸X 이미지) */
+.rd-heart{
+    width: 20px;
 }
 
 
