@@ -10,12 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
-
+	
     <link rel="stylesheet" href="/resources/css/member/myPage/myPage-myReview.css">
     <link rel="stylesheet" href="/resources/css/main/header.css">
     <link rel="stylesheet" href="/resources/css/main/footer.css">
     <link rel="stylesheet" href="/resources/lib/owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="/resources/css/review/review.css">    
+      <link rel="stylesheet" href="/resources/css/review/review.css">  
     <script src="https://kit.fontawesome.com/72842759a7.js" crossorigin="anonymous"></script>	
 
  
@@ -36,7 +36,7 @@
 
                     <div class="my-page-header">
                         <h1 class="main-title">나의 리뷰</h1>
-                         <p class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</p>
+                        <!-- <p class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</p> -->
                     </div>
 
 					<div class="review-list">
@@ -70,7 +70,7 @@
 	                        </div>    
 	                        
 	                        <div class="content">
-	                        	<!--<div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div> -->
+	                        	<div class="review-del-btn" onclick="reviewDel(${review.reviewNo})">리뷰 삭제</div>
 		                        <ul>
 		                        	<li><div class="c-1">주문 번호 </div>: ${review.orderNo}</li>
 		                        	
@@ -109,7 +109,7 @@
         $(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
         $(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;");
     </script>
-    <%-- <script>
+    <script>
     const reviewDel=(reviewNo)=>{
         if( confirm("정말 삭제 하시겠습니까?") ){
         $.ajax({
@@ -130,8 +130,9 @@
         })
         }
     }
-    </script>--%>
+    </script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="/resources/js/member/myPage/myPage.js"></script>
+    <script src="/resources/js/review/review.js"></script>
 </body>
 </html>
