@@ -5,7 +5,7 @@ const addBtn = document.getElementById("addBtn");
 if( addBtn != null ){
 
     addBtn.addEventListener("click", function(){
-        const options = "width=610, height=500, left=-200, top=-900";
+        const options = "width=700, height=580, left=-200, top=-900";
         window.open("/FAQ/reg", "popupWindow", options);
     })
 }

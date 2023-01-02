@@ -38,5 +38,15 @@
         </div> 
     </div>
     </form>
+
+    <script>
+        // 팝업창 내 취소 버튼
+        const closeBtn =document.getElementById("closeBtn");
+        if (closeBtn!=null) {
+            closeBtn.addEventListener("click", function(){
+                window.close();
+            })
+        }
+    </script>
 </body>
 </html>
