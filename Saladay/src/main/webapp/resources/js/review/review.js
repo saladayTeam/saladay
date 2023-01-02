@@ -17,6 +17,7 @@ const modalClose=document.getElementById("modal-close");
         // Modal 닫기 버튼
         modalClose.addEventListener("click", () =>{
             modal.style.display="none";
+            /* location.reload(""); */
         });
     }
 })();
@@ -29,10 +30,15 @@ const reviewSalad = document.querySelector(".review-detail-salad");
 const reviewNickname = document.querySelector(".review-detail-nickname");
 const reviewText = document.querySelector(".review-detail-text");
 const reviewLike = document.querySelector(".review-detail-likeCount");
-const reviewHeart = document.getElementById("reviewHeart");
 const indicators = document.querySelector(".carousel-indicators");
 const prev = document.querySelector(".carousel-control-prev");
 const next = document.querySelector(".carousel-control-next");
+const heartArea = document.getElementById("heart-area");
+const reviewHeart = document.getElementById("reviewHeart");
+
+// 첨부 이미지 유무를 확인하는 변수
+// true : 첨부 이미지 있음, false : 첨부 이미지 없음
+let imgCheck = false;
 
 // 리뷰 이미지 클릭시 실행
 function selectReviewDetail(reviewNo, reviewMemberNo){
@@ -76,6 +82,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     indicators.classList.remove("rd-hidden");
                     prev.classList.remove("rd-hidden");
                     next.classList.remove("rd-hidden");
+                    imgCheck = true;
                 }
             }
 
@@ -102,6 +109,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 indicators.classList.add("rd-hidden");
                 prev.classList.add("rd-hidden");
                 next.classList.add("rd-hidden");
+                imgCheck = true;
             } 
             
             /* 첨부 이미지가 없을 경우 기본 이미지 보여주는 코드 */
@@ -124,6 +132,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                 indicators.classList.add("rd-hidden");
                 prev.classList.add("rd-hidden");
                 next.classList.add("rd-hidden");
+                imgCheck = false;
             }
 
             // 리뷰 삭제
@@ -141,59 +150,9 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             // 리뷰 삭제 버튼 노출
             if(authority==99||memberNo==reviewMemberNo){
                 deleteBtn.style.display="";
-                /* deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")"); */
+                deleteBtn.setAttribute("onclick", "deleteReview("+rDetail[0].reviewNo+")");
                 // 개인 삭제
                 // 관리자 삭제
-
-                // 리뷰 삭제 ajax 실행
-                deleteBtn.addEventListener("click", e =>{
-                    if( confirm("정말 삭제 하시겠습니까?") ){
-                        $.ajax({
-                            url : "/review/delete",
-                            data : {"reviewNo" : reviewNo},
-                            type : "GET",
-                            success: function(result){
-                                if(result > 0){
-                                    
-                                    /* 리뷰 이미지가 존재할 때 같이 삭제*/
-                                    if(rDetail[0].imageList.length != 0){
-                                        $.ajax({
-                                            url : "/review/deleteImg",
-                                            data : {"reviewNo" : reviewNo},
-                                            type : "GET",
-                                            success: function(result){
-                                                if(result > 0){
-                                                    alert("리뷰가 삭제되었습니다");
-                                                    modal.style.display="none";
-                                                    location.reload("");
-                                                }else{
-                                                    alert("리뷰 삭제 실패");
-                                                }
-                                            },
-                                            error : function(req, status, error){
-                                                console.log("리뷰 삭제 실패")
-                                                console.log(req.responseText);
-                                            }
-                                        });
-                                    } else{
-                                        /* 리뷰 이미지가 없을 때 */
-                                        alert("리뷰가 삭제되었습니다");
-                                        modal.style.display="none";
-                                        location.reload("");
-                                    }
-
-                                }else{
-                                    alert("삭제 실패");
-                                }
-                            },
-                
-                            error : function(req, status, error){
-                                console.log("리뷰 삭제 실패")
-                                console.log(req.responseText);
-                            }
-                        });
-                    }
-                });
             }
 
             // 리뷰 조회
@@ -219,66 +178,25 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 
             // 좋아요 여부 체크하여 빈하트/채워진 하트 출력
             if(rDetail[0].likeCheck==0){ // 로그인X이거나 좋아요를 누르지 않은 리뷰 == 빈하트
+                // reviewHeart.classList.remove("fa-solid");
+                // reviewHeart.classList.add("fa-heart");
+                // reviewHeart.classList.add("fa-regular");
+
+                // 폰트어썸X -> 이미지로 처리
+                reviewHeart.setAttribute("src", "/resources/images/review/heart01.png");
+                reviewHeart.classList.add("rd-heart");
                 reviewHeart.classList.remove("fa-solid");
-                reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-regular");
 
             } else{ // 좋아요를 누른 리뷰 == 채워진 하트
+                reviewHeart.setAttribute("src", "/resources/images/review/heart02.png");
+                reviewHeart.classList.add("rd-heart");
                 reviewHeart.classList.remove("fa-regular");
-                reviewHeart.classList.add("fa-heart");
                 reviewHeart.classList.add("fa-solid");
             }
 
-            /* 좋아요 증가/감소 ajax 실행 */
-            if (reviewHeart != null) {
-
-                reviewHeart.addEventListener("click", e =>{
-                    // 로그인 상태가 아닌 경우
-                    if(memberNo==""){
-                        alert("로그인 후 이용해주세요.")
-                        return;
-                    }
-            
-                    // 로그인 상태이면서 좋아요 상태가 아닌 경우
-                    if(reviewHeart.classList.contains('fa-regular')){ //빈하트인 경우 좋아요 증가
-            
-                        $.ajax({
-                            url : "/review/likeUp",
-                            data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
-                            type : "GET" ,
-                            success : (result)=>{
-                                if(result >0){ // 성공
-            
-                                    reviewHeart.classList.remove('fa-regular'); // 빈하트 클래스 삭제
-                                    reviewHeart.classList.add('fa-solid'); // 채워진 하트 클래스 추가
-                                    reviewLike.innerText = Number(reviewLike.innerText)+1; // 1증가
-                                }else{ // 실패
-                                    console.log("증가 실패");
-                                }
-                            },
-                            error : ()=>{ console.log("증가 에러"); }
-                        });
-            
-                    } else{ // 채워진 하트인 경우 좋아요 감소
-                        $.ajax({
-                            url : "/review/likeDown",
-                            data : {"reviewNo" : reviewNo , "memberNo" : memberNo},
-                            type : "GET" ,
-                            success : (result)=>{
-                                if(result >0){ // 성공
-                
-                                    reviewHeart.classList.add('fa-regular'); // 빈하트 클래스 추가
-                                    reviewHeart.classList.remove('fa-solid'); // 채워진 하트 클래스 삭제
-                                    reviewLike.innerText = Number(reviewLike.innerText)-1; // 1감소
-                                }else{ // 실패
-                                    console.log("감소 실패");
-                                }
-                            },
-                            error : ()=>{ console.log("감소 에러"); }
-                        });   
-                    }
-                });
-            }
+            // 리뷰하트에 리뷰번호 값 넣어두기
+            reviewHeart.setAttribute("reviewNo", rDetail[0].reviewNo);
         },
         error : function(req, status, error){
             console.log("에러 발생");
@@ -288,27 +206,104 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 }
 
 
-//리뷰 삭제
-// function deleteReview(reviewNo){
-//     if( confirm("정말 삭제 하시겠습니까?") ){
-//         $.ajax({
-//             url : "/review/delete",
-//             data : {"reviewNo" : reviewNo},
-//             type : "GET",
-//             success: function(result){
-//                 if(result > 0){
-//                     alert("리뷰가 삭제되었습니다");
-//                     modal.style.display="none";
-//                     location.reload("");
-//                 }else{
-//                     alert("삭제 실패");
-//                 }
-//             },
+// 리뷰 삭제
+function deleteReview(reviewNo){
+    if( confirm("정말 삭제 하시겠습니까?") ){
+        $.ajax({
+            url : "/review/delete",
+            data : {"reviewNo" : reviewNo},
+            type : "GET",
+            success: function(result){
+                if(result > 0){
+                    /* 리뷰 이미지가 존재할 때 같이 삭제*/
+                    if(imgCheck){
+                        $.ajax({
+                            url : "/review/deleteImg",
+                            data : {"reviewNo" : reviewNo},
+                            type : "GET",
+                            success: function(result){
+                                if(result > 0){
+                                    alert("리뷰가 삭제되었습니다");
+                                    modal.style.display="none";
+                                    location.reload("");
+                                }else{
+                                    alert("리뷰 삭제 실패");
+                                }
+                            },
+                            error : function(req, status, error){
+                                console.log("리뷰 삭제 실패")
+                                console.log(req.responseText);
+                            }
+                        });
+                    } else{
+                        /* 리뷰 이미지가 없을 때 */
+                        alert("리뷰가 삭제되었습니다");
+                        modal.style.display="none";
+                        location.reload("");
+                    }
 
-//             error : function(req, status, error){
-//                 console.log("리뷰 삭제 실패")
-//                 console.log(req.responseText);
-//             }
-//         });
-//     }
-// }
+                }else{
+                    alert("삭제 실패");
+                }
+            },
+
+            error : function(req, status, error){
+                console.log("리뷰 삭제 실패")
+                console.log(req.responseText);
+            }
+        });
+    }
+}
+
+/* 좋아요 증가/감소 ajax 실행 */
+if (reviewHeart != null) {
+
+    reviewHeart.addEventListener("click", e =>{
+        // 로그인 상태가 아닌 경우
+        if(memberNo==""){
+            alert("로그인 후 이용해주세요.")
+            return;
+        }
+
+        // 로그인 상태이면서 좋아요 상태가 아닌 경우
+        if(reviewHeart.classList.contains('fa-regular')){ //빈하트인 경우 좋아요 증가
+
+            $.ajax({
+                url : "/review/likeUp",
+                data : {"reviewNo" : reviewHeart.getAttribute("reviewNo")
+                , "memberNo" : memberNo},
+                type : "GET" ,
+                success : (result)=>{
+                    if(result >0){ // 성공
+                        reviewHeart.setAttribute("src", "/resources/images/review/heart02.png");
+                        reviewHeart.classList.remove('fa-regular'); // 빈하트 클래스 삭제
+                        reviewHeart.classList.add('fa-solid'); // 채워진 하트 클래스 추가
+                        reviewLike.innerText = Number(reviewLike.innerText)+1; // 1증가
+                    }else{ // 실패
+                        console.log("증가 실패");
+                    }
+                },
+                error : ()=>{ console.log("증가 에러"); }
+            });
+
+        } else{ // 채워진 하트인 경우 좋아요 감소
+            $.ajax({
+                url : "/review/likeDown",
+                data : {"reviewNo" : reviewHeart.getAttribute("reviewNo")
+                , "memberNo" : memberNo},
+                type : "GET" ,
+                success : (result)=>{
+                    if(result >0){ // 성공
+                        reviewHeart.setAttribute("src", "/resources/images/review/heart01.png");
+                        reviewHeart.classList.add('fa-regular'); // 빈하트 클래스 추가
+                        reviewHeart.classList.remove('fa-solid'); // 채워진 하트 클래스 삭제
+                        reviewLike.innerText = Number(reviewLike.innerText)-1; // 1감소
+                    }else{ // 실패
+                        console.log("감소 실패");
+                    }
+                },
+                error : ()=>{ console.log("감소 에러"); }
+            });   
+        }
+    });
+}

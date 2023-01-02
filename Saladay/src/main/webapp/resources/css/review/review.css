@@ -328,3 +328,8 @@
 .rd-hidden{
     display: none !important;
 }
+
+/* 리뷰 하트 이미지(폰트어썸X 이미지) */
+.rd-heart{
+    width: 20px;
+}
