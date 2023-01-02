@@ -1,7 +1,3 @@
-*{
-    font-family: "NanumSquareNeo-Variable" !important;
-}
-
 .review-list-area{
     width: 1200px;
     margin: 0;
@@ -20,7 +16,6 @@
     display: inline-block;
     /* padding-left: 5px; */
     width: 1200px;
-    height: 900px;
 }
 
 /* 리뷰 카테고리 제목 */
@@ -54,7 +49,7 @@
 
 .review-main-title {
     font-size: 32px;
-/*     margin-bottom: 20px; */
+    font-weight: bold;
 }
 
 .review-title > div:last-child {
@@ -66,8 +61,8 @@
 .albumLi{
     margin-left: 12px;
     display: inline-block;
-    height: 300px;
-    width: 350px;
+    height: 320px;
+    width: 260px;
     margin: 10px;
 }
 
@@ -327,4 +322,9 @@
 /* 이미지가 하나거나 없을 때 버튼 안보이게 하는 클래스 */
 .rd-hidden{
     display: none !important;
+}
+
+/* 리뷰 하트 이미지(폰트어썸X 이미지) */
+.rd-heart{
+    width: 20px;
 }
