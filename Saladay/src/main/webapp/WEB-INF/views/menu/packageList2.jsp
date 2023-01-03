@@ -51,7 +51,7 @@
                     <div class="package-box" id="second-box">
                         <div class="package-name" id="second-name">
                             <div class="package-title">
-                                1 WEEK &nbsp; 3 SALADAY
+                                2 WEEK &nbsp; 3 SALADAY
                             </div>
                             <div class="package-detail">
                                 <%-- 어쩌구저쩌구
@@ -74,7 +74,7 @@
                         </div>
                         <div class="package-name">
                             <div class="package-title">
-                                1 WEEK &nbsp; 3 SALADAY
+                                2 WEEK &nbsp; 5 SALADAY
                             </div>
                             <div class="package-detail">
                                 <%-- 어쩌구저쩌구
@@ -90,7 +90,7 @@
                     <div class="package-box" id="second-box">
                         <div class="package-name" id="second-name">
                             <div class="package-title">
-                                1 WEEK &nbsp; 3 SALADAY
+                                2 WEEK &nbsp; 7 SALADAY
                             </div>
                             <div class="package-detail">
                                 <%-- 어쩌구저쩌구
