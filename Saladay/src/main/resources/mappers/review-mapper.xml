@@ -58,6 +58,21 @@
 <select id="getListCount" parameterType="_int" resultType="_int">
 SELECT COUNT(*) FROM "REVIEW"
 WHERE REVIEW_DEL_FL='N'
+	<if test ="reviewRating == 50">
+	AND RATING = 5
+	</if>
+	<if test ="reviewRating == 40">
+	AND RATING = 4
+	</if>
+	<if test ="reviewRating == 30">
+	AND RATING = 3
+	</if>
+	<if test ="reviewRating == 20">
+	AND RATING = 2
+	</if>
+	<if test ="reviewRating == 10">
+	AND RATING = 1
+	</if>
 </select>
 
 <!-- 전체 리뷰 목록 조회 -->
@@ -74,6 +89,21 @@ JOIN "MEMBER" USING(MEMBER_NO)
 JOIN "ORDER_MENU" USING(ORDER_MENU_NO)
 JOIN "MENU" USING(MENU_NO)
 WHERE REVIEW_DEL_FL='N'
+	<if test ="reviewRating == 50">
+	AND RATING = 5
+	</if>
+	<if test ="reviewRating == 40">
+	AND RATING = 4
+	</if>
+	<if test ="reviewRating == 30">
+	AND RATING = 3
+	</if>
+	<if test ="reviewRating == 20">
+	AND RATING = 2
+	</if>
+	<if test ="reviewRating == 10">
+	AND RATING = 1
+	</if>
 ORDER BY REVIEW_NO DESC
 </select>
 

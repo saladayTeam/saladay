@@ -20,6 +20,10 @@
     <script src="https://kit.fontawesome.com/9f94c365a1.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <%-- 검색을 진행한 경우 --%>
+    <c:if test="${not empty param.reviewRating}">
+        <c:set var="sURL" value="&reviewRating=${reviewRating}"/>
+    </c:if>
     <!-- 헤더 -->
     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     <main>
@@ -29,11 +33,19 @@
                 <h1 class="review-main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
             </div>
             <div class="review-check">
-<%--                 <input type="radio" name="review-check">
-                <label for="review-check" id="#">최신순&nbsp&nbsp</label>
-
-                <input type="radio" name="review-check">
-                <label for="review-check" id="#">좋아요 순</label> --%>
+<%--                 <form action ="/review/${reviewList[0].menuNo}" method="get">
+                    <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
+                        <option value="0">전체별점</option>
+                        <option value="50" class="optStar">★★★★★</option>
+                        <option value="40" class="optStar">★★★★</option>
+                        <option value="30" class="optStar">★★★</option>
+                        <option value="20" class="optStar">★★</option>
+                        <option value="10" class="optStar">★</option>
+                    </select>
+                    <button type="submit" class="rrBtn">
+                        검색
+                    </button>
+                </form> --%>
             </div>
 
             <!-- 리뷰 목록 내용 -->
@@ -119,7 +131,6 @@
         const authority = "${loginMember.authority}";
         const reviewNo = "${review.reviewNo}";
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>

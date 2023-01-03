@@ -335,3 +335,31 @@
 .rd-heart{
     width: 20px;
 }
+
+/* 리뷰 정렬 */
+
+#reviewRating{
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+#reviewRating:focus{
+    outline: none;
+}
+
+.rrBtn{
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.optStar{
+    color: #fec43b;
+}

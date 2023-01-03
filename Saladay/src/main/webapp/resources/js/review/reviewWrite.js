@@ -59,7 +59,7 @@ for(let i=0; i<inputImage.length; i++){
 
                 reviewImgCount--;
 
-                if(reviewImgCount == 3){
+                if(reviewImgCount == 2){
                     addReviewImg();
                 }
             }else{
@@ -136,7 +136,7 @@ function addReviewImg(){
                     this.parentElement.remove();
 
                     reviewImgCount--;
-                    if(reviewImgCount == 3){
+                    if(reviewImgCount == 2){
                         addReviewImg();
                     }
                 }else{
