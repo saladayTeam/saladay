@@ -22,7 +22,9 @@
     <main>
 
     <%-- 모달 --%>
-    <jsp:include page="/WEB-INF/views/admin/delivery/selectDeliveryCalendar.jsp"></jsp:include>
+    <div id="modalBox">
+      <jsp:include page="/WEB-INF/views/admin/delivery/selectDeliveryCalendar.jsp"></jsp:include>
+    </div>
     <%-- 모달 --%>
           <div class="col-lg-6">
             <div class="inputGroup">

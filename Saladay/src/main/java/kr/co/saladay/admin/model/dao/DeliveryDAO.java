@@ -1,6 +1,8 @@
 package kr.co.saladay.admin.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -45,9 +47,30 @@ public class DeliveryDAO {
 	 * @param deliveryNo
 	 * @return
 	 */
-	public DeliveryManage selectDeliveryDetail(int deliveryNo) {
+//	public List<Object> selectDeliveryDetail(int deliveryNo) {
+//		// TODO Auto-generated method stub
+//		return sqlSession.selectList("deliveryManageMapper.selectDeliveryDetail", deliveryNo);
+//	}
+
+	/**
+	 * 배송일정 상세조회 모달
+	 * @param map
+	 * @return
+	 */
+	public List<DeliveryManage> selectDeliveryDetail(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne("deliveryManageMapper.selectDeliveryDetail", deliveryNo);
+		return sqlSession.selectList("deliveryManageMapper.selectDeliveryDetail", map);
+	}
+
+	/**
+	 * 캘린더 배송상태 수정
+	 * @param deliveryNo
+	 * @param deliveryCode
+	 * @return
+	 */
+	public int updateCalendar(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("deliveryManageMapper.updateCalendar", map);
 	}
 
 	
