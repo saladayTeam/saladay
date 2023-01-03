@@ -168,7 +168,7 @@
                             	</c:forEach>
 	                            
 	                            <c:if test="${order.packageNo == 4 || order.packageNo == 5 || order.packageNo == 6 }">
-	                            <div class="discount-price">할인 금액 : <fmt:formatNumber type="number" maxFractionDigits="0"  value="${order.orderPrice*0.1}" />원</div>
+	                            <div class="discount-price">할인 금액 : <fmt:formatNumber type="number"  maxFractionDigits="0" value="${order.orderPrice*0.1}" />원</div>
 	                            </c:if>
 	                            <div class="total-price">결제 금액 : <fmt:formatNumber type="number" maxFractionDigits="0"  value="${order.orderPrice}" />원</div>
                             </div>
