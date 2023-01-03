@@ -71,11 +71,11 @@
         <div class="chart-container-2">
             <div class="chart-order-container">
                 <div class="chart-order">
-                    <span>패키지 별 월간 주문 건수</span>
+                    <span>패키지 별 전체 주문 건수</span>
                     <canvas id="myChart2" width="500" height="400"></canvas>
                 </div>
                 <div class="chart-order">
-                    <span>메뉴 별 월간 주문 건수</span>
+                    <span>메뉴 별 전체 주문 건수</span>
                     <canvas id="myChart3" width="500" height="400"></canvas>
                 </div>
             </div>
