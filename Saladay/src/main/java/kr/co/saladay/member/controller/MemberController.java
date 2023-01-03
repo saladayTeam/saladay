@@ -464,7 +464,7 @@ public class MemberController {
 		
 		List<Delivery> myDelivery = service.selectMyDelivery(memberNo);
 		
-		map.put("myDelvery", myDelivery);
+		map.put("myDelivery", myDelivery);
 		
 		model.addAttribute("map",map);
 		
