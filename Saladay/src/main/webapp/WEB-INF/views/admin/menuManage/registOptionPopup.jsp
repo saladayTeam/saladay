@@ -37,7 +37,7 @@
                         <td>
                             <select name="optionType" id="optionType" required>
                                 <option value="M" selected>메인</option>
-                                <option value="T">야채</option>
+                                <option value="T">서브</option>
                                 <option value="S">소스</option>
                             </select>
                         </td>

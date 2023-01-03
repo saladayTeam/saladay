@@ -147,7 +147,11 @@
                                 
                             	</c:if>
                             	</div>
-                            	
+                            <div class="discount">
+	                            <c:if test="${order.packageNo == 4 || order.packageNo == 5 || order.packageNo == 6 }">
+		                        <div class="discount-price">할인 금액 : <fmt:formatNumber type="number"  maxFractionDigits="0" value="${order.orderPrice*0.1}" />원</div>
+		                        </c:if>
+                            </div>	
                             <!-- 배송상태가 결제완료 일 때 주문취소 버튼(1개만 나오게 flag) -->	
                             <div class="order-bottom">
                             	<!--<c:set var="loop_flag" value="false" />-->
@@ -167,6 +171,7 @@
                             	 	</c:if>
                             	</c:forEach>
 	                            
+	                            
 	                            <div class="total-price">결제 금액 : <fmt:formatNumber type="number" maxFractionDigits="0"  value="${order.orderPrice}" />원</div>
                             </div>
                             </div>
@@ -178,8 +183,9 @@
                         </div>
                         
                     </div>
+                    <c:if test="${not empty myOrder}">
 					<div class="pagination-area">
-						<c:if test="${not empty myOrder}">
+						
 							<ul class="pagination">
 								<!-- 이전 목록 마지막 번호로 이동 --> 
 								<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
@@ -199,9 +205,9 @@
 								<!-- 다음 목록 시작 번호로 이동 -->
 								<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
 							</ul>
-						</c:if>
+						
 					</div>
-
+					</c:if>
             </div>
         </div>
 	                        
