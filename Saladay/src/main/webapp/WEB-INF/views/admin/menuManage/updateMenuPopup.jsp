@@ -39,8 +39,8 @@
                             <div class="img-box">
                                 <div class="preview-area">
                                     <label for="inputMenuImg"><img id="menu-image" src="${menu.menuImage}"></label>
-                                <span id="delete-image">&times;</span>
                                 </div>
+                                <span class="confirm"> * 이미지를 수정하려면 위의 이미지를 선택하세요.</span>
                                 <div class="menu-img-area">
                                     <input type="file" id="inputMenuImg" name="inputMenuImg" accept="image/*"  > 
                                 </div>
@@ -76,6 +76,6 @@
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="/resources/js/admin/menuManage/regitstMenuPopup.js"></script>
+    <script src="/resources/js/admin/menuManage/updateMenuPopup.js"></script>
 </body>
 </html>

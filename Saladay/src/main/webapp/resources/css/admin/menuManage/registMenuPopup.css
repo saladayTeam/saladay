@@ -106,9 +106,9 @@ label {
 #delete-image{
     position: absolute;
     top:0;
-    right: 210px;
+    right: 180px;
     cursor: pointer;
-    color: white;
+    color: #ddd;
 }
 
 
@@ -128,4 +128,21 @@ label {
     border-radius: 5px;
     padding: 5px;
     
+}
+
+
+/* 첨부파일 이미지 안보이게  */
+input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+
+.confirm {
+    font-size: 12px;
+    margin-bottom: 5px;
 }

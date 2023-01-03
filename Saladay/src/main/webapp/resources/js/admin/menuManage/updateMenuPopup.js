@@ -9,47 +9,32 @@ if (closeBtn!=null) {
 
 // 메뉴 이미지 변경
 const menuImage = document.getElementById("menu-image"); // preview
-const inputMenuImg = document.getElementById("inputMenuImg"); // inputImage
 const deleteImage = document.getElementById("delete-image"); 
+const inputMenuImg = document.getElementById("inputMenuImg"); // inputImage
+
 
 
 // inputMenuImg 요소의 값이 변했을 때
 inputMenuImg.addEventListener("change", (event)=>{
 
-    // event.target.files : 선택한 요소의 값이 배열 형태로 반환
-    if(event.target.file != undefined ){ // 선택된 파일이 있을 경우
+        // event.target.files : 선택한 요소의 값이 배열 형태로 반환
+    if(event.target.files[0] != undefined ){ // 선택된 파일이 있을 경우
         
         const reader = new FileReader(); // 파일을 읽는 객체
         
-        reader.readAsDataURL(event.target.file);
+        reader.readAsDataURL(event.target.files[0]);
         // 지정된 input type="file"의 파일을 읽어와 URL 형태로 저장
 
         reader.onload = e => { // 파일을 다 읽어온 후
-        // e.target ==  reader
-        // e.target.result == 읽어온 url파일
-        inputMenuImg.setAttribute("src", e.target.result)
-
+            // e.target ==  reader
+            // e.target.result == 읽어온 url파일
+            menuImage.setAttribute("src", e.target.result)
         }
 
     } else { // 취소를 누른 경우
         // 미리보기가 보여지고 있으면 미리보기 지우기
         menuImage.removeAttribute("src"); // src속성 제거
     }
-    });
-
-
-
-// 미리보기 삭제 버튼 클릭 시
-deleteImage.addEventListener("click", ()=>{
-
-    // 미리보기 이미지가 존재할 때만 삭제(존재안하면 "")
-    if(menuImage.getAttribute("src") != "") { 
-        // 미리보기 삭제
-        menuImage.removeAttribute("src");
-        // input에 저장된 value값을 ""로 만들어서 삭제하기
-        inputMenuImg.value = "";
-    }
-
 });
 
 

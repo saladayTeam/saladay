@@ -98,6 +98,7 @@
 	WHERE MENU_NO = #{menuNo}
 	</update>
 	
+	<!-- 메뉴 이미지 수정 -->
 	<update id="updateMenuImg">
 	UPDATE MENU SET MENU_IMG = #{menuImage} 
 	WHERE MENU_NO = #{menuNo}
