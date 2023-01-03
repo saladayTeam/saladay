@@ -32,21 +32,10 @@
                 <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
                 <h1 class="review-main-title">${reviewList[0].memberNickname} 회원의 리뷰</h1>
             </div>
-            <div class="review-check">
-<%--                 <form action ="/review/${reviewList[0].menuNo}" method="get">
-                    <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
-                        <option value="0">전체별점</option>
-                        <option value="50" class="optStar">★★★★★</option>
-                        <option value="40" class="optStar">★★★★</option>
-                        <option value="30" class="optStar">★★★</option>
-                        <option value="20" class="optStar">★★</option>
-                        <option value="10" class="optStar">★</option>
-                    </select>
-                    <button type="submit" class="rrBtn">
-                        검색
-                    </button>
-                </form> --%>
-            </div>
+                <div class="member-review-info">
+                    <div>도움 : ${reviewList[0].memberLikeCount}</div>
+                    <div>작성 : ${reviewList[0].memberReviewCount}</div>
+                </div>
 
             <!-- 리뷰 목록 내용 -->
             <div>
