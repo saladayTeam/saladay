@@ -200,7 +200,6 @@ public class MenuManageController {
 	public String updateMenu(
 							@RequestParam(value="inputMenuImg", required = false) MultipartFile inputMenuImg, // 업로드 된 메뉴 이미지
 							Menu newMenu, // 메뉴
-							RedirectAttributes ra, // 메세지 전달용
 							HttpServletRequest req, // 저장할 서버 경로
 							HttpServletResponse resp) throws Exception {
 
@@ -227,10 +226,10 @@ public class MenuManageController {
 			PrintWriter out = resp.getWriter();
 			out.println("<script> alert('메뉴가 정상적으로 수정되었습니다.'); window.close(); opener.location.reload(); </script>");
 			out.flush(); 
-			}
-			
-			return null;
 		}
+			
+		return null;
+	}
 	
 	
 	
@@ -246,6 +245,43 @@ public class MenuManageController {
 		return "/admin/menuManage/updateOptionPopup";
 	}
 	
+	
+	
+	// 옵션 수정하기
+	@PostMapping("/admin/option/update")
+	public String updateOption(@RequestParam(value="inputOptionImg", required = false) MultipartFile inputOptionImg, // 업로드 된 옵션 이미지
+								Option newOption, // 옵션
+								HttpServletRequest req, 
+								HttpServletResponse resp) throws Exception {
+
+
+		
+		newOption.setOptionNo(newOption.getOptionNo());
+		// System.out.println(newOption);
+		
+		ServletContext application = req.getSession().getServletContext();
+		
+		// 업로드 된 파일의 서버 내부 경로 준비
+		String webPath = "/resources/images/menu/topping/";
+		String filePath = application.getRealPath(webPath);
+		
+		// 메뉴 수정하기
+		int result = service.updateOption(newOption, inputOptionImg, webPath, filePath);
+		
+		if (result > 0) {
+		
+			List<Option> optionList = menuService.selectOptionList();
+			application.setAttribute("optionList", optionList);
+			
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script> alert('옵션이 정상적으로 수정되었습니다.'); window.close(); opener.location.reload(); </script>");
+			out.flush(); 
+		}
+			
+		return null;
+	}
+		
 	
 	
 }

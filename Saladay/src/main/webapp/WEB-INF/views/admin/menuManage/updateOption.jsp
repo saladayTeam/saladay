@@ -24,7 +24,7 @@
       <div class="menu-m-tit">
           <span><h1>옵션관리</h1></span>
           <div class="tit">
-            <span>새로운 옵션을 추가하거나 기존 메뉴를 삭제하실 수 있습니다.</span>
+            <span>새로운 옵션을 추가하거나 기존 옵션을 수정/삭제하실 수 있습니다.</span>
             <div class="m-btn-area">
               <button type="button" id="addBtn">추가</button>
               <button type="button" id="delBtn" onclick="deleteValue();">삭제</button>
@@ -41,9 +41,8 @@
           <col width="2%">
           <col width="32%">
           <col width="20%">
-          <col width="20%">
-          <col width="20%">
-          <col width="6%">
+          <col width="23%">
+          <col width="23%">
         </colgroup>
 
         <thead>
@@ -53,7 +52,6 @@
             <th scope="col"><span>구분</span></th>
             <th scope="col"><span>가격</span></th>
             <th scope="col"><span>칼로리</span></th>
-            <th scope="col"><span>비고</span></th>
           </tr>
         </thead>
         
@@ -61,7 +59,7 @@
           <c:forEach items="${optionList}" var="option">
             <tr>
               <td scope="col"><input type="checkbox" name="rowCheck" value="${option.optionNo}"></td>
-              <td scope="col"><span><a class="o-img" src="${option.optionImage}">${option.optionName}</a></span></td>
+              <td scope="col"><span onclick="updateValue(${option.optionNo})" class="admin-update-click">${option.optionName} <i class="fa-regular fa-pen-to-square"></i></span></td>
               <c:choose>
                 <c:when test="${option.optionType eq 'M'}">
                 <td scope="col"><span>메인토핑</span> <img class="topping-img" src="/resources/images/menu/icon/meat.png" alt="메인토핑"></td>
@@ -75,7 +73,6 @@
               </c:choose>
               <td scope="col"><span><fmt:formatNumber type="number" maxFractionDigits="3" value="${option.optionPrice}"/></span></td>
               <td scope="col"><span>${option.optionCalorie} Kcal</span></td>
-              <td scope="col"><span onclick="updateValue(${option.optionNo})" class="menu-n"><i class="fa-regular fa-pen-to-square"></i></span></td>
             </tr>
           </c:forEach>
         </tbody>

@@ -110,6 +110,15 @@ public class MenuManageDAO {
 	public int updateMenu(Menu newMenu) {
 		return sqlSession.update("menuManageMapper.updateMenu", newMenu);
 	}
+	
+	
+	/** 메뉴 이미지 수정
+	 * @param newMenu
+	 * @return result
+	 */
+	public int updateMenuImg(Menu newMenu) {
+		return sqlSession.update("menuManageMapper.updateMenuImg", newMenu);
+	}
 
 
 	
@@ -120,6 +129,27 @@ public class MenuManageDAO {
 	public Option selectOption(int optionNo) {
 		return sqlSession.selectOne("menuManageMapper.selectOption", optionNo);
 	}
+
+
+	/** 옵션 수정
+	 * @param newOption
+	 * @return result
+	 */
+	public int updateOption(Option newOption) {
+		return sqlSession.update("menuManageMapper.updateOption", newOption);
+	}
+
+
+	/** 옵션 이미지 수정
+	 * @param newOption
+	 * @return result
+	 */
+	public int updateOptionImg(Option newOption) {
+		return sqlSession.update("menuManageMapper.updateOptionImg", newOption);
+	}
+
+
+	
 
 
 

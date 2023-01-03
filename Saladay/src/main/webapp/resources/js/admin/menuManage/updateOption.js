@@ -55,54 +55,54 @@ const addBtn = document.getElementById("addBtn");
 
 if(addBtn!= null) {
     addBtn.addEventListener("click", function(){
-        const options = "width=610, height=600, left=-200, top=-900";
+        const options = "width=610, height=550, left=-200, top=-900";
         window.open("/admin/regist/option", "popupWindow", options)
     })
 }
 
 
 
-// 옵션명 클릭시 옵션 이미지 modal 출력 -> 즉시 실행 함수 사용 ()()
-(()=>{
-    const imgList = document.getElementsByClassName("o-img");
+// 옵션명 클릭시 옵션이미지 modal 출력 -> 즉시 실행 함수 사용 ()()
+// (()=>{
+//     const imgList = document.getElementsByClassName("o-img");
 
-    if(imgList.length > 0) { 
+//     if(imgList.length > 0) { 
 
-        // Modal 관련 요소 얻어오기
-        const modal = document.querySelector(".modal");
-        const modalClose = document.getElementById("option-close");
-        const modalImage = document.getElementById("modal-image");
+//         // Modal 관련 요소 얻어오기
+//         const modal = document.querySelector(".modal");
+//         const modalClose = document.getElementById("option-close");
+//         const modalImage = document.getElementById("modal-image");
 
-        // 클릭 이벤트 추가
-        for(let i of imgList) {
-            i.addEventListener("click", () => {
+//         // 클릭 이벤트 추가
+//         for(let i of imgList) {
+//             i.addEventListener("click", () => {
 
-                // .show 없으면 추가 (있으면 삭제) => toggle 사용
-                modal.classList.toggle("show"); 
+//                 // .show 없으면 추가 (있으면 삭제) => toggle 사용
+//                 modal.classList.toggle("show"); 
 
-                // 클릭한 이미지의 src속성값을 얻어와서 modal-image의 src속성으로 세팅
-                modalImage.setAttribute("src", i.getAttribute("src"));
+//                 // 클릭한 이미지의 src속성값을 얻어와서 modal-image의 src속성으로 세팅
+//                 modalImage.setAttribute("src", i.getAttribute("src"));
 
-            });
-        }
+//             });
+//         }
 
 
-        // x버튼 동작
-        modalClose.addEventListener("click", () => {
+//         // x버튼 동작
+//         modalClose.addEventListener("click", () => {
 
-            // 0.5초 후에 show, hide 클래스를 모두 제거
-            setTimeout(()=>{
-                modal.classList.remove("show", "hide");
-            }, 500);
-        });
+//             // 0.5초 후에 show, hide 클래스를 모두 제거
+//             setTimeout(()=>{
+//                 modal.classList.remove("show", "hide");
+//             }, 500);
+//         });
         
-    }
-})();
+//     }
+// })();
 
 
 // 옵션 수정
 function updateValue(optionNo) {
-    const options = "width=610, height=400, left=-200, top=-900";
+    const options = "width=610, height=500, left=-200, top=-900";
     window.open("/admin/option/update?optionNo="+optionNo, "popupWindow", options)
 
 }

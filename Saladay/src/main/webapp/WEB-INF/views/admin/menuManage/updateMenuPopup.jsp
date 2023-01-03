@@ -8,16 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메뉴 수정</title>
-    <link rel="stylesheet" href="/resources/css/admin/menuManage/registMenuPopup.css">
+    <link rel="stylesheet" href="/resources/css/admin/menuManage/updateMenuPopup.css">
     <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="update-menu-popup">
-        <h2>메뉴 수정</h2>
+        <div class="p-title">
+            <h2>메뉴 수정</h2>
+            <span>메뉴명, 이미지, 설명, 가격, 칼로리를 수정할 수 있습니다.</span>
+        </div>   
         <form action="/admin/menu/update" method="POST" enctype="multipart/form-data" id="registFrm" onsubmit="return updateValidate();">
             <table class="menu-table">
                 <caption>
-                    <summary>메뉴등록 폼</summary>
+                    <summary>메뉴수정 폼</summary>
                 </caption>
 
                 <colgroup>

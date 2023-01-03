@@ -94,11 +94,14 @@
 	<update id="updateMenu">
 	UPDATE MENU SET MENU_NAME = #{menuName}, 
 									MENU_CONTENT =#{menuContent}, 
-									<if test="#{menuImage != null}">
-									MENU_IMG = #{menuImage},
-									</if>
 									MENU_PRICE = #{menuPrice}, 
 									CALORIE = #{menuCalorie}
+	WHERE MENU_NO = #{menuNo}
+	</update>
+	
+	<!-- 메뉴 이미지 수정  -->
+	<update id="updateMenuImg">
+	UPDATE MENU SET MENU_IMG = #{menuImage}
 	WHERE MENU_NO = #{menuNo}
 	</update>
 	
@@ -108,5 +111,18 @@
 	SELECT * FROM "OPTION" WHERE OPTION_NO = #{optionNo}
 	</select>
 	
+	<!-- 옵션 수정 -->
+	<update id="updateOption">
+	UPDATE "OPTION" SET OPTION_NAME = #{optionName}, 
+									OPTION_PRICE = #{optionPrice}, 
+									CALORIE = #{optionCalorie}
+	WHERE OPTION_NO = #{optionNo}
+	</update>
+
+	<!-- 옵션 이미지 수정 -->	
+	<update id="updateOptionImg">
+	UPDATE "OPTION" SET OPTION_IMG = #{optionImage}
+	WHERE OPTION_NO = #{optionNo}
+	</update>
 	
 </mapper>

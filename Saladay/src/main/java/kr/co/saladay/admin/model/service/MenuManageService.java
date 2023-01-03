@@ -74,7 +74,7 @@ public interface MenuManageService {
 	 * @param inputMenuImg
 	 * @param webPath
 	 * @param filePath
-	 * @return
+	 * @return result
 	 */
 	int updateMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String filePath) throws Exception;
 
@@ -85,6 +85,17 @@ public interface MenuManageService {
 	 * @return option
 	 */
 	Option selectOption(int optionNo);
+
+
+
+	/** 옵션 수정
+	 * @param newOption
+	 * @param inputOptionImg
+	 * @param webPath
+	 * @param filePath
+	 * @return result
+	 */
+	int updateOption(Option newOption, MultipartFile inputOptionImg, String webPath, String filePath) throws Exception;
 
 
 
