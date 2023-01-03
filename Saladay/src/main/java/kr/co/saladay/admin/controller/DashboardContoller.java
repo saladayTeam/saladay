@@ -66,7 +66,8 @@ public class DashboardContoller {
 			int currentMonthSales=salesMenu.getCurrentMonthSales();
 			
 			if(preMonthSales!=0) {
-				double changeRate=(((currentMonthSales-preMonthSales)/preMonthSales)*100);
+				double changeRate=((((double)currentMonthSales-(double)preMonthSales)/preMonthSales)*100);
+				changeRate = Math.round(changeRate * 10.0)/ 10.0;
 				salesMenu.setChangeRate(changeRate);				
 			} else {
 				salesMenu.setChangeRate(0);

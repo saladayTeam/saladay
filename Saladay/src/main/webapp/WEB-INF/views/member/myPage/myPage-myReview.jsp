@@ -96,29 +96,31 @@
 						
                     </div>
                 </div>
+                
+                <c:if test="${not empty reviewList}">
                 <div class="pagination-area">
-						<c:if test="${not empty reviewList}">
-							<ul class="pagination">
-								<!-- 이전 목록 마지막 번호로 이동 --> 
-								<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
-									<c:forEach var="i" begin="${pagination.startPage}" 
-									end="${pagination.endPage}" step="1">
-										<c:choose>
-											<c:when test="${i == pagination.currentPage}">
-												<!-- 현재 보고있는 페이지 -->
-												<li><a class="current">${i}</a></li>
-											</c:when>
-											<c:otherwise>
-												<!-- 현재 페이지를 제외한 나머지 -->
-												<li><a href="?cp=${i}">${i}</a></li>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-								<!-- 다음 목록 시작 번호로 이동 -->
-								<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
-							</ul>
-						</c:if>
-					</div>
+						
+					<ul class="pagination">
+						<!-- 이전 목록 마지막 번호로 이동 --> 
+						<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
+							<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+								<c:choose>	
+									<c:when test="${i == pagination.currentPage}">
+										<!-- 현재 보고있는 페이지 -->
+										<li><a class="current">${i}</a></li>
+									</c:when>
+									<c:otherwise>
+										<!-- 현재 페이지를 제외한 나머지 -->
+										<li><a href="?cp=${i}">${i}</a></li>
+									</c:otherwise>
+								</c:choose>							
+							</c:forEach>
+						<!-- 다음 목록 시작 번호로 이동 -->
+						<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
+					</ul>
+						
+				</div>
+				</c:if>
             </div>
         </div>
         
@@ -165,7 +167,7 @@
     </script>--%>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/resources/js/member/myPage/myPage.js"></script>
+    <script src="/resources/js/member/myPage/myPage-radio-check.js"></script>
     <script src="/resources/js/review/review.js"></script>
 </body>
 </html>

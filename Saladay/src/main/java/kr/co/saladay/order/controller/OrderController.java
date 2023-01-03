@@ -66,6 +66,10 @@ public class OrderController {
 			order.setOrderTel(loginMember.getMemberTel());			
 		}
 		
+		if(address!=null) {
+			order.setOrderAddress(String.join(",,", address));
+		}
+		
 		// 회원 기본 주소 미작성시 수령인 주소
 		if(loginMember.getMemberAddress()==null) {
 			order.setOrderAddress(String.join(",,", address));

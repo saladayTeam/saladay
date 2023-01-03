@@ -126,3 +126,94 @@ a{
     padding-top : 3px;
 }
 
+
+
+/* 모달 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    z-index: 500;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+    display: flex;
+    animation-name: show;
+    animation-duration: 0.5s;
+}
+
+.modal.hide{
+    animation-name: hide;
+    animation-duration: 0.5s;
+}
+
+
+#modal-image {
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+/* @keyframes : 
+애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써 CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
+/* display 변경 시 transition이 적용되지 않으므로 animation 사용 */
+@keyframes show {
+    from {opacity: 0;} /* opacity : 투명도 */
+    to {opacity: 1;}
+}
+
+@keyframes hide {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+
+/* 메뉴 닫기 버튼  */
+#modal-close {
+    position: absolute;
+    /* top: 270px;
+    right: 710px; */
+    top: 230px;
+    right: 630px;
+
+    color: #ddd;
+    font-size: 50px;
+    font-weight: bold;
+
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+#modal-close:hover{
+    transform: scale(1.2);
+}
+
+/* 옵션 닫기 */
+#option-close {
+    position: absolute;
+    /* top: 270px;
+    right: 710px; */
+    top: 270px;
+    right: 700px;
+
+    color: #ddd;
+    font-size: 50px;
+    font-weight: bold;
+
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+#modal-close:hover{
+    transform: scale(1.2);
+}
+

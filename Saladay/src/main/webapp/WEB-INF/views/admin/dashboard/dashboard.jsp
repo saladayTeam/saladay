@@ -28,7 +28,7 @@
         <div class="menu-m-tit">
             <span><h1>대시보드</h1></span>
             <div class="tit">
-                <span>회사를 살려보자 ! 샐러데이 타이쿤</span>
+                <span>매출 내역을 차트와 표로 확인할 수 있습니다</span>
             </div>
         </div>
 
@@ -71,11 +71,11 @@
         <div class="chart-container-2">
             <div class="chart-order-container">
                 <div class="chart-order">
-                    <span>패키지 별 월간 주문 건수</span>
+                    <span>패키지 별 전체 주문 건수</span>
                     <canvas id="myChart2" width="500" height="400"></canvas>
                 </div>
                 <div class="chart-order">
-                    <span>메뉴 별 월간 주문 건수</span>
+                    <span>메뉴 별 전체 주문 건수</span>
                     <canvas id="myChart3" width="500" height="400"></canvas>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                         <th>당월 판매 수량</th>
                         <th>당월 판매 매출</th>
                         <th>전월 대비 증감</th>
-                        <th>매출 비중</th>
+                        <th>당월 매출 비중</th>
                     </tr>
                 </thead>
 
