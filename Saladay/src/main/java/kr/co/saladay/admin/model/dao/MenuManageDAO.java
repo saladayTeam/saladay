@@ -105,10 +105,20 @@ public class MenuManageDAO {
 
 	/** 메뉴 수정
 	 * @param newMenu
-	 * @return
+	 * @return result
 	 */
 	public int updateMenu(Menu newMenu) {
 		return sqlSession.update("menuManageMapper.updateMenu", newMenu);
+	}
+
+
+	
+	/** 특정 옵션 조회
+	 * @param optionNo
+	 * @return option
+	 */
+	public Option selectOption(int optionNo) {
+		return sqlSession.selectOne("menuManageMapper.selectOption", optionNo);
 	}
 
 

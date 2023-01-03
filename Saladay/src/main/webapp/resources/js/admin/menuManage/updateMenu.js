@@ -101,13 +101,10 @@ if(addBtn!= null) {
 // })();
 
 
-const updateBtn = document.getElementById("updateBtn");
-
 
 // 메뉴 수정
 function updateValue(menuNo) {
-;
-            const options = "width=610, height=600, left=-200, top=-900";
-            window.open("/admin/menu/update?menuNo="+menuNo, "popupWindow", options)
+    const options = "width=610, height=600, left=-200, top=-900";
+    window.open("/admin/menu/update?menuNo="+menuNo, "popupWindow", options)
 
 }

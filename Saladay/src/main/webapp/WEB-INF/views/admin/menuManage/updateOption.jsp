@@ -41,8 +41,9 @@
           <col width="2%">
           <col width="32%">
           <col width="20%">
-          <col width="23%">
-          <col width="23%">
+          <col width="20%">
+          <col width="20%">
+          <col width="6%">
         </colgroup>
 
         <thead>
@@ -52,6 +53,7 @@
             <th scope="col"><span>구분</span></th>
             <th scope="col"><span>가격</span></th>
             <th scope="col"><span>칼로리</span></th>
+            <th scope="col"><span>비고</span></th>
           </tr>
         </thead>
         
@@ -73,6 +75,7 @@
               </c:choose>
               <td scope="col"><span><fmt:formatNumber type="number" maxFractionDigits="3" value="${option.optionPrice}"/></span></td>
               <td scope="col"><span>${option.optionCalorie} Kcal</span></td>
+              <td scope="col"><span onclick="updateValue(${option.optionNo})" class="menu-n"><i class="fa-regular fa-pen-to-square"></i></span></td>
             </tr>
           </c:forEach>
         </tbody>

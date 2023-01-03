@@ -55,6 +55,7 @@
 	SELECT *
 	FROM "OPTION"
 	WHERE OPTION_DEL_FL = 'N'
+	ORDER BY OPTION_TYPE
 	</select>
 	
 	
@@ -100,6 +101,12 @@
 									CALORIE = #{menuCalorie}
 	WHERE MENU_NO = #{menuNo}
 	</update>
+	
+	
+	<!-- 특정 옵션 조회 -->
+	<select id="selectOption" resultMap="option_rm">
+	SELECT * FROM "OPTION" WHERE OPTION_NO = #{optionNo}
+	</select>
 	
 	
 </mapper>

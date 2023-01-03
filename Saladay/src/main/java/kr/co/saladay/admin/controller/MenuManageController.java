@@ -233,4 +233,19 @@ public class MenuManageController {
 		}
 	
 	
+	
+	// 옵션 수정 
+	@GetMapping("/admin/option/update")
+	public String updateOption(@RequestParam(value="optionNo", required=false) int optionNo, Model model) {
+		
+		// 특정 옵션 조회
+		Option option = service.selectOption(optionNo);
+		
+		model.addAttribute("option", option);
+		
+		return "/admin/menuManage/updateOptionPopup";
+	}
+	
+	
+	
 }

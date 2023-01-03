@@ -201,12 +201,12 @@ a{
 /* 옵션 닫기 */
 #option-close {
     position: absolute;
-    /* top: 270px;
-    right: 710px; */
-    top: 270px;
-    right: 700px;
+    top: 0;
+    right:0;
+    /* top: 270px; */
+    /* right: 700px; */ 
 
-    color: #ddd;
+    color: #ccc;
     font-size: 50px;
     font-weight: bold;
 
@@ -219,14 +219,5 @@ a{
 }
 
 
-
-/* 행 클릭시 메뉴 페이지로 이동 */
-.admin-menu-click{
-    cursor: pointer;
-}
-
-.admin-menu-click:hover{
-    cursor: pointer; 
-}
 
 

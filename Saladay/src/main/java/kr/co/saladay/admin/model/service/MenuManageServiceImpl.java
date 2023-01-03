@@ -170,4 +170,10 @@ public class MenuManageServiceImpl implements MenuManageService {
 		return result;
 	}
 
+	
+	// 특정 옵션 조회
+	@Override
+	public Option selectOption(int optionNo) {
+		return dao.selectOption(optionNo);
+	}
 }

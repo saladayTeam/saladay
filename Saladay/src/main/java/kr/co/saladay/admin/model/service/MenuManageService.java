@@ -80,4 +80,12 @@ public interface MenuManageService {
 
 
 
+	/** 특정 옵션 조회
+	 * @param optionNo
+	 * @return option
+	 */
+	Option selectOption(int optionNo);
+
+
+
 }

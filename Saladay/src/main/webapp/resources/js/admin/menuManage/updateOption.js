@@ -62,7 +62,7 @@ if(addBtn!= null) {
 
 
 
-// 옵션명 클릭시 modal 출력 -> 즉시 실행 함수 사용 ()()
+// 옵션명 클릭시 옵션 이미지 modal 출력 -> 즉시 실행 함수 사용 ()()
 (()=>{
     const imgList = document.getElementsByClassName("o-img");
 
@@ -98,3 +98,11 @@ if(addBtn!= null) {
         
     }
 })();
+
+
+// 옵션 수정
+function updateValue(optionNo) {
+    const options = "width=610, height=400, left=-200, top=-900";
+    window.open("/admin/option/update?optionNo="+optionNo, "popupWindow", options)
+
+}
