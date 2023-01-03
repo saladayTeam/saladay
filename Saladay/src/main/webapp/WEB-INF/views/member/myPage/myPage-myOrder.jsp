@@ -236,6 +236,6 @@
         }
     }
     </script>
-    <script src="/resources/js/member/myPage/myPage.js"></script>
+    <script src="/resources/js/member/myPage/myPage-radio-check.js"></script>
 </body>
 </html>
