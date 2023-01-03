@@ -178,7 +178,7 @@ public class MenuManageController {
 	}
 	
 	
-	// 메뉴 수정 
+	// 메뉴 수정 팝업창
 	@GetMapping("/admin/menu/update")
 	public String updateMenu(@RequestParam(value="menuNo", required=false) int menuNo, Model model) {
 		
@@ -233,7 +233,7 @@ public class MenuManageController {
 	
 	
 	
-	// 옵션 수정 
+	// 옵션 수정 팝업창
 	@GetMapping("/admin/option/update")
 	public String updateOption(@RequestParam(value="optionNo", required=false) int optionNo, Model model) {
 		
