@@ -62,6 +62,7 @@
       <result property="deliveryDate" column="DELIVERY_DATE"/>
       <result property="deliveryStatus" column="DELIVERY_STATUS"/>
       <result property="deliveryNo" column="DELIVERY_NO"/>
+      <result property="deliveryCode" column="DELIVERY_CODE"/>
       <result property="rowNum" column="ROW_NUM"/>
 	</resultMap>
 	
@@ -159,7 +160,7 @@
 	<!-- 주문별 배송정보 -->
 	<select id="selectOrderDetailDelivery" resultMap="deliveryManage_rm">
 	SELECT ROW_NUMBER() OVER(PARTITION BY D.ORDER_NO ORDER BY D.ORDER_NO, D.DELIVERY_DATE) ROW_NUM,
-	DELIVERY_NO, O.ORDER_NO, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') DELIVERY_DATE, DELIVERY_STATUS
+	DELIVERY_NO, O.ORDER_NO, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') DELIVERY_DATE, D.DELIVERY_CODE, DELIVERY_STATUS
 	FROM DELIVERY D
 	JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
 	JOIN "PACKAGE" USING (PACKAGE_NO)

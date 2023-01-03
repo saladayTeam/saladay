@@ -12,6 +12,8 @@
 	<result property="memberNo" column="MEMBER_NO"/>
 	<result property="memberNickname" column="MEMBER_NICKNAME"/>
 	<result property="orderNo" column="ORDER_NO"/>
+	<result property="orderDate" column="ORDER_DATE"/>
+	<result property="memberName" column="MEMBER_NAME"/>
 	<result property="orderMenuNo" column="ORDER_MENU_NO"/>
 	<result property="menuNo" column="MENU_NO"/>
 	<result property="menuName" column="MENU_NAME"/>
@@ -130,6 +132,33 @@ JOIN "ORDER_MENU" USING(ORDER_MENU_NO)
 JOIN "MENU" USING(MENU_NO)
 WHERE REVIEW_DEL_FL='N'
 AND MENU_NO = #{menuNo}
+ORDER BY REVIEW_NO DESC
+</select>
+
+<!-- 특정 멤버 리뷰 수 조회 -->
+<select id="getMemberReviewListCount" parameterType="_int" resultType="_int">
+SELECT COUNT(*) FROM "REVIEW"
+JOIN ORDER_MENU USING(ORDER_MENU_NO)
+WHERE MEMBER_NO = #{memberNo}
+AND REVIEW_DEL_FL='N'
+</select>
+
+<!-- 특정 멤버 리뷰 목록 조회 -->
+<select id="selectMemberReviewList" resultMap="review_rm">
+SELECT REVIEW_NO, RATING, REVIEW_CONTENT, R.MEMBER_NO, MEMBER_NICKNAME, MENU_NO, MENU_NAME,
+	TO_CHAR(REVIEW_DATE, 'YYYY-MM-DD') REVIEW_DATE, O.ORDER_NO, ORDER_DATE, MEMBER_NAME,
+ 	(SELECT COUNT(*) FROM "LIKE" L
+	  WHERE L.REVIEW_NO = R.REVIEW_NO) LIKE_COUNT,
+	(SELECT IMG_PATH || IMG_RENAME FROM REVIEW_IMG I
+	WHERE IMG_ORDER =0
+	AND I.REVIEW_NO = R.REVIEW_NO) THUMBNAIL
+FROM "REVIEW" R
+JOIN "MEMBER" M ON(M.MEMBER_NO=R.MEMBER_NO)
+JOIN "ORDER_MENU" OM USING(ORDER_MENU_NO)
+JOIN "MENU" USING(MENU_NO)
+JOIN "ORDER" O ON(O.ORDER_NO=OM.ORDER_NO)
+WHERE REVIEW_DEL_FL='N'
+AND R.MEMBER_NO = #{memberNo}
 ORDER BY REVIEW_NO DESC
 </select>
 
