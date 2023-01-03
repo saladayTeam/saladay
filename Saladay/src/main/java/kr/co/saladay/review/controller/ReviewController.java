@@ -73,6 +73,24 @@ public class ReviewController {
 
 		return "/review/menuReviewList";
 	}
+	
+	// 특정 회원 리뷰 목록 조회
+	@GetMapping("/memberReview/{memberNo}")
+	public String selectMemberReviewList(Model model, @PathVariable("memberNo") int memberNo,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			HttpServletRequest req
+			) {
+
+		Map<String, Object> map = service.selectMemberReviewList(cp, memberNo);
+		
+		// 이전 주소 얻어오기
+		String referer = req.getHeader("referer");
+		
+		model.addAttribute("map", map);
+		model.addAttribute("referer", referer);
+
+		return "/review/memberReviewList";
+	}
 
 	// 게시글 상세 조회(AJAX)
 	@ResponseBody

@@ -137,6 +137,17 @@
     color: #17633d;
 }
 
+/* 리뷰 닉네임 a태그 */
+.review-member-nickname{
+    color: #666666;
+    text-decoration: none;
+}
+
+.review-member-nickname:hover{
+    text-decoration: underline;
+    color: black;
+}
+
 /* 리뷰 작성자 */
 .review-writer{
     color: #666666;
@@ -213,7 +224,7 @@
 .review-modal, .review-modal *{
     box-sizing: content-box !important;
 }
-    
+
 /* 리뷰 모달 닫기 */
 #modal-close {
     position: absolute;
@@ -372,9 +383,9 @@
     font-size: 15px;
 }
 
-.optStar{
+/* .optStar{
     color: #fec43b;
-}
+} */
 
 /* 검색 결과가 없을 때 뒤로가기 버튼 */
 .backBtn{
@@ -387,4 +398,14 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
+}
+
+/* 멤버별 리뷰 목록 조회시 관리자에게만 보이는 div */
+.admin-box{
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 13px;
+    color: #666666;
 }

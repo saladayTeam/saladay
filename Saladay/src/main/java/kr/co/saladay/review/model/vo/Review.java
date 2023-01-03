@@ -15,7 +15,9 @@ public class Review {
 	private String reviewDeleteFlag; //	리뷰 삭제여부 REVIEW_DEL_FL
 	private int memberNo; //	리뷰 작성자 번호 MEMBER_NO
 	private String memberNickname;//  리뷰 작성자 닉네임 MEMBER_NICKNAME
+	private String memberName; // 리뷰 작성자 이름 MEMBER_NAME
 	private int orderNo; //	주문번호 ORDER_NO
+	private String orderDate; // 주문일 ORDER_DATE
 	private int orderMenuNo; //	주문한 메뉴 번호 ORDER_MENU_NO
 	private int menuNo; //	메뉴 번호 MENU_NO
 	private String menuName; // 메뉴 이름 MENU_NAME
