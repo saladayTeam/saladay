@@ -6,10 +6,8 @@
 
 .review-check{
     display: flex;
-    justify-content: flex-end;
-    width: 1200px;
-/*     margin-top: 15px; */
-    padding: 20px;
+    justify-content: end;
+
 }
 
 .review-div{
@@ -18,6 +16,7 @@
     /* width: 1200px; */
     width: 104%;
     padding: 0px;
+    margin-top: 50px;
 }
 
 /* 리뷰 카테고리 제목 */
@@ -25,12 +24,11 @@
     font-family: "NanumSquareNeo-Variable" !important;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     font-weight: bolder;
     color: black;
     border-bottom: 3px solid #17633d;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
     margin: 50px 0 auto auto;
 }
 
@@ -38,11 +36,25 @@
     font-size: 30px;
 }
 
+/* 특정메뉴 리뷰 제목 */
+.review-menu-title {
+    font-family: "NanumSquareNeo-Variable" !important;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    font-weight: bolder;
+    color: black;
+    border-bottom: 3px solid #17633d;
+    padding-bottom: 20px;
+    margin: 50px 0 auto auto;
+}
+
 /* 전체리뷰보러가기 */
 .review-back{
     color: #17633d;
     text-decoration: none;
-    margin-right: 30px;
+    margin-top: 3px;
+    margin-right: 10px;
 }
 
 .review-back:hover{
@@ -125,6 +137,17 @@
     color: #17633d;
 }
 
+/* 리뷰 닉네임 a태그 */
+.review-member-nickname{
+    color: #666666;
+    text-decoration: none;
+}
+
+.review-member-nickname:hover{
+    text-decoration: underline;
+    color: black;
+}
+
 /* 리뷰 작성자 */
 .review-writer{
     color: #666666;
@@ -201,7 +224,7 @@
 .review-modal, .review-modal *{
     box-sizing: content-box !important;
 }
-    
+
 /* 리뷰 모달 닫기 */
 #modal-close {
     position: absolute;
@@ -360,6 +383,29 @@
     font-size: 15px;
 }
 
-.optStar{
+/* .optStar{
     color: #fec43b;
+} */
+
+/* 검색 결과가 없을 때 뒤로가기 버튼 */
+.backBtn{
+    margin-top: 5px;
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* 멤버별 리뷰 목록 조회시 관리자에게만 보이는 div */
+.admin-box{
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 13px;
+    color: #666666;
 }

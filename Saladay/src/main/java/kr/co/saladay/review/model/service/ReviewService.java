@@ -73,4 +73,11 @@ public interface ReviewService {
 	 */
 	int reviewWrite(Review review, List<MultipartFile> imageList, String webPath, String folderPath) throws IOException;
 
+	/** 특정 회원 리뷰 목록 조회
+	 * @param cp
+	 * @param memberNo
+	 * @return
+	 */
+	Map<String, Object> selectMemberReviewList(int cp, int memberNo);
+
 }

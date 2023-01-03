@@ -1,7 +1,30 @@
 // 별점 검색한 경우 selected option 고정
 (()=>{
-    const reviewRating = document.getElementById("reviewRating").className;
-    $("#reviewRating").val(reviewRating).prop('selected', true);
+    $(document).ready(function() {
+        $('.optStar').css('color','#fec43b');
+        $('#reviewRating').change(function() {
+            var current = $('#reviewRating').val();
+            if (current==0) {
+                $('.optBlack').css('color','black');
+                $('#reviewRating').css('color','black');
+            } else {
+                $('.optStar').css('color','#fec43b');
+                $('#reviewRating').css('color','#fec43b');
+            }
+        });
+
+        });
+
+        const reviewRating = document.getElementById("reviewRating").className;
+        $("#reviewRating").val(reviewRating).prop('selected', true);
+        var current = $('#reviewRating').val();
+        if (current==0) {
+            $('.optBlack').css('color','black');
+            $('#reviewRating').css('color','black');
+        } else {
+            $('.optStar').css('color','#fec43b');
+            $('#reviewRating').css('color','#fec43b');
+        }
 })();
 
 
