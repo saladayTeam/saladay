@@ -248,9 +248,11 @@ main {
 }
 
 /*flex-end 끝부터 배치********/
-.order-bottom{
+.discount {
 	display:flex;
-	justify-content: flex-end;
+	justify-content:flex-end;
+	margin-bottom: 10px;
+	margin-top: 5px;
 }
 
 .discount-price {
@@ -261,14 +263,22 @@ main {
 	width: 200px;
 }
 
+.order-bottom{
+	display:flex;
+	justify-content:flex-end;
+}
+
 .total-price {
 	font-size:14px;
 	font-weight: bolder;
 	text-align: right;
 	width: 200px;
+	margin-left:310px;
+	
 }
 
 .order-cancel-btn {
+	
     width: 100px;
     height: 24px;
     font-size: 14px;
