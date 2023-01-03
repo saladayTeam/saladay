@@ -28,7 +28,7 @@
     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     <main>
         <div class="review-list-area">
-            <div class="review-title">
+            <div class="review-menu-title">
                 <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
                 <h1 class="review-main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
             </div>
@@ -55,6 +55,7 @@
                         <c:when test="${empty reviewList}">
                         <!-- 리뷰 목록 조회 결과가 비어있다면 -->
                             <li>앗! 작성된 리뷰가 없어요!</li>
+                            <li><button onclick="location.href='${referer}'" class="backBtn">뒤로가기</button></li>
                         </c:when>
                         <c:otherwise>
                             <c:forEach var="review" items="${reviewList}">

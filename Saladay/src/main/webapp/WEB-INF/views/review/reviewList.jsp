@@ -30,21 +30,21 @@
         <div class="review-list-area">
             <div class="review-title">
                 <h1 class="review-main-title">전체 샐러드 리뷰</h1>
-            </div>
-            <div class="review-check">
-                <form action ="/review" method="get">
-                    <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
-                        <option value="0">전체별점</option>
-                        <option value="50" class="optStar">★★★★★</option>
-                        <option value="40" class="optStar">★★★★</option>
-                        <option value="30" class="optStar">★★★</option>
-                        <option value="20" class="optStar">★★</option>
-                        <option value="10" class="optStar">★</option>
-                    </select>
-                    <button type="submit" class="rrBtn">
-                        검색
-                    </button>
-                </form>
+                <div class="review-check">
+                    <form action ="/review" method="get">
+                        <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
+                            <option value="0">전체별점</option>
+                            <option value="50" class="optStar">★★★★★</option>
+                            <option value="40" class="optStar">★★★★</option>
+                            <option value="30" class="optStar">★★★</option>
+                            <option value="20" class="optStar">★★</option>
+                            <option value="10" class="optStar">★</option>
+                        </select>
+                        <button type="submit" class="rrBtn">
+                            검색
+                        </button>
+                    </form>
+                </div>
             </div>
 
             <!-- 리뷰 목록 내용 -->
@@ -54,6 +54,7 @@
                         <c:when test="${empty reviewList}">
                         <!-- 리뷰 목록 조회 결과가 비어있다면 -->
                             <li>앗! 작성된 리뷰가 없어요!</li>
+                            <li><button onclick="location.href='${referer}'" class="backBtn">뒤로가기</button></li>
                         </c:when>
                         <c:otherwise>
                             <c:forEach var="review" items="${reviewList}">
