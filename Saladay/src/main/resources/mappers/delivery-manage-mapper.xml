@@ -18,6 +18,7 @@
       <result property="packageNo" column="PACKAGE_NO"/>
       <result property="packageName" column="PACKAGE_NAME"/>
       <result property="rowNum" column="ROW_NUM"/>
+      <result property="menuName" column="MENU_NAME"/>
 	</resultMap>
 	
 	<!-- 배송건수 조회 -->
@@ -47,12 +48,22 @@
 	<!-- 상세 배송일정 -->
 	<select id="selectDeliveryDetail" parameterType="_int" resultMap="deliveryManage_rm">
 		SELECT  ROW_NUMBER() OVER(PARTITION BY D.ORDER_NO ORDER BY D.ORDER_NO, D.DELIVERY_DATE) ROW_NUM,
-		DELIVERY_NO, O.ORDER_NO, TO_CHAR(DELIVERY_DATE, 'YYYY-MM-DD')DELIVERY_DATE, ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, O.PACKAGE_NO, P.PACKAGE_NAME, ORDER_PRICE, DELIVERY_STATUS, D.DELIVERY_CODE, ORDER_DEL_FL
+		DELIVERY_NO, O.ORDER_NO, TO_CHAR(DELIVERY_DATE, 'YYYY-MM-DD')DELIVERY_DATE, ORDER_NAME, ORDER_TEL,
+		ORDER_ADDRESS, O.PACKAGE_NO, P.PACKAGE_NAME, ORDER_PRICE, DELIVERY_STATUS, D.DELIVERY_CODE, ORDER_DEL_FL,
+		M.MENU_NAME
 		FROM DELIVERY D
 		JOIN "ORDER" O ON (O.ORDER_NO = D.ORDER_NO)
 		JOIN "DELIVERY_MANAGE" DM ON (DM.DELIVERY_CODE=D.DELIVERY_CODE)
 		JOIN "PACKAGE" P ON (P.PACKAGE_NO=O.PACKAGE_NO)
+		JOIN ORDER_MENU OM ON (O.ORDER_NO=OM.ORDER_NO)
+		JOIN MENU M ON (M.MENU_NO=OM.MENU_NO)
 		WHERE DELIVERY_NO = #{deliveryNo}
+		AND O.ORDER_NO = #{orderNo}
 	</select>
+	
+	<!-- 캘린더 배송정보 수정 -->
+	<update id="updateCalendar">
+		UPDATE "DELIVERY" SET DELIVERY_CODE=#{deliveryCode} WHERE DELIVERY_NO = #{deliveryNo}
+	</update>
 	
 </mapper>

@@ -1,3 +1,4 @@
+
 let list;
 document.addEventListener('DOMContentLoaded', function() {
   
@@ -25,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
               backgroundColor: "#17633d",
               borderColor: "#17633d",
               extendedProps: {
-                risk: '7'
+                risk: '7',
+                orderNo: li.orderNo
               }
           });
         }
@@ -40,7 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
               backgroundColor: "#f1828d",
               borderColor: "#f1828d",
               extendedProps: {
-                risk: li.packageNo
+                risk: li.packageNo,
+                orderNo: li.orderNo
               }
           });
         }
@@ -55,7 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
               backgroundColor: "#848ccf",
               borderColor: "#848ccf",
               extendedProps: {
-                risk: li.packageNo
+                risk: li.packageNo,
+                orderNo: li.orderNo
               }
           });
         }
@@ -70,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
               backgroundColor: "#252958",
               borderColor: "#252958",
               extendedProps: {
-                risk: li.packageNo
+                risk: li.packageNo,
+                orderNo: li.orderNo
               }
           });
         }
@@ -86,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 backgroundColor: "#f9b42d",
                 borderColor: "#f9b42d",
                 extendedProps: {
-                  risk: li.packageNo
+                  risk: li.packageNo,
+                  orderNo: li.orderNo
                 }
               });
             }else{
@@ -99,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
                   backgroundColor: "#f9b42d",
                   borderColor: "#f9b42d",
                   extendedProps: {
-                    risk: li.packageNo
+                    risk: li.packageNo,
+                    orderNo: li.orderNo
                   }
                 });
               }
@@ -116,7 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
               backgroundColor: "#3498db",
               borderColor: "#3498db",
               extendedProps: {
-                risk: li.packageNo
+                risk: li.packageNo,
+                orderNo: li.orderNo
               }
             });
           }else{
@@ -129,7 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 backgroundColor: "#3498db",
                 borderColor: "#3498db",
                 extendedProps: {
-                  risk: li.packageNo
+                  risk: li.packageNo,
+                  orderNo: li.orderNo
                 }
               });
             }
@@ -146,7 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
               backgroundColor: "#ff4c30",
               borderColor: "#ff4c30",
               extendedProps: {
-                risk: li.packageNo
+                risk: li.packageNo,
+                orderNo: li.orderNo
               }
             });
           }else{
@@ -159,7 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 backgroundColor: "#ff4c30",
                 borderColor: "#ff4c30",
                 extendedProps: {
-                  risk: li.packageNo
+                  risk: li.packageNo,
+                  orderNo: li.orderNo
                 }
               });
             }
@@ -191,7 +202,8 @@ document.addEventListener('DOMContentLoaded', function() {
     //   }
     eventClick: function(info) {
       deliveryNo = info.event.id;
-      selectOne(deliveryNo);
+      orderNo = info.event.extendedProps.orderNo;
+      selectOne(deliveryNo, orderNo);
     },
     eventDidMount : function(info){
       // console.log(info);
@@ -313,136 +325,160 @@ $(".inputGroup .filter").on("click", function(){
 /* 일정 조회(selectOne) */
 
 // 일정 조회 함수
-function selectOne(thisId){
-    let deliveryNo = thisId;
-
+function selectOne(thisId, thisIds){
+  let deliveryNo = thisId;
+  let orderNo = thisIds;
+  let delivery;
+  
     $.ajax({
         url : "/admin/delivery/selectDeliveryCalendar",
-        data : {"deliveryNo":deliveryNo},
-        type : "POST",
-        dataType : "JSON",
+        data : {"deliveryNo":deliveryNo, "orderNo":orderNo},
+        type : "GET",
+        dataType : "JSON",  
+        
+        success : function(delivery){
+          console.log(delivery);
+          console.log(delivery.length);
+          console.log(delivery[1]);
+          console.log(delivery[2]);
+          
+            // 배송번호
+            const deliveryNo = document.getElementById("deliveryNo");
+            deliveryNo.innerText = "\u00a0"+ delivery[0].deliveryNo;
 
-        success : (list) => {
-          deliveryNo = list.deliveryNo;
+            // 주문번호
+            const orderNo = document.getElementById("orderNo");
+            orderNo.innerText = "\u00a0"+ delivery[0].orderNo;
 
-            // 시작 날짜
-            const deliveryNo = document.getElementById('deliveryNo');
-            deliveryNo.innerText = list.deliveryNo;
+            // 배송날짜
+            const deliveryDate = document.getElementById("deliveryDate");
+            deliveryDate.innerText = "\u00a0"+ delivery[0].deliveryDate;
 
-            // 요일
-            const orderNo = document.getElementById('orderNo');
-            orderNo.innerText = plan.planStartDate;
+            // 수령인
+            const deliveryName = document.getElementById("deliveryName");
+            deliveryName.innerText = "\u00a0"+ delivery[0].orderName;
 
-            // 2. 제목 상자
-            const titleBox = document.getElementById('titleBox');
-            titleBox.innerText = plan.planTitle;
+            // 배송지 주소
+            const deliveryAddress = document.getElementById("deliveryAddress");
+            deliveryAddress.innerText = "\u00a0"+ delivery[0].orderAddress.replaceAll(',,',' ');
 
-            // 3. 기간 상자
-            const periodBox = document.getElementById('periodBox');
+            // 버튼
+            // 배송상태가 결제완료일 경우
+            // if(delivery[0].deliveryCode == 'A'){
+            //   $("#selectbox option:selected").val('A');
+            //   // function chageLangSelect(){
+            //   //   var langSelect = document.getElementById("selectbox");
+                 
+            //   //   // select element에서 선택된 option의 value가 저장된다.
+             
+            //   //   // select element에서 선택된 option의 text가 저장된다.
+            //   //   var selectText = langSelect.options[langSelect.selectedIndex].text;
+            // }else if(delivery[0].deliveryCode == 'D'){
+            //   $("#selectbox option:selected").val('D');
+            // }
 
-            // 기간 변수 조립하기
-            let period = "";
-
-            // 시작 연도
-            const startYear = plan.planStart.substring(0, 4) + '년';
-
-            // 시작 월
-            const startMonth = plan.planStart.substring(5, 7) + '월';
-            
-            // 시작 일
-            // startDay 사용함
-
-            // 기간에 시작 날짜까지 추가
-            period = startYear + " " + startMonth + " " + startDay + "일";
-
-            // 시작 시간
-            let startMeridiem = "";
-            let startHour = "";
-            let startMinute = "";
-
-            if(plan.planStart.length > 10) {
-                
-                startHour = plan.planStart.substring(11, 13);
-
-                if(startHour >= 12) {
-                    startMeridiem = "오후";
-                    startHour -= 12;
-                    if(startHour < 10) {
-                        startHour = '0' + startHour;
-                    }
-                } else {
-                    startMeridiem = "오전";
-                }
-                
-                // 시작 분
-                startMinute = plan.planStart.substring(14, 16);
-
-                period += " " + startMeridiem + " " + startHour + ":" + startMinute;
-
+            const options = document.querySelectorAll("#selectbox > option");
+            for(let op of options){
+              if(op.value == delivery[0].deliveryCode){
+                op.selected = true;
+                break;
+              }
             }
 
-            if(!(plan.planStart === plan.planEnd)) {
+            // 배송지 전화번호
+            const deliveryPhone = document.getElementById("deliveryPhone");
+            deliveryPhone.innerText = "\u00a0"+ delivery[0].orderTel;
 
-                // 종료 연도
-                const endYear = plan.planEnd.substring(0, 4) + '년';
+            // 패키지 이름
+            const packageName = document.getElementById("packageName");
+            packageName.innerText = "\u00a0" + delivery[0].packageName;
 
-                // 종료 월
-                const endMonth = plan.planEnd.substring(5, 7) + '월';
+            // 배송할 샐러드 div
+            const deliverySalad1 = document.getElementById("deliverySalad1");
+            const deliverySalad2 = document.getElementById("deliverySalad2");
+            const deliverySalad3 = document.getElementById("deliverySalad3");
+            const deliverySalad4 = document.getElementById("deliverySalad4");
+            const deliverySalad5 = document.getElementById("deliverySalad5");
+            const deliverySalad6 = document.getElementById("deliverySalad6");
+            const deliverySalad7 = document.getElementById("deliverySalad7");
 
-                // 종료 일
-                const endDay = plan.planEnd.substring(8, 10) + '일';
-
-                // 종료 시간
-                let endMeridiem = "";
-                let endHour = "";
-                let endMinute = "";
-
-                period += " - " + endYear + " " + endMonth + " " + endDay + " ";
-
-                if(plan.planEnd.length > 10) {
-
-                    endHour = plan.planEnd.substring(11, 13);
-
-                    if(endHour >= 12) {
-                        endMeridiem = "오후";
-                        endHour -= 12;
-                        if(endHour < 10) {
-                            endHour = '0' + endHour;
-                        }
-
-                    } else {
-                        endMeridiem = "오전";
-                    }
-
-                    // 종료 분
-                    endMinute = plan.planEnd.substring(14, 16);
-
-                    period += endMeridiem + " " + endHour + ":" + endMinute;
-                }
+            // 메뉴가 3개일 경우
+            if(delivery.length == 3){
+              deliverySalad1.innerText = "\u00a0"+ delivery[0].menuName + ','+ "\u00a0";
+              deliverySalad2.innerText = delivery[1].menuName + ',' + "\u00a0";
+              deliverySalad3.innerText = delivery[2].menuName;
+              // 메뉴가 5개일 경우
+            }else if(delivery.length == 5){
+              deliverySalad1.innerText = "\u00a0"+ delivery[0].menuName + ','+ "\u00a0";
+              deliverySalad2.innerText = delivery[1].menuName + ','+ "\u00a0";
+              deliverySalad3.innerText = delivery[2].menuName + ','+ "\u00a0";
+              deliverySalad4.innerText = delivery[3].menuName + ','+ "\u00a0";
+              deliverySalad5.innerText = delivery[4].menuName;
+              // 메뉴가 7개일 경우
+            }else if(delivery.length == 7){
+              deliverySalad1.innerText = "\u00a0"+ delivery[0].menuName + ','+ "\u00a0";
+              deliverySalad2.innerText = delivery[1].menuName + ','+ "\u00a0";
+              deliverySalad3.innerText = delivery[2].menuName + ','+ "\u00a0";
+              deliverySalad4.innerText = delivery[3].menuName + ','+ "\u00a0";
+              deliverySalad5.innerText = delivery[4].menuName + ','+ "\u00a0";
+              deliverySalad6.innerText = delivery[5].menuName + ','+ "\u00a0";
+              deliverySalad7.innerText = delivery[6].menuName;
             }
 
-            periodBox.innerText = period;
-            
-            // 4. 색깔 상자
-            const colorBox = document.getElementById('selectedColor');
-            colorBox.setAttribute("style", "background-color:" + plan.planColor);
+            // 배송 상태
+            // const deliveryStatus = document.getElementById("deliveryStatus");
+            // deliveryStatus.innerText = "\u00a0"+ delivery[0].deliveryStatus;
 
-            // 5. 작성자 상자
-            const memberNameBox = document.getElementById('memberNameBox');
-            memberNameBox.innerHTML = "&nbsp;&nbsp;&#183;&nbsp;&nbsp;" + plan.memberName;
-
-
-            // 6. 내용 상자
-            const contentBox = document.getElementById('contentBox');
-            const content = plan.planContent;
-            contentBox.innerText = content;
-        },
-        error : () => {
-            alert("데이터 전송에 실패하였습니다.")
         }
+
     })
     const detailModal = document.getElementById('modal');
     detailModal.classList.toggle('modal');
+    const ModalBox = document.getElementById('modalBox');
+    ModalBox.classList.toggle('modalBox');
 
+} // 일정 상세조회 창
 
-} // end makePlanDetail
+const changeBtn = document.getElementById("changeBtn");
+const options = document.querySelectorAll("#selectbox > option");
+
+$(document).ready(function(){
+  $("#selectbox").change(function(){
+    // Value값 가져오기
+    var deliveryCode = $("#selectbox :selected").val();
+    changeBtn.style.display = "flex";
+    
+    console.log(deliveryCode);
+    
+  });
+});
+
+$(changeBtn).click(function() {
+
+  var deliveryCode = $("#selectbox :selected").val();
+
+  console.log("value : " + deliveryNo);
+  console.log("value : " + deliveryCode);
+
+    if(confirm("배송상태를 변경하시겠습니까?")) {
+      // /admin/orderManage/{orderNo}/delete GET방식
+      // 삭제 후 /admin/orderManage/{orderNo}
+
+      $.ajax({
+          url : "/admin/calendar/updateDelivery",
+          type : "get",
+          data : {"deliveryNo":deliveryNo, "deliveryCode":deliveryCode},
+          success : function() {
+              alert("배송상태를 수정합니다.");
+              location.reload("/admin/delivery/deliveryCalendar"); // 페이지 새로고침
+          },
+          error: function(){
+              alert("배송상태 변경 실패")
+          }
+      })
+      
+    }else{
+
+      alert("배송상태 변경을 취소했습니다.");
+  }
+});
