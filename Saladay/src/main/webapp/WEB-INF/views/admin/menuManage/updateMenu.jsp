@@ -58,7 +58,7 @@
           <c:forEach items="${menuList}" var="menu">
             <tr>
               <td scope="col"><input type="checkbox" name="rowCheck" value="${menu.menuNo}"></td>
-              <td scope="col"><span class="menu-n"><a href="${menu.menuImage}">${menu.menuName}</a></span></td>
+              <td scope="col"><span class="menu-n"><a class="m-img" src="${menu.menuImage}">${menu.menuName}</a></span></td>
               <td scope="col"><span class="menu-i">${menu.menuContent}</span></td>
               <td scope="col"><span class="menu-p"><fmt:formatNumber type="number" maxFractionDigits="3" value="${menu.menuPrice}" /></span></td>
               <td scope="col"><span class="menu-c">${menu.menuCalorie} Kcal</span></td>
@@ -93,6 +93,12 @@
         </div>
       
     </main>  
+
+    <!-- 이미지 모달창 출력 -->
+    <div class="modal">
+        <span id="modal-close">&times;</span>
+        <img id="modal-image" src="">
+    </div>
     
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 

@@ -59,7 +59,7 @@
           <c:forEach items="${optionList}" var="option">
             <tr>
               <td scope="col"><input type="checkbox" name="rowCheck" value="${option.optionNo}"></td>
-              <td scope="col"><span><a href="${option.optionImage}">${option.optionName}</a></span></td>
+              <td scope="col"><span><a class="o-img" src="${option.optionImage}">${option.optionName}</a></span></td>
               <c:choose>
                 <c:when test="${option.optionType eq 'M'}">
                 <td scope="col"><span>메인토핑</span> <img class="topping-img" src="/resources/images/menu/icon/meat.png" alt="메인토핑"></td>
@@ -102,6 +102,12 @@
             </c:if>
         </div>
     </main>  
+
+    <!-- 이미지 모달창 출력 -->
+    <div class="modal">
+        <span id="option-close">&times;</span>
+        <img id="modal-image" src="">
+    </div>
     
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
