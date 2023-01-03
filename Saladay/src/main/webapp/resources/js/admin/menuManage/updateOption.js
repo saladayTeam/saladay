@@ -1,19 +1,38 @@
 console.log("옵션관리");
 
-const allCheck = document.getElementById("allCheck");
-const chks = document.getElementsByName("rowCheck");
+// const allCheck = document.getElementById("allCheck");
+// const chks = document.getElementsByName("rowCheck");
 
 // 즉시 실행 함수()();
-(function() {
-    // 전체 선택 및 해제
-    allCheck.addEventListener("click", function(){
-        console.log("여긴 옵션");
-        for(let i=0; i<chks.length; i++){
-            chks[i].checked = this.checked;
-        }
-    });
-})();
+// (function() {
+//     // 전체 선택 및 해제
+//     allCheck.addEventListener("click", function(){
+//         console.log("여긴 옵션");
+//         for(let i=0; i<chks.length; i++){
+//             chks[i].checked = this.checked;
+//         }
+//     });
+// })();
 
+// 체크박스
+$(document).ready(function() {
+    $("#allCheck").click(function() {
+		if($("#allCheck").is(":checked")) $("input[name=rowCheck]").prop("checked", true);
+		else $("input[name=rowCheck]").prop("checked", false);
+	});
+
+    $("input[name=rowCheck]").click(function() {
+        var total = $("input[name=rowCheck]").length;
+        var checked = $("input[name=rowCheck]:checked").length;
+
+        if(total != checked) $("#allCheck").prop("checked", false);
+        else $("#allCheck").prop("checked", true); 
+    }); 
+});
+
+
+
+// 옵션 삭제
 function deleteValue(){
     const valueArr = new Array();
     const list = chks;
