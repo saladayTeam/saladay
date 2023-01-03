@@ -1,4 +1,4 @@
-// 유효성 검사 통합
+// 유효성 검사 통합(회원가입, 비밀번호 변경(마이페이지,로그인 실패 시), 비밀번호 찾기, 회원탈퇴)
 // 검사할 요소를 모두 불러오고 해당 페이지에 존재하여 null이 아니면
 // validate에 key를 추가하여 폼제출 시 유효성 검사 진행
 // 단 해당 페이지에 폼이 한개만 존재해야함
@@ -46,27 +46,15 @@ const agree2 = document.getElementById("agree2");
 
 const lastPathName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 
-let findPwPage = false;
-let infoPage = false;
-
 const form = document.getElementsByTagName("form")[0];
 
-if(form.getAttribute("name") == "findPw-frm") {
-    findPwPage = true;
-}
-if(form.getAttribute("name") == "my-page-info-frm") {
-    infoPage = true;
-}
+
 
 form.addEventListener("submit", e=>{
-    if(infoPage) {
-        if(!writable) {
-            alert("편집모드로 변경해주세요");
-            e.preventDefault();
-            return;
-        }
-    }
+    
     let message = "";        
+    
+
     for(let key in validate) {      // 유효성 객체 돌면서
         if(!validate[key]) {        // 한개라도 false면
             switch(key) {   
@@ -111,6 +99,8 @@ form.addEventListener("submit", e=>{
             }
         }
     } 
+
+
 });
 
 // 이메일 -------------------------------------------------------------------------------------------------------
@@ -444,9 +434,7 @@ if(memberNickname != null) {
         if(memberNickname.value.trim().length == 0) {           // 아무것도 입력되지 않았을 때
             memberNickname.value = "";
             memberNicknameMessage.innerText = "특수문자를 제외한 2 ~ 6글자";
-            if(infoPage) {
-                memberNicknameMessage.innerText = "";
-            }
+            
             memberNicknameMessage.classList.remove("confirm", "error");
             validate.memberNickname = false;
             return;
@@ -461,16 +449,18 @@ if(memberNickname != null) {
                 data: { "memberNickname": memberNickname.value },
                 success: (result) => {
                     console.log("result : " + result);
-                    if (result > 0) {
-                        memberNicknameMessage.innerText = "이미 사용중인 닉네임입니다.";
-                        memberNicknameMessage.classList.add("error");
-                        memberNicknameMessage.classList.remove("confirm");
-                        validate.memberNickname = false;
-                    } else {
+                    if (result == 0) {
                         memberNicknameMessage.innerText = "사용 가능한 닉네임입니다.";
                         memberNicknameMessage.classList.add("confirm");
                         memberNicknameMessage.classList.remove("error");
                         validate.memberNickname = true;
+                        
+                        
+                    } else {
+                        memberNicknameMessage.innerText = "이미 사용중인 닉네임입니다.";
+                        memberNicknameMessage.classList.add("error");
+                        memberNicknameMessage.classList.remove("confirm");
+                        validate.memberNickname = false;
                     }
                 },
                 error: (err) => {
@@ -495,9 +485,7 @@ if(memberTel != null) {
         if(memberTel.value.trim().length == 0) {
             memberTel.value = "";
             memberTelMessage.innerText = "휴대전화 번호 입력";
-            if(infoPage) {
-                memberTelMessage.innerText = "";
-            }
+            
             memberTelMessage.classList.remove("confirm", "error");
             validate.memberTel = false;
             return;
@@ -522,6 +510,8 @@ if(memberTel != null) {
 
 
 // 주소 Daum API
+document.getElementById("addressSearch").addEventListener("click", execDaumPostcode);
+
 function execDaumPostcode() {
     new daum.Postcode({
         oncomplete: data => {
