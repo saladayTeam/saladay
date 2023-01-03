@@ -96,29 +96,31 @@
 						
                     </div>
                 </div>
+                
+                <c:if test="${not empty reviewList}">
                 <div class="pagination-area">
-						<c:if test="${not empty reviewList}">
-							<ul class="pagination">
-								<!-- 이전 목록 마지막 번호로 이동 --> 
-								<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
-									<c:forEach var="i" begin="${pagination.startPage}" 
-									end="${pagination.endPage}" step="1">
-										<c:choose>
-											<c:when test="${i == pagination.currentPage}">
-												<!-- 현재 보고있는 페이지 -->
-												<li><a class="current">${i}</a></li>
-											</c:when>
-											<c:otherwise>
-												<!-- 현재 페이지를 제외한 나머지 -->
-												<li><a href="?cp=${i}">${i}</a></li>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-								<!-- 다음 목록 시작 번호로 이동 -->
-								<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
-							</ul>
-						</c:if>
-					</div>
+						
+					<ul class="pagination">
+						<!-- 이전 목록 마지막 번호로 이동 --> 
+						<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
+							<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+								<c:choose>	
+									<c:when test="${i == pagination.currentPage}">
+										<!-- 현재 보고있는 페이지 -->
+										<li><a class="current">${i}</a></li>
+									</c:when>
+									<c:otherwise>
+										<!-- 현재 페이지를 제외한 나머지 -->
+										<li><a href="?cp=${i}">${i}</a></li>
+									</c:otherwise>
+								</c:choose>							
+							</c:forEach>
+						<!-- 다음 목록 시작 번호로 이동 -->
+						<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
+					</ul>
+						
+				</div>
+				</c:if>
             </div>
         </div>
         
