@@ -6,6 +6,7 @@
 	<resultMap type="Order" id="order_rm">
       <id property="orderNo" column="ORDER_NO"/>      
       <result property="packageName" column="PACKAGE_NAME"/>
+      <result property="packageNo" column="PACKAGE_NO"/>
       <result property="packageImage" column="PACKAGE_IMG"/>
       <result property="packageType" column="PACKAGE_TYPE"/>
       <result property="orderDate" column="ORDER_DATE"/>
@@ -70,7 +71,7 @@
 
 	<!-- 나의 주문 조회 -->
 	<select id="selectMyOrder" resultMap="order_rm">
-		SELECT ORDER_NO, PACKAGE_NAME, PACKAGE_IMG, PACKAGE_TYPE,
+		SELECT ORDER_NO, PACKAGE_NAME, PACKAGE_IMG, PACKAGE_TYPE, PACKAGE_NO,
 	   		TO_CHAR(ORDER_DATE, 'YYYY-MM-DD AMHH:MI:SS')ORDER_DATE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE,ORDER_DEL_FL
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
@@ -81,7 +82,7 @@
 		LEFT JOIN "MENU" USING(MENU_NO)
 		WHERE NOT ORDER_DEL_FL='A'
 		AND MEMBER_NO = #{memberNo}
-		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,PACKAGE_TYPE,
+		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,PACKAGE_TYPE,PACKAGE_NO,
 			 ORDER_DATE, 
 		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE,ORDER_DEL_FL
 		ORDER BY ORDER_NO DESC

@@ -253,10 +253,17 @@ main {
 	justify-content: flex-end;
 }
 
+.discount-price {
+	font-size:14px;
+	font-weight: bolder;
+	text-align: right;
+	color: #777777;
+	width: 200px;
+}
+
 .total-price {
 	font-size:14px;
 	font-weight: bolder;
-	margin: 5px 0 0 306px;
 	text-align: right;
 	width: 200px;
 }
