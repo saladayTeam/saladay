@@ -178,8 +178,9 @@
                         </div>
                         
                     </div>
+                    <c:if test="${not empty myOrder}">
 					<div class="pagination-area">
-						<c:if test="${not empty myOrder}">
+						
 							<ul class="pagination">
 								<!-- 이전 목록 마지막 번호로 이동 --> 
 								<li><a href="?cp=${pagination.prevPage}">&lt;</a></li>
@@ -199,9 +200,9 @@
 								<!-- 다음 목록 시작 번호로 이동 -->
 								<li><a href="?cp=${pagination.nextPage}">&gt;</a></li>
 							</ul>
-						</c:if>
+						
 					</div>
-
+					</c:if>
             </div>
         </div>
 	                        
