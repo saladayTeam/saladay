@@ -13,7 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메뉴관리</title>
     <link rel="stylesheet" href="/resources/css/admin/menuManage/updateMenu.css">
-    
+    <%-- 폰트어썸(sh) --%>
+    <script src="https://kit.fontawesome.com/e4f69a07ca.js" crossorigin="anonymous"></script>
   </head>
 
 <body>
@@ -23,7 +24,7 @@
       <div class="menu-m-tit">
           <span><h1>메뉴관리</h1></span>
         <div class="tit">
-          <span>새로운 메뉴를 추가하거나 기존 메뉴를 삭제하실 수 있습니다.</span>
+          <span>새로운 메뉴를 추가하거나 기존 메뉴를 수정/삭제하실 수 있습니다. </span>
           <div class="m-btn-area">
             <button type="button" id="addBtn">추가</button>
             <button type="button" id="delBtn" onclick="deleteValue();">삭제</button>
@@ -33,7 +34,7 @@
 
       <table>
         <caption style="display:none">
-            <summary>메뉴조회</summary>
+            <summary>메뉴수정</summary>
         </caption>
 
         <colgroup>
@@ -57,9 +58,9 @@
         <tbody>
           <c:forEach items="${menuList}" var="menu">
             <tr>
-              <td scope="col"><input type="checkbox" name="rowCheck" value="${menu.menuNo}"></td>
-              <td scope="col"><span class="menu-n"><a class="m-img" src="${menu.menuImage}">${menu.menuName}</a></span></td>
-              <td scope="col"><span class="menu-i">${menu.menuContent}</span></td>
+              <td scope="col"><input type="checkbox" name="rowCheck" id="menuNo" value="${menu.menuNo}"></td>
+              <td scope="col" class="admin-menu-click"><span onclick="updateValue(${menu.menuNo})" class="menu-n">${menu.menuName}</span></td>
+              <td scope="col"><span>${menu.menuContent}</span></td>
               <td scope="col"><span class="menu-p"><fmt:formatNumber type="number" maxFractionDigits="3" value="${menu.menuPrice}" /></span></td>
               <td scope="col"><span class="menu-c">${menu.menuCalorie} Kcal</span></td>
             </tr>

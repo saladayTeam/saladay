@@ -83,4 +83,25 @@
 		VALUES(#{optionNo}, #{optionType}, #{optionName}, #{optionImage}, #{optionPrice}, DEFAULT, #{optionCalorie})
 	</insert>
 	
+	
+	<!-- 특정 메뉴 조회 -->
+	<select id="selectMenu" resultMap="menu_rm">
+	SELECT * FROM MENU WHERE MENU_NO = #{menuNo}
+	</select>
+	
+	<!-- 메뉴 수정 -->
+	<update id="updateMenu">
+	UPDATE MENU SET MENU_NAME = #{menuName}, 
+									MENU_CONTENT =#{menuContent}, 
+									MENU_PRICE = #{menuPrice}, 
+									CALORIE = #{menuCalorie}
+	WHERE MENU_NO = #{menuNo}
+	</update>
+	
+	<update id="updateMenuImg">
+	UPDATE MENU SET MENU_IMG = #{menuImage} 
+	WHERE MENU_NO = #{menuNo}
+	</update>
+	
+	
 </mapper>

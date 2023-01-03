@@ -138,5 +138,39 @@ public class MenuManageServiceImpl implements MenuManageService {
 		
 		return result;
 	}
+	
+	
+	// 특정 메뉴 조회
+	@Override
+	public Menu selectMenu(int menuNo) {
+		return dao.selectMenu(menuNo);
+	}
+	
+	
+	// 메뉴 수정
+	@Transactional
+	@Override
+	public int updateMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String filePath) throws Exception{
+		
+		// XSS(크로스 사이트 스크립트 공격) 방지 
+		newMenu.setMenuName(Util.XSSHandling(newMenu.getMenuName()));
+		newMenu.setMenuContent(Util.XSSHandling(newMenu.getMenuContent()));
+		
+		// 개행 문자 처리(반드시 XSS방지 처리 먼저 수행)
+		newMenu.setMenuContent(Util.newLineHandling(newMenu.getMenuContent()));
+		
+		// 메뉴 내용 수정
+		int result = dao.updateMenu(newMenu);
+		
+		// 이미지 수정
+		if(result > 0) {
+			if(inputMenuImg.getSize() > 0) { // 업로드 된 파일이 있는 경우 
+				newMenu.setMenuImage(webPath+inputMenuImg.getOriginalFilename());
+				dao.updateMenuImg(newMenu);
+			}
+		}
+
+		return result;
+	}
 
 }

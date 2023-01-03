@@ -182,8 +182,8 @@ a{
     position: absolute;
     /* top: 270px;
     right: 710px; */
-    top: 230px;
-    right: 630px;
+    top: 180px;
+    right: 580px;
 
     color: #ddd;
     font-size: 50px;
@@ -196,6 +196,7 @@ a{
 #modal-close:hover{
     transform: scale(1.2);
 }
+
 
 /* 옵션 닫기 */
 #option-close {
@@ -216,4 +217,16 @@ a{
 #modal-close:hover{
     transform: scale(1.2);
 }
+
+
+
+/* 행 클릭시 메뉴 페이지로 이동 */
+.admin-menu-click{
+    cursor: pointer;
+}
+
+.admin-menu-click:hover{
+    cursor: pointer; 
+}
+
 

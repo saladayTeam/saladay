@@ -8,6 +8,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.saladay.admin.model.vo.OrderManagePagination;
 import kr.co.saladay.menu.model.vo.Menu;
@@ -91,6 +92,35 @@ public class MenuManageDAO {
 	public int registOption(Option newOption) {
 		return sqlSession.insert("menuManageMapper.registOption", newOption);
 	}
+
+
+	/** 특정 메뉴 조회
+	 * @param menuNo
+	 * @return menu
+	 */
+	public Menu selectMenu(int menuNo) {
+		return sqlSession.selectOne("menuManageMapper.selectMenu", menuNo);
+	}
+
+
+	/** 메뉴 수정
+	 * @param newMenu
+	 * @return
+	 */
+	public int updateMenu(Menu newMenu) {
+		return sqlSession.update("menuManageMapper.updateMenu", newMenu);
+	}
+
+
+	/** 메뉴 이미지 수정
+	 * @param newMenu
+	 */
+	public void updateMenuImg(Menu newMenu) {
+		sqlSession.update("menuManageMapper.updateMenuImg", newMenu);
+		
+	}
+
+
 
 
 
