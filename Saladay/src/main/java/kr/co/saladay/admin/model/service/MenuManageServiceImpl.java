@@ -159,17 +159,14 @@ public class MenuManageServiceImpl implements MenuManageService {
 		// 개행 문자 처리(반드시 XSS방지 처리 먼저 수행)
 		newMenu.setMenuContent(Util.newLineHandling(newMenu.getMenuContent()));
 		
+		// 이미지 수정
+		if(inputMenuImg.getSize() > 0) { // 업로드 된 파일이 있는 경우 
+			newMenu.setMenuImage(webPath+inputMenuImg.getOriginalFilename());
+		}
+
 		// 메뉴 내용 수정
 		int result = dao.updateMenu(newMenu);
 		
-		// 이미지 수정
-		if(result > 0) {
-			if(inputMenuImg.getSize() > 0) { // 업로드 된 파일이 있는 경우 
-				newMenu.setMenuImage(webPath+inputMenuImg.getOriginalFilename());
-				dao.updateMenuImg(newMenu);
-			}
-		}
-
 		return result;
 	}
 

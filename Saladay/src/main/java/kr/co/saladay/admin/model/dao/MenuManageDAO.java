@@ -112,14 +112,6 @@ public class MenuManageDAO {
 	}
 
 
-	/** 메뉴 이미지 수정
-	 * @param newMenu
-	 */
-	public void updateMenuImg(Menu newMenu) {
-		sqlSession.update("menuManageMapper.updateMenuImg", newMenu);
-		
-	}
-
 
 
 

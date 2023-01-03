@@ -217,13 +217,11 @@ public class MenuManageController {
 		
 		// 메뉴 수정하기
 		int result = service.updateMenu(newMenu, inputMenuImg, webPath, filePath);
-
 		
 		if (result > 0) {
 		
-			// application scope에 추가
-			List<Menu> menuList = (List<Menu>)application.getAttribute("menuList");
-			menuList.add(newMenu);
+			List<Menu> menuList = menuService.selectMenuList();
+			application.setAttribute("menuList", menuList);
 			
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();

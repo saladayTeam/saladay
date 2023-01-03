@@ -93,14 +93,11 @@
 	<update id="updateMenu">
 	UPDATE MENU SET MENU_NAME = #{menuName}, 
 									MENU_CONTENT =#{menuContent}, 
+									<if test="#{menuImage != null}">
+									MENU_IMG = #{menuImage},
+									</if>
 									MENU_PRICE = #{menuPrice}, 
 									CALORIE = #{menuCalorie}
-	WHERE MENU_NO = #{menuNo}
-	</update>
-	
-	<!-- 메뉴 이미지 수정 -->
-	<update id="updateMenuImg">
-	UPDATE MENU SET MENU_IMG = #{menuImage} 
 	WHERE MENU_NO = #{menuNo}
 	</update>
 	
