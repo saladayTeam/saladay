@@ -31,6 +31,7 @@
     margin: auto 0;
 }
 
+/* 글자수 너무 길어 넘칠때 */
 .menu-i{
     display: block;
     display: -webkit-box;
@@ -44,7 +45,7 @@
 
 
 /* 버튼영역 */
-#addBtn, #delBtn, #updateBtn {
+#addBtn, #delBtn{
     width: 100px;
     height: 35px;
     background-color: #f2f2f2;
@@ -56,6 +57,23 @@
 }
 
 #addBtn:hover, #delBtn:hover {
+    background-color: #17633d;
+    color: white;
+    border: none;
+}
+
+/* 수정하기 버튼 */
+#updateBtn {
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    width: 40px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+#updateBtn:hover {
     background-color: #17633d;
     color: white;
     border: none;
@@ -115,7 +133,6 @@ a{
     color: #17633d;
     font-weight: bold;
 }
-
 
 
 /* 옵션 이미지 */
@@ -182,8 +199,8 @@ a{
     position: absolute;
     /* top: 270px;
     right: 710px; */
-    top: 230px;
-    right: 630px;
+    top: 180px;
+    right: 580px;
 
     color: #ddd;
     font-size: 50px;
@@ -196,16 +213,17 @@ a{
 #modal-close:hover{
     transform: scale(1.2);
 }
+
 
 /* 옵션 닫기 */
 #option-close {
     position: absolute;
-    /* top: 270px;
-    right: 710px; */
-    top: 270px;
-    right: 700px;
+    top: 0;
+    right:0;
+    /* top: 270px; */
+    /* right: 700px; */ 
 
-    color: #ddd;
+    color: #ccc;
     font-size: 50px;
     font-weight: bold;
 
@@ -217,3 +235,9 @@ a{
     transform: scale(1.2);
 }
 
+
+
+/* 수정하기 */
+.admin-update-click {
+    cursor: pointer;
+}

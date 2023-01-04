@@ -8,6 +8,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.saladay.admin.model.vo.OrderManagePagination;
 import kr.co.saladay.menu.model.vo.Menu;
@@ -91,6 +92,67 @@ public class MenuManageDAO {
 	public int registOption(Option newOption) {
 		return sqlSession.insert("menuManageMapper.registOption", newOption);
 	}
+
+
+	/** 특정 메뉴 조회
+	 * @param menuNo
+	 * @return menu
+	 */
+	public Menu selectMenu(int menuNo) {
+		return sqlSession.selectOne("menuManageMapper.selectMenu", menuNo);
+	}
+
+
+	/** 메뉴 수정
+	 * @param newMenu
+	 * @return result
+	 */
+	public int updateMenu(Menu newMenu) {
+		return sqlSession.update("menuManageMapper.updateMenu", newMenu);
+	}
+	
+	
+	/** 메뉴 이미지 수정
+	 * @param newMenu
+	 * @return result
+	 */
+	public int updateMenuImg(Menu newMenu) {
+		return sqlSession.update("menuManageMapper.updateMenuImg", newMenu);
+	}
+
+
+	
+	/** 특정 옵션 조회
+	 * @param optionNo
+	 * @return option
+	 */
+	public Option selectOption(int optionNo) {
+		return sqlSession.selectOne("menuManageMapper.selectOption", optionNo);
+	}
+
+
+	/** 옵션 수정
+	 * @param newOption
+	 * @return result
+	 */
+	public int updateOption(Option newOption) {
+		return sqlSession.update("menuManageMapper.updateOption", newOption);
+	}
+
+
+	/** 옵션 이미지 수정
+	 * @param newOption
+	 * @return result
+	 */
+	public int updateOptionImg(Option newOption) {
+		return sqlSession.update("menuManageMapper.updateOptionImg", newOption);
+	}
+
+
+	
+
+
+
 
 
 

@@ -55,6 +55,7 @@
 	SELECT *
 	FROM "OPTION"
 	WHERE OPTION_DEL_FL = 'N'
+	ORDER BY OPTION_TYPE
 	</select>
 	
 	
@@ -82,5 +83,46 @@
 		INSERT INTO "OPTION"
 		VALUES(#{optionNo}, #{optionType}, #{optionName}, #{optionImage}, #{optionPrice}, DEFAULT, #{optionCalorie})
 	</insert>
+	
+	
+	<!-- 특정 메뉴 조회 -->
+	<select id="selectMenu" resultMap="menu_rm">
+	SELECT * FROM MENU WHERE MENU_NO = #{menuNo}
+	</select>
+	
+	<!-- 메뉴 수정 -->
+	<update id="updateMenu">
+	UPDATE MENU SET MENU_NAME = #{menuName}, 
+									MENU_CONTENT =#{menuContent}, 
+									MENU_PRICE = #{menuPrice}, 
+									CALORIE = #{menuCalorie}
+	WHERE MENU_NO = #{menuNo}
+	</update>
+	
+	<!-- 메뉴 이미지 수정  -->
+	<update id="updateMenuImg">
+	UPDATE MENU SET MENU_IMG = #{menuImage}
+	WHERE MENU_NO = #{menuNo}
+	</update>
+	
+	
+	<!-- 특정 옵션 조회 -->
+	<select id="selectOption" resultMap="option_rm">
+	SELECT * FROM "OPTION" WHERE OPTION_NO = #{optionNo}
+	</select>
+	
+	<!-- 옵션 수정 -->
+	<update id="updateOption">
+	UPDATE "OPTION" SET OPTION_NAME = #{optionName}, 
+									OPTION_PRICE = #{optionPrice}, 
+									CALORIE = #{optionCalorie}
+	WHERE OPTION_NO = #{optionNo}
+	</update>
+
+	<!-- 옵션 이미지 수정 -->	
+	<update id="updateOptionImg">
+	UPDATE "OPTION" SET OPTION_IMG = #{optionImage}
+	WHERE OPTION_NO = #{optionNo}
+	</update>
 	
 </mapper>

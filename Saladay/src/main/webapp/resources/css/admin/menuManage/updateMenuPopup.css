@@ -14,6 +14,7 @@ body{
     font-family: "NanumSquareNeo-Variable";
 }
 
+/* 메뉴 수정하기 팝업창 전체 영역 */
 .update-menu-popup{
     width: 600px;
     height: 400px;
@@ -21,14 +22,27 @@ body{
     box-sizing: border-box;
 }
 
-.update-menu-popup h2 {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+
+/* 메뉴 수정 */
+.p-title  {
     border-bottom: 3px solid #17633d;
+    padding-bottom: 20px;
+    
 }
+
+.p-title h2 {
+    margin-top : 20px;
+    margin-bottom: 5px;
+} 
+
+.p-title span {
+    font-size: 13px;
+}
+
+/* 메뉴수정 폼 태그영역 */
 .menu-table {
     width: 100%;
-    padding: 0 20px;
+    padding: 20px 0;
 }
 
 .menu-table caption {
