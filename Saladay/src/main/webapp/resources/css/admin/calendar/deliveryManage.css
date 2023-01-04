@@ -1,4 +1,4 @@
-.admin-order-title {
+/* .admin-order-title {
     margin-top: 30px;
     margin-bottom: 10px;
     width: 100%;
@@ -31,7 +31,7 @@
     .admin-order-title > span:last-child {
     font-size: 12px;
     font-weight: bold;
-}
+} */
     
 table{
     width: 100%;
@@ -54,7 +54,7 @@ thead th {
 }
 
 /* 캘린더 버튼 */
-#calendar{
+.calendar{
     width: 100px;
     height: 35px;
     background-color: #f2f2f2;
@@ -76,14 +76,14 @@ thead th {
     cursor: pointer;
 }
 
-#calendar:hover{
+.calendar:hover{
     cursor: pointer;
     background-color: #17633d;
     color: white;
 }
 
 .title{
-    width: 85%;
+    width: 55%;
 }
 
 .title span{
@@ -123,3 +123,150 @@ thead th {
     color: #17633d;
     font-weight: bold;
 }
+
+
+#delivery-click:hover{
+    cursor: pointer;
+    background-color: #17633d93;
+    color: white;
+}
+
+
+#calendar{
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.calendarBtn{
+    width: 15%;
+    margin-top: 30px;
+    margin-right: -85px;
+}   
+
+.calendarBtn:hover{
+    cursor: pointer;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #17633d;
+    color: white;
+}
+
+.display-none{
+    display: flex;
+    width: auto;
+}
+
+.btnBox{
+    display: flex;
+    /* width: 45%; */
+}
+
+select{
+    width: 110px;
+    height: 35px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+select:focus{
+    outline: none;
+}
+
+#updateBtn{
+    margin-right: 10px;
+}
+
+
+
+.admin-order-title {
+    margin-top: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #17633d;
+    }
+    
+    .admin-order-title > span:first-child {
+    font-weight: bold;
+    display: flex;
+    }
+    
+    .admin-order-title > span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+    }
+    
+    .admin-order-table{
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    /* .admin-order-thead > th{
+        color: #4e4e4e;
+    } */
+    
+    /* 테이블 내용 폭 고정 */
+    tbody td:nth-of-type(1){
+        width: 141px;
+    }
+    tbody td:nth-of-type(2){
+        width: 210px;
+    }
+    tbody td:nth-of-type(3){
+        width: 358px;
+    }
+    tbody td:nth-of-type(4){
+        width: 141px;
+    }
+    tbody td:nth-of-type(5){
+        width: 175px;
+    }
+    tbody td:nth-of-type(6){
+        width: 161px;
+    }
+    
+    td{
+        border-bottom: 1px solid #f2f2f2;
+        height: 40px;
+        text-align: center;
+    }
+    
+    thead th {
+        padding: 2px;
+        border: 1px solid #ddd;
+        background-color: #f1f2f1;
+        height: 30px;
+    }
+    
+    
+    
+    /* 주문상태 검색 영역 */
+    .tit {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;  
+    }
+    
+    .tit span {
+        font-size: 12px;
+        font-weight: bold;
+        margin: auto 0;
+    }
+    
+    .osBtn{
+        width: 100px;
+        height: 35px;
+        background-color: #f2f2f2;
+        color: black;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+    }
