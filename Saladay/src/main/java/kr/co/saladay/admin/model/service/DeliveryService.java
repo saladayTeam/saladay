@@ -15,7 +15,7 @@ public interface DeliveryService {
 	List<DeliveryManage> adminDelivery(int cp);
 
 	// 배송상태 수정
-	int updateDelivery(int deliveryNo);
+	int updateDelivery(Map<String, Object> map);
 
 	/** 배송일정 모달
 	 * @param deliveryNo
@@ -32,6 +32,7 @@ public interface DeliveryService {
 //	int updateCalendar(int deliveryNo, String deliveryCode);
 
 	int updateCalendar(Map<String, Object> map);
+
 
 
 

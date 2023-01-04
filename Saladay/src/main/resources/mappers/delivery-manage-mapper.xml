@@ -42,7 +42,7 @@
 	
 	<!-- 배송상태 변경(배송완료로) -->
 	<update id="updateDelivery">
-		UPDATE "DELIVERY" SET DELIVERY_CODE='D' WHERE DELIVERY_NO = #{deliveryNo}
+		UPDATE "DELIVERY" SET DELIVERY_CODE=#{deliveryCode} WHERE DELIVERY_NO = #{deliveryNo}
 	</update>
 	
 	<!-- 상세 배송일정 -->

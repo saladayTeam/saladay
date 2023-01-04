@@ -59,8 +59,7 @@
           <c:forEach items="${menuList}" var="menu">
             <tr>
               <td scope="col"><input type="checkbox" name="rowCheck" id="menuNo" value="${menu.menuNo}"></td>
-              <%-- <td scope="col"><span onclick="updateValue(${menu.menuNo})"  class="admin-update-click">${menu.menuName} <i class="fa-regular fa-pen-to-square"></i></span></td> --%>
-              <td scope="col"><span onclick="updateValue(${menu.menuNo})"  class="admin-update-click">${menu.menuName} <button id="updateBtn" type="button">수정</button></span></td>
+              <td scope="col"><span onclick="updateValue(${menu.menuNo})"  class="admin-update-click">${menu.menuName} <i class="fa-regular fa-pen-to-square"></i></span></td>
               <td scope="col"><span class="menu-i">${menu.menuContent}</span></td>
               <td scope="col"><span class="menu-p"><fmt:formatNumber type="number" maxFractionDigits="3" value="${menu.menuPrice}" /></span></td>
               <td scope="col"><span class="menu-c">${menu.menuCalorie} Kcal</span></td>

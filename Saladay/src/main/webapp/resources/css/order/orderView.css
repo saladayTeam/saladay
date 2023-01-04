@@ -22,10 +22,10 @@
 /* 네모박스 */
 .view-wrapper {
   margin: 50px auto 0;
-  width: 765px;
+  width: 1200px;
   height: 500px;
   /* border: 1px solid #ccc; */
-  border-radius: 10px;
+  border-bottom: 3px solid #17633d;
 }
 
 /* 주문상품정보*/

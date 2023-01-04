@@ -46,12 +46,14 @@ public class DeliveryServiceImpl implements DeliveryService{
 	}
 
 	// 배송상태 수정
-	@Transactional
-	@Override
-	public int updateDelivery(int deliveryNo) {
-		
-		return dao.updateDelivery(deliveryNo);
-	}
+//	@Transactional
+//	@Override
+//	public int updateDelivery(int deliveryNo) {
+//		
+//		return dao.updateDelivery(deliveryNo);
+//	}
+	
+	
 
 //	/**
 //	 * 배송일정 모달
@@ -61,6 +63,12 @@ public class DeliveryServiceImpl implements DeliveryService{
 //		return dao.selectDeliveryDetail(deliveryNo);
 //	}
 
+	// 배송상태 수정
+	@Transactional
+	@Override
+	public int updateDelivery(Map<String, Object> map) {
+		return dao.updateDelivery(map);
+	}
 
 	/**
 	 * 배송일정 조회 모달
