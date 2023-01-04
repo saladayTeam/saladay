@@ -195,7 +195,7 @@
                     <span class="check-info-data">0 원(무료 배송)</span>
                 </div>
                 <div class=check-info>
-                    <span class="check-info-head">할인금액</span>
+                    <span class="check-info-head">할인금액(2주 패키지 10% 할인)</span>
                     <c:choose>
                         <c:when test="${cart.packageType==1}">
                             <span class="check-info-data">0 원</span>
