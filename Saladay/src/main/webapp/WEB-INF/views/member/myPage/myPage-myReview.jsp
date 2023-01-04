@@ -43,8 +43,12 @@
                         <h1 class="main-title">나의 리뷰</h1>
                         <div class="count">
                         	<span class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</span>
-							<div class="count1">도움 : ${reviewList[0].memberLikeCount}</div>
-	                    	<div class="count2">작성 : ${reviewList[0].memberReviewCount}</div>                        
+                        	<c:if test="${!empty reviewList}">
+                        	<div>
+                        	<div class="count2">&nbsp; &nbsp;작성 리뷰 &nbsp;수 : ${reviewList[0].memberReviewCount}</div>
+							<div class="count1">받은 좋아요 수 : ${reviewList[0].memberLikeCount} </div>
+	                    	</div>
+	                    	</c:if>                   
 						</div>
                     </div>
 

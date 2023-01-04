@@ -165,6 +165,9 @@
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'Y'}">
 	                            	 			<div class="order-cancel-btn-ing" >취소 요청중</div>
 	                            	 			</c:if>
+	                            	 			<c:if test="${order.orderDeleteFlag eq 'A'}">
+	                            	 			<div class="order-cancel-complete" >취소 완료</div>
+	                            	 			</c:if>
 	                            	 		<!--<c:set var="loop_flag" value="true" />-->
 	       									</c:if>
                             	 		</c:if>
