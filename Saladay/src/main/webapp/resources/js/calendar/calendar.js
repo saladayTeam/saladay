@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
+// 체크박스 클릭 시 캘린더에서 event 숨기기/보이기
 $(".inputGroup .filter").on("click", function(){
 
   if($(this).prop("checked")){
@@ -448,7 +448,7 @@ $(document).ready(function(){
   $("#selectbox").change(function(){
     // Value값 가져오기
     var deliveryCode = $("#selectbox :selected").val();
-    // changeBtn.style.display = "flex";
+    changeBtn.style.display = "block";
     
     console.log(deliveryCode);
     
@@ -519,6 +519,63 @@ closeModal.addEventListener("click", () => {
   modal.classList.toggle("modal");
   // closeModal.classList.toggle("closeModal");
 
-    
+  changeBtn.style.display = "none";
     
 })
+
+// // 3팩 div
+// const pack1 = document.getElementById("f1828d");
+// // 체크박스 js
+// $(pack1).click(function(){
+//   var checked = $('#no1').is(':checked');
+//   $('#no1').prop('checked',!checked);
+//   $('#no1').prop('checked',checked);
+//   console.log("되냐")
+// });
+
+// $('#a848ccf').click(function(){
+//   var checked = $('#no2').is(':checked');
+//   $('#a848ccf').prop('checked',!checked);
+// });
+
+// $('#a252958').click(function(){
+//   var checked = $('#no3').is(':checked');
+//   $('#a252958').prop('checked',!checked);
+// });
+
+// $('#f9b42d').click(function(){
+//   var checked = $('#no4').is(':checked');
+//   $('#f9b42d').prop('checked',!checked);
+// });
+
+// $('#a3498db').click(function(){
+//   var checked = $('#no5').is(':checked');
+//   $('#a3498db').prop('checked',!checked);
+// });
+
+// $("#f1828d").on('click', function(){	
+//   // 클릭한 article의 하위 체크박스 상태 변경
+//   if ($('#no1').prop('checked')) {
+//     // $(this).removeClass("check-ok");
+//     $('#no1').prop('checked',false);
+//   } else {
+//     // $(this).addClass("check-ok");
+//     $('#no1').prop('checked',true);
+//   }
+// });
+
+$("div[id='f1828d']").on('click', function(){	
+  
+  console.log('되니?')
+  // 클릭한 article의 하위 체크박스 상태 변경
+  if ($(this).children("input[id='no1']").prop('checked')) {
+    console.log("체크돼있는지 확인")
+    // $(this).removeClass("check-ok");
+    $(this).children('input').prop('checked',false);
+    $("." + $(this).attr("id")).hide();
+  } else {
+    // $(this).addClass("check-ok");
+    $(this).children('input').prop('checked',true);
+    $("." + $(this).attr("id")).show();
+  }
+});
