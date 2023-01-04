@@ -436,6 +436,8 @@ function selectOne(thisId, thisIds){
     detailModal.classList.toggle('modal');
     const ModalBox = document.getElementById('modalBox');
     ModalBox.classList.toggle('modalBox');
+    // const closeModal = document.getElementById('closeModal');
+    // closeModal.classList.toggle('closeModal');
 
 } // 일정 상세조회 창
 
@@ -446,7 +448,7 @@ $(document).ready(function(){
   $("#selectbox").change(function(){
     // Value값 가져오기
     var deliveryCode = $("#selectbox :selected").val();
-    changeBtn.style.display = "flex";
+    // changeBtn.style.display = "flex";
     
     console.log(deliveryCode);
     
@@ -482,3 +484,41 @@ $(changeBtn).click(function() {
       alert("배송상태 변경을 취소했습니다.");
   }
 });
+const modalClose=document.getElementById("closeModal");
+
+/* 모달창 닫기(외부영역 클릭 시) */
+const modalBox = document.getElementById("modalBox");
+
+modalBox.addEventListener("click", e => {
+    const evTarget = e.target;
+
+    if(evTarget.classList.contains("modalBox")){
+        evTarget.classList.toggle("modalBox");
+
+        const modal = document.getElementById("modal");
+        if(!modal.classList.contains("modal")) {
+            modal.classList.toggle("modal");
+        }
+
+        const closeModal = document.getElementById("closeModal");
+        if(!closeModal.classList.contains("closeModal")) {
+          closeModal.classList.toggle("closeModal");
+        }
+        return;
+    }
+    
+})
+
+const closeModal = document.getElementById("closeModal");
+
+closeModal.addEventListener("click", () => {
+
+  const modalBox = document.getElementById("modalBox");
+  modalBox.classList.toggle("modalBox");
+  const modal = document.getElementById("modal");
+  modal.classList.toggle("modal");
+  // closeModal.classList.toggle("closeModal");
+
+    
+    
+})

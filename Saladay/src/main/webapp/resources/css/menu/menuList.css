@@ -91,8 +91,8 @@ li {
 }
 
 .option-name:hover {
-  font-size: 1.2em;
   background-color: #17633d;
+  /*font-size: 1.1em;*/
 }
 .option-name:hover a{
   color: white;
@@ -112,7 +112,7 @@ li {
 }
 
 .checked2 {
- 	font-size: 1.2em;
+ 	font-size: 1.1em;
     text-decoration: none;
     color: white !important;
 }

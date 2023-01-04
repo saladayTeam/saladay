@@ -116,14 +116,14 @@
                             <li class="order-area">
                                 <div class="order-menu headline">${menu.menuName}</div>
                                 <div class="order-quantity headline">1</div>
-                                <div class="order-price headline">${menu.menuPrice}</div>
+                                <div class="order-price headline">${menu.orderMenuPrice}</div>
                             </li>
                             <c:forEach var="option" items="${menu.optionList}">
                             <%-- 선택한 옵션 --%>
                                 <li class="order-area">
                                     <div class="order-option">${option.optionName}</div>
                                     <div class="order-quantity">${option.optionCount}</div>
-                                    <div class="order-price">${option.optionPrice}</div>
+                                    <div class="order-price">${option.orderOptionPrice*option.optionCount}</div>
                                 </li>
                             </c:forEach>
                         </div>
@@ -203,7 +203,7 @@
                             <span class="check-info-data">0 원</span>
                         </c:when>
                         <c:otherwise>
-                            <span class="check-info-data"> <fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.packagePrice*0.1}" /> 원</span>
+                            <span class="check-info-data"> <fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.orderPrice*1/9}" /> 원</span>
                         </c:otherwise>
                     </c:choose>
                 </div>
