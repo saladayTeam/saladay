@@ -54,7 +54,7 @@
     color: white;
     text-align: center;
     padding-top: 8px;
-    padding-left: 8px;
+    /* padding-left: 8px; */
     border-radius: 25px;
     /* border: solid 1px black; */
     margin-right: 10px;
@@ -109,7 +109,7 @@
 
 .title{
     font-weight: bold;
-    /* width: 30%; */
+    flex-shrink: 0;
 }
 
 #saladBox{
@@ -161,30 +161,16 @@
 }
 
 /* 캘린더 수정버튼 */
-.changeBtn{
-    width: 100px;
-    height: 35px;
-    background-color: #f2f2f2;
-    color: black;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.changeBtn:hover{
-    cursor: pointer;
-}
-
 #changeBtn{
-    width: 100px;
-    height: 35px;
+    width: 70px;
+    height: 30px;
     background-color: #f2f2f2;
     color: black;
     border: 1px solid #ddd;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 14px;
+    display: none;
 }
 
 #changeBtn:hover{
@@ -195,14 +181,14 @@
 
 .selectBox{
     display: block;
-    width: 30%;
     margin-left: 5px;
+    margin-right: 10px;
 }
 
 #selectbox{
     width: 100px;
     height: 25px;
-    border-radius: 25px;
+    border-radius: 15px;
     border: solid 1px #ccc;
 }
 
@@ -231,4 +217,23 @@
 
 .closeModal:hover{
     transform: scale(1.2);
+}
+
+#deliveryAddress{
+    word-break: break-all;
+    flex-grow: 0;
+}
+
+/* selectBox css */
+#deliveryStatus{
+    display: flex;
+}
+
+/* checkbox label */
+label{
+    width: 100%;
+}
+
+.checkbox input[type="checkbox"]{
+    /* display: none; */
 }

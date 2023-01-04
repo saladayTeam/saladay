@@ -30,31 +30,31 @@
           <div class="col-lg-6">
             <div class="inputGroup">
               <div class="checkbox" id="f1828d">
-                  <label class="checkbox-inline">3팩</label>
+                  <label for="no1" class="checkbox-inline">3팩</label>
                     <input class='filter' type="checkbox" id="no1" value="1" checked>
               </div>
               <div class="checkbox" id="a848ccf">
-                  <label class="checkbox-inline">5팩</label>
+                  <label for="no2" class="checkbox-inline">5팩</label>
                     <input class='filter' type="checkbox" id="no2" value="2"checked>
               </div>
               <div class="checkbox" id="a252958">
-                  <label class="checkbox-inline">7팩</label>
+                  <label for="no3" class="checkbox-inline">7팩</label>
                     <input class='filter' type="checkbox" id="no3" value="3" checked>
               </div>
               <div class="checkbox" id="f9b42d">
-                  <label class="checkbox-inline">3팩2주</label>
+                  <label for="no4" class="checkbox-inline">3팩2주</label>
                     <input class='filter' type="checkbox" id="no4" value="4" checked>
               </div>
               <div class="checkbox" id="a3498db">
-                  <label class="checkbox-inline">5팩2주</label>
+                  <label for="no5" class="checkbox-inline">5팩2주</label>
                     <input class='filter' type="checkbox" id="no5" value="5" checked>
               </div>
               <div class="checkbox" id="ff4c30">
-                  <label class="checkbox-inline">7팩2주</label>
+                  <label for="no6" class="checkbox-inline">7팩2주</label>
                     <input class='filter' type="checkbox" id="no6" value="6" checked>
               </div>
               <div class="checkbox" id="a17633d">
-                  <label class="checkbox-inline">배송완료</label>
+                  <label for="no7" class="checkbox-inline">배송완료</label>
                     <input class='filter' type="checkbox" id="no7" value="D" checked>
               </div>
             </div>

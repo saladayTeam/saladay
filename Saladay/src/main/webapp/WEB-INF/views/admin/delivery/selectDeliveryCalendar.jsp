@@ -32,12 +32,11 @@
                                 <option value="D" >&nbsp; 배송완료</option>
                             </select>
                         </div>
-                        <%-- <div class="changeBtn">
+                        <div class="changeBtn">
                             <button id="changeBtn">수정</button>
-                        </div> --%>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             <div class="textBox" >
                 <div class="title">배송번호 : </div>
@@ -61,7 +60,7 @@
             </div>
 
             <div class="textBox">
-                <div class="title">배송지 주소 : </div>
+                <div class="title" id="addressBox">배송지 주소 : </div>
                 <div id="deliveryAddress"></div>
             </div>
 
