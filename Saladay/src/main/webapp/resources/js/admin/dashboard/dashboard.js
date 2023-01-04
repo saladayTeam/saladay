@@ -25,13 +25,13 @@ const myChart1 = new Chart(ctx, {
             type:'line',
             tension:0.1,
             fill: true,
-            order:0
+            // order:0
         }]
     },
     options: {
         scales: {
             y: {
-                beginAtZero: false
+                beginAtZero: true
             }
         },
         plugins: {
