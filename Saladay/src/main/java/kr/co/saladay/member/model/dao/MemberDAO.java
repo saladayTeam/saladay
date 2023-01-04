@@ -208,7 +208,7 @@ public class MemberDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("myCancelMapper.selectCancelOrder", memberNo, rowBounds);
+		return sqlSession.selectList("myOrderMapper.selectCancelOrder", memberNo, rowBounds);
 	}
 
 	
@@ -218,7 +218,7 @@ public class MemberDAO {
 	 */
 	public List<Delivery> selectCancelDelivery(int memberNo) {
 		
-		return sqlSession.selectList("myCancelMapper.selectCancelDelivery", memberNo);
+		return sqlSession.selectList("myOrderMapper.selectCancelDelivery", memberNo);
 	}
 
 

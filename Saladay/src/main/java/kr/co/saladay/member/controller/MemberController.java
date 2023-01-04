@@ -493,7 +493,7 @@ public class MemberController {
 		
 		List<Delivery> myDelivery = service.selectCancelDelivery(memberNo);
 		
-//		map.put("myDelivery", myDelivery);
+		map.put("myDelivery", myDelivery);
 		
 		model.addAttribute("map",map);
 		
