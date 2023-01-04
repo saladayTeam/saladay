@@ -33,6 +33,7 @@
       <result property="deliveryCode" column="DELIVERY_CODE"/>
       <result property="deliveryDate" column="DELIVERY_DATE"/>
       <result property="reviewCheck" column="REVIEW_CHECK"/>
+      <result property="orderMenuPrice" column="ORDER_MENU_PRICE"/>      
       <collection property="optionList" javaType="java.util.ArrayList" ofType="OrderOption"
       select="selectOptionList" column="ORDER_MENU_NO" />
 	</resultMap> 
@@ -43,6 +44,7 @@
       <result property="optionName" column="OPTION_NAME"/>
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionCount" column="OPTION_COUNT"/>
+      <result property="orderOptionPrice" column="ORDER_OPTION_PRICE"/>    
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
 	</resultMap> 
 
@@ -91,7 +93,7 @@
  	
  	<!-- 패키지에 담은 메뉴 조회 + 배송상태확인 + 리뷰 작성확인 -->
 	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
-		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE, MENU_IMG,
+		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, ORDER_MENU_PRICE, MENU_IMG,
 			(SELECT D.DELIVERY_CODE 
 			FROM DELIVERY D
 			WHERE D.ORDER_NO = #{orderNo}
@@ -110,7 +112,7 @@
  		
  	<!-- 메뉴 별 옵션 조회 -->
 	<select id="selectOptionList" resultMap="orderOption_rm">
-		SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, OPTION_PRICE
+		SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, ORDER_OPTION_PRICE
 		FROM "ORDER"
 		LEFT JOIN ORDER_MENU USING (ORDER_NO)
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)

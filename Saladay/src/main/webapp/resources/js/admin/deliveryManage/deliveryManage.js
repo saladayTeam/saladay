@@ -58,4 +58,67 @@ function changeBtn(deliveryNo){
 
 }
 
+// 체크박스
+$(document).ready(function() {
+    $("#allCheck").click(function() {
+		if($("#allCheck").is(":checked")) $("input[name=rowCheck]").prop("checked", true);
+		else $("input[name=rowCheck]").prop("checked", false);
+	});
+    
+    $("input[name=rowCheck]").click(function() {
+        var total = $("input[name=rowCheck]").length;
+        var checked = $("input[name=rowCheck]:checked").length;
 
+        if(total != checked) $("#allCheck").prop("checked", false);
+        else $("#allCheck").prop("checked", true); 
+    }); 
+});
+
+// selectbox 값 가져오기
+
+const chks = document.getElementsByName("rowCheck");
+
+$(document).ready(function(){
+    $("#deliveryStatus").change(function(){
+      // Value값 가져오기
+      var deliveryCode = $("#deliveryStatus :selected").val();
+    //   changeBtn.style.display = "flex";
+      
+      console.log(deliveryCode);
+      
+    });
+  });
+// 배송정보 수정
+function updateDelivery(){
+    var deliveryCode = $("#deliveryStatus :selected").val();
+    const deliveryArr = new Array();
+    const list = chks;
+    
+    for(let i=0; i<list.length; i++) { 
+        if(list[i].checked){ // 선택된 내용을 배열에 저장
+            deliveryArr.push(list[i].value);
+        }
+    }
+    
+    console.log(deliveryArr, deliveryCode);
+    
+    if(deliveryArr.length==0){
+        alert("선택된 배송정보가 없습니다.");
+    
+    } else {
+        if(confirm("배송정보를 수정 하시겠습니까?")) {
+            $.ajax({
+                url : "/admin/updateDelivery",
+                type : "get",
+                data : {deliveryArr:deliveryArr, deliveryCode:deliveryCode},
+                success : function() {
+                    alert("배송정보를 수정했습니다.");
+                    location.reload(""); // 페이지 새로고침
+                },
+                error: function(){
+                    alert("배송정보 수정을 실패했습니다.")
+                }
+            })
+        }
+    }
+}
