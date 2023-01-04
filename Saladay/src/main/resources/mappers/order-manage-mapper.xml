@@ -43,6 +43,7 @@
       <result property="menuPrice" column="MENU_PRICE"/>
       <result property="menuImage" column="MENU_IMG"/>
       <result property="menuDeleteFlag" column="MENU_DEL_FL"/>
+      <result property="orderMenuPrice" column="ORDER_MENU_PRICE"/>
       <collection property="optionList" javaType="java.util.ArrayList" ofType="OrderOption"
       select="selectOptionList" column="ORDER_MENU_NO" />
 	</resultMap> 
@@ -54,6 +55,7 @@
       <result property="optionPrice" column="OPTION_PRICE"/>
       <result property="optionCount" column="OPTION_COUNT"/>
       <result property="optionDeleteFlag" column="OPTION_DEL_FL"/>
+      <result property="orderOptionPrice" column="ORDER_OPTION_PRICE"/> 
 	</resultMap> 
 	
 	<!-- DeliveryManage resultMap -->
@@ -103,26 +105,24 @@
 	<select id="selectOrderDetail" resultMap="orderManage_rm">
 	SELECT ORDER_NO, PACKAGE_NO, PACKAGE_NAME, PACKAGE_TYPE,
          ORDER_DATE, ORDER_DEL_FL, CANCLE_DATE, MEMBER_NAME, MEMBER_EMAIL, MEMBER_TEL, MEMBER_ADDRESS,
-         ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, ORDER_PRICE,
-            CASE WHEN PACKAGE_TYPE=1 THEN (SELECT SUM(MENU_PRICE) + SUM(NVL(TOTAL_OPT_PRICE,0)) TOTAL FROM (
-			   SELECT  M.MENU_PRICE,
-			      (SELECT SUM(NVL(OPTION_PRICE,0) * NVL(OPTION_COUNT,0))  
+         ORDER_NAME, ORDER_TEL, ORDER_ADDRESS, ORDER_PRICE, 
+            CASE WHEN PACKAGE_TYPE=1 THEN (SELECT SUM(ORDER_MENU_PRICE) + SUM(NVL(TOTAL_OPT_PRICE,0)) TOTAL FROM (
+			   SELECT  OM.ORDER_MENU_PRICE,
+			      (SELECT SUM(NVL(ORDER_OPTION_PRICE,0) * NVL(OPTION_COUNT,0))  
 			      FROM ORDER_MENU_OPTION OMO
 			      JOIN "OPTION" O ON(OMO.OPTION_NO = O.OPTION_NO)
 			      WHERE OMO.ORDER_MENU_NO = OM.ORDER_MENU_NO) TOTAL_OPT_PRICE
 			   FROM "ORDER" O
 			   JOIN ORDER_MENU OM ON (O.ORDER_NO = OM.ORDER_NO)
-			   JOIN MENU M ON (OM.MENU_NO = M.MENU_NO)
 			   WHERE O.ORDER_NO  = #{orderNo})) 
-			   ELSE ((SELECT SUM(MENU_PRICE) + SUM(NVL(TOTAL_OPT_PRICE,0)) TOTAL FROM (
-			   SELECT  M.MENU_PRICE,
-			      (SELECT SUM(NVL(OPTION_PRICE,0) * NVL(OPTION_COUNT,0))  
+			   ELSE ((SELECT SUM(ORDER_MENU_PRICE) + SUM(NVL(TOTAL_OPT_PRICE,0)) TOTAL FROM (
+			   SELECT  OM.ORDER_MENU_PRICE,
+			      (SELECT SUM(NVL(ORDER_OPTION_PRICE,0) * NVL(OPTION_COUNT,0))  
 			      FROM ORDER_MENU_OPTION OMO
 			      JOIN "OPTION" O ON(OMO.OPTION_NO = O.OPTION_NO)
 				      WHERE OMO.ORDER_MENU_NO = OM.ORDER_MENU_NO) TOTAL_OPT_PRICE
 			   FROM "ORDER" O
 			   JOIN ORDER_MENU OM ON (O.ORDER_NO = OM.ORDER_NO)
-			   JOIN MENU M ON (OM.MENU_NO = M.MENU_NO)
 			   WHERE O.ORDER_NO  = #{orderNo}
 				))*2) END AS TOTAL
 	FROM "ORDER"
@@ -133,7 +133,7 @@
 	
  	<!-- 주문별 메뉴 조회 -->
 	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
-	SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, MENU_PRICE
+	SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, ORDER_MENU_PRICE
 	FROM "ORDER"
 	LEFT JOIN ORDER_MENU USING (ORDER_NO)
 	LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
@@ -145,7 +145,7 @@
  		
  	<!-- 주문한 메뉴 별 옵션 조회 -->
 	<select id="selectOptionList" resultMap="orderOption_rm">
-	SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, OPTION_PRICE 
+	SELECT OPTION_NO, OPTION_NAME, OPTION_COUNT, ORDER_OPTION_PRICE
 	FROM "ORDER"
 	LEFT JOIN ORDER_MENU USING (ORDER_NO)
 	LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
