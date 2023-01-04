@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +13,83 @@
     <title>모달</title>
 </head>
 <body>
+        <div class="modal" id="modal">
+
+            <div class="main-title">
+                <div class="modalName">
+                    <div>배송일정</div>
+                </div>
+                    <button id="changeBtn">수정</button>
+                
+            </div>
+
+            <div class="textBox" id="textBox-first">
+                <div class="title">배송번호 : </div>
+                <div id="deliveryNo"></div>
+            </div>
+
+            <div class="textBox">
+                <div class="title">주문번호 : </div>
+                <div id="orderNo"></div>
+            </div>
+
+            <div class="textBox">
+                <div class="title">배송날짜 : </div>
+                <div id="deliveryDate"></div>
+                <button id="changeBtn" type="button"></button>
+            </div>
+
+            <div class="textBox">
+                <div class="title">수령인 : </div>
+                <div id="deliveryName"></div>
+            </div>
+
+            <div class="textBox">
+                <div class="title">배송지 주소 : </div>
+                <div id="deliveryAddress"></div>
+            </div>
+
+            <div class="textBox">
+                <div class="title">배송지 전화번호 : </div>
+                <div id="deliveryPhone"></div>
+            </div>
+
+            <div class="textBox">
+                <div class="title">패키지 이름 : </div>
+                <div id="packageName"></div>
+            </div>
+
+            <div class="textBox" id="saladBox">
+                <div id="first-salad">
+                    <div class="title">상품 : </div><div class="salad" id="deliverySalad1"></div>
+                </div>
+                <div class="salad" id="deliverySalad2"></div>
+                <div class="salad" id="deliverySalad3"></div>
+                <div class="salad" id="deliverySalad4"></div>
+                <div class="salad" id="deliverySalad5"></div>
+                <div class="salad" id="deliverySalad6"></div>
+                <div class="salad" id="deliverySalad7"></div>
+            </div>
+
+            <div class="textBox">
+                <div class="title">배송상태 : </div>
+                <div id="deliveryStatus">
+                <div class="selectBox">
+                    <select class="select" id="selectbox">
+                        <option value="A" >결제완료</option>
+                        <option value="B" >배송준비중</option>
+                        <option value="C" >배송중</option>
+                        <option value="D" >배송완료</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+
+            ${delivery}
+        </div>
+        
     
-    <div class="modal" id="modal">
-        <div class="textBox" id="deliveryNo"></div>
-        <div class="textBox" id="orderNo"></div>
-        <div class="textBox" id="deliveryName"></div>
-        <div class="textBox" id="deliveryAddress"></div>
-        <div class="textBox" id="deliveryPhone"></div>
-        <div class="textBox" id="deliverySalad"></div>
-    </div>
+    
+
 </body>
 </html>

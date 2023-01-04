@@ -167,7 +167,7 @@ function rwValidate(){
         reviewContent.focus();
         return false;
     }  else {
-        const reg = /^[a-zA-Zㄱ-힣0-9!~@#$%^&*()_-\s]{10,1000}$/;
+        const reg = /^[a-zA-Zㄱ-힣0-9!~@#$%^&*()_-\s]{5,1000}$/;
         if(!reg.test(reviewContent.value)) {
             alert("리뷰 내용을 10자 이상 입력해주세요.");
             reviewContent.focus();

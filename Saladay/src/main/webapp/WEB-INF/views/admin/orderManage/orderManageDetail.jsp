@@ -212,24 +212,42 @@
                     <span class="check-info-data headline"><fmt:formatNumber type="number" maxFractionDigits="0"  value="${orderDetail.orderPrice}" /> 원</span>
                 </div>
             </div>
-            <c:if test="${orderDetail.orderDeleteFlag=='A'}">
-            <hr />
-            <div class="select-delivery">
-                <h3>취소 내역</h3>
-                <div class="cal-container">
-                    <div style="color:red;" class="ao-message">취소완료된 주문입니다.</div>
-                    <br />
-                    <div>취소일시 : ${orderDetail.cancleDate}</div>
-                </div>
-            </div>
-            </c:if>
+            <%-- 정상주문인 경우 --%>
             <c:if test="${orderDetail.orderDeleteFlag=='N'}">
-                <button id="withdrawOrderBtn" type="button" class="withdrawOrderBtn">주문 취소</button>
+                <c:choose>
+                    <c:when test="${orderDetail.packageType==1}">
+                        <%-- 1주패키지인 경우 첫번째 배송건이 결제 완료인 상태에만 주문 취소 버튼 생성 --%>
+                        <c:if test="${orderDetailDelivery[0].deliveryCode=='A'}"> 
+                            <button id="withdrawOrderBtn" type="button" class="withdrawOrderBtn">주문 취소</button>
+                        </c:if>
+                    </c:when>
+                    <c:otherwise>
+                        <%-- 2주패키지인 경우 모든 배송건이 결제 완료인 상태에만 주문 취소 버튼 생성 --%>
+                        <c:if test="${orderDetailDelivery[0].deliveryCode=='A' && orderDetailDelivery[1].deliveryCode=='A'}"> 
+                            <button id="withdrawOrderBtn" type="button" class="withdrawOrderBtn">주문 취소</button>
+                        </c:if>
+                    </c:otherwise>
+                </c:choose>
             </c:if>
+
+            <%-- 취소요청중인 주문인 경우 --%>
             <c:if test="${orderDetail.orderDeleteFlag=='Y'}">
                 <div class="btn-area">
                     <button id="cancleBtn" type="button">요청 철회</button>
                     <button id="withdrawOrderBtn" class="withdrawBtn" type="button">주문 취소</button>
+                </div>
+            </c:if>
+
+            <%-- 취소완료된 주문인 경우 --%>
+            <c:if test="${orderDetail.orderDeleteFlag=='A'}">
+                <hr />
+                <div class="select-delivery">
+                    <h3>취소 내역</h3>
+                    <div class="cal-container">
+                        <div style="color:red;" class="ao-message">취소완료된 주문입니다.</div>
+                        <br />
+                        <div>취소일시 : ${orderDetail.cancleDate}</div>
+                    </div>
                 </div>
             </c:if>
         </section>

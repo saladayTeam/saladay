@@ -88,7 +88,7 @@
 #modal{
     background-color: white;
     width: 500px;
-    min-height: 200px;
+    min-height: 610px;
     height: auto;
     
     position: fixed; 
@@ -96,6 +96,85 @@
     transform: translate(-50%, -50%);
     
     z-index: 15000;
-
+    padding: 32px;
+    border: solid 8px #17633D;
+    border-radius: 25px;
+    line-height: 2em;
 }
 
+
+.textBox{
+    display: flex;
+}
+
+.title{
+    font-weight: bold;
+    /* width: 30%; */
+}
+
+#saladBox{
+    display: inline-block;
+}
+
+#textBox-first{
+    margin-top: 14px;
+}
+
+#first-salad{
+    display: flex;
+}
+
+.modalBox{
+    box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 110;
+    top: 0;
+    left: 0;
+    /* display: none; */
+}
+
+.salad{
+    margin-left: 42px;
+}
+
+#deliverySalad1{
+    margin-left: 0;
+}
+
+.main-title{
+    font-weight: bold;
+    font-size: 28px;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: solid 3px #17633D;
+    display: flex;
+}
+
+.modalName{
+    width: 70%;
+}
+
+#changeBtn{
+    display: none;
+}
+
+.selectBox{
+    display: block;
+    width: 30%;
+}
+
+#selectbox{
+    width: 100px;
+    height: 25px;
+    border-radius: 25px;
+    border: solid 1px #ccc;
+}
+
+#selectbox:focus{
+    border: none;
+    outline: none;
+    border: solid 1px #ccc;
+}

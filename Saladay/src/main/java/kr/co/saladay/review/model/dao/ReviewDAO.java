@@ -59,6 +59,27 @@ public class ReviewDAO {
 	
 		return sqlSession.selectList("reviewMapper.selectMenuReviewList", menuNo, rowBounds);
 	}
+	
+	/** 특정 회원 리뷰 수 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public int getMemberReviewListCount(int memberNo) {
+		return sqlSession.selectOne("reviewMapper.getMemberReviewListCount", memberNo);
+	}
+
+	/** 특정 회원 리뷰 목록 조회
+	 * @param pagination
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Review> selectMemberReviewList(Pagination pagination, int memberNo) {
+		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+	
+		return sqlSession.selectList("reviewMapper.selectMemberReviewList", memberNo, rowBounds);
+	}
 
 	/** 리뷰 상세 조회
 	 * @param reviewNo

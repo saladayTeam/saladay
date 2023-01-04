@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,27 +40,56 @@ public class ReviewController {
 	@GetMapping("/review")
 	public String selectReviewList(Model model,
 			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
-			@RequestParam(value = "reviewRating" , required = false, defaultValue = "0") int reviewRating //별점순 정렬
-			) {
+			@RequestParam(value = "reviewRating" , required = false, defaultValue = "0") int reviewRating, //별점순 정렬
+			HttpServletRequest req) {
 
 		Map<String, Object> map = service.selectReviewList(cp, reviewRating);
 		//reviewRating 0 == 전체, 그외 숫자 == 별점
+		
+		// 이전 주소 얻어오기
+		String referer = req.getHeader("referer");
+		
 		model.addAttribute("map", map);
 		model.addAttribute("reviewRating", reviewRating);
-
+		model.addAttribute("referer", referer);
+		
 		return "/review/reviewList";
 	}
 
 	// 특정 메뉴 리뷰 목록 조회
 	@GetMapping("/review/{menuNo}")
 	public String selectMenuReviewList(Model model, @PathVariable("menuNo") int menuNo,
-			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			HttpServletRequest req
 			) {
 
 		Map<String, Object> map = service.selectMenuReviewList(cp, menuNo);
+		
+		// 이전 주소 얻어오기
+		String referer = req.getHeader("referer");
+		
 		model.addAttribute("map", map);
+		model.addAttribute("referer", referer);
 
 		return "/review/menuReviewList";
+	}
+	
+	// 특정 회원 리뷰 목록 조회
+	@GetMapping("/memberReview/{memberNo}")
+	public String selectMemberReviewList(Model model, @PathVariable("memberNo") int memberNo,
+			@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			HttpServletRequest req
+			) {
+
+		Map<String, Object> map = service.selectMemberReviewList(cp, memberNo);
+		
+		// 이전 주소 얻어오기
+		String referer = req.getHeader("referer");
+		
+		model.addAttribute("map", map);
+		model.addAttribute("referer", referer);
+
+		return "/review/memberReviewList";
 	}
 
 	// 게시글 상세 조회(AJAX)

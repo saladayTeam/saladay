@@ -1,5 +1,6 @@
 package kr.co.saladay.admin.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,18 @@ public interface DeliveryService {
 	 * @param deliveryNo
 	 * @return
 	 */
-	DeliveryManage selectDeliveryDetail(int deliveryNo);
+	List<DeliveryManage> selectDeliveryDetail(Map<String, Object> map);
+
+	/**
+	 * 캘린더 일정 수정
+	 * @param deliveryNo
+	 * @param deliveryCode
+	 * @return
+	 */
+//	int updateCalendar(int deliveryNo, String deliveryCode);
+
+	int updateCalendar(Map<String, Object> map);
+
 
 
 

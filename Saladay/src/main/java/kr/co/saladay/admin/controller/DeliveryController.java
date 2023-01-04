@@ -1,5 +1,6 @@
 package kr.co.saladay.admin.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -91,15 +92,31 @@ public class DeliveryController {
 	}
 	
 	// 캘린더 일정 하나 정보 가져오기
-	@PostMapping("/admin/delivery/selectDeliveryCalendar")
+	@GetMapping("/admin/delivery/selectDeliveryCalendar")
 	@ResponseBody
-	public String selectDeliveryDetail(
-			@RequestParam(value="deliveryNo", required=false) int deliveryNo
+	public String selectDeliveryDetail(int deliveryNo, int orderNo
 			) {
 		
-		DeliveryManage delivery = service.selectDeliveryDetail(deliveryNo);
+		Map<String, Object> map= new HashMap<String, Object>();
+		
+		map.put("orderNo", orderNo);
+		map.put("deliveryNo", deliveryNo);
+		
+		List<DeliveryManage> delivery = service.selectDeliveryDetail(map);
 		
 		return new Gson().toJson(delivery);
+	}
+	
+	// 캘린더에서 배송상태 수정 
+	@GetMapping("/admin/calendar/updateDelivery")
+	@ResponseBody
+	public int updateCalendar(int deliveryNo, String deliveryCode) {
+		Map<String, Object> map= new HashMap<String, Object>();
+		
+		map.put("deliveryCode", deliveryCode);
+		map.put("deliveryNo", deliveryNo);
+		
+		return service.updateCalendar(map);
 	}
 	
 
