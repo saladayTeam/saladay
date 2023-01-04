@@ -11,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <div class="modal">
         <div class="detailBox">
             <div class="detail">

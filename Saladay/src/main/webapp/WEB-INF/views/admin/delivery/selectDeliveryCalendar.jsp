@@ -19,11 +19,27 @@
                 <div class="modalName">
                     <div>배송일정</div>
                 </div>
-                    <button id="changeBtn">수정</button>
-                
             </div>
 
             <div class="textBox" id="textBox-first">
+                <div class="title">배송상태 : </div>
+                    <div id="deliveryStatus">
+                        <div class="selectBox">
+                            <select class="select" id="selectbox">
+                                <option value="A" >&nbsp; 결제완료</option>
+                                <option value="B" >&nbsp; 배송준비중</option>
+                                <option value="C" >&nbsp; 배송중</option>
+                                <option value="D" >&nbsp; 배송완료</option>
+                            </select>
+                        </div>
+                        <%-- <div class="changeBtn">
+                            <button id="changeBtn">수정</button>
+                        </div> --%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="textBox" >
                 <div class="title">배송번호 : </div>
                 <div id="deliveryNo"></div>
             </div>
@@ -36,7 +52,7 @@
             <div class="textBox">
                 <div class="title">배송날짜 : </div>
                 <div id="deliveryDate"></div>
-                <button id="changeBtn" type="button"></button>
+                <%-- <button id="changeBtn" type="button"></button> --%>
             </div>
 
             <div class="textBox">
@@ -71,19 +87,7 @@
                 <div class="salad" id="deliverySalad7"></div>
             </div>
 
-            <div class="textBox">
-                <div class="title">배송상태 : </div>
-                <div id="deliveryStatus">
-                <div class="selectBox">
-                    <select class="select" id="selectbox">
-                        <option value="A" >결제완료</option>
-                        <option value="B" >배송준비중</option>
-                        <option value="C" >배송중</option>
-                        <option value="D" >배송완료</option>
-                    </select>
-                </div>
-                </div>
-            </div>
+            
 
             ${delivery}
         </div>
