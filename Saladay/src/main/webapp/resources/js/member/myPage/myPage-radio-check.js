@@ -18,12 +18,16 @@ if(lastURL == "selectMyOrder"){
     document.getElementById("myPageType3").checked = true;
 }
 
-if(lastURL == "selectMyReview"){
+if(lastURL == "selectCancelOrder"){
     document.getElementById("myPageType4").checked = true;
 }
 
-if(lastURL == "secession"){
+if(lastURL == "selectMyReview"){
     document.getElementById("myPageType5").checked = true;
+}
+
+if(lastURL == "secession"){
+    document.getElementById("myPageType6").checked = true;
 }
 
 

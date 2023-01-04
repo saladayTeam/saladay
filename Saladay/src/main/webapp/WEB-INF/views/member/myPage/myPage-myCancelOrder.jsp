@@ -36,7 +36,7 @@
             <div class="right-side">
 				
                     <div class="my-page-header">
-                        <h1 class="main-title">주문 내역</h1>
+                        <h1 class="main-title">취소 내역</h1>
                     </div>
 
                     <div>
@@ -44,16 +44,14 @@
                         <div class="my-order-package">
                             <c:if test="${empty myOrder}">
                                 <div class="my-order-content">
-                                	앗! 주문 내역이 없어요. 샐러데이를 구독해보세요
+                                	취소 내역이 없습니다 
                                 </div>
-                                <button class="order-btn"><a href="/menu/packageList">상품 구매하러 가기</a></button>
-                            	
+                               
                             </c:if>
 
                             <c:if test="${!empty myOrder}">
                             
                             <c:forEach var="order" items="${myOrder}" varStatus="vs" >
-                            
                             <div  class="my-order-content">
                             	<div class="order-content-header">
 	                            	<div class="order-number">주문번호 ${order.orderNo}</div>
@@ -179,7 +177,6 @@
                             </div>
                             </div>
                            
-     						
                             </c:forEach>
 							
                             </c:if>

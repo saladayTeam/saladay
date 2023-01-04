@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="myOrderMapper">
+<mapper namespace="myCancelMapper">
 	
 	<!-- Order resultMap -->
 	<resultMap type="Order" id="order_rm">
@@ -67,12 +67,12 @@
     <!-- 게시글 수 조회 -->
     <select id="getListCount" parameterType="_int" resultType="_int">
     	SELECT COUNT(*) FROM "ORDER"  
-		WHERE NOT ORDER_DEL_FL  = 'A'
+		WHERE NOT ORDER_DEL_FL  = 'N'
 		AND MEMBER_NO  =  #{memberNo}
     </select>	
 
 	<!-- 나의 주문 조회 -->
-	<select id="selectMyOrder" resultMap="order_rm">
+	<select id="selectCancelOrder" resultMap="order_rm">
 		SELECT ORDER_NO, PACKAGE_NAME, PACKAGE_IMG, PACKAGE_TYPE, PACKAGE_NO,
 	   		TO_CHAR(ORDER_DATE, 'YYYY-MM-DD AMHH:MI:SS')ORDER_DATE, ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE,ORDER_DEL_FL
 		FROM "ORDER"
@@ -82,8 +82,8 @@
 		LEFT JOIN "OPTION" USING (OPTION_NO)
 		LEFT JOIN "DELIVERY" USING (ORDER_NO)
 		LEFT JOIN "MENU" USING(MENU_NO)
-		WHERE MEMBER_NO = #{memberNo}
-		AND ORDER_DEL_FL = 'N'
+		WHERE NOT ORDER_DEL_FL = 'N'
+		AND MEMBER_NO = #{memberNo}
 		GROUP BY ORDER_NO,PACKAGE_NAME,PACKAGE_IMG,PACKAGE_TYPE,PACKAGE_NO,
 			 ORDER_DATE, 
 		  	 ORDER_ADDRESS,ORDER_NAME,ORDER_TEL,ORDER_PRICE,ORDER_DEL_FL
@@ -104,8 +104,8 @@
 		LEFT JOIN ORDER_MENU_OPTION USING (ORDER_MENU_NO)
 		LEFT JOIN "MENU" USING (MENU_NO)
 		LEFT JOIN "REVIEW" USING (ORDER_MENU_NO)
-		WHERE ORDER_NO=#{orderNo}
-		AND ORDER_DEL_FL = 'N'
+		WHERE NOT ORDER_DEL_FL = 'N'
+		AND ORDER_NO=#{orderNo}
 		AND MENU_DEL_FL='N'
 		ORDER BY ORDER_MENU_NO
 	</select>
@@ -120,14 +120,14 @@
 		JOIN "OPTION" USING (OPTION_NO)
 		LEFT JOIN "MENU" USING (MENU_NO)
 		LEFT JOIN "REVIEW" USING(ORDER_MENU_NO)
-		WHERE ORDER_MENU_NO=#{orderMenuNo}
+		WHERE NOT ORDER_DEL_FL = 'N'
 		AND MENU_DEL_FL='N'
-		AND ORDER_DEL_FL = 'N'
+		AND ORDER_MENU_NO=#{orderMenuNo}
 		ORDER BY OPTION_NO
 	</select>
  	
 	<!-- 주문 조회 시 배송 조회 -->
-	<select id="selectMyDelivery" resultMap="delivery_rm">
+	<select id="selectCancelDelivery" resultMap="delivery_rm">
 		SELECT ROW_NUMBER() OVER(PARTITION BY ORDER_NO ORDER BY ORDER_NO, DELIVERY_DATE) ROW_NUM,
 	   	  DELIVERY_NO, DELIVERY_CODE, DELIVERY_STATUS,
 		  TO_CHAR(DELIVERY_DATE, 'YYYY-MM-DD') DELIVERY_DATE,
@@ -141,18 +141,11 @@
 		LEFT JOIN "MENU" USING(MENU_NO)
 		LEFT JOIN "DELIVERY_MANAGE" USING(DELIVERY_CODE)
 		WHERE MEMBER_NO = #{memberNo}
-		AND ORDER_DEL_FL = 'N'
 		GROUP BY DELIVERY_DATE, DELIVERY_NO, DELIVERY_CODE,ORDER_NO, DELIVERY_STATUS
  	</select>
  	
 	
-	<!-- 내 주문 취소 -->
-	<update id="cancelMyOrder">
-	UPDATE "ORDER" SET
-	ORDER_DEL_FL = 'Y'
-	WHERE ORDER_NO=#{orderNo}
-	</update>
-	
+
 	
 	
 </mapper>

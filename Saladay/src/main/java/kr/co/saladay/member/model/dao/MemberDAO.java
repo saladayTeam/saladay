@@ -196,6 +196,31 @@ public class MemberDAO {
 		return sqlSession.update("myOrderMapper.cancelMyOrder",orderNo);
 	}
 
+	
+	/**취소 내역 조회
+	 * @param memberNo
+	 * @param pagination
+	 * @return
+	 */
+	public List<Order> selectCancelOrder(int memberNo, MemberPagination pagination) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("myCancelMapper.selectCancelOrder", memberNo, rowBounds);
+	}
+
+	
+	/**주문 취소 조회 시 배송 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Delivery> selectCancelDelivery(int memberNo) {
+		
+		return sqlSession.selectList("myCancelMapper.selectCancelDelivery", memberNo);
+	}
+
 
 
 

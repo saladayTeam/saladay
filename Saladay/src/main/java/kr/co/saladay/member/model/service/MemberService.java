@@ -123,6 +123,21 @@ public interface MemberService {
 	public int cancelMyOrder(int orderNo);
 
 
+	/**주문 취소 내역 조회
+	 * @param memberNo
+	 * @param cp
+	 * @return
+	 */
+	public Map<String, Object> selectCancelOrder(int memberNo, int cp);
+
+
+	/**주문 취소 내역 조회 시 배송 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public List<Delivery> selectCancelDelivery(int memberNo);
+
+
 
 
 

@@ -182,6 +182,30 @@ public class MemberServiceImpl implements MemberService{
 		return dao.cancelMyOrder(orderNo);
 	}
 
+	//주문 취소 내역 조회
+	@Override
+	public Map<String, Object> selectCancelOrder(int memberNo, int cp) {
+		
+		int listCount = dao.getListCount(memberNo);
+		
+		MemberPagination pagination = new MemberPagination(listCount,cp); 
+		
+		List<Order> orderPackage =  dao.selectCancelOrder(memberNo, pagination);
+		
+		Map<String, Object>map = new HashMap<String,Object>();
+		map.put("pagination", pagination);
+		map.put("orderPackage", orderPackage);
+		
+		return null;
+	}
+
+	//주문 취소 내역 조회 시 배송 조회
+	@Override
+	public List<Delivery> selectCancelDelivery(int memberNo) {
+		
+		return dao.selectCancelDelivery(memberNo);
+	}
+
 
 
 

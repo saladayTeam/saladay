@@ -23,12 +23,17 @@
 		
 		<li>
 			<input type="radio" name="myPageType" value="4" id="myPageType4"> 
-			<label for="myPageType4"><a href="/member/myPage/selectMyReview" class="myPageType4">나의 리뷰</a></label>
+			<label for="myPageType4"><a href="/member/myPage/selectCancelOrder" class="myPageType4">취소 내역</a></label>
 		</li>
 		
 		<li>
 			<input type="radio" name="myPageType" value="5" id="myPageType5"> 
-			<label for="myPageType5"><a href="/member/myPage/secession" class="myPageType5">회원 탈퇴</a></label>
+			<label for="myPageType5"><a href="/member/myPage/selectMyReview" class="myPageType5">나의 리뷰</a></label>
+		</li>
+		
+		<li>
+			<input type="radio" name="myPageType" value="6" id="myPageType6"> 
+			<label for="myPageType6"><a href="/member/myPage/secession" class="myPageType6">회원 탈퇴</a></label>
 		</li>
 	</ul>
 	

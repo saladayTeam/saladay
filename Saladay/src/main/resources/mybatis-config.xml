@@ -36,7 +36,7 @@
 		<typeAlias type="kr.co.saladay.member.model.vo.ReviewCheck"  alias="ReviewCheck" />
 		<typeAlias type="kr.co.saladay.admin.model.vo.SalesMenu"  alias="SalesMenu" />
 		<typeAlias type="kr.co.saladay.admin.model.vo.FAQ"  alias="FAQ" />
-		<typeAlias type="kr.co.saladay.member.model.vo.MyReview"  alias="MyReview" />		
+		<typeAlias type="kr.co.saladay.member.model.vo.MyReview"  alias="MyReview" />			
 	</typeAliases>
 
 
@@ -55,5 +55,6 @@
 		<mapper resource="/mappers/member-manage-mapper.xml" />
 		<mapper resource="/mappers/faq-mapper.xml" />
 		<mapper resource="/mappers/my-review-mapper.xml" />
+		<mapper resource="/mappers/my-cancel-mapper.xml" />
 	</mappers>
 </configuration>
