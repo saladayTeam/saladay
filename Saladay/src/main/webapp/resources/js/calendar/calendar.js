@@ -224,6 +224,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // 체크박스 클릭 시 캘린더에서 event 숨기기/보이기
 $(".inputGroup .filter").on("click", function(){
 
+  // console.log(this.parentElement.classList);
+  const cls = this.parentElement.classList[1];
+  if(cls.indexOf("-c") == -1){ // -c 없음
+    this.parentElement.classList.toggle(cls);
+    this.parentElement.classList.toggle(cls+"-c");
+  }else{
+    this.parentElement.classList.toggle(cls);
+    this.parentElement.classList.toggle(cls.substring(0, cls.length-2));
+  }
+
   if($(this).prop("checked")){
     $("." + $(this).attr("id")).show();
   }else{

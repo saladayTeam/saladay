@@ -1,11 +1,41 @@
+// 선택한 상품
+const temp = {};
+
+const toppingName = document.getElementsByClassName("topping-name");
+const toppingPrice = document.getElementsByClassName("topping-price");
+
+// var optionList = ${optionList};
+
+// 상품 총합
+let sum = 0;
+
 // 옵션 추가, 감소 버튼
 $(document).ready(function() {
     $('.minus').click(function () {
         var $input = $(this).parent().find('input');
+        // 여기서부터
+        // 토핑이름 가져오기
+        var toppingName = $(this).parent().prev().prev().text().trim();
+        console.log(toppingName);
+        // 토핑가격 가져오기
+        var toppingPrice = $(this).parent().prev().text().trim().;
+        console.log(toppingPrice);
+        // 여기까지 추가
+
         var count = parseInt($input.val()) - 1;
+
+        
+        
         count = count < 1 ? 0 : count;
         $input.val(count);
         $input.change();
+        temp[toppingName] = {price : toppingPrice, amount : count};
+        if(temp[toppingName] == undefined){
+          temp[toppingName] = {price : toppingPrice, amount : count};
+        }else{
+          temp[toppingName].amount++;
+        }
+        console.log(temp);
         return false;
     });
     $('.plus').click(function () {
@@ -217,4 +247,6 @@ if(orderBtn != null) {
     }
   })
 }
+
+
 
