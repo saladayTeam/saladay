@@ -114,9 +114,19 @@ main {
 
 .main-sub-title {
     font-size: 15px;
-    margin-bottom: 20px;
     color: grey;
+	margin-right: 220px;
 }
+
+.count {
+	display: flex;
+	margin-bottom:20px;
+}
+
+.count1, .count2 {
+	width:70px;
+}
+
 /*리뷰 내용--------------------------------------*/
 .review-del-btn {
     width: 60px;

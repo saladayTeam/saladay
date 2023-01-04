@@ -41,7 +41,11 @@
 
                     <div class="my-page-header">
                         <h1 class="main-title">나의 리뷰</h1>
-                        <p class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</p>
+                        <div class="count">
+                        	<span class="main-sub-title">리뷰 이미지 클릭 시 상세조회를 할 수 있습니다</span>
+							<div class="count1">도움 : ${reviewList[0].memberLikeCount}</div>
+	                    	<div class="count2">작성 : ${reviewList[0].memberReviewCount}</div>                        
+						</div>
                     </div>
 
 					<div class="review-list">
@@ -59,6 +63,8 @@
 					
 						<c:forEach items="${reviewList}" var="review">
 	                    <div class="my-review-detail">
+	                    	
+	                    	
 	                    	
 	                    	<div class="review-img-wrapper">	
 		                    	<c:if test="${review.thumbnail == null }">
