@@ -138,5 +138,89 @@ public class MenuManageServiceImpl implements MenuManageService {
 		
 		return result;
 	}
+	
+	
+	// 특정 메뉴 조회
+	@Override
+	public Menu selectMenu(int menuNo) {
+		return dao.selectMenu(menuNo);
+	}
+	
+	
+	// 메뉴 수정
+	@Transactional
+	@Override
+	public int updateMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String filePath) throws Exception{
+		
+		// XSS(크로스 사이트 스크립트 공격) 방지 
+		newMenu.setMenuName(Util.XSSHandling(newMenu.getMenuName()));
+		newMenu.setMenuContent(Util.XSSHandling(newMenu.getMenuContent()));
+		
+		// 개행 문자 처리(반드시 XSS방지 처리 먼저 수행)
+		newMenu.setMenuContent(Util.newLineHandling(newMenu.getMenuContent()));
+		
+		
+		// 메뉴 내용 수정 
+		int result = dao.updateMenu(newMenu);
+		
+		// 메뉴 내용 수정 후 이미지 수정
+		if(result > 0) {
+			if(inputMenuImg.getSize() > 0) { // 업로드 된 파일이 있는 경우 
 
+				String menuImg = inputMenuImg.getOriginalFilename();
+				newMenu.setMenuImage(webPath+menuImg);
+				
+				// 이미지 수정
+				result = dao.updateMenuImg(newMenu);
+			
+				if(result > 0) { // 이미지 등록 성공 시 실제로 서버에 저장
+					inputMenuImg.transferTo(new File(filePath + menuImg));
+				} else {
+					throw new Exception("파일 업로드 실패"); // 예외 강제 발생
+				}
+			}
+		}
+
+		return result;
+	}
+
+		
+	// 특정 옵션 조회
+	@Override
+	public Option selectOption(int optionNo) {
+		return dao.selectOption(optionNo);
+	}
+	
+	
+	// 옵션 수정
+	@Transactional
+	@Override
+	public int updateOption(Option newOption, MultipartFile inputOptionImg, String webPath, String filePath) throws Exception {
+		
+		if(inputOptionImg.getSize() > 0) { // 새로 업로드 된 파일이 있는 경우 
+			newOption.setOptionImage(webPath+inputOptionImg.getOriginalFilename());
+		}
+		
+		// 옵션 내용 수정 
+		int result = dao.updateOption(newOption);
+	
+		// 옵션 내용 수정 후 이미지 수정
+		if(result > 0) { 
+			if(inputOptionImg.getSize() > 0) { // 업로드 된 파일이 있는 경우 
+				String optionImg = inputOptionImg.getOriginalFilename();
+				newOption.setOptionImage(webPath+optionImg);
+				
+				// 이미지 수정
+				result = dao.updateOptionImg(newOption);
+			
+				if(result > 0) { // 이미지 등록 성공 시 실제로 서버에 저장
+					inputOptionImg.transferTo(new File(filePath + optionImg));
+				} else {
+					throw new Exception("파일 업로드 실패"); // 예외 강제 발생
+				}
+			}
+		}
+
+		return result;
+	}
 }
