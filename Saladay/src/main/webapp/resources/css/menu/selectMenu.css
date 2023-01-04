@@ -301,13 +301,38 @@ input:hover{
     cursor: default;
 }
 
+/* 총 가격 추가 */
+.bottom-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+}
+
+.total{
+    min-height: 50px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 30px;
+    color: #555;
+}
+
 .bottom-box{
+    width: 100%;
+    display: flex;
+    bottom: 15px;
+    right: 30px;
+}
+
+/* .bottom-box{
     width: 400px;
     display: flex;
     position: fixed;
     bottom: 15px;
     right: 30px;
-}
+} */
 
 button{
     width: 200px;

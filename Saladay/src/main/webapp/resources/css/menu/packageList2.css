@@ -46,6 +46,11 @@ body{
     margin-top: 18px;
 }
 
+.package-type {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
 ul{
     list-style: none;
     display: block;
