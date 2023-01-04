@@ -25,6 +25,17 @@ public interface MenuService {
 	List<Map<String, Object>> selectPackageList();
 
 	// 옵션 조회
-	List<Option> selectOptionList(); 
+	List<Option> selectOptionList();
+
+	/** DB에서 Menu테이블의 모든 이미지명 조회
+	 * @return menuImageList
+	 */
+	List<String> selectMenuImageList();
+
+	
+	/** DB에서 Option테이블의 모든 이미지명 조회
+	 * @return optionImageList
+	 */
+	List<String> selectOptionImageList(); 
 
 }
