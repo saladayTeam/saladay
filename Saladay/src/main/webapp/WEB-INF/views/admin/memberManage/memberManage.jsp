@@ -40,8 +40,8 @@
           <col width="2%">
           <col width="5%">
           <col width="17%">
+          <col width="18%">
           <col width="20%">
-          <col width="28%">
           <col width="20%">
           <col width="18%">
         </colgroup>

@@ -1,19 +1,20 @@
 console.log("회원관리");
 
-const allCheck = document.getElementById("allCheck");
-const chks = document.getElementsByName("rowCheck");
+// 체크박스
+$(document).ready(function() {
+    $("#allCheck").click(function() {
+		if($("#allCheck").is(":checked")) $("input[name=rowCheck]").prop("checked", true);
+		else $("input[name=rowCheck]").prop("checked", false);
+	});
+    
+    $("input[name=rowCheck]").click(function() {
+        var total = $("input[name=rowCheck]").length;
+        var checked = $("input[name=rowCheck]:checked").length;
 
-// 즉시 실행 함수()();
-(function() {
-    // 전체 선택 및 해제
-    allCheck.addEventListener("click", function(){
-        console.log("전체선택");
-        for(let i=0; i<chks.length; i++){
-            chks[i].checked = this.checked;
-        }
-    });
-})();
-
+        if(total != checked) $("#allCheck").prop("checked", false);
+        else $("#allCheck").prop("checked", true); 
+    }); 
+});
 
 // 회원탈퇴처리
 function secessionValue(){

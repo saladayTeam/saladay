@@ -19,7 +19,7 @@ public class OrderMenu {
 	private String menuName;
 	private int menuPrice;
 	private String menuDeleteFlag;
-	
+	private int orderMenuPrice;
 	
 	private int OrderNo;
 	private int menuNo;
