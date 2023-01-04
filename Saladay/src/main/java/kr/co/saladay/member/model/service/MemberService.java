@@ -135,7 +135,7 @@ public interface MemberService {
 	 * @param memberNo
 	 * @return
 	 */
-	public List<Delivery> selectCancelDelivery(int memberNo);
+//	public List<Delivery> selectCancelDelivery(int memberNo);
 
 
 

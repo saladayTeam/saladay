@@ -491,10 +491,10 @@ public class MemberController {
 		
 		Map<String,Object>map=service.selectCancelOrder(memberNo, cp);
 		
-		List<Delivery> myDelivery = service.selectCancelDelivery(memberNo);
-		
-//		map.put("myDelivery", myDelivery);
-		
+		List<Delivery> myDelivery = service.selectMyDelivery(memberNo);
+		System.out.println(myDelivery);
+		map.put("myDelivery", myDelivery);
+		System.out.println(myDelivery);
 		model.addAttribute("map",map);
 		
 		return "member/myPage/myPage-myCancelOrder";

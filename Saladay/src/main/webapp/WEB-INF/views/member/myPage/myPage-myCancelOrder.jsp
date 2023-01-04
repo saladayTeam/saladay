@@ -46,7 +46,6 @@
                                 <div class="my-order-content">
                                 	취소 내역이 없습니다 
                                 </div>
-                               
                             </c:if>
 
                             <c:if test="${!empty myOrder}">
