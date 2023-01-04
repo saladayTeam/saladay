@@ -91,7 +91,8 @@
 	</select>
  	
  	
- 	<!-- 패키지에 담은 메뉴 조회 + 배송상태확인 + 리뷰 작성확인 -->
+ 	<!-- 패키지에 담은 메뉴 조회 + 배송상태확인 + 리뷰 작성확인 
+ 	null==possible-->
 	<select id="selectOrderMenuList" resultMap="orderMenu_rm">
 		SELECT DISTINCT ORDER_MENU_NO, MENU_NO, MENU_NAME, ORDER_MENU_PRICE, MENU_IMG,
 			(SELECT D.DELIVERY_CODE 
