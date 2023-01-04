@@ -54,13 +54,13 @@
 			SELECT SEQ_ORDER_MENU_NO.NEXTVAL FROM DUAL
 		</selectKey>
 		INSERT INTO ORDER_MENU
-		VALUES (#{orderMenuNo}, #{orderNo}, #{menuNo})
+		VALUES (#{orderMenuNo}, #{orderNo}, #{menuNo}, #{menuPrice})
 	</insert>
 	
 	<!-- 주문 메뉴별 옵션  -->
 	<insert id="insertOrderMenuOption" parameterType="CartOption">
 		INSERT INTO ORDER_MENU_OPTION
-		VALUES (#{orderMenuNo}, #{optionNo}, #{optionCount})
+		VALUES (#{orderMenuNo}, #{optionNo}, #{optionCount}, #{optionPrice})
 	</insert>
 	
 	<insert id="insertDelivery" parameterType="orderDelivery">
