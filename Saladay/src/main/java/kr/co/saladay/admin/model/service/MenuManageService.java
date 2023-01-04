@@ -61,4 +61,42 @@ public interface MenuManageService {
 
 
 
+	/** 특정 메뉴 조회
+	 * @param menuNo
+	 * @return menu
+	 */
+	Menu selectMenu(int menuNo);
+
+
+
+	/** 메뉴 수정
+	 * @param newMenu
+	 * @param inputMenuImg
+	 * @param webPath
+	 * @param filePath
+	 * @return result
+	 */
+	int updateMenu(Menu newMenu, MultipartFile inputMenuImg, String webPath, String filePath) throws Exception;
+
+
+
+	/** 특정 옵션 조회
+	 * @param optionNo
+	 * @return option
+	 */
+	Option selectOption(int optionNo);
+
+
+
+	/** 옵션 수정
+	 * @param newOption
+	 * @param inputOptionImg
+	 * @param webPath
+	 * @param filePath
+	 * @return result
+	 */
+	int updateOption(Option newOption, MultipartFile inputOptionImg, String webPath, String filePath) throws Exception;
+
+
+
 }

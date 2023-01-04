@@ -14,24 +14,38 @@ body{
     font-family: "NanumSquareNeo-Variable";
 }
 
-.update-menu-popup{
+/* 옵션 수정하기 팝업창 전체 영역 */
+.update-option-popup{
     width: 600px;
     height: 400px;
     padding: 0 20px;
     box-sizing: border-box;
 }
 
-.update-menu-popup h2 {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+/* 옵션 수정 */
+.p-title  {
     border-bottom: 3px solid #17633d;
-}
-.menu-table {
-    width: 100%;
-    padding: 0 20px;
+    padding-bottom: 20px;
+    
 }
 
-.menu-table caption {
+.p-title h2 {
+    margin-top : 20px;
+    margin-bottom: 5px;
+} 
+
+.p-title span {
+    font-size: 13px;
+}
+
+
+/* 폼태그 영역 */
+.option-table {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.option-table caption {
     display: none;
 }
 
@@ -45,7 +59,7 @@ body{
     width: 100%;
 }
 
-.menu-table input {
+.option-table input {
     margin: 0;
     width: 100%;
     cursor: pointer;
@@ -55,21 +69,10 @@ body{
     border-radius: 5px;
 }
 
-.menu-table textarea {
-    cursor: pointer;
-    width: 100%;
-    height: 6.25em;
-    outline: none;
-    resize: none;
-    padding: 5px 0 5px 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
 label {
     cursor: pointer;
+    font-weight: bold;
 }
-
 
 
 /* 사진 영역 */
@@ -88,12 +91,12 @@ label {
     overflow: hidden;
 }
 
-.preview-area img {
+img {
     height: 150px;
 }
 
 
-.menu-img-area button {
+.option-img-area button {
     background-color: #f2f2f2;
     color: #222;
     border: 1px solid #ddd;
@@ -103,31 +106,23 @@ label {
     border-radius: 2px;
 }
 
-#delete-image{
-    position: absolute;
-    top:0;
-    right: 180px;
-    cursor: pointer;
-    color: #ddd;
-}
 
 
 /* 버튼영역 */
-.menu-btn-area {
+.option-btn-area {
     width: 560px;
     text-align: right;
     padding-top: 20px;
 
 }
 
-.menu-btn-area button{
+.option-btn-area button{
     cursor: pointer;
     background-color: #17633d;
     border: none;
     color: white;
     border-radius: 5px;
     padding: 5px;
-    
 }
 
 

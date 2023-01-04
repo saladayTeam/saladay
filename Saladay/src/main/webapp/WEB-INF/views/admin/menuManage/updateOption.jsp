@@ -24,7 +24,7 @@
       <div class="menu-m-tit">
           <span><h1>옵션관리</h1></span>
           <div class="tit">
-            <span>새로운 옵션을 추가하거나 기존 메뉴를 삭제하실 수 있습니다.</span>
+            <span>새로운 옵션을 추가하거나 기존 옵션을 수정/삭제하실 수 있습니다.</span>
             <div class="m-btn-area">
               <button type="button" id="addBtn">추가</button>
               <button type="button" id="delBtn" onclick="deleteValue();">삭제</button>
@@ -59,7 +59,7 @@
           <c:forEach items="${optionList}" var="option">
             <tr>
               <td scope="col"><input type="checkbox" name="rowCheck" value="${option.optionNo}"></td>
-              <td scope="col"><span><a class="o-img" src="${option.optionImage}">${option.optionName}</a></span></td>
+              <td scope="col"><span onclick="updateValue(${option.optionNo})" class="admin-update-click">${option.optionName} <i class="fa-regular fa-pen-to-square"></i></span></td>
               <c:choose>
                 <c:when test="${option.optionType eq 'M'}">
                 <td scope="col"><span>메인토핑</span> <img class="topping-img" src="/resources/images/menu/icon/meat.png" alt="메인토핑"></td>
