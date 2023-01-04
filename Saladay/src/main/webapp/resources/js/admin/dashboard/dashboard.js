@@ -39,7 +39,7 @@ const myChart1 = new Chart(ctx, {
             position: 'top',
             datalabels: {
                 color: 'black'
-              }
+            }
             },
     },
     
