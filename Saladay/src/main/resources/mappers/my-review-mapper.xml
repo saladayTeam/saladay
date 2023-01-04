@@ -19,6 +19,9 @@
 		<result property="likeCheck" column="LIKE_CHECK"/>
 		<result property="thumbnail" column="THUMBNAIL"/>
 		<result property="packageName" column="PACKAGE_NAME"/>
+		<result property="memberLikeCount" column="MEMBER_LIKE_COUNT"/>
+		<result property="memberReviewCount" column="MEMBER_REVIEW_COUNT"/>
+		
 	</resultMap>
 
 	<!-- Order resultMap -->
@@ -75,7 +78,7 @@
 	   (SELECT IMG_PATH || IMG_RENAME FROM REVIEW_IMG I
 	   WHERE IMG_ORDER =0
 	   AND I.REVIEW_NO = R.REVIEW_NO) THUMBNAIL,
-	   ORDER_NO
+	   ORDER_NO, MEMBER_LIKE_COUNT, MEMBER_REVIEW_COUNT
 	FROM "REVIEW" R
 	JOIN "MEMBER" USING(MEMBER_NO)
 	JOIN "ORDER_MENU" USING(ORDER_MENU_NO)
