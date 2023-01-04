@@ -15,27 +15,26 @@ $(document).ready(function() {
         var $input = $(this).parent().find('input');
         // 여기서부터
         // 토핑이름 가져오기
-        var toppingName = $(this).parent().prev().prev().text().trim();
-        console.log(toppingName);
-        // 토핑가격 가져오기
-        var toppingPrice = $(this).parent().prev().text().trim().;
-        console.log(toppingPrice);
+        // var toppingName = $(this).parent().prev().prev().text().trim();
+        // console.log(toppingName);
+        // // 토핑가격 가져오기
+        // var toppingPrice = $(this).parent().prev().text().trim().;
+        // console.log(toppingPrice);
+        // temp[toppingName] = {price : toppingPrice, amount : count};
+        // if(temp[toppingName] == undefined){
+        //   temp[toppingName] = {price : toppingPrice, amount : count};
+        // }else{
+        //   temp[toppingName].amount++;
+        // }
+        // console.log(temp);
         // 여기까지 추가
 
         var count = parseInt($input.val()) - 1;
 
         
-        
         count = count < 1 ? 0 : count;
         $input.val(count);
         $input.change();
-        temp[toppingName] = {price : toppingPrice, amount : count};
-        if(temp[toppingName] == undefined){
-          temp[toppingName] = {price : toppingPrice, amount : count};
-        }else{
-          temp[toppingName].amount++;
-        }
-        console.log(temp);
         return false;
     });
     $('.plus').click(function () {
@@ -59,9 +58,9 @@ window.onload = function() {
     const moveButton = kindWrap.querySelector('.arrow');
   
     /* ul 넓이 계산해 주기 */
-    const liWidth = slideLis[0].clientWidth;
-    const sliderWidth = liWidth * slideLis.length;
-    slider.style.width = `${sliderWidth}px` ;
+    const liWidth = slideLis[0].clientWidth; // li 1개의 넓이
+    const sliderWidth = liWidth * slideLis.length; // li개수만큼의 넓이
+    slider.style.width = `${sliderWidth}px` ; // 전체 ul 넓이 선언해줌
   
     /* 리스너 설치하기 */
     let currentIdx = 0; // 슬라이드 현재 번호
@@ -115,15 +114,17 @@ window.onload = function() {
   
     $(function(){
     
+        // 메뉴이름 클릭시
         $('.menu-box li a').click(function(){
+            // 현재 보고 있는 li의 href(이미지경로) 가져옴
             $('.menu-img img').eq(currentIdx).attr('src',$(this).attr('href'))
-            // console.log($('.menu-name a'))
 
             // $(this).css("background","#17633D");
             // $(this).css("color","white");
             // $(this).css("font-weight","bold");
             // $(this).css("border-color","#17633D");
             
+            // 메뉴이름 = 클릭한곳의 text
             var mName = $(this).text();
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
