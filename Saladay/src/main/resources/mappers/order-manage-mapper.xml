@@ -84,7 +84,12 @@
 	
 	<!-- 전체 주문 목록 조회 -->
 	<select id="selectOrderList" resultMap="order_rm">
-	SELECT ORDER_NO, TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') ORDER_DATE,
+	SELECT ORDER_NO, 
+		CASE
+	      WHEN TO_CHAR(SYSDATE, 'YYYY-MM-DD')=TO_CHAR(ORDER_DATE, 'YYYY-MM-DD')
+	      THEN TO_CHAR(ORDER_DATE, 'HH24:mm:ss')
+	      ELSE TO_CHAR(ORDER_DATE, 'YYYY-MM-DD')
+	    END ORDER_DATE,
 	PACKAGE_NAME, MEMBER_NAME, ORDER_PRICE, ORDER_DEL_FL
 	FROM "ORDER"
 	JOIN "PACKAGE" USING(PACKAGE_NO)
@@ -98,7 +103,7 @@
 	<if test ="orderStatus == 3">
 	WHERE ORDER_DEL_FL='A'
 	</if>
-	ORDER BY ORDER_DATE DESC, ORDER_NO DESC
+	ORDER BY ORDER_NO DESC
 	</select>
 	
 	<!-- 주문 상세조회 -->

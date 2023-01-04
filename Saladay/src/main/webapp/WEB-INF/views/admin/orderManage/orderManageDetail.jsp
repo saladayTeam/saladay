@@ -27,7 +27,7 @@
             <div class="tit">
                 <span>고객의 주문 내역을 조회하고 주문을 취소할 수 있습니다.</span>
                 <div class="order-status-area">
-                    <button onclick="location.href='${referer}'" class="osBtn">뒤로가기</button>
+                    <button onclick="location.href='/admin/orderManage'" class="osBtn">목록으로</button>
                 </div>
             </div>
         </div>
