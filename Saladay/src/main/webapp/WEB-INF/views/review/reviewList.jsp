@@ -81,6 +81,13 @@
                                     <div class="rating">
                                         <span class="${review.rating}"></span>
                                     </div>
+                                    <c:if test ="${loginMember.authority==99}">
+                                        <div class="admin-box">                                  
+                                            <div>주문번호 : ${review.orderNo}</div>
+                                            <div>주문일시 : ${review.orderDate}</div>
+                                            <div>주문자명 : ${review.memberName}</div>
+                                        </div>
+                                    </c:if>
                                 </li>
                             </c:forEach>
                         </c:otherwise>
