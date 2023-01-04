@@ -34,7 +34,7 @@
                     <h1 class="review-main-title">${reviewList[0].memberNickname} 회원의 리뷰</h1>
                 </div>
                 <div class="mr-info2">
-                    <div>추천 받은 리뷰 : ${reviewList[0].memberLikeCount}</div>
+                    <div>받은 좋아요 수 : ${reviewList[0].memberLikeCount}</div>
                     <div>별점 평균 : ${reviewList[0].memberRatingAvg}</div>
                     <div>작성 : ${reviewList[0].memberReviewCount}</div>
                 </div>
