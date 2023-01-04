@@ -16,10 +16,11 @@ $(document).ready(function() {
     }); 
 });
 
+
 // 회원탈퇴처리
 function secessionValue(){
     const memberArr = new Array();
-    const list = chks;
+    const list = document.getElementsByName("rowCheck");
     
     for(let i=0; i<list.length; i++) { 
         if(list[i].checked){ // 선택된 내용을 배열에 저장
@@ -27,7 +28,7 @@ function secessionValue(){
         }
     }
     
-    console.log(memberArr);
+    // console.log(memberArr);
     
     if(memberArr.length==0){
         alert("선택된 회원이 없습니다.");

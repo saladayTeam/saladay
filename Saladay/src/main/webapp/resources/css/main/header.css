@@ -137,3 +137,11 @@ nav li > a:hover {
 #cart-img:hover {
   cursor: pointer;
 }
+
+
+*{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}

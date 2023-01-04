@@ -30,12 +30,10 @@ $(document).ready(function() {
     }); 
 });
 
-
-
 // 옵션 삭제
 function deleteValue(){
     const valueArr = new Array();
-    const list = chks;
+    const list = document.getElementsByName("rowCheck");
     
     for(let i=0; i<list.length; i++) { 
         if(list[i].checked){ // 선택된 내용을 배열에 저장

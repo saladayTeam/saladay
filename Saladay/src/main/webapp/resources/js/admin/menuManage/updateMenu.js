@@ -20,7 +20,7 @@ $(document).ready(function() {
 // 메뉴 삭제
 function deleteValue(){
     const valueArr = new Array();
-    const list = chks;
+    const list =  document.getElementsByName("rowCheck");
     
     for(let i=0; i<list.length; i++) { 
         if(list[i].checked){ // 선택된 내용을 배열에 저장
@@ -28,7 +28,7 @@ function deleteValue(){
         }
     }
     
-    console.log(valueArr);
+    // console.log(valueArr);
     
     if(valueArr.length==0){
         alert("선택된 메뉴가 없습니다.");
