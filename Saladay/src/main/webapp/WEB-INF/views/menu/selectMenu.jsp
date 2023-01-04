@@ -213,9 +213,23 @@
             </div>
         </section>
 
-        <div class="bottom-box">
+        <%-- <div class="bottom-box">
             <button id="cartin-btn">장바구니 담기</button>
             <button type="button" id="order-btn">주문하기</button>
+        </div> --%>
+        <div class="bottom-wrapper">
+            <div class="total">
+                    Total
+                    <strong class="strong" id="totalPrice">
+                    0
+                    </strong>
+                    <strong class="strong">원</strong>
+            </div>
+            
+            <div class="bottom-box">
+                <button id="cartin-btn">장바구니 담기</button>
+                <button type="button" id="order-btn">주문하기</button>
+            </div>
         </div>
     </main>
     </form> 
