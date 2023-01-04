@@ -38,7 +38,7 @@
                             <option value="C">&nbsp; 배송중</option>
                             <option value="A">&nbsp; 결제완료</option>
                         </select>
-                        <button type="button" class="osBtn">
+                        <button type="button" class="osBtn" onclick="updateDelivery();">
                             수정
                         </button>
                         <button onclick="location.href='/admin/deliveryCalendar'" type="button" class="osBtn" id="goToImport">캘린더</button>
@@ -151,11 +151,6 @@
             </c:if>
         </div>
 
-        
-
-
-
-    배송관리를 할거에요
 
     </main>
 

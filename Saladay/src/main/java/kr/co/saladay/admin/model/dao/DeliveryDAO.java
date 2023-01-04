@@ -38,8 +38,8 @@ public class DeliveryDAO {
 		return sqlSession.selectList("deliveryManageMapper.selectDelList");
 	}
 
-	public int updateDelivery(int deliveryNo) {
-		return sqlSession.update("deliveryManageMapper.updateDelivery", deliveryNo);
+	public int updateDelivery(Map<String, Object> map) {
+		return sqlSession.update("deliveryManageMapper.updateDelivery", map);
 	}
 
 	/**

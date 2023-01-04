@@ -83,12 +83,23 @@ public class DeliveryController {
 	
 
 	// 배송상태 수정 
+//	@PostMapping("/admin/updateDelivery")
 	@GetMapping("/admin/updateDelivery")
 	@ResponseBody
-	public int updateDelivery(int deliveryNo) {
-		// System.out.println(valueArr);
+	public String updateDelivery(@RequestParam(value="deliveryArr[]") String[] deliveryArr, String deliveryCode) {
 		
-		return service.updateDelivery(deliveryNo);
+		
+		for(int i=0; i < deliveryArr.length; i++) {
+			int deliveryNo = Integer.parseInt(deliveryArr[i]);
+			Map<String, Object> map= new HashMap<String, Object>();
+			
+			map.put("deliveryCode", deliveryCode);
+			map.put("deliveryNo", deliveryNo);
+			
+			service.updateDelivery(map);
+		}
+		
+		return "redirect:/admin/deliveryManage";
 	}
 	
 	// 캘린더 일정 하나 정보 가져오기
