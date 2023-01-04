@@ -28,24 +28,12 @@
     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     <main>
         <div class="review-list-area">
-            <div class="review-menu-title">
-                <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
-                <h1 class="review-main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
-            </div>
-            <div class="review-check">
-<%--                 <form action ="/review/${reviewList[0].menuNo}" method="get">
-                    <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
-                        <option value="0">전체별점</option>
-                        <option value="50" class="optStar">★★★★★</option>
-                        <option value="40" class="optStar">★★★★</option>
-                        <option value="30" class="optStar">★★★</option>
-                        <option value="20" class="optStar">★★</option>
-                        <option value="10" class="optStar">★</option>
-                    </select>
-                    <button type="submit" class="rrBtn">
-                        검색
-                    </button>
-                </form> --%>
+            <div class="mr-div">
+                <div class="mr-title">
+                    <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
+                    <h1 class="review-main-title">${reviewList[0].menuName} 샐러드 리뷰</h1>
+                </div>
+                    <div class="mr-info1">별점 평균 : ${reviewList[0].menuRatingAvg}</div>
             </div>
 
             <!-- 리뷰 목록 내용 -->

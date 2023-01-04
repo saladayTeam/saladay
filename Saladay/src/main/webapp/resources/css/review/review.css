@@ -36,19 +36,6 @@
     font-size: 30px;
 }
 
-/* 특정메뉴 리뷰 제목 */
-.review-menu-title {
-    font-family: "NanumSquareNeo-Variable" !important;
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    font-weight: bolder;
-    color: black;
-    border-bottom: 3px solid #17633d;
-    padding-bottom: 20px;
-    margin: 50px 0 auto auto;
-}
-
 /* 전체리뷰보러가기 */
 .review-back{
     color: #17633d;
@@ -383,10 +370,6 @@
     font-size: 15px;
 }
 
-/* .optStar{
-    color: #fec43b;
-} */
-
 /* 검색 결과가 없을 때 뒤로가기 버튼 */
 .backBtn{
     margin-top: 5px;
@@ -410,7 +393,36 @@
     color: #666666;
 }
 
+/* 멤버별 리뷰 제목을 묶는 div */
+.mr-div{
+    width: 1200px;
+    display: flex;
+    border-bottom: 3px solid #17633d;
+    padding-bottom: 20px;
+    margin: 50px 0 auto auto;
+}
+
+/* 멤버별 리뷰 제목 */
+.mr-title {
+    font-family: "NanumSquareNeo-Variable" !important;
+    width: 85%;
+    display: flex;
+    justify-content: left;
+    font-weight: bolder;
+    color: black;
+}
+
 /* 멤버별 리뷰 정보 */
-.member-review-info{
-/*     float: right; */
+.mr-info2{
+    width: 15%;
+    color: #666666;
+    font-size: 14px;
+}
+
+/* 메뉴별 리뷰 정보 */
+.mr-info1{
+    width: 15%;
+    color: #666666;
+    font-size: 14px;
+    margin-top: 10px;
 }
