@@ -53,13 +53,44 @@ public class DeliveryServiceImpl implements DeliveryService{
 		return dao.updateDelivery(deliveryNo);
 	}
 
+//	/**
+//	 * 배송일정 모달
+//	 */
+//	@Override
+//	public List<Object> selectDeliveryDetail(int deliveryNo) {
+//		return dao.selectDeliveryDetail(deliveryNo);
+//	}
+
+
 	/**
-	 * 배송일정 모달
+	 * 배송일정 조회 모달
 	 */
 	@Override
-	public DeliveryManage selectDeliveryDetail(int deliveryNo) {
-		return dao.selectDeliveryDetail(deliveryNo);
+	public List<DeliveryManage> selectDeliveryDetail(Map<String, Object> map) {
+		return dao.selectDeliveryDetail(map);
 	}
+
+	/**
+	 * 캘린더 일정 수정
+	 */
+//	@Override
+//	public int updateCalendar(int deliveryNo, String deliveryCode) {
+//		// TODO Auto-generated method stub
+//		return dao.updateCalendar(deliveryNo, deliveryCode);
+//		
+//		
+//	}
+
+	@Override
+	public int updateCalendar(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.updateCalendar(map);
+	}
+	
+	
+	
+	
+	
 
 
 	

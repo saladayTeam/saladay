@@ -24,5 +24,6 @@ public class DeliveryManage {
 	private int deliveryNo; // 배송번호
 	private int rowNum; // 배송순번
 	private String packageName; // 패키지이름
+	private String menuName; // 패키지이름
 	
 }
