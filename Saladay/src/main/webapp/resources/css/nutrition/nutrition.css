@@ -7,19 +7,19 @@ main {
 
 .nutrition-header {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
   font-weight: bolder;
   color: black;
   border-bottom: 3px solid #17633d;
-  padding-bottom: 80px;
+  padding-bottom: 30px;
   margin: 50px 0 auto auto;
 }
 
 .main-title {
   font-size: 32px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 /* 검색창*************************************************************/

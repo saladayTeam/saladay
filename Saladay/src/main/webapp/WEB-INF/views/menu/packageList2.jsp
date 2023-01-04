@@ -44,6 +44,8 @@
                 FOR 2WEEK
             </div>
             <div id="main-detail">샐러데이의 신선함을 집에서도 경험할 수 있습니다.</div>
+            <div class="package-type">* 2주차는 1주차와 동일한 구성입니다.</div>
+
         </div>
         <ul class="package-ol">
             <a href="/selectMenu/${packageList[3].packageNo}">
