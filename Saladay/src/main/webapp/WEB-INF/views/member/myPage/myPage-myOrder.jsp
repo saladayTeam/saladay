@@ -111,7 +111,7 @@
                             		 		<ul>
                             		 			<li class="menu-td"><i class="fa-solid fa-check fa-2xs"></i>${menu.menuName}</li>
                             		 			<li>1</li>
-                            		 			<li>${menu.menuPrice}원</li>
+                            		 			<li>${menu.orderMenuPrice}원</li>
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
                             		 				
                             		 				<c:if test="${menu.reviewCheck eq 'possible'}">
@@ -132,7 +132,7 @@
 								                    <ul>
 		                            		 			<li class="menu-td">${option.optionName}</li>
 		                            		 			<li>${option.optionCount}</li>
-		                            		 			<li>${option.optionPrice*option.optionCount}원</li>
+		                            		 			<li>${option.orderOptionPrice*option.optionCount}원</li>
                             		 				</ul>
 								                    </c:if>
 								                    
@@ -149,7 +149,7 @@
                             	</div>
                             <div class="discount">
 	                            <c:if test="${order.packageNo == 4 || order.packageNo == 5 || order.packageNo == 6 }">
-		                        <div class="discount-price">할인 금액 : <fmt:formatNumber type="number"  maxFractionDigits="0" value="${order.orderPrice*0.1}" />원</div>
+		                        <div class="discount-price">할인 금액 : <fmt:formatNumber type="number"  maxFractionDigits="0" value="${order.orderPrice*1/9}" />원</div>
 		                        </c:if>
                             </div>	
                             <!-- 배송상태가 결제완료 일 때 주문취소 버튼(1개만 나오게 flag) -->	
