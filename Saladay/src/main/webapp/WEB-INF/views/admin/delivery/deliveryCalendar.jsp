@@ -23,6 +23,7 @@
 
     <%-- 모달 --%>
     <div id="modalBox">
+      <span id="closeModal" class="closeModal">&times;</span>
       <jsp:include page="/WEB-INF/views/admin/delivery/selectDeliveryCalendar.jsp"></jsp:include>
     </div>
     <%-- 모달 --%>

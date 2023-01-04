@@ -33,7 +33,7 @@
                 <h1 class="review-main-title">${reviewList[0].memberNickname} 회원의 리뷰</h1>
             </div>
                 <div class="member-review-info">
-                    <div>도움 : ${reviewList[0].memberLikeCount}</div>
+                    <div>추천 받은 리뷰 : ${reviewList[0].memberLikeCount}</div>
                     <div>작성 : ${reviewList[0].memberReviewCount}</div>
                 </div>
 

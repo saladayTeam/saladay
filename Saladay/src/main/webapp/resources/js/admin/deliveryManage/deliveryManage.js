@@ -109,7 +109,7 @@ function updateDelivery(){
         if(confirm("배송정보를 수정 하시겠습니까?")) {
             $.ajax({
                 url : "/admin/updateDelivery",
-                type : "get",
+                type : "post",
                 data : {deliveryArr:deliveryArr, deliveryCode:deliveryCode},
                 success : function() {
                     alert("배송정보를 수정했습니다.");

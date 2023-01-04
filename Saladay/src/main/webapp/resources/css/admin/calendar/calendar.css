@@ -124,6 +124,9 @@
     display: flex;
 }
 
+#modalBox{
+    display: none;
+}
 .modalBox{
     box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
     background-color: rgba(0, 0, 0, 0.4);
@@ -133,7 +136,7 @@
     z-index: 110;
     top: 0;
     left: 0;
-    /* display: none; */
+    display: block !important;
 }
 
 .salad{
@@ -157,13 +160,43 @@
     width: 70%;
 }
 
+/* 캘린더 수정버튼 */
+.changeBtn{
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.changeBtn:hover{
+    cursor: pointer;
+}
+
 #changeBtn{
-    display: none;
+    width: 100px;
+    height: 35px;
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#changeBtn:hover{
+    background-color: #17633D;
+    color: white;
+    cursor: pointer;
 }
 
 .selectBox{
     display: block;
     width: 30%;
+    margin-left: 5px;
 }
 
 #selectbox{
@@ -177,4 +210,25 @@
     border: none;
     outline: none;
     border: solid 1px #ccc;
+}
+
+/* 메뉴 닫기 버튼  */
+.closeModal{
+    position: absolute;
+    /* top: 270px;
+    right: 710px; */
+    top: 180px;
+    right: 750px;
+
+    color: #ddd;
+    font-size: 50px;
+    font-weight: bold;
+
+    transition-duration: 0.2s;
+    cursor: pointer;
+    /* display: none; */
+}
+
+.closeModal:hover{
+    transform: scale(1.2);
 }

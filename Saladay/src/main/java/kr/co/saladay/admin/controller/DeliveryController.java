@@ -84,7 +84,7 @@ public class DeliveryController {
 
 	// 배송상태 수정 
 //	@PostMapping("/admin/updateDelivery")
-	@GetMapping("/admin/updateDelivery")
+	@PostMapping("/admin/updateDelivery")
 	@ResponseBody
 	public String updateDelivery(@RequestParam(value="deliveryArr[]") String[] deliveryArr, String deliveryCode) {
 		
