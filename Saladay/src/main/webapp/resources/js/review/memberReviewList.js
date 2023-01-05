@@ -17,7 +17,7 @@ const modalClose=document.getElementById("modal-close");
         // Modal 닫기 버튼
         modalClose.addEventListener("click", () =>{
             modal.style.display="none";
-            /* location.reload(""); */
+            location.reload("");
         });
     }
 })();
