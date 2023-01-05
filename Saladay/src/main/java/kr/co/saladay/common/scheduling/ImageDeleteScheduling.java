@@ -59,14 +59,14 @@ public class ImageDeleteScheduling {
 								// 이 클래스에서 사용하는 로거
 	
 	
-	// 매주 월요일 12시에 실행
-	// @Scheduled(cron = "0 0 12 * * ?")
+	
+	// @Scheduled(cron = "0 0 12 * * ?") // 매주 월요일 12시에 실행
 	@Scheduled(cron = "0 * * * * *") // 매 분 0초마다
 	public void deleteImageFile() {
 
+		// *********************** 메뉴 이미지 삭제 *************************
 		// DB에서 Menu테이블의 모든 이미지명 조회
 		List<String> menuImageList = service.selectMenuImageList();
-		
 		
 		// Server에 저장된 이미지 파일 모두 조회
 		String menuPath = application.getRealPath("/resources/images/menu/salad");
@@ -86,16 +86,36 @@ public class ImageDeleteScheduling {
 					logger.info(menuImg + "삭제");
 					file.delete(); // 서버 파일 삭제
 				}
+			}	
 		}	
 			
-			
-			
+		
+		// *********************** 옵션 이미지 삭제 *************************
 		// DB에서 Option테이블의 모든 이미지명 조회
-		// List<String> optionImageList = service.selectOptionImageList();
-			
+		List<String> optionImageList = service.selectOptionImageList();
+		
+		
+		// Server에 저장된 옵션 이미지 파일 모두 조회
+		String optionPath = application.getRealPath("/resources/images/menu/topping");
+		// 지정된 경로에 존재하는 이미지 파일 목록을 배열로 반환
+		File[] arr2 = new File(optionPath).listFiles();
+		// 배열 -> List로 반환
+		List<File> fileList2 = Arrays.asList(arr2);
+		
+		// 서버와 DB를 비교해서 DB에 없는 이미지를 삭제
+		if(!fileList2.isEmpty()) { // 서버에 파일이 있다면
+			for(File file : fileList2) {
+				
+				String optionImg = file.getName(); // 서버의 이미지명
+				
+				// DB와 서버를 비교해서 일치하는 파일명이 없다면 서버에는 있는데 DB에 없는 파일
+				if(menuImageList.indexOf("/resources/images/menu/topping/"+optionImg) == -1) {
+					logger.info(optionImg + "삭제");
+					file.delete(); // 서버 파일 삭제
+				}
+			}	
 		}
+	
 		
 	}
-	
-	
 }

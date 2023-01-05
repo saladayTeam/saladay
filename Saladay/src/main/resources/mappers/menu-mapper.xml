@@ -74,7 +74,7 @@
 	
 	<!-- DB에서 Option테이블의 모든 이미지명 조회 -->
 	<select id="selectOptionImageList" resultType="string">
-	SELECT OPTION_IMG FROM OPTION
+	SELECT OPTION_IMG FROM "OPTION"
 	</select>
 	
 </mapper>
