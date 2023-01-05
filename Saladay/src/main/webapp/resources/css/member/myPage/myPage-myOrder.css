@@ -113,9 +113,22 @@ main {
     height: 40px;
 }
 
+.my-page-header1 {
+    border-bottom: 1px solid #17633d;
+    width: 100%;
+    margin: 40px 20px 40px 0;
+    height:80px;
+}
+
 .main-title {
     font-size: 18px;
     margin-bottom: 20px;
+}
+
+.main-sub-title {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: grey;
 }
 
 .my-order-package {
@@ -124,6 +137,22 @@ main {
 }
 
 /*주문 내용--------------------------------------------*/
+
+.order-empty-wrap{
+	width: 640px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    list-style: none;
+    border: #ddd 2px solid;
+  	padding: 15px;
+  	display: flex;
+}
+
+.order-empty {
+	font-size: 18px;
+	margin:20px;
+}
 
 .my-order-content {
     width: 640px;

@@ -34,18 +34,21 @@
 			<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
 			
             <div class="right-side">
-				
-                    <div class="my-page-header">
+				<div class="my-info-list">
+                    <div class="my-page-header1">
                         <h1 class="main-title">취소 내역</h1>
-                    </div>
+                        <p class="main-sub-title">취소 요청을 잘못 하신 경우 1:1문의 부탁드립니다.</p>
+                    </div>	
 
                     <div>
                 		
                         <div class="my-order-package">
                             <c:if test="${empty myOrder}">
-                                <div class="my-order-content">
+                            <div class="order-empty-wrap">
+                                <div class="order-empty">
                                 	취소 내역이 없습니다 
                                 </div>
+                            </div>
                             </c:if>
 
                             <c:if test="${!empty myOrder}">
@@ -181,6 +184,7 @@
                             </c:if>
                         </div>
                         
+                    </div>
                     </div>
                     <c:if test="${not empty myOrder}">
 					<div class="pagination-area">

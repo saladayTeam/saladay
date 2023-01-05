@@ -55,6 +55,5 @@
 		<mapper resource="/mappers/member-manage-mapper.xml" />
 		<mapper resource="/mappers/faq-mapper.xml" />
 		<mapper resource="/mappers/my-review-mapper.xml" />
-		<mapper resource="/mappers/my-cancel-mapper.xml" />
 	</mappers>
 </configuration>

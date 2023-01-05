@@ -197,6 +197,16 @@ public class MemberDAO {
 	}
 
 	
+	/**주문 취소 수 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public int getCancelListCount(int memberNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("myOrderMapper.getCancleListCount", memberNo);
+	}
+
+	
 	/**취소 내역 조회
 	 * @param memberNo
 	 * @param pagination
@@ -208,28 +218,11 @@ public class MemberDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("myCancelMapper.selectCancelOrder", memberNo, rowBounds);
+		return sqlSession.selectList("myOrderMapper.selectCancelOrder", memberNo, rowBounds);
 	}
 
 	
-	/**주문취소내역 조회
-	 * @param memberNo
-	 * @return
-	 */
-	public int getListCancelCount(int memberNo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	
-	/**주문 취소 조회 시 배송 조회
-	 * @param memberNo
-	 * @return
-	 */
-//	public List<Delivery> selectCancelDelivery(int memberNo) {
-//		
-//		return sqlSession.selectList("myCancelMapper.selectCancelDelivery", memberNo);
-//	}
 
 
 

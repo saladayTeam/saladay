@@ -186,7 +186,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Map<String, Object> selectCancelOrder(int memberNo, int cp) {
 		
-		int listCount = dao.getListCancelCount(memberNo);
+		int listCount = dao.getCancelListCount(memberNo);
 		
 		MemberPagination pagination = new MemberPagination(listCount,cp); 
 		
@@ -199,12 +199,7 @@ public class MemberServiceImpl implements MemberService{
 		return map;
 	}
 
-	//주문 취소 내역 조회 시 배송 조회
-//	@Override
-//	public List<Delivery> selectCancelDelivery(int memberNo) {
-//		
-//		return dao.selectCancelDelivery(memberNo);
-//	}
+
 
 
 

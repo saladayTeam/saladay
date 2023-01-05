@@ -34,7 +34,7 @@
 			<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
 			
             <div class="right-side">
-				
+				<div class="my-info-list">
                     <div class="my-page-header">
                         <h1 class="main-title">주문 내역</h1>
                     </div>
@@ -43,10 +43,12 @@
                 		
                         <div class="my-order-package">
                             <c:if test="${empty myOrder}">
-                                <div class="my-order-content">
+                            <div class="order-empty-wrap">
+                                <div class="order-empty">
                                 	앗! 주문 내역이 없어요. 샐러데이를 구독해보세요
                                 </div>
-                                <button class="order-btn"><a href="/menu/packageList">상품 구매하러 가기</a></button>
+                            </div>
+                            <button class="order-btn"><a href="/menu/packageList">상품 구매하러 가기</a></button>
                             	
                             </c:if>
 
@@ -160,7 +162,7 @@
                             	 		<c:if test="${delivery.rowNum == 1 && delivery.deliveryCode eq 'A' }">
 	                            	 		<!--<c:if test="${not loop_flag }">-->
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'N'}">
-	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">주문 취소</div>
+	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">취소 요청</div>
 	                            	 			</c:if>
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'Y'}">
 	                            	 			<div class="order-cancel-btn-ing" >취소 요청중</div>
@@ -185,6 +187,7 @@
                             </c:if>
                         </div>
                         
+                    </div>
                     </div>
                     <c:if test="${not empty myOrder}">
 					<div class="pagination-area">
