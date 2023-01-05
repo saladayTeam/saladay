@@ -31,29 +31,33 @@
       </div>
 
 
-      <table>
+      <table class="member-table">
         <caption style="display:none">
             <summary>회원관리</summary>
         </caption>
 
         <colgroup>
           <col width="2%">
-          <col width="5%">
-          <col width="17%">
-          <col width="18%">
+          <col width="8%">
+          <col width="13%">
+          <col width="15%">
           <col width="20%">
-          <col width="20%">
-          <col width="18%">
+          <col width="15%">
+          <col width="8%">
+          <col width="10%">
+          <col width="9%">
         </colgroup>
 
         <thead>
           <tr>
             <th scope="col"><input type="checkbox" name="allCheck" id="allCheck"></th>
-            <th scope="col"><span>번호</span></th>
+            <th scope="col"><span>회원번호</span></th>
             <th scope="col"><span>회원명</span></th>
             <th scope="col"><span>닉네임</span></th>
             <th scope="col"><span>전화번호</span></th>
             <th scope="col"><span>가입일</span></th>
+            <th scope="col"><span>주문건수</span></th>
+            <th scope="col"><span>주문취소건수</span></th>
             <th scope="col"><span>탈퇴여부</span></th>
           </tr>
         </thead>
@@ -67,6 +71,8 @@
               <td scope="col"><span>${member.memberNickname}</span></td>
               <td scope="col"><span>${fn:substring(member.memberTel,0,3)} - ${fn:substring(member.memberTel,3,7)} - ${fn:substring(member.memberTel,7,11)} </span></td>
               <td scope="col"><span>${member.enrollDate}</span></td>
+              <td scope="col"><span>${member.orderCount}</span></td>
+              <td scope="col"><span>${member.orderDelCount}</span></td>
               <c:choose>
                 <c:when test="${member.memberDeleteFlag eq 'Y'}">
                   <td scope="col"><span>탈퇴</span></td>
