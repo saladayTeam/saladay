@@ -55,4 +55,18 @@ public class MenuServiceImpl implements MenuService {
 		return dao.selectOptionList();
 	}
 	
+	// DB에서 Menu테이블의 모든 이미지명 조회
+	@Override
+	public List<String> selectMenuImageList() {
+		return dao.selectMenuImageList();
+	}
+	
+	// DB에서 Option테이블의 모든 이미지명 조회
+	@Override
+	public List<String> selectOptionImageList() {
+		return dao.selectOptionImageList();
+	}
+	
+	
+	
 }

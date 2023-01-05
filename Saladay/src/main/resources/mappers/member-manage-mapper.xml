@@ -13,6 +13,8 @@
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="authority" column="AUTHORITY"/>
 		<result property="memberDeleteFlag" column="MEMBER_DEL_FL"/>
+		<result property="orderCount" column="ORDER_COUNT"/>
+		<result property="orderDelCount" column="ORDER_DEL_COUNT"/>
 	</resultMap>
 
 	<!-- 회원 수 조회 -->
@@ -24,8 +26,10 @@
 	
 	<!-- 전체 회원 조회 -->
 	<select id="selectMemberList" resultMap="member_rm">
-	SELECT MEMBER_NO, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_TEL, TO_CHAR(ENROLL_DATE, 'yyyy.MM.dd') ENROLL_DATE, MEMBER_DEL_FL 
-	FROM MEMBER
+	SELECT MEMBER_NO, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_TEL, TO_CHAR(ENROLL_DATE, 'yyyy.MM.dd') ENROLL_DATE, MEMBER_DEL_FL,
+   (SELECT COUNT(*) FROM "ORDER" O WHERE O.MEMBER_NO = M.MEMBER_NO) ORDER_COUNT,
+   (SELECT COUNT(*) FROM "ORDER" O WHERE O.MEMBER_NO = M.MEMBER_NO AND ORDER_DEL_FL='A') ORDER_DEL_COUNT
+	FROM "MEMBER" M
 	WHERE AUTHORITY = 1
 	ORDER BY MEMBER_NO DESC
 	</select>

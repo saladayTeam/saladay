@@ -64,7 +64,17 @@
 
 	<!-- 옵션 전부 조회 -->
 	<select id="selectOptionList" resultMap="option_rm">
-	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' ORDER BY 1
+	SELECT * FROM "OPTION" WHERE OPTION_DEL_FL ='N' ORDER BY OPTION_TYPE
 	</select>
 
+	<!-- DB에서 Menu테이블의 모든 이미지명 조회 -->
+	<select id="selectMenuImageList" resultType="string">
+	SELECT MENU_IMG FROM MENU
+	</select>
+	
+	<!-- DB에서 Option테이블의 모든 이미지명 조회 -->
+	<select id="selectOptionImageList" resultType="string">
+	SELECT OPTION_IMG FROM "OPTION"
+	</select>
+	
 </mapper>
