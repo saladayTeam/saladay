@@ -25,25 +25,6 @@ public class ImageDeleteScheduling {
     * 1) servlet-context.xml -> Namespaces 탭 -> task 체크 후 저장
     * 2) servlet-context.xml -> Source 탭 -> <task:annotation-driven/> 추가
     * 
-  
-    *
-    * @Scheduled 속성
-    *  - fixedDelay : 이전 작업이 끝난 시점으로 부터 고정된 시간(ms)을 설정.
-    *  - fixedRate : 이전 작업이 수행되기 시작한 시점으로 부터 고정된 시간(ms)을 설정.
-    *  
-    *  - cron : UNIX계열 잡 스케쥴러 표현식으로 작성 - cron="초 분 시 일 월 요일 [년도]" - 요일 : 1(SUN) ~ 7(SAT) 
-    * ex) 2019년 9월 16일 월요일 10시 30분 20초 cron="20 30 10 16 9 2" // 연도 생략 가능
-    * 
-    * - 특수문자 * : 모든 수. 
-    * - : 두 수 사이의 값. ex) 10-15 -> 10이상 15이하 
-    * , : 특정 값 지정. ex) 3,4,7 -> 3,4,7 지정 
-    * / : 값의 증가. ex) 0/5 -> 0부터 시작하여 5마다 
-    * ? : 특별한 값이 없음. (월, 요일만 해당) 
-    * L : 마지막. (월, 요일만 해당)
-    * 
-    * * 주의사항 - @Scheduled 어노테이션은 매개변수가 없는 메소드에만 적용 가능.
-    * 				매개변수 작성 XXXXXXXXXXXXX
-    * 
     */
 	
 	@Autowired
@@ -61,9 +42,11 @@ public class ImageDeleteScheduling {
 	
 	
 	// @Scheduled(cron = "0 * * * * *") // 매 분 0초마다
-	@Scheduled(cron = "0 0 12 ? * MON *") // 매주 월요일 12시에 실행
+	@Scheduled(cron = "0 0 6 ? * 1") // 매주 월요일 6시에 실행
 	public void deleteImageFile() {
 
+		logger.info("이미지 스케줄링 실행");
+		
 		// *********************** 메뉴 이미지 삭제 *************************
 		// DB에서 Menu테이블의 모든 이미지명 조회
 		List<String> menuImageList = service.selectMenuImageList();
@@ -115,7 +98,6 @@ public class ImageDeleteScheduling {
 				}
 			}	
 		}
-	
 		
 	}
 }
