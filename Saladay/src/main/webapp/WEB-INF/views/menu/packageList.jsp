@@ -78,9 +78,6 @@
                                 1 WEEK &nbsp; 3 SALADAY
                             </div>
                             <div class="package-detail">
-                                <%-- 어쩌구저쩌구
-                                <br>
-                                짱나 --%>
                             </div>
                         </div>
                     </div>
@@ -94,9 +91,6 @@
                                 1 WEEK &nbsp; 5 SALADAY
                             </div>
                             <div class="package-detail">
-                                <%-- 어쩌구저쩌구
-                                <br>
-                                짱나 --%>
                             </div>
                         </div>
                         <div id="second-img">
@@ -116,9 +110,6 @@
                                 1 WEEK &nbsp; 7 SALADAY
                             </div>
                             <div class="package-detail">
-                                <%-- 어쩌구저쩌구
-                                <br>
-                                짱나 --%>
                             </div>
                         </div>
                     </div>

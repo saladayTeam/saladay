@@ -52,19 +52,19 @@
     border: none;
 }
 
-table {
+.member-table {
     width: 100%;
     margin-top: 15px;
     padding: 20px 0;
 }
 
-table th {
+.member-table th {
     border: 1px solid #ddd;
     background-color: #f1f2f1;
     height: 30px;
 }
 
-table td {
+.member-table td {
     border-bottom: 1px solid #ddd;
     height: 40px;
     text-align: center;

@@ -21,8 +21,6 @@ public class Review {
 	private int orderMenuNo; //	주문한 메뉴 번호 ORDER_MENU_NO
 	private int menuNo; //	메뉴 번호 MENU_NO
 	private String menuName; // 메뉴 이름 MENU_NAME
-	private int likeCount; // 좋아요 수 LIKE_COUNT
-	private int likeCheck; // 좋아요 여부 LIKE_CHECK
 	private String thumbnail; // 썸네일 THUMBNAIL
 	private String packageName;//주문한 패키지 이름
 	private int memberReviewCount; // 특정회원이 작성한 리뷰 수 MEMBER_REVIEW_COUNT
