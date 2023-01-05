@@ -27,5 +27,7 @@ public class Review {
 	private String packageName;//주문한 패키지 이름
 	private int memberReviewCount; // 특정회원이 작성한 리뷰 수 MEMBER_REVIEW_COUNT
 	private int memberLikeCount; // 특정회원이 받은 좋아요 수 MEMBER_LIKE_COUNT
+	private double memberRatingAvg; // 특정회원의 별점 평균 MEMBER_RATING_AVG
+	private double menuRatingAvg; // 특정메뉴의 별점 평균 MENU_RATING_AVG
 
 }

@@ -7,17 +7,20 @@ const select = document.getElementsByClassName("select");
 let total = 0;
 
 for(let sel of select){
+    // select박스 선택됐을 때
     sel.addEventListener("change", e=>{
         if(document.querySelector(".empty-text") != null){
             document.querySelector(".empty-text").remove();
         }
 
-
+        // 선택된 select의 value값(칼로리) 가져오기
         let selectMenuCal = e.target.value;
         
+        // 더해줌
         total += Number(selectMenuCal);
         document.querySelector("#totalCal").innerText = total;
 
+        // 메뉴 이름 가져와서 텍스트로 넣어주기
         let selectMenuName;
         for(let option of e.target.children){
             if(option.selected){
@@ -26,6 +29,7 @@ for(let sel of select){
             }
         }
 
+        // 선택된 메뉴+칼로리값 넣어줄 div 생성
         const selectContainer = document.createElement("div");
         selectContainer.classList.add("select-container");
 
@@ -46,7 +50,9 @@ for(let sel of select){
         // --------------------------------------
         // 삭제버튼 이벤트
         deleteBtn.addEventListener("click", e=>{
+            // 선택된 메뉴의 텍스트
             const aaa = e.target.previousElementSibling.innerText;
+            // 칼로리
             const temp = /[0-9]+[.\d]*/.exec(aaa);
             total -= Number(temp[0]);
             document.querySelector("#totalCal").innerText = total;

@@ -28,14 +28,17 @@
     <jsp:include page="/WEB-INF/views/main/header.jsp"></jsp:include>
     <main>
         <div class="review-list-area">
-            <div class="review-menu-title">
-                <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
-                <h1 class="review-main-title">${reviewList[0].memberNickname} 회원의 리뷰</h1>
-            </div>
-                <div class="member-review-info">
+            <div class="mr-div">
+                <div class="mr-title">
+                    <a href="/review" title="전체 리뷰 보러가기" class="review-back"><i class="fa-regular fa-circle-left"></i></a>
+                    <h1 class="review-main-title">${reviewList[0].memberNickname} 회원의 리뷰</h1>
+                </div>
+                <div class="mr-info2">
                     <div>추천 받은 리뷰 : ${reviewList[0].memberLikeCount}</div>
+                    <div>별점 평균 : ${reviewList[0].memberRatingAvg}</div>
                     <div>작성 : ${reviewList[0].memberReviewCount}</div>
                 </div>
+            </div>
 
             <!-- 리뷰 목록 내용 -->
             <div>
