@@ -284,6 +284,10 @@ main {
 	margin-left:10px;
 }
 
+.open-btn-2:hover{
+    cursor: pointer;
+}
+
 
 .agree-detail input{
 	margin-left:400px;

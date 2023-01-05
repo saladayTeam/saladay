@@ -52,6 +52,10 @@
               <label class="checkbox ff4c30" checkbox>7팩2주
                 <input class='filter' type="checkbox" id="no6" value="6" checked>
               </label>
+
+              <label class="checkbox a17633d" checkbox>배송완료
+                <input class='filter' type="checkbox" id="no7" value="7" checked>
+              </label>
             </div>
           </div>
           </div>

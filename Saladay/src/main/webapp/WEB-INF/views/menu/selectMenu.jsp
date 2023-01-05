@@ -84,7 +84,7 @@
                             <ul class="menu-box">
                                 <c:forEach items="${menuList}" var="menu">
                                     <li class="menu-name">
-                                        <a href="${menu.menuImage}">${menu.menuName}</a>
+                                        <a href="${menu.menuImage}" slide="${i}" >${menu.menuName}</a>
                                         <input type="hidden" value="${menu.menuContent}">
                                         <input type="hidden" value="${menu.menuNo}">
                                         <input type="hidden" value="${menu.menuPrice}">
@@ -128,7 +128,7 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" id="mainOptionCount" class="optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" id="mainOptionCount" class="optionCount" slide="${i}" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
                                                     <input type="hidden" value="${mainT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/> 
@@ -156,7 +156,7 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" slide="${i}" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
                                                     <input type="hidden" value="${subT.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/>
@@ -218,13 +218,29 @@
             <button type="button" id="order-btn">주문하기</button>
         </div> --%>
         <div class="bottom-wrapper">
-            <div class="total">
-                    Total
-                    <strong class="strong" id="totalPrice">
-                    0
-                    </strong>
-                    <strong class="strong">원</strong>
-            </div>
+            <c:choose>
+                <c:when test="${packageNo eq 4 || packageNo eq 5 || packageNo eq 5 }">
+                    <div class="total">
+                        Total
+                        <strong class="strong" id="totalPrice">
+                        0
+                        </strong>
+                        <strong class="strong">원</strong>
+                        <p id="total-text">* 해당 금액은 결제하실 금액과 상이할 수 있습니다.</p>
+                    </div>
+                </c:when>
+
+                <c:when test="${packageNo eq 1 || packageNo eq 2 || packageNo eq 3 }">
+                    <div class="total">
+                        Total
+                        <strong class="strong" id="totalPrice">
+                        0
+                        </strong>
+                        <strong class="strong">원</strong>
+                    </div>
+                </c:when>
+                
+            </c:choose>
             
             <div class="bottom-box">
                 <button id="cartin-btn">장바구니 담기</button>
@@ -237,6 +253,10 @@
     <!-- footer -->
 	<jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
+
+    <script>
+        const packageNo = '${packageNo}';
+    </script>
     <script src="/resources/js/menu/selectMenu.js"></script>
 
 </body>
