@@ -31,7 +31,7 @@
                     <h4 class="find-box-title">이름</h4>
                     <div class="find-box-wrap">
                         <div class="find-box-row">
-                            <input type="text" id="memberName" name="memberName" placeholder="'이름' 을 입력하세요" maxlength="5"  autocomplete="off">
+                            <input type="text" oninput="this.value = this.value.replace(/[^ㄱ-힣.]/g, '').replace(/[a-z0-9]/g, '');" id="memberName" name="memberName" placeholder="'이름' 을 입력하세요" maxlength="5"  autocomplete="off">
                             <span class="white-space"></span>
                         </div>
                     </div>
@@ -39,7 +39,8 @@
                     <h4 class="find-box-title">전화번호</h4>
                     <div class="find-box-wrap">
                         <div class="find-box-row">
-                            <input type="text" id="memberTel" name="memberTel" placeholder="'-' 없이 입력하세요"  maxlength="11" >
+                        	<!-- input 값이 바뀌면 발생하는 이벤트 이며 이 이벤트가 발생할 때 숫자만 입력받는 정규식이 적용되고 숫자가 아닌 값이 입력되면 replace 함수로 대체하게 된다 -->
+                            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="memberTel" name="memberTel" placeholder="'-' 없이 입력하세요"  maxlength="11" >
                             <span class="white-space"></span>
                         </div>
                     </div>
