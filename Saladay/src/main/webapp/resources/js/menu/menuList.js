@@ -1,4 +1,4 @@
-const option = document.getElementsByClassName("option-name");
+//const option = document.getElementsByClassName("option-name");
 
 // option[0].addEventListener("click", ()=>{
 //     console.log("호잇");
@@ -21,11 +21,11 @@ const option = document.getElementsByClassName("option-name");
 //     option[3].style.color="#ddd";
 // })
 
-let URL = window.location.href;
-let splitURL = URL.split("/");
-let lastURL = splitURL[splitURL.length - 1];
+let URL2 = window.location.href;
+let splitURL2 = URL.split("/");
+let lastURL2 = splitURL[splitURL.length - 1];
 // URL주소가 맨 뒤가 ""일 때 class 추가 
-if(lastURL == "menuList") {
+if(lastURL2 == "menuList") {
     document.getElementById("type1").classList.add("checked");
     document.getElementById("type2").classList.remove("checked");
     document.getElementById("type3").classList.remove("checked");
@@ -36,7 +36,8 @@ if(lastURL == "menuList") {
     document.getElementById("a3").classList.remove("checked2");
     document.getElementById("a4").classList.remove("checked2");
 }
-if(lastURL == "mainTopping") {
+
+if(lastURL2 == "mainTopping") {
     document.getElementById("type1").classList.remove("checked");
     document.getElementById("type2").classList.add("checked");
     document.getElementById("type3").classList.remove("checked");
@@ -48,7 +49,7 @@ if(lastURL == "mainTopping") {
     document.getElementById("a4").classList.remove("checked2");
 }
 
-if(lastURL == "subTopping") {
+if(lastURL2 == "subTopping") {
     document.getElementById("type1").classList.remove("checked");
     document.getElementById("type2").classList.remove("checked");
     document.getElementById("type3").classList.add("checked");
@@ -60,7 +61,7 @@ if(lastURL == "subTopping") {
     document.getElementById("a4").classList.remove("checked2");
 }
 
-if(lastURL == "sourceList") {
+if(lastURL2 == "sourceList") {
     document.getElementById("type1").classList.remove("checked");
     document.getElementById("type2").classList.remove("checked");
     document.getElementById("type3").classList.remove("checked");

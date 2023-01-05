@@ -170,6 +170,7 @@ if(lastURL == "menuList" && secondURL=='menu') {
     document.getElementById("a-type4").classList.remove("header-check");
     document.getElementById("a-type5").classList.remove("header-check");
     document.getElementById("a-type6").classList.remove("header-check");
+    
 }
 
 if(lastURL == "mainTopping" && secondURL=='menu') {
@@ -179,6 +180,8 @@ if(lastURL == "mainTopping" && secondURL=='menu') {
     document.getElementById("a-type4").classList.remove("header-check");
     document.getElementById("a-type5").classList.remove("header-check");
     document.getElementById("a-type6").classList.remove("header-check");
+
+
 }
 
 if(lastURL == "subTopping" && secondURL=='menu') {
@@ -188,6 +191,7 @@ if(lastURL == "subTopping" && secondURL=='menu') {
     document.getElementById("a-type4").classList.remove("header-check");
     document.getElementById("a-type5").classList.remove("header-check");
     document.getElementById("a-type6").classList.remove("header-check");
+    
 }
 
 if(lastURL == "sourceList" && secondURL=='menu') {
@@ -197,6 +201,7 @@ if(lastURL == "sourceList" && secondURL=='menu') {
     document.getElementById("a-type4").classList.remove("header-check");
     document.getElementById("a-type5").classList.remove("header-check");
     document.getElementById("a-type6").classList.remove("header-check");
+    
 }
 
 //3
