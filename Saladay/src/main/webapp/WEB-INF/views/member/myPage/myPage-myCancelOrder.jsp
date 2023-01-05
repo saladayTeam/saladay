@@ -35,9 +35,10 @@
 			
             <div class="right-side">
 				<div>
-                    <div class="my-page-header">
-                        <h1 class="main-title">주문 내역</h1>
-                    </div>
+                    <div class="my-page-header1">
+                        <h1 class="main-title">취소 내역</h1>
+                        <p class="main-sub-title">취소 요청을 잘못 하신 경우 1:1문의 부탁드립니다.</p>
+                    </div>	
 
                     <div>
                 		
@@ -45,17 +46,14 @@
                             <c:if test="${empty myOrder}">
                             <div class="order-empty-wrap">
                                 <div class="order-empty">
-                                	앗! 주문 내역이 없어요. 샐러데이를 구독해보세요
+                                	취소 내역이 없습니다 
                                 </div>
                             </div>
-                            <button class="order-btn"><a href="/menu/packageList">상품 구매하러 가기</a></button>
-                            	
                             </c:if>
 
                             <c:if test="${!empty myOrder}">
                             
                             <c:forEach var="order" items="${myOrder}" varStatus="vs" >
-                            
                             <div  class="my-order-content">
                             	<div class="order-content-header">
 	                            	<div class="order-number">주문번호 ${order.orderNo}</div>
@@ -162,7 +160,7 @@
                             	 		<c:if test="${delivery.rowNum == 1 && delivery.deliveryCode eq 'A' }">
 	                            	 		<!--<c:if test="${not loop_flag }">-->
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'N'}">
-	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">취소 요청</div>
+	                            	 			<div class="order-cancel-btn" onclick="cancelMyOrder(${order.orderNo})">주문 취소</div>
 	                            	 			</c:if>
 	                            	 			<c:if test="${order.orderDeleteFlag eq 'Y'}">
 	                            	 			<div class="order-cancel-btn-ing" >취소 요청중</div>
@@ -181,7 +179,6 @@
                             </div>
                             </div>
                            
-     						
                             </c:forEach>
 							
                             </c:if>
