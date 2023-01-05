@@ -67,6 +67,7 @@ public class ImageDeleteScheduling {
 		// DB에서 Menu테이블의 모든 이미지명 조회
 		List<String> menuImageList = service.selectMenuImageList();
 		
+		
 		// Server에 저장된 이미지 파일 모두 조회
 		String menuPath = application.getRealPath("/resources/images/menu/salad");
 		// 지정된 경로에 존재하는 파일 목록을 배열로 반환
@@ -78,10 +79,10 @@ public class ImageDeleteScheduling {
 		if(!fileList1.isEmpty()) { // 서버에 파일이 있다면
 			for(File file : fileList1) {
 				
-				String menuImg = file.getName();
+				String menuImg = file.getName(); // 서버의 이미지명
 				
-				// DB이미지에서 fileName과 일치하는 파일명이 없다면 서버에는 있는데 DB에 없는 파일
-				if(menuImageList.indexOf(menuImg) == -1) {
+				// DB와 서버를 비교해서 일치하는 파일명이 없다면 서버에는 있는데 DB에 없는 파일
+				if(menuImageList.indexOf("/resources/images/menu/salad/"+menuImg) == -1) {
 					logger.info(menuImg + "삭제");
 					file.delete(); // 서버 파일 삭제
 				}
