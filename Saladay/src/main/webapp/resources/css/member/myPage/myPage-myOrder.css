@@ -345,6 +345,7 @@ main {
 .fa-solid {
 	cursor: pointer;
     font-size: 15px;
+    margin-right: 3px;
 }
 
 .hide {
@@ -397,6 +398,7 @@ main {
 	width: 500px; 
 	margin:2px;
 	border-top:1px solid #ccc;
+    padding-top: 4px;
 }
 
 .menu-table ul {

@@ -1,52 +1,144 @@
 // 선택한 상품
-const temp = {};
+const temp = [];
+
+const x = [3,5,7,3,5,7];
+
+for(let i=0 ; i<x[packageNo-1] ; i++){
+  temp.push({});
+}
+
 
 const toppingName = document.getElementsByClassName("topping-name");
 const toppingPrice = document.getElementsByClassName("topping-price");
 
 // var optionList = ${optionList};
 
-// 상품 총합
+// 상품 가격 총합
 let sum = 0;
 
 // 옵션 추가, 감소 버튼
 $(document).ready(function() {
     $('.minus').click(function () {
-        var $input = $(this).parent().find('input');
+      var $input = $(this).parent().find('input');
+      var count = parseInt($input.val()) - 1;
+      let slideNo = $input.attr("slide");
+
+      count = count < 1 ? 0 : count;
+      $input.val(count);
+      $input.change();
+      
         // 여기서부터
         // 토핑이름 가져오기
-        // var toppingName = $(this).parent().prev().prev().text().trim();
-        // console.log(toppingName);
-        // // 토핑가격 가져오기
-        // var toppingPrice = $(this).parent().prev().text().trim().;
-        // console.log(toppingPrice);
-        // temp[toppingName] = {price : toppingPrice, amount : count};
-        // if(temp[toppingName] == undefined){
-        //   temp[toppingName] = {price : toppingPrice, amount : count};
-        // }else{
-        //   temp[toppingName].amount++;
-        // }
-        // console.log(temp);
-        // 여기까지 추가
+        var toppingName = $(this).parent().prev().prev().text().trim();
+        console.log(toppingName);
+        // 토핑가격 가져오기
+        var toppingPrice = $(this).parent().prev().text().trim();
+        // 토핑가격 숫자만
+        var number = toppingPrice.replace(/[^0-9]/g, '');
+        // 추가한 토핑 개수
+        var toppingCount = parseInt($input.val());
 
-        var count = parseInt($input.val()) - 1;
+        console.log('토핑개수 : ', toppingCount);
 
+        console.log(toppingPrice);
+        console.log(temp);
+
+        // 배열[토핑이름] = {가격 : ?, 담긴개수 : ?}
+        // temp[toppingName] = {price : number, amount : toppingCount};
         
-        count = count < 1 ? 0 : count;
-        $input.val(count);
-        $input.change();
+        // 담은 토핑객체가 없지않거나 0보다 많을때
+        if(temp[slideNo][toppingName] != undefined && temp[slideNo][toppingName].amount > 0){
+
+          temp[slideNo][toppingName].amount--;
+
+        }else if(temp[slideNo][toppingName].amount == 0){
+
+          delete temp[slideNo][toppingName];
+        }
+        // 여기까지 추가
+        
+        sumPrice()
         return false;
-    });
+      });
+
     $('.plus').click(function () {
-        var $input = $(this).parent().find('input');
-        var count = parseInt($input.val()) + 1;
-        // $input.val(parseInt($input.val()) + 1);
-        count = 5 < count ? 5 : count;
-        $input.val(count);
-        $input.change();
-        return false;
+
+      var $input = $(this).parent().find('input');
+      var count = parseInt($input.val()) + 1;
+      let slideNo = $input.attr("slide");
+
+
+      count = 5 < count ? 5 : count;
+      // $input.val(parseInt($input.val()) + 1);
+      $input.val(count);
+      // $input.change();
+
+      // 추가한 토핑 이름 가져오기
+      var toppingName = $(this).parent().prev().prev().text().trim();
+      console.log('추가한 토핑 = ', toppingName);
+
+      // 추가한 토핑 가격 가져오기
+      var toppingPrice = $(this).parent().prev().text().trim();
+
+      // 토핑가격 숫자만
+      var number = toppingPrice.replace(/[^0-9]/g, '');
+
+      // 추가한 토핑 개수
+      var toppingCount = parseInt($input.val());
+      console.log('토핑개수 : ', toppingCount);
+      
+      // 배열[토핑이름] = {가격 : ?, 담긴개수 : ?}
+      // temp[toppingName] = {price : number, amount : toppingCount};
+      
+      if(temp[slideNo][toppingName] == undefined){
+        temp[slideNo][toppingName] = {price : number, amount : toppingCount};
+      }else if(temp[slideNo][toppingName].amount < 5){
+          temp[slideNo][toppingName].amount++;
+      }
+      
+      // 가격(숫자)만 가져오기
+
+      // console.log('토핑가격 = ', toppingPrice);
+      // console.log("담은토핑객체 = ", temp);
+      // console.log("담은토핑 개수 = ", count);
+      // console.log("토핑가격 숫자만 = ", number);
+      // console.log("토핑가격 숫자만 = ", temp[toppingName].price);
+
+      // sum += Number(temp[toppingName].price);
+      // console.log(sum);
+
+      // for (var i = 0; i < temp[toppingName]; i++){
+      //   result += temp[toppingName].price[i];
+
+      //   // return result;
+      // }
+      // console.log('우짤',result);
+
+      sumPrice()
+      return false;
     });
 });
+
+
+function sumPrice(){
+  let sum = 0;
+
+  for(let i=0 ; i<temp.length ; i++){
+
+    for(key in temp[i]){
+      sum += Number(temp[i][key].price) * Number(temp[i][key].amount);
+    }
+
+    
+    // if(Number(temp[i][key].amount) > 5){
+  
+    // }else{
+  
+    // }
+    document.getElementById("totalPrice").innerText = sum.toLocaleString();
+  }
+
+}
 
 
 
@@ -134,6 +226,26 @@ window.onload = function() {
             // console.log("vvvvvvv",$('.menuNo').val());
             // console.log( $('.menu-title'));
 
+            var menuPrice = $(this).next().next().next().val();
+            let slideNo = $(this).attr("slide");
+
+
+            console.log(menuPrice);
+
+            if(temp[slideNo]['salad'] == undefined){
+
+              temp[slideNo]['salad'] = {price : menuPrice, amount : 1};
+              
+            }else if(temp[slideNo]['salad'].amount == 1){
+              
+              delete temp[slideNo]['salad'];
+              temp[slideNo]['salad'] = {price : menuPrice, amount : 1};
+
+            }
+
+            console.log(temp);
+            sumPrice()
+
             return false;
         })
     })
@@ -153,6 +265,7 @@ window.onload = function() {
 //   select(menuBox, select);
 // })
 
+// 메뉴버튼 클릭 시 버튼 css 변경
 $('.menu-box li a').click(function(){
   // eq(currentIdx).$('.menu-box li a').removeClass("select");
   
@@ -169,6 +282,8 @@ $('.menu-box li a').click(function(){
   // }else{
   //   // $(this).css("color", "white");
   // }
+
+  // sumPrice()
 
 });
 
