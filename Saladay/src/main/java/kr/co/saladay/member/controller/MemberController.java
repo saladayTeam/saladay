@@ -210,8 +210,21 @@ public class MemberController {
 		Member findMember = service.findID(member);
 		
 		// 일치하는 정보 있으면 결과창
-		if(findMember != null) {							
-			ra.addFlashAttribute("result", findMember.getMemberEmail());
+		if(findMember != null) {
+			
+			String id= findMember.getMemberEmail();
+			
+			String[] idSplit = id.split("@");
+			
+			String id1=idSplit[0].substring(0, 3);
+			String id2="***";
+			String id3=idSplit[0].substring(6);
+			String id4="@";
+			String id5=idSplit[1];
+			
+			String encryptionID = id1+id2+id3+id4+id5;
+			
+			ra.addFlashAttribute("result", encryptionID);
 		}
 
 		ra.addFlashAttribute("memberName", member.getMemberName());
@@ -324,7 +337,7 @@ public class MemberController {
 	/**마이페이지-내 정보
 	 * @return myPage-info.jsp 포워드
 	 */
-	@GetMapping("/myPage//info")
+	@GetMapping("/myPage/info")
 	public String myInfo() {
 		return "member/myPage/myPage-info";
 	}
@@ -469,6 +482,34 @@ public class MemberController {
 		model.addAttribute("map",map);
 		
 		return "member/myPage/myPage-myOrder";
+	
+	}
+	
+
+	
+	
+	/**취소내역 조회
+	 * @param loginMember
+	 * @param model
+	 * @param cp
+	 * @return
+	 */
+	@GetMapping("myPage/selectCancelOrder")
+	public String selectCancelOrder(@SessionAttribute(value="loginMember",required=true) Member loginMember,
+			Model model, @RequestParam(value="cp",required=false, defaultValue="1")int cp) {
+		
+		int memberNo=loginMember.getMemberNo();
+		
+		
+		Map<String,Object>map=service.selectCancelOrder(memberNo, cp);
+		
+		List<Delivery> myDelivery = service.selectMyDelivery(memberNo);
+		
+		map.put("myDelivery", myDelivery);
+		
+		model.addAttribute("map",map);
+		
+		return "member/myPage/myPage-myCancelOrder";
 	
 	}
 	

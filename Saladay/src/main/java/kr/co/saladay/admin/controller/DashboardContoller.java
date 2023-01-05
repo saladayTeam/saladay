@@ -40,7 +40,7 @@ public class DashboardContoller {
 		// 메뉴 별 판매 개수
 		List<Integer> menuOrderCount=service.menuOrderCount();
 		
-		// 월
+		// 주문이 발생한 월
 		List<String> month=service.month();
 		
 		// 패키지 목록
@@ -49,12 +49,13 @@ public class DashboardContoller {
 		// 메뉴 목록
 		List<String> menuNameList=service.menuNameList();
 		
-		ServletContext application=req.getSession().getServletContext();
-		
 		// 대시보드 메뉴 테이블 조회
 		List<SalesMenu> salesMenuList=service.salesMenuList();
 		
+		// 전월 메뉴 총 판매금액
 		int preMonthMenuSales=service.selectPreMonthMenuSales();
+		
+		// 당월 메뉴 총 판매금액
 		int currentMonthMenuSales=service.selectCurrentMonthMenuSales();
 		
 		
@@ -65,6 +66,7 @@ public class DashboardContoller {
 			int preMonthSales=salesMenu.getPreMonthSales();
 			int currentMonthSales=salesMenu.getCurrentMonthSales();
 			
+			// 분모가 0일때 예외 제거 -> 증감율 계산
 			if(preMonthSales!=0) {
 				double changeRate=((((double)currentMonthSales-(double)preMonthSales)/preMonthSales)*100);
 				changeRate = Math.round(changeRate * 10.0)/ 10.0;
@@ -73,6 +75,7 @@ public class DashboardContoller {
 				salesMenu.setChangeRate(0);
 			}
 
+			// 분모가 0일때 예외 제거 -> 매출비중 계산
 			if(currentMonthMenuSales!=0) {
 				double percentageOfSales=(((double)salesMenu.getCurrentMonthSales()/currentMonthMenuSales)*100);
 				percentageOfSales =  Math.round( percentageOfSales * 10.0 ) / 10.0;
@@ -83,7 +86,7 @@ public class DashboardContoller {
 			
 		}
 		
-		
+		// 조회한 List를 javaScript Array로 변환하기위해 JSON으로 변환해서 model로 전달 
 		model.addAttribute("monthOrderCount", new Gson().toJson(monthOrderCount));
 		
 		model.addAttribute("monthOrderPrice", new Gson().toJson(monthOrderPrice));

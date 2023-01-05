@@ -34,7 +34,7 @@
                     <h1 class="review-main-title">${reviewList[0].memberNickname} 회원의 리뷰</h1>
                 </div>
                 <div class="mr-info2">
-                    <div>추천 받은 리뷰 : ${reviewList[0].memberLikeCount}</div>
+                    <div>받은 좋아요 수 : ${reviewList[0].memberLikeCount}</div>
                     <div>별점 평균 : ${reviewList[0].memberRatingAvg}</div>
                     <div>작성 : ${reviewList[0].memberReviewCount}</div>
                 </div>
@@ -134,6 +134,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/resources/js/review/review.js"></script>
+    <script src="/resources/js/review/memberReviewList.js"></script>
     </body>
 </html>

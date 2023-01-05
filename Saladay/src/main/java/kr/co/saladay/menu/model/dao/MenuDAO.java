@@ -46,4 +46,14 @@ public class MenuDAO {
 		return sqlSession.selectList("menuMapper.selectOptionList");
 	}
 
+	// DB에서 Menu테이블의 모든 이미지명 조회
+	public List<String> selectMenuImageList() {
+		return sqlSession.selectList("menuMapper.selectMenuImageList");
+	}
+
+	// DB에서 Option테이블의 모든 이미지명 조회
+	public List<String> selectOptionImageList() {
+		return sqlSession.selectList("menuMapper.selectOptionImageList");
+	}
+
 }
