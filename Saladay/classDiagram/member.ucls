@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="kr.co.saladay.member.controller.MemberController" project="saladay" 
     file="/saladay/src/main/java/kr/co/saladay/member/controller/MemberController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -51,7 +51,7 @@
   </class>  
   <class id="6" language="java" name="kr.co.saladay.member.model.vo.Member" project="saladay" 
     file="/saladay/src/main/java/kr/co/saladay/member/model/vo/Member.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="283" y="956"/>    
+    <position height="-1" width="-1" x="298" y="1011"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -70,7 +70,7 @@
   </class>  
   <class id="8" language="java" name="kr.co.saladay.member.model.vo.MyReview" project="saladay" 
     file="/saladay/src/main/java/kr/co/saladay/member/model/vo/MyReview.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1393" y="1103"/>    
+    <position height="-1" width="-1" x="1385" y="1157"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

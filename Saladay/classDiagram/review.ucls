@@ -42,7 +42,7 @@
   </class>  
   <class id="5" language="java" name="kr.co.saladay.review.model.vo.Pagination" project="saladay" 
     file="/saladay/src/main/java/kr/co/saladay/review/model/vo/Pagination.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="811" y="680"/>    
+    <position height="-1" width="-1" x="834" y="744"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -51,7 +51,7 @@
   </class>  
   <class id="6" language="java" name="kr.co.saladay.review.model.vo.Review" project="saladay" 
     file="/saladay/src/main/java/kr/co/saladay/review/model/vo/Review.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="132" y="812"/>    
+    <position height="-1" width="-1" x="131" y="941"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -60,7 +60,7 @@
   </class>  
   <class id="7" language="java" name="kr.co.saladay.review.model.vo.ReviewDetail" project="saladay" 
     file="/saladay/src/main/java/kr/co/saladay/review/model/vo/ReviewDetail.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="357" y="778"/>    
+    <position height="-1" width="-1" x="355" y="823"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -69,37 +69,49 @@
   </class>  
   <class id="8" language="java" name="kr.co.saladay.review.model.vo.ReviewImage" project="saladay" 
     file="/saladay/src/main/java/kr/co/saladay/review/model/vo/ReviewImage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="612" y="777"/>    
+    <position height="-1" width="-1" x="627" y="822"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="9">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <association id="10">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="11" name="service"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="13">    
+  <association id="9">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="14" name="dao"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+      <attribute id="10" name="dao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="11" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="12">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="13">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="14" name="service">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="15" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="16">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="17" name="imageList"/>      
-      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
+      <attribute id="17" name="imageList">        
+        <position height="0" width="0" x="15" y="45"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="15" y="45"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
