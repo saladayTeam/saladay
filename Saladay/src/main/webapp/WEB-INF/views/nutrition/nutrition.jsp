@@ -61,7 +61,7 @@
         </select> -->
 
         <div class="main-box">
-            <%-- <div>설명</div> --%>
+            <!-- <div>설명</div> -->
             
             <div class="big-box">
                 <div class="select-box">

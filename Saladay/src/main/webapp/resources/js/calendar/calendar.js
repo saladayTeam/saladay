@@ -197,9 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
       },
     dayMaxEvents: true,
     events: list,
-    // eventClick:function(info){
-    //   window.location.href(info.event.url);
-    //   }
     eventClick: function(info) {
       deliveryNo = info.event.id;
       orderNo = info.event.extendedProps.orderNo;
@@ -224,14 +221,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // 체크박스 클릭 시 캘린더에서 event 숨기기/보이기
 $(".inputGroup .filter").on("click", function(){
 
+  // console.log(this.parentElement.classList);
+  const cls = this.parentElement.classList[1];
+  if(cls.indexOf("-c") == -1){ // -c 없음
+    this.parentElement.classList.toggle(cls);
+    this.parentElement.classList.toggle(cls+"-c");
+  }else{
+    this.parentElement.classList.toggle(cls);
+    this.parentElement.classList.toggle(cls.substring(0, cls.length-2));
+  }
+
   if($(this).prop("checked")){
     $("." + $(this).attr("id")).show();
   }else{
     $("." + $(this).attr("id")).hide();
   }
 });
-
-
 
 // var inputGroup = false;
 //   if( $('#calendar').find(".input-group").length == 1 ){
@@ -253,9 +258,7 @@ $(".inputGroup .filter").on("click", function(){
 //   }
 // });
 
-
 // 안씀
-
 
 // $('.filter').on('change', function () {
 //   $('#calendar').fullCalendar('rerenderEvents');
@@ -282,10 +285,6 @@ $(".inputGroup .filter").on("click", function(){
 
 //   return show_packageNo;
 // }
-
-
-
-
 
 // 리스트 가져오기
 // $.ajax({
@@ -316,7 +315,6 @@ $(".inputGroup .filter").on("click", function(){
 //               // backgroundColor: item.planColor,
 //           });
 //       }
-
       
 //   }
 //   }
@@ -444,6 +442,7 @@ function selectOne(thisId, thisIds){
 const changeBtn = document.getElementById("changeBtn");
 const options = document.querySelectorAll("#selectbox > option");
 
+// 배송상태 관련 select
 $(document).ready(function(){
   $("#selectbox").change(function(){
     // Value값 가져오기
@@ -455,6 +454,7 @@ $(document).ready(function(){
   });
 });
 
+// (모달)수정버튼 클릭 시 배송상태 수정
 $(changeBtn).click(function() {
 
   var deliveryCode = $("#selectbox :selected").val();
@@ -463,8 +463,6 @@ $(changeBtn).click(function() {
   console.log("value : " + deliveryCode);
 
     if(confirm("배송상태를 변경하시겠습니까?")) {
-      // /admin/orderManage/{orderNo}/delete GET방식
-      // 삭제 후 /admin/orderManage/{orderNo}
 
       $.ajax({
           url : "/admin/calendar/updateDelivery",
@@ -484,6 +482,7 @@ $(changeBtn).click(function() {
       alert("배송상태 변경을 취소했습니다.");
   }
 });
+
 const modalClose=document.getElementById("closeModal");
 
 /* 모달창 닫기(외부영역 클릭 시) */
