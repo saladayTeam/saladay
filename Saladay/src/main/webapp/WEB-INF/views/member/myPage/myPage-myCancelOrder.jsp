@@ -34,7 +34,7 @@
 			<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
 			
             <div class="right-side">
-				<div class="my-info-list">
+				<div>
                     <div class="my-page-header1">
                         <h1 class="main-title">취소 내역</h1>
                         <p class="main-sub-title">취소 요청을 잘못 하신 경우 1:1문의 부탁드립니다.</p>

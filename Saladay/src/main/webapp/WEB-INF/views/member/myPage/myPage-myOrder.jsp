@@ -34,7 +34,7 @@
 			<jsp:include page="/WEB-INF/views/member/myPage/myPage-list.jsp"></jsp:include>
 			
             <div class="right-side">
-				<div class="my-info-list">
+				<div>
                     <div class="my-page-header">
                         <h1 class="main-title">주문 내역</h1>
                     </div>
