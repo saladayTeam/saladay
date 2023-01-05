@@ -31,9 +31,9 @@ public class CartController {
 			Model model, HttpSession session) {
 		
 		int memberNo=loginMember.getMemberNo();
-		
+		// 장바구니 조회
 		Cart cart= service.selectCart(memberNo);
-				
+		// 조회한 장바구니(cart)를 session에 올리기	
 		session.setAttribute("cart", cart);
 		
 		return "cart/cart";
@@ -86,9 +86,8 @@ public class CartController {
 		} 
 		
 		cart.setMemberNo(loginMember.getMemberNo());
-		// System.out.println(cart);
+		
 		int cartNo = service.insertCart(cart); 
-		System.out.println(cartNo);
 		
 		String message = "";
 		String path = "";

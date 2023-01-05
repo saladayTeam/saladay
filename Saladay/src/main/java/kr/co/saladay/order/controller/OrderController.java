@@ -36,11 +36,25 @@ public class OrderController {
 		return "order/order";
 	}
 	
+	// 주문완료 페이지
 	@GetMapping("/orderView")
 	public String orderView() {
 		return "order/orderView";
 	}
 	
+	
+	/**
+	 * @param order 주문 커맨드객체
+	 * @param delivery 배송 커맨드객체
+	 * @param loginMember session 로그인멤버
+	 * @param cart session 카트
+	 * @param referer 
+	 * @param deliveryDate2 2주패키지일때 2차배송일
+	 * @param address 수령인 주소
+	 * @param ra
+	 * @param status
+	 * @return
+	 */
 	@PostMapping("/orderView")
 	public String orderView(Order order, OrderDelivery delivery,
 			@SessionAttribute("loginMember") Member loginMember,
@@ -51,21 +65,24 @@ public class OrderController {
 			RedirectAttributes ra,
 			SessionStatus status) {
 		
-		
+		// 장바구니(cart)에 담은 패키지를 새로운 주문에 넣기
 		order.setCart(cart);
+		// 주문에 로그인한 회원의 회원번호 세팅
 		order.setMemberNo(loginMember.getMemberNo());
+		// 주문에 cart의 패키지번호 세팅
 		order.setPackageNo(cart.getPackageNo());
 		
-		// 주문자 이름
+		// 수령인 이름 작성하지 않았을때 주문자 이름을 로그인한 회원 이름으로 세팅
 		if(order.getOrderName().equals("")) {
 			order.setOrderName(loginMember.getMemberName());			
 		}
 		
-		// 주문자 전화번호
+		// 수령인 전화번호를 작성하지 않았을 때 주문자 번호를 로그인한 회원번호로 세팅
 		if(order.getOrderTel().equals("")) {
 			order.setOrderTel(loginMember.getMemberTel());			
 		}
 		
+		// 수령인 주소를 작성했을 때 주문자 주소를 작성한 수령인 주소로 세팅(String[]-> String으로 변환)
 		if(address!=null) {
 			order.setOrderAddress(String.join(",,", address));
 		}
@@ -78,10 +95,10 @@ public class OrderController {
 			order.setOrderAddress(loginMember.getMemberAddress());
 		}
 		
-		// 주문 가격=카트 가격
+		// 1주 패키지일 때 장바구니(cart) 가격 == 주문 가격
 		if(cart.getPackageType()==1) {
 			order.setOrderPrice(cart.getPackagePrice());
-			// 2주 패키지일때 10% 할인 가격
+			// 2주 패키지일때 10% 할인한 가격으로 계산하여 세팅
 		} else { 
 			order.setOrderPrice((int)(cart.getPackagePrice()*0.9));
 		}
@@ -89,10 +106,12 @@ public class OrderController {
 		String path="";
 		String message="";
 		
+		// 기본 세팅을 마친 order를 변수로 전달
 		int orderNo=service.insertOrder(order);
 		
+		// 주문 생성이 성공했을 때
 		if(orderNo>0) {
-			path="/orderView";
+			path="/orderView"; // 주문 완료 페이지로 이동
 			ra.addFlashAttribute("order", order);
 			cartService.deleteCart(loginMember.getMemberNo());
 			status.setComplete();

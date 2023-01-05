@@ -39,7 +39,7 @@ public class DashboardServiceImpl implements DashboardService {
 		return dao.menuOrderCount();
 	}
 	
-	//월
+	// 주문이 발생한 월 목록(month)
 	@Override
 	public List<String> month() {
 		return dao.month();
@@ -57,16 +57,19 @@ public class DashboardServiceImpl implements DashboardService {
 		return dao.menuNameList();
 	}
 	
+	// 메뉴 테이블 조회(메뉴별 전월/당월 판매량 및 판매금액)
 	@Override
 	public List<SalesMenu> salesMenuList() {
 		return dao.salesMenuList();
 	}
 	
+	// 메뉴 전월 총 판매금액
 	@Override
 	public int selectPreMonthMenuSales() {
 		return dao.selectPreMonthMenuSales();
 	}
 	
+	// 메뉴 당월 총 판매금액
 	@Override
 	public int selectCurrentMonthMenuSales() {
 		return dao.selectCurrentMonthMenuSales();
