@@ -38,27 +38,21 @@ main {
 }
 
 
-.result-message {
-    font-size: 20px;
-    color: rgb(70, 68, 68);
+.header {
+    font-size: 22px;
+    color: black;
     margin-bottom: 20px;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
 }
 
-#memberName {
-    font-size: 22px;
-    font-weight: bold;
-    color: black;
-    margin-right: 10px;
+.content {
+	display: flex;
+    flex-direction: column;
 }
-
 
 .result-box {
     width: 600px;
     font-size: 26px;
-    margin-right: 20px;
     margin-bottom: 30px;
     padding: 30px;
     font-weight: bold;
@@ -67,10 +61,15 @@ main {
     
 }
 
+.btn-box {
+	display: flex;
+	justify-content: space-between;
+}
+
 .btn1 {
     cursor: pointer;
     display: inline-block;
-    width: 200px;
+    width: 180px;
     border : none;
     border-radius: 5px;
     background-color: #17633d ;
@@ -79,13 +78,12 @@ main {
     font-size: 18px;
     letter-spacing: 3px;
     padding: 13px 0px;
-    margin-right: 150px;
 }
 
 .btn2 {
     cursor: pointer;
     display: inline-block;
-    width: 200px;
+    width: 180px;
     border : none;
     border-radius: 5px;
     background-color: #17633d ;

@@ -210,8 +210,21 @@ public class MemberController {
 		Member findMember = service.findID(member);
 		
 		// 일치하는 정보 있으면 결과창
-		if(findMember != null) {							
-			ra.addFlashAttribute("result", findMember.getMemberEmail());
+		if(findMember != null) {
+			
+			String id= findMember.getMemberEmail();
+			
+			String[] idSplit = id.split("@");
+			
+			String id1=idSplit[0].substring(0, 3);
+			String id2="***";
+			String id3=idSplit[0].substring(6);
+			String id4="@";
+			String id5=idSplit[1];
+			
+			String encryptionID = id1+id2+id3+id4+id5;
+			
+			ra.addFlashAttribute("result", encryptionID);
 		}
 
 		ra.addFlashAttribute("memberName", member.getMemberName());
