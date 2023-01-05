@@ -16,6 +16,7 @@
 <body>
 
     <main>
+    	<div class="content">
         <!-- 로고 -->
         <header class="logo-box">
             <a href="/">
@@ -23,7 +24,8 @@
             </a>
         </header>
         
-        <span class="result-message"><span id="memberName">${memberName}</span> 님의 회원 아이디</span>
+        
+        <div class="header">아이디 찾기 결과</div>
         
         <c:choose>
         	<c:when test="${not empty result }">
@@ -31,7 +33,7 @@
             		"${result}"
         		</div>
         		
-        		<div>
+        		<div class="btn-box">
 		            <div class="btn1"><a href="/member/login">로그인</a></div>
 		            <div class="btn2"><a href="/member/findPw">비밀번호 찾기</a></div>
 		        </div>
@@ -41,13 +43,13 @@
             		"일치하는 회원정보가 존재하지않습니다."
         		</div>
         	
-        		<div>
+        		<div class="btn-box">
 					<div class="btn1"><a href="/">메인페이지</a></div>
 		            <div class="btn2"><a href="/member/findID">아이디 찾기</a></div>
 		        </div>
         	</c:otherwise>
         </c:choose>
-
+		</div>
 
     </main>
 	<%-- session scope 내에 message속성이 존재하는 경우 alert(JS)기능을 이용해서 처리한 메세지 내용 출력 --%>

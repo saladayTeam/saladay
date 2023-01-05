@@ -1,7 +1,9 @@
-console.log("Hello findID");
+
 const form = document.getElementById("findID-frm");
 
 form.addEventListener("submit", e => {
+
+
     const memberName = document.getElementById("memberName");
     
     if(memberName.value.trim().length == 0) {           // 이름 입력하지 않았을 때
@@ -10,6 +12,8 @@ form.addEventListener("submit", e => {
         alert("이름을 입력해주세요.");
         return;
     }
+	
+	
 
     const memberTel = document.getElementById("memberTel");
 
