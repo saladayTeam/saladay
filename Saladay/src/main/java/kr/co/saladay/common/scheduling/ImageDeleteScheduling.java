@@ -60,8 +60,8 @@ public class ImageDeleteScheduling {
 	
 	
 	
-	// @Scheduled(cron = "0 0 12 * * ?") // 매주 월요일 12시에 실행
-	@Scheduled(cron = "0 * * * * *") // 매 분 0초마다
+	// @Scheduled(cron = "0 * * * * *") // 매 분 0초마다
+	@Scheduled(cron = "0 0 12 ? * MON *") // 매주 월요일 12시에 실행
 	public void deleteImageFile() {
 
 		// *********************** 메뉴 이미지 삭제 *************************
@@ -109,7 +109,7 @@ public class ImageDeleteScheduling {
 				String optionImg = file.getName(); // 서버의 이미지명
 				
 				// DB와 서버를 비교해서 일치하는 파일명이 없다면 서버에는 있는데 DB에 없는 파일
-				if(menuImageList.indexOf("/resources/images/menu/topping/"+optionImg) == -1) {
+				if(optionImageList.indexOf("/resources/images/menu/topping/"+optionImg) == -1) {
 					logger.info(optionImg + "삭제");
 					file.delete(); // 서버 파일 삭제
 				}
