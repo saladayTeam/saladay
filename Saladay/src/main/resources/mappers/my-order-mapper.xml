@@ -67,7 +67,7 @@
     <!-- 게시글 수 조회 -->
     <select id="getListCount" parameterType="_int" resultType="_int">
     	SELECT COUNT(*) FROM "ORDER"  
-		WHERE NOT ORDER_DEL_FL  = 'A'
+		WHERE ORDER_DEL_FL  = 'N'
 		AND MEMBER_NO  =  #{memberNo}
     </select>	
 
