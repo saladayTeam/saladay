@@ -53,6 +53,7 @@ $(document).ready(function() {
 
         }else if(temp[slideNo][toppingName].amount == 0){
 
+          // 제이쿼리 삭제 코드
           delete temp[slideNo][toppingName];
         }
         // 여기까지 추가
@@ -135,7 +136,7 @@ function sumPrice(){
     // }else{
   
     // }
-    document.getElementById("totalPrice").innerText = sum.toLocaleString();
+    document.getElementById("totalPrice").innerText = sum.toLocaleString(); // toLocalString = 숫자에 , 찍어줌
   }
 
 }
@@ -218,6 +219,7 @@ window.onload = function() {
             
             // 메뉴이름 = 클릭한곳의 text
             var mName = $(this).text();
+            // eq = 제이쿼리 배열
             $('.menu-title').eq(currentIdx).text(mName);
             $('.menu-detail').eq(currentIdx).text($(this).next().val())
             $('.menu-price').eq(currentIdx).text($(this).next().next().next().val().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
