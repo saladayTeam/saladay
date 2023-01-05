@@ -142,15 +142,16 @@ ORDER BY REVIEW_NO DESC
 </select>
 
 <!-- 특정 멤버 리뷰 수 조회 -->
-<select id="getMemberReviewListCount" parameterType="_int" resultType="_int">
-SELECT COUNT(*) FROM "REVIEW"
+<select id="getMemberReviewListCount" parameterType="string" resultType="_int">
+SELECT COUNT(*) FROM "REVIEW" R
 JOIN ORDER_MENU USING(ORDER_MENU_NO)
-WHERE MEMBER_NO = #{memberNo}
+JOIN MEMBER M USING(MEMBER_NO)
+WHERE MEMBER_NICKNAME = #{memberNickname}
 AND REVIEW_DEL_FL='N'
 </select>
 
 <!-- 특정 멤버 리뷰 목록 조회 -->
-<select id="selectMemberReviewList" resultMap="review_rm">
+<select id="selectMemberReviewList" parameterType="string" resultMap="review_rm">
 SELECT REVIEW_NO, RATING, REVIEW_CONTENT, R.MEMBER_NO, MEMBER_NICKNAME, MENU_NO, MENU_NAME,
 	TO_CHAR(REVIEW_DATE, 'YYYY-MM-DD') REVIEW_DATE, O.ORDER_NO, ORDER_DATE, MEMBER_NAME,
 	(SELECT IMG_PATH || IMG_RENAME FROM REVIEW_IMG I
@@ -172,7 +173,7 @@ JOIN "ORDER_MENU" OM USING(ORDER_MENU_NO)
 JOIN "MENU" USING(MENU_NO)
 JOIN "ORDER" O ON(O.ORDER_NO=OM.ORDER_NO)
 WHERE REVIEW_DEL_FL='N'
-AND R.MEMBER_NO = #{memberNo}
+AND M.MEMBER_NICKNAME = #{memberNickname}
 ORDER BY REVIEW_NO DESC
 </select>
 
