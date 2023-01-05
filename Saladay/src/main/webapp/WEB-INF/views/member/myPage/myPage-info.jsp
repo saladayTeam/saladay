@@ -30,7 +30,7 @@
 
             <div class="right-side">
                 <form action="/member/updateInfo" class="my-page-info-frm" name="my-page-info-frm" method="post">
-                <div class="my-info-list">
+                <div>
 
                     <div class="my-page-header">
                         <h1 class="main-title">회원 정보</h1>

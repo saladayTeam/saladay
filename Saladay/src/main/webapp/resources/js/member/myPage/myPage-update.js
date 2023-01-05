@@ -21,6 +21,9 @@ const lastPathName = location.pathname.substring(location.pathname.lastIndexOf("
 
 const form = document.getElementsByTagName("form")[0];
 
+validate.memberNickname = true;
+validate.memberTel = true;
+
 
 
 form.addEventListener("submit", e=>{
@@ -45,7 +48,6 @@ form.addEventListener("submit", e=>{
 
 // 닉네임 -------------------------------------------------------------------------------------------------------
 if(memberNickname != null) {
-    validate.memberNickname = false;
 
     memberNickname.addEventListener("input", () => {
         if(memberNickname.value.trim().length == 0) {           // 아무것도 입력되지 않았을 때
@@ -96,7 +98,6 @@ if(memberNickname != null) {
 
 // 전화번호 -------------------------------------------------------------------------------------------------------
 if(memberTel != null) {
-    validate.memberTel = false;
 
     memberTel.addEventListener("input", () => {
         if(memberTel.value.trim().length == 0) {

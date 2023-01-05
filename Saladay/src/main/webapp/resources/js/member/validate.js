@@ -48,6 +48,8 @@ const lastPathName = location.pathname.substring(location.pathname.lastIndexOf("
 
 const form = document.getElementsByTagName("form")[0];
 
+//lastPathName이 findPw면 비밀번호 찾기 페이지(=== 연산자는 타입이 다르면, false를 반환)
+const findPwPage = lastPathName === "findPw";
 
 
 form.addEventListener("submit", e=>{
