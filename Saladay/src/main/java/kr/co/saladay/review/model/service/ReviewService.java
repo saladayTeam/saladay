@@ -78,6 +78,6 @@ public interface ReviewService {
 	 * @param memberNo
 	 * @return
 	 */
-	Map<String, Object> selectMemberReviewList(int cp, int memberNo);
+	Map<String, Object> selectMemberReviewList(int cp, String memberNickname);
 
 }

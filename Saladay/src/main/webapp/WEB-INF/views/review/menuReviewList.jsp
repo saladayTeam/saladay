@@ -65,7 +65,7 @@
                                         <span class="review-content">${review.reviewContent}</span>
                                     </div>
                                     <div class="review-writer">
-                                        <a href="/memberReview/${review.memberNo}" class="review-member-nickname">${review.memberNickname} ></a>
+                                        <a href="/memberReview/${review.memberNickname}" class="review-member-nickname">${review.memberNickname} ></a>
                                     </div>
                                     <div class="rating">
                                         <span class="${review.rating}"></span>
