@@ -21,7 +21,17 @@ public class FaqServiceImpl implements FaqService{
 	// faqList조회
 	@Override
 	public List<FAQ> selectFaqList() {
-		return dao.selectFaqList();
+		
+		// faqList조회
+		List<FAQ> faqList =  dao.selectFaqList();
+		
+		
+		// 조회된 faqList의 faqContent의 개행문자처리
+		for(FAQ faq :  faqList) {
+			faq.setFaqContent(Util.newLineHandling(faq.getFaqContent()));
+		}
+
+		return faqList;
 	}
 	
 	
