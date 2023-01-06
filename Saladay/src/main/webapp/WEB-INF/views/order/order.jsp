@@ -66,9 +66,9 @@
                         <!-- 주소 입력 영역 -->
                         <p>
                             <span class="o-th"> 수령인 주소 </span>
-                            <%-- <span class="o-td">
-                                <input type="checkbox" id="memberAddr" name="newAddress"><label for="memberAddr"> 기본 배송지 선택</label>
-                            </span> --%>
+                            <span class="o-td info">
+                                * 수령인 주소 미작성시 기본 주소로 배송됩니다
+                            </span>
                         </p>
                             
                         <p class="address-area">

@@ -247,6 +247,11 @@
                 <button type="button" id="order-btn">주문하기</button>
             </div>
         </div>
+
+        <div class="menu-title">
+        치킨 슬라이스
+        슬라이드
+        슬레이</div>
     </main>
     </form> 
     
