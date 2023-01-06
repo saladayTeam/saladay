@@ -33,12 +33,36 @@
             font-weight: normal;
             font-style: normal;
         }
-        /* @font-face {
-            font-family: 'NanumSquareNeo-Variable';
-            src: url('') format('woff2');
+        @font-face {
+            font-family: 'sugarSnow';
+            src: url('/resources/fonts/SugarSnow.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
-        } */
+        }
+        @font-face {
+            font-family: 'chunk';
+            src: url('/resources/fonts/ChunkFive-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'genty';
+            src: url('/resources/fonts/genty.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'janda';
+            src: url('/resources/fonts/janda.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'ea';
+            src: url('/resources/fonts/ea.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 
 </head>

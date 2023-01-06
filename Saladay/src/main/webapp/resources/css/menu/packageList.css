@@ -26,19 +26,19 @@ body{
 #main-content{
     width: 100%;
     text-align: center;
-    letter-spacing: 0px;
-    /* font-family: 'shrimp'; */
-    font-family: 'sugar snow' !important;
-    /* font-family: 'BlackHan'; */
+    letter-spacing: 1px;
+    font-family: 'ea' !important;
     color: #17633D;
-    font-weight: bolder;
     font-style: normal;
-    font-size: 36px;
+    font-size: 40px;
 }
 
 #main-content > em{
     font-style: normal;
     color: #62ce08;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-family: 'janda' !important;
 }
 
 #main-detail{
@@ -89,9 +89,13 @@ ul{
 }
 
 .package-title{
+    /* display: flex; */
     margin-left: 35px;
     font-size: 40px;
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-family: 'chunk' !important;
+    width: auto;
+    white-space:nowrap;
 }
 
 .package-detail{
