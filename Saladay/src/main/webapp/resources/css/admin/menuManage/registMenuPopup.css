@@ -104,11 +104,11 @@ label {
 }
 
 #delete-image{
-    position: absolute;
+    /* position: absolute;
     top:0;
     right: 210px;
     cursor: pointer;
-    color: #ddd;
+    color: #ddd; */
 }
 
 
@@ -132,14 +132,14 @@ label {
 
 
 /* 첨부파일 이미지 안보이게  */
-input[type="file"] {
+/* input[type="file"] {
     position: absolute;
     width: 0;
     height: 0;
     padding: 0;
     overflow: hidden;
     border: 0;
-}
+} */
 
 
 .confirm {

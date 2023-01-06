@@ -219,9 +219,11 @@ window.onload = function() {
             
             // 메뉴이름 = 클릭한곳의 text
             var mName = $(this).text();
-            // eq = 제이쿼리 배열
+            // eq = 제이쿼리 배열 
+            // 제이쿼리 text == innerText
+            // 제이쿼리 html == innerHtml
             $('.menu-title').eq(currentIdx).text(mName);
-            $('.menu-detail').eq(currentIdx).text($(this).next().val())
+            $('.menu-detail').eq(currentIdx).html($(this).next().val())
             $('.menu-price').eq(currentIdx).text($(this).next().next().next().val().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
             $('.menuNo').eq(currentIdx).val($(this).next().next().val()) // 메뉴 번호 넘기기 위해서 .val사용
             // console.log("aaaaa", $('.menu-detail').val());

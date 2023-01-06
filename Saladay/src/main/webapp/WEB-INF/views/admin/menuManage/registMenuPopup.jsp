@@ -38,7 +38,7 @@
                             <div class="img-box">
                                 <div class="preview-area">
                                     <label for="inputMenuImg"><img id="menu-image" src="/resources/images/review/reviewImg.png"></label>
-                                <span id="delete-image">&times;</span>
+                                <span id="delete-image"><%-- &times; --%></span>
                                 </div>
                                 <div class="menu-img-area">
                                     <input type="file" id="inputMenuImg" name="inputMenuImg" accept="image/*"> <%-- 이미지 파일은 vo와 다르게 보내야함 --%>
