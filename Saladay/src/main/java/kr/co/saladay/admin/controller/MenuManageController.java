@@ -219,6 +219,7 @@ public class MenuManageController {
 		
 		if (result > 0) {
 		
+			// application scope에 추가
 			List<Menu> menuList = menuService.selectMenuList();
 			application.setAttribute("menuList", menuList);
 			

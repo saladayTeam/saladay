@@ -55,16 +55,6 @@ body{
     border-radius: 5px;
 }
 
-.option-table textarea {
-    cursor: pointer;
-    width: 100%;
-    height: 6.25em;
-    outline: none;
-    resize: none;
-    padding: 5px 0 5px 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
 
 label {
     cursor: pointer;
@@ -109,7 +99,7 @@ img {
     color: white;
 }
 
-
+/* 옵션 타입 선택 셀렉트박스 */
 select {
     width: 100px; 
     padding: 3px 0 3px 2px; 
@@ -137,3 +127,4 @@ select {
     border-radius: 5px;
     padding: 5px;
 }
+

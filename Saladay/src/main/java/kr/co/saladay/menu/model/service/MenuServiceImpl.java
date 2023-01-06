@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.saladay.common.Util;
 import kr.co.saladay.menu.model.dao.MenuDAO;
 import kr.co.saladay.menu.model.vo.Menu;
 import kr.co.saladay.menu.model.vo.Option;
@@ -20,7 +21,16 @@ public class MenuServiceImpl implements MenuService {
 	// 메뉴(샐러드) 조회 
 	@Override
 	public List<Menu> selectMenuList() {
-		return dao.selectMenuList();
+		
+		// menuList 조회
+		List<Menu> menuList = dao.selectMenuList();
+		
+		// 조회된 menuList내 메뉴 설명 개행 처리 
+		for(Menu menu: menuList) {
+			menu.setMenuContent(Util.newLineHandling(menu.getMenuContent()));
+		}
+		
+		return menuList; 
 	}
 
 

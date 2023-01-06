@@ -157,8 +157,7 @@ public class MenuManageServiceImpl implements MenuManageService {
 		newMenu.setMenuContent(Util.XSSHandling(newMenu.getMenuContent()));
 		
 		// 개행 문자 처리(반드시 XSS방지 처리 먼저 수행)
-		newMenu.setMenuContent(Util.newLineHandling(newMenu.getMenuContent()));
-		
+		newMenu.setMenuContent(Util.newLineClear(newMenu.getMenuContent()));
 		
 		// 메뉴 내용 수정 
 		int result = dao.updateMenu(newMenu);
