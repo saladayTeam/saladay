@@ -104,7 +104,7 @@
     </main>  
 
     <!-- 이미지 모달창 출력 -->
-    <<%-- div class="modal">
+    <%-- <div class="modal">
         <span id="option-close">&times;</span>
         <img id="modal-image" src="">
     </div> --%>
