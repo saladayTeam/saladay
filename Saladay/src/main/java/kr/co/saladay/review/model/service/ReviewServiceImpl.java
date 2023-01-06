@@ -60,12 +60,12 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	// 특정 회원 리뷰 목록 조회
 	@Override
-	public Map<String, Object> selectMemberReviewList(int cp, int memberNo) {
-		int memberReviewListCount = dao.getMemberReviewListCount(memberNo);
+	public Map<String, Object> selectMemberReviewList(int cp, String memberNickname) {
+		int memberReviewListCount = dao.getMemberReviewListCount(memberNickname);
 
 		Pagination pagination = new Pagination(memberReviewListCount, cp);
 		
-		List<Review> memberReviewList = dao.selectMemberReviewList(pagination, memberNo);
+		List<Review> memberReviewList = dao.selectMemberReviewList(pagination, memberNickname);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);

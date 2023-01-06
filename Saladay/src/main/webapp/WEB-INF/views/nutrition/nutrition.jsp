@@ -93,6 +93,7 @@
                             <option value=""  hidden>서브토핑</option>
                             <c:forEach var="sub" items="${optionList}">
                             <c:if test="${sub.optionType eq 'T'}" >
+                            <%-- 이름만 보여주고 칼로리는 밸류에 넣어둠 --%>
                                 <option value="${sub.optionCalorie}">${sub.optionName}</option>
                             </c:if>
                             </c:forEach>

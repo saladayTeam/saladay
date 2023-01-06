@@ -64,8 +64,8 @@ public class ReviewDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public int getMemberReviewListCount(int memberNo) {
-		return sqlSession.selectOne("reviewMapper.getMemberReviewListCount", memberNo);
+	public int getMemberReviewListCount(String memberNickname) {
+		return sqlSession.selectOne("reviewMapper.getMemberReviewListCount", memberNickname);
 	}
 
 	/** 특정 회원 리뷰 목록 조회
@@ -73,12 +73,12 @@ public class ReviewDAO {
 	 * @param memberNo
 	 * @return
 	 */
-	public List<Review> selectMemberReviewList(Pagination pagination, int memberNo) {
+	public List<Review> selectMemberReviewList(Pagination pagination, String memberNickname) {
 		int offset = (pagination.getCurrentPage()-1)*pagination.getLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 	
-		return sqlSession.selectList("reviewMapper.selectMemberReviewList", memberNo, rowBounds);
+		return sqlSession.selectList("reviewMapper.selectMemberReviewList", memberNickname, rowBounds);
 	}
 
 	/** 리뷰 상세 조회

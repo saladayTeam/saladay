@@ -8,6 +8,7 @@
         </div>
         <div class="review-detail-content">
             <div class="review-img-area">
+            <%-- carousel 라이브러리 시작 --%>
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -34,6 +35,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+                <%-- carousel 라이브러리 끝 --%>
             </div>
             <div class="review-detail-star"></div>
             <div class="review-detail-date"></div>

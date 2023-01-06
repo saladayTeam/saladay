@@ -76,7 +76,8 @@
                                         <span class="review-content">${review.reviewContent}</span>
                                     </div>
                                     <div class="review-writer">
-                                        <a href="/memberReview/${review.memberNo}" class="review-member-nickname">${review.memberNickname} ></a>
+                                        <a href="/memberReview/${review.memberNickname}" class="review-member-nickname">${review.memberNickname} ></a>
+                                        <%-- <a href="javascript:listView('${review.memberNo}')" class="review-member-nickname">${review.memberNickname} ></a> --%>
                                     </div>
                                     <div class="rating">
                                         <span class="${review.rating}"></span>
@@ -134,6 +135,22 @@
         const authority = "${loginMember.authority}";
         const reviewNo = "${review.reviewNo}";
         const likeCheck = "${review.likeCheck}";
+
+/*         function listView(reviewMemberNo){
+        let f = document.createElement('form');
+        
+        let obj;
+        obj = document.createElement('input');
+        obj.setAttribute('type', 'hidden');
+        obj.setAttribute('name', 'memberNo');
+        obj.setAttribute('value', reviewMemberNo);
+        
+        f.appendChild(obj);
+        f.setAttribute('method', 'post');
+        f.setAttribute('action', '/memberReview');
+        document.body.appendChild(f);
+        f.submit();
+        } */
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
