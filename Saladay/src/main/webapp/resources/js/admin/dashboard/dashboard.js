@@ -1,6 +1,9 @@
+//options chart.js사이트가서 확인
+//labels에 자바스크립트 객체 변환한 데이터를 넣어줌
 
 const ctx = document.getElementById('myChart1').getContext('2d');
 const myChart1 = new Chart(ctx, {
+    //최상단 그래프 2개 중 bar 그래프
     type: 'bar',
     plugins: [ChartDataLabels],
     data: {
@@ -22,6 +25,7 @@ const myChart1 = new Chart(ctx, {
             label: '월간 주문 건수',
             data: monthOrderCount,
             borderColor: 'orange',
+            //최상단 그래프 2개 중 line 그래프
             type:'line',
             tension:0.1,
             fill: true,
@@ -51,6 +55,7 @@ const myChart2 = new Chart(ctx2, {
     type: 'pie',
     plugins: [ChartDataLabels],
     data: {
+        //대시보드jsp하단 객체를 통해 받아온 값
         labels: packageNameList,
         datasets: [{
             label: '주문 건수',

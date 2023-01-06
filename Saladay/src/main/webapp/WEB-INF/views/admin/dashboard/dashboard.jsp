@@ -56,7 +56,7 @@
                 <tbody>
                     <tr>
                         <td scope="col"> 
-                            <fmt:formatNumber type="number" maxFractionDigits="0"  value="${monthOrderPrice[lastindex-1]}" />
+                            <fmt:formatNumber type="number" maxFractionDigits="0"  value="${monthOrderPrice[lastindex-1]}" /><!--전월 조회 위해서 lastindex사용-->
                         </td>
                         <td scope="col">
                             <fmt:formatNumber type="number" maxFractionDigits="0"  value="${monthOrderPrice[lastindex]}" />
@@ -142,7 +142,8 @@
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 
     <script>
-        // 월별 주문 개수
+        //변환 주의사항 : JSON.parse()는 문자열을 객체로 변환하는데, 문자열은 반드시 ''홑따옴표로 감싸야 한다.
+        // 월별 주문 개수 자바스크립트 객체를 파싱
         const monthOrderCount=JSON.parse("${monthOrderCount}");
 
         // 월별 매출액
@@ -154,7 +155,7 @@
         // 주문한 메뉴별 개수
         const menuOrderCount=JSON.parse("${menuOrderCount}");
 
-        // 월
+        // 월 
         const month=JSON.parse('${month}');
 
         // 패키지 목록
