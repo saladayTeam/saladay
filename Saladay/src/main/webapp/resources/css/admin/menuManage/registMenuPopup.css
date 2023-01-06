@@ -106,7 +106,7 @@ label {
 #delete-image{
     position: absolute;
     top:0;
-    right: 180px;
+    right: 210px;
     cursor: pointer;
     color: #ddd;
 }
