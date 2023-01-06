@@ -191,10 +191,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // navLinks: true,
     // editable: true,
     headerToolbar : {
-    start: "",
+      start: "",
       center: "prev title next",
       end: 'dayGridMonth,dayGridWeek,dayGridDay'
-      },
+    },
     dayMaxEvents: true,
     events: list,
     eventClick: function(info) {
