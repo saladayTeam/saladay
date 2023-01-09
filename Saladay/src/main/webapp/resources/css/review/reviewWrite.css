@@ -140,12 +140,22 @@ main {
     width: 580px;
     height: 150px;
     padding: 5px;
-    font-size: 16px;
+    font-size: 13px;
     resize: none;
 }
 
 .review-detail-text:focus {
     outline: none;
+}
+
+/* 이미지 설명 */
+.rw-image-script{
+    margin-bottom: 10px;
+}
+
+.rw-image-script p{
+    font-size: 13px;
+    color: #666666;
 }
 
 /* 이미지 전체를 감싸는 div */

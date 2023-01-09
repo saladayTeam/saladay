@@ -33,6 +33,7 @@ const reviewLike = document.querySelector(".review-detail-likeCount");
 const indicators = document.querySelector(".carousel-indicators");
 const prev = document.querySelector(".carousel-control-prev");
 const next = document.querySelector(".carousel-control-next");
+const slide3 = document.querySelector(".slide3");
 const heartArea = document.getElementById("heart-area");
 const reviewHeart = document.getElementById("reviewHeart");
 
@@ -59,8 +60,8 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             const carouselInner = document.getElementsByClassName("carousel-inner")[0];
             carouselInner.innerHTML = "";
             
-            /* 이미지가 2개 이상일 경우 */
-            if(rDetail[0].imageList.length != 0){
+            /* 이미지가 3개일 경우 */
+            if(rDetail[0].imageList.length == 3){
                 for(let i = 0; i<rDetail[0].imageList.length; i++){
                     const carouselItem = document.createElement("div");
                     carouselItem.classList.add("carousel-item");
@@ -82,6 +83,37 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
                     indicators.classList.remove("rd-hidden");
                     prev.classList.remove("rd-hidden");
                     next.classList.remove("rd-hidden");
+                    slide3.classList.remove("rd-hidden");
+                    imgCheck = true;
+                }
+            }
+
+            /* 이미지가 2개일 경우 */
+            if(rDetail[0].imageList.length == 2){
+                for(let i = 0; i<rDetail[0].imageList.length; i++){
+                    const carouselItem = document.createElement("div");
+                    carouselItem.classList.add("carousel-item");
+                    
+                    if(i==0){
+                        carouselItem.classList.add("active");
+                    }
+                    
+                    const image = document.createElement("img");
+                    image.setAttribute("src", rDetail[0].imageList[i].imagePath + rDetail[0].imageList[i].imageRename);
+                   /*  image.classList.add("d-block"); */
+                    /* image.classList.add("w-100"); */
+                    image.classList.add("review-images");
+
+                    carouselItem.append(image);
+                    carouselInner.append(carouselItem);
+                    
+                    /* 버튼 다시 보이게 처리 */
+                    indicators.classList.remove("rd-hidden");
+                    prev.classList.remove("rd-hidden");
+                    next.classList.remove("rd-hidden");
+
+                    /* 세번째 인디게이터 숨기기 */
+                    slide3.classList.add("rd-hidden");
                     imgCheck = true;
                 }
             }

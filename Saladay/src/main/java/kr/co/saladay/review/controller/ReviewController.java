@@ -147,6 +147,7 @@ public class ReviewController {
 		return service.deleteReviewImg(reviewNo);
 	}
 	
+	// 리뷰 작성 페이지 이동
 	@GetMapping("/member/myPage/reviewWrite")
 	public String getReviewWrite(){
 		

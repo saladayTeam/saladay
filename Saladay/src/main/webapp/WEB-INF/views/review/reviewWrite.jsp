@@ -62,6 +62,9 @@
                                         <textarea placeholder="리뷰를 작성해주세요." name="reviewContent" class="review-detail-text" id="reviewContent"></textarea>
                                     </div>
                                 </div>
+                                <div class="rw-image-script">
+                                    <p>상품과 무관한 사진을 첨부한 리뷰는 통보없이 삭제될 수 있습니다.</p>
+                                </div>
                                 <div class="rw-image-area">
                                     <div class="reviewImg">
                                         <label for="img0">
