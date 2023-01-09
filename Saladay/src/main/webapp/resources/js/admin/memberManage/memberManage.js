@@ -1,4 +1,4 @@
-console.log("회원관리");
+// console.log("회원관리");
 
 // 체크박스
 $(document).ready(function() {

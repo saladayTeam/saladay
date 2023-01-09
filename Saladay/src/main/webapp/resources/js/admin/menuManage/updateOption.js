@@ -1,4 +1,4 @@
-console.log("옵션관리");
+// console.log("옵션관리");
 
 // 체크박스
 $(document).ready(function() {
@@ -27,7 +27,7 @@ function deleteValue(){
         }
     }
     
-    console.log(valueArr);
+    // console.log(valueArr);
     
     if(valueArr.length==0){
         alert("선택된 옵션이 없습니다.");

@@ -1,4 +1,4 @@
-console.log("메뉴관리");
+// console.log("메뉴관리");
 
 // 체크박스
 $(document).ready(function() {
