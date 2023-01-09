@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dataType : "JSON", // 응답 데이터 형식
     async : false,
     success : (result) => { // controller에서 받아온 데이터
-      console.log(result);
+      // console.log(result);
       
       const tempList = [];
 
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
 
-        if(li.deliveryCode==='A'&&li.packageNo===1) { // 패키지번호 1
+        if(li.deliveryCode!=='D'&&li.packageNo===1) { // 패키지번호 1
             tempList.push({
               id: li.deliveryNo,
               title: li.orderNo +") "+ li.orderName,
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
 
-        if(li.deliveryCode==='A'&&li.packageNo===2) { // 패키지번호 2
+        if(li.deliveryCode!=='D'&&li.packageNo===2) { // 패키지번호 2
             tempList.push({
               id: li.deliveryNo,
               title: li.orderNo +") "+ li.orderName,
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
 
-        if(li.deliveryCode==='A'&&li.packageNo===3) { // 패키지번호 3
+        if(li.deliveryCode!=='D'&&li.packageNo===3) { // 패키지번호 3
             tempList.push({
               id: li.deliveryNo,
               title: li.orderNo +") "+ li.orderName,
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
 
-        if(li.deliveryCode==='A'&&li.packageNo===4) { // 패키지번호 4
+        if(li.deliveryCode!=='D'&&li.packageNo===4) { // 패키지번호 4
           if(li.rowNum==1){
               tempList.push({
                 id: li.deliveryNo,
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             }
 
-        if(li.deliveryCode==='A'&&li.packageNo===5) { // 패키지번호 5
+        if(li.deliveryCode!=='D'&&li.packageNo===5) { // 패키지번호 5
           if(li.rowNum==1){
             tempList.push({
               id: li.deliveryNo,
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           }
 
-        if(li.deliveryCode==='A'&&li.packageNo===6) { // 패키지번호 6
+        if(li.deliveryCode!=='D'&&li.packageNo===6) { // 패키지번호 6
           if(li.rowNum==1){
             tempList.push({
               id: li.deliveryNo,
@@ -335,10 +335,10 @@ function selectOne(thisId, thisIds){
         dataType : "JSON",  
         
         success : function(delivery){
-          console.log(delivery);
-          console.log(delivery.length);
-          console.log(delivery[1]);
-          console.log(delivery[2]);
+          // console.log(delivery);
+          // console.log(delivery.length);
+          // console.log(delivery[1]);
+          // console.log(delivery[2]);
           
             // 배송번호
             const deliveryNo = document.getElementById("deliveryNo");
@@ -449,7 +449,7 @@ $(document).ready(function(){
     var deliveryCode = $("#selectbox :selected").val();
     changeBtn.style.display = "block";
     
-    console.log(deliveryCode);
+    // console.log(deliveryCode);
     
   });
 });
@@ -459,8 +459,8 @@ $(changeBtn).click(function() {
 
   var deliveryCode = $("#selectbox :selected").val();
 
-  console.log("value : " + deliveryNo);
-  console.log("value : " + deliveryCode);
+  // console.log("value : " + deliveryNo);
+  // console.log("value : " + deliveryCode);
 
     if(confirm("배송상태를 변경하시겠습니까?")) {
 
@@ -563,18 +563,18 @@ closeModal.addEventListener("click", () => {
 //   }
 // });
 
-$("div[id='f1828d']").on('click', function(){	
+// $("div[id='f1828d']").on('click', function(){	
   
-  console.log('되니?')
-  // 클릭한 article의 하위 체크박스 상태 변경
-  if ($(this).children("input[id='no1']").prop('checked')) {
-    console.log("체크돼있는지 확인")
-    // $(this).removeClass("check-ok");
-    $(this).children('input').prop('checked',false);
-    $("." + $(this).attr("id")).hide();
-  } else {
-    // $(this).addClass("check-ok");
-    $(this).children('input').prop('checked',true);
-    $("." + $(this).attr("id")).show();
-  }
-});
+//   // console.log('되니?')
+//   // 클릭한 article의 하위 체크박스 상태 변경
+//   if ($(this).children("input[id='no1']").prop('checked')) {
+//     console.log("체크돼있는지 확인")
+//     // $(this).removeClass("check-ok");
+//     $(this).children('input').prop('checked',false);
+//     $("." + $(this).attr("id")).hide();
+//   } else {
+//     // $(this).addClass("check-ok");
+//     $(this).children('input').prop('checked',true);
+//     $("." + $(this).attr("id")).show();
+//   }
+// });
