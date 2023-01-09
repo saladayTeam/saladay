@@ -317,7 +317,7 @@ public class MemberController {
 		String message = "";
 		String path = "";
 		if(result > 0) {			// 비밀번호 변경 성공 시 성공 메세지와 함께 로그아웃 후 메인페이지 리다이렉트 
-			message = "비밀번호가 변경되었습니다. 다시 로그인 해주세요";
+			message = "비밀번호가 변경되었습니다. 다시 로그인 해주세요.";
 			path = "/";
 			status.setComplete();
 			session.invalidate();	// 세션 무효화
