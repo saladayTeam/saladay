@@ -47,7 +47,7 @@
                         <c:when test="${empty reviewList}">
                         <!-- 리뷰 목록 조회 결과가 비어있다면 -->
                             <li>앗! 작성된 리뷰가 없어요!</li>
-                            <li><button onclick="location.href='${referer}'" class="backBtn">뒤로가기</button></li>
+                            <li><button onclick="location.href='/review'" class="backBtn">리뷰목록</button></li>
                         </c:when>
                         <c:otherwise>
                             <c:forEach var="review" items="${reviewList}">

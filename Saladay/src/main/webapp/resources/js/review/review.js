@@ -209,7 +209,7 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
 
 // 리뷰 삭제
 function deleteReview(reviewNo){
-    if( confirm("정말 삭제 하시겠습니까?") ){
+    if( confirm("삭제된 리뷰는 복구할 수 없습니다.\n정말 삭제 하시겠습니까?") ){
         $.ajax({
             url : "/review/delete",
             data : {"reviewNo" : reviewNo},

@@ -95,7 +95,7 @@ main {
 /* 회원 정보 헤더--------------------------------- */
 .my-page-header {
     border-bottom: 1px solid #17633d;
-    width: 100%;
+    width: 640px;
     margin: 40px 20px 40px 0;
 }
 
@@ -111,6 +111,7 @@ main {
     border-bottom: #ccc 1px solid;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    width: 620px;
 }
 
 .rw-info{

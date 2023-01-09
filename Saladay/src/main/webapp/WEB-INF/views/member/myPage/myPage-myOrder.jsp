@@ -118,7 +118,7 @@
                             		 			<c:if test="${menu.deliveryCode eq 'D'}">
                             		 				
                             		 				<c:if test="${menu.reviewCheck eq 'possible'}">
-                            		 				<li><div class="review-btn" onclick="location='/member/myPage/reviewWrite/${menu.orderMenuNo}'">리뷰 작성</div></li>
+                            		 				<li><div class="review-btn" onclick="reviewWrite(${menu.orderMenuNo})">리뷰 작성</div></li>
                             		 				</c:if>
                             		 				
 	                            		 			<c:if test="${menu.reviewCheck eq 'done'}">
@@ -242,6 +242,22 @@
         })
         }
     }
+
+		const reviewWrite=(orderMenuNo)=>{
+        let f = document.createElement('form');
+        
+        let obj;
+        obj = document.createElement('input');
+        obj.setAttribute('type', 'hidden');
+        obj.setAttribute('name', 'orderMenuNo');
+        obj.setAttribute('value', orderMenuNo);
+        
+        f.appendChild(obj);
+        f.setAttribute('method', 'post');
+        f.setAttribute('action', '/member/myPage/reviewWrite');
+        document.body.appendChild(f);
+        f.submit();
+        }
     </script>
     <script src="/resources/js/member/myPage/myPage-radio-check.js"></script>
 </body>
