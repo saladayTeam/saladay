@@ -20,12 +20,12 @@
 
 
 ## :date: 개발기간
-![6  개발일정](https://user-images.githubusercontent.com/108666056/211228367-0d1a35d4-35c1-4365-9893-56e48b8ffce7.png)
+![6  개발일정 (1)](https://user-images.githubusercontent.com/108666056/211253240-e8914c39-b56c-4dad-a2ef-d43d0cc501f9.png)
 <br><br>
 
 
 ## ⚙개발환경
-![5  활용기술 및 환경](https://user-images.githubusercontent.com/108666056/211227724-6603439d-2ee2-4af4-a113-002799b4a19c.png)
+![5  활용기술 및 환경 (1)](https://user-images.githubusercontent.com/108666056/211253286-02c5f234-0e6d-4ac8-b966-d9134c3d633f.png)
 <br><br>
 
 
@@ -50,15 +50,17 @@
 - 대시보드 : 매출 관련 통계(Chart.js API)
 - 주문관리 : 주문조회 및 주문취소
 - 배송관리 : 배송 일정 조회(FullCalender API) 및 배송 상태 변경
-- 메뉴/옵션 관리 : 메뉴/옵션 추가/수정/삭제
+- 메뉴 및 옵션 관리 : 메뉴 및 옵션 추가/수정/삭제
 - 회원관리 : 회원조회, 회원강제탈퇴
 - 리뷰삭제
-- FAQ 관리 : FAQ 작성/삭제
+- FAQ 관리 : FAQ 작성 및 삭제
 <br><br>
 
 
-:link: ERDCloud  
+## :link: ERDCloud  
 https://www.erdcloud.com/d/sQQcdi4QiovMqvSXG
+<br><br>
 
-:link: Figma
+## :link: Figma  
+https://www.figma.com/file/YHZvUinvaAnzpFdj19XvHl/Saladay?node-id=0%3A1&t=GDMfej2zWrNWSP3h-0
 
