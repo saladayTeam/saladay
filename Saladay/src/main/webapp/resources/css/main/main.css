@@ -54,6 +54,10 @@ li {
   margin: 0 auto;
   height: 250px;
   overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slides {
@@ -81,10 +85,24 @@ li {
 
 .controls > .prev {
   right: calc(100% - 40px);
+  background-color: #17633d;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  z-index: 100;
 }
 
 .controls > .next {
   left: calc(100% - 40px);
+  background-color: #17633d;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  z-index: 100;
 }
 
 .ha {

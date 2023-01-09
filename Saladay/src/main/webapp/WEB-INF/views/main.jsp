@@ -51,7 +51,7 @@
       <ul class="slides flex">
         <c:forEach var="menu" items="${menuList}">
           <li>  <%-- 메뉴 이미지누르면 메뉴조회페이지로 이동  --%>
-            <a href="/menu/menuList"><img src="${menu.menuImage}" alt="메뉴이미지" height="250px"></a>
+            <img src="${menu.menuImage}" alt="메뉴이미지" height="250px">
           </li>
         </c:forEach>
       </ul>

@@ -30,7 +30,7 @@ $(document).ready(function() {
         // 여기서부터
         // 토핑이름 가져오기
         var toppingName = $(this).parent().prev().prev().text().trim();
-        console.log(toppingName);
+        // console.log(toppingName);
         // 토핑가격 가져오기
         var toppingPrice = $(this).parent().prev().text().trim();
         // 토핑가격 숫자만
@@ -38,10 +38,10 @@ $(document).ready(function() {
         // 추가한 토핑 개수
         var toppingCount = parseInt($input.val());
 
-        console.log('토핑개수 : ', toppingCount);
+        // console.log('토핑개수 : ', toppingCount);
 
-        console.log(toppingPrice);
-        console.log(temp);
+        // console.log(toppingPrice);
+        // console.log(temp);
 
         // 배열[토핑이름] = {가격 : ?, 담긴개수 : ?}
         // temp[toppingName] = {price : number, amount : toppingCount};
@@ -76,7 +76,7 @@ $(document).ready(function() {
 
       // 추가한 토핑 이름 가져오기
       var toppingName = $(this).parent().prev().prev().text().trim();
-      console.log('추가한 토핑 = ', toppingName);
+      // console.log('추가한 토핑 = ', toppingName);
 
       // 추가한 토핑 가격 가져오기
       var toppingPrice = $(this).parent().prev().text().trim();
@@ -86,7 +86,7 @@ $(document).ready(function() {
 
       // 추가한 토핑 개수
       var toppingCount = parseInt($input.val());
-      console.log('토핑개수 : ', toppingCount);
+      // console.log('토핑개수 : ', toppingCount);
       
       // 배열[토핑이름] = {가격 : ?, 담긴개수 : ?}
       // temp[toppingName] = {price : number, amount : toppingCount};
@@ -164,7 +164,7 @@ window.onload = function() {
       event.preventDefault();
         // 다음 버튼을 눌렀을때
       if (event.target.className === 'next') {
-          console.log(`${currentIdx} /  ${slideLis.length}`);
+          // console.log(`${currentIdx} /  ${slideLis.length}`);
           window.scrollTo({ top: 440, behavior: "smooth" }); 
         if(currentIdx == slideLis.length -1){
             return;
@@ -234,7 +234,7 @@ window.onload = function() {
             let slideNo = $(this).attr("slide");
 
 
-            console.log(menuPrice);
+            // console.log(menuPrice);
 
             if(temp[slideNo]['salad'] == undefined){
 
@@ -247,7 +247,7 @@ window.onload = function() {
 
             }
 
-            console.log(temp);
+            // console.log(temp);
             sumPrice()
 
             return false;
@@ -299,7 +299,7 @@ const optionNo = document.getElementsByClassName("optionNo");
 const optionCount = document.getElementsByClassName("optionCount");
 
 function selectValidate() {
-  console.log("메뉴선택확인");
+  // console.log("메뉴선택확인");
   
   if(loginMemberNo==''){
     alert("로그인 후 이용해주세요.")

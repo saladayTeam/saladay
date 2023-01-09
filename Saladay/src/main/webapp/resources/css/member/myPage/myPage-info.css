@@ -202,6 +202,7 @@ main {
     display: inline;
     border:none;
     outline:none;
+    width:100px;
 }
 
 .address-input1 {
@@ -210,6 +211,14 @@ main {
     border:none;
     outline:none;
     width: 98px;
+}
+
+.address-input2 {
+    margin-top:10px;
+    display: inline;
+    border:none;
+    outline:none;
+    width:300px;
 }
 
 .address-search-btn {

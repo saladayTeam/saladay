@@ -53,6 +53,10 @@ const findPwPage = lastPathName === "findPw";
 
 const myPageChangePw = lastPathName === "myPageChangePw";
 
+const signUp = lastPathName === "signUp";
+
+
+
 form.addEventListener("submit", e=>{
     
     let message = "";        
@@ -519,7 +523,9 @@ if(memberTel != null) {
 
 
 // 주소 Daum API
+if(signUp){
 document.getElementById("addressSearch").addEventListener("click", execDaumPostcode);
+}
 
 function execDaumPostcode() {
     new daum.Postcode({
