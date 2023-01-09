@@ -52,8 +52,8 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
         dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
         success : function(rDetail){
             // rDetail : 반환 받은 리뷰 상세 조회 내용 
-            console.log(rDetail);
-            console.log(rDetail[0].imageList);
+//            console.log(rDetail);
+//            console.log(rDetail[0].imageList);
 
             // 이미지 슬라이드 부분
             const carouselInner = document.getElementsByClassName("carousel-inner")[0];
@@ -199,8 +199,8 @@ function selectReviewDetail(reviewNo, reviewMemberNo){
             reviewHeart.setAttribute("reviewNo", rDetail[0].reviewNo);
         },
         error : function(req, status, error){
-            console.log("에러 발생");
-            console.log(req.responseText);
+//            console.log("에러 발생");
+//            console.log(req.responseText);
         }
     });
 }
@@ -231,8 +231,8 @@ function deleteReview(reviewNo){
                                 }
                             },
                             error : function(req, status, error){
-                                console.log("리뷰 삭제 실패")
-                                console.log(req.responseText);
+//                                console.log("리뷰 삭제 실패")
+//                                console.log(req.responseText);
                             }
                         });
                     } else{
@@ -248,8 +248,8 @@ function deleteReview(reviewNo){
             },
 
             error : function(req, status, error){
-                console.log("리뷰 삭제 실패")
-                console.log(req.responseText);
+//                console.log("리뷰 삭제 실패")
+//                console.log(req.responseText);
             }
         });
     }
@@ -280,10 +280,12 @@ if (reviewHeart != null) {
                         reviewHeart.classList.add('fa-solid'); // 채워진 하트 클래스 추가
                         reviewLike.innerText = Number(reviewLike.innerText)+1; // 1증가
                     }else{ // 실패
-                        console.log("증가 실패");
+//                        console.log("증가 실패");
                     }
                 },
-                error : ()=>{ console.log("증가 에러"); }
+                error : ()=>{ 
+//                        console.log("증가 에러"); 
+                }
             });
 
         } else{ // 채워진 하트인 경우 좋아요 감소
@@ -299,10 +301,12 @@ if (reviewHeart != null) {
                         reviewHeart.classList.remove('fa-solid'); // 채워진 하트 클래스 삭제
                         reviewLike.innerText = Number(reviewLike.innerText)-1; // 1감소
                     }else{ // 실패
-                        console.log("감소 실패");
+//                        console.log("감소 실패");
                     }
                 },
-                error : ()=>{ console.log("감소 에러"); }
+                error : ()=>{ 
+//                    console.log("감소 에러"); 
+                }
             });   
         }
     });
