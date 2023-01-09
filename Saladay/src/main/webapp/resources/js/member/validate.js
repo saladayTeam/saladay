@@ -51,6 +51,7 @@ const form = document.getElementsByTagName("form")[0];
 //lastPathName이 findPw면 비밀번호 찾기 페이지(=== 연산자는 타입이 다르면, false를 반환)
 const findPwPage = lastPathName === "findPw";
 
+const myPageChangePw = lastPathName === "myPageChangePw";
 
 form.addEventListener("submit", e=>{
     
@@ -102,6 +103,12 @@ form.addEventListener("submit", e=>{
         }
     } 
 
+    // 비밀번호 찾기 페이지
+    if(myPageChangePw) {
+        if(!confirm("비밀번호를 변경하시겠습니까?")) {
+            e.preventDefault();
+        }
+    }
 
 });
 
