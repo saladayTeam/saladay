@@ -44,8 +44,8 @@ if(inputMenuImg != null) {
         // e.target(이미지가 발생한 요소, imageInput)
         // 화살표 함수에서 this는 window의 객체를 의미하므로 사용XXXXX 
         
-        console.log(e.target.files); // 선택된 파일의 목록(FileList)
-        console.log(e.target.files[0]); // 파일 정보만 명시
+        // console.log(e.target.files); // 선택된 파일의 목록(FileList)
+        // console.log(e.target.files[0]); // 파일 정보만 명시
 
         // 파일 정보를 선택했을 때는 ok
         // 파일 취소버튼을 누르면 마찬가지로 change이벤트가 발생하는데

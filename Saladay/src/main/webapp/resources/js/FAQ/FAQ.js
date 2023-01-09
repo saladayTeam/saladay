@@ -26,7 +26,7 @@ const deleteFAQ=(faqNo)=>{
             location.reload("/FAQ"); // 페이지 새로고침
         },
         error : ()=> {
-            console.log("실패");
+            alert("FAQ삭제 실패")
         }
     })
     }
