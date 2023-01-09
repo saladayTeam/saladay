@@ -72,7 +72,7 @@
                         	
                         <input type="text" id="postCode" name="memberAddress" autocomplete="off" placeholder="우편번호" readonly class="address-input1" value="${address[0]}">
                         
-                        <input type="text" id="address" name="memberAddress" autocomplete="off" placeholder="주소" readonly class="address-input" value="${address[1]}">
+                        <input type="text" id="address" name="memberAddress" autocomplete="off" placeholder="주소" readonly class="address-input2" value="${address[1]}">
 
                         <input type="text" id="detailAddress" name="memberAddress" autocomplete="off" placeholder="상세 주소" class="address-input writable" value="${address[2]}">
                     

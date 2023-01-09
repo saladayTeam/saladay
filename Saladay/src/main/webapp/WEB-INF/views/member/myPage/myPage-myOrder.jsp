@@ -37,6 +37,7 @@
 				<div>
                     <div class="my-page-header">
                         <h1 class="main-title">주문 내역</h1>
+                        <p class="main-sub-title">취소 요청 시 관리자 승인 후 처리됩니다.</p>
                     </div>
 
                     <div>
