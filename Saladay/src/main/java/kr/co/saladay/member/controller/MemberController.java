@@ -71,8 +71,8 @@ public class MemberController {
 			RedirectAttributes ra) {
 		String path = "";
 		String message = "";
-		System.out.println(member);
-		System.out.println(referer);
+//		System.out.println(member);
+//		System.out.println(referer);
 		// 로그인 서비스 호출 후 반환
 		Member loginMember = service.login(member);
 		
@@ -305,10 +305,10 @@ public class MemberController {
 		// 로그인 멤버의 회원번호로 먼저 검사
 		if(loginMember != null) {									// 로그인 상태에서 요청했을 때 
 			member.setMemberNo(loginMember.getMemberNo());
-			System.out.println("로그인 요청");
+//			System.out.println("로그인 요청");
 		} else {													// 비로그인 상태에서 요청했을 때 (비밀번호 찾기 후 자동 요청)
 			member.setMemberNo(Integer.parseInt(tempMemberNo));
-			System.out.println("비로그인 요청");
+//			System.out.println("비로그인 요청");
 		}
 		
 		// 비밀번호 변경 요청 후 결과 반환

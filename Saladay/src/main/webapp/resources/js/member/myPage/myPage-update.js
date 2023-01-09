@@ -67,7 +67,7 @@ if(memberNickname != null) {
                 url: "/member/nicknameDupCheck",
                 data: { "memberNickname": memberNickname.value },
                 success: (result) => {
-                    console.log("result : " + result);
+//                    console.log("result : " + result);
                     if (result == 0) {
                         memberNicknameMessage.innerText = "사용 가능한 닉네임입니다.";
                         memberNicknameMessage.classList.add("confirm");
@@ -83,7 +83,7 @@ if(memberNickname != null) {
                     }
                 },
                 error: (err) => {
-                    console.log("닉네임 중복 검사 실패");
+//                    console.log("닉네임 중복 검사 실패");
                 }
             });
             
