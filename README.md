@@ -1,37 +1,64 @@
-# Saladay :boom: 
+# Saladay 
+바쁜 세상을 살아가는 현대인들을 위한 **샐러드 정기구독 사이트** 구현 <br>
+사용자가 원하는 메뉴와 옵션을 자유롭게 추가하여 커스텀 샐러드 주문 가능 <br>
+
 매일 바쁜 삶을 사는 현대인들에게 건강하고 신선한 음식을!
+<br><br>
 
-
-## :tomato: 프로젝트 소개
+## 🥗 프로젝트 소개
 일주일 내내 신선한 샐러드 <br>
 원하는 날짜에 원하는 구성 <br>
 내가 만들어가는 나만의 건강한 일상 <br>
 건강함을 구독하세요 <br>
+<br><br>
 
-
-## :calendar: 개발기간
-* 22년 12월 12일 ~ 23년 1월 9일
-
-
-## :star: 팀원구성
+## 👨🏻‍💻 팀원구성
 * 팀명 : SALADAY
 * 팀장 : 한지훈(@jihoon-git)
 * 팀원 : 김서희(@SseoheeKim), 이성호(@2-Sungho), 이용하(@use-da), 정지윤(@zon-d)
+<br><br>
 
 
-## 개발환경
-     - 개발 환경 : STS3, VS Code, Eclipse, Dbeaver
-     - 개발 기술 : Spring Framwork, JAVA, Javascript, HTML/CSS, Mybatis, Ajax, jQuery, JSP, Erd Cloud, Apache Tomcat9.0
-     - API : 카카오 로그인, 카카오 주소, summernote, 채널톡, 풀캘린더, I'mport(정기결제)
-     - 기획 : Google Sheets, Figma, Discord 
-     - 형상 관리 : GitHub
-     - 일정 관리 : Trello
-
-## 주요기능 
+## :date: 개발기간
+![6  개발일정](https://user-images.githubusercontent.com/108666056/211228367-0d1a35d4-35c1-4365-9893-56e48b8ffce7.png)
+<br><br>
 
 
-1. 
-2. 
-3. 
+## ⚙개발환경
+![5  활용기술 및 환경](https://user-images.githubusercontent.com/108666056/211227724-6603439d-2ee2-4af4-a113-002799b4a19c.png)
+<br><br>
 
+
+## 📌주요기능 
+**[비회원]**
+- 회원가입
+- 메뉴/옵션 조회
+- 패키지 목록 조회
+- 메뉴 및 옵션 선택
+- 리뷰 목록 및 상세 조회
+- FAQ 조회
+- 1대1 문의(채널톡 API)
+
+**[회원]**
+- 로그인/로그아웃
+- 마이페이지 : 회원정보 수정, 비밀번호 변경, 주문내역 조회, 나의리뷰 조회, 회원탈퇴
+- 메뉴/옵션 선택 및 장바구니 담기
+- 주문/결제(I'mport API)
+- 리뷰 작성, 삭제, 좋아요
+
+**[관리자]**
+- 대시보드 : 매출 관련 통계(Chart.js API)
+- 주문관리 : 주문조회 및 주문취소
+- 배송관리 : 배송 일정 조회(FullCalender API) 및 배송 상태 변경
+- 메뉴/옵션 관리 : 메뉴/옵션 추가/수정/삭제
+- 회원관리 : 회원조회, 회원강제탈퇴
+- 리뷰삭제
+- FAQ 관리 : FAQ 작성/삭제
+<br><br>
+
+
+:link: ERDCloud  
+https://www.erdcloud.com/d/sQQcdi4QiovMqvSXG
+
+:link: Figma
 
