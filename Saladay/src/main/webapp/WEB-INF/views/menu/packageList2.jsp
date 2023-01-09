@@ -19,6 +19,30 @@
             font-weight: normal;
             font-style: normal;
         }
+        @font-face {
+            font-family: 'genty';
+            src: url('/resources/fonts/genty.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'janda';
+            src: url('/resources/fonts/janda.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'ea';
+            src: url('/resources/fonts/ea.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'chunk';
+            src: url('/resources/fonts/ChunkFive-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 
 </head>

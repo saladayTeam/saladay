@@ -188,7 +188,7 @@
                                                     </div>
                                                     <div class="add-number">
                                                         <span class="minus">-</span>    
-                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" readonly/>
+                                                        <input type="text" value="0" name="menuList[${i}].optionList[${idx}].optionCount" class="optionCount" slide="${i}" readonly/>
                                                         <span class="plus">+</span>
                                                     </div>
                                                     <input type="hidden" value="${source.optionNo}" name="menuList[${i}].optionList[${idx}].optionNo" class="optionNo"/>
@@ -248,10 +248,10 @@
             </div>
         </div>
 
-        <div class="menu-title">
+        <%-- <div class="menu-title">
         치킨 슬라이스
         슬라이드
-        슬레이</div>
+        슬레이</div> --%>
     </main>
     </form> 
     

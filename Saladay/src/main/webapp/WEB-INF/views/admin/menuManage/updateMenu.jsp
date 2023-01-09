@@ -34,7 +34,7 @@
 
       <table>
         <caption style="display:none">
-            <summary>메뉴수정</summary>
+            <summary>메뉴관리</summary>
         </caption>
 
         <colgroup>
@@ -96,10 +96,10 @@
     </main>  
 
     <!-- 이미지 모달창 출력 -->
-    <div class="modal">
+    <%-- <div class="modal">
         <span id="modal-close">&times;</span>
         <img id="modal-image" src="">
-    </div>
+    </div> --%>
     
     <jsp:include page="/WEB-INF/views/main/footer.jsp"></jsp:include>
 

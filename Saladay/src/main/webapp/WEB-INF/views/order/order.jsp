@@ -60,7 +60,7 @@
                         </p>
                         <p>
                             <span class="o-th">수령인 연락처</span>
-                            <span class="o-td"><input type="tel" name="orderTel" id="orderTel" maxlength="11" placeholder="${loginMember.memberTel}"></span>
+                            <span class="o-td"><input type="number" name="orderTel" id="orderTel" maxlength="11" placeholder="${loginMember.memberTel}"></span>
                         </p>
 
                         <!-- 주소 입력 영역 -->

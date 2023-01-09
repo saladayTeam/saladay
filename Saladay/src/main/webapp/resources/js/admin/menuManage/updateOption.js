@@ -1,19 +1,5 @@
 console.log("옵션관리");
 
-// const allCheck = document.getElementById("allCheck");
-// const chks = document.getElementsByName("rowCheck");
-
-// 즉시 실행 함수()();
-// (function() {
-//     // 전체 선택 및 해제
-//     allCheck.addEventListener("click", function(){
-//         console.log("여긴 옵션");
-//         for(let i=0; i<chks.length; i++){
-//             chks[i].checked = this.checked;
-//         }
-//     });
-// })();
-
 // 체크박스
 $(document).ready(function() {
     $("#allCheck").click(function() {
@@ -78,6 +64,12 @@ if(addBtn!= null) {
 }
 
 
+// 옵션 수정
+function updateValue(optionNo) {
+    const options = "width=610, height=500, left=-200, top=-900";
+    window.open("/admin/option/update?optionNo="+optionNo, "popupWindow", options)
+}
+
 
 // 옵션명 클릭시 옵션이미지 modal 출력 -> 즉시 실행 함수 사용 ()()
 // (()=>{
@@ -116,10 +108,3 @@ if(addBtn!= null) {
 //     }
 // })();
 
-
-// 옵션 수정
-function updateValue(optionNo) {
-    const options = "width=610, height=500, left=-200, top=-900";
-    window.open("/admin/option/update?optionNo="+optionNo, "popupWindow", options)
-
-}
