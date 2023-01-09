@@ -22,51 +22,64 @@
                     <div class="my-page-header">
                         <h1 class="main-title">리뷰 쓰기</h1>
                     </div>
+                    <c:choose>
+                        <c:when test="${empty reviewInfo.orderNo}">
+                            <div class="rw-info-area">
+                                <p>주문번호가 선택되지 않았습니다.</p>
+                                <button onclick="location.href='/member/myPage/selectMyOrder'" class="submit-btn">주문내역</button>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="rw-info-area">
+                                <div class="rw-orderNo rw-info">
+                                    주문번호 : ${reviewInfo.orderNo}
+                                </div>
+                                <div class="rw-package rw-info">
+                                    주문상품 : ${reviewInfo.packageName}
+                                </div>
+                                <div class="rw-menu rw-info">
+                                    주문메뉴 : ${reviewInfo.menuName} 샐러드
+                                </div>
+                            </div>
+                            <form action="/member/myPage/reviewInsert" enctype="multipart/form-data" method="POST" class="review-write" onsubmit="return rwValidate()">
+                                <input type="hidden" id="orderMenuNo" name="orderMenuNo" value="${reviewInfo.orderMenuNo}">
+                                <div class="rw-rating-area">
 
-                    <div class="rw-info-area">
-                        <div class="rw-orderNo rw-info">
-                            주문번호 : ${reviewInfo.orderNo}
-                        </div>
-                        <div class="rw-package rw-info">
-                            주문상품 : ${reviewInfo.packageName}
-                        </div>
-                        <div class="rw-menu rw-info">
-                            주문메뉴 : ${reviewInfo.menuName} 샐러드
-                        </div>
-                    </div>
-                    <form action="/member/myPage/reviewWrite/${orderMenuNo}" enctype="multipart/form-data" method="POST" class="review-write" onsubmit="return rwValidate()">
-                        <div class="rw-rating-area">
-
-                            <div class="rw-rating">
-                                이 메뉴 어땠나요?
-                            </div>
-                            <div class="rw-star-area">
-                                <span class="rw-star">
-                                    ★★★★★
-                                    <span>★★★★★</span>
-                                    <input name = "rating" type="range" oninput="drawStar(this)" value="0" step="1" min="0" max="5" id="rating">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="rw-review-content-area">
-                            <div class="rw-review-content">
-                                <label for="reviewContent"></label>
-                                <textarea placeholder="리뷰를 작성해주세요." name="reviewContent" class="review-detail-text" id="reviewContent"></textarea>
-                            </div>
-                        </div>
-                        <div class="rw-image-area">
-                            <div class="reviewImg">
-                                <label for="img0">
-                                    <img class="preview" src="">
-                                </label>
-                                <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
-                                <span class="delete-image">&times;</span>
-                            </div>
-                        </div>
-                        <div class="rw-btn-area">
-                            <button type="submit" class="submit-btn">리뷰 쓰기</button>
-                        </div>
-                    </form>
+                                    <div class="rw-rating">
+                                        이 메뉴 어땠나요?
+                                    </div>
+                                    <div class="rw-star-area">
+                                        <span class="rw-star">
+                                            ★★★★★
+                                            <span>★★★★★</span>
+                                            <input name = "rating" type="range" oninput="drawStar(this)" value="0" step="1" min="0" max="5" id="rating">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="rw-review-content-area">
+                                    <div class="rw-review-content">
+                                        <label for="reviewContent"></label>
+                                        <textarea placeholder="리뷰를 작성해주세요." name="reviewContent" class="review-detail-text" id="reviewContent"></textarea>
+                                    </div>
+                                </div>
+                                <div class="rw-image-script">
+                                    <p>상품과 무관한 사진을 첨부한 리뷰는 통보없이 삭제될 수 있습니다.</p>
+                                </div>
+                                <div class="rw-image-area">
+                                    <div class="reviewImg">
+                                        <label for="img0">
+                                            <img class="preview" src="">
+                                        </label>
+                                        <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
+                                        <span class="delete-image">&times;</span>
+                                    </div>
+                                </div>
+                                <div class="rw-btn-area">
+                                    <button type="submit" class="submit-btn">리뷰 쓰기</button>
+                                </div>
+                            </form>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
         </div>
     </main>
