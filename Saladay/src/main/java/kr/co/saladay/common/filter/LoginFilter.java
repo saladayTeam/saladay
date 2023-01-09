@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 
 //해당 클래스를 필터로 등록 + 필터링 할 내용 작성(매핑) 
 @WebFilter(filterName = "loginFilter", // 필터명, 필터가 여러개 존재할 때 순서 지정 시 사용
-			urlPatterns= {"/member/myPage/*",  "/order", "/admin/*"}) // 필터링한 요청 주소(패턴 가능)
+			urlPatterns= {"/member/myPage/*",  "/order", "/cart", "/orderView" ,"/admin/*"}) // 필터링한 요청 주소(패턴 가능)
 
 public class LoginFilter implements Filter {
 
