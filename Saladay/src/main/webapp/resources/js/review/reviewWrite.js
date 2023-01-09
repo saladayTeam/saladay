@@ -1,7 +1,7 @@
 /* 리뷰 별점 드래그 */
 const drawStar = (target) => {
     document.querySelector(".rw-star span").style.width = `${target.value * 20}%`;
-    console.log(target.value);
+    // console.log(target.value);
 }
 
 /* 리뷰 이미지 */

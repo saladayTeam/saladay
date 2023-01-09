@@ -17,7 +17,7 @@ const withdrawOrderBtn = document.getElementById("withdrawOrderBtn");
 if (withdrawOrderBtn != null) {
     withdrawOrderBtn.addEventListener("click", ()=>{
 
-        console.log("연결확인");
+        // console.log("연결확인");
 
         if(orderDeleteFlag=='N'){
 

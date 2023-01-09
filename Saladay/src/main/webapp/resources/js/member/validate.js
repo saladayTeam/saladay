@@ -224,7 +224,7 @@ if(memberEmail != null) {
                     }
                 },
                 error: () => {
-                    console.log("인증번호 확인 오류");
+//                    console.log("인증번호 확인 오류");
                 }
             })
         } else {
@@ -247,13 +247,13 @@ if(memberEmail != null) {
             data: {"email": memberEmail.value},
             success: result=> {
                 if(result > 0) {
-                    console.log("인증번호가 발송되었습니다.");
+//                    console.log("인증번호가 발송되었습니다.");
                 } else {
-                    console.log("인증번호 발송 실패");
+//                    console.log("인증번호 발송 실패");
                 }
             },
             error: () => {
-                console.log("이메일 발송 중 에러 발생");
+//                console.log("이메일 발송 중 에러 발생");
             }
         });
     
@@ -461,7 +461,7 @@ if(memberNickname != null) {
                 url: "/member/nicknameDupCheck",
                 data: { "memberNickname": memberNickname.value },
                 success: (result) => {
-                    console.log("result : " + result);
+//                    console.log("result : " + result);
                     if (result == 0) {
                         memberNicknameMessage.innerText = "사용 가능한 닉네임입니다.";
                         memberNicknameMessage.classList.add("confirm");
@@ -477,7 +477,7 @@ if(memberNickname != null) {
                     }
                 },
                 error: (err) => {
-                    console.log("닉네임 중복 검사 실패");
+//                    console.log("닉네임 중복 검사 실패");
                 }
             });
             
