@@ -219,7 +219,7 @@
         </div> --%>
         <div class="bottom-wrapper">
             <c:choose>
-                <c:when test="${packageNo eq 4 || packageNo eq 5 || packageNo eq 5 }">
+                <c:when test="${packageNo eq 4 || packageNo eq 5 || packageNo eq 6 }">
                     <div class="total">
                         Total
                         <strong class="strong" id="totalPrice">
