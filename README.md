@@ -63,4 +63,9 @@ https://www.erdcloud.com/d/sQQcdi4QiovMqvSXG
 
 ## :link: Figma  
 https://www.figma.com/file/YHZvUinvaAnzpFdj19XvHl/Saladay?node-id=0%3A1&t=GDMfej2zWrNWSP3h-0
+<br><br>
+
+## :link: Google Sheets
+https://docs.google.com/spreadsheets/d/1s9QhIZn6QNCe4bmq4mv-r5iGXhVmqqCwAOte3PrU87A/edit#gid=2125195658
+
 
