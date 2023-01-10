@@ -148,9 +148,16 @@ public class ReviewController {
 	}
 	
 	// 리뷰 작성 페이지 이동
-	@GetMapping("/member/myPage/reviewWrite/{orderMenuNo}")
-	public String reviewWrite(
-			@PathVariable("orderMenuNo") int orderMenuNo, Model model){
+	@GetMapping("/member/myPage/reviewWrite")
+	public String getReviewWrite(){
+		
+		
+		return "/review/reviewWrite";
+	}
+	
+	// 리뷰 작성 페이지 이동
+	@PostMapping("/member/myPage/reviewWrite")
+	public String reviewWrite(int orderMenuNo, Model model){
 		
 		// 리뷰 작성시 보여줄 기본 정보
 		Review reviewInfo = service.reviewWriteInfo(orderMenuNo);
@@ -161,11 +168,10 @@ public class ReviewController {
 	}
 	
 	// 리뷰 작성(INSERT)
-	@PostMapping("/member/myPage/reviewWrite/{orderMenuNo}")
+	@PostMapping("/member/myPage/reviewInsert")
 	public String reviewWrite(Review review,
 			@RequestParam(value = "images", required=false) List<MultipartFile> imageList,
-			@SessionAttribute("loginMember") Member loginMember,
-			@PathVariable("orderMenuNo") int orderMenuNo, 
+			@SessionAttribute("loginMember") Member loginMember, int orderMenuNo, 
 			RedirectAttributes ra, HttpSession session,
 			@RequestHeader("referer") String referer) throws IOException {
 

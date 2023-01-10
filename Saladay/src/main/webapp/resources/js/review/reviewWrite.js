@@ -199,5 +199,10 @@ function rwValidate(){
             return false;
         }
     }
-    
+
+    if(confirm("리뷰를 등록 하시겠습니까?")){
+        return true;
+    }else{
+        return false;
+    }
 }
