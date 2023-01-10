@@ -148,7 +148,8 @@
 <script>
 
 let URL = window.location.href;
-let splitURL = URL.split("/");
+let splitURLQ = URL.split("?")
+let splitURL = splitURLQ[0].split("/");
 let lastURL = splitURL[splitURL.length - 1];
 let secondURL = splitURL[splitURL.length - 2];
 // URL주소가 맨 뒤가 ""일 때 class 추가 
@@ -250,6 +251,14 @@ if(lastURL == "FAQ") {
     document.getElementById("a-type6").classList.add("header-check");
 }
 
+if(secondURL == "memberReview" || secondURL == "review"){
+    document.getElementById("a-type1").classList.remove("header-check");
+    document.getElementById("a-type2").classList.remove("header-check");
+    document.getElementById("a-type3").classList.remove("header-check");
+    document.getElementById("a-type4").classList.remove("header-check");
+    document.getElementById("a-type5").classList.add("header-check");
+    document.getElementById("a-type6").classList.remove("header-check");
+}
 
 </script>
 

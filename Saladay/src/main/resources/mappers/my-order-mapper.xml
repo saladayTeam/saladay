@@ -175,7 +175,22 @@
 		ORDER BY ORDER_NO DESC
 	</select>
 	
-
+	<!-- 썸네일 관련 코드 차이
+	1) 이미지 여러개 넣을 수 있을 때 하나만 넣을 경우(순서 상관 없는 경우 : 썸머노트api사용해서 이미지오더 상관없이 그냥 이미지 테이블에 알아서 순서대로 들어옴)
+	(SELECT IMG_PATH || IMG_RENAME 
+	FROM (SELECT IMG_PATH, IMG_RENAME 
+		  FROM BOARD_IMG I 
+		  WHERE I.BOARD_NO = B.BOARD_NO
+		  ORDER BY IMG_NO)
+	WHERE ROWNUM = 1)THUMNAIL)	  
+	 
+    2) 이미지 하나를 넣어야 다음걸 넣을 수 있는 경우
+	(SELECT IMG_PATH || IMG_RENAME 
+	FROM REVIEW_IMG I
+	WHERE IMG_ORDER =0
+	AND I.REVIEW_NO = R.REVIEW_NO) THUMBNAIL	
+	
+	-->
 	
 	
 </mapper>
