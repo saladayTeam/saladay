@@ -75,12 +75,12 @@
   </header>
   <nav>
     <ul>
-      <li><a href="/admin/dashboard">대시보드</a></li>
-      <li><a href="/admin/orderManage">주문관리</a></li>
-      <li><a href="/admin/delivery">배송관리</a></li>
-      <li><a href="/admin/menuManage">메뉴관리</a></li>
-      <li><a href="/admin/optionManage">옵션관리</a></li>
-      <li><a href="/admin/memberManage">회원관리</a></li> 
+      <li><a href="/admin/dashboard" id="a-type1">대시보드</a></li>
+      <li><a href="/admin/orderManage" id="a-type2">주문관리</a></li>
+      <li><a href="/admin/delivery" id="a-type3">배송관리</a></li>
+      <li><a href="/admin/menuManage" id="a-type4">메뉴관리</a></li>
+      <li><a href="/admin/optionManage" id="a-type5">옵션관리</a></li>
+      <li><a href="/admin/memberManage" id="a-type6">회원관리</a></li> 
     </ul>
   </nav>
 
@@ -102,3 +102,71 @@
     });
   }
 </script>
+
+<script>
+
+let URL = window.location.href;
+let splitURLQ = URL.split("?")
+let splitURL = splitURLQ[0].split("/");
+let lastURL = splitURL[splitURL.length - 1];
+let secondURL = splitURL[splitURL.length - 2];
+// URL주소가 맨 뒤가 ""일 때 class 추가 
+//1
+if(lastURL == "dashboard") {
+    document.getElementById("a-type1").classList.add("header-check");
+    document.getElementById("a-type2").classList.remove("header-check");
+    document.getElementById("a-type3").classList.remove("header-check");
+    document.getElementById("a-type4").classList.remove("header-check");
+    document.getElementById("a-type5").classList.remove("header-check");
+    document.getElementById("a-type6").classList.remove("header-check");
+
+}
+//2
+if(lastURL == "orderManage" || secondURL ==  "orderManage" ) {
+    document.getElementById("a-type1").classList.remove("header-check");
+    document.getElementById("a-type2").classList.add("header-check");
+    document.getElementById("a-type3").classList.remove("header-check");
+    document.getElementById("a-type4").classList.remove("header-check");
+    document.getElementById("a-type5").classList.remove("header-check");
+    document.getElementById("a-type6").classList.remove("header-check");
+}
+
+//3
+if(lastURL == "delivery" || lastURL == "deliveryCalendar") {
+    document.getElementById("a-type1").classList.remove("header-check");
+    document.getElementById("a-type2").classList.remove("header-check");
+    document.getElementById("a-type3").classList.add("header-check");
+    document.getElementById("a-type4").classList.remove("header-check");
+    document.getElementById("a-type5").classList.remove("header-check");
+    document.getElementById("a-type6").classList.remove("header-check");
+}
+//4
+if(lastURL == "menuManage") {
+    document.getElementById("a-type1").classList.remove("header-check");
+    document.getElementById("a-type2").classList.remove("header-check");
+    document.getElementById("a-type3").classList.remove("header-check");
+    document.getElementById("a-type4").classList.add("header-check");
+    document.getElementById("a-type5").classList.remove("header-check");
+    document.getElementById("a-type6").classList.remove("header-check"); 
+}
+//5
+if(lastURL == "optionManage") {
+    document.getElementById("a-type1").classList.remove("header-check");
+    document.getElementById("a-type2").classList.remove("header-check");
+    document.getElementById("a-type3").classList.remove("header-check");
+    document.getElementById("a-type4").classList.remove("header-check");
+    document.getElementById("a-type5").classList.add("header-check");
+    document.getElementById("a-type6").classList.remove("header-check"); 
+}
+//6
+if(lastURL == "memberManage") {
+    document.getElementById("a-type1").classList.remove("header-check");
+    document.getElementById("a-type2").classList.remove("header-check");
+    document.getElementById("a-type3").classList.remove("header-check");
+    document.getElementById("a-type4").classList.remove("header-check");
+    document.getElementById("a-type5").classList.remove("header-check");
+    document.getElementById("a-type6").classList.add("header-check");
+}
+
+</script>
+
