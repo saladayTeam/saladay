@@ -1,8 +1,8 @@
 # Saladay 
-바쁜 세상을 살아가는 현대인들을 위한 **샐러드 정기구독 사이트** 구현 <br>
-사용자가 원하는 메뉴와 옵션을 자유롭게 추가하여 커스텀 샐러드 주문 가능 <br>
 
-매일 바쁜 삶을 사는 현대인들에게 건강하고 신선한 음식을!
+매일 바쁜 삶을 사는 현대인들에게 건강하고 신선한 음식을! <br>
+사용자가 원하는 샐러드와 토핑을 자유롭게 추가하여 커스텀 샐러드 주문 가능 <br>
+
 <br><br>
 
 ## 🥗 프로젝트 소개
@@ -41,7 +41,7 @@
 
 **[회원]**
 - 로그인/로그아웃
-- 마이페이지 : 회원정보 수정, 비밀번호 변경, 주문내역 조회, 나의리뷰 조회, 회원탈퇴
+- 마이페이지 : 회원정보 수정, 비밀번호 변경, 주문내역 조회, 취소내역 조회, 나의리뷰 조회, 회원탈퇴
 - 메뉴/옵션 선택 및 장바구니 담기
 - 주문/결제(I'mport API)
 - 리뷰 작성, 삭제, 좋아요
@@ -50,7 +50,7 @@
 - 대시보드 : 매출 관련 통계(Chart.js API)
 - 주문관리 : 주문조회 및 주문취소
 - 배송관리 : 배송 일정 조회(FullCalender API) 및 배송 상태 변경
-- 메뉴 및 옵션 관리 : 메뉴 및 옵션 추가/수정/삭제
+- 메뉴 및 옵션 관리 : 메뉴 및 옵션 추가/수정/삭제(이미지스케줄링)
 - 회원관리 : 회원조회, 회원강제탈퇴
 - 리뷰삭제
 - FAQ 관리 : FAQ 작성 및 삭제
@@ -63,4 +63,9 @@ https://www.erdcloud.com/d/sQQcdi4QiovMqvSXG
 
 ## :link: Figma  
 https://www.figma.com/file/YHZvUinvaAnzpFdj19XvHl/Saladay?node-id=0%3A1&t=GDMfej2zWrNWSP3h-0
+<br><br>
+
+## :link: Google Sheets
+https://docs.google.com/spreadsheets/d/1s9QhIZn6QNCe4bmq4mv-r5iGXhVmqqCwAOte3PrU87A/edit#gid=2125195658
+
 
