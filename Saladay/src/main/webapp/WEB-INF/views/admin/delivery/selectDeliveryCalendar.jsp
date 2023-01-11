@@ -45,7 +45,7 @@
 
             <div class="textBox">
                 <div class="title">주문번호 : </div>
-                <div id="orderNo"></div>
+                <a id="orderNo"></a>
             </div>
 
             <div class="textBox">

@@ -347,6 +347,14 @@ function selectOne(thisId, thisIds){
             // 주문번호
             const orderNo = document.getElementById("orderNo");
             orderNo.innerText = "\u00a0"+ delivery[0].orderNo;
+            
+            // 이동할 링크 추가 구문 시작
+            orderNo.setAttribute("href", "/admin/orderManage/" + delivery[0].orderNo);
+            // 이동할 링크 추가 구문 끝
+            
+            orderNo.style.color = "black";
+            orderNo.style.textDecoration = "none";
+            
 
             // 배송날짜
             const deliveryDate = document.getElementById("deliveryDate");

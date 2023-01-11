@@ -230,3 +230,10 @@ label{
 .checkbox input[type="checkbox"]{
     display: none;
 }
+
+#orderNo:hover{
+    font-weight: bold;
+    color: #17633D;
+    text-decoration: underline;
+    
+}
