@@ -121,7 +121,7 @@ thead th {
 }
 
 #orderStatus{
-    width: 80px;
+    width: 95px;
     height: 35px;
     font-size: 15px;
     border: 1px solid #ddd;
@@ -140,5 +140,11 @@ thead th {
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
+}
+
+.osBtn:hover{
+    background-color: #17633d;
+    color: white;
+    border-color: #17633d;
 }
 

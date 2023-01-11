@@ -144,6 +144,8 @@ button {
 
 .signUp-input-area > button:hover {
     border-color: #17633d;
+    background-color: #17633d;
+    color: white;
 }
 
 
@@ -225,4 +227,12 @@ textarea{
     outline:none;
     resize: none;
     font-family: 'SUIT-Regular';
+}
+
+.open-btn-1:hover{
+    cursor: pointer;
+}
+
+.open-btn-2:hover{
+    cursor: pointer;
 }

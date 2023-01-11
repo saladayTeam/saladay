@@ -34,10 +34,10 @@
                 <div class="order-status-area">
                     <form action ="/admin/orderManage" method="get">
                         <select id = "orderStatus" class="${orderStatus}" name="orderStatus">
-                            <option value="0">전체주문</option>
-                            <option value="1">정상주문</option>
-                            <option value="2">취소요청</option>
-                            <option value="3">취소완료</option>
+                            <option value="0">&nbsp;전체주문</option>
+                            <option value="1">&nbsp;정상주문</option>
+                            <option value="2">&nbsp;취소요청</option>
+                            <option value="3">&nbsp;취소완료</option>
                         </select>
                         <button type="submit" class="osBtn">
                             검색

@@ -33,12 +33,12 @@
                 <div class="review-check">
                     <form action ="/review" method="get">
                         <select id = "reviewRating" class="${reviewRating}" name="reviewRating">
-                            <option value="0" class="optBlack" style="color:black;">전체별점</option>
-                            <option value="50" class="optStar">★★★★★</option>
-                            <option value="40" class="optStar">★★★★</option>
-                            <option value="30" class="optStar">★★★</option>
-                            <option value="20" class="optStar">★★</option>
-                            <option value="10" class="optStar">★</option>
+                            <option value="0" class="optBlack" style="color:black;">&nbsp;전체별점</option>
+                            <option value="50" class="optStar">&nbsp;★★★★★</option>
+                            <option value="40" class="optStar">&nbsp;★★★★</option>
+                            <option value="30" class="optStar">&nbsp;★★★</option>
+                            <option value="20" class="optStar">&nbsp;★★</option>
+                            <option value="10" class="optStar">&nbsp;★</option>
                         </select>
                         <button type="submit" class="rrBtn">
                             검색

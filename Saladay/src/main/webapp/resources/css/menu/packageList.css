@@ -196,6 +196,8 @@ ul>a{
     text-decoration: none;
     color: white;
     margin-top: 5px;
+    height: 100%;
+    cursor: default;
 }
 
 #two-week{
@@ -217,6 +219,7 @@ ul>a{
     text-decoration: none;
     margin-top: 5px;
     color: black;
+    height: 100%;
 }
 
 li {

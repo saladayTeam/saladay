@@ -349,7 +349,7 @@
 /* 리뷰 정렬 */
 
 #reviewRating{
-    width: 100px;
+    width: 105px;
     height: 35px;
     font-size: 15px;
     border: 1px solid #ddd;
@@ -368,6 +368,12 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
+}
+
+.rrBtn:hover{
+    background-color: #17633d;
+    border-color: #17633d;
+    color: white;
 }
 
 /* 검색 결과가 없을 때 뒤로가기 버튼 */
